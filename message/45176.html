@@ -1,0 +1,2046 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Monitoring SNMP on Toshiba UPS - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- Monitoring SNMP on Toshiba UPS -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Monitoring SNMP on Toshiba UPS' Discussion Feed"
+            href="community/feeds/messages?thread=12638">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="thread/12638?start=0&amp;tstart=0#45176"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="45176.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="45176.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="45176.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.12638"/>
+        <input type="hidden" name="message.post.12638" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=12638&amp;message=45176&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="12638">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Monitoring SNMP on Toshiba UPS"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <strong>     
+        
+            71118&nbsp;Views
+        
+
+</strong>
+                        <strong>11 Replies</strong>
+                    <a href="52843%3Ftstart=0.html#52843" >Latest reply</a>:
+                    Sep 17, 2010 11:05 AM by
+digitlman                        <span><a href="community/feeds/messages?thread=12638"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="12638"></a><a name="45098"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/digitlman.html"
+   data-externalId=""
+   data-username="digitlman"
+   data-avatarId="1343"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/digitlman/avatar/46.png?a=1343"
+            border="0" height="46" width="46"
+            alt="digitlman"
+            /><span username="digitlman" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/digitlman.html"
+data-externalId=""
+data-username="digitlman"
+data-avatarId="1343"
+id="jive-741932928989472867961"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>digitlman</a>                                    </div>
+                                    <em>70 posts since <br/>Oct 19, 2009</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Jan 29, 2010 9:42 AM</h3>
+                                        <h2><a href="45098.html#45098">Monitoring SNMP on Toshiba UPS</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:e09dd90d-2584-4a19-b14e-da362ee02c51] --><div class="jive-rendered-content"><p>All,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I want to be able to more closely monitor my Toshiba UPS.&#160; I modeled the device using the /power/ups class, but it doesn't really give me any info.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I have the manual for the Remoteye II software, and it lists the definitions for a Toshiba-specific MIB.&#160; Here's an example:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 10pt;"><p align="justify">upsControl OBJECT IDENTIFIER ::= { sp1 8 }</p><p align="justify">upsConfig OBJECT IDENTIFIER ::= { sp1 9 }</p><p align="justify">upsPassword OBJECT IDENTIFIER ::= { sp1 10 }</p><p>upsTime OBJECT IDENTIFIER ::= { sp1 11 }</p><span style="font-size: 2;"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p></span></span><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p></p><p>I added a few lines manually into a custom-created MIB, but I'm not sure how to apply this to my device, or if there is a better way to do this? </p></div><!-- [DocumentBodyEnd:e09dd90d-2584-4a19-b14e-da362ee02c51] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-45098-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45098-" data-uniqueKey="2-45098-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45098-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-45170">
+
+
+        <div id="thread-message-45170" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="45170">
+                <a name="45170"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/digitlman.html"
+   data-externalId=""
+   data-username="digitlman"
+   data-avatarId="1343"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/digitlman/avatar/46.png?a=1343"
+            border="0" height="46" width="46"
+            alt="digitlman"
+            /><span username="digitlman" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/digitlman.html"
+data-externalId=""
+data-username="digitlman"
+data-avatarId="1343"
+id="jive-741932928989477293043"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>digitlman</a>                        </div>
+                        <em>70 posts since <br/>Oct 19, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45170.html#45170" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Feb 1, 2010 11:23 AM</span>
+                            (<a href="45098.html#45098" title="Go to message" class="font-color-meta-light " >in response to digitlman</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45170.html#45170">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:3611f1ea-5532-4bb4-997c-4d12e7b14682] --><div class="jive-rendered-content"><p>Anybody have any thoughts?&#160;&#160; I downloaded this MIB file and tried to import, but it isn't working.</p></div><!-- [DocumentBodyEnd:3611f1ea-5532-4bb4-997c-4d12e7b14682] -->
+<div class="jive-attachments">
+    <strong>Attachments:</strong>
+    <ul>
+        <li>
+            <a href="servlet/JiveServlet/download/45170-2409/toshiba.mib.zip"><span
+                    class="jive-icon-sml jive-icon-doctype-compressed"></span>toshiba.mib.zip</a> (15.3 K)
+
+
+        </li>
+    </ul>
+</div>
+<div id="previewable-binary-viewer"></div>
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45170" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45170&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45170-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45170-" data-uniqueKey="2-45170-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45170-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45176">
+
+
+        <div id="thread-message-45176" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="45176">
+                <a name="45176"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432928989484531566"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45176.html#45176" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Feb 1, 2010 11:25 AM</span>
+                            (<a href="45170.html#45170" title="Go to message" class="font-color-meta-light " >in response to digitlman</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45176.html#45176">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:eb22d39a-9338-447e-b381-b8516692f9a7] --><div class="jive-rendered-content"><p>Please see:</p><p><a class="jive-link-external-small" href="../docs/DOC-2445.html#WhyisZenossnotmonitoringmydevicestuffIveloadedtheMIBs">docs/DOC-2445#WhyisZenossnotmonitoringmydevicestuffIveloadedtheMIBs</a><span>.</span></p><p>--</p><p>James Pulver</p><p>Information Technology Area Supervisor</p><p>LEPP Computer Group</p><p>Cornell University</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>digitlman wrote, On 2/1/2010 11:22 AM:</p><blockquote class="jive-quote" level="1"><p>Anybody have any thoughts?&#160;&#160; I downloaded the MIB file and tried to import, but it isn't working. </p></blockquote><p>&gt;</p></div><!-- [DocumentBodyEnd:eb22d39a-9338-447e-b381-b8516692f9a7] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45176" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45176&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45176-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45176-" data-uniqueKey="2-45176-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45176-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45173">
+
+
+        <div id="thread-message-45173" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="45173">
+                <a name="45173"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/digitlman.html"
+   data-externalId=""
+   data-username="digitlman"
+   data-avatarId="1343"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/digitlman/avatar/46.png?a=1343"
+            border="0" height="46" width="46"
+            alt="digitlman"
+            /><span username="digitlman" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/digitlman.html"
+data-externalId=""
+data-username="digitlman"
+data-avatarId="1343"
+id="jive-741932928989487639030"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>digitlman</a>                        </div>
+                        <em>70 posts since <br/>Oct 19, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45173.html#45173" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Feb 1, 2010 11:33 AM</span>
+                            (<a href="45176.html#45176" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45173.html#45173">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:3f46c277-cb1e-45ba-8e77-1044eac1f9d0] --><div class="jive-rendered-content"><p>Ahhh...so the MIB is useless for Zenoss?&#160; I can't find any custom Zenpacks that relate to specific UPS brands save for APC....am I SOL?&#160; </p></div><!-- [DocumentBodyEnd:3f46c277-cb1e-45ba-8e77-1044eac1f9d0] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45173" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45173&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45173-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45173-" data-uniqueKey="2-45173-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45173-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45178">
+
+
+        <div id="thread-message-45178" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="45178">
+                <a name="45178"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432928989490718140"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45178.html#45178" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Feb 1, 2010 1:11 PM</span>
+                            (<a href="45173.html#45173" title="Go to message" class="font-color-meta-light " >in response to digitlman</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45178.html#45178">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:1f5a2551-f8a5-4bf2-ab5a-24d1b6c69bd5] --><div class="jive-rendered-content"><p>You can make your own performance template - see the Admin Guide...</p><p>--</p><p>James Pulver</p><p>Information Technology Area Supervisor</p><p>LEPP Computer Group</p><p>Cornell University</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>digitlman wrote, On 2/1/2010 11:34 AM:</p><blockquote class="jive-quote" level="1"><p>Ahhh...so the MIB is useless for Zenoss?&#160; I can't find any custom Zenpacks that relate to specific UPS brands save for APC....am I SOL?&#160; </p></blockquote><p>&gt;</p></div><!-- [DocumentBodyEnd:1f5a2551-f8a5-4bf2-ab5a-24d1b6c69bd5] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45178" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45178&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45178-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45178-" data-uniqueKey="2-45178-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45178-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45189">
+
+
+        <div id="thread-message-45189" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="45189">
+                <a name="45189"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/phonegi.html"
+   data-externalId=""
+   data-username="phonegi"
+   data-avatarId="1044"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5889, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/phonegi/avatar/46.png?a=1044"
+            border="0" height="46" width="46"
+            alt="phonegi"
+            /><span username="phonegi" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-10.gif"
+           alt="Rank: Brown Belt" title="Rank: Brown Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/phonegi.html"
+data-externalId=""
+data-username="phonegi"
+data-avatarId="1044"
+id="jive-588932928989493878701"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5889, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>phonegi</a>                        </div>
+                        <em>446 posts since <br/>Apr 15, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45189.html#45189" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Feb 2, 2010 10:16 AM</span>
+                            (<a href="45098.html#45098" title="Go to message" class="font-color-meta-light " >in response to digitlman</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45189.html#45189">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:03be7a79-b3d9-4fda-8f4f-eac11053ab3b] --><div class="jive-rendered-content"><p>I have found myself in the same situation - trying to monitor a device for which there is no ZenPack. Here are the basic steps I follow:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><ol><li>First, log into the device you want to monitor (Telnet, web interface, SSH...) and set the SNMP security settings. This typically requires that you set a read only community name (which acts as SNMP's poor mans password). Most devices also require that you specify the IP addresses that will be allowed to request SNMP data - so add the IP address of your Zenoss system.</li><li>Verify that your Zenoss system can access data from the device. <br/><br/>If you have already added the device to Zenoss, navigate to the device page. From the main drop down menu, select <strong>Run Commands &gt; snmpwalk</strong>. If you see data like:<br/><br/><span style="font-family: courier new,courier; color: #0000ff;"><strong>SNMPv2-MIB::sysDescr.0 = STRING: [DeviceName]<br/>SNMPv2-MIB::sysObjectID.0 = OID: SNMPv2-SMI::enterprises.[list of numbers]<br/></strong></span><br/>Then Zenoss is able to retrieve SNMP data from the device. Move on to Step 3.<br/><br/>If you have not yet added the device to Zenoss, SSH into your Zenoss box as the zenoss user. Enter the following command:<br/><br/><span style="font-family: courier new,courier; color: #0000ff;"><strong>$ snmpwalk -v1 -c [community name] [ip address]</strong></span><br/><br/>If you don't receive any output, review Step 1 and make sure the community name matches.<br/><br/><br/></li><li>The next step is to determine what data the device exposes via SNMP. This can be a tedious process, but I don't know of a better way. If you haven't already, SSH into your Zenoss box as the zenoss user. Navigate to the directory where you have stored the custom mib for the device. I keep mine in the directory structure: $ZENHOME/share/mibs/site/[manufacturer name]. So if I were working on one of my Avtech devices, I'd navigate as follows:<br/><br/><span style="font-family: courier new,courier; color: #0000ff;"><strong>$ cd $ZENHOME/share/mibs/site/avtech</strong></span><br/><br/>Now I request that the device list every available SNMP OID by name and store it in a file called 'names' in the zenoss user home directory :<br/><br/><span style="font-family: courier new,courier; color: #0000ff;"><strong>$ snmpwalk -v1 -m all -c [community name] [ip address] -M +./ 1.3.6 &gt; ~/names</strong></span><br/><br/>I create the same list, but request the OIDs by number and store it in a file called 'oids':<br/><br/><span style="font-family: courier new,courier; color: #0000ff;"><strong>$ snmpwalk -v1 -m all -c [community name] [ip address] -M +./ 1.3.6 -On &gt; ~/oids</strong></span><br/><br/>Now, use an editor to examine the ~/names file. If you are using a GUI, open the ~/oids file too. There can be tens of thousands of data points, but they tend to form in groups, so you can usually scan them fairly quickly. Make note of any data points that you want to monitor. What I do is make note of the line number in the ~/names file, then switch to the ~/oids file, move to the same line number and write down the OID.<br/><br/><span>Once you have a list of the OIDs that you want to monitor and what they represent, create your own custom performance template. Check out </span><a class="jive-link-wiki-small" href="../docs/DOC-3908.html">docs/DOC-3908</a><span> to learn how.</span><br/></li></ol></div><!-- [DocumentBodyEnd:03be7a79-b3d9-4fda-8f4f-eac11053ab3b] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45189" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45189&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45189-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45189-" data-uniqueKey="2-45189-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45189-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45190">
+
+
+        <div id="thread-message-45190" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="45190">
+                <a name="45190"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432928989497057990"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45190.html#45190" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Feb 2, 2010 10:32 AM</span>
+                            (<a href="45189.html#45189" title="Go to message" class="font-color-meta-light " >in response to phonegi</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45190.html#45190">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:5f769891-05e5-4812-a536-756c8c70c480] --><div class="jive-rendered-content"><p>I think the MIB Viewer zenpack, or one of the inexpensive MIB tools for </p><p>Windows should be easier than what you're doing to parse the MIBs.</p><p>--</p><p>James Pulver</p><p>Information Technology Area Supervisor</p><p>LEPP Computer Group</p><p>Cornell University</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>phonegi wrote, On 2/2/2010 10:13 AM:</p><blockquote class="jive-quote" level="1"><p>I have found myself in the same situation - trying to monitor a device for which there is no ZenPack. Here are the basic steps I follow:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;"> &#160;</p><p>1. First, log into the device you want to monitor (Telnet, web interface, SSH...) and set the SNMP security settings. This typically requires that you set a read only community name (which acts as SNMP's poor mans password). Most devices also require that you specify the IP addresses that will be allowed to request SNMP data - so add the IP address of your Zenoss system.</p><p>2. Verify that your Zenoss system can access data from the device. </p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If you have already added the device to Zenoss, navigate to the device page. From the main drop down menu, select <strong>Run Commands &gt; snmpwalk</strong>. If you see data like:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>*SNMPv2-MIB::sysDescr.0 = STRING: <a class="" href="45190.html#45190#45190/DeviceName">Re: Monitoring SNMP on Toshiba UPS</a></p><p>SNMPv2-MIB::sysObjectID.0 = OID: SNMPv2-SMI::enterprises.[list of numbers]</p><p>*</p><p>Then Zenoss is able to retrieve SNMP data from the device. Move on to Step 3.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If you have not yet added the device to Zenoss, SSH into your Zenoss box as the zenoss user. Enter the following command:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>$ snmpwalk -v1 -c <a class="" href="45190.html#45190#45190/community name">Re: Monitoring SNMP on Toshiba UPS</a> <a class="" href="45190.html#45190#45190/ip address">Re: Monitoring SNMP on Toshiba UPS</a></strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If you don't receive any output, review Step 1 and make sure the community name matches.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>3. The next step is to determine what data the device exposes via SNMP. This can be a tedious process, but I don't know of a better way. If you haven't already, SSH into your Zenoss box as the zenoss user. Navigate to the directory where you have stored the custom mib for the device. I keep mine in the directory structure: $ZENHOME/share/mibs/site/[manufacturer name]. So if I were working on one of my Avtech devices, I'd navigate as follows:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>$ cd $ZENHOME/share/mibs/site/avtech</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Now I list every available SNMP OID by name and store it in a file in the zenoss user home directory called 'names':</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>$ snmpwalk -v1 -m all -c <a class="" href="45190.html#45190#45190/community name">Re: Monitoring SNMP on Toshiba UPS</a> <a class="" href="45190.html#45190#45190/ip address">Re: Monitoring SNMP on Toshiba UPS</a> -M +./ 1.3.6 &gt; ~/names</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I create the same list, but request the OIDs by number and store it in a file called 'oids':</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>$ snmpwalk -v1 -m all -c <a class="" href="45190.html#45190#45190/community name">Re: Monitoring SNMP on Toshiba UPS</a> <a class="" href="45190.html#45190#45190/ip address">Re: Monitoring SNMP on Toshiba UPS</a> -M +./ 1.3.6 -On &gt; ~/oids</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Now, use an editor to examine the ~/names file. If you are using a GUI, open the ~/oids file too. There can be tens of thousands of data points, but they tend to form in groups, so you can usually scan them fairly quickly. Make note of any data points that you want to monitor. What I do is make note of the line number in the ~/names file, then switch to the ~/oids file, move to the same line number and write down the OID.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>Once you have a list of the OIDs that you want to monitor and what they represent, create your own custom performance template. Check out </span><a class="jive-link-wiki-small" href="../docs/DOC-3908.html">docs/DOC-3908</a><span> to learn how.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p></blockquote><p>&gt;</p></div><!-- [DocumentBodyEnd:5f769891-05e5-4812-a536-756c8c70c480] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45190" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45190&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45190-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45190-" data-uniqueKey="2-45190-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45190-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45229">
+
+
+        <div id="thread-message-45229" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="45229">
+                <a name="45229"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/digitlman.html"
+   data-externalId=""
+   data-username="digitlman"
+   data-avatarId="1343"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/digitlman/avatar/46.png?a=1343"
+            border="0" height="46" width="46"
+            alt="digitlman"
+            /><span username="digitlman" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/digitlman.html"
+data-externalId=""
+data-username="digitlman"
+data-avatarId="1343"
+id="jive-741932928989500610856"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>digitlman</a>                        </div>
+                        <em>70 posts since <br/>Oct 19, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45229.html#45229" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Feb 2, 2010 1:45 PM</span>
+                            (<a href="45190.html#45190" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45229.html#45229">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:6edc54c8-d6d6-4fd1-918f-3fd2f08ea0b4] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>jmp242 wrote:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I think the MIB Viewer zenpack, or one of the inexpensive MIB tools for </p><p>Windows should be easier than what you're doing to parse the MIBs.</p><p>--</p><p>James Pulver</p><p>&gt;</p></blockquote><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>James,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Are you talking about <a class="jive-link-wiki-small" href="../docs/DOC-3412.html">docs/DOC-3412</a>?</p></div><!-- [DocumentBodyEnd:6edc54c8-d6d6-4fd1-918f-3fd2f08ea0b4] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45229" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45229&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45229-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45229-" data-uniqueKey="2-45229-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45229-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45230">
+
+
+        <div id="thread-message-45230" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="45230">
+                <a name="45230"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432928989504867078"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45230.html#45230" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Feb 2, 2010 1:58 PM</span>
+                            (<a href="45229.html#45229" title="Go to message" class="font-color-meta-light " >in response to digitlman</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45230.html#45230">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:f91db221-fd7d-4603-adfb-74389d10e4f7] --><div class="jive-rendered-content"><p>Yes.</p><p>--</p><p>James Pulver</p><p>Information Technology Area Supervisor</p><p>LEPP Computer Group</p><p>Cornell University</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>digitlman wrote, On 2/2/2010 1:46 PM:</p></div><!-- [DocumentBodyEnd:f91db221-fd7d-4603-adfb-74389d10e4f7] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45230" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45230&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45230-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45230-" data-uniqueKey="2-45230-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45230-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45245">
+
+
+        <div id="thread-message-45245" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="45245">
+                <a name="45245"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/digitlman.html"
+   data-externalId=""
+   data-username="digitlman"
+   data-avatarId="1343"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/digitlman/avatar/46.png?a=1343"
+            border="0" height="46" width="46"
+            alt="digitlman"
+            /><span username="digitlman" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/digitlman.html"
+data-externalId=""
+data-username="digitlman"
+data-avatarId="1343"
+id="jive-741932928989507887205"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>digitlman</a>                        </div>
+                        <em>70 posts since <br/>Oct 19, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45245.html#45245" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Feb 3, 2010 9:48 AM</span>
+                            (<a href="45230.html#45230" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45245.html#45245">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:f76c2c0e-afe5-401f-9f3f-250fde42f3f2] --><div class="jive-rendered-content"><p>Ok, I have successfully added the MIB file, but I'm still not sure how to put it all together.&#160; And yes, I have read the manual, but I'm still confused.&#160; <img height="16px" src="../4.5.6/images/emoticons/blush.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I now have a /Mibs/TOSHIBAUPS-MIB-ADD, and in that are all the OID mappings and SNMP traps.&#160; Now I want to put it all together.&#160; I think I want to create a /Power/UPS/TOSHIBA class like APC has its own class, and put the device in that so that it will use the Toshiba-defined OIDs and gather the correct info.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I have already configured the UPS to send SNMP traps to the zenoss server, and to allow SNMP access to public.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>What next?</p></div><!-- [DocumentBodyEnd:f76c2c0e-afe5-401f-9f3f-250fde42f3f2] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45245" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45245&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45245-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45245-" data-uniqueKey="2-45245-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45245-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45277">
+
+
+        <div id="thread-message-45277" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="45277">
+                <a name="45277"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432928989511086151"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45277.html#45277" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Feb 3, 2010 3:06 PM</span>
+                            (<a href="45245.html#45245" title="Go to message" class="font-color-meta-light " >in response to digitlman</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45277.html#45277">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:85c89b7c-4a9e-45d9-84df-a88708109a97] --><div class="jive-rendered-content"><p>Note that Zenoss doesn't use MIBs for performance monitoring, only to </p><p>decode SNMP traps. You'll need to create a template with SNMP data </p><p>sources for the OIDs you care about, and then create the graphs or </p><p>whatever that gives you what you want.</p><p>--</p><p>James Pulver</p><p>Information Technology Area Supervisor</p><p>LEPP Computer Group</p><p>Cornell University</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>digitlman wrote, On 2/3/2010 9:49 AM:</p><blockquote class="jive-quote" level="1"><p>Ok, I have successfully added the MIB file, but I'm still not sure how to put it all together.&#160; And yes, I have read the manual, but I'm still confused.&#160; <img height="16px" src="../4.5.6/images/emoticons/blush.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;"> &#160;</p><p>I now have a /Mibs/TOSHIBAUPS-MIB-ADD, and in that are all the OID mappings and SNMP traps.&#160; Now I want to put it all together.&#160; I think I want to create a /Power/UPS/TOSHIBA class like APC has its own class, and put the device in that so that it will use the Toshiba-defined OIDs and gather the correct info.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;"> &#160;</p><p>I have already configured the UPS to send SNMP traps to the zenoss server, and to allow SNMP access to public.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;"> &#160;</p><p>What next?</p></blockquote><p>&gt;</p></div><!-- [DocumentBodyEnd:85c89b7c-4a9e-45d9-84df-a88708109a97] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45277" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45277&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45277-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45277-" data-uniqueKey="2-45277-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-45277-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-52843">
+
+
+        <div id="thread-message-52843" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="52843">
+                <a name="52843"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/digitlman.html"
+   data-externalId=""
+   data-username="digitlman"
+   data-avatarId="1343"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/digitlman/avatar/46.png?a=1343"
+            border="0" height="46" width="46"
+            alt="digitlman"
+            /><span username="digitlman" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/digitlman.html"
+data-externalId=""
+data-username="digitlman"
+data-avatarId="1343"
+id="jive-741932928989514254095"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7419, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>digitlman</a>                        </div>
+                        <em>70 posts since <br/>Oct 19, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="52843.html#52843" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Sep 17, 2010 11:05 AM</span>
+                            (<a href="45277.html#45277" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="52843.html#52843">Re: Monitoring SNMP on Toshiba UPS</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:619ed9cd-06b9-4345-b918-53984006936d] --><div class="jive-rendered-content"><p>Ok, I'm taking another stab at this on a fresh 3.x install that I just upgraded to 3.02.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>So what I cam doing is adding the device, then adding a new local template:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><a href="servlet/JiveServlet/showImage/2-52843-5120/Untitled.png"><img alt="Untitled.png" class="jive-image-thumbnail jive-image" height="156" onclick="" src="servlet/JiveServlet/downloadImage/2-52843-5120/450-156/Untitled.png" width="450"/></a></p><p><a href="servlet/JiveServlet/showImage/2-52843-5121/Untitled2.png"><img alt="Untitled2.png" class="jive-image-thumbnail jive-image" height="238" onclick="" src="servlet/JiveServlet/downloadImage/2-52843-5121/450-238/Untitled2.png" width="450"/></a> </p><p>The graphs are blank, even after waiting a few minutes.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>SSH'ing into the box, I can run "snmpwalk 10.1.1.46 -v1 -cpublic 1.3.6.1.4.1.186.1.19.2.1.2.9.0" and get a resturn value.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>So what am I doing wrong here?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I have done the same procudure on another device on my 2.5.x install without any issues.</p></div><!-- [DocumentBodyEnd:619ed9cd-06b9-4345-b918-53984006936d] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-52843" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=52843&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-52843-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-52843-" data-uniqueKey="2-52843-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45176.html#" id="jive-acclaim-likedlink-2-52843-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="45176.html#12638" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="thread/12638?decorator=print&amp;displayFullThread=true"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-45098">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+          <div class="jive-box jive-sidebar jive-box-questionLegend">
+              <div class="jive-box-header jive-sidebar-header">
+                  <h4>Legend</h4>
+              </div>
+              <div class="jive-box-body jive-sidebar-body">
+                  <ul class="jive-icon-list font-color-meta">
+                      <li><span class="jive-icon-med jive-icon-discussion-correct"></span>
+<strong class="jive-thread-reply-message-correct-label">Correct Answers</strong> - 4 points                      </li>
+                      <li><span class="jive-icon-med jive-icon-discussion-helpful"></span>
+<strong class="jive-thread-reply-message-helpful-label">Helpful Answers</strong> - 2 points                      </li>
+                  </ul>
+              </div>
+          </div>
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+

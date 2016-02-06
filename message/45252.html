@@ -1,0 +1,2393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Buffering alerts, so that we receive one email alert per minute maximum - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- Buffering alerts, so that we receive one email alert per minute maximum -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Buffering alerts, so that we receive one email alert per minute maximum' Discussion Feed"
+            href="community/feeds/messages?thread=12675">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="../thread/12675%3Fstart=0&amp;tstart=0.html#45252"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="45252.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="45252.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="45252.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.12675"/>
+        <input type="hidden" name="message.post.12675" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=12675&amp;message=45252&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="12675">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Buffering alerts, so that we receive one email alert per minute maximum"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+                        <!-- BEGIN pagination-->
+                        <span class="jive-pagination">
+                            <span class="jive-pagination-numbers">
+                                    <a href="../thread/12675%3Fstart=0&amp;tstart=0.html"
+                                        class="jive-pagination-current" >1</a>
+                                    <a href="../thread/12675%3Fstart=15&amp;tstart=0.html"
+                                         >2</a>
+                            </span>
+                            <span class="jive-pagination-prevnext">
+                                    <span class="jive-pagination-prev-none">Previous</span>
+                                    <a href="../thread/12675%3Fstart=15&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                            </span>
+                        </span>
+                    <!-- END pagination -->
+
+                    <strong>     
+        
+            72573&nbsp;Views
+        
+
+</strong>
+                        <strong>15 Replies</strong>
+                    <a href="46392%3Ftstart=0.html#46392" >Latest reply</a>:
+                    Mar 7, 2010 3:23 PM by
+heyese                        <span><a href="community/feeds/messages?thread=12675"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="12675"></a><a name="45219"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/heyese.html"
+   data-externalId=""
+   data-username="heyese"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/heyese/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="heyese"
+            /><span username="heyese" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/heyese.html"
+data-externalId=""
+data-username="heyese"
+data-avatarId="-1"
+id="jive-819932929085165949604"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>heyese</a>                                    </div>
+                                    <em>43 posts since <br/>Jan 26, 2010</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Feb 3, 2010 5:57 AM</h3>
+                                        <h2><a href="45219.html#45219">Buffering alerts, so that we receive one email alert per minute maximum</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:0cc1de48-cbed-44c9-b99c-f22b53683af0] --><div class="jive-rendered-content"><p>Hi guys,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Another one for the Zenoss masters.</p><p>has anyone worked out a way of buffering alerts?&#160; I'm using the alerting system, but every now and then I get a splurge of alerts with different depuids but all about the same problem.&#160; What I'd like is a way of saying 'alert in exactly the same way as you do at the moment, but additionally only send me a maximum of one email per minute - I'd like the contents of all the emails you would have sent in that one email'.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This would be a great addition, I think.&#160; Has anyone come up with a clever way of doing this?</p><p>Thanks all,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Edmund.</p></div><!-- [DocumentBodyEnd:0cc1de48-cbed-44c9-b99c-f22b53683af0] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-45219-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45219-" data-uniqueKey="2-45219-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45219-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+            <span class="jive-icon-sml jive-icon-tag"></span>Tags: <span id="jive-edit-inline-add-none" style="display:none;">none</span> <span style="display:none;" id="jive-edit-inline-placeholder"> (<a href="45252.html#" class="jive-edit-inline-tags-link">add</a>)</span>
+
+            <span class="jive-thread-post-details-tags" id="jive-thread-post-details-tags_OCxnqA">
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=alerts.html">alerts</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=alert.html">alert</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=buffering.html">buffering</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=emails.html">emails</a>
+            </span>
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-45243">
+
+
+        <div id="thread-message-45243" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="45243">
+                <a name="45243"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/andrea.consadori.html"
+   data-externalId=""
+   data-username="andrea.consadori"
+   data-avatarId="1620"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3889, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/andrea.consadori/avatar/46.png?a=1620"
+            border="0" height="46" width="46"
+            alt="Andrea Consadori"
+            /><span username="andrea.consadori" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/andrea.consadori.html"
+data-externalId=""
+data-username="andrea.consadori"
+data-avatarId="1620"
+id="jive-388932929085170963131"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3889, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Andrea Consadori</a>                        </div>
+                        <em>863 posts since <br/>Feb 11, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45243.html#45243" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Feb 3, 2010 7:15 AM</span>
+                            (<a href="45219.html#45219" title="Go to message" class="font-color-meta-light " >in response to heyese</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45243.html#45243">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:9c129fb6-917e-4788-8b94-b7ddf85b891e] --><div class="jive-rendered-content"><p>like a mailing-list digest message? .. interestring... i think that now you can limit the email flow... but not summarize it... (maybe i can be in error...)</p></div><!-- [DocumentBodyEnd:9c129fb6-917e-4788-8b94-b7ddf85b891e] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45243" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45243&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45243-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45243-" data-uniqueKey="2-45243-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45243-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45220">
+
+
+        <div id="thread-message-45220" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="45220">
+                <a name="45220"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Weetos.html"
+   data-externalId=""
+   data-username="Weetos"
+   data-avatarId="1101"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5152, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Weetos/avatar/46.png?a=1101"
+            border="0" height="46" width="46"
+            alt="Weetos"
+            /><span username="Weetos" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Weetos.html"
+data-externalId=""
+data-username="Weetos"
+data-avatarId="1101"
+id="jive-515232929085174110045"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5152, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Weetos</a>                        </div>
+                        <em>133 posts since <br/>Oct 17, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45220.html#45220" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Feb 3, 2010 9:11 AM</span>
+                            (<a href="45219.html#45219" title="Go to message" class="font-color-meta-light " >in response to heyese</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45220.html#45220">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:42d673b3-8871-489e-9dc3-088a8e3478ad] --><div class="jive-rendered-content"><p>That would greatly appreciated indeed</p></div><!-- [DocumentBodyEnd:42d673b3-8871-489e-9dc3-088a8e3478ad] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45220" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45220&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45220-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45220-" data-uniqueKey="2-45220-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45220-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45244">
+
+
+        <div id="thread-message-45244" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="45244">
+                <a name="45244"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/andrea.consadori.html"
+   data-externalId=""
+   data-username="andrea.consadori"
+   data-avatarId="1620"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3889, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/andrea.consadori/avatar/46.png?a=1620"
+            border="0" height="46" width="46"
+            alt="Andrea Consadori"
+            /><span username="andrea.consadori" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/andrea.consadori.html"
+data-externalId=""
+data-username="andrea.consadori"
+data-avatarId="1620"
+id="jive-388932929085177000419"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3889, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Andrea Consadori</a>                        </div>
+                        <em>863 posts since <br/>Feb 11, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45244.html#45244" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Feb 3, 2010 9:41 AM</span>
+                            (<a href="45219.html#45219" title="Go to message" class="font-color-meta-light " >in response to heyese</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45244.html#45244">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:1038d9b0-b36a-4f83-a89e-7fdcc4fc63c9] --><div class="jive-rendered-content"><p>i think you've to change how to recive alarm email...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>if your problem is due to mass email alarm when a remote subnet goes down you can use event transformation as described in zenoss blog</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><pre style="margin-top: 0pt; display: inline;"><a class="jive-link-blog-small" href="blogs/zenossblog/2009/05/28/tip-of-the-month-event-suppression">blogs/zenossblog/2009/05/28/tip-of-the-month-event-suppression</a><br/><br/>under <br/><br/></pre></p><h2>Location Event Suppression</h2><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>so event is suppressed and you will revice only one mail from the main device (maybe put in a different location to not be suppressed itself)</p></div><!-- [DocumentBodyEnd:1038d9b0-b36a-4f83-a89e-7fdcc4fc63c9] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45244" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45244&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45244-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45244-" data-uniqueKey="2-45244-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45244-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45252">
+
+
+        <div id="thread-message-45252" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="45252">
+                <a name="45252"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/heyese.html"
+   data-externalId=""
+   data-username="heyese"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/heyese/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="heyese"
+            /><span username="heyese" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/heyese.html"
+data-externalId=""
+data-username="heyese"
+data-avatarId="-1"
+id="jive-819932929085179791325"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>heyese</a>                        </div>
+                        <em>43 posts since <br/>Jan 26, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45252.html#45252" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Feb 3, 2010 11:23 AM</span>
+                            (<a href="45244.html#45244" title="Go to message" class="font-color-meta-light " >in response to Andrea Consadori</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45252.html#45252">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:d4cda4fb-4650-4d92-b572-57296285d2d6] --><div class="jive-rendered-content"><p>Hi,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Many thanks for your responses.</p><p>Although interesting, I don't think the information you've highlighted is quite what I'm after, Andrea.&#160; In this case it's specifically the alerting that I'm talking about, and I don't exactly want to suppress the alerts, I just want to throttle them so that I can be confident that for any particular user (or group), all of their emailing alerting rules will send them at most 1 email per unit of time (minute, say).&#160; I'd like that one email to contain all the alerts that would have been sent out had this throttling rule not been in place.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>It would just be nice to know that whatever happened in production, Zenoss won't kill the mailing server!</p><p>Cheers for thinking about it, though.</p></div><!-- [DocumentBodyEnd:d4cda4fb-4650-4d92-b572-57296285d2d6] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45252" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45252&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45252-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45252-" data-uniqueKey="2-45252-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45252-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45253">
+
+
+        <div id="thread-message-45253" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="45253">
+                <a name="45253"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/andrea.consadori.html"
+   data-externalId=""
+   data-username="andrea.consadori"
+   data-avatarId="1620"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3889, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/andrea.consadori/avatar/46.png?a=1620"
+            border="0" height="46" width="46"
+            alt="Andrea Consadori"
+            /><span username="andrea.consadori" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/andrea.consadori.html"
+data-externalId=""
+data-username="andrea.consadori"
+data-avatarId="1620"
+id="jive-388932929085182723383"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3889, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Andrea Consadori</a>                        </div>
+                        <em>863 posts since <br/>Feb 11, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45253.html#45253" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Feb 3, 2010 11:52 AM</span>
+                            (<a href="45252.html#45252" title="Go to message" class="font-color-meta-light " >in response to heyese</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45253.html#45253">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:278e111f-3eca-42fa-8628-9c557e7374f1] --><div class="jive-rendered-content"><p>you're right..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>i was thinking your request was to minimize email alert when a remote network goes completely down.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>as i know you can limit email rate but not summarize..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>i hope somone else can give you different reply or you can open a ticket to request this new feature.</p></div><!-- [DocumentBodyEnd:278e111f-3eca-42fa-8628-9c557e7374f1] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45253" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45253&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45253-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45253-" data-uniqueKey="2-45253-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45253-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45272">
+
+
+        <div id="thread-message-45272" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="45272">
+                <a name="45272"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mkitchin.html"
+   data-externalId=""
+   data-username="mkitchin"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7708, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mkitchin/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Matthew Kitchin (public)"
+            /><span username="mkitchin" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mkitchin.html"
+data-externalId=""
+data-username="mkitchin"
+data-avatarId="-1"
+id="jive-770832929085185786766"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7708, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Matthew Kitchin (public)</a>                        </div>
+                        <em>170 posts since <br/>Nov 12, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45272.html#45272" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Feb 3, 2010 12:25 PM</span>
+                            (<a href="45244.html#45244" title="Go to message" class="font-color-meta-light " >in response to Andrea Consadori</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45272.html#45272">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:34bb78dc-d1a4-4a92-85c1-4db3116c2a55] --><div class="jive-rendered-content"><p>Does anyone know how I could do this with some wildcards?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I have 120 locations, so I would prefer not to have a line for every </p><p>location in the transform. When a router goes down, I don;t want to know </p><p>about a server or a WAP going down at the same location. I have not </p><p>filled out the location value on my routers, but would certainly be glad </p><p>to. I had tried to do it below based on our naming convention.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Maybe I would have better luck if I tried using location somehow.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>All my devices are named like this</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>TX252-RTR</p><p>&#160;&#160;&#160;&#160;&#160; TX252SRV</p><p>&#160;&#160;&#160;&#160;&#160; TX252WAP1</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I had tried the code below, but it doesn't seem to be working.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>if device.id.endswith('WAP') or device.id.endswith('SRV'):</p><p>&#160;&#160; rtr = device.id[0:5]+'-rtr-ser'</p><p>&#160;&#160; rtr_server = device.findDevice(rtr)</p><p>&#160;&#160; if rtr_server.getPingStatus() &gt; 0:</p><p>&#160;&#160;&#160;&#160; evt.eventState = 2 # suppressed</p></div><!-- [DocumentBodyEnd:34bb78dc-d1a4-4a92-85c1-4db3116c2a55] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45272" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45272&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45272-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45272-" data-uniqueKey="2-45272-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45272-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45255">
+
+
+        <div id="thread-message-45255" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="45255">
+                <a name="45255"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/heyese.html"
+   data-externalId=""
+   data-username="heyese"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/heyese/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="heyese"
+            /><span username="heyese" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/heyese.html"
+data-externalId=""
+data-username="heyese"
+data-avatarId="-1"
+id="jive-819932929085188633179"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>heyese</a>                        </div>
+                        <em>43 posts since <br/>Jan 26, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45255.html#45255" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Feb 3, 2010 12:37 PM</span>
+                            (<a href="45253.html#45253" title="Go to message" class="font-color-meta-light " >in response to Andrea Consadori</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45255.html#45255">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:99625553-254e-4b00-bc16-ae72a88061f2] --><div class="jive-rendered-content"><p>I'll give it a few days, and try to raise something if noone comes up with something clever!</p><p>Cheers.</p><p>Ed.</p></div><!-- [DocumentBodyEnd:99625553-254e-4b00-bc16-ae72a88061f2] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45255" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45255&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45255-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45255-" data-uniqueKey="2-45255-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45255-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-45493">
+
+
+        <div id="thread-message-45493" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="45493">
+                <a name="45493"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mkitchin.html"
+   data-externalId=""
+   data-username="mkitchin"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7708, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mkitchin/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Matthew Kitchin (public)"
+            /><span username="mkitchin" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mkitchin.html"
+data-externalId=""
+data-username="mkitchin"
+data-avatarId="-1"
+id="jive-770832929085191451848"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7708, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Matthew Kitchin (public)</a>                        </div>
+                        <em>170 posts since <br/>Nov 12, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="45493.html#45493" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Feb 9, 2010 5:38 PM</span>
+                            (<a href="45255.html#45255" title="Go to message" class="font-color-meta-light " >in response to heyese</a>)
+                        </div>
+
+                        <strong>
+                        <a href="45493.html#45493">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:37bd4ebb-6e28-4dde-80c4-8e2c66758c2d] --><div class="jive-rendered-content"><p>I know I haven't come up with anything clever <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/>.&#160; Python is not my area though. This is the last hurdle (I think) in place to get my zenoss setup perfect. The high volume of unnecessary alerts causes us to occasionally miss the important ones.</p></div><!-- [DocumentBodyEnd:37bd4ebb-6e28-4dde-80c4-8e2c66758c2d] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-45493" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=45493&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-45493-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-45493-" data-uniqueKey="2-45493-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-45493-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-46055">
+
+
+        <div id="thread-message-46055" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="46055">
+                <a name="46055"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mkitchin.html"
+   data-externalId=""
+   data-username="mkitchin"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7708, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mkitchin/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Matthew Kitchin (public)"
+            /><span username="mkitchin" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mkitchin.html"
+data-externalId=""
+data-username="mkitchin"
+data-avatarId="-1"
+id="jive-770832929085194297387"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7708, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Matthew Kitchin (public)</a>                        </div>
+                        <em>170 posts since <br/>Nov 12, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="46055.html#46055" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Feb 26, 2010 12:52 PM</span>
+                            (<a href="45255.html#45255" title="Go to message" class="font-color-meta-light " >in response to heyese</a>)
+                        </div>
+
+                        <strong>
+                        <a href="46055.html#46055">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:e0a088be-69cc-4ebd-acfe-9763a3a67188] --><div class="jive-rendered-content"><p>Any chance you have had an epiphany of some sort <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/> </p></div><!-- [DocumentBodyEnd:e0a088be-69cc-4ebd-acfe-9763a3a67188] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-46055" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=46055&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-46055-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-46055-" data-uniqueKey="2-46055-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-46055-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-46058">
+
+
+        <div id="thread-message-46058" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="46058">
+                <a name="46058"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/cgriebel.html"
+   data-externalId=""
+   data-username="cgriebel"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3505, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/cgriebel/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="cgriebel"
+            /><span username="cgriebel" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/cgriebel.html"
+data-externalId=""
+data-username="cgriebel"
+data-avatarId="-1"
+id="jive-350532929085197397347"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3505, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>cgriebel</a>                        </div>
+                        <em>175 posts since <br/>Nov 29, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="46058.html#46058" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Feb 26, 2010 1:08 PM</span>
+                            (<a href="46055.html#46055" title="Go to message" class="font-color-meta-light " >in response to Matthew Kitchin (public)</a>)
+                        </div>
+
+                        <strong>
+                        <a href="46058.html#46058">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:61750810-c8eb-4d64-86ef-df5941207a9e] --><div class="jive-rendered-content"><p>Back in November 2007 I requested an email throttling feature. </p><p><span>Thread here: </span><a class="jive-link-external-small" href="thread/10279?tstart=0">thread/10279?tstart=0</a></p><p><span>Ticket here: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/3321">http://dev.zenoss.org/trac/ticket/3321</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I don't know if anyone is working on this.&#160; The absence of this feature has forced me to maintain a separate ping monitor/alerter that I wrote years ago that has a throttling capability. It's stupid but it works.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I use Zenoss for all other monitoring but I don't dare enable ping alerting to cell phones until it has an alert throttling capability.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Chock</p></div><!-- [DocumentBodyEnd:61750810-c8eb-4d64-86ef-df5941207a9e] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-46058" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=46058&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-46058-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-46058-" data-uniqueKey="2-46058-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-46058-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-46065">
+
+
+        <div id="thread-message-46065" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="46065">
+                <a name="46065"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/heyese.html"
+   data-externalId=""
+   data-username="heyese"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/heyese/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="heyese"
+            /><span username="heyese" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/heyese.html"
+data-externalId=""
+data-username="heyese"
+data-avatarId="-1"
+id="jive-819932929085200584936"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>heyese</a>                        </div>
+                        <em>43 posts since <br/>Jan 26, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="46065.html#46065" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Feb 26, 2010 3:48 PM</span>
+                            (<a href="46055.html#46055" title="Go to message" class="font-color-meta-light " >in response to Matthew Kitchin (public)</a>)
+                        </div>
+
+                        <strong>
+                        <a href="46065.html#46065">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:4b1ec28d-1fa8-4a4a-bf77-8a270240e751] --><div class="jive-rendered-content"><p>I wouldn't quite call it an epiphany!&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>But I have improved the situation quite a lot.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>In this ticket I was asking for a way to set a maximum number of emails per minute for any particular rule.&#160; I also wanted the emails to contain information for multiple events (so although you're possibly getting fewer emails in total, you get all the same information).&#160; This is because I've had the experience of a process going haywire and generating lots of syslogs very quickly, all with slightly different message summarys (maybe there's an increasing number in there or something) so each and every one becomes an event for which an email is sent.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>A friendly Zenoss forum user showed me how to get at the Zope interface at some point - you can use it to get closer to the SQL queries behind your alerting rules (rather than having to use the Zenoss GUI).&#160; Go to the page for your particular rule in Zenoss and append '/manage' to the URL.&#160; In the new page, click 'properties'.&#160; You now have a box where you can define your own SQL where clause!&#160; Once you've done that, click save changes and bear in mind that if you subsequently edit the rule using the Zenoss GUI you will overwrite what you have done.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>You can become familiar with the tables and fields by jumping onto the mysql DB directly - on your Zenoss box as the Zenoss user, type 'mysql -u zenoss -pzenoss' - unless you changed the default password, that should work.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The trick is to use the where clause to contain your own query.&#160; For us, the process name is stored as the 'component' field, so I think I used something like this (I'm not at work at the moment so can't remember exactly!): -</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>WHERE : <em>(eventState=0) and (productionState = 1000) and (agent = zensyslog) and component not in </em></p><p><em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; (select component from status inner join alert_state on status.evid=alert_state.evid where rule = 'email_rule')</em></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>An event only gets an entry in the alert_state table when a rule has alerted on it.&#160; So by doing an inner join with the status table and forcing the rule name to be the relevant email rule in question, the sub-query is returning the list of processes (components) that have an active event in the status table for which an email has already been sent.&#160; By saying in the main query that I don't want the process (component) that's generated the event in question to be in that list, what I'm saying overall is this: -</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><em>If the process that's generated the current event has previously generated an event that hasn't been closed yet and for which we've already been alerted, don't bother to send another email about it (please).&#160; </em></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>It's still not perfect.&#160; The zenAction cycle time is by standard 1 minute, and I'm not sure how big an impact reducing this has, so I've not fiddled with it.&#160; But I've found that on each cycle zenAction seems to process all events simultaneously.&#160; So say a process goes beserk and generates an event every second.&#160; We're half way through the zenAction cycle, so from a clean status table I get 30 new events for the same component.&#160; When zenActions is run, it sends 30 emails because it's not previously alerted on the process before.&#160; After that cycle, though, it will send no more until you clear the events (or in particular, you clear the particular event for which the email was sent - if you clear that event on it's own, then on the next cycle you'll get emails for all the rest, so be sure to clear them all at the same time!).&#160; So the new maximum number of emails for a process is however many events it can generate in one zenAction cycle time!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>A really good addition would be to use the 'limit' funtion - something like 'where evid in (select evid from status where etc. etc. limit 10)'.&#160; You'd arbitrarily be able to set a maximun number of emails.&#160; I've found that although the command works on the mysql db directly, Zenoss (ie. zenActions log) complains that mysql server doesn't support it.&#160; I don't know if you can just update the mysql server version?</p></div><!-- [DocumentBodyEnd:4b1ec28d-1fa8-4a4a-bf77-8a270240e751] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-46065" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=46065&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-46065-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-46065-" data-uniqueKey="2-46065-" data-ratingType="like" data-hasVoted="false" data-likes="1" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-46065-"  class="font-color-meta jive-acclaim-likedlink">1</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-46083">
+
+
+        <div id="thread-message-46083" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="46083">
+                <a name="46083"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mkitchin.html"
+   data-externalId=""
+   data-username="mkitchin"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7708, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mkitchin/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Matthew Kitchin (public)"
+            /><span username="mkitchin" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mkitchin.html"
+data-externalId=""
+data-username="mkitchin"
+data-avatarId="-1"
+id="jive-770832929085203689942"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7708, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Matthew Kitchin (public)</a>                        </div>
+                        <em>170 posts since <br/>Nov 12, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="46083.html#46083" title="Link to reply #12" class="jive-thread-reply-num font-color-meta-light">12.</a>
+                        <span>Feb 26, 2010 4:07 PM</span>
+                            (<a href="46065.html#46065" title="Go to message" class="font-color-meta-light " >in response to heyese</a>)
+                        </div>
+
+                        <strong>
+                        <a href="46083.html#46083">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:92e4fb3d-dfd3-4332-b833-d4f423a33b0c] --><div class="jive-rendered-content"><p><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;">I think I sort of accidentally tried to hijack your thread earlier. Sometimes when going back and forth between the mailing list and the forum I lose track of what I&rsquo;m replying to, commenting on, etc.. I am still trying my best to find a solution to my issue below. It really isn't about limiting the number of emails, more about finding a way to leverage my naming scheme to make dependencies work for me. I'm about to add many more devices to be monitored at each of my locations and the 'extra' alerts I get when the router goes down are overwhelming and frequently cause us to overlook something important. Sorry for throwing this in the middle of your thread. I think I just saw an email on something similar and replied to it.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;"><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;"> </span>&#160;</p><p><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;">I have 120 locations, so I would prefer not to have a line for every </span></p><p><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;">location in the transform. When a router goes down, I don&rsquo;t want to know </span></p><p><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;">about a server or a WAP going down at the same location. I have not </span></p><p><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;">filled out the location value on my routers, but would certainly be glad </span></p><p><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;">to. I had tried to do it below based on our naming convention.</span></p><p style="min-;"><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;"> </span></p><p><span style="font-family: &amp;quot;Arial&amp;quot;, &amp;quot;sans-serif&amp;quot;; color: #333333; font-size: 10pt;">Maybe I would have better luck if I tried using location somehow.</span></p><p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>All my devices are named like this</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>TX252-RTR</p><p>&#160;&#160;&#160;&#160;&#160; TX252SRV</p><p>&#160;&#160;&#160;&#160;&#160; TX252WAP1</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I had tried the code below, but it doesn't seem to be working.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>if device.id.endswith('WAP') or device.id.endswith('SRV'):</p><p>&#160;&#160; rtr = device.id[0:5]+'-rtr-ser'</p><p>&#160;&#160; rtr_server = device.findDevice(rtr)</p><p>&#160;&#160; if rtr_server.getPingStatus() &gt; 0:</p><p>&#160;&#160;&#160;&#160; evt.eventState = 2 # suppressed</p></p></div><!-- [DocumentBodyEnd:92e4fb3d-dfd3-4332-b833-d4f423a33b0c] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-46083" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=46083&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-46083-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-46083-" data-uniqueKey="2-46083-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-46083-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-46066">
+
+
+        <div id="thread-message-46066" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="46066">
+                <a name="46066"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/heyese.html"
+   data-externalId=""
+   data-username="heyese"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/heyese/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="heyese"
+            /><span username="heyese" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/heyese.html"
+data-externalId=""
+data-username="heyese"
+data-avatarId="-1"
+id="jive-819932929085206595906"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8199, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>heyese</a>                        </div>
+                        <em>43 posts since <br/>Jan 26, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="46066.html#46066" title="Link to reply #13" class="jive-thread-reply-num font-color-meta-light">13.</a>
+                        <span>Feb 26, 2010 4:33 PM</span>
+                            (<a href="46083.html#46083" title="Go to message" class="font-color-meta-light " >in response to Matthew Kitchin (public)</a>)
+                        </div>
+
+                        <strong>
+                        <a href="46066.html#46066">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:9f7f3d26-c4d8-4822-a846-0fe5cafabaf9] --><div class="jive-rendered-content"><p>I've still not got around to learning python yet, or really writing transforms.&#160; Sorry!&#160; Will get there eventually.&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p></div><!-- [DocumentBodyEnd:9f7f3d26-c4d8-4822-a846-0fe5cafabaf9] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-46066" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=46066&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-46066-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-46066-" data-uniqueKey="2-46066-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-46066-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-46071">
+
+
+        <div id="thread-message-46071" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="46071">
+                <a name="46071"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732929085209651426"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="46071.html#46071" title="Link to reply #14" class="jive-thread-reply-num font-color-meta-light">14.</a>
+                        <span>Feb 26, 2010 10:23 PM</span>
+                            (<a href="46083.html#46083" title="Go to message" class="font-color-meta-light " >in response to Matthew Kitchin (public)</a>)
+                        </div>
+
+                        <strong>
+                        <a href="46071.html#46071">Re: Buffering alerts, so that we receive one email alert per minute maximum</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:7c4f33fe-3402-41ef-8f20-93ed695743fa] --><div class="jive-rendered-content"><p>Why not treat this more as a timing problem?&#160; Instead of having Zenoss do your emails make a command that does the emailing that runs off of a cron entry.</p><p>That way all Zenoss would do would be echoing the event details into a temporary file, and when the cron fires, it emails that temp file as inline text and deletes the temp file.&#160; I believe this would work for you if you only have one destination email address.&#160; Is this the case?</p></div><!-- [DocumentBodyEnd:7c4f33fe-3402-41ef-8f20-93ed695743fa] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-46071" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=46071&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-46071-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-46071-" data-uniqueKey="2-46071-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="45252.html#" id="jive-acclaim-likedlink-2-46071-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <!-- BEGIN pagination-->
+                    <span class="jive-pagination">
+                        <span class="jive-pagination-numbers">
+                                <a href="../thread/12675%3Fstart=0&amp;tstart=0.html"
+                                    class="jive-pagination-current" >1</a>
+                                <a href="../thread/12675%3Fstart=15&amp;tstart=0.html"
+                                     >2</a>
+                        </span>
+                        <span class="jive-pagination-prevnext">
+                                <span class="jive-pagination-prev-none">Previous</span>
+                                <a href="../thread/12675%3Fstart=15&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                        </span>
+                    </span>
+                    <!-- END pagination -->
+                </div>
+                <!-- END thread info -->
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="45252.html#12675" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="../thread/12675%3Fdecorator=print&amp;displayFullThread=true.html"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-45219">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+          <div class="jive-box jive-sidebar jive-box-questionLegend">
+              <div class="jive-box-header jive-sidebar-header">
+                  <h4>Legend</h4>
+              </div>
+              <div class="jive-box-body jive-sidebar-body">
+                  <ul class="jive-icon-list font-color-meta">
+                      <li><span class="jive-icon-med jive-icon-discussion-correct"></span>
+<strong class="jive-thread-reply-message-correct-label">Correct Answers</strong> - 4 points                      </li>
+                      <li><span class="jive-icon-med jive-icon-discussion-helpful"></span>
+<strong class="jive-thread-reply-message-helpful-label">Helpful Answers</strong> - 2 points                      </li>
+                  </ul>
+              </div>
+          </div>
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+

@@ -1,0 +1,2443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Can Zenoss monitor ssl cert expiration and domain name expiration? - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- Can Zenoss monitor ssl cert expiration and domain name expiration? -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Can Zenoss monitor ssl cert expiration and domain name expiration?' Discussion Feed"
+            href="community/feeds/messages?thread=11816">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="../thread/11816%3Fstart=30&amp;tstart=0.html#42927"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="42927.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="42927.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="42927.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.11816"/>
+        <input type="hidden" name="message.post.11816" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=11816&amp;message=42927&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="11816">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Can Zenoss monitor ssl cert expiration and domain name expiration?"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+                        <!-- BEGIN pagination-->
+                        <span class="jive-pagination">
+                            <span class="jive-pagination-numbers">
+                                    <a href="../thread/11816%3Fstart=0&amp;tstart=0.html"
+                                         >1</a>
+                                    <a href="../thread/11816%3Fstart=15&amp;tstart=0.html"
+                                         >2</a>
+                                    <a href="../thread/11816%3Fstart=30&amp;tstart=0.html"
+                                        class="jive-pagination-current" >3</a>
+                                    <a href="../thread/11816%3Fstart=45&amp;tstart=0.html"
+                                         >4</a>
+                            </span>
+                            <span class="jive-pagination-prevnext">
+                                    <a href="../thread/11816%3Fstart=15&amp;tstart=0.html" class="jive-pagination-prev">Previous</a>
+                                    <a href="../thread/11816%3Fstart=45&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                            </span>
+                        </span>
+                    <!-- END pagination -->
+
+                    <strong>     
+        
+            343504&nbsp;Views
+        
+
+</strong>
+                        <strong>54 Replies</strong>
+                    <a href="74939%3Ftstart=0.html#74939" >Latest reply</a>:
+                    Oct 11, 2013 8:25 PM by
+guyverix                        <span><a href="community/feeds/messages?thread=11816"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+                        <span><a href="../thread/11816%3Ftstart=0.html"><img src="../4.5.6/images/transparent.png" alt="" class="jive-icon-sml jive-icon-arrow-top"/>Go to original post</a></span>
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-41379">
+
+
+        <div id="thread-message-41379" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="41379">
+                <a name="41379"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/mray"
+   data-externalId=""
+   data-username="mray"
+   data-avatarId="1026"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4158, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mray/avatar/46.png?a=1026"
+            border="0" height="46" width="46"
+            alt="Matt Ray"
+            /><span username="mray" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-12.gif"
+           alt="Rank: Zen Master" title="Rank: Zen Master"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/mray"
+data-externalId=""
+data-username="mray"
+data-avatarId="1026"
+id="jive-415832927347765187956"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4158, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Matt Ray</a>                        </div>
+                        <em>2,484 posts since <br/>Apr 5, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41379.html#41379" title="Link to reply #30" class="jive-thread-reply-num font-color-meta-light">30.</a>
+                        <span>Oct 30, 2009 2:13 PM</span>
+                            (<a href="41345.html#41345" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41379.html#41379">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:de083b87-15fc-46cd-a7e7-f90b1fc3b35d] --><div class="jive-rendered-content"><p>Whenever you have a ZenPack ready to get posted, email me directly and I'll work with you to get it listed.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks,</p><p>Matt Ray</p><p>Zenoss Community Manager</p></div><!-- [DocumentBodyEnd:de083b87-15fc-46cd-a7e7-f90b1fc3b35d] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41379" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41379&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41379-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41379-" data-uniqueKey="2-41379-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-41379-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41407">
+
+
+        <div id="thread-message-41407" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="41407">
+                <a name="41407"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732927347768454332"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41407.html#41407" title="Link to reply #31" class="jive-thread-reply-num font-color-meta-light">31.</a>
+                        <span>Oct 30, 2009 9:24 PM</span>
+                            (<a href="41379.html#41379" title="Go to message" class="font-color-meta-light " >in response to Matt Ray</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41407.html#41407">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:14c9fffe-fd8c-4e08-a63e-0d394256a6fe] --><div class="jive-rendered-content"><span>To be honest, since this was a ZenPack that someone requested in this thread, I did not think very many people would be interested in it. </span></div><!-- [DocumentBodyEnd:14c9fffe-fd8c-4e08-a63e-0d394256a6fe] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41407" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41407&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41407-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41407-" data-uniqueKey="2-41407-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-41407-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41410">
+
+
+        <div id="thread-message-41410" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="41410">
+                <a name="41410"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732927347771353555"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41410.html#41410" title="Link to reply #32" class="jive-thread-reply-num font-color-meta-light">32.</a>
+                        <span>Oct 31, 2009 5:58 AM</span>
+                            (<a href="41377.html#41377" title="Go to message" class="font-color-meta-light " >in response to unixsamurai</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41410.html#41410">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:67312067-d22a-40b7-8b48-13effcb8041c] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>unixsamurai wrote:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><span>One thing I did encounter was, we do alot of virtual name based web hosting, and when I tried to add a "new" hostname for SSL cert checking it wouldn't add it, since we already monitor that host's IP under another hostname.</span></blockquote><p>This sounds like an interesting problem.&#160; I had been thinking about that as well since I am using some old Raq550's at home with vhost setups.&#160; I had a thought about this, and have been thinking that there should be a special class that can allow duplicate IP addresses that does nothing by default.&#160; That way we can work on a vhost by vhost basis.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Perhaps even a Psudeo class that has NO IP addresses at all allowed, or only has 127.0.0.1 and will only work with zencommand against the ${here/id} and other non-IP address variables..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Unfortunately either of these options would require changes of the main code itself.&#160; A little ZenPack is not going to cut it here I dont think..&#160; (at least I cannot think of an easy way to do it but I am not a real Python coder, I just fake it in forums..&#160; <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/>&#160; )</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I am going to have to think about this for a bit..</p></div><!-- [DocumentBodyEnd:67312067-d22a-40b7-8b48-13effcb8041c] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41410" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41410&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41410-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41410-" data-uniqueKey="2-41410-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-41410-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41414">
+
+
+        <div id="thread-message-41414" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="41414">
+                <a name="41414"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/unixsamurai.html"
+   data-externalId=""
+   data-username="unixsamurai"
+   data-avatarId="1092"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/unixsamurai/avatar/46.png?a=1092"
+            border="0" height="46" width="46"
+            alt="unixsamurai"
+            /><span username="unixsamurai" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/unixsamurai.html"
+data-externalId=""
+data-username="unixsamurai"
+data-avatarId="1092"
+id="jive-355332927347774345830"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>unixsamurai</a>                        </div>
+                        <em>42 posts since <br/>Dec 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41414.html#41414" title="Link to reply #33" class="jive-thread-reply-num font-color-meta-light">33.</a>
+                        <span>Oct 31, 2009 10:19 AM</span>
+                            (<a href="41410.html#41410" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41414.html#41414">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:f4c19d19-3d87-4a50-ada9-d5bd2108e2de] --><div class="jive-rendered-content"><p>Yeah man, get this ZenPack published, it's freaking awesome. I think there'd be a ton of people waiting for this type of feature.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Now what type of ZenPack do we do next ;-)</p></div><!-- [DocumentBodyEnd:f4c19d19-3d87-4a50-ada9-d5bd2108e2de] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41414" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41414&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41414-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41414-" data-uniqueKey="2-41414-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-41414-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41422">
+
+
+        <div id="thread-message-41422" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="41422">
+                <a name="41422"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732927347777309910"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41422.html#41422" title="Link to reply #34" class="jive-thread-reply-num font-color-meta-light">34.</a>
+                        <span>Oct 31, 2009 9:19 PM</span>
+                            (<a href="41414.html#41414" title="Go to message" class="font-color-meta-light " >in response to unixsamurai</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41422.html#41422">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:e530b94b-3e3e-43b9-8502-58cbf4a606ad] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>unixsamurai wrote:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Yeah man, get this ZenPack published, it's freaking awesome. I think there'd be a ton of people waiting for this type of feature.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Now what type of ZenPack do we do next ;-)</p></blockquote><p>Grin, I am starting a ZenPack for Cyclades ACS32's as an addendum to the existing ZenPack.&#160; I am going to show Amp use per bus,&#160; tempature per power bus and PDU outlet statuses.&#160; Still trying to figure out how to split a !@#$! string reply into an array correctly and input the values into a table so that a template can graph this..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Heh after that, assuming I dont get a new request,&#160; I am continuing writing my IWILLFEARNOEVIL-SMI for Linux server applications.&#160; Trapping defined for events for the standard stuff you find on LAMP servers.&#160; (apache, sql, mail queues, etc)&#160; I have not been able to find a decent generic trap set anywhere, so I am writing one under my IANA OID number, and just releasing it to the world for anyone who wants standardization on event traps (I REALLY hate seeing /unknown).&#160; Heheh...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>The basic skeleton for what I am doing is in the forums on my website </span><a class="jive-link-external-small" href="http://code01.iwillfearnoevil.com">http://code01.iwillfearnoevil.com</a><span>&#160; If you check it out, keep in mind that my domain is in my garage on a cable modem and I do a lot of weird stuff on my LAN, so it might be a little slow.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If you want to use the current parts of the SMI that have been posted, you are more than welcome to.&#160; Otherwise, the actual traps for what is defined in SMI I can do some quick and dirty stuff adhoc if needed before I finish the MIB.</p></div><!-- [DocumentBodyEnd:e530b94b-3e3e-43b9-8502-58cbf4a606ad] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41422" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41422&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41422-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41422-" data-uniqueKey="2-41422-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-41422-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41997">
+
+
+        <div id="thread-message-41997" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="41997">
+                <a name="41997"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732927347780257344"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41997.html#41997" title="Link to reply #35" class="jive-thread-reply-num font-color-meta-light">35.</a>
+                        <span>Nov 12, 2009 11:09 PM</span>
+                            (<a href="41410.html#41410" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41997.html#41997">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:aad3e68d-f67c-4379-8e39-3bab6fa0f4d3] --><div class="jive-rendered-content"><p>I may have found a fix for the problem that you have with vhosts and the SSL cert expirations.&#160; I have written a new script that takes hostnames and ports via a file on the local machine, and sends SNMP traps on cert expiration, as well as SSL failures.&#160; If there is no file found, the script will check the localhost:443 (configurable) to see when the main apache instance SSL cert is going to expire.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This is part of an entire trap system that I am writing for Linux based LAMP servers, but you are more than welcome to the code if f would be useful to you.&#160;&#160; Once I have debugged the monitoring scripts further (and have a few more written) I will be posting everything on s-f.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Currently I have md_stat statusing, SSL checks, Apache daemon checks (and restarting), qmail queues (and perf), sensor checks (via lm_sensors) as well as LAN and WAN checks from the local machine perspective.&#160; I am starting ldap verification and DNS tonight, and should have that code into the system by the end of this week.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The criticality is defined under OID 30911.&lt;application unique oid&gt;.0.0.4 for easy zenmappings.&#160; 30911.0.0.1 and 0.0.2 are for text areas of the event itself.&#160; 30911.&lt;app unique oid&gt;.0.0.3 is for the name of the application being monitored in a generic sense.&#160; The main idea of these scripts will be tight intergration into the Zenoss system by defining a new ZenPack that exclusivly deals with these kinds of traps in a standardized form, and allows for the easy addition of new SNMP traps.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Currently it is set to give this kind of information:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For a SSL failure:</p><table class="proptable"><tbody><tr class="odd"><td class="proptable_key" style=";">summary</td><td class="proptable_value" style=";">snmp trap enterprises.30911.10.2</td></tr><tr class="even"><td class="proptable_key" style=";">eventKey</td><td class="proptable_value" style=";"></td></tr><tr class="odd"><td class="proptable_key" style=";">lastTime</td><td class="proptable_value" style=";">2009/11/12 19:37:55.000</td></tr><tr class="even"><td class="proptable_key" style=";">ipAddress</td><td class="proptable_value" style=";">192.168.15.60</td></tr><tr class="odd"><td class="proptable_key" style=";">Systems</td><td class="proptable_value" style=";">|</td></tr><tr class="even"><td class="proptable_key" style=";">sysUpTime.0</td><td class="proptable_value" style=";">49560200</td></tr><tr class="odd"><td class="proptable_key" style=";">sysUpTime</td><td class="proptable_value" style=";">49560200</td></tr><tr class="even"><td class="proptable_key" style=";">oid</td><td class="proptable_value" style=";">1.3.6.1.4.1.30911.0.0.1</td></tr><tr class="odd"><td class="proptable_key" style=";">community</td><td class="proptable_value" style=";">public</td></tr><tr class="even"><td class="proptable_key" style=";">enterprises</td><td class="proptable_value" style=";">SSL failure www.iwillfearnoevilxxx.com:443</td></tr><tr class="odd"><td class="proptable_key" style=";">enterprises.30911.10.0.0.3</td><td class="proptable_value" style=";">APACHE</td></tr><tr class="even"><td class="proptable_key" style=";">enterprises.30911.0.0.2</td><td class="proptable_value" style=";">Response : 31630:error:0906D06C:PEM routines:PEM_read_bio:no start line:pem_lib.c:647:Expecting: TRUSTED CERTIFICATE</td></tr><tr class="odd"><td class="proptable_key" style=";">enterprises.30911.0.0.1</td><td class="proptable_value" style=";">SSL failure www.iwillfearnoevilxxx.com:443</td></tr><tr class="even"><td class="proptable_key" style=";">enterprises.30911.10.0.0.5</td><td class="proptable_value" style=";">Noted via server-scripts</td></tr><tr class="odd"><td class="proptable_key" style=";">enterprises.30911.10.0.0.4</td><td class="proptable_value" style=";">2</td></tr></tbody></table><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For a Cert expiration:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><table class="proptable"><tbody><tr class="odd"><td class="proptable_key" style=";">summary</td><td class="proptable_value" style=";">snmp trap enterprises.30911.10.4</td></tr><tr class="even"><td class="proptable_key" style=";">eventKey</td><td class="proptable_value" style=";"></td></tr><tr class="odd"><td class="proptable_key" style=";">lastTime</td><td class="proptable_value" style=";">2009/11/12 19:37:55.000</td></tr><tr class="even"><td class="proptable_key" style=";">ipAddress</td><td class="proptable_value" style=";">192.168.15.60</td></tr><tr class="odd"><td class="proptable_key" style=";">Systems</td><td class="proptable_value" style=";">|</td></tr><tr class="even"><td class="proptable_key" style=";">sysUpTime.0</td><td class="proptable_value" style=";">49559676</td></tr><tr class="odd"><td class="proptable_key" style=";">sysUpTime</td><td class="proptable_value" style=";">49559676</td></tr><tr class="even"><td class="proptable_key" style=";">oid</td><td class="proptable_value" style=";">1.3.6.1.4.1.30911.0.0.1</td></tr><tr class="odd"><td class="proptable_key" style=";">community</td><td class="proptable_value" style=";">public</td></tr><tr class="even"><td class="proptable_key" style=";">enterprises</td><td class="proptable_value" style=";">www.google.com:443 SSL certificate is expiring in less than 700 days.</td></tr><tr class="odd"><td class="proptable_key" style=";">enterprises.30911.10.0.0.3</td><td class="proptable_value" style=";">APACHE</td></tr><tr class="even"><td class="proptable_key" style=";">enterprises.30911.0.0.2</td><td class="proptable_value" style=";">www.google.com:443 : Sat Mar 27 15:20:07 PDT 2010</td></tr><tr class="odd"><td class="proptable_key" style=";">enterprises.30911.0.0.1</td><td class="proptable_value" style=";">www.google.com:443 SSL certificate is expiring in less than 700 days.</td></tr><tr class="even"><td class="proptable_key" style=";">enterprises.30911.10.0.0.5</td><td class="proptable_value" style=";">Noted via server-scripts</td></tr><tr class="odd"><td class="proptable_key" style=";">enterprises.30911.10.0.0.4</td><td class="proptable_value" style=";">4</td></tr></tbody></table></div><!-- [DocumentBodyEnd:aad3e68d-f67c-4379-8e39-3bab6fa0f4d3] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41997" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41997&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41997-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41997-" data-uniqueKey="2-41997-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-41997-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42927">
+
+
+        <div id="thread-message-42927" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42927">
+                <a name="42927"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/mray"
+   data-externalId=""
+   data-username="mray"
+   data-avatarId="1026"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4158, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mray/avatar/46.png?a=1026"
+            border="0" height="46" width="46"
+            alt="Matt Ray"
+            /><span username="mray" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-12.gif"
+           alt="Rank: Zen Master" title="Rank: Zen Master"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/mray"
+data-externalId=""
+data-username="mray"
+data-avatarId="1026"
+id="jive-415832927347783098173"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4158, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Matt Ray</a>                        </div>
+                        <em>2,484 posts since <br/>Apr 5, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42927.html#42927" title="Link to reply #36" class="jive-thread-reply-num font-color-meta-light">36.</a>
+                        <span>Dec 3, 2009 6:23 PM</span>
+                            (<a href="41407.html#41407" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42927.html#42927">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:e7cd9d3c-5f52-4160-9025-9129a3ec7e44] --><div class="jive-rendered-content"><p>The ZenPack is now available here: <a class="jive-link-wiki-small" href="../docs/DOC-4551.html">Domain/SSL Certificate Expiration Monitor</a>&#160; I made a small fix for the path issues, so there's now a 1.0.5 version available that no longer requires modifying the path in the data source.&#160; The key to getting paths within the ZenPack is in this changeset: <a class="jive-link-external-small" href="http://zenpacks.zenoss.org/trac-zenpacks/changeset/438">http://zenpacks.zenoss.org/trac-zenpacks/changeset/438</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks again!</p><p>Matt Ray</p><p>Zenoss Community Manager</p></div><!-- [DocumentBodyEnd:e7cd9d3c-5f52-4160-9025-9129a3ec7e44] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42927" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42927&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42927-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42927-" data-uniqueKey="2-42927-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-42927-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-55450">
+
+
+        <div id="thread-message-55450" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="55450">
+                <a name="55450"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/bautistaj.html"
+   data-externalId=""
+   data-username="bautistaj"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/bautistaj/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="bautistaj"
+            /><span username="bautistaj" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/bautistaj.html"
+data-externalId=""
+data-username="bautistaj"
+data-avatarId="-1"
+id="jive-769032927347785981025"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>bautistaj</a>                        </div>
+                        <em>83 posts since <br/>Nov 11, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="55450.html#55450" title="Link to reply #37" class="jive-thread-reply-num font-color-meta-light">37.</a>
+                        <span>Dec 14, 2010 2:47 PM</span>
+                            (<a href="42927.html#42927" title="Go to message" class="font-color-meta-light " >in response to Matt Ray</a>)
+                        </div>
+
+                        <strong>
+                        <a href="55450.html#55450">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:7ad82702-51ec-4e09-92af-b121afe84f43] --><div class="jive-rendered-content"><p>Hi Matt and everyone!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I installed this ZenPack and it seems to be working fine for all the domains except .CA (we are in Canada).</p><p>I dont know too much about coding but seeing the code of the check_domain.sh i found :</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>elif [ "${TLDTYPE}"&#160; == "uk" ];<br/>&#160;&#160;&#160; then<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160; ${WHOIS} -h "whois.nic.uk" "${1}" &gt; ${WHOIS_TMP}</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>so, I added:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>elif [ "${TLDTYPE}"&#160; == "ca" ];<br/>&#160;&#160;&#160; then<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160; ${WHOIS} -h "whois.cira.ca" "${1}" &gt; ${WHOIS_TMP}</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>and saved it. Shoud I compile the file? which compiler? can one of you guys please do it for me or let me know what are the steps?</p><p>there is something else to do?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Jose</p></div><!-- [DocumentBodyEnd:7ad82702-51ec-4e09-92af-b121afe84f43] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-55450" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=55450&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-55450-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-55450-" data-uniqueKey="2-55450-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-55450-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-55453">
+
+
+        <div id="thread-message-55453" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="55453">
+                <a name="55453"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732927347788894179"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="55453.html#55453" title="Link to reply #38" class="jive-thread-reply-num font-color-meta-light">38.</a>
+                        <span>Dec 14, 2010 4:18 PM</span>
+                            (<a href="55450.html#55450" title="Go to message" class="font-color-meta-light " >in response to bautistaj</a>)
+                        </div>
+
+                        <strong>
+                        <a href="55453.html#55453">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:5640b3fd-37d1-4d07-bf4c-ef43bf254a53] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>bautistaj wrote:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Hi Matt and everyone!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I installed this ZenPack and it seems to be working fine for all the domains except .CA (we are in Canada).</p><p>I dont know too much about coding but seeing the code of the check_domain.sh i found :</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>elif [ "${TLDTYPE}"&#160; == "uk" ];<br/>&#160;&#160;&#160; then<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160; ${WHOIS} -h "whois.nic.uk" "${1}" &gt; ${WHOIS_TMP}</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>so, I added:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>elif [ "${TLDTYPE}"&#160; == "ca" ];<br/>&#160;&#160;&#160; then<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160; ${WHOIS} -h "whois.cira.ca" "${1}" &gt; ${WHOIS_TMP}</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>and saved it. Shoud I compile the file? which compiler? can one of you guys please do it for me or let me know what are the steps?</p><p>there is something else to do?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Jose</p></blockquote><p>I think that it should work for you just fine now that you edited the script.&#160; Are you getting unexpected results?&#160; If things are goofy, I can do some more debugging, but what you did should be fine..</p></div><!-- [DocumentBodyEnd:5640b3fd-37d1-4d07-bf4c-ef43bf254a53] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-55453" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=55453&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-55453-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-55453-" data-uniqueKey="2-55453-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-55453-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-55456">
+
+
+        <div id="thread-message-55456" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="55456">
+                <a name="55456"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/bautistaj.html"
+   data-externalId=""
+   data-username="bautistaj"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/bautistaj/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="bautistaj"
+            /><span username="bautistaj" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/bautistaj.html"
+data-externalId=""
+data-username="bautistaj"
+data-avatarId="-1"
+id="jive-769032927347791824962"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>bautistaj</a>                        </div>
+                        <em>83 posts since <br/>Nov 11, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="55456.html#55456" title="Link to reply #39" class="jive-thread-reply-num font-color-meta-light">39.</a>
+                        <span>Dec 14, 2010 4:41 PM</span>
+                            (<a href="55453.html#55453" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="55456.html#55456">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:7cb1d36b-0e01-4465-9f5f-a75812976878] --><div class="jive-rendered-content"><p>Hi <a class="jive-link-profile-small" href="../people/guyverix.html">guyverix</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks for your quick reply...I did that change but it's not working, I'm trying to debug and so far I found that the REGISTRAR variable is not getting the right value as the results of the output from the jwhois is different :For example amazon.ca</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[Querying whois.cira.ca]<br/>[whois.cira.ca]<br/>Domain name:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; amazon.ca<br/>Domain status:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; registered<br/>Creation date:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 2000/09/19<br/>Expiry date:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 2017/07/16<br/>Updated date:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 2010/11/09</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Registrar:<br/>&#160;&#160;&#160; Name:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Webnames.ca Inc.<br/>&#160;&#160;&#160; Number:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 70</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Registrant:<br/>&#160;&#160;&#160; Name:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Amazon.com (TMA 499121)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Administrative contact:<br/>&#160;&#160;&#160; Name:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Amazon Hostmaster<br/>&#160;&#160;&#160; Postal address:&#160;&#160;&#160; Legal Dept.<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; P.O. Box 81226 <br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Seattle WA 98108-1226 United States<br/>&#160;&#160;&#160; Phone:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 1 206 2664064<br/>&#160;&#160;&#160; Fax:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 1 206 2667010<br/><span>&#160;&#160;&#160; Email:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span><a class="jive-link-email-small" href="mailto:hostmaster@amazon.com">hostmaster@amazon.com</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Technical contact:<br/>&#160;&#160;&#160; Name:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Host Master<br/>&#160;&#160;&#160; Postal address:&#160;&#160;&#160; Amazon.com Legal Dept.<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 1200 12th Avenue South<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Suite Suite 1200<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Seattle, WA&#160; 98144-2734 United States<br/>&#160;&#160;&#160; Phone:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; +1 206 266 4064<br/>&#160;&#160;&#160; Fax:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; +1 206 266 7010<br/><span>&#160;&#160;&#160; Email:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; </span><a class="jive-link-email-small" href="mailto:hostmaster@amazon.com">hostmaster@amazon.com</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Name servers:<br/>&#160;&#160;&#160; pdns1.ultradns.net<br/>&#160;&#160;&#160; pdns5.ultradns.info<br/>&#160;&#160;&#160; pdns3.ultradns.org<br/>&#160;&#160;&#160; pdns4.ultradns.org<br/>&#160;&#160;&#160; ns1.p31.dynect.net<br/>&#160;&#160;&#160; ns2.p31.dynect.net</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>and with the script, it returns :</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Domain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Registrar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Status&#160;&#160; Expires&#160;&#160;&#160;&#160; Days Left<br/>--------------------------------------- -------------------- -------- ----------- ---------<br/>amazon.ca&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Unknown&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Unknown&#160; Unknown&#160;&#160;&#160;&#160; Unknown</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>thanks for your help!!</p><p>I will continue trying to do some debug but any help will be greatly appreciated.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Jose</p></div><!-- [DocumentBodyEnd:7cb1d36b-0e01-4465-9f5f-a75812976878] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-55456" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=55456&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-55456-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-55456-" data-uniqueKey="2-55456-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-55456-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-55458">
+
+
+        <div id="thread-message-55458" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="55458">
+                <a name="55458"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/bautistaj.html"
+   data-externalId=""
+   data-username="bautistaj"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/bautistaj/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="bautistaj"
+            /><span username="bautistaj" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/bautistaj.html"
+data-externalId=""
+data-username="bautistaj"
+data-avatarId="-1"
+id="jive-769032927347794827712"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>bautistaj</a>                        </div>
+                        <em>83 posts since <br/>Nov 11, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="55458.html#55458" title="Link to reply #40" class="jive-thread-reply-num font-color-meta-light">40.</a>
+                        <span>Dec 14, 2010 4:48 PM</span>
+                            (<a href="55456.html#55456" title="Go to message" class="font-color-meta-light " >in response to bautistaj</a>)
+                        </div>
+
+                        <strong>
+                        <a href="55458.html#55458">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:fb61a8f8-baad-4901-a00f-989ce89df472] --><div class="jive-rendered-content"><p>I forgot to mentioned that I got an error with co.uk domains: amazon.co.uk</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Domain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Registrar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Status&#160;&#160; Expires&#160;&#160;&#160;&#160; Days Left<br/>--------------------------------------- -------------------- -------- ----------- ---------<br/> + 12 - 3")syntax error: invalid arithmetic operator (error token is "<br/>&#160;&#160; 0&#160;&#160;&#160; Amazon.com&#160; Expiring 05-Dec-2012</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thank you!!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Jose</p></div><!-- [DocumentBodyEnd:fb61a8f8-baad-4901-a00f-989ce89df472] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-55458" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=55458&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-55458-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-55458-" data-uniqueKey="2-55458-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-55458-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-55459">
+
+
+        <div id="thread-message-55459" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="55459">
+                <a name="55459"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732927347797753244"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="55459.html#55459" title="Link to reply #41" class="jive-thread-reply-num font-color-meta-light">41.</a>
+                        <span>Dec 14, 2010 4:57 PM</span>
+                            (<a href="55458.html#55458" title="Go to message" class="font-color-meta-light " >in response to bautistaj</a>)
+                        </div>
+
+                        <strong>
+                        <a href="55459.html#55459">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:01b20d4b-9cd5-4ddf-83d6-1f9cb708267a] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>bautistaj wrote:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I forgot to mentioned that I got an error with co.uk domains: amazon.co.uk</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Domain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Registrar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Status&#160;&#160; Expires&#160;&#160;&#160;&#160; Days Left<br/>--------------------------------------- -------------------- -------- ----------- ---------<br/> + 12 - 3")syntax error: invalid arithmetic operator (error token is "<br/>&#160;&#160; 0&#160;&#160;&#160; Amazon.com&#160; Expiring 05-Dec-2012</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thank you!!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Jose</p></blockquote><p>Well, it looks like I am going to be debugging the script this weeked..&#160;&#160; Grin..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I will get an updated one that will handle the .ca domain TLD structure better, and find out why the .co.uk subdomain stuff is broken.&#160; I know at one point it was working ok when I did the initial release, as I tested against theregsiter.co.uk.&#160; I will find out where my logic error is and get that corrected asap..</p></div><!-- [DocumentBodyEnd:01b20d4b-9cd5-4ddf-83d6-1f9cb708267a] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-55459" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=55459&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-55459-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-55459-" data-uniqueKey="2-55459-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-55459-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-55434">
+
+
+        <div id="thread-message-55434" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="55434">
+                <a name="55434"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732927347800709890"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="55434.html#55434" title="Link to reply #42" class="jive-thread-reply-num font-color-meta-light">42.</a>
+                        <span>Dec 14, 2010 10:32 PM</span>
+                            (<a href="55458.html#55458" title="Go to message" class="font-color-meta-light " >in response to bautistaj</a>)
+                        </div>
+
+                        <strong>
+                        <a href="55434.html#55434">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:7abc65af-b5b8-4964-9db9-f04f5b587b07] --><div class="jive-rendered-content"><p>Well I figured out the problem with the .co.uk portion easily enough.&#160; Recent versions of jwhois have a bug (sorry, dont use it anymore if you are monitoring .uk domains)</p><p>chubbard@guyver-barn ~ $jwhois -h "whois.nic.uk" theregsiter.co.uk<br/>[Querying whois.nic.uk]<br/>[Unable to connect to remote host]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This is an easy fix, change line 118 to be active (remove the #) and put a # in front of the jwhois declaration on line 120 (comment it out).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The .ca domain was a bit more of a pain, since once again the date formats are different than elsewhere.&#160; You did great in making the first change that you did.&#160; The other parts were to allow the script to see the registrar's name, and find out where the expiration date is at.&#160; I have taken care of those, and will be updating the ZenPack to by default use a regular whois command, and it will now fully support the .ca domains.&#160; In the meantime, I am attaching the check_domain.sh script for you here so you dont have to wait.&#160; Just overwrite (or move) the old copy, and put this one in its place..</p></div><!-- [DocumentBodyEnd:7abc65af-b5b8-4964-9db9-f04f5b587b07] -->
+<div class="jive-attachments">
+    <strong>Attachments:</strong>
+    <ul>
+        <li>
+            <a href="servlet/JiveServlet/download/55434-3394/check_domain.sh"><span
+                    class="jive-icon-sml jive-icon-doctype-generic"></span>check_domain.sh</a> (15.8 K)
+
+
+        </li>
+    </ul>
+</div>
+<div id="previewable-binary-viewer"></div>
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-55434" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=55434&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-55434-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-55434-" data-uniqueKey="2-55434-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-55434-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-55483">
+
+
+        <div id="thread-message-55483" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="55483">
+                <a name="55483"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/bautistaj.html"
+   data-externalId=""
+   data-username="bautistaj"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/bautistaj/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="bautistaj"
+            /><span username="bautistaj" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/bautistaj.html"
+data-externalId=""
+data-username="bautistaj"
+data-avatarId="-1"
+id="jive-769032927347807214682"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>bautistaj</a>                        </div>
+                        <em>83 posts since <br/>Nov 11, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="55483.html#55483" title="Link to reply #43" class="jive-thread-reply-num font-color-meta-light">43.</a>
+                        <span>Dec 15, 2010 1:33 PM</span>
+                            (<a href="55434.html#55434" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="55483.html#55483">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:c92c9714-a194-47c1-b0cb-cae2178edf4d] --><div class="jive-rendered-content"><p>Thank you!</p><p>I will try that script and let you know if I have some issues..finally I'm not so bad "doing" some code <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks again!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Jose</p></div><!-- [DocumentBodyEnd:c92c9714-a194-47c1-b0cb-cae2178edf4d] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-55483" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=55483&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-55483-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-55483-" data-uniqueKey="2-55483-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-55483-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-55484">
+
+
+        <div id="thread-message-55484" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="55484">
+                <a name="55484"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/bautistaj.html"
+   data-externalId=""
+   data-username="bautistaj"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/bautistaj/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="bautistaj"
+            /><span username="bautistaj" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/bautistaj.html"
+data-externalId=""
+data-username="bautistaj"
+data-avatarId="-1"
+id="jive-769032927347809988749"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7690, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>bautistaj</a>                        </div>
+                        <em>83 posts since <br/>Nov 11, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="55484.html#55484" title="Link to reply #44" class="jive-thread-reply-num font-color-meta-light">44.</a>
+                        <span>Dec 15, 2010 1:59 PM</span>
+                            (<a href="55483.html#55483" title="Go to message" class="font-color-meta-light " >in response to bautistaj</a>)
+                        </div>
+
+                        <strong>
+                        <a href="55484.html#55484">Re: Can Zenoss monitor ssl cert expiration and domain name expiration?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:64bd6fa4-99e0-4eea-a7d3-7062bd52a3f5] --><div class="jive-rendered-content"><p>I just ran some examples, and I saw that with some .CA domains, the calculation of the date of expiration is not correct :</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[zenoss@MOP-ESM-MON-02 libexec]$ ./check_domain.sh -x 30 -d firepay.ca</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Domain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Registrar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Status&#160;&#160; Expires&#160;&#160;&#160;&#160; Days Left<br/>--------------------------------------- -------------------- -------- ----------- ---------<br/>firepay.ca&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Tucows.com Co.&#160;&#160;&#160;&#160;&#160;&#160; Expiring 18-02-2011&#160;&#160; 3&#160;&#160;&#160; </p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[zenoss@MOP-ESM-MON-02 libexec]$ ./check_domain.sh -x 30 -d optimalpayments.ca</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Domain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Registrar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Status&#160;&#160; Expires&#160;&#160;&#160;&#160; Days Left<br/>--------------------------------------- -------------------- -------- ----------- ---------<br/>optimalpayments.ca&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Tucows.com Co.&#160;&#160;&#160;&#160;&#160;&#160; Expiring 20-01-2011&#160;&#160; 5&#160;&#160;&#160; </p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[zenoss@MOP-ESM-MON-02 libexec]$ ./check_domain.sh -x 30 -d tradegard.ca</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Domain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Registrar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Status&#160;&#160; Expires&#160;&#160;&#160;&#160; Days Left<br/>--------------------------------------- -------------------- -------- ----------- ---------<br/>tradegard.ca&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Tucows.com Co.&#160;&#160;&#160;&#160;&#160; <strong> Expired</strong>&#160; 07-01-<strong>2011 </strong>&#160; -8</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="text-decoration: underline;">and other example</span> :</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[zenoss@MOP-ESM-MON-02 libexec]$ ./check_domain.sh -x 30 -d yahoo.ca</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Domain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Registrar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Status&#160;&#160; Expires&#160;&#160;&#160;&#160; Days Left<br/>--------------------------------------- -------------------- -------- ----------- ---------<br/>yahoo.ca&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Webnames.ca Inc.&#160;&#160;&#160;&#160; Valid&#160;&#160;&#160; 21-09-2012&#160; <strong> 371 </strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>From and including: <strong>Wednesday, December 15, 2010</strong><br/>To, but <strong>not</strong> including : <strong>Friday, September 21, 2012</strong></p><p>It is <strong><span>646</span> days</strong> from the start date to the end date, but not including the end date</p><p>Or <span>1 year, 9 months, 6 days</span> excluding the end date</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>And with co.uk, I'm still having issues <img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[root@MOP-ESM-MON-02 libexec]# /opt/zenoss/libexec/check_domain.sh -x 30 -d amazon.co.uk</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Domain&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Registrar&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Status&#160;&#160; Expires&#160;&#160;&#160;&#160; Days Left<br/>--------------------------------------- -------------------- -------- ----------- ---------<br/><strong> + 12 - 3")syntax error: invalid arithmetic operator (error token is "</strong><br/>&#160;&#160; 0&#160;&#160;&#160; Amazon.com&#160; Expiring 05-Dec-2012</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks for all your help!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Jose</p></div><!-- [DocumentBodyEnd:64bd6fa4-99e0-4eea-a7d3-7062bd52a3f5] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-55484" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=55484&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-55484-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-55484-" data-uniqueKey="2-55484-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42927.html#" id="jive-acclaim-likedlink-2-55484-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <!-- BEGIN pagination-->
+                    <span class="jive-pagination">
+                        <span class="jive-pagination-numbers">
+                                <a href="../thread/11816%3Fstart=0&amp;tstart=0.html"
+                                     >1</a>
+                                <a href="../thread/11816%3Fstart=15&amp;tstart=0.html"
+                                     >2</a>
+                                <a href="../thread/11816%3Fstart=30&amp;tstart=0.html"
+                                    class="jive-pagination-current" >3</a>
+                                <a href="../thread/11816%3Fstart=45&amp;tstart=0.html"
+                                     >4</a>
+                        </span>
+                        <span class="jive-pagination-prevnext">
+                                <a href="../thread/11816%3Fstart=15&amp;tstart=0.html" class="jive-pagination-prev">Previous</a>
+                                <a href="../thread/11816%3Fstart=45&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                        </span>
+                    </span>
+                    <!-- END pagination -->
+                </div>
+                <!-- END thread info -->
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="../thread/11816%3Ftstart=0.html"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="../thread/11816%3Fdecorator=print&amp;displayFullThread=true.html"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-41109">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+<!-- BEGIN sidebar box 'Incoming Links' -->
+<div class="jive-box jive-sidebar">
+    <div class="jive-box-header jive-sidebar-header">
+        <h4>Incoming Links</h4>
+    </div>
+    <div class="jive-box-body jive-sidebar-body jive-sidebar-body-incominglinks">
+        <ul class="jive-icon-list">
+                        <li>
+                            <a href="../docs/DOC-4551.html">
+                            <span class="jive-icon-med jive-icon-document"></span>
+                                Domain/SSL Certificate Expiration Monitor
+                            </a>
+                        </li>
+        </ul>
+    </div>
+</div>
+<!-- END sidebar box 'Incoming Links' -->
+
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+          <div class="jive-box jive-sidebar jive-box-questionLegend">
+              <div class="jive-box-header jive-sidebar-header">
+                  <h4>Legend</h4>
+              </div>
+              <div class="jive-box-body jive-sidebar-body">
+                  <ul class="jive-icon-list font-color-meta">
+                      <li><span class="jive-icon-med jive-icon-discussion-correct"></span>
+<strong class="jive-thread-reply-message-correct-label">Correct Answers</strong> - 4 points                      </li>
+                      <li><span class="jive-icon-med jive-icon-discussion-helpful"></span>
+<strong class="jive-thread-reply-message-helpful-label">Helpful Answers</strong> - 2 points                      </li>
+                  </ul>
+              </div>
+          </div>
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+

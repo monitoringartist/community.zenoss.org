@@ -1,0 +1,2432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Graphing an actual value and not an average - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- Graphing an actual value and not an average -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Graphing an actual value and not an average' Discussion Feed"
+            href="community/feeds/messages?thread=11762">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="../thread/11762%3Fstart=0&amp;tstart=0.html#40893"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="40893.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="40893.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="40893.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.11762"/>
+        <input type="hidden" name="message.post.11762" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=11762&amp;message=40893&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="11762">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Graphing an actual value and not an average"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+                        <!-- BEGIN pagination-->
+                        <span class="jive-pagination">
+                            <span class="jive-pagination-numbers">
+                                    <a href="../thread/11762%3Fstart=0&amp;tstart=0.html"
+                                        class="jive-pagination-current" >1</a>
+                                    <a href="../thread/11762%3Fstart=15&amp;tstart=0.html"
+                                         >2</a>
+                            </span>
+                            <span class="jive-pagination-prevnext">
+                                    <span class="jive-pagination-prev-none">Previous</span>
+                                    <a href="../thread/11762%3Fstart=15&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                            </span>
+                        </span>
+                    <!-- END pagination -->
+
+                    <strong>     
+        
+            223248&nbsp;Views
+        
+
+</strong>
+                        <strong>22 Replies</strong>
+                    <a href="41219%3Ftstart=0.html#41219" >Latest reply</a>:
+                    Oct 28, 2009 9:41 AM by
+gramik                        <span><a href="community/feeds/messages?thread=11762"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="11762"></a><a name="40893"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/unixsamurai.html"
+   data-externalId=""
+   data-username="unixsamurai"
+   data-avatarId="1092"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/unixsamurai/avatar/46.png?a=1092"
+            border="0" height="46" width="46"
+            alt="unixsamurai"
+            /><span username="unixsamurai" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/unixsamurai.html"
+data-externalId=""
+data-username="unixsamurai"
+data-avatarId="1092"
+id="jive-355332925839308050395"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>unixsamurai</a>                                    </div>
+                                    <em>42 posts since <br/>Dec 10, 2007</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Oct 19, 2009 1:44 PM</h3>
+                                        <h2><a href="40893.html#40893">Graphing an actual value and not an average</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:26431cab-41df-4373-8fad-b9912c15a096] --><div class="jive-rendered-content"><p>We poll the number of active channels on our PRI on a Cisco 2691</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I setup a template using snmp to get and graph the values from this OID: 1.3.6.1.4.1.9.10.19.1.1.4.0.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Typically I see one or 2 channels in use when I do snmpget or use mrtg to graph it.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I want Zenoss/RDDtool to graph the actual value returned each time it's polled, but I don't end up with whole numbers. It's not possible to use 1.23 channels out of 23 possible in use.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Graph Commands:</p><pre>-F<br/>-E<br/>--height=100<br/>--width=500<br/>--vertical-label=Lines in Use<br/>DEF:pri-raw=rrdPath/pri_pri.rrd:ds0:AVERAGE<br/>CDEF:pri=pri-raw<br/>LINE1:pri-raw#00cc00ff:pri&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <br/>GPRINT:pri-raw:LAST:cur\:%5.2lf<br/>GPRINT:pri-raw:AVERAGE:avg\:%5.2lf<br/>GPRINT:pri-raw:MAX:max\:%5.2lf\j</pre></div><!-- [DocumentBodyEnd:26431cab-41df-4373-8fad-b9912c15a096] -->
+
+<div class="jive-attachments">
+    <strong>Attachments:</strong>
+    <ul>
+        <li>
+            <a href="servlet/JiveServlet/download/40893-2019/pri.png"><img
+                    alt="Attachment"
+                    src="servlet/JiveServlet/attachImage?attachImage=true&amp;contentType=image%2Fpng&amp;attachment=2019"
+                    border="0" style="margin: 3px 1px 0px 0px;"/></a>
+            <a href="servlet/JiveServlet/download/40893-2019/pri.png">pri.png</a>
+            (13.8 K)
+        </li>
+    </ul>
+</div>
+<div id="previewable-binary-viewer"></div>
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-40893-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40893-" data-uniqueKey="2-40893-" data-ratingType="like" data-hasVoted="false" data-likes="1" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40893-"  class=" jive-acclaim-likedlink">1</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-40896">
+
+
+        <div id="thread-message-40896" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="40896">
+                <a name="40896"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/gramik.html"
+   data-externalId=""
+   data-username="gramik"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5198, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/gramik/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="gramik"
+            /><span username="gramik" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/gramik.html"
+data-externalId=""
+data-username="gramik"
+data-avatarId="-1"
+id="jive-519832925839314375278"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5198, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>gramik</a>                        </div>
+                        <em>40 posts since <br/>Oct 29, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40896.html#40896" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Oct 19, 2009 5:10 PM</span>
+                            (<a href="40893.html#40893" title="Go to message" class="font-color-meta-light " >in response to unixsamurai</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40896.html#40896">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:97770dfc-0a45-4ec8-85e1-0418315a24a0] --><div class="jive-rendered-content"><span>Is your Data Source Type "DERVICE" or "COUNTER"?&#160;&#160; Sounds like you actually want "GUAGE".&#160; Assuming you're polling the correct OID, that should give you the number of channels in use at the exact moment the poll happens.</span><br/><br/></div><!-- [DocumentBodyEnd:97770dfc-0a45-4ec8-85e1-0418315a24a0] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40896" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40896&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40896-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40896-" data-uniqueKey="2-40896-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40896-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40898">
+
+
+        <div id="thread-message-40898" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="40898">
+                <a name="40898"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732925839319103287"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40898.html#40898" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Oct 19, 2009 7:43 PM</span>
+                            (<a href="40896.html#40896" title="Go to message" class="font-color-meta-light " >in response to gramik</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40898.html#40898">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:84a85502-cc19-4117-aa0b-2cb98dc237ad] --><div class="jive-rendered-content"><p>I suspect he is looking for the same answer as I am.&#160; I am using gague for counting vrtual circuits associated with an ATM interface, the problem is, I cannot have 500.75 circuits up.&#160; The return is an integer.&#160; Since RRD is averaging X number of returns, if there is a variance I will get a non whole number.&#160; I would like RRD to just show 501, then 500 if that was the return, and then back up to 501.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Averaging is great for trending, but realtime looks at the graphs, I would more like to see real values and have it aggrigate and average the historical stuff.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I THINK the problem is here in the definition:</p><pre>DEF:pri-raw=rrdPath/pri_pri.rrd:ds0:AVERAGE<br/><br/>I am guessing we would want something closer to:<br/>DEF:pri-raw=rrdPath/pri_pri.rrd:ds0:REAL&#160;&#160;&#160; (dont know if something like this exists)</pre></div><!-- [DocumentBodyEnd:84a85502-cc19-4117-aa0b-2cb98dc237ad] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40898" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40898&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40898-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40898-" data-uniqueKey="2-40898-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40898-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40899">
+
+
+        <div id="thread-message-40899" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="40899">
+                <a name="40899"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732925839378365625"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40899.html#40899" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Oct 19, 2009 7:52 PM</span>
+                            (<a href="40898.html#40898" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40899.html#40899">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:8a5048ec-2fe1-41b6-ad80-d9be5f25d2bb] --><div class="jive-rendered-content"><p>Grrr..&#160; Should have looked up the data on the rrd website before posting..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><dl><dt><strong>AVERAGE</strong></dt><dd><p>is the consolidation method (choose from MIN,MAX,AVERAGE,LAST)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I think what we want to use is the LAST method for return values.&#160; That should graph (I hope) correctly.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>now I just have to figure out how to do it.&#160; heheh.</p></dd></dl></div><!-- [DocumentBodyEnd:8a5048ec-2fe1-41b6-ad80-d9be5f25d2bb] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40899" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40899&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40899-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40899-" data-uniqueKey="2-40899-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40899-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40914">
+
+
+        <div id="thread-message-40914" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="40914">
+                <a name="40914"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/majikman.html"
+   data-externalId=""
+   data-username="majikman"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7274, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/majikman/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="majikman"
+            /><span username="majikman" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/majikman.html"
+data-externalId=""
+data-username="majikman"
+data-avatarId="-1"
+id="jive-727432925839385965537"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7274, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>majikman</a>                        </div>
+                        <em>39 posts since <br/>Oct 5, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40914.html#40914" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Oct 20, 2009 6:52 AM</span>
+                            (<a href="40899.html#40899" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40914.html#40914">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ab00662a-4fd7-480c-82e9-a0723593e717] --><div class="jive-rendered-content"><span>although you want to set your data points to last, you have to also remember to set your rrd creation to use a gauge otherwise you won't be able to properly graph the datapoints. check the event.log file to make sure that when zenoss attempts to draw the graphs, it doesn't throw any rrd errors in there. let me know if you need more detailed help.</span></div><!-- [DocumentBodyEnd:ab00662a-4fd7-480c-82e9-a0723593e717] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40914" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40914&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40914-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40914-" data-uniqueKey="2-40914-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40914-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40935">
+
+
+        <div id="thread-message-40935" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="40935">
+                <a name="40935"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/gramik.html"
+   data-externalId=""
+   data-username="gramik"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5198, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/gramik/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="gramik"
+            /><span username="gramik" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/gramik.html"
+data-externalId=""
+data-username="gramik"
+data-avatarId="-1"
+id="jive-519832925839393964637"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5198, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>gramik</a>                        </div>
+                        <em>40 posts since <br/>Oct 29, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40935.html#40935" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Oct 20, 2009 10:34 AM</span>
+                            (<a href="40899.html#40899" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40935.html#40935">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:943aef22-b52b-4fd0-8d46-4ba52f5f095e] --><div class="jive-rendered-content"><p>I am certainly not an RRD expert, but I think some clarification is in order here to make sure your understanding of how it works is more accurate.&#160; May be more info than you need, but perhaps this will help others reading this thread..</p><p>-----</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>Consolidation Function</strong></p><p>Consolidation defines the aggregation method used to turn compress a given series of data into a smaller dataset. </p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>It's important to understand, though, that when you're looking at your typical default "hourly" RRD graph, you are NOT looking at data that has been consolidated in the RRD file. When you use the GAUGE data source type, the values you see on that hourly graph should be 100% accurate.&#160; <strong>No averaging has been done.</strong>&#160;&#160; The default RRA parameters in Zenoss include 600 intervals of "high-resolution" (unconsolidated) data.&#160; Assuming you are polling every 5 minutes (default), this means you should have 50 hours of unconsolidated data.&#160; Since the default hourly graph shows 36 hours, that graph should not show any consolidated data.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Now, when you use the COUNTER or DERIVE data source type, the value is calculated as the delta (or change) between the value returned from the current poll and the value returned from the previous poll.&#160; That number (delta) is then averaged out to a per-second value based on your polling interval.&#160; Network interface counters are a perfect example of this:</p><p style="padding-left: 30px;">First poll --&gt;&#160; device returns "11209874" as the current, at-the-moment, perpetually-increasing value for octets that have passed through the interface</p><p style="padding-left: 30px;">Second poll --&gt; device returns "89762984351" as the new (current) counter value for octets that have pass through the interface</p><p style="padding-left: 30px;">The resulting value stored in the RRD file will be the delta of these two polls divided by the number of seconds that have passed.</p><p style="padding-left: 30px;">Thus, value stored will be:</p><p style="padding-left: 30px;">&#160;&#160; 89,762,984,351 - 11,209,874&#160; =&#160; 89,751,774,477 / 300 = <strong>299,172,581.59</strong> [octets-per-second]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="padding-left: 30px;">(Okay, if you multiply that number by 8 to get the number of BYTES per second, you get 2,393,380,652.72 bytes/sec.. an almost impossibly high number in reality, but you get the point... <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/>)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Back to consolidation..</p><p>The default RRA paramters for RRD files created by Zenoss are as follows, with explanation:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>RRA:AVERAGE:0.5:1:600</strong><br/> - consolidates every 1 poll (so no consolidation)<br/> - keeps 600 intervals of the polls<br/>&#160;&#160;&#160;&#160; 12 polls per hour means 50 hours of hi-res data (12/hr * 50hrs = 600)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>RRA:AVERAGE:0.5:6:600</strong><br/> - consolidates 6 values at a time (averages last 6 polls)<br/> - thus, 1 value every 30 minutes (5min * 6 polls)<br/> - keeps 600 values<br/> - thus, 12.5 days worth of values (48/day * 12.5days = 600)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>RRA:AVERAGE:0.5:24:600</strong><br/> - consolidates last 24 polls at a time<br/> - thus, 1 value every 2 hours (5min * 24 polls)<br/> - keeps 600 values<br/> - thus, 50 days worth of values (12/day * 50days = 600)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>RRA:AVERAGE:0.5:288:600</strong><br/>&#160; - consolidates last 288 polls at a time<br/>&#160; - thus, 1 value every 24 hours (5min * 288polls / 60min/hr)<br/>&#160; - keeps 600 values<br/>&#160; - thus, 600 days worth of values</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>So in reality each RRD file is storing 4 different "lines" of data for each data source (forgetting the MAXIMUM RRAs it is also recording..).&#160;&#160; Each "line" of data is less precise (more consolidated) than the previous.&#160; </p><p>When you request a time-period of data from the RRD file, RRDtool determines the MOST ACCURATE representation of that time-period it has stored.&#160; Thus, when you ask for the time-period between 300 days ago and 200 days ago, all of the resulting values returned from RRDtool will be from the "fourth line" of data -- that from the <strong>RRA:AVERAGE:0.5:288:600 </strong>line.&#160; Likewise when you ask for the last 36 hours of data, you will get values from the "first line" of stored values -- that from the <strong>RRA:AVERAGE:0.5:1:600</strong> line, which is by previous definition <strong>not consolidated</strong>. </p><p>I don't recall how it determines what data to send when the time-period crosses "line" boundaries, but I know it is explained somewhere on the RRDtool website..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>-----</p><p>Hope this makes sense. <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/>&#160;&#160; <strong><em>If anyone can speak to this explanation being incorrect, PLEASE DO SO! </em></strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks!</p></div><!-- [DocumentBodyEnd:943aef22-b52b-4fd0-8d46-4ba52f5f095e] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40935" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40935&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40935-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40935-" data-uniqueKey="2-40935-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40935-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40947">
+
+
+        <div id="thread-message-40947" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="40947">
+                <a name="40947"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/unixsamurai.html"
+   data-externalId=""
+   data-username="unixsamurai"
+   data-avatarId="1092"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/unixsamurai/avatar/46.png?a=1092"
+            border="0" height="46" width="46"
+            alt="unixsamurai"
+            /><span username="unixsamurai" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/unixsamurai.html"
+data-externalId=""
+data-username="unixsamurai"
+data-avatarId="1092"
+id="jive-355332925839398330433"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>unixsamurai</a>                        </div>
+                        <em>42 posts since <br/>Dec 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40947.html#40947" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Oct 20, 2009 1:44 PM</span>
+                            (<a href="40893.html#40893" title="Go to message" class="font-color-meta-light " >in response to unixsamurai</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40947.html#40947">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:a9d837a2-bf83-4f06-835f-4d643764f658] --><div class="jive-rendered-content"><p>When I change it from AVERAGE to LAST, my graphs for that data point stop displaying, even after allowing it sufficient time (over night) to rebuild/collect data.</p></div><!-- [DocumentBodyEnd:a9d837a2-bf83-4f06-835f-4d643764f658] -->
+<div class="jive-attachments">
+    <strong>Attachments:</strong>
+    <ul>
+        <li>
+            <a href="servlet/JiveServlet/download/40947-2021/pri.png"><img
+                    alt="Attachment"
+                    src="servlet/JiveServlet/attachImage?attachImage=true&amp;contentType=image%2Fpng&amp;attachment=2021"
+                    border="0" style="margin: 3px 1px 0px 0px;"/></a>
+            <a href="servlet/JiveServlet/download/40947-2021/pri.png">pri.png</a>
+            (20.5 K)
+        </li>
+    </ul>
+</div>
+<div id="previewable-binary-viewer"></div>
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40947" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40947&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40947-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40947-" data-uniqueKey="2-40947-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40947-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40943">
+
+
+        <div id="thread-message-40943" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="40943">
+                <a name="40943"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/jhelgesen.html"
+   data-externalId=""
+   data-username="jhelgesen"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3555, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jhelgesen/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="jhelgesen"
+            /><span username="jhelgesen" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/jhelgesen.html"
+data-externalId=""
+data-username="jhelgesen"
+data-avatarId="-1"
+id="jive-355532925839403656010"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3555, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jhelgesen</a>                        </div>
+                        <em>64 posts since <br/>Dec 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40943.html#40943" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Oct 20, 2009 1:52 PM</span>
+                            (<a href="40947.html#40947" title="Go to message" class="font-color-meta-light " >in response to unixsamurai</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40943.html#40943">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:49c7faf7-a713-4985-b572-468097d243ce] --><div class="jive-rendered-content"><p>After changing the consolidation function, you will need to rename or delete the old RRD file.&#160; It will be re-created with the new consolidation settings.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>--Jay</p></div><!-- [DocumentBodyEnd:49c7faf7-a713-4985-b572-468097d243ce] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40943" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40943&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40943-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40943-" data-uniqueKey="2-40943-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40943-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40951">
+
+
+        <div id="thread-message-40951" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="40951">
+                <a name="40951"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/unixsamurai.html"
+   data-externalId=""
+   data-username="unixsamurai"
+   data-avatarId="1092"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/unixsamurai/avatar/46.png?a=1092"
+            border="0" height="46" width="46"
+            alt="unixsamurai"
+            /><span username="unixsamurai" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/unixsamurai.html"
+data-externalId=""
+data-username="unixsamurai"
+data-avatarId="1092"
+id="jive-355332925839407872471"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>unixsamurai</a>                        </div>
+                        <em>42 posts since <br/>Dec 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40951.html#40951" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Oct 20, 2009 3:02 PM</span>
+                            (<a href="40943.html#40943" title="Go to message" class="font-color-meta-light " >in response to jhelgesen</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40951.html#40951">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:8ceec849-b38d-4e6b-a910-4f2a56732ec1] --><div class="jive-rendered-content"><span>I renamed the rrd file, after changing AVERAGE to LAST, but when I look at the rrd file that is newly created it still shows AVERAGE in it and the graph never shows properly.</span></div><!-- [DocumentBodyEnd:8ceec849-b38d-4e6b-a910-4f2a56732ec1] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40951" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40951&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40951-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40951-" data-uniqueKey="2-40951-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40951-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40969">
+
+
+        <div id="thread-message-40969" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="40969">
+                <a name="40969"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/majikman.html"
+   data-externalId=""
+   data-username="majikman"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7274, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/majikman/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="majikman"
+            /><span username="majikman" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/majikman.html"
+data-externalId=""
+data-username="majikman"
+data-avatarId="-1"
+id="jive-727432925839412723554"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7274, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>majikman</a>                        </div>
+                        <em>39 posts since <br/>Oct 5, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40969.html#40969" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Oct 20, 2009 4:11 PM</span>
+                            (<a href="40951.html#40951" title="Go to message" class="font-color-meta-light " >in response to unixsamurai</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40969.html#40969">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:c9c67654-c1bd-4bff-b894-d3eb2cae2555] --><div class="jive-rendered-content"><p>Not sure where you changed it, but there are two places you have to change it. One is in the data point. You have to change the default create cmd. This is what I have for a graph that is using LAST</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>RRA:AVERAGE:0.5:1:600</p><p>RRA:AVERAGE:0.5:6:600</p><p>RRA:AVERAGE:0.5:24:600</p><p>RRA:AVERAGE:0.5:288:600</p><p>RRA:MAX:0.5:6:600</p><p>RRA:MAX:0.5:24:600</p><p>RRA:MAX:0.5:288:600</p><p>RRA:LAST:0.5:1:600</p><p>RRA:LAST:0.5:6:600</p><p>RRA:LAST:0.5:24:600</p><p>RRA:LAST:0.5:288:600</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The other place is in the graph definition, you have to change the graph point's consolidation function to LAST. After that, you have to delete the corresponding RRD file and it should start working in a few minutes.</p></div><!-- [DocumentBodyEnd:c9c67654-c1bd-4bff-b894-d3eb2cae2555] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40969" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40969&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40969-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40969-" data-uniqueKey="2-40969-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40969-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40956">
+
+
+        <div id="thread-message-40956" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="40956">
+                <a name="40956"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/mray"
+   data-externalId=""
+   data-username="mray"
+   data-avatarId="1026"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4158, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mray/avatar/46.png?a=1026"
+            border="0" height="46" width="46"
+            alt="Matt Ray"
+            /><span username="mray" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-12.gif"
+           alt="Rank: Zen Master" title="Rank: Zen Master"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/mray"
+data-externalId=""
+data-username="mray"
+data-avatarId="1026"
+id="jive-415832925839418036695"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4158, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Matt Ray</a>                        </div>
+                        <em>2,484 posts since <br/>Apr 5, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40956.html#40956" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Oct 20, 2009 5:27 PM</span>
+                            (<a href="40935.html#40935" title="Go to message" class="font-color-meta-light " >in response to gramik</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40956.html#40956">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:6f940d04-8d67-4397-aca9-ea68c19fb761] --><div class="jive-rendered-content"><p>This looks like great <a class="jive-link-community-small" href="community/documentation/wiki">Wiki</a> content, why don't you create a new document for other users to share your knowledge?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks!</p><p>Matt Ray</p><p>Zenoss Community Manager</p></div><!-- [DocumentBodyEnd:6f940d04-8d67-4397-aca9-ea68c19fb761] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40956" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40956&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40956-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40956-" data-uniqueKey="2-40956-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40956-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-40959">
+
+
+        <div id="thread-message-40959" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="40959">
+                <a name="40959"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/unixsamurai.html"
+   data-externalId=""
+   data-username="unixsamurai"
+   data-avatarId="1092"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/unixsamurai/avatar/46.png?a=1092"
+            border="0" height="46" width="46"
+            alt="unixsamurai"
+            /><span username="unixsamurai" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/unixsamurai.html"
+data-externalId=""
+data-username="unixsamurai"
+data-avatarId="1092"
+id="jive-355332925839422956374"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>unixsamurai</a>                        </div>
+                        <em>42 posts since <br/>Dec 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="40959.html#40959" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Oct 20, 2009 9:59 PM</span>
+                            (<a href="40969.html#40969" title="Go to message" class="font-color-meta-light " >in response to majikman</a>)
+                        </div>
+
+                        <strong>
+                        <a href="40959.html#40959">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:7d25412a-feb3-4eb7-a5d2-57906418fe76] --><div class="jive-rendered-content"><span>I had changed it in the graph point, but not in the default create cmd. I'll try that tomorrow then delete the rrd file to see if that doesn't fix me up.</span></div><!-- [DocumentBodyEnd:7d25412a-feb3-4eb7-a5d2-57906418fe76] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-40959" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=40959&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-40959-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-40959-" data-uniqueKey="2-40959-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-40959-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41006">
+
+
+        <div id="thread-message-41006" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="41006">
+                <a name="41006"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/unixsamurai.html"
+   data-externalId=""
+   data-username="unixsamurai"
+   data-avatarId="1092"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/unixsamurai/avatar/46.png?a=1092"
+            border="0" height="46" width="46"
+            alt="unixsamurai"
+            /><span username="unixsamurai" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/unixsamurai.html"
+data-externalId=""
+data-username="unixsamurai"
+data-avatarId="1092"
+id="jive-355332925839427314549"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>unixsamurai</a>                        </div>
+                        <em>42 posts since <br/>Dec 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41006.html#41006" title="Link to reply #12" class="jive-thread-reply-num font-color-meta-light">12.</a>
+                        <span>Oct 21, 2009 3:41 PM</span>
+                            (<a href="40969.html#40969" title="Go to message" class="font-color-meta-light " >in response to majikman</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41006.html#41006">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:5ad403a0-8fed-4b10-91ef-0269fc800aa4] --><div class="jive-rendered-content"><p>I actually used your values from your default cmd create:</p><p>RRA:AVERAGE:0.5:1:600</p><p>RRA:AVERAGE:0.5:6:600</p><p>RRA:AVERAGE:0.5:24:600</p><p>RRA:AVERAGE:0.5:288:600</p><p>RRA:MAX:0.5:6:600</p><p>RRA:MAX:0.5:24:600</p><p>RRA:MAX:0.5:288:600</p><p>RRA:LAST:0.5:1:600</p><p>RRA:LAST:0.5:6:600</p><p>RRA:LAST:0.5:24:600</p><p>RRA:LAST:0.5:288:600</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>changed AVERAGE to LAST and deleted the rrd file, but I'm still not getting the proper data graphed. The OID I'm using works in mrtg or via snmpget.</p></div><!-- [DocumentBodyEnd:5ad403a0-8fed-4b10-91ef-0269fc800aa4] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41006" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41006&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41006-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41006-" data-uniqueKey="2-41006-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-41006-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41076">
+
+
+        <div id="thread-message-41076" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="41076">
+                <a name="41076"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/unixsamurai.html"
+   data-externalId=""
+   data-username="unixsamurai"
+   data-avatarId="1092"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/unixsamurai/avatar/46.png?a=1092"
+            border="0" height="46" width="46"
+            alt="unixsamurai"
+            /><span username="unixsamurai" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/unixsamurai.html"
+data-externalId=""
+data-username="unixsamurai"
+data-avatarId="1092"
+id="jive-355332925839432185204"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3553, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>unixsamurai</a>                        </div>
+                        <em>42 posts since <br/>Dec 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41076.html#41076" title="Link to reply #13" class="jive-thread-reply-num font-color-meta-light">13.</a>
+                        <span>Oct 23, 2009 10:07 AM</span>
+                            (<a href="41006.html#41006" title="Go to message" class="font-color-meta-light " >in response to unixsamurai</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41076.html#41076">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ab7e321f-4a4c-4c31-ad99-7450c149dd52] --><div class="jive-rendered-content"><span>Can someone clarify one thing for me? Why am I getting partial numbers in my graphs for the "current" value when this OID only returns whole numbers? I've read all the postings and been reading the rrdtool site too, but I'm still a tad fuzzy.</span></div><!-- [DocumentBodyEnd:ab7e321f-4a4c-4c31-ad99-7450c149dd52] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41076" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41076&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41076-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41076-" data-uniqueKey="2-41076-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-41076-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41078">
+
+
+        <div id="thread-message-41078" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="41078">
+                <a name="41078"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/gramik.html"
+   data-externalId=""
+   data-username="gramik"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5198, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/gramik/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="gramik"
+            /><span username="gramik" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/gramik.html"
+data-externalId=""
+data-username="gramik"
+data-avatarId="-1"
+id="jive-519832925839437207658"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5198, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>gramik</a>                        </div>
+                        <em>40 posts since <br/>Oct 29, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41078.html#41078" title="Link to reply #14" class="jive-thread-reply-num font-color-meta-light">14.</a>
+                        <span>Oct 23, 2009 10:28 AM</span>
+                            (<a href="41076.html#41076" title="Go to message" class="font-color-meta-light " >in response to unixsamurai</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41078.html#41078">Re: Graphing an actual value and not an average</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:6bf52530-06a7-4def-a3e5-406a07e5679c] --><div class="jive-rendered-content"><p>Are you 100% sure you have the Data Source Type set to <strong>GAUGE</strong>?&#160; It really sounds like you've got it set to COUNTER or DERIVE...</p><p>Other than that, I would check the results from a command-line "snmpget" a few times -- make sure you're getting integers from the device.</p></div><!-- [DocumentBodyEnd:6bf52530-06a7-4def-a3e5-406a07e5679c] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41078" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41078&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41078-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41078-" data-uniqueKey="2-41078-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="40893.html#" id="jive-acclaim-likedlink-2-41078-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <!-- BEGIN pagination-->
+                    <span class="jive-pagination">
+                        <span class="jive-pagination-numbers">
+                                <a href="../thread/11762%3Fstart=0&amp;tstart=0.html"
+                                    class="jive-pagination-current" >1</a>
+                                <a href="../thread/11762%3Fstart=15&amp;tstart=0.html"
+                                     >2</a>
+                        </span>
+                        <span class="jive-pagination-prevnext">
+                                <span class="jive-pagination-prev-none">Previous</span>
+                                <a href="../thread/11762%3Fstart=15&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                        </span>
+                    </span>
+                    <!-- END pagination -->
+                </div>
+                <!-- END thread info -->
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="40893.html#11762" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="../thread/11762%3Fdecorator=print&amp;displayFullThread=true.html"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-40893">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+<!-- BEGIN sidebar box 'Incoming Links' -->
+<div class="jive-box jive-sidebar">
+    <div class="jive-box-header jive-sidebar-header">
+        <h4>Incoming Links</h4>
+    </div>
+    <div class="jive-box-body jive-sidebar-body jive-sidebar-body-incominglinks">
+        <ul class="jive-icon-list">
+                        <li>
+                            <a href="../docs/DOC-4426.html">
+                            <span class="jive-icon-med jive-icon-document"></span>
+                                Graph an actual value (not an average) - Doesn't prevent normalization.
+                            </a>
+                        </li>
+        </ul>
+    </div>
+</div>
+<!-- END sidebar box 'Incoming Links' -->
+
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+          <div class="jive-box jive-sidebar jive-box-questionLegend">
+              <div class="jive-box-header jive-sidebar-header">
+                  <h4>Legend</h4>
+              </div>
+              <div class="jive-box-body jive-sidebar-body">
+                  <ul class="jive-icon-list font-color-meta">
+                      <li><span class="jive-icon-med jive-icon-discussion-correct"></span>
+<strong class="jive-thread-reply-message-correct-label">Correct Answers</strong> - 4 points                      </li>
+                      <li><span class="jive-icon-med jive-icon-discussion-helpful"></span>
+<strong class="jive-thread-reply-message-helpful-label">Helpful Answers</strong> - 2 points                      </li>
+                  </ul>
+              </div>
+          </div>
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+

@@ -1,0 +1,2391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Zenprocess, zenwin, zeneventlog down after 2.5 upgrade - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- Zenprocess, zenwin, zeneventlog down after 2.5 upgrade -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Zenprocess, zenwin, zeneventlog down after 2.5 upgrade' Discussion Feed"
+            href="community/feeds/messages?thread=11853">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="thread/11853?start=0&amp;tstart=0#42703"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="42703.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="42703.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="42703.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.11853"/>
+        <input type="hidden" name="message.post.11853" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=11853&amp;message=42703&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="11853">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+                        <!-- BEGIN pagination-->
+                        <span class="jive-pagination">
+                            <span class="jive-pagination-numbers">
+                                    <a href="thread/11853?start=0&amp;tstart=0"
+                                        class="jive-pagination-current" >1</a>
+                                    <a href="thread/11853?start=15&amp;tstart=0"
+                                         >2</a>
+                            </span>
+                            <span class="jive-pagination-prevnext">
+                                    <span class="jive-pagination-prev-none">Previous</span>
+                                    <a href="thread/11853?start=15&amp;tstart=0" class="jive-pagination-next">Next</a>
+                            </span>
+                        </span>
+                    <!-- END pagination -->
+
+                    <strong>     
+        
+            151487&nbsp;Views
+        
+
+</strong>
+                        <strong>17 Replies</strong>
+                    <a href="42708%3Ftstart=0.html#42708" >Latest reply</a>:
+                    Nov 27, 2009 7:23 PM by
+Captain MESO                        <span><a href="community/feeds/messages?thread=11853"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="11853"></a><a name="41297"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/rebelinux.html"
+   data-externalId=""
+   data-username="rebelinux"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4498, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/rebelinux/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="rebelinux"
+            /><span username="rebelinux" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/rebelinux.html"
+data-externalId=""
+data-username="rebelinux"
+data-avatarId="-1"
+id="jive-449832927155184684689"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4498, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>rebelinux</a>                                    </div>
+                                    <em>108 posts since <br/>Jun 6, 2008</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Oct 29, 2009 12:18 PM</h3>
+                                        <h2><a href="41297.html#41297">Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:c2d99d4b-4d56-4ec4-8144-1a11a7274396] --><div class="jive-rendered-content"><p>After upgrading to 2.5 the zenprocess, zenwin and zeneventlog didnt start</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><pre>2009-10-29 11:55:02,512 INFO zen.zzenprocess: Connecting to localhost:8789<br/>2009-10-29 11:55:32,582 ERROR zen.zenprocess: Timeout connecting to zenhub: is it running?<br/>2009-10-29 11:55:32,583 ERROR zen.zenprocess: Configure failed: ZenHub is down<br/>2009-10-29 11:55:32,583 ERROR zen.zenprocess: [Failure instance: Traceback (failure with no frames): Products.ZenHub.PBDaemon.HubDown: ZenHub is down<br/>]<br/>None<br/>2009-10-29 11:55:33,584 INFO zen.zenprocess: Deleting PID file /usr/local/zenoss/zenoss/var/zenprocess-localhost.pid ...<br/>2009-10-29 11:55:33,584 INFO zen.zenprocess: Daemon CollectorDaemon shutting down<br/></pre></div><!-- [DocumentBodyEnd:c2d99d4b-4d56-4ec4-8144-1a11a7274396] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-41297-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41297-" data-uniqueKey="2-41297-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-41297-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-41313">
+
+
+        <div id="thread-message-41313" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="41313">
+                <a name="41313"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/jwilda.html"
+   data-externalId=""
+   data-username="jwilda"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6016, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jwilda/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="jwilda"
+            /><span username="jwilda" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/jwilda.html"
+data-externalId=""
+data-username="jwilda"
+data-avatarId="-1"
+id="jive-601632927155189546729"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6016, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jwilda</a>                        </div>
+                        <em>40 posts since <br/>May 7, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41313.html#41313" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Oct 29, 2009 12:38 PM</span>
+                            (<a href="41297.html#41297" title="Go to message" class="font-color-meta-light " >in response to rebelinux</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41313.html#41313">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:c18b0904-6fee-4ce7-9f88-4aeedf3a6043] --><div class="jive-rendered-content"><p>After upgrade <span style="font-family: courier new,courier;">zenprocess</span>, <span style="font-family: courier new,courier;">zenwin</span>, and <span style="font-family: courier new,courier;">zeneventlog</span> won't start (or stay running).&#160; Below is the details.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Server Information (<span style="font-family: courier new,courier;">CentOS 5.4</span>):</p><blockquote class="jive-quote"><span style="font-family: courier new,courier;">Zenoss&#160;&#160;&#160;&#160;&#160;&#160; Zenoss 2.5.0<br/>OS&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Linux (i686) 2.6.18 (Linux server_name 2.6.18-164.el5PAE #1 SMP Thu Sep 3 04:10:44 EDT 2009 i686)<br/>Zope&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Zope 2.11.2<br/>Python&#160;&#160;&#160;&#160;&#160;&#160; Python 2.4.4<br/>Database&#160;&#160;&#160;&#160; MySQL 5.0.77 (Ver 5.0.77)<br/>RRD&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; RRDtool 1.3.8<br/>Twisted&#160;&#160;&#160;&#160;&#160; Twisted 8.1.0<br/>NetSnmp&#160;&#160;&#160;&#160;&#160; NetSnmp 5.3.2<br/>PyNetSnmp&#160;&#160;&#160; PyNetSnmp 0.28.13<br/>WMI&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Wmi 1.3.5</span><br/></blockquote><p>what I see in the <span style="font-family: courier new,courier;">zenprocess</span> log:</p><blockquote class="jive-quote"><p><span style="font-family: courier new,courier;">2009-10-29 12:29:59,799 INFO zen.zenprocess: Connecting to localhost:8789<br/>2009-10-29 12:30:29,802 ERROR zen.zenprocess: Timeout connecting to zenhub: is it running?<br/>2009-10-29 12:30:29,803 ERROR zen.zenprocess: Configure failed: ZenHub is down<br/>2009-10-29 12:30:29,803 ERROR zen.zenprocess: [Failure instance: Traceback (failure with no frames): Products.ZenHub.PBDaemon.HubDown: ZenHub is down<br/>]<br/>None<br/>2009-10-29 12:30:30,805 INFO zen.zenprocess: Deleting PID file /opt/zenoss/var/zenprocess-localhost.pid ...<br/>2009-10-29 12:30:30,805 INFO zen.zenprocess: Daemon CollectorDaemon shutting down</span></p></blockquote><p>However <span style="font-family: courier new,courier;">ZenHub</span> is running and I can telnet to it i.e.</p><blockquote class="jive-quote"><span style="font-family: courier new,courier;"># netstat -antp | grep LIST | grep 8789<br/>tcp&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160; 0 0.0.0.0:8789&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0.0.0.0:*&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; LISTEN&#160;&#160;&#160;&#160;&#160; 21714/python </span><br/></blockquote><blockquote class="jive-quote"><span style="font-family: courier new,courier;"># telnet localhost 8789<br/>Trying 127.0.0.1...<br/>Connected to localhost.localdomain (127.0.0.1).<br/>Escape character is '^]'.<br/>^]<br/>telnet&gt; quit<br/>Connection closed.</span></blockquote><p>What I see in the <span style="font-family: courier new,courier;">zenwin</span> log:</p><blockquote class="jive-quote"><span style="font-family: courier new,courier;">2009-10-29 12:30:07,336 INFO zen.zenwin: Connecting to localhost:8789<br/>2009-10-29 12:30:37,338 ERROR zen.zenwin: Timeout connecting to zenhub: is it running?<br/>2009-10-29 12:30:37,339 ERROR zen.zenwin: Configure failed: ZenHub is down<br/>2009-10-29 12:30:37,340 ERROR zen.zenwin: [Failure instance: Traceback (failure with no frames): Products.ZenHub.PBDaemon.HubDown: ZenHub is down<br/>]<br/>None<br/>2009-10-29 12:30:38,341 INFO zen.zenwin: Deleting PID file /opt/zenoss/var/zenwin-localhost.pid ...<br/>2009-10-29 12:30:38,341 INFO zen.zenwin: Daemon CollectorDaemon shutting down</span><br/></blockquote><p>What I see in the <span style="font-family: courier new,courier;">zeneventlog</span> log:</p><blockquote class="jive-quote"><span style="font-family: courier new,courier;">2009-10-29 12:30:13,998 INFO zen.zeneventlog: Connecting to localhost:8789<br/>2009-10-29 12:30:44,001 ERROR zen.zeneventlog: Timeout connecting to zenhub: is it running?<br/>2009-10-29 12:30:44,002 ERROR zen.zeneventlog: Configure failed: ZenHub is down<br/>2009-10-29 12:30:44,003 ERROR zen.zeneventlog: [Failure instance: Traceback (failure with no frames): Products.ZenHub.PBDaemon.HubDown: ZenHub is down<br/>]<br/>None<br/>2009-10-29 12:30:45,005 INFO zen.zeneventlog: Deleting PID file /opt/zenoss/var/zeneventlog-localhost.pid ...<br/>2009-10-29 12:30:45,005 INFO zen.zeneventlog: Daemon CollectorDaemon shutting down</span></blockquote><p>So for some reason they think that <span style="font-family: courier new,courier;">ZenHub</span> isn't running when it is.&#160; Could the ZenHub be too busy?&#160; What other things can I try?&#160; Any and all help very much appreciated.</p></div><!-- [DocumentBodyEnd:c18b0904-6fee-4ce7-9f88-4aeedf3a6043] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41313" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41313&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41313-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41313-" data-uniqueKey="2-41313-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-41313-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41354">
+
+
+        <div id="thread-message-41354" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="41354">
+                <a name="41354"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/CaptainMESO.html"
+   data-externalId=""
+   data-username="CaptainMESO"
+   data-avatarId="1267"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4020, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/CaptainMESO/avatar/46.png?a=1267"
+            border="0" height="46" width="46"
+            alt="Captain MESO"
+            /><span username="CaptainMESO" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/CaptainMESO.html"
+data-externalId=""
+data-username="CaptainMESO"
+data-avatarId="1267"
+id="jive-402032927155192797021"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4020, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Captain MESO</a>                        </div>
+                        <em>114 posts since <br/>Mar 5, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41354.html#41354" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Oct 30, 2009 2:28 AM</span>
+                            (<a href="41313.html#41313" title="Go to message" class="font-color-meta-light " >in response to jwilda</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41354.html#41354">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:f06ff619-3209-4430-a7e0-974a0bdbfbf1] --><div class="jive-rendered-content"><p>You are not alone. Seems to be problem with 2.5.</p></div><!-- [DocumentBodyEnd:f06ff619-3209-4430-a7e0-974a0bdbfbf1] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41354" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41354&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41354-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41354-" data-uniqueKey="2-41354-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-41354-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41395">
+
+
+        <div id="thread-message-41395" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="41395">
+                <a name="41395"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/CaptainMESO.html"
+   data-externalId=""
+   data-username="CaptainMESO"
+   data-avatarId="1267"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4020, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/CaptainMESO/avatar/46.png?a=1267"
+            border="0" height="46" width="46"
+            alt="Captain MESO"
+            /><span username="CaptainMESO" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/CaptainMESO.html"
+data-externalId=""
+data-username="CaptainMESO"
+data-avatarId="1267"
+id="jive-402032927155195859599"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4020, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Captain MESO</a>                        </div>
+                        <em>114 posts since <br/>Mar 5, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41395.html#41395" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Oct 31, 2009 11:47 PM</span>
+                            (<a href="41297.html#41297" title="Go to message" class="font-color-meta-light " >in response to rebelinux</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41395.html#41395">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:7e26568b-d194-4efa-a4d6-9182b1103512] --><div class="jive-rendered-content"><div dir="ltr">I tried to analyze and was able to fix this issue. Cause of the problem are already installed ZenPacks.</div><p><br/>For me the following ZenPacks were installed before the upgrade:</p><ul><li>WindowsWMIDeviceTemplateV2</li><li>ZenPacks.HP.Proliant.MIBs </li><li>ZenPacks.community.HPMon </li><li>ZenPacks.community.deviceAdvDetail </li><li>ZenPacks.zenoss.DellMonitor </li><li>ZenPacks.zenoss.HPMonitor <br/></li></ul><p>After removing these ZenPacks, all services are starting correctly again. Hope this helps everyone who has the same problem after upgrading from 2.4.5 to 2.5.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Best Regards,</p><p>HerbertS</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>Message was edited by: HerbertS&#13;
+</span><a class="jive-link-wiki-small" href="../docs/DOC-3392.html">docs/DOC-3392</a><span>&#13;
+&#13;
+WMI Data SourceVERSION 12&#160;&#160; Created on: Sep 14, 2009 1:30 PM by bigegor - Last Modified:&#160; Oct 29, 2009 4:35 PM by Ryan Matte WARNING &#13;
+***&#160; THIS ZENPACK WILL BREAK YOUR KING CRAB (2.5) INSTALL *** &#13;
+*** DO NOT INSTALL THIS ON 2.5 UNTIL AN UPDATED VERSION IS AVAILABLE ***&#13;
+*** IF YOU HAVE INSTALLED THIS ON 2.4 DO NOT UPGRADE TO 2.5 ***</span></p></div><!-- [DocumentBodyEnd:7e26568b-d194-4efa-a4d6-9182b1103512] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41395" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41395&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41395-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41395-" data-uniqueKey="2-41395-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-41395-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42194">
+
+
+        <div id="thread-message-42194" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42194">
+                <a name="42194"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/fdleersn.html"
+   data-externalId=""
+   data-username="fdleersn"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/fdleersn/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="fdleersn"
+            /><span username="fdleersn" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/fdleersn.html"
+data-externalId=""
+data-username="fdleersn"
+data-avatarId="-1"
+id="jive-774332927155198893330"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>fdleersn</a>                        </div>
+                        <em>5 posts since <br/>Nov 17, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42194.html#42194" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Nov 17, 2009 10:15 AM</span>
+                            (<a href="41297.html#41297" title="Go to message" class="font-color-meta-light " >in response to rebelinux</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42194.html#42194">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:9c8d8254-919d-457b-aa51-5d8dd5306621] --><div class="jive-rendered-content"><p>same here, after upgrading to 2.5 the zenprocess daemon dies</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>2009-11-17 15:17:58,482 INFO zen.zenprocess: Deleting PID file /usr/local/zenoss/zenoss/var/zenprocess-localhost.pid ...<br/>2009-11-17 15:17:58,483 INFO zen.zenprocess: Daemon CollectorDaemon shutting down<br/>2009-11-17 15:38:53,216 INFO zen.zenprocess: Connecting to localhost:8789<br/>2009-11-17 15:38:53,222 INFO zen.zenprocess: Connected to ZenHub<br/>2009-11-17 15:40:52,352 ERROR zen.zenprocess: Configure failed: Remote exception: Products.ZenHub.PBDaemon.RemoteException: Remote exception: zExceptions.NotFound: view 5d96139b0b8d1c7112f16cd374788e96Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenCollector/services/config.py", line 148, in remote_getDeviceConfigs<br/>&#160;&#160;&#160; deviceConfig = self._createDeviceProxy(device)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/services/ProcessConfig.py", line 62, in _createDeviceProxy<br/>&#160;&#160;&#160; procs = device.getMonitoredComponents(collector='zenprocess')<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 593, in getMonitoredComponents<br/>&#160;&#160;&#160; collector=collector, type=type)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 623, in getDeviceComponents<br/>&#160;&#160;&#160; return [c.getObject() for c in brains]<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/Products/ZCatalog/CatalogBrains.py", line 92, in getObject<br/>&#160;&#160;&#160; target = parent.restrictedTraverse(path[-1])<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 301, in restrictedTraverse<br/>&#160;&#160;&#160; return self.unrestrictedTraverse(path, default, restricted=True)<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 284, in unrestrictedTraverse<br/>&#160;&#160;&#160; raise e<br/>NotFound: view 5d96139b0b8d1c7112f16cd374788e96<br/>Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/zenhubworker.py", line 116, in remote_execute<br/>&#160;&#160;&#160; return runOnce()<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/zenhubworker.py", line 111, in runOnce<br/>&#160;&#160;&#160; res = m(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 83, in inner<br/>&#160;&#160;&#160; traceback.format_exc())<br/>RemoteException: Remote exception: zExceptions.NotFound: view 5d96139b0b8d1c7112f16cd374788e96Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenCollector/services/config.py", line 148, in remote_getDeviceConfigs<br/>&#160;&#160;&#160; deviceConfig = self._createDeviceProxy(device)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/services/ProcessConfig.py", line 62, in _createDeviceProxy<br/>&#160;&#160;&#160; procs = device.getMonitoredComponents(collector='zenprocess')<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 593, in getMonitoredComponents<br/>&#160;&#160;&#160; collector=collector, type=type)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 623, in getDeviceComponents<br/>&#160;&#160;&#160; return [c.getObject() for c in brains]<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/Products/ZCatalog/CatalogBrains.py", line 92, in getObject<br/>&#160;&#160;&#160; target = parent.restrictedTraverse(path[-1])<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 301, in restrictedTraverse<br/>&#160;&#160;&#160; return self.unrestrictedTraverse(path, default, restricted=True)<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 284, in unrestrictedTraverse<br/>&#160;&#160;&#160; raise e<br/>NotFound: view 5d96139b0b8d1c7112f16cd374788e96</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><br/>2009-11-17 15:40:52,353 ERROR zen.zenprocess: [Failure instance: Traceback (failure with no frames): Products.ZenHub.PBDaemon.RemoteException: Remote exception: Products.ZenHub.PBDaemon.RemoteException: Remote exception: zExceptions.NotFound: view 5d96139b0b8d1c7112f16cd374788e96Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenCollector/services/config.py", line 148, in remote_getDeviceConfigs<br/>&#160;&#160;&#160; deviceConfig = self._createDeviceProxy(device)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/services/ProcessConfig.py", line 62, in _createDeviceProxy<br/>&#160;&#160;&#160; procs = device.getMonitoredComponents(collector='zenprocess')<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 593, in getMonitoredComponents<br/>&#160;&#160;&#160; collector=collector, type=type)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 623, in getDeviceComponents<br/>&#160;&#160;&#160; return [c.getObject() for c in brains]<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/Products/ZCatalog/CatalogBrains.py", line 92, in getObject<br/>&#160;&#160;&#160; target = parent.restrictedTraverse(path[-1])<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 301, in restrictedTraverse<br/>&#160;&#160;&#160; return self.unrestrictedTraverse(path, default, restricted=True)<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 284, in unrestrictedTraverse<br/>&#160;&#160;&#160; raise e<br/>NotFound: view 5d96139b0b8d1c7112f16cd374788e96<br/>Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/zenhubworker.py", line 116, in remote_execute<br/>&#160;&#160;&#160; return runOnce()<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/zenhubworker.py", line 111, in runOnce<br/>&#160;&#160;&#160; res = m(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 83, in inner<br/>&#160;&#160;&#160; traceback.format_exc())<br/>RemoteException: Remote exception: zExceptions.NotFound: view 5d96139b0b8d1c7112f16cd374788e96Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenCollector/services/config.py", line 148, in remote_getDeviceConfigs<br/>&#160;&#160;&#160; deviceConfig = self._createDeviceProxy(device)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/services/ProcessConfig.py", line 62, in _createDeviceProxy<br/>&#160;&#160;&#160; procs = device.getMonitoredComponents(collector='zenprocess')<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 593, in getMonitoredComponents<br/>&#160;&#160;&#160; collector=collector, type=type)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 623, in getDeviceComponents<br/>&#160;&#160;&#160; return [c.getObject() for c in brains]<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/Products/ZCatalog/CatalogBrains.py", line 92, in getObject<br/>&#160;&#160;&#160; target = parent.restrictedTraverse(path[-1])<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 301, in restrictedTraverse<br/>&#160;&#160;&#160; return self.unrestrictedTraverse(path, default, restricted=True)<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 284, in unrestrictedTraverse<br/>&#160;&#160;&#160; raise e<br/>NotFound: view 5d96139b0b8d1c7112f16cd374788e96</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><br/>]<br/>None<br/>2009-11-17 15:40:52,353 INFO zen.zenprocess: Deleting PID file /usr/local/zenoss/zenoss/var/zenprocess-localhost.pid ...<br/>2009-11-17 15:40:52,353 INFO zen.zenprocess: Daemon CollectorDaemon shutting down</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Any idea on what the root cause of these problems could be?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Frederic</p></div><!-- [DocumentBodyEnd:9c8d8254-919d-457b-aa51-5d8dd5306621] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42194" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42194&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42194-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42194-" data-uniqueKey="2-42194-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42194-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42188">
+
+
+        <div id="thread-message-42188" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42188">
+                <a name="42188"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/CaptainMESO.html"
+   data-externalId=""
+   data-username="CaptainMESO"
+   data-avatarId="1267"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4020, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/CaptainMESO/avatar/46.png?a=1267"
+            border="0" height="46" width="46"
+            alt="Captain MESO"
+            /><span username="CaptainMESO" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/CaptainMESO.html"
+data-externalId=""
+data-username="CaptainMESO"
+data-avatarId="1267"
+id="jive-402032927155201917209"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4020, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Captain MESO</a>                        </div>
+                        <em>114 posts since <br/>Mar 5, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42188.html#42188" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Nov 17, 2009 10:37 AM</span>
+                            (<a href="42194.html#42194" title="Go to message" class="font-color-meta-light " >in response to fdleersn</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42188.html#42188">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ac9314ab-0ba3-4ffc-b8fd-60ec1be0907d] --><div class="jive-rendered-content"><span>Which ZenPacks do you have installed?</span></div><!-- [DocumentBodyEnd:ac9314ab-0ba3-4ffc-b8fd-60ec1be0907d] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42188" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42188&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42188-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42188-" data-uniqueKey="2-42188-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42188-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42195">
+
+
+        <div id="thread-message-42195" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42195">
+                <a name="42195"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/fdleersn.html"
+   data-externalId=""
+   data-username="fdleersn"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/fdleersn/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="fdleersn"
+            /><span username="fdleersn" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/fdleersn.html"
+data-externalId=""
+data-username="fdleersn"
+data-avatarId="-1"
+id="jive-774332927155204824212"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>fdleersn</a>                        </div>
+                        <em>5 posts since <br/>Nov 17, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42195.html#42195" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Nov 17, 2009 10:57 AM</span>
+                            (<a href="42188.html#42188" title="Go to message" class="font-color-meta-light " >in response to Captain MESO</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42195.html#42195">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ba32a9d4-275b-4f33-9ac7-6a3f63f876f9] --><div class="jive-rendered-content"><p>That would be</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><table cellpadding="3" cellspacing="1" class="innerzentable"><tbody id="[u'L', u'o', u'a', u'd', u'e', u'd', u'Z', u'e', u'n', u'P', u'a', u'c', u'k', u's']"><tr><th class="tableheader" style=";">Pack</th> <th class="tableheader" style=";">Package</th> <th class="tableheader" style=";">Author</th> <th class="tableheader" style=";">Version</th> <th class="tableheader" style=";">Egg</th></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="SiteWindowPortletPack"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/SiteWindowPortletPack">SiteWindowPortletPack</a></td><td class="tablevalue" style=";">n/a</td><td class="tablevalue" style=";">Klinstifen</td><td class="tablevalue" style=";">0.1</td><td class="tablevalue" style=";">No</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.Nagios.CheckPing"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.Nagios.CheckPing">ZenPacks.Nagios.CheckPing</a></td><td class="tablevalue" style=";">Nagios</td><td class="tablevalue" style=";">Michael C. Hoffman</td><td class="tablevalue" style=";">1.0</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.Nova.Cisco.Mibs"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.Nova.Cisco.Mibs">ZenPacks.Nova.Cisco.Mibs</a></td><td class="tablevalue" style=";">Nova</td><td class="tablevalue" style=";">Ryan Matte</td><td class="tablevalue" style=";">1.0</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.community.PointThreshold"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.community.PointThreshold">ZenPacks.community.PointThreshold</a></td><td class="tablevalue" style=";">community</td><td class="tablevalue" style=";">Eric Edgar</td><td class="tablevalue" style=";">1.0</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.community.mib_utils"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.community.mib_utils">ZenPacks.community.mib_utils</a></td><td class="tablevalue" style=";">community</td><td class="tablevalue" style=";">Kells Kearney</td><td class="tablevalue" style=";">1.04</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.sodonnell.TransformReport"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.sodonnell.TransformReport">ZenPacks.sodonnell.TransformReport</a></td><td class="tablevalue" style=";">sodonnell</td><td class="tablevalue" style=";">Steven O'Donnell</td><td class="tablevalue" style=";">1.0</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.zenoss.ApacheMonitor"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.zenoss.ApacheMonitor">ZenPacks.zenoss.ApacheMonitor</a></td><td class="tablevalue" style=";">zenoss</td><td class="tablevalue" style=";">Zenoss</td><td class="tablevalue" style=";">2.0.2</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.zenoss.DnsMonitor"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.zenoss.DnsMonitor">ZenPacks.zenoss.DnsMonitor</a></td><td class="tablevalue" style=";">zenoss</td><td class="tablevalue" style=";">Zenoss</td><td class="tablevalue" style=";">2.0.0</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.zenoss.HttpMonitor"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.zenoss.HttpMonitor">ZenPacks.zenoss.HttpMonitor</a></td><td class="tablevalue" style=";">zenoss</td><td class="tablevalue" style=";">Zenoss</td><td class="tablevalue" style=";">2.0.1</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.zenoss.LinuxMonitor"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="https://zenoss1.ugent.be:10443/zport/dmd/ZenPackManager/packs/ZenPacks.zenoss.LinuxMonitor">ZenPacks.zenoss.LinuxMonitor</a></td><td class="tablevalue" style=";">zenoss</td><td class="tablevalue" style=";">Zenoss</td><td class="tablevalue" style=";">1.0.0</td><td class="tablevalue" style=";">Yes</td></tr></tbody></table></div><!-- [DocumentBodyEnd:ba32a9d4-275b-4f33-9ac7-6a3f63f876f9] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42195" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42195&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42195-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42195-" data-uniqueKey="2-42195-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42195-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42432">
+
+
+        <div id="thread-message-42432" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42432">
+                <a name="42432"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/fdleersn.html"
+   data-externalId=""
+   data-username="fdleersn"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/fdleersn/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="fdleersn"
+            /><span username="fdleersn" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/fdleersn.html"
+data-externalId=""
+data-username="fdleersn"
+data-avatarId="-1"
+id="jive-774332927155207755135"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>fdleersn</a>                        </div>
+                        <em>5 posts since <br/>Nov 17, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42432.html#42432" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Nov 23, 2009 6:23 AM</span>
+                            (<a href="41297.html#41297" title="Go to message" class="font-color-meta-light " >in response to rebelinux</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42432.html#42432">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:f35a6230-5889-4404-8778-a991f51f8d1c] --><div class="jive-rendered-content"><p>Upgrading to 2.5.1 hasn't resolved the issue.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I've turned on debug level logging. Perhaps it reveals something more about what's causing the zenprocess daemon to crash.</p><p>All feedback is welcome.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>2009-11-23 12:08:41,943 DEBUG zen.zenprocess: Starting PBDaemon initialization<br/>2009-11-23 12:08:41,943 INFO zen.zenprocess: Connecting to localhost:8789<br/>2009-11-23 12:08:41,944 DEBUG zen.zenprocess: Logging in as admin<br/>2009-11-23 12:08:45,217 INFO zen.zenprocess: Connected to ZenHub<br/>2009-11-23 12:08:45,636 DEBUG zen.zenprocess: Setting up initial services: EventService, Products.ZenHub.services.ProcessConfig<br/>2009-11-23 12:08:45,636 DEBUG zen.zenprocess: Chaining getInitialServices with d2<br/>2009-11-23 12:08:45,638 DEBUG zen.zenprocess: Loaded service EventService from zenhub<br/>2009-11-23 12:08:45,638 DEBUG zen.zenprocess: Loaded service Products.ZenHub.services.ProcessConfig from zenhub<br/>2009-11-23 12:08:45,638 DEBUG zen.zenprocess: Queueing event {'severity': 0, 'component': 'zenprocess', 'agent': 'zenprocess', 'summary': 'started', 'manager': 'zenoss1.ugent.be', 'device': 'localhost', 'eventClass': '/App/Start', 'monitor': 'localhost'}<br/>2009-11-23 12:08:45,638 DEBUG zen.zenprocess: Total of 1 queued events<br/>2009-11-23 12:08:45,639 DEBUG zen.zenprocess: Calling connected.<br/>2009-11-23 12:08:45,639 DEBUG zen.zenprocess: _configCycle fetching configuration<br/>2009-11-23 12:08:45,639 DEBUG zen.collector.config: Fetching daemon configuration properties<br/>2009-11-23 12:08:49,907 DEBUG zen.zenprocess: Updated configCycleInterval preference to 360<br/>2009-11-23 12:08:49,907 DEBUG zen.zenprocess: Preferences object does not have attribute zenProcessParallelJobs<br/>2009-11-23 12:08:49,907 DEBUG zen.zenprocess: Preferences object does not have attribute renderurl<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Preferences object does not have attribute discoveryNetworks<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Preferences object does not have attribute winmodelerCycleInterval<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Preferences object does not have attribute modelerCycleInterval<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Preferences object does not have attribute wmiqueryTimeout<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Preferences object does not have attribute statusCycleInterval<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Preferences object does not have attribute pingTimeOut<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Preferences object does not have attribute pingCycleInterval<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Updated defaultRRDCreateCommand preference to ['RRA:AVERAGE:0.5:1:600', 'RRA:AVERAGE:0.5:6:600', 'RRA:AVERAGE:0.5:24:600', 'RRA:AVERAGE:0.5:288:600', 'RRA:MAX:0.5:6:600', 'RRA:MAX:0.5:24:600', 'RRA:MAX:0.5:288:600']<br/>2009-11-23 12:08:49,908 DEBUG zen.zenprocess: Preferences object does not have attribute maxPingFailures<br/>2009-11-23 12:08:49,909 DEBUG zen.zenprocess: Preferences object does not have attribute wmibatchSize<br/>2009-11-23 12:08:49,909 DEBUG zen.zenprocess: Preferences object does not have attribute eventlogCycleInterval<br/>2009-11-23 12:08:49,909 DEBUG zen.zenprocess: Preferences object does not have attribute winCycleInterval<br/>2009-11-23 12:08:49,909 DEBUG zen.zenprocess: Preferences object does not have attribute pingTries<br/>2009-11-23 12:08:49,909 DEBUG zen.zenprocess: Preferences object does not have attribute renderpass<br/>2009-11-23 12:08:49,909 DEBUG zen.zenprocess: Preferences object does not have attribute renderuser<br/>2009-11-23 12:08:49,909 DEBUG zen.zenprocess: Preferences object does not have attribute pingChunk<br/>2009-11-23 12:08:49,909 DEBUG zen.zenprocess: Preferences object does not have attribute perfsnmpCycleInterval<br/>2009-11-23 12:08:49,910 DEBUG zen.collector.config: Fetching threshold classes<br/>2009-11-23 12:08:54,573 DEBUG zen.zenprocess: Loading classes ['Products.ZenModel.MinMaxThreshold']<br/>2009-11-23 12:08:54,575 DEBUG zen.collector.config: Fetching collector thresholds<br/>2009-11-23 12:08:54,953 DEBUG zen.zenprocess: Device sw-vsc.private.ugent.be deleted<br/>2009-11-23 12:08:54,953 DEBUG zen.zenprocess: ConfigListener: configuration sw-vsc.private.ugent.be deleted<br/>2009-11-23 12:08:55,028 DEBUG zen.zenprocess: Device sw-vsc.private.ugent.be deleted<br/>2009-11-23 12:08:55,028 DEBUG zen.zenprocess: ConfigListener: configuration sw-vsc.private.ugent.be deleted<br/>2009-11-23 12:08:55,031 DEBUG zen.thresholds: Updating threshold ('high event queue', ('localhost', ''))<br/>2009-11-23 12:08:55,031 DEBUG zen.thresholds: Updating threshold ('zenmodeler cycle time', ('localhost', ''))<br/>2009-11-23 12:08:55,031 DEBUG zen.thresholds: Updating threshold ('zenperfsnmp cycle time', ('localhost', ''))<br/>2009-11-23 12:08:55,031 DEBUG zen.thresholds: Updating threshold ('zenping cycle time', ('localhost', ''))<br/>2009-11-23 12:08:55,031 DEBUG zen.thresholds: Updating threshold ('zenprocess cycle time', ('localhost', ''))<br/>2009-11-23 12:08:55,031 DEBUG zen.collector.config: Fetching configurations<br/>2009-11-23 12:08:55,643 DEBUG zen.thresholds: Checking value 0 on Daemons/localhost/zenprocess_eventQueueLength<br/>2009-11-23 12:08:55,644 DEBUG zen.MinMaxCheck: Checking zenprocess_eventQueueLength 0 against min None and max 1000<br/>2009-11-23 12:08:55,644 DEBUG zen.zenprocess: Queueing event {'manager': 'zenoss1.ugent.be', 'eventKey': 'high event queue', 'device': 'localhost', 'eventClass': '/Perf', 'summary': 'threshold of high event queue restored: current value 0.00', 'component': '', 'monitor': 'localhost', 'agent': 'zenprocess', 'severity': 0}<br/>2009-11-23 12:08:55,644 DEBUG zen.zenprocess: Total of 1 queued events<br/>2009-11-23 12:08:57,664 ERROR zen.zenprocess: Configure failed: Remote exception: Products.ZenHub.PBDaemon.RemoteException: Remote exception: zExceptions.NotFound: view 5d96139b0b8d1c7112f16cd374788e96Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenCollector/services/config.py", line 148, in remote_getDeviceConfigs<br/>&#160;&#160;&#160; deviceConfig = self._createDeviceProxy(device)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/services/ProcessConfig.py", line 62, in _createDeviceProxy<br/>&#160;&#160;&#160; procs = device.getMonitoredComponents(collector='zenprocess')<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 593, in getMonitoredComponents<br/>&#160;&#160;&#160; collector=collector, type=type)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 623, in getDeviceComponents<br/>&#160;&#160;&#160; return [c.getObject() for c in brains]<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/Products/ZCatalog/CatalogBrains.py", line 92, in getObject<br/>&#160;&#160;&#160; target = parent.restrictedTraverse(path[-1])<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 301, in restrictedTraverse<br/>&#160;&#160;&#160; return self.unrestrictedTraverse(path, default, restricted=True)<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 284, in unrestrictedTraverse<br/>&#160;&#160;&#160; raise e<br/>NotFound: view 5d96139b0b8d1c7112f16cd374788e96<br/>Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/zenhubworker.py", line 116, in remote_execute<br/>&#160;&#160;&#160; return runOnce()<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/zenhubworker.py", line 111, in runOnce<br/>&#160;&#160;&#160; res = m(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 83, in inner<br/>&#160;&#160;&#160; traceback.format_exc())<br/>RemoteException: Remote exception: zExceptions.NotFound: view 5d96139b0b8d1c7112f16cd374788e96Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenCollector/services/config.py", line 148, in remote_getDeviceConfigs<br/>&#160;&#160;&#160; deviceConfig = self._createDeviceProxy(device)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/services/ProcessConfig.py", line 62, in _createDeviceProxy<br/>&#160;&#160;&#160; procs = device.getMonitoredComponents(collector='zenprocess')<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 593, in getMonitoredComponents<br/>&#160;&#160;&#160; collector=collector, type=type)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 623, in getDeviceComponents<br/>&#160;&#160;&#160; return [c.getObject() for c in brains]<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/Products/ZCatalog/CatalogBrains.py", line 92, in getObject<br/>&#160;&#160;&#160; target = parent.restrictedTraverse(path[-1])<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 301, in restrictedTraverse<br/>&#160;&#160;&#160; return self.unrestrictedTraverse(path, default, restricted=True)<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 284, in unrestrictedTraverse<br/>&#160;&#160;&#160; raise e<br/>NotFound: view 5d96139b0b8d1c7112f16cd374788e96</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><br/>2009-11-23 12:08:57,665 DEBUG zen.zenprocess: Rescheduling configuration check in 21600 seconds<br/>2009-11-23 12:08:57,665 ERROR zen.zenprocess: [Failure instance: Traceback (failure with no frames): Products.ZenHub.PBDaemon.RemoteException: Remote exception: Products.ZenHub.PBDaemon.RemoteException: Remote exception: zExceptions.NotFound: view 5d96139b0b8d1c7112f16cd374788e96Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenCollector/services/config.py", line 148, in remote_getDeviceConfigs<br/>&#160;&#160;&#160; deviceConfig = self._createDeviceProxy(device)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/services/ProcessConfig.py", line 62, in _createDeviceProxy<br/>&#160;&#160;&#160; procs = device.getMonitoredComponents(collector='zenprocess')<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 593, in getMonitoredComponents<br/>&#160;&#160;&#160; collector=collector, type=type)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 623, in getDeviceComponents<br/>&#160;&#160;&#160; return [c.getObject() for c in brains]<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/Products/ZCatalog/CatalogBrains.py", line 92, in getObject<br/>&#160;&#160;&#160; target = parent.restrictedTraverse(path[-1])<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 301, in restrictedTraverse<br/>&#160;&#160;&#160; return self.unrestrictedTraverse(path, default, restricted=True)<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 284, in unrestrictedTraverse<br/>&#160;&#160;&#160; raise e<br/>NotFound: view 5d96139b0b8d1c7112f16cd374788e96<br/>Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/zenhubworker.py", line 116, in remote_execute<br/>&#160;&#160;&#160; return runOnce()<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/zenhubworker.py", line 111, in runOnce<br/>&#160;&#160;&#160; res = m(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 83, in inner<br/>&#160;&#160;&#160; traceback.format_exc())<br/>RemoteException: Remote exception: zExceptions.NotFound: view 5d96139b0b8d1c7112f16cd374788e96Traceback (most recent call last):<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/PBDaemon.py", line 75, in inner<br/>&#160;&#160;&#160; return callable(*args, **kw)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenCollector/services/config.py", line 148, in remote_getDeviceConfigs<br/>&#160;&#160;&#160; deviceConfig = self._createDeviceProxy(device)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenHub/services/ProcessConfig.py", line 62, in _createDeviceProxy<br/>&#160;&#160;&#160; procs = device.getMonitoredComponents(collector='zenprocess')<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 593, in getMonitoredComponents<br/>&#160;&#160;&#160; collector=collector, type=type)<br/>&#160; File "/usr/local/zenoss/zenoss/Products/ZenModel/Device.py", line 623, in getDeviceComponents<br/>&#160;&#160;&#160; return [c.getObject() for c in brains]<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/Products/ZCatalog/CatalogBrains.py", line 92, in getObject<br/>&#160;&#160;&#160; target = parent.restrictedTraverse(path[-1])<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 301, in restrictedTraverse<br/>&#160;&#160;&#160; return self.unrestrictedTraverse(path, default, restricted=True)<br/>&#160; File "/usr/local/zenoss/zenoss/lib/python/OFS/Traversable.py", line 284, in unrestrictedTraverse<br/>&#160;&#160;&#160; raise e<br/>NotFound: view 5d96139b0b8d1c7112f16cd374788e96</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><br/>]<br/>None<br/>2009-11-23 12:08:57,665 DEBUG zen.zenprocess: Queueing event {'severity': 3, 'component': 'zenprocess', 'agent': 'zenprocess', 'summary': 'stopped', 'manager': 'zenoss1.ugent.be', 'device': 'localhost', 'eventClass': '/App/Stop', 'monitor': 'localhost'}<br/>2009-11-23 12:08:57,665 DEBUG zen.zenprocess: Total of 2 queued events<br/>2009-11-23 12:08:57,666 DEBUG zen.zenprocess: Sent a 'stop' event<br/>2009-11-23 12:08:58,667 DEBUG zen.zenprocess: stop() called when not running<br/>2009-11-23 12:08:58,667 INFO zen.zenprocess: Deleting PID file /usr/local/zenoss/zenoss/var/zenprocess-localhost.pid ...<br/>2009-11-23 12:08:58,667 INFO zen.zenprocess: Daemon CollectorDaemon shutting down<br/>2009-11-23 12:08:58,668 DEBUG zen.zenprocess: Removing service EventService<br/>2009-11-23 12:08:58,668 DEBUG zen.zenprocess: Removing service Products.ZenHub.services.ProcessConfig</p></div><!-- [DocumentBodyEnd:f35a6230-5889-4404-8778-a991f51f8d1c] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42432" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42432&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42432-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42432-" data-uniqueKey="2-42432-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42432-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42562">
+
+
+        <div id="thread-message-42562" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42562">
+                <a name="42562"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/nickname.html"
+   data-externalId=""
+   data-username="nickname"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7153, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/nickname/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="nickname"
+            /><span username="nickname" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/nickname.html"
+data-externalId=""
+data-username="nickname"
+data-avatarId="-1"
+id="jive-715332927155210794516"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7153, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>nickname</a>                        </div>
+                        <em>67 posts since <br/>Sep 28, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42562.html#42562" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Nov 25, 2009 4:58 AM</span>
+                            (<a href="41297.html#41297" title="Go to message" class="font-color-meta-light " >in response to rebelinux</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42562.html#42562">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:40af2b69-6292-46b8-938b-d1b33f81d401] --><div class="jive-rendered-content"><p>Got same issiue, anyone got a solution for this?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Got the following zenpacks installed:</p><table cellpadding="3" cellspacing="1" class="innerzentable"><tbody id="[u'L', u'o', u'a', u'd', u'e', u'd', u'Z', u'e', u'n', u'P', u'a', u'c', u'k', u's']"><tr></tr><tr><th class="tableheader" style=";" width="1"> </th><th class="tableheader" style=";">Pack</th> <th class="tableheader" style=";">Package</th> <th class="tableheader" style=";">Author</th> <th class="tableheader" style=";">Version</th> <th class="tableheader" style=";">Egg</th></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.Firestar.CiscoASA"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="http://zenoss:8080/zport/dmd/ZenPackManager/packs/ZenPacks.Firestar.CiscoASA">ZenPacks.Firestar.CiscoASA</a></td><td class="tablevalue" style=";">Firestar</td><td class="tablevalue" style=";"><span>Chris Morrison - </span><a class="jive-link-email-small" href="mailto:chris.morrison@sita.aero">chris.morrison@sita.aero</a></td><td class="tablevalue" style=";">1.0</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.TijmenvandenBrink.Riverbed"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="http://zenoss:8080/zport/dmd/ZenPackManager/packs/ZenPacks.TijmenvandenBrink.Riverbed">ZenPacks.TijmenvandenBrink.Riverbed</a></td><td class="tablevalue" style=";">TijmenvandenBrink</td><td class="tablevalue" style=";">Tijmen van den Brink</td><td class="tablevalue" style=";">1.0</td><td class="tablevalue" style=";">Yes</td></tr><tr><td class="tablevalue" style=";"><input name="ids:list" type="checkbox" value="ZenPacks.ipSLA.SLADevice"/></td><td class="tablevalue" style=";"><a class="jive-link-external-small" href="http://zenoss:8080/zport/dmd/ZenPackManager/packs/ZenPacks.ipSLA.SLADevice">ZenPacks.ipSLA.SLADevice</a></td><td class="tablevalue" style=";">ipSLA</td><td class="tablevalue" style=";">Shane William Scott, NY</td><td class="tablevalue" style=";">2.0</td><td class="tablevalue" style=";">Yes</td></tr></tbody></table><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><br/></div><!-- [DocumentBodyEnd:40af2b69-6292-46b8-938b-d1b33f81d401] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42562" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42562&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42562-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42562-" data-uniqueKey="2-42562-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42562-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42564">
+
+
+        <div id="thread-message-42564" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42564">
+                <a name="42564"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/nickname.html"
+   data-externalId=""
+   data-username="nickname"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7153, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/nickname/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="nickname"
+            /><span username="nickname" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/nickname.html"
+data-externalId=""
+data-username="nickname"
+data-avatarId="-1"
+id="jive-715332927155213766843"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7153, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>nickname</a>                        </div>
+                        <em>67 posts since <br/>Sep 28, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42564.html#42564" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Nov 25, 2009 5:30 AM</span>
+                            (<a href="42562.html#42562" title="Go to message" class="font-color-meta-light " >in response to nickname</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42564.html#42564">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:215fe9b5-72af-461a-b986-d88c43da092c] --><div class="jive-rendered-content"><p>After removing all zenpacks and add them again zenwin and zeneventlog starts fine, however Zenprocess is still down and wont connect to zenhub.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Trying 120 seconds for initialhubconnect for zenprocess if it might resolve the issiue</p></div><!-- [DocumentBodyEnd:215fe9b5-72af-461a-b986-d88c43da092c] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42564" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42564&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42564-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42564-" data-uniqueKey="2-42564-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42564-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42565">
+
+
+        <div id="thread-message-42565" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42565">
+                <a name="42565"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/nickname.html"
+   data-externalId=""
+   data-username="nickname"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7153, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/nickname/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="nickname"
+            /><span username="nickname" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/nickname.html"
+data-externalId=""
+data-username="nickname"
+data-avatarId="-1"
+id="jive-715332927155217816935"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7153, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>nickname</a>                        </div>
+                        <em>67 posts since <br/>Sep 28, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42565.html#42565" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Nov 25, 2009 5:34 AM</span>
+                            (<a href="42564.html#42564" title="Go to message" class="font-color-meta-light " >in response to nickname</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42565.html#42565">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:6ce244ba-56c6-4fa6-b618-4f873fbefb8d] --><div class="jive-rendered-content"><span>with a hubconnect time of 120 seconds it finaly connected.</span></div><!-- [DocumentBodyEnd:6ce244ba-56c6-4fa6-b618-4f873fbefb8d] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42565" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42565&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42565-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42565-" data-uniqueKey="2-42565-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42565-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42567">
+
+
+        <div id="thread-message-42567" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42567">
+                <a name="42567"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/fdleersn.html"
+   data-externalId=""
+   data-username="fdleersn"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/fdleersn/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="fdleersn"
+            /><span username="fdleersn" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/fdleersn.html"
+data-externalId=""
+data-username="fdleersn"
+data-avatarId="-1"
+id="jive-774332927155220953796"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>fdleersn</a>                        </div>
+                        <em>5 posts since <br/>Nov 17, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42567.html#42567" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Nov 25, 2009 6:03 AM</span>
+                            (<a href="41297.html#41297" title="Go to message" class="font-color-meta-light " >in response to rebelinux</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42567.html#42567">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:71bdbd0e-e923-4ba0-a2a7-a9aa0fcc7afa] --><div class="jive-rendered-content"><span>our zenprocess daemon stops after the view error. Increasing the timeout did not help.</span></div><!-- [DocumentBodyEnd:71bdbd0e-e923-4ba0-a2a7-a9aa0fcc7afa] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42567" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42567&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42567-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42567-" data-uniqueKey="2-42567-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42567-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42533">
+
+
+        <div id="thread-message-42533" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42533">
+                <a name="42533"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/nickname.html"
+   data-externalId=""
+   data-username="nickname"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7153, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/nickname/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="nickname"
+            /><span username="nickname" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/nickname.html"
+data-externalId=""
+data-username="nickname"
+data-avatarId="-1"
+id="jive-715332927155223843978"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7153, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>nickname</a>                        </div>
+                        <em>67 posts since <br/>Sep 28, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42533.html#42533" title="Link to reply #12" class="jive-thread-reply-num font-color-meta-light">12.</a>
+                        <span>Nov 25, 2009 6:05 AM</span>
+                            (<a href="42567.html#42567" title="Go to message" class="font-color-meta-light " >in response to fdleersn</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42533.html#42533">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:3e5ec66d-1e47-4e8a-9e3e-d22b36d5e6ac] --><div class="jive-rendered-content"><p>Give it a cpl of tries, maybe even increase it even more?</p></div><!-- [DocumentBodyEnd:3e5ec66d-1e47-4e8a-9e3e-d22b36d5e6ac] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42533" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42533&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42533-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42533-" data-uniqueKey="2-42533-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42533-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42570">
+
+
+        <div id="thread-message-42570" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42570">
+                <a name="42570"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/fdleersn.html"
+   data-externalId=""
+   data-username="fdleersn"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/fdleersn/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="fdleersn"
+            /><span username="fdleersn" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/fdleersn.html"
+data-externalId=""
+data-username="fdleersn"
+data-avatarId="-1"
+id="jive-774332927155226760823"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7743, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>fdleersn</a>                        </div>
+                        <em>5 posts since <br/>Nov 17, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42570.html#42570" title="Link to reply #13" class="jive-thread-reply-num font-color-meta-light">13.</a>
+                        <span>Nov 25, 2009 7:23 AM</span>
+                            (<a href="41297.html#41297" title="Go to message" class="font-color-meta-light " >in response to rebelinux</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42570.html#42570">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:d0465d5f-f33c-48cf-bda9-b3a4ad4a7e69] --><div class="jive-rendered-content"><p>the zenprocess dies immediatley after starting it. <img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/></p><p>as for the cryptic error message, it might help if someone could elaborate on what view not found actually implies.</p></div><!-- [DocumentBodyEnd:d0465d5f-f33c-48cf-bda9-b3a4ad4a7e69] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42570" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42570&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42570-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42570-" data-uniqueKey="2-42570-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42570-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42703">
+
+
+        <div id="thread-message-42703" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42703">
+                <a name="42703"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/terrys.html"
+   data-externalId=""
+   data-username="terrys"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7829, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/terrys/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="terrys"
+            /><span username="terrys" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/terrys.html"
+data-externalId=""
+data-username="terrys"
+data-avatarId="-1"
+id="jive-782932927155229735085"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 7829, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>terrys</a>                        </div>
+                        <em>62 posts since <br/>Nov 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42703.html#42703" title="Link to reply #14" class="jive-thread-reply-num font-color-meta-light">14.</a>
+                        <span>Nov 27, 2009 1:21 PM</span>
+                            (<a href="42565.html#42565" title="Go to message" class="font-color-meta-light " >in response to nickname</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42703.html#42703">Re: Zenprocess, zenwin, zeneventlog down after 2.5 upgrade</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:c5f8795d-221e-47d9-90ee-49d6935d86c6] --><div class="jive-rendered-content"><span>I've been looking around my zenoss system and don't see how or where to set the hubconnect timeout.&#160; Does anyone have directions on how to set it?&#160; Both zenevent and zenwin are dying with a timeout to zenhub.&#160; Thanks!</span></div><!-- [DocumentBodyEnd:c5f8795d-221e-47d9-90ee-49d6935d86c6] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42703" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42703&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42703-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42703-" data-uniqueKey="2-42703-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42703.html#" id="jive-acclaim-likedlink-2-42703-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <!-- BEGIN pagination-->
+                    <span class="jive-pagination">
+                        <span class="jive-pagination-numbers">
+                                <a href="thread/11853?start=0&amp;tstart=0"
+                                    class="jive-pagination-current" >1</a>
+                                <a href="thread/11853?start=15&amp;tstart=0"
+                                     >2</a>
+                        </span>
+                        <span class="jive-pagination-prevnext">
+                                <span class="jive-pagination-prev-none">Previous</span>
+                                <a href="thread/11853?start=15&amp;tstart=0" class="jive-pagination-next">Next</a>
+                        </span>
+                    </span>
+                    <!-- END pagination -->
+                </div>
+                <!-- END thread info -->
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="42703.html#11853" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="thread/11853?decorator=print&amp;displayFullThread=true"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-41297">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+          <div class="jive-box jive-sidebar jive-box-questionLegend">
+              <div class="jive-box-header jive-sidebar-header">
+                  <h4>Legend</h4>
+              </div>
+              <div class="jive-box-body jive-sidebar-body">
+                  <ul class="jive-icon-list font-color-meta">
+                      <li><span class="jive-icon-med jive-icon-discussion-correct"></span>
+<strong class="jive-thread-reply-message-correct-label">Correct Answers</strong> - 4 points                      </li>
+                      <li><span class="jive-icon-med jive-icon-discussion-helpful"></span>
+<strong class="jive-thread-reply-message-helpful-label">Helpful Answers</strong> - 2 points                      </li>
+                  </ul>
+              </div>
+          </div>
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+

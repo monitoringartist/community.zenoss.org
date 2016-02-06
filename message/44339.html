@@ -1,0 +1,2352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Interface status in Zenoss Core 2.5 - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- Interface status in Zenoss Core 2.5 -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Interface status in Zenoss Core 2.5' Discussion Feed"
+            href="community/feeds/messages?thread=11905">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="thread/11905?start=0&amp;tstart=0#44339"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="44339.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="44339.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="44339.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.11905"/>
+        <input type="hidden" name="message.post.11905" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=11905&amp;message=44339&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="11905">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Interface status in Zenoss Core 2.5"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <strong>     
+        
+            115081&nbsp;Views
+        
+
+</strong>
+                        <strong>14 Replies</strong>
+                    <a href="44368%3Ftstart=0.html#44368" >Latest reply</a>:
+                    Jan 11, 2010 4:11 AM by
+mlist                        <span><a href="community/feeds/messages?thread=11905"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="11905"></a><a name="41557"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/Weetos.html"
+   data-externalId=""
+   data-username="Weetos"
+   data-avatarId="1101"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5152, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Weetos/avatar/46.png?a=1101"
+            border="0" height="46" width="46"
+            alt="Weetos"
+            /><span username="Weetos" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/Weetos.html"
+data-externalId=""
+data-username="Weetos"
+data-avatarId="1101"
+id="jive-515232928411196939038"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5152, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Weetos</a>                                    </div>
+                                    <em>133 posts since <br/>Oct 17, 2008</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Nov 4, 2009 4:14 AM</h3>
+                                        <h2><a href="41557.html#41557">Interface status in Zenoss Core 2.5</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:c00b3178-ef1d-4567-859b-f4fd716505df] --><div class="jive-rendered-content"><p>Hey there</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I recently upgraded from stack 2.4.5 to 2.5, and the way interfaces are monitored now is a bit confusing :</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Last night at one of our locations, some tech unplugged a cable that links a switch "A" to a switch "B". "A" is monitored by Zenoss, "B" isn't. I should have received an alert saying the corresponding port went down on switch "A" (ifOperStatus.x = 2), but I haven't.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Before 2.5, an interface with AdminStatus up and OperStatus going from up to down generated an alert, now it seems that only a "/Change/Set' info event appears, generating no alert.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Zenoss apparently thought that was like someone changed the admin status of the interface :</p><p><span style="font-family: courier new,courier;">set attribute 'operStatus' to '2' on object 'GigabitEthernet1_0_2'</span></p><p>OperStatus shouldn't be mapped to /Change/Set by default - What the heck ?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Since I didn't started snmp trapping on this device, I understand I wouldn't have an alert in realtime, but I didn't expect I wouldn't receive anything at all. In my book, OperStatus going from up to down between two polling cycles MUST generate an alert with at least severity level set to "error" or "warning" by default - Then, if the OperStatus goes from down to up, this would clear the alert. Does that mean we can only use snmp traps for interface monitoring ? What if a trap get lost ?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If anybody can shed some light on this, I'd be more than happy</p></div><!-- [DocumentBodyEnd:c00b3178-ef1d-4567-859b-f4fd716505df] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-41557-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41557-" data-uniqueKey="2-41557-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-41557-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-41592">
+
+
+        <div id="thread-message-41592" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="41592">
+                <a name="41592"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/tech2000.html"
+   data-externalId=""
+   data-username="tech2000"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3586, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/tech2000/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="tech2000"
+            /><span username="tech2000" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/tech2000.html"
+data-externalId=""
+data-username="tech2000"
+data-avatarId="-1"
+id="jive-358632928411201921105"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3586, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>tech2000</a>                        </div>
+                        <em>23 posts since <br/>Dec 14, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41592.html#41592" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Nov 4, 2009 10:55 AM</span>
+                            (<a href="41557.html#41557" title="Go to message" class="font-color-meta-light " >in response to Weetos</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41592.html#41592">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:8d030838-6939-4e0d-b969-2d38e9a8697b] --><div class="jive-rendered-content"><p>I have the same problem.</p><p>However, we have 12 core 10G links (24 ports) to monitor that are critical and they are the same ports on all 12 devices</p><p>Here are a few related links in case you haven't check these already</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><pre>This details the change that was made to the interface monitoring:<br/> <br/><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/4997">http://dev.zenoss.org/trac/ticket/4997</a><br/> <br/>The following changes are pending:<br/> <br/><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5627">http://dev.zenoss.org/trac/ticket/5627</a><br/><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5628">http://dev.zenoss.org/trac/ticket/5628</a><br/><br/>Here is the what my event transform is. Note that everything was fine prior to upgrade<br/>and follow one of the interface monitoring how tos from the forum.<br/>Prior to upgrading all that was require for a Net/Link transform was to change the<br/>summary and/or message.<br/><br/>Core(2.5):<br/><br/>if hasattr(evt, 'component'):<br/>&#160;&#160; fs_id = device.prepId(evt.component)<br/>&#160;&#160; for iface in device.os.interfaces():<br/>&#160;&#160;&#160;&#160;&#160; if iface.id == fs_id:<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; if iface.adminStatus == 1:<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; if (fs_id == "Unit 1 Port 25") or (fs_id == "Unit 1 Port 26") or (fs_id == "Unit 1 Port 27") or \<br/> (fs_id == "Unit 1 Port 28") :<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; evt.severity = 5<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; else:<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; evt.severity = 2 <br/>if evt.summary.startswith('threshold of operational status exceeded'):<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160; evt.summary = "Interface operationally down"<br/>elif evt.summary.startswith('threshold of operational status restored'):<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160; evt.summary = "Interface operationally up"<br/></pre><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Core(2.4.x):</p><p>if evt.summary.startswith('threshold of operational status '):<br/>&#160;&#160;&#160; if evt.severity &gt; 0:<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160; evt.summary = "interface operationally down"<br/>&#160;&#160;&#160; else:<br/>&#160;&#160;&#160;&#160;&#160;&#160;&#160; evt.summary = "interface operationally up"</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Note: if you do the later now on 2.5&#160; you get many alerts for interfaces that are Admin'd (UP), Oper'l(DOWN) which is&#160; a normal occurance for many, Ports left active but not used, etc. because for some reason Zenoss now sees the port status as active even if the Operstatus is down.</p><p>I too would like a final solution for this and not some hack.</p><p>Operstatus and Adminstatus should no way be linked unless adminStatus is down. Why this is, I do not know.</p><p>If anyone can shed anymore light on this, that would&#160; be great, possible 1 of the devs</p></div><!-- [DocumentBodyEnd:8d030838-6939-4e0d-b969-2d38e9a8697b] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41592" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41592&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41592-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41592-" data-uniqueKey="2-41592-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-41592-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-43305">
+
+
+        <div id="thread-message-43305" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="43305">
+                <a name="43305"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rmatte.html"
+   data-externalId=""
+   data-username="rmatte"
+   data-avatarId="1757"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5786, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/rmatte/avatar/46.png?a=1757"
+            border="0" height="46" width="46"
+            alt="Ryan Matte"
+            /><span username="rmatte" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rmatte.html"
+data-externalId=""
+data-username="rmatte"
+data-avatarId="1757"
+id="jive-578632928411216179793"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5786, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Ryan Matte</a>                        </div>
+                        <em>653 posts since <br/>Mar 26, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="43305.html#43305" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Dec 10, 2009 3:50 PM</span>
+                            (<a href="41557.html#41557" title="Go to message" class="font-color-meta-light " >in response to Weetos</a>)
+                        </div>
+
+                        <strong>
+                        <a href="43305.html#43305">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:3433d57f-a627-4602-a1f7-25fded69e724] --><div class="jive-rendered-content"><p>Zenoss has never had built in polling for interfaces (though it is currently a requested feature and should be implemented some time in the future).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This is the way that it has to be done:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><a class="jive-link-wiki-small" href="../docs/DOC-2494.html">docs/DOC-2494</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>With King Crab, it is a Status icon instead of O/A.&#160; When you implement that mapping/transform it should be in /Status/IpInterface instead of /Net/Link.&#160; Create /Status/IpInterface if it's not already there.&#160; According to Chet, that should allow for the port status to change when the port is seen as being operationally down.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Also, that /Change/Set event that you saw was as a result of a remodelling.&#160; So zenmodel must have remodeled the device as the port was down, and since you didn't have the interfaces locked on the device it marked the port as being down and set it to not monitored.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>You need to implement SNMP polling for interface status.&#160; It is not currently an out-of-box feature.&#160; So you basically had no polling enabled, no traps enabled, and the device got remodeled while the interface was down and not locked.&#160; This is more user error than anything.</p></div><!-- [DocumentBodyEnd:3433d57f-a627-4602-a1f7-25fded69e724] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-43305" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=43305&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-43305-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-43305-" data-uniqueKey="2-43305-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-43305-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44296">
+
+
+        <div id="thread-message-44296" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="44296">
+                <a name="44296"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mlist.html"
+   data-externalId=""
+   data-username="mlist"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mlist/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="mlist"
+            /><span username="mlist" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mlist.html"
+data-externalId=""
+data-username="mlist"
+data-avatarId="-1"
+id="jive-579032928411222787794"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>mlist</a>                        </div>
+                        <em>49 posts since <br/>Mar 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44296.html#44296" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Jan 7, 2010 9:22 AM</span>
+                            (<a href="43305.html#43305" title="Go to message" class="font-color-meta-light " >in response to Ryan Matte</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44296.html#44296">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:b23b0111-b460-454e-ad52-f57ff47016e8] --><div class="jive-rendered-content"><p>Hi Ryan</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I still have some confusion about this item and I kindly ask to read my synthesis and tell me if I have correctly understood:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>If I have correctly understood, when you add a device (for example a cisco switch), zenoss will monitor ALL interfaces and, starting from zenoss 2.5 it will generate rrd graphs for all interfaces (this is explained by jcurry in this post </span><a class="jive-link-message-small" href="44295.html#44295">message/44295#44295</a><span>) but won't generate alerts whenever interface's status change from up to down. In my opinion this default setting is good because otherwise you could receive lot of alerts (I think to a 48 switch port on which are connected user's pc that often power off their computer) but, could be there situations in which is necessary to get alarms when specific interfaces on a specific device go down (or on a class like /network/cisco/router).</span></p><p><span>In this case the solution is in the link that you specified (</span><a class="jive-link-wiki-small" href="../docs/DOC-2494.html">docs/DOC-2494</a><span>) but it is not correct because the event class is not "/Net/Link" but "/Status/IpInterface".</span></p><p>Questions:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>-Does I have correctly understood how zenoss manage the status of interfaces (up/down) and the related alerts?</p><p>-Could you fix the documentation in the link?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Please feel free to correct me and give me some tips.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Regard</p><p>Marco</p></div><!-- [DocumentBodyEnd:b23b0111-b460-454e-ad52-f57ff47016e8] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44296" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44296&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44296-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44296-" data-uniqueKey="2-44296-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44296-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44287">
+
+
+        <div id="thread-message-44287" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="44287">
+                <a name="44287"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rmatte.html"
+   data-externalId=""
+   data-username="rmatte"
+   data-avatarId="1757"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5786, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/rmatte/avatar/46.png?a=1757"
+            border="0" height="46" width="46"
+            alt="Ryan Matte"
+            /><span username="rmatte" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rmatte.html"
+data-externalId=""
+data-username="rmatte"
+data-avatarId="1757"
+id="jive-578632928411226430143"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5786, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Ryan Matte</a>                        </div>
+                        <em>653 posts since <br/>Mar 26, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44287.html#44287" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Jan 7, 2010 10:04 AM</span>
+                            (<a href="44296.html#44296" title="Go to message" class="font-color-meta-light " >in response to mlist</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44287.html#44287">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ec34e109-d9ef-4c92-a026-3d49bb515a94] --><div class="jive-rendered-content"><p>Not quite,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>When you first model a device Zenoss will only set the interfaces that are shown as being active to monitored.&#160; It is then YOUR responsibility to go through and only set the ports that you want monitored to monitored status when commissioning the device.&#160; Interface status polling is more effective than traps in my opinion and it should be a built in option (but not necessarily enabled by default).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>You also misunderstood the part about /Status/IpInterface.&#160; The document for interface polling was written a long time ago.&#160; The way interface status display is handled was changed in King Crab.&#160; To have the interface status on the OS tab display the proper status when a port goes down you HAVE to have the event come in for /Status/IpInterface, not for /Net/Link.&#160; This was explained to me by Chet himself (the author of the original article).</p></div><!-- [DocumentBodyEnd:ec34e109-d9ef-4c92-a026-3d49bb515a94] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44287" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44287&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44287-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44287-" data-uniqueKey="2-44287-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44287-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44301">
+
+
+        <div id="thread-message-44301" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="44301">
+                <a name="44301"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mlist.html"
+   data-externalId=""
+   data-username="mlist"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mlist/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="mlist"
+            /><span username="mlist" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mlist.html"
+data-externalId=""
+data-username="mlist"
+data-avatarId="-1"
+id="jive-579032928411229712867"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>mlist</a>                        </div>
+                        <em>49 posts since <br/>Mar 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44301.html#44301" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Jan 7, 2010 11:35 AM</span>
+                            (<a href="44287.html#44287" title="Go to message" class="font-color-meta-light " >in response to Ryan Matte</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44301.html#44301">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:fb03a1a5-acf1-4ff8-b2eb-584c85959d52] --><div class="jive-rendered-content"><p>Hi Ryan</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>thans for your clarification.I kindly ask you just some other explanation that I'm sure will be appreciated by other users:</p><p>1) Are alerts generated whenever interface status change?</p><p>As you explained when you first model a device, Zenoss will ONLY set the interfaces that are shown as being active to monitored. This is clear but, in this case, will events AUTOMATICALLY generated if a monitored interface goes down?</p><p>2) If you want to change this behavior ( Zenoss will ONLY set the interfaces that are shown as being active to monitored), the solution is that one descibed in the Chet's document. To sum up this is a workaround because, as you explained, "Interface status polling is more effective than traps in my opinion and it should be a built in option (but not necessarily enabled by default)".</p><p>Correct?</p><p>3)You say: "it is then YOUR responsibility to go through and only set the ports that you want monitored to monitored status when commissioning the device".</p><p><span>Because this is time expensive and in my opinion quite frustrating, a good solution would be to "to massive disable monitor ipinterface for all devices" as described in this post </span><a class="jive-link-message-small" href="19580.html#19580">message/19580#19580</a><span> and, after, manually reenable the monitoring for the interfaces on which you need get alerts whenever they go down.</span></p><p>Correct?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Marco</p></div><!-- [DocumentBodyEnd:fb03a1a5-acf1-4ff8-b2eb-584c85959d52] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44301" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44301&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44301-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44301-" data-uniqueKey="2-44301-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44301-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44306">
+
+
+        <div id="thread-message-44306" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="44306">
+                <a name="44306"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rmatte.html"
+   data-externalId=""
+   data-username="rmatte"
+   data-avatarId="1757"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5786, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/rmatte/avatar/46.png?a=1757"
+            border="0" height="46" width="46"
+            alt="Ryan Matte"
+            /><span username="rmatte" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rmatte.html"
+data-externalId=""
+data-username="rmatte"
+data-avatarId="1757"
+id="jive-578632928411233399647"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5786, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Ryan Matte</a>                        </div>
+                        <em>653 posts since <br/>Mar 26, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44306.html#44306" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Jan 7, 2010 11:42 AM</span>
+                            (<a href="44301.html#44301" title="Go to message" class="font-color-meta-light " >in response to mlist</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44306.html#44306">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:e5796e9b-06fe-41be-9678-c4a68e678660] --><div class="jive-rendered-content"><span>I think this is really where it gets to the point where it's based on personal opinion.&#160; I believe that in the majority of cases, people will want interfaces automatically enabled for monitoring rather than having them all disabled and then going through and enabling them.&#160; I also don't see what difference there is between the two.&#160; As I stated, Zenoss will only monitor the status of interfaces that it sees as being operationally up during modelling.&#160; It will not monitor the interfaces that it sees as operationally down.&#160; Obviously in the unlikely event that one of the ports drops off while you're configuring which ports you want monitored, yes, an alert will be generated automatically (what alerts are not generated automatically?).&#160; If you're smart though, you'd have the device in Pre-Production state until you are completely satisfied with the monitoring configuration and set Zenoss not to alert on devices unless they are in Production state.&#160; This would eliminate the possibility of having false positive alerts while you configure monitoring for the device.&#160; As long as you have proper interface labels on your devices, disabling monitoring of user ports is very easy.&#160; It is only time consuming if you don't follow proper practice of labeling ports on your devices.</span></div><!-- [DocumentBodyEnd:e5796e9b-06fe-41be-9678-c4a68e678660] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44306" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44306&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44306-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44306-" data-uniqueKey="2-44306-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44306-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44303">
+
+
+        <div id="thread-message-44303" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="44303">
+                <a name="44303"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432928411237061646"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44303.html#44303" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Jan 7, 2010 11:50 AM</span>
+                            (<a href="44306.html#44306" title="Go to message" class="font-color-meta-light " >in response to Ryan Matte</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44303.html#44303">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:bf13e27c-1be6-4063-9c85-5bb60cee9b8b] --><div class="jive-rendered-content"><p>Ryan Matte wrote, On 1/7/2010 11:43 AM:</p><p>(what alerts are not generated automatically?).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Well, EVENTS are generated automatically, but at least for me, if you </p><p>haven't created an alerting rule to match on the event (which you might </p><p>well have done) you won't get an ALERT (That is, and e-mail)...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>--</p><p>James Pulver</p><p>Information Technology Area Supervisor</p><p>LEPP Computer Group</p><p>Cornell University</p></div><!-- [DocumentBodyEnd:bf13e27c-1be6-4063-9c85-5bb60cee9b8b] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44303" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44303&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44303-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44303-" data-uniqueKey="2-44303-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44303-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44307">
+
+
+        <div id="thread-message-44307" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="44307">
+                <a name="44307"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rmatte.html"
+   data-externalId=""
+   data-username="rmatte"
+   data-avatarId="1757"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5786, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/rmatte/avatar/46.png?a=1757"
+            border="0" height="46" width="46"
+            alt="Ryan Matte"
+            /><span username="rmatte" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rmatte.html"
+data-externalId=""
+data-username="rmatte"
+data-avatarId="1757"
+id="jive-578632928411240155208"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5786, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Ryan Matte</a>                        </div>
+                        <em>653 posts since <br/>Mar 26, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44307.html#44307" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Jan 7, 2010 11:59 AM</span>
+                            (<a href="44303.html#44303" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44307.html#44307">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:57f79d00-175b-472e-a195-abf4183b48c7] --><div class="jive-rendered-content"><span>Right, I understand that, he seemed to be using the term "Alert" as general definition for events, so I responded accordingly.&#160; Of course the actual alerting varies based on user configuration.</span></div><!-- [DocumentBodyEnd:57f79d00-175b-472e-a195-abf4183b48c7] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44307" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44307&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44307-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44307-" data-uniqueKey="2-44307-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44307-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44304">
+
+
+        <div id="thread-message-44304" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="44304">
+                <a name="44304"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432928411243136266"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44304.html#44304" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Jan 7, 2010 12:05 PM</span>
+                            (<a href="44307.html#44307" title="Go to message" class="font-color-meta-light " >in response to Ryan Matte</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44304.html#44304">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:d58dd7d9-19cc-4744-a1ba-ded9b307d4b0] --><div class="jive-rendered-content"><p>Yes, I figured you did. I was trying to inform (though perhaps too </p><p>subtly) that Zenoss terminology is specific, and he may be confusing </p><p>himself or others with the wrong terms ...</p><p>--</p><p>James Pulver</p><p>Information Technology Area Supervisor</p><p>LEPP Computer Group</p><p>Cornell University</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Ryan Matte wrote, On 1/7/2010 11:59 AM:</p><blockquote class="jive-quote" level="1"><p>Right, I understand that, he seemed to be using the term "Alert" as general definition for events, so I responded accordingly.&#160; Of course the actual alerting varies based on user configuration.</p></blockquote><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p></div><!-- [DocumentBodyEnd:d58dd7d9-19cc-4744-a1ba-ded9b307d4b0] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44304" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44304&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44304-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44304-" data-uniqueKey="2-44304-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44304-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44331">
+
+
+        <div id="thread-message-44331" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="44331">
+                <a name="44331"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mlist.html"
+   data-externalId=""
+   data-username="mlist"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mlist/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="mlist"
+            /><span username="mlist" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mlist.html"
+data-externalId=""
+data-username="mlist"
+data-avatarId="-1"
+id="jive-579032928411246284322"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>mlist</a>                        </div>
+                        <em>49 posts since <br/>Mar 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44331.html#44331" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Jan 8, 2010 3:10 AM</span>
+                            (<a href="44304.html#44304" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44331.html#44331">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:0843a88b-5e79-4d1f-9175-b1b6ec404bc7] --><div class="jive-rendered-content"><span>Ryan I agree with you when you say:</span><br/><span>"I think this is really where it gets to the point where it's based on personal opinion".</span><br/><span>I thank you for this useful clarification, very very appreciated. Now is quite clear for me (and maybe for all other users) how zenoss "thinks" about interface monitoring. </span><br/><span>At this point, in order to have a full understanding I'll make yout LAST 2 questions. Please be patience </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><br/><span>1) Modelling</span><br/><span>You correctly spoken about "modelling" that, in a default configuration, runs every 12 hours. Supposing that you add a device at 8 am and, at this time, there are 30 ports up and 18 ports down. In this case zenoss will monitor only the 30 ports but, if during the next modelling (8 pm) the ports in "up status" would be 40, I suppose that Zenoss will understand this and that will monitor 40 interfaces instead of 30 correct?</span><br/><br/><span>2) SNMP Performance Cycle Interval (5 minutes)</span><br/><span>I suppose that the "status" of the interfaces (up or down) is checked every 5 minute because in the collector I have "SNMP Performance Cycle Interval" to "300" seconds. Correct?</span><br/><br/><br/><br/><span>ps: James I apologize for bad terminology that I have used. I meant "events" and not "alert".</span></div><!-- [DocumentBodyEnd:0843a88b-5e79-4d1f-9175-b1b6ec404bc7] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44331" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44331&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44331-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44331-" data-uniqueKey="2-44331-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44331-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44339">
+
+
+        <div id="thread-message-44339" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="44339">
+                <a name="44339"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jcurry"
+   data-externalId=""
+   data-username="jcurry"
+   data-avatarId="1412"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4214, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jcurry/avatar/46.png?a=1412"
+            border="0" height="46" width="46"
+            alt="jcurry"
+            /><span username="jcurry" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jcurry"
+data-externalId=""
+data-username="jcurry"
+data-avatarId="1412"
+id="jive-421432928411249674860"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4214, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jcurry</a>                        </div>
+                        <em>1,021 posts since <br/>Apr 15, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44339.html#44339" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Jan 8, 2010 6:27 AM</span>
+                            (<a href="44331.html#44331" title="Go to message" class="font-color-meta-light " >in response to mlist</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44339.html#44339">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:3d940064-011b-4823-9217-05057be8910a] --><div class="jive-rendered-content"><p>Hi Marco,</p><p>I think James and Ryan have covered just about everything.&#160; One thing that doesn't seem to have been emphasised is that with the 2.5.x design, the "whether to model an interface" decision is based on the SNMP ifAdminStatus value.&#160; If your organisation ensures that unused interfaces are configured down and this is reflected by the SNMP agent in ifAdminStatus, then there should be no problem.&#160; They won't be discovered, modelled or have SNMP data gathered.&#160; Our problem comes with lots of switches which have ifAdminStatus = Up and ifOperStatus = Down. </p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Did you find the TRAC ticket raised by Chet as a result of the earlier discussion? - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5943">http://dev.zenoss.org/trac/ticket/5943</a> .</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>As James and Ryan discussed, currently you can only generate events (with optional, customised alerts) based on ifOperStatus, if you set that up as an extra performance data point to be tested and thresholded every 5 minutes (by default).&#160; If you ensure that the event generated by the threshold is&#160; /Status/IpInterface rather than the default /Net/Link then the coloured icon against the interface in the main OS tab, will reflect the status of the most recent event - red for down and green for up.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If you really don't like the 2.5 way of determining active interfaces, based on ifAdminStatus, and want to return to the 2.4 design, based on ifOperStatus, then you can return to the previous model of data collection by modifying $ZENHOME/Products/ZenModel/IpInterface.py and change adminStatus to operStatus in the snmpIgnore method (make quite sure you have a backup of this file first and be aware that you would have to maintain this yourself after any Zenoss upgrade).&#160; If you are largely monitoring switches with many inactive interfaces but all have ifAdminStatus = Up, then this change can save LOTS of performance polling every 5 minutes and LOTS of space for unwanted performance RRD files.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>To answer your specific questions:</p><p>1) - you are correct (assuming by "Up" you mean ifAdminStatus = Up).&#160;&#160; On the first discovery poll you will discover and start monitoring 30 interfaces.&#160; 12 hours later on the next modeler poll, another 10 are also ifAdminStaus = Up so they are added to the configuration database and added to the 5-minute SNMP performance poll list.&#160; If you have done the extra configuration to performance poll and threshold ifOperStatus then, initially you could receive events for upto 30 interfaces; after the second modelling poll, potentially you get events from 40 interfaces.&#160; If on the third modeler poll the remaining 8 interfaces are ifAdminStatus=Up, then you will model and poll (and potentially get events from) all 48 interfaces.&#160; The issue, potentially, is that if the ifAdminStatus is not detected as ifAdminStatus=Down on a subsequent 12-hour modeler poll, but, say, 18 of your interfaces are now ifOperStatus=down, then you are still gathering data every 5 minutes for those 18 down interfaces.&#160; Nothing will remove their rrd data files.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>2) As you say, if you have a single collector (which is likely for Zenoss Core), then you have a single SNMP polling interval, whose default is 300 seconds, or 5 minutes.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Cheers,</p><p>Jane</p></div><!-- [DocumentBodyEnd:3d940064-011b-4823-9217-05057be8910a] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44339" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44339&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44339-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44339-" data-uniqueKey="2-44339-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44339-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44352">
+
+
+        <div id="thread-message-44352" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="44352">
+                <a name="44352"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mlist.html"
+   data-externalId=""
+   data-username="mlist"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mlist/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="mlist"
+            /><span username="mlist" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mlist.html"
+data-externalId=""
+data-username="mlist"
+data-avatarId="-1"
+id="jive-579032928411252882854"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>mlist</a>                        </div>
+                        <em>49 posts since <br/>Mar 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44352.html#44352" title="Link to reply #12" class="jive-thread-reply-num font-color-meta-light">12.</a>
+                        <span>Jan 8, 2010 9:28 AM</span>
+                            (<a href="44339.html#44339" title="Go to message" class="font-color-meta-light " >in response to jcurry</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44352.html#44352">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:6c881003-c041-4148-8daf-4b174dfa2a8e] --><div class="jive-rendered-content"><p>HI jane</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>before all my best compliment for your clarity.<br/>Now I think to have finally understood but I kindly ask you just a confirmation of this new synthesis:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Starting from zenoss 2.5.x, when you add a network device (in this example we suppose a 48 ports switch), zenoss will monitor all interfaces with ifAdminStatus = UP. Previously ifOperStatus was used. As explained in the ticket "5943", It turns out that neither one of these solutions is perfect because When ifOperStatus was used as the qualifier, we would miss monitoring interfaces for long periods of time until the modeler came through and found it was up. Now that we're using ifAdminStatus a lot of users are finding their Zenoss servers overloaded with I/O due to monitoring switch ports that have nothing plugged into them. Actually, es explained by Jane, is possible to reverte this behavior modifying $ZENHOME/Products/ZenModel/IpInterface.py and change adminStatus to operStatus in the snmpIgnore method.<br/><span>Anyway, regardless the zenoss version and the "performance graphs", events won't be automatically generated when interface status change from up to down. As explained in the post "Polling Interface Status" (</span><a class="jive-link-wiki-small" href="../docs/DOC-2494.html">docs/DOC-2494</a><span>), the reason is that Zenoss will monitor the throughput and errors on all network interfaces by default but it doesn't also monitoring the up/down status of the interfaces. In the article is explained how to use a threshold on the ifOperStatus value combined with an event class transform to accomplish this. The only particular in this case is that, as explained by Ryan, If you ensure that the event generated by the threshold is&#160; /Status/IpInterface rather than the default /Net/Link then the coloured icon against the interface in the main OS tab, will reflect the status of the most recent event - red for down and green for up.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Jane is correct or still I have badly understood something?<br/>In particular is correct what I wrote about events generation? This is a crucial point to understand because in every company usually there are core switch (in which all devices are always up and connected) and switch on which user's pc are connected (that usually turn off their computer during the night) thus, if what I wrote is correct, I thought that a good approach in my company would be to configure "active monitoring" on core switch (where interfaces with important devices connected never should be go down) and just leave the default on other switch. In practise I should apply the "interface template" only to core switch.<br/>In this way I should receive events ONLY for critical interfaces and not whenever users power off their pc.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Cheers</p><p>Marco</p></div><!-- [DocumentBodyEnd:6c881003-c041-4148-8daf-4b174dfa2a8e] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44352" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44352&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44352-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44352-" data-uniqueKey="2-44352-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44352-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44346">
+
+
+        <div id="thread-message-44346" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="44346">
+                <a name="44346"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jcurry"
+   data-externalId=""
+   data-username="jcurry"
+   data-avatarId="1412"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4214, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jcurry/avatar/46.png?a=1412"
+            border="0" height="46" width="46"
+            alt="jcurry"
+            /><span username="jcurry" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jcurry"
+data-externalId=""
+data-username="jcurry"
+data-avatarId="1412"
+id="jive-421432928411255964144"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4214, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jcurry</a>                        </div>
+                        <em>1,021 posts since <br/>Apr 15, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44346.html#44346" title="Link to reply #13" class="jive-thread-reply-num font-color-meta-light">13.</a>
+                        <span>Jan 8, 2010 2:00 PM</span>
+                            (<a href="44352.html#44352" title="Go to message" class="font-color-meta-light " >in response to mlist</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44346.html#44346">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:3dc96cb6-20b3-4b3a-aafe-b661246497f9] --><div class="jive-rendered-content"><p>Hi Marco,</p><p>You are absolutely correct - right up until your last suggestion - "would be to configure "active monitoring" on core switch (where interfaces with important devices connected never should be go down) and just leave the default on other switch. In practise I should apply the "interface template" only to core switch."</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The slight problem with your suggestion is that one does not bind <em>component </em>templates&#160; (which the interface ethernetCsmacd template is) - they get bound automatically - it's not your choice.&#160; Neither can you bind component templates to a specific device - they simply don't appear in the dropdown list.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>What you could do, is this.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Go to /Devices/Network/Switch and create a suborganizer, say, CoreSwitch.&#160; Back at /Devices/Network , select the Templates tab.&#160; Select the ethernetCsmacd&#160; template and use the dropdown menu to copy this template to /Devices/Network/Switch/CoreSwitch.&#160; From /Devices/Network/Switch/CoreSwitch, use the templates tab to modify this copy of&#160; the etherCsmacd template to poll and threshold ifOperStatus, as discussed previously.&#160; Whatever you do <strong>don't</strong> change the name of the template itself - it <strong>must</strong> be ethernetCsmacd - the same as the name of the component object.&#160; You may need to do this for the etherCsmacd_64 template too.&#160; Then move your core switch(es) from the /Network/Switch class to the /Network/Switch/CoreSwitch class. </p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>With templates of the same name (in fact, whether they are component templates or device templates), the instance lowest down the device hierarchy applies; so your little switches will get the standard template without ifOperStatus monitoring but your core switch(es) down in /Network/Switch/CoreSwitch will have the extra ifOperStatus monitoring with it's events configured for thresholds.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Does that make sense??&#160; Then, I think your statement "In this way I should receive events ONLY for critical interfaces and not whenever users power off their pc.", should be true.&#160; You will still be polling for performance data from all interfaces with ifAdminStatus=Up and ifOperStatus=Down, but at least you won't be getting events about the status.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Cheers,</p><p>Jane</p></div><!-- [DocumentBodyEnd:3dc96cb6-20b3-4b3a-aafe-b661246497f9] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44346" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44346&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44346-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44346-" data-uniqueKey="2-44346-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44346-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-44368">
+
+
+        <div id="thread-message-44368" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="44368">
+                <a name="44368"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/mlist.html"
+   data-externalId=""
+   data-username="mlist"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/mlist/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="mlist"
+            /><span username="mlist" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/mlist.html"
+data-externalId=""
+data-username="mlist"
+data-avatarId="-1"
+id="jive-579032928411258982948"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5790, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>mlist</a>                        </div>
+                        <em>49 posts since <br/>Mar 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="44368.html#44368" title="Link to reply #14" class="jive-thread-reply-num font-color-meta-light">14.</a>
+                        <span>Jan 11, 2010 4:11 AM</span>
+                            (<a href="44346.html#44346" title="Go to message" class="font-color-meta-light " >in response to jcurry</a>)
+                        </div>
+
+                        <strong>
+                        <a href="44368.html#44368">Re: Interface status in Zenoss Core 2.5</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ad33d25e-111c-42b5-be22-1b4808a688b5] --><div class="jive-rendered-content"><p>Jane I thank you very much for your clarification. I have perfectly understood how to proceed and I'm sure that this will be appreciated by other beginner users like me.I have understood how to manage template thanks to your suggestion. As soon as I'll run some test, I'll post again if something goes wrong</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I think that this was a crucial point to understand! In particular I thank you for the clarity of your exposition that, as usual (I read your white papers) is always impressive.<br/>Anyway I thank again Rayan too. His suggestions on the forum are always appreciated.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Cheers</p><p>Marco</p></div><!-- [DocumentBodyEnd:ad33d25e-111c-42b5-be22-1b4808a688b5] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-44368" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=44368&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-44368-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-44368-" data-uniqueKey="2-44368-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="44339.html#" id="jive-acclaim-likedlink-2-44368-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="44339.html#11905" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="thread/11905?decorator=print&amp;displayFullThread=true"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-41557">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+          <div class="jive-box jive-sidebar jive-box-questionLegend">
+              <div class="jive-box-header jive-sidebar-header">
+                  <h4>Legend</h4>
+              </div>
+              <div class="jive-box-body jive-sidebar-body">
+                  <ul class="jive-icon-list font-color-meta">
+                      <li><span class="jive-icon-med jive-icon-discussion-correct"></span>
+<strong class="jive-thread-reply-message-correct-label">Correct Answers</strong> - 4 points                      </li>
+                      <li><span class="jive-icon-med jive-icon-discussion-helpful"></span>
+<strong class="jive-thread-reply-message-helpful-label">Helpful Answers</strong> - 2 points                      </li>
+                  </ul>
+              </div>
+          </div>
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+

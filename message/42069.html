@@ -1,0 +1,2152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Graph I/O Performance? - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- Graph I/O Performance? -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Graph I/O Performance?' Discussion Feed"
+            href="community/feeds/messages?thread=8194">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="../thread/8194%3Fstart=0&amp;tstart=0.html#42069"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="42069.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="42069.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="42069.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.8194"/>
+        <input type="hidden" name="message.post.8194" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=8194&amp;message=42069&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="8194">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Graph I/O Performance?"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <strong>     
+        
+            105221&nbsp;Views
+        
+
+</strong>
+                        <strong>12 Replies</strong>
+                    <a href="42167%3Ftstart=0.html#42167" >Latest reply</a>:
+                    Nov 16, 2009 9:42 PM by
+guyverix                        <span><a href="community/feeds/messages?thread=8194"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="8194"></a><a name="27851"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/jbaird.html"
+   data-externalId=""
+   data-username="jbaird"
+   data-avatarId="1047"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3122, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jbaird/avatar/46.png?a=1047"
+            border="0" height="46" width="46"
+            alt="jbaird"
+            /><span username="jbaird" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/jbaird.html"
+data-externalId=""
+data-username="jbaird"
+data-avatarId="1047"
+id="jive-312232926712044646205"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3122, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jbaird</a>                                    </div>
+                                    <em>166 posts since <br/>Sep 18, 2007</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Feb 4, 2009 12:13 PM</h3>
+                                        <h2><a href="27851.html#27851">Graph I/O Performance?</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:1e6cb464-00c7-4166-afdb-4e08d56e9f77] --><div class="jive-rendered-content">Is anybody monitoring/graphing any I/O related stats on Linux or Unix machines? If so.. how are you going about doing this?<br/><br/>Thanks,<br/><br/>Josh</div><!-- [DocumentBodyEnd:1e6cb464-00c7-4166-afdb-4e08d56e9f77] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-27851-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-27851-" data-uniqueKey="2-27851-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-27851-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-27852">
+
+
+        <div id="thread-message-27852" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="27852">
+                <a name="27852"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/netdata.html"
+   data-externalId=""
+   data-username="netdata"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2615, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/netdata/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Wouter DHaeseleer"
+            /><span username="netdata" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/netdata.html"
+data-externalId=""
+data-username="netdata"
+data-avatarId="-1"
+id="jive-261532926712049102808"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2615, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Wouter DHaeseleer</a>                        </div>
+                        <em>204 posts since <br/>Jun 22, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="27852.html#27852" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Feb 4, 2009 1:53 PM</span>
+                            (<a href="27851.html#27851" title="Go to message" class="font-color-meta-light " >in response to jbaird</a>)
+                        </div>
+
+                        <strong>
+                        <a href="27852.html#27852">RE: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:a1e93be8-a7f5-4580-8ac2-1797b65a9ccd] --><div class="jive-rendered-content">I guess you mean things you can view with sar and iostat?<br/><br/>If so I would take a look at the nagios plugins.<br/>Here is one: http://www.ofn.dk/files/software/check_iostat</div><!-- [DocumentBodyEnd:a1e93be8-a7f5-4580-8ac2-1797b65a9ccd] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-27852" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=27852&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-27852-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-27852-" data-uniqueKey="2-27852-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-27852-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-27853">
+
+
+        <div id="thread-message-27853" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="27853">
+                <a name="27853"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/jbaird.html"
+   data-externalId=""
+   data-username="jbaird"
+   data-avatarId="1047"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3122, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jbaird/avatar/46.png?a=1047"
+            border="0" height="46" width="46"
+            alt="jbaird"
+            /><span username="jbaird" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/jbaird.html"
+data-externalId=""
+data-username="jbaird"
+data-avatarId="1047"
+id="jive-312232926712052329079"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3122, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jbaird</a>                        </div>
+                        <em>166 posts since <br/>Sep 18, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="27853.html#27853" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Feb 4, 2009 2:26 PM</span>
+                            (<a href="27852.html#27852" title="Go to message" class="font-color-meta-light " >in response to Wouter DHaeseleer</a>)
+                        </div>
+
+                        <strong>
+                        <a href="27853.html#27853">RE: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:f40ddb85-00ff-46f0-b79e-53b3319b8ca8] --><div class="jive-rendered-content">Yeah something like that.. sucks that it has to be executed on the remote system.. was hoping something along these lines was available via SNMP.</div><!-- [DocumentBodyEnd:f40ddb85-00ff-46f0-b79e-53b3319b8ca8] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-27853" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=27853&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-27853-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-27853-" data-uniqueKey="2-27853-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-27853-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-27854">
+
+
+        <div id="thread-message-27854" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="27854">
+                <a name="27854"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/netdata.html"
+   data-externalId=""
+   data-username="netdata"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2615, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/netdata/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Wouter DHaeseleer"
+            /><span username="netdata" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/netdata.html"
+data-externalId=""
+data-username="netdata"
+data-avatarId="-1"
+id="jive-261532926712055599644"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2615, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Wouter DHaeseleer</a>                        </div>
+                        <em>204 posts since <br/>Jun 22, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="27854.html#27854" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Feb 4, 2009 2:29 PM</span>
+                            (<a href="27853.html#27853" title="Go to message" class="font-color-meta-light " >in response to jbaird</a>)
+                        </div>
+
+                        <strong>
+                        <a href="27854.html#27854">RE: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:b297ceff-7c17-47c0-9e7a-99da75ccccdd] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"jbaird" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>Yeah something like that.. sucks that it has to be executed on the remote system.. was hoping something along these lines was available via SNMP.</p></blockquote><br/><br/>I use nagios_nrpe agent to do remote scripts.</div><!-- [DocumentBodyEnd:b297ceff-7c17-47c0-9e7a-99da75ccccdd] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-27854" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=27854&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-27854-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-27854-" data-uniqueKey="2-27854-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-27854-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-27855">
+
+
+        <div id="thread-message-27855" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="27855">
+                <a name="27855"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/gherzbrun.html"
+   data-externalId=""
+   data-username="gherzbrun"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/gherzbrun/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="gherzbrun"
+            /><span username="gherzbrun" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/gherzbrun.html"
+data-externalId=""
+data-username="gherzbrun"
+data-avatarId="-1"
+id="jive-475732926712058760049"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>gherzbrun</a>                        </div>
+                        <em>4 posts since <br/>Aug 1, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="27855.html#27855" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Feb 5, 2009 3:23 PM</span>
+                            (<a href="27854.html#27854" title="Go to message" class="font-color-meta-light " >in response to Wouter DHaeseleer</a>)
+                        </div>
+
+                        <strong>
+                        <a href="27855.html#27855">RE: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:40e5eef8-c4f6-42f8-b5c2-e5fd8dab91ff] --><div class="jive-rendered-content">While you can't get the same detail as sar or iostat, there is a diskIOTable (1.3.6.1.4.1.2021.13.15.1) tree in the Net-SNMP mibs. Its rather simple and not always fully functional, but it would give you some stats to start with. Additionally there is also the generic ssIORawSent and ssIORawReceived in the systemStats table, but those are far more generic.<br/><br/>Similar functionailty exists in the Free Version of the Informant agent for windows in their logicalDiskTable (1.3.6.1.4.1.9600.1.1.1), again not a very complete picture, but at least some stats. <br/><br/>Good luck</div><!-- [DocumentBodyEnd:40e5eef8-c4f6-42f8-b5c2-e5fd8dab91ff] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-27855" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=27855&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-27855-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-27855-" data-uniqueKey="2-27855-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-27855-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-41671">
+
+
+        <div id="thread-message-41671" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="41671">
+                <a name="41671"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/c0ns0le.html"
+   data-externalId=""
+   data-username="c0ns0le"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4643, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/c0ns0le/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="c0ns0le"
+            /><span username="c0ns0le" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/c0ns0le.html"
+data-externalId=""
+data-username="c0ns0le"
+data-avatarId="-1"
+id="jive-464332926712061953285"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4643, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>c0ns0le</a>                        </div>
+                        <em>5 posts since <br/>Jul 8, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="41671.html#41671" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Nov 5, 2009 11:46 AM</span>
+                            (<a href="27851.html#27851" title="Go to message" class="font-color-meta-light " >in response to jbaird</a>)
+                        </div>
+
+                        <strong>
+                        <a href="41671.html#41671">Re: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:f14288e1-76fe-416d-9646-295207f7f3ca] --><div class="jive-rendered-content"><p>Thought i'd drop a note on this and hopefully get some others to help out w/ the graphing etc...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>One method i've found for iostats collection is to leverage another communities efforts.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>1. place the iostats.pl file attached into whatever directory</p><p>2. edit your snmpd.conf adding:<br/>&#160;&#160;&#160;&#160; pass .1.3.6.1.3.1 /usr/bin/perl /path/to/iostat.pl</p><p>3. create a /etc/cron.d/iostat with following content:<br/>&#160;&#160;&#160;&#160; * * * * * iostat -kxd 30 2 &gt; /tmp/io.tmp &amp;&amp; mv /tmp/io.tmp /tmp/iostat.cache</p><p>4. restart cron</p><p>5. snmpwalk -v2c -c&lt;your_community&gt; &lt;host&gt;:&lt;port&gt; .1.3.6.1.3.1</p><p>6. viola you have iostats for all devices via snmp.</p><p>7. leverage someone elses hardware in getting it added to your hardware tab or perf tab / device</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>ref: </span><a class="jive-link-external-small" href="http://www.markround.com/archives/48-Linux-iostat-monitoring-with-Cacti.html">http://www.markround.com/archives/48-Linux-iostat-monitoring-with-Cacti.html</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Would be great if we could figure out how to do some mappings similar to yaketystats in that it's able to desern what physical and logical devices are mapped to. ie your /dev/mpath or /dev/dm devices mapped to logical volume names etc..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Regards,</p></div><!-- [DocumentBodyEnd:f14288e1-76fe-416d-9646-295207f7f3ca] -->
+<div class="jive-attachments">
+    <strong>Attachments:</strong>
+    <ul>
+        <li>
+            <a href="servlet/JiveServlet/download/41671-2123/iostat.pl.zip"><span
+                    class="jive-icon-sml jive-icon-doctype-compressed"></span>iostat.pl.zip</a> (2.3 K)
+
+
+        </li>
+    </ul>
+</div>
+<div id="previewable-binary-viewer"></div>
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-41671" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=41671&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-41671-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-41671-" data-uniqueKey="2-41671-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-41671-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42067">
+
+
+        <div id="thread-message-42067" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42067">
+                <a name="42067"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/c0ns0le.html"
+   data-externalId=""
+   data-username="c0ns0le"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4643, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/c0ns0le/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="c0ns0le"
+            /><span username="c0ns0le" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/c0ns0le.html"
+data-externalId=""
+data-username="c0ns0le"
+data-avatarId="-1"
+id="jive-464332926712068888330"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4643, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>c0ns0le</a>                        </div>
+                        <em>5 posts since <br/>Jul 8, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42067.html#42067" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Nov 15, 2009 7:09 PM</span>
+                            (<a href="41671.html#41671" title="Go to message" class="font-color-meta-light " >in response to c0ns0le</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42067.html#42067">Re: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:c61e24c1-3b3d-462d-bce6-f72034cb5c4f] --><div class="jive-rendered-content"><span>bump</span></div><!-- [DocumentBodyEnd:c61e24c1-3b3d-462d-bce6-f72034cb5c4f] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42067" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42067&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42067-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42067-" data-uniqueKey="2-42067-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-42067-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42069">
+
+
+        <div id="thread-message-42069" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42069">
+                <a name="42069"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732926712072144287"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42069.html#42069" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Nov 15, 2009 7:44 PM</span>
+                            (<a href="42067.html#42067" title="Go to message" class="font-color-meta-light " >in response to c0ns0le</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42069.html#42069">Re: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:83b22a45-53a4-4d0e-9de8-4879623cf7d9] --><div class="jive-rendered-content"><span>I wrote a daemon that does this about 2 years ago.&#160; Let me dust off the code and I will tar it and get it up here.&#160; Do you want a Debian version, or a Red Hat version?</span><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Message was edited by: guyverix</p><p>I will not kid you, the code is simplistic (I was just starting to learn bash scripting, and this was my first daemon) so the exec statement itself is defining the disk you want to get the stats on.&#160; It is not a table return value per device.&#160; It does however work very well to get what you are asking for.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Message was edited by: guyverix&#13;
+I will check and see how much of a PITA it would be for this to return a table value per device.&#160; </p></div><!-- [DocumentBodyEnd:83b22a45-53a4-4d0e-9de8-4879623cf7d9] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42069" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42069&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42069-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42069-" data-uniqueKey="2-42069-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-42069-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42102">
+
+
+        <div id="thread-message-42102" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42102">
+                <a name="42102"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732926712075297541"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42102.html#42102" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Nov 15, 2009 9:11 PM</span>
+                            (<a href="42069.html#42069" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42102.html#42102">Re: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:92fa56d9-f707-4a14-b510-d1480aa19395] --><div class="jive-rendered-content"><p>I have updated the code and now, all that needs to be defined in your snmpd.conf file is the drive and if you want the stats from iostat -t or iostat -x.</p><p>The return is in a table format so everything can be graphed.&#160; Here is what you will get as returns on a walk when both t and x are available on one drive:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>.1.3.6.1.4.1.8072.1.3.2.3.1.3.1.48 = INTEGER: 6<br/>.1.3.6.1.4.1.8072.1.3.2.3.1.3.1.49 = INTEGER: 12<br/>.1.3.6.1.4.1.8072.1.3.2.3.1.4.1.48 = INTEGER: 0<br/>.1.3.6.1.4.1.8072.1.3.2.3.1.4.1.49 = INTEGER: 0<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.48.1 = STRING: sda5<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.48.2 = STRING: 19.58<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.48.3 = STRING: 18.38<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.48.4 = STRING: 425.97<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.48.5 = STRING: 184<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.48.6 = STRING: 4264<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.1 = STRING: sda5<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.2 = STRING: 0.00<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.3 = STRING: 34.87<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.4 = STRING: 1.40<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.5 = STRING: 18.28<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.6 = STRING: 19.98<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.7 = STRING: 425.97<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.8 = STRING: 22.66<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.9 = STRING: 0.21<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.10 = STRING: 10.80<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.11 = STRING: 1.06<br/>.1.3.6.1.4.1.8072.1.3.2.4.1.2.1.49.12 = STRING: 2.08</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I am using the extend command to create this, so it will also give you a litteral string reply as well if you need it for manipulations:</p><p>.1.3.6.1.4.1.8072.1.3.2.3.1.2.1.48 = STRING: sda5<br/>19.58<br/>18.38<br/>425.97<br/>184<br/>4264<br/>.1.3.6.1.4.1.8072.1.3.2.3.1.2.1.49 = STRING: sda5<br/>0.00<br/>34.87<br/>1.40<br/>18.28<br/>19.98<br/>425.97<br/>22.66<br/>0.21<br/>10.80<br/>1.06<br/>2.08<br/></p></div><!-- [DocumentBodyEnd:92fa56d9-f707-4a14-b510-d1480aa19395] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42102" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42102&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42102-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42102-" data-uniqueKey="2-42102-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-42102-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42103">
+
+
+        <div id="thread-message-42103" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42103">
+                <a name="42103"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732926712078459840"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42103.html#42103" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Nov 15, 2009 9:45 PM</span>
+                            (<a href="42102.html#42102" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42103.html#42103">Re: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:d8aa30a3-555d-4371-b673-0f9492e60449] --><div class="jive-rendered-content"><p>As promised, here you go.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Create directory /opt/snmp-scripts</p><p>This must contain iostat-snmp and iostat-snmp-v2</p><p>chmod 755 both of the files, they will be retrieving the data from the logs.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>copy iostatd and iostatdd into /etc/init.d/ and chmod them to 755 (also needs root ownership for the init.d dir)</p><p>copy snmpd.local.conf to /etc/snmp/</p><p>edit snmpd.local.conf to reflect your hard disks that you want to get values for.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Go into the rc#.d runlevel for the server and type:</p><p>ln -s ../init.d/iostatd S99iostatd (start it at boot)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>type /etc/init.d/iostatd&#160;&#160; (this calls iostatdd with no args,)</p><p>now type /etc/init.d/snmpd reload</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Verification:</p><p>the files that are created are in /var/tmp/iostat-&lt;x or t&gt;</p><p>run a tail on them.&#160; They are set to update every 10 seconds.&#160; (this can be changed inside iostatdd itself)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>now snmpwalk -v2c -c public localhost .1.3.6.1.4.1.8072.1.3.2</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If everything is set up correctly, you will have your data.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Message was edited by: guyverix</p><p>Darn, almost forgot.&#160; The init.d daemon is active for a Debian system currently.&#160; If it complains at startup, comment out the Debian code, and uncomment the RH code that I have commented.&#160; (or ask me to UL a RH version exclusive)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I would also recommend setting up a cron that restarts the daemon once a week/moth/whatever, since there is no log rotation, when the daemon is started it always wipes the previous file and goes again from scratch.&#160; (why eat the disk space)</p></div><!-- [DocumentBodyEnd:d8aa30a3-555d-4371-b673-0f9492e60449] -->
+<div class="jive-attachments">
+    <strong>Attachments:</strong>
+    <ul>
+        <li>
+            <a href="servlet/JiveServlet/download/42103-2162/iostats.tar"><span
+                    class="jive-icon-sml jive-icon-doctype-compressed"></span>iostats.tar</a> (20.0 K)
+
+
+        </li>
+    </ul>
+</div>
+<div id="previewable-binary-viewer"></div>
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42103" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42103&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42103-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42103-" data-uniqueKey="2-42103-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-42103-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42107">
+
+
+        <div id="thread-message-42107" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42107">
+                <a name="42107"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732926712085084391"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42107.html#42107" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Nov 15, 2009 10:32 PM</span>
+                            (<a href="42103.html#42103" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42107.html#42107">Re: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:5bbebd70-749b-4555-a646-f0f88d7bdca8] --><div class="jive-rendered-content"><p>As an FYI, I will be redoing this code sometime in the future, and have the log files be on a virtual mount in RAM.</p><p>No need to create disk IO to record disk IO, even at minimal levels..&#160; Grin..</p></div><!-- [DocumentBodyEnd:5bbebd70-749b-4555-a646-f0f88d7bdca8] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42107" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42107&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42107-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42107-" data-uniqueKey="2-42107-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-42107-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42155">
+
+
+        <div id="thread-message-42155" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42155">
+                <a name="42155"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/c0ns0le.html"
+   data-externalId=""
+   data-username="c0ns0le"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4643, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/c0ns0le/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="c0ns0le"
+            /><span username="c0ns0le" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/c0ns0le.html"
+data-externalId=""
+data-username="c0ns0le"
+data-avatarId="-1"
+id="jive-464332926712088110969"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4643, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>c0ns0le</a>                        </div>
+                        <em>5 posts since <br/>Jul 8, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42155.html#42155" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Nov 16, 2009 7:36 PM</span>
+                            (<a href="42107.html#42107" title="Go to message" class="font-color-meta-light " >in response to guyverix</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42155.html#42155">Re: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:a954b584-83d4-402a-a165-ede6c05446ea] --><div class="jive-rendered-content"><p><a class="jive-link-profile-small" href="../people/guyverix.html">guyverix</a>,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The only help i was really looking for is the graphing of the data in zenoss on say a 'custom' device tab.&#160; I've found the example code for how to create a new zenpack which adds the additional tab.&#160; I just haven't had the time to put it all together.&#160; I did find your post helpful though on the ramdisk part.&#160; I wouldn't expect it to be a high io process though, so not entirely certain it's needed in my implementation. Here are a few of the links.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Links:</p><p><a class="jive-link-message-small" href="36233.html#36233">message/36233#36233</a></p><p><a class="jive-link-message-small" href="40812.html#40812">message/40812#40812</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Regards,</p><p>c0ns0le</p></div><!-- [DocumentBodyEnd:a954b584-83d4-402a-a165-ede6c05446ea] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42155" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42155&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42155-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42155-" data-uniqueKey="2-42155-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-42155-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42167">
+
+
+        <div id="thread-message-42167" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="42167">
+                <a name="42167"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/guyverix.html"
+   data-externalId=""
+   data-username="guyverix"
+   data-avatarId="1098"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/guyverix/avatar/46.png?a=1098"
+            border="0" height="46" width="46"
+            alt="guyverix"
+            /><span username="guyverix" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/guyverix.html"
+data-externalId=""
+data-username="guyverix"
+data-avatarId="1098"
+id="jive-275732926712091263508"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2757, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>guyverix</a>                        </div>
+                        <em>846 posts since <br/>Jul 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42167.html#42167" title="Link to reply #12" class="jive-thread-reply-num font-color-meta-light">12.</a>
+                        <span>Nov 16, 2009 9:42 PM</span>
+                            (<a href="42155.html#42155" title="Go to message" class="font-color-meta-light " >in response to c0ns0le</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42167.html#42167">Re: Graph I/O Performance?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:175a7e92-b786-493c-b584-3ab839dd88a6] --><div class="jive-rendered-content"><span>Grin, the extra perf tab is not hard to code, it is getting the table replies put into the RRD that I still have all kinds of trouble with. Even after reading the howto for creating ZenPacks I dont understand Python well enouugh to tell it create datasource bleah with datapoints 1,2,3...x..</span></div><!-- [DocumentBodyEnd:175a7e92-b786-493c-b584-3ab839dd88a6] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42167" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42167&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42167-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42167-" data-uniqueKey="2-42167-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="42069.html#" id="jive-acclaim-likedlink-2-42167-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="42069.html#8194" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="../thread/8194%3Fdecorator=print&amp;displayFullThread=true.html"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-27851">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+

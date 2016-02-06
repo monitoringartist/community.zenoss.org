@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Dev chat 09/17/2009 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2141&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "792E8A683318FB8F61567D7018D6A02D";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2141&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 3529, 2141, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         3529,
-
-                    containerType:      14,
-                    containerID:        2141,
-
-                    contentObject: {
-                            document:          3529,
-                            version:           1
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=3529",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 3529,
-            containerID: "jive-more-like-this-102-3529",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 3529;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,7 +366,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
                 <a href="../community/documentation/irc.html">
             IRC</a> &gt; 
@@ -828,18 +377,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-3529/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-3529/restore'>
         <input type="hidden" name="version" value="1" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-3529"/>
         <input type="hidden" name="document.restore.DOC-3529" value="1394830817320-AIBD4OGSU7FRQ59152BBFXVWU4DIUYJ8"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-3529/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-3529/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-3529"/>
         <input type="hidden" name="document.delete.DOC-3529" value="1394830817325-8V7G2KHBL8B6SZRQDXQNUKNXCVGY2ST"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-3529"/>
         <input type="hidden" name="document.publish.DOC-3529" value="1394830817392-KVQVZV3ESM751PSXQUOVTJKUHUTT9JHC"/>
         <input type="hidden" name="document" value="DOC-3529" />
@@ -895,7 +444,7 @@ Password:                </label>
         <div class="jive-content-header-details">
 
 Created on: Sep 17, 2009 9:33 PM by
-<a href="http://community.zenoss.org/people/mray"
+<a href="people/mray"
 data-externalId=""
 data-username="mray"
 data-avatarId="1026"
@@ -906,7 +455,7 @@ class="jiveTT-hover-user jive-username-link"
 >Matt Ray</a>            <span>-</span>
 Last Modified:&nbsp;
 Sep 17, 2009 9:36 PM
-by <a href="http://community.zenoss.org/people/mray"
+by <a href="people/mray"
 data-externalId=""
 data-username="mray"
 data-avatarId="1026"
@@ -946,7 +495,7 @@ class="jiveTT-hover-user jive-username-link"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:e34d1061-6ebb-4a31-967a-02f50a51e7f0] --><div class="jive-rendered-content"><span>The topic for #zenoss is: Zenoss Developers will be here Thursday 11am EDT (9:58:14 AM)</span><br/><span> mrayzenoss has changed the topic to: Zenoss Developers are here to answer your questions (9:58:47 AM)</span><br/><span> 9:59:37 AM Troubadix09: mray: I have a question about templates</span><br/><span> 10:00:54 AM Troubadix09: mray: is it possible to assign a new template wich is installed with a new ZenPack</span><br/><span> 10:01:18 AM Troubadix09: mray: and bind to a device-class</span><br/><span> 10:01:50 AM Troubadix09: mray: that existing devices bind them automatically, such as new devices do?</span><br/><span> 10:01:55 AM twm1010: chemist: is zenactions daemon running?</span><br/><span> 10:02:32 AM twm1010: troubadix: if you bind a template to a device class, all devices in the class receive that binding, unless locally overridden</span><br/><span> 10:05:09 AM Troubadix09: mray: hm... I think so, but why not in my Zenoss Install? (Virtual Appliance with Zenoss 2.4.5) :-(</span><br/><span> 10:05:44 AM mrayzenoss: Troubadix09: I don't believe ZenPacks automatically bind to new templates</span><br/><span> 10:06:12 AM mrayzenoss: err... device classes automatically bind to templates delivered via ZenPack</span><br/><span><span> 10:07:32 AM rmatte: </span><a class="jive-link-external-small" href="http://pastebin.com/m7445b476">http://pastebin.com/m7445b476</a><span> --- The parser commands that I'm specifying in this script are completely getting overriden by one of the Zenoss imports that I'm doing, can anyone think of a way around this?</span></span><br/><span> 10:07:47 AM iancmcc: Troubadix09: you can modify the ZenPack to change the bindings of your desired ZenPack</span><br/><span> 10:07:48 AM rmatte: They work perfectly fine if I put them in a script by themselves</span><br/><span> 10:07:58 AM aclark: *waves*</span><br/><span> 10:08:05 AM iancmcc: Troubadix09: I mean the bindings of your desired DeviceClass.</span><br/><span> 10:08:07 AM mrayzenoss: aclark: howdy</span><br/><span> 10:08:45 AM iancmcc: rmatte: The option parsing?</span><br/><span> 10:09:00 AM Troubadix09: mray: I know, I bind a template come with the WMIPerf_Windows-ZenPack manually to the class /device/Server/Windows</span><br/><span> 10:09:06 AM rmatte: iancmcc: yeh, it outputs a bunch of other zenoss specific options instead of the ones I want</span><br/><span> 10:10:30 AM iancmcc: rmatte: Checking, I believe there's a way to stifle ZenScriptBase's option parsing</span><br/><span> 10:10:30 AM iancmcc: rmatte: pass noopts=True into the ZenScriptBase constructor</span><br/><span> 10:10:31 AM Troubadix09: mray: when i add new devices to this class, they have bind the template and use it</span><br/><span> 10:10:45 AM rmatte: iancmcc: thanks, I'll try that</span><br/><span> 10:10:55 AM Troubadix09: mray: but the existing devices in that class wouldn't</span><br/><span> 10:11:22 AM rmatte: works like a charm, thanks so much</span><br/><span> 10:12:29 AM mrayzenoss: Troubadix09: hmmm... so existing devices dont' get updated, but new devices pick up the binding when they're added to the device class?</span><br/><span> 10:12:44 AM mrayzenoss: have you remodeled the old devices?</span><br/><span> 10:12:58 AM iancmcc: Troubadix09: Do the existing devices have their own values set?</span><br/><span> 10:13:25 AM Troubadix09: mray: yes, i remodel</span><br/><span> 10:15:44 AM rmatte: hey iancmcc, one more question, if you look at that code again... is there anything special that I need to do to set variables based on those options?</span><br/><span> 10:15:57 AM rmatte: I was under the impression that dest= represented the variable name?</span><br/><span> 10:16:04 AM Troubadix09: iancmcc: there are three templates binded to the devices, two of them are "Local Copy" but not the new template</span><br/><span> 10:16:35 AM iancmcc: rmatte: That's correct, e.g. options.startDate should have your value</span><br/><span> 10:16:47 AM rmatte: oh, it's options.startDate</span><br/><span> 10:16:50 AM rmatte: gotcha, thanks</span><br/><span> 10:17:38 AM iancmcc: Troubadix09: Sounds like they have their own values, which means they won't inherit new template bindings from the device class</span><br/><span> 10:17:49 AM iancmcc: Troubadix09: You'll have to either reset the bindings or add the binding manually</span><br/><span> 10:20:55 AM Troubadix09: iancmcc: mray: thank you, i will try it manually</span><br/><span> 10:22:21 AM Troubadix09: iancmcc: I have another question...</span><br/><span> 10:25:05 AM Troubadix09: iancmcc: is it possible to copy Data Sources in a Template? Because sometimes there are snmp-DataSources where only the last OID-Value is different</span><br/><span> 10:25:42 AM Troubadix09: iancmcc: and it would be nice to only change the deltas</span><br/><span> 10:26:14 AM metalklesk: does anyone see the memory (ram, swap, cache) in zenoss using suse, fedora or ubuntu zenpack ?</span><br/><span> 10:26:25 AM metalklesk: i mean total, used and free memory</span><br/><span> 10:27:10 AM Troubadix09: iancmcc: the Menue of the Data-Sources only show "Add, Delete and Add to Graphs"</span><br/><span> 10:27:19 AM corey: hi</span><br/><span><span> 10:28:18 AM mrayzenoss: Troubadix09: I guess you'd need to use zendmd: </span><a class="jive-link-wiki-small" href="DOC-2532.html">http://community.zenoss.org/docs/DOC-2532</a></span><br/><span> 10:28:31 AM ckrough: anyone have a link for downloading OpenManage Mibs? trying to search their site results in printers for sale.</span><br/><span> corey is now known as kmtsun (10:32:37 AM)</span><br/><span> 10:32:40 AM cgibbons: hmmm</span><br/><span> 10:32:49 AM cgibbons: ian sure got a lot more questions than I did a couple of weeks ago :)</span><br/><span> 10:33:13 AM metalklesk: cgibbons, spit it out !</span><br/><span> 10:33:13 AM Troubadix09: mray: hmm... is this planned to implement in WebGui?</span><br/><span> 10:33:46 AM rmatte: hehe</span><br/><span> 10:34:31 AM mrayzenoss: Troubadix09: I'd ask iancmcc :)</span><br/><span> 10:34:44 AM iancmcc: Troubadix09: No.</span><br/><span> 10:34:46 AM ckrough: ouch</span><br/><span> 10:35:24 AM mrayzenoss: Troubadix09: go ahead and open a ticket as an enhancement, I know the templates are supposed to get some attention in the Stone Crab release</span><br/><span> 10:35:30 AM mrayzenoss: and we can discuss it then</span><br/><span> 10:35:50 AM aclark: Are links to 2.5 beta avail without registering on zenoss.com ?</span><br/><span> 10:35:54 AM mrayzenoss: yeah</span><br/><span><span> 10:36:06 AM mrayzenoss: </span><a class="jive-link-external-small" href="http://www.zenoss.com/beta/2.5/">http://www.zenoss.com/beta/2.5/</a></span><br/><span> 10:36:16 AM mrayzenoss: "Skip registration, go straight to download"</span><br/><span> 10:37:01 AM aclark: mrayzenoss: thanks</span><br/><span> 10:37:13 AM mrayzenoss: aclark: thanks for checking out the beta :)</span><br/><span> 10:37:39 AM aclark: mrayzenoss: no prob! excited about it (and zenoss in general as you can tell ;-)</span><br/><span> 10:39:15 AM kmtsun: @aclark4life I'm have trouble with my smtp monitoring, the service is up but I'm getting msgs: IP service smtp is down</span><br/><span> 10:40:09 AM aclark: kmtsun: i'm just a n00b</span><br/><span> 10:41:02 AM metalklesk: kmtsun, did you open the port of snmp service in your firewall ?</span><br/><span> 10:41:04 AM aclark: kmtsun: but there are experts here :-)</span><br/><span> 10:41:26 AM metalklesk: service up means that you can do a ping to teh device</span><br/><span> 10:41:27 AM kmtsun: ok thakns</span><br/><span> 10:41:37 AM kmtsun: no firewall</span><br/><span> 10:42:01 AM kmtsun: i have it monitoring 30 bsd jails and im only having trouble with 2 of them</span><br/><span> 10:42:07 AM metalklesk: what port are you using to snmp ? 161 ? 162 ?</span><br/><span> 10:42:09 AM kmtsun: the rest are showing smtp up</span><br/><span> 10:42:14 AM metalklesk: mmm</span><br/><span> 10:42:23 AM metalklesk: sorry i missupderstood</span><br/><span> 10:42:32 AM metalklesk: *missunderstood</span><br/><span> 10:42:45 AM metalklesk: snmp != smtp</span><br/><span> 10:42:47 AM metalklesk: :P</span><br/><span> 10:45:13 AM iancmcc: kmtsun: Try telnetting from the zenoss server to narrow it down to zenoss or network</span><br/><span> 10:45:23 AM kmtsun: ok</span><br/><span> 10:46:34 AM kmtsun: Trying x.x.x.x...</span><br/><span> 10:46:34 AM kmtsun: Connected to xxx.xxx.com.</span><br/><span> 10:46:34 AM kmtsun: Escape character is '^]'.</span><br/><span> 10:46:34 AM kmtsun: Connection closed by foreign host.</span><br/><span> 10:46:54 AM iancmcc: you connected to SMTP port, I assume</span><br/><span> 10:47:09 AM kmtsun: yes telnet host 25</span><br/><span> 10:47:46 AM kmtsun: i did a netstat -al and it is listening on *.* 25</span><br/><span> 10:47:57 AM iancmcc: I don't know the answer. Try remodeling the box.</span><br/><span> 10:48:30 AM kmtsun: that means to delete the box from the zenoss db and let it rediscover it"?</span><br/><span> 10:48:39 AM metalklesk: nop</span><br/><span> 10:48:42 AM iancmcc: don't need to delete it, just remodel</span><br/><span> 10:49:04 AM metalklesk: that means - manage - model device</span><br/><span> 10:49:07 AM kmtsun: ok</span><br/><span> 10:49:52 AM metalklesk: how can i see the used, free, total ram memory ? and swap too</span><br/><span> 10:49:59 AM kmtsun: thank you .. its a going</span><br/><span> 10:50:14 AM metalklesk: using snmp no problem, but via ssh i can't see it</span><br/><span> 10:53:28 AM mrayzenoss: metalklesk: which SSH ZenPacks?</span><br/><span> 10:53:42 AM mrayzenoss: do you have installed?&#160; LinuxMonitor by itself is pretty vanilla</span><br/><span> 10:53:58 AM metalklesk: mandriva (the one i send you), suse, ubuntu</span><br/><span> 10:54:15 AM metalklesk: yes, i have linuxmonitor and linuxmonitoraddon installed</span><br/><span> 10:54:59 AM kmtsun: ack events... remodeled.... smtp red still exist... i will try restarting the jail</span><br/><span> 10:55:43 AM metalklesk: in zproperties i deleted ram from zFileSystemMapIgnoreTypes as i did with other device monitored by snmp</span><br/><span> 10:56:21 AM Troubadix09: mrayzenoss: thanks, i will open a ticket and we will seen what happend in Stone Crab :-)</span><br/><span> 10:56:28 AM mrayzenoss: metalklesk: are you talking about memory graphs on the Perf tab?</span><br/><span> 10:56:47 AM metalklesk: in the snmp monitored device, in filesystem i can see swap and ram (total, used and free) but with the zenpack i can't</span><br/><span> 10:57:02 AM metalklesk: memory graph AND in filesystem :(</span><br/><span> 10:57:47 AM metalklesk: in collector plugins i have zenoss.cmd.linux.memory selected</span><br/><span> 10:58:33 AM metalklesk: in hardware i can see the total memory and total swap</span><br/><span> 10:59:01 AM metalklesk: but i can't see the important information of ram and swap in filesystem (total, used and free)</span><br/><span> 10:59:51 AM kmtsun: i resarted the jail.. and remodeled... im showing this now: ip service smtp timeout waiting for '220'</span><br/><span> 11:02:06 AM mrayzenoss: metalklesk: my 2.4.5 box monitoring Linux via SNMP has memory and CPU on the Perf tab</span><br/><span> 11:02:22 AM mrayzenoss: Load Average, CPU Utilization, Memory Utilization, IO</span><br/><span> 11:02:28 AM metalklesk: yes, i know</span><br/><span> 11:02:39 AM mrayzenoss: sorry, I thought you were saying those were on the OS tab</span><br/><span><span> 11:02:48 AM iancmcc: kmtsun: </span><a class="jive-link-external-small" href="../message/14824.html#14824#14824">http://community.zenoss.org/message/14824#14824</a></span><br/><span> 11:02:52 AM metalklesk: :P</span><br/><span> 11:03:11 AM mrayzenoss: ok, so none of those graphs are on the Perf tab using /Server/SSH/Linux/ ?</span><br/><span> 11:03:21 AM mrayzenoss: metalklesk: are the templates all bound?</span><br/><span> 11:03:26 AM metalklesk: just cpu</span><br/><span> 11:03:45 AM metalklesk: how can i see that ?</span><br/><span><span> 11:03:56 AM iancmcc: kmtsun: This is more informative, actually </span><a class="jive-link-external-small" href="../message/12865.html#12865#12865">http://community.zenoss.org/message/12865#12865</a></span><br/><span> 11:04:16 AM motdman: Hello, help with filesystems freeblock Usedblocks AIX</span><br/><span> 11:04:37 AM motdman: missing rrd files</span><br/><span> 11:04:49 AM metalklesk: graphs are one thing, but filesystem is another</span><br/><span> 11:04:53 AM metalklesk: i mean</span><br/><span> 11:05:05 AM metalklesk: 2 problems i see with ssh based zenpack</span><br/><span> 11:05:06 AM mrayzenoss: metalklesk: http:/yourserver:8080/zport/dmd/Devices/Server/SSH/perfConfig</span><br/><span> 11:05:59 AM metalklesk:&#160; &#160;&#160;&#160;&#160;&#160;Name&#160; &#160;&#160;&#160;&#160;&#160;Definition Path&#160; &#160;&#160;&#160;&#160;&#160;Description</span><br/><span> 11:05:59 AM metalklesk: &#160;&#160;&#160;&#160;&#160;Device &#160;&#160;&#160;&#160;&#160;/Devices/Server/SSH &#160;&#160;&#160;&#160;&#160;</span><br/><span> 11:05:59 AM metalklesk: &#160;&#160;&#160;&#160;&#160;FileSystem &#160;&#160;&#160;&#160;&#160;/Devices/Server &#160;&#160;&#160;&#160;&#160;Filesystem template that uses HOST-RESOURCES mib. Has a 90% threshold.</span><br/><span> 11:05:59 AM metalklesk: &#160;&#160;&#160;&#160;&#160;IpService &#160;&#160;&#160;&#160;&#160;/Devices &#160;&#160;&#160;&#160;&#160;Place holder for future use.</span><br/><span> 11:05:59 AM metalklesk: &#160;&#160;&#160;&#160;&#160;OSProcess &#160;&#160;&#160;&#160;&#160;/Devices &#160;&#160;&#160;&#160;&#160;Monitors for OSProcess object</span><br/><span> 11:06:00 AM metalklesk: &#160;&#160;&#160;&#160;&#160;WinService &#160;&#160;&#160;&#160;&#160;/Devices &#160;&#160;&#160;&#160;&#160;Place holder for future use.</span><br/><span> 11:06:02 AM metalklesk: &#160;&#160;&#160;&#160;&#160;ethernetCsmacd &#160;&#160;&#160;&#160;&#160;/Devices &#160;&#160;&#160;&#160;&#160;Standard ethernet interface template with 75% utilization threshold</span><br/><span> 11:06:04 AM metalklesk: &#160;&#160;&#160;&#160;&#160;ethernetCsmacd_64</span><br/><span> 11:06:58 AM metalklesk: bad idea to copy thos lines, sorry</span><br/><span> 11:08:28 AM metalklesk: this are the templates in the page you said: device,filesystem,ipservice,osprocess,winservice,ethernetcsmacd,ethernetcsmacd_64</span><br/><span> 11:08:43 AM mrayzenoss: yeah, I'm installing that ZenPack now to look around</span><br/><span> 11:09:05 AM metalklesk: thanks !!!</span><br/><span> 11:10:24 AM motdman: How do I get the filesystem usedblocks freeblocks in AIX</span><br/><span> 11:11:28 AM motdman: If I use the linux model device on AIX, it is displayed.</span><br/><span><span> 11:11:33 AM mrayzenoss: motdman: are you using </span><a class="jive-link-wiki-small" href="DOC-3454.html">http://community.zenoss.org/docs/DOC-3454</a><span> ?</span></span><br/><span> 11:12:27 AM mrayzenoss: motdman: I've heard very mixed reviews about the quality of the SNMP daemons on AIX</span><br/><span> 11:12:43 AM mrayzenoss: jb and rocket can attest</span><br/><span> 11:13:25 AM motdman: I worked with IBM to get the xmservd mibs to work and all looks good except for filesystem</span><br/><span> 11:13:40 AM motdman: Actually it is quite impressive regarding the info in place already</span><br/><span> 11:14:16 AM motdman: You don't need net-snmp</span><br/><span> 11:15:21 AM motdman: Another thing is that it does't give you the CPU size, only the speed</span><br/><span> 11:16:39 AM motdman: I would use the linux model for filesystem, but I would lose the volumegroup level and hdisk info.</span><br/><span> 11:16:50 AM Troubadix09: bye</span><br/><span> 11:17:30 AM iancmcc: see ya troubadix</span><br/><span> 11:20:10 AM metalklesk: mrayzenoss, did you see the problem i told you with the zenpack ? :)</span><br/><span> 11:20:46 AM motdman: I used the DOC-3454 but that pointed me to the cacti setup which is somewhat outdated now.</span><br/><span> 11:22:13 AM motdman: Why can the linux model pull the aix data I need and not the aix model for filesystem?</span><br/><span> 11:23:39 AM mrayzenoss: metalklesk: yeah, looks like the defautl LinuxMonitor is just CPU Utilization</span><br/><span> 11:24:11 AM mrayzenoss: motdman: why not just copy the Linux Device Class and call it AIX?</span><br/><span> 11:24:54 AM motdman: I could but I would lose the VG LV and hdisk info which is pretty cool stuff.</span><br/><span> 11:25:28 AM motdman: the Aix model is very cool but just missing that one piece</span><br/><span> 11:25:55 AM motdman: not sure why it wasn't included in the build, unless I am missing something</span><br/><span> 11:26:31 AM mrayzenoss: well, it's a community ZenPack, so the author probably didn't run into your use-case</span><br/><span> 11:26:50 AM motdman: What I do know is that is it not generating the rrd data for this particular issue</span><br/><span> 11:27:05 AM motdman: The linux model does pull the appropriate rrd...go figure</span><br/><span> 11:28:09 AM motdman: I would think getting alerts on filesystem free/used would be at the top of the list.</span><br/><span> 11:28:53 AM mrayzenoss: motdman: feel free to dig into the ZenPack, comment on the thread on the page for it or submit a patch to the author</span><br/><span> 11:30:01 AM metalklesk: mrayzenoss, so what can WE do to fix the problem ?</span><br/><span> 11:30:03 AM metalklesk: :P</span><br/><span> 11:30:20 AM motdman: Do you know if the author built in this functionality or am I not configuring this correctly.</span><br/><span> 11:30:39 AM mrayzenoss: motdman: no idea, no AIX on my side</span><br/><span> 11:31:01 AM mrayzenoss: metalklesk: you can submit a patch to the LinuxMonitor or the LinuxMonitorAddon</span><br/><span> 11:31:10 AM motdman: There is not much info on this out there...too bad cause it is a great product regarding AIX</span><br/><span> 11:31:24 AM metalklesk: ok</span><br/><span> 11:31:34 AM metalklesk: i will investigate how can i fix that</span><br/><span> 11:31:35 AM metalklesk: :)</span><br/><span> 11:31:58 AM mrayzenoss: ok, I'm gonna call that an end to the session, iancmcc is off the hook</span><br/></div><!-- [DocumentBodyEnd:e34d1061-6ebb-4a31-967a-02f50a51e7f0] -->
+<!-- [DocumentBodyStart:e34d1061-6ebb-4a31-967a-02f50a51e7f0] --><div class="jive-rendered-content"><span>The topic for #zenoss is: Zenoss Developers will be here Thursday 11am EDT (9:58:14 AM)</span><br/><span> mrayzenoss has changed the topic to: Zenoss Developers are here to answer your questions (9:58:47 AM)</span><br/><span> 9:59:37 AM Troubadix09: mray: I have a question about templates</span><br/><span> 10:00:54 AM Troubadix09: mray: is it possible to assign a new template wich is installed with a new ZenPack</span><br/><span> 10:01:18 AM Troubadix09: mray: and bind to a device-class</span><br/><span> 10:01:50 AM Troubadix09: mray: that existing devices bind them automatically, such as new devices do?</span><br/><span> 10:01:55 AM twm1010: chemist: is zenactions daemon running?</span><br/><span> 10:02:32 AM twm1010: troubadix: if you bind a template to a device class, all devices in the class receive that binding, unless locally overridden</span><br/><span> 10:05:09 AM Troubadix09: mray: hm... I think so, but why not in my Zenoss Install? (Virtual Appliance with Zenoss 2.4.5) :-(</span><br/><span> 10:05:44 AM mrayzenoss: Troubadix09: I don't believe ZenPacks automatically bind to new templates</span><br/><span> 10:06:12 AM mrayzenoss: err... device classes automatically bind to templates delivered via ZenPack</span><br/><span><span> 10:07:32 AM rmatte: </span><a class="jive-link-external-small" href="http://pastebin.com/m7445b476">http://pastebin.com/m7445b476</a><span> --- The parser commands that I'm specifying in this script are completely getting overriden by one of the Zenoss imports that I'm doing, can anyone think of a way around this?</span></span><br/><span> 10:07:47 AM iancmcc: Troubadix09: you can modify the ZenPack to change the bindings of your desired ZenPack</span><br/><span> 10:07:48 AM rmatte: They work perfectly fine if I put them in a script by themselves</span><br/><span> 10:07:58 AM aclark: *waves*</span><br/><span> 10:08:05 AM iancmcc: Troubadix09: I mean the bindings of your desired DeviceClass.</span><br/><span> 10:08:07 AM mrayzenoss: aclark: howdy</span><br/><span> 10:08:45 AM iancmcc: rmatte: The option parsing?</span><br/><span> 10:09:00 AM Troubadix09: mray: I know, I bind a template come with the WMIPerf_Windows-ZenPack manually to the class /device/Server/Windows</span><br/><span> 10:09:06 AM rmatte: iancmcc: yeh, it outputs a bunch of other zenoss specific options instead of the ones I want</span><br/><span> 10:10:30 AM iancmcc: rmatte: Checking, I believe there's a way to stifle ZenScriptBase's option parsing</span><br/><span> 10:10:30 AM iancmcc: rmatte: pass noopts=True into the ZenScriptBase constructor</span><br/><span> 10:10:31 AM Troubadix09: mray: when i add new devices to this class, they have bind the template and use it</span><br/><span> 10:10:45 AM rmatte: iancmcc: thanks, I'll try that</span><br/><span> 10:10:55 AM Troubadix09: mray: but the existing devices in that class wouldn't</span><br/><span> 10:11:22 AM rmatte: works like a charm, thanks so much</span><br/><span> 10:12:29 AM mrayzenoss: Troubadix09: hmmm... so existing devices dont' get updated, but new devices pick up the binding when they're added to the device class?</span><br/><span> 10:12:44 AM mrayzenoss: have you remodeled the old devices?</span><br/><span> 10:12:58 AM iancmcc: Troubadix09: Do the existing devices have their own values set?</span><br/><span> 10:13:25 AM Troubadix09: mray: yes, i remodel</span><br/><span> 10:15:44 AM rmatte: hey iancmcc, one more question, if you look at that code again... is there anything special that I need to do to set variables based on those options?</span><br/><span> 10:15:57 AM rmatte: I was under the impression that dest= represented the variable name?</span><br/><span> 10:16:04 AM Troubadix09: iancmcc: there are three templates binded to the devices, two of them are "Local Copy" but not the new template</span><br/><span> 10:16:35 AM iancmcc: rmatte: That's correct, e.g. options.startDate should have your value</span><br/><span> 10:16:47 AM rmatte: oh, it's options.startDate</span><br/><span> 10:16:50 AM rmatte: gotcha, thanks</span><br/><span> 10:17:38 AM iancmcc: Troubadix09: Sounds like they have their own values, which means they won't inherit new template bindings from the device class</span><br/><span> 10:17:49 AM iancmcc: Troubadix09: You'll have to either reset the bindings or add the binding manually</span><br/><span> 10:20:55 AM Troubadix09: iancmcc: mray: thank you, i will try it manually</span><br/><span> 10:22:21 AM Troubadix09: iancmcc: I have another question...</span><br/><span> 10:25:05 AM Troubadix09: iancmcc: is it possible to copy Data Sources in a Template? Because sometimes there are snmp-DataSources where only the last OID-Value is different</span><br/><span> 10:25:42 AM Troubadix09: iancmcc: and it would be nice to only change the deltas</span><br/><span> 10:26:14 AM metalklesk: does anyone see the memory (ram, swap, cache) in zenoss using suse, fedora or ubuntu zenpack ?</span><br/><span> 10:26:25 AM metalklesk: i mean total, used and free memory</span><br/><span> 10:27:10 AM Troubadix09: iancmcc: the Menue of the Data-Sources only show "Add, Delete and Add to Graphs"</span><br/><span> 10:27:19 AM corey: hi</span><br/><span><span> 10:28:18 AM mrayzenoss: Troubadix09: I guess you'd need to use zendmd: </span><a class="jive-link-wiki-small" href="DOC-2532.html">docs/DOC-2532</a></span><br/><span> 10:28:31 AM ckrough: anyone have a link for downloading OpenManage Mibs? trying to search their site results in printers for sale.</span><br/><span> corey is now known as kmtsun (10:32:37 AM)</span><br/><span> 10:32:40 AM cgibbons: hmmm</span><br/><span> 10:32:49 AM cgibbons: ian sure got a lot more questions than I did a couple of weeks ago :)</span><br/><span> 10:33:13 AM metalklesk: cgibbons, spit it out !</span><br/><span> 10:33:13 AM Troubadix09: mray: hmm... is this planned to implement in WebGui?</span><br/><span> 10:33:46 AM rmatte: hehe</span><br/><span> 10:34:31 AM mrayzenoss: Troubadix09: I'd ask iancmcc :)</span><br/><span> 10:34:44 AM iancmcc: Troubadix09: No.</span><br/><span> 10:34:46 AM ckrough: ouch</span><br/><span> 10:35:24 AM mrayzenoss: Troubadix09: go ahead and open a ticket as an enhancement, I know the templates are supposed to get some attention in the Stone Crab release</span><br/><span> 10:35:30 AM mrayzenoss: and we can discuss it then</span><br/><span> 10:35:50 AM aclark: Are links to 2.5 beta avail without registering on zenoss.com ?</span><br/><span> 10:35:54 AM mrayzenoss: yeah</span><br/><span><span> 10:36:06 AM mrayzenoss: </span><a class="jive-link-external-small" href="http://www.zenoss.com/beta/2.5/">http://www.zenoss.com/beta/2.5/</a></span><br/><span> 10:36:16 AM mrayzenoss: "Skip registration, go straight to download"</span><br/><span> 10:37:01 AM aclark: mrayzenoss: thanks</span><br/><span> 10:37:13 AM mrayzenoss: aclark: thanks for checking out the beta :)</span><br/><span> 10:37:39 AM aclark: mrayzenoss: no prob! excited about it (and zenoss in general as you can tell ;-)</span><br/><span> 10:39:15 AM kmtsun: @aclark4life I'm have trouble with my smtp monitoring, the service is up but I'm getting msgs: IP service smtp is down</span><br/><span> 10:40:09 AM aclark: kmtsun: i'm just a n00b</span><br/><span> 10:41:02 AM metalklesk: kmtsun, did you open the port of snmp service in your firewall ?</span><br/><span> 10:41:04 AM aclark: kmtsun: but there are experts here :-)</span><br/><span> 10:41:26 AM metalklesk: service up means that you can do a ping to teh device</span><br/><span> 10:41:27 AM kmtsun: ok thakns</span><br/><span> 10:41:37 AM kmtsun: no firewall</span><br/><span> 10:42:01 AM kmtsun: i have it monitoring 30 bsd jails and im only having trouble with 2 of them</span><br/><span> 10:42:07 AM metalklesk: what port are you using to snmp ? 161 ? 162 ?</span><br/><span> 10:42:09 AM kmtsun: the rest are showing smtp up</span><br/><span> 10:42:14 AM metalklesk: mmm</span><br/><span> 10:42:23 AM metalklesk: sorry i missupderstood</span><br/><span> 10:42:32 AM metalklesk: *missunderstood</span><br/><span> 10:42:45 AM metalklesk: snmp != smtp</span><br/><span> 10:42:47 AM metalklesk: :P</span><br/><span> 10:45:13 AM iancmcc: kmtsun: Try telnetting from the zenoss server to narrow it down to zenoss or network</span><br/><span> 10:45:23 AM kmtsun: ok</span><br/><span> 10:46:34 AM kmtsun: Trying x.x.x.x...</span><br/><span> 10:46:34 AM kmtsun: Connected to xxx.xxx.com.</span><br/><span> 10:46:34 AM kmtsun: Escape character is '^]'.</span><br/><span> 10:46:34 AM kmtsun: Connection closed by foreign host.</span><br/><span> 10:46:54 AM iancmcc: you connected to SMTP port, I assume</span><br/><span> 10:47:09 AM kmtsun: yes telnet host 25</span><br/><span> 10:47:46 AM kmtsun: i did a netstat -al and it is listening on *.* 25</span><br/><span> 10:47:57 AM iancmcc: I don't know the answer. Try remodeling the box.</span><br/><span> 10:48:30 AM kmtsun: that means to delete the box from the zenoss db and let it rediscover it"?</span><br/><span> 10:48:39 AM metalklesk: nop</span><br/><span> 10:48:42 AM iancmcc: don't need to delete it, just remodel</span><br/><span> 10:49:04 AM metalklesk: that means - manage - model device</span><br/><span> 10:49:07 AM kmtsun: ok</span><br/><span> 10:49:52 AM metalklesk: how can i see the used, free, total ram memory ? and swap too</span><br/><span> 10:49:59 AM kmtsun: thank you .. its a going</span><br/><span> 10:50:14 AM metalklesk: using snmp no problem, but via ssh i can't see it</span><br/><span> 10:53:28 AM mrayzenoss: metalklesk: which SSH ZenPacks?</span><br/><span> 10:53:42 AM mrayzenoss: do you have installed?&#160; LinuxMonitor by itself is pretty vanilla</span><br/><span> 10:53:58 AM metalklesk: mandriva (the one i send you), suse, ubuntu</span><br/><span> 10:54:15 AM metalklesk: yes, i have linuxmonitor and linuxmonitoraddon installed</span><br/><span> 10:54:59 AM kmtsun: ack events... remodeled.... smtp red still exist... i will try restarting the jail</span><br/><span> 10:55:43 AM metalklesk: in zproperties i deleted ram from zFileSystemMapIgnoreTypes as i did with other device monitored by snmp</span><br/><span> 10:56:21 AM Troubadix09: mrayzenoss: thanks, i will open a ticket and we will seen what happend in Stone Crab :-)</span><br/><span> 10:56:28 AM mrayzenoss: metalklesk: are you talking about memory graphs on the Perf tab?</span><br/><span> 10:56:47 AM metalklesk: in the snmp monitored device, in filesystem i can see swap and ram (total, used and free) but with the zenpack i can't</span><br/><span> 10:57:02 AM metalklesk: memory graph AND in filesystem :(</span><br/><span> 10:57:47 AM metalklesk: in collector plugins i have zenoss.cmd.linux.memory selected</span><br/><span> 10:58:33 AM metalklesk: in hardware i can see the total memory and total swap</span><br/><span> 10:59:01 AM metalklesk: but i can't see the important information of ram and swap in filesystem (total, used and free)</span><br/><span> 10:59:51 AM kmtsun: i resarted the jail.. and remodeled... im showing this now: ip service smtp timeout waiting for '220'</span><br/><span> 11:02:06 AM mrayzenoss: metalklesk: my 2.4.5 box monitoring Linux via SNMP has memory and CPU on the Perf tab</span><br/><span> 11:02:22 AM mrayzenoss: Load Average, CPU Utilization, Memory Utilization, IO</span><br/><span> 11:02:28 AM metalklesk: yes, i know</span><br/><span> 11:02:39 AM mrayzenoss: sorry, I thought you were saying those were on the OS tab</span><br/><span><span> 11:02:48 AM iancmcc: kmtsun: </span><a class="jive-link-external-small" href="../message/14824.html#14824#14824">message/14824#14824</a></span><br/><span> 11:02:52 AM metalklesk: :P</span><br/><span> 11:03:11 AM mrayzenoss: ok, so none of those graphs are on the Perf tab using /Server/SSH/Linux/ ?</span><br/><span> 11:03:21 AM mrayzenoss: metalklesk: are the templates all bound?</span><br/><span> 11:03:26 AM metalklesk: just cpu</span><br/><span> 11:03:45 AM metalklesk: how can i see that ?</span><br/><span><span> 11:03:56 AM iancmcc: kmtsun: This is more informative, actually </span><a class="jive-link-external-small" href="../message/12865.html#12865#12865">message/12865#12865</a></span><br/><span> 11:04:16 AM motdman: Hello, help with filesystems freeblock Usedblocks AIX</span><br/><span> 11:04:37 AM motdman: missing rrd files</span><br/><span> 11:04:49 AM metalklesk: graphs are one thing, but filesystem is another</span><br/><span> 11:04:53 AM metalklesk: i mean</span><br/><span> 11:05:05 AM metalklesk: 2 problems i see with ssh based zenpack</span><br/><span> 11:05:06 AM mrayzenoss: metalklesk: http:/yourserver:8080/zport/dmd/Devices/Server/SSH/perfConfig</span><br/><span> 11:05:59 AM metalklesk:&#160; &#160;&#160;&#160;&#160;&#160;Name&#160; &#160;&#160;&#160;&#160;&#160;Definition Path&#160; &#160;&#160;&#160;&#160;&#160;Description</span><br/><span> 11:05:59 AM metalklesk: &#160;&#160;&#160;&#160;&#160;Device &#160;&#160;&#160;&#160;&#160;/Devices/Server/SSH &#160;&#160;&#160;&#160;&#160;</span><br/><span> 11:05:59 AM metalklesk: &#160;&#160;&#160;&#160;&#160;FileSystem &#160;&#160;&#160;&#160;&#160;/Devices/Server &#160;&#160;&#160;&#160;&#160;Filesystem template that uses HOST-RESOURCES mib. Has a 90% threshold.</span><br/><span> 11:05:59 AM metalklesk: &#160;&#160;&#160;&#160;&#160;IpService &#160;&#160;&#160;&#160;&#160;/Devices &#160;&#160;&#160;&#160;&#160;Place holder for future use.</span><br/><span> 11:05:59 AM metalklesk: &#160;&#160;&#160;&#160;&#160;OSProcess &#160;&#160;&#160;&#160;&#160;/Devices &#160;&#160;&#160;&#160;&#160;Monitors for OSProcess object</span><br/><span> 11:06:00 AM metalklesk: &#160;&#160;&#160;&#160;&#160;WinService &#160;&#160;&#160;&#160;&#160;/Devices &#160;&#160;&#160;&#160;&#160;Place holder for future use.</span><br/><span> 11:06:02 AM metalklesk: &#160;&#160;&#160;&#160;&#160;ethernetCsmacd &#160;&#160;&#160;&#160;&#160;/Devices &#160;&#160;&#160;&#160;&#160;Standard ethernet interface template with 75% utilization threshold</span><br/><span> 11:06:04 AM metalklesk: &#160;&#160;&#160;&#160;&#160;ethernetCsmacd_64</span><br/><span> 11:06:58 AM metalklesk: bad idea to copy thos lines, sorry</span><br/><span> 11:08:28 AM metalklesk: this are the templates in the page you said: device,filesystem,ipservice,osprocess,winservice,ethernetcsmacd,ethernetcsmacd_64</span><br/><span> 11:08:43 AM mrayzenoss: yeah, I'm installing that ZenPack now to look around</span><br/><span> 11:09:05 AM metalklesk: thanks !!!</span><br/><span> 11:10:24 AM motdman: How do I get the filesystem usedblocks freeblocks in AIX</span><br/><span> 11:11:28 AM motdman: If I use the linux model device on AIX, it is displayed.</span><br/><span><span> 11:11:33 AM mrayzenoss: motdman: are you using </span><a class="jive-link-wiki-small" href="DOC-3454.html">docs/DOC-3454</a><span> ?</span></span><br/><span> 11:12:27 AM mrayzenoss: motdman: I've heard very mixed reviews about the quality of the SNMP daemons on AIX</span><br/><span> 11:12:43 AM mrayzenoss: jb and rocket can attest</span><br/><span> 11:13:25 AM motdman: I worked with IBM to get the xmservd mibs to work and all looks good except for filesystem</span><br/><span> 11:13:40 AM motdman: Actually it is quite impressive regarding the info in place already</span><br/><span> 11:14:16 AM motdman: You don't need net-snmp</span><br/><span> 11:15:21 AM motdman: Another thing is that it does't give you the CPU size, only the speed</span><br/><span> 11:16:39 AM motdman: I would use the linux model for filesystem, but I would lose the volumegroup level and hdisk info.</span><br/><span> 11:16:50 AM Troubadix09: bye</span><br/><span> 11:17:30 AM iancmcc: see ya troubadix</span><br/><span> 11:20:10 AM metalklesk: mrayzenoss, did you see the problem i told you with the zenpack ? :)</span><br/><span> 11:20:46 AM motdman: I used the DOC-3454 but that pointed me to the cacti setup which is somewhat outdated now.</span><br/><span> 11:22:13 AM motdman: Why can the linux model pull the aix data I need and not the aix model for filesystem?</span><br/><span> 11:23:39 AM mrayzenoss: metalklesk: yeah, looks like the defautl LinuxMonitor is just CPU Utilization</span><br/><span> 11:24:11 AM mrayzenoss: motdman: why not just copy the Linux Device Class and call it AIX?</span><br/><span> 11:24:54 AM motdman: I could but I would lose the VG LV and hdisk info which is pretty cool stuff.</span><br/><span> 11:25:28 AM motdman: the Aix model is very cool but just missing that one piece</span><br/><span> 11:25:55 AM motdman: not sure why it wasn't included in the build, unless I am missing something</span><br/><span> 11:26:31 AM mrayzenoss: well, it's a community ZenPack, so the author probably didn't run into your use-case</span><br/><span> 11:26:50 AM motdman: What I do know is that is it not generating the rrd data for this particular issue</span><br/><span> 11:27:05 AM motdman: The linux model does pull the appropriate rrd...go figure</span><br/><span> 11:28:09 AM motdman: I would think getting alerts on filesystem free/used would be at the top of the list.</span><br/><span> 11:28:53 AM mrayzenoss: motdman: feel free to dig into the ZenPack, comment on the thread on the page for it or submit a patch to the author</span><br/><span> 11:30:01 AM metalklesk: mrayzenoss, so what can WE do to fix the problem ?</span><br/><span> 11:30:03 AM metalklesk: :P</span><br/><span> 11:30:20 AM motdman: Do you know if the author built in this functionality or am I not configuring this correctly.</span><br/><span> 11:30:39 AM mrayzenoss: motdman: no idea, no AIX on my side</span><br/><span> 11:31:01 AM mrayzenoss: metalklesk: you can submit a patch to the LinuxMonitor or the LinuxMonitorAddon</span><br/><span> 11:31:10 AM motdman: There is not much info on this out there...too bad cause it is a great product regarding AIX</span><br/><span> 11:31:24 AM metalklesk: ok</span><br/><span> 11:31:34 AM metalklesk: i will investigate how can i fix that</span><br/><span> 11:31:35 AM metalklesk: :)</span><br/><span> 11:31:58 AM mrayzenoss: ok, I'm gonna call that an end to the session, iancmcc is off the hook</span><br/></div><!-- [DocumentBodyEnd:e34d1061-6ebb-4a31-967a-02f50a51e7f0] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1187,7 +736,7 @@ View print preview
                             </a>
                         </li>
                         <li>
-                            <a href="http://community.zenoss.org/people/mray/blog/2009/09/17/zenossorg-day-4">
+                            <a href="people/mray/blog/2009/09/17/zenossorg-day-4">
                             <span class="jive-icon-med jive-icon-blog"></span>
                                 Zenoss.Org Day 4
                             </a>
@@ -1233,7 +782,7 @@ View print preview
                     </li>
         </ul>
         <div class="jive-sidebar-viewall">
-            <a href="http://community.zenoss.org/people/mray" class="font-color-meta j-link-viewall"><strong>View Matt Ray's profile</strong></a>
+            <a href="people/mray" class="font-color-meta j-link-viewall"><strong>View Matt Ray's profile</strong></a>
         </div>
     </div>
 </div>
@@ -1290,11 +839,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1372,157 +921,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

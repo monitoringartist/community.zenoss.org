@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Dev Chat 11/11/10 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2141&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "9EBA4DF44AED15FB45A9BEE1E102F9D5";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2141&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 10252, 2141, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         10252,
-
-                    containerType:      14,
-                    containerID:        2141,
-
-                    contentObject: {
-                            document:          10252,
-                            version:           1
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=10252",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 10252,
-            containerID: "jive-more-like-this-102-10252",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 10252;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,7 +366,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
                 <a href="../community/documentation/irc.html">
             IRC</a> &gt; 
@@ -828,18 +377,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-10252/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-10252/restore'>
         <input type="hidden" name="version" value="1" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-10252"/>
         <input type="hidden" name="document.restore.DOC-10252" value="1394833770115-1M62VCOMLHLIAL0NSVVPMZNUYPEZ3825"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-10252/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-10252/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-10252"/>
         <input type="hidden" name="document.delete.DOC-10252" value="1394833770122-ICW76NWXIYJA3AEQIKJXPZIUFAMTBHCE"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-10252"/>
         <input type="hidden" name="document.publish.DOC-10252" value="1394833770132-BRAGYO2VOLVMMWLJSFI3OES5BARV2U91"/>
         <input type="hidden" name="document" value="DOC-10252" />
@@ -946,7 +495,7 @@ class="jiveTT-hover-user jive-username-link jive-user-disabled"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:67053916-ae71-4e6d-9b0b-7de453e2e82c] --><div class="jive-rendered-content"><pre>[11-Nov-2010 10:38:48] &lt;nyeates&gt; Hola all<br/>[11-Nov-2010 10:39:12] &lt;rmatte&gt; hola<br/>[11-Nov-2010 10:39:30] &lt;nyeates&gt; today we will run our gathering in spanish<br/>[11-Nov-2010 10:39:34] &lt;nyeates&gt; ...kidding :-)<br/>[11-Nov-2010 10:39:35] &lt;rmatte&gt; haha<br/>[11-Nov-2010 10:39:50] &lt;rmatte&gt; forgot that it's developer day<br/>[11-Nov-2010 10:40:01] &lt;nyeates&gt; 20 mins<br/>[11-Nov-2010 10:40:35] &lt;rmatte&gt; Simon4: I assumed that's what the ACL views were for<br/>[11-Nov-2010 10:40:57] &lt;rmatte&gt; I've never actually seen them in action<br/>[11-Nov-2010 10:41:08] &lt;Simon4&gt; rmatte: I haven't seen anything obvious that says that, but I haven't dug too far<br/>[11-Nov-2010 10:41:18] &lt;Simon4&gt; the user management stuff looked fairly identical from core-&gt;enterprise<br/>[11-Nov-2010 10:41:35] &lt;rmatte&gt; yeh, there is "ACL" functionality though that is supposed to limit what each user can see<br/>[11-Nov-2010 10:42:12] &lt;nyeates&gt; yes, there is ACL's.....u can define what devices and reports and alerts that users or groups can have access to<br/>[11-Nov-2010 10:42:20] &lt;nyeates&gt; that is in enterprise<br/>[11-Nov-2010 10:42:22] &lt;rmatte&gt; yeh<br/>[11-Nov-2010 10:42:45] &lt;nyeates&gt; useful for ISPs or people with disparate groups<br/>[11-Nov-2010 10:42:54] &lt;Simon4&gt; ah cool<br/>[11-Nov-2010 10:42:58] * Simon4 goes to see how to do that<br/>[11-Nov-2010 10:43:11] &lt;nyeates&gt; see it in the extended mon guide<br/>[11-Nov-2010 10:46:16] * Simon4 will hassle the trainer when they appear in december<br/>[11-Nov-2010 10:46:43] &lt;rmatte&gt; hehe<br/>[11-Nov-2010 10:46:53] &lt;rmatte&gt; rocket: how goes things on the front line?<br/>[11-Nov-2010 10:47:31] &lt;rmatte&gt; (using front line in a war terminology sense of course)<br/>[11-Nov-2010 10:47:36] &lt;kokey&gt; haha<br/>[11-Nov-2010 10:47:38] &lt;kokey&gt; thanks<br/>[11-Nov-2010 10:47:56] &lt;kokey&gt; i was busy reading through the docs now about users etc. and noticed the good acl stuff is only in enterprise<br/>[11-Nov-2010 10:48:06] &lt;rmatte&gt; yeh<br/>[11-Nov-2010 10:48:15] &lt;kokey&gt; it's a darn pain that enterprise trial is only a windows exe vmware<br/>[11-Nov-2010 10:48:18] &lt;rmatte&gt; which is why I have 15 separate production zenoss instanced hehe<br/>[11-Nov-2010 10:48:22] &lt;rmatte&gt; instances*<br/>[11-Nov-2010 10:48:50] &lt;rmatte&gt; kokey: really?&#160; I'll bet if you bugged them you could get your hands on a different installer.<br/>[11-Nov-2010 10:49:30] &lt;rmatte&gt; ...but if you use it for more than 30 days they'll dispatch an angry gorilla with a big stick to meet up with you<br/>[11-Nov-2010 10:49:43] &lt;nyeates&gt; hah wow....there was a enterprise user who had 12 instances world wide...mostly b/c of geographic lag between the sites.....otherwise, all distributed enterprise is done with remote collectors and hubs<br/>[11-Nov-2010 10:49:45] &lt;kokey&gt; yeah i think what i'll do is let them engage me further and do more vendor song and dance then i'll probably get the installer<br/>[11-Nov-2010 10:50:16] &lt;rmatte&gt; nyeates: yeh, I basically have 1 instance per client for the larger clients, and then some multi-client instances<br/>[11-Nov-2010 10:50:19] &lt;Simon4&gt; nyeates: know if you can have multiple copies of zenactions to get some redundancy in alerting?<br/>[11-Nov-2010 10:50:31] * Simon4 has redundancy issues to solve right now<br/>[11-Nov-2010 10:50:58] &lt;rmatte&gt; Simon4: you mean if the hub goes down?<br/>[11-Nov-2010 10:51:09] &lt;kokey&gt; this is a small site, i think i'll only have about 600 devices in total<br/>[11-Nov-2010 10:51:10] &lt;nyeates&gt; Simon4: multiple instances of zenactions on a single server? is that what u mean?<br/>[11-Nov-2010 10:51:17] &lt;kokey&gt; and could probably do it with about 6 collectors<br/>[11-Nov-2010 10:51:42] &lt;Simon4&gt; nyeates: so two hubs (across disparate geographical locations), zenactions on each hub sending alerts for teh events raised by collectors reporting to those hubs<br/>[11-Nov-2010 10:52:48] &lt;rmatte&gt; Simon4: you'd have the same collectors reporting to both hubs you mean?<br/>[11-Nov-2010 10:52:54] * rmatte doesn't get what you mean<br/>[11-Nov-2010 10:53:33] &lt;Simon4&gt; rmatte: no, just trying to remove the single point of failure that seems to be a single copy of zenactions, and struggling to get my head around how<br/>[11-Nov-2010 10:54:02] &lt;Simon4&gt; everything else can be made redundant somehow, but if we lose the master events/alerts just die<br/>[11-Nov-2010 10:54:02] &lt;rmatte&gt; You could just enable watchdog to watch that daemon<br/>[11-Nov-2010 10:54:08] &lt;rmatte&gt; that way if it fails it'll be automatically restarted<br/>[11-Nov-2010 10:54:11] &lt;Simon4&gt; that does nothing if the network in that DC dies<br/>[11-Nov-2010 10:54:29] &lt;rmatte&gt; true<br/>[11-Nov-2010 10:54:33] &lt;Simon4&gt; daemon failures are the least of my worries<br/>[11-Nov-2010 10:54:39] &lt;nyeates&gt; Simon4: hmmmm, yeah i am not clear on how multiple hubs works out<br/>[11-Nov-2010 10:54:44] &lt;rmatte&gt; why not just have something outside that DC checking up on it?<br/>[11-Nov-2010 10:55:11] &lt;rmatte&gt; you're option for some super complicated solution when the simplest will probably do fine<br/>[11-Nov-2010 10:55:15] &lt;rmatte&gt; opting*<br/>[11-Nov-2010 10:55:27] &lt;Simon4&gt; rmatte: beacause for the time that that network is down, you're completely blind to any events occurring in $other_dc, even though you have all this zenoss infrastructure in there still collecting/monitoring<br/>[11-Nov-2010 10:55:32] &lt;Simon4&gt; which seems totally stupid<br/>[11-Nov-2010 10:55:59] * Simon4 is trying ot make this as simple as possible, whilst still keeping within business requirements, trust me <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 10:56:08] &lt;rmatte&gt; How is a second instance of zenactions going to help in that case though?<br/>[11-Nov-2010 10:56:17] &lt;rmatte&gt; are you actually talking about full failover of monitoring?<br/>[11-Nov-2010 10:56:39] &lt;Simon4&gt; rmatte: it may not, I was raising the question to nyeates as he (she?) may&#160; have known a good way to solve this problem<br/>[11-Nov-2010 10:56:44] &lt;Simon4&gt; no, I'm not<br/>[11-Nov-2010 10:56:52] &lt;Simon4&gt; I'm talking about multiple-hub installs that you can do in enterprise<br/>[11-Nov-2010 10:57:04] &lt;Simon4&gt; we already have full failover, it's a PITA<br/>[11-Nov-2010 10:57:11] &lt;rmatte&gt; If the network is down, how do you hope to get the info to the second zenactions daemon?<br/>[11-Nov-2010 10:57:52] &lt;nyeates&gt; Simon4: oh i did not know you were speaking in terms of enterprise....yes this can be done....and now we have a seperate product that will diostribute event creation<br/>[11-Nov-2010 10:57:52] &lt;Simon4&gt; rmatte: that's the question I'm asking <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 10:58:19] &lt;Simon4&gt; nyeates: works in 2.5? or 3 only?<br/>[11-Nov-2010 10:58:48] &lt;nyeates&gt; Simon4: I will follow up with you afterwards and get you connected with some ppl who know details....i think it is a 3.0 thing, but ill check<br/>[11-Nov-2010 10:58:56] &lt;Simon4&gt; thanks<br/>[11-Nov-2010 10:59:22] &lt;rmatte&gt; Simon4: carrier pigeons work well as a backup link I hear <img height="16px" src="../4.5.6/images/emoticons/silly.gif" width="16px"/><br/>[11-Nov-2010 10:59:29] &lt;Simon4&gt; <img height="16px" src="../4.5.6/images/emoticons/grin.gif" width="16px"/><br/>[11-Nov-2010 10:59:31] &lt;rmatte&gt; muahaha<br/>[11-Nov-2010 10:59:40] &lt;rmatte&gt; they make a terrible mess though<br/>[11-Nov-2010 10:59:45] &lt;nyeates&gt; lol<br/>[11-Nov-2010 11:02:53] &lt;nyeates&gt; Ok everyone<br/>[11-Nov-2010 11:03:30] &lt;kokey&gt; maybe when the hub fails initiate the DR procedure<br/>[11-Nov-2010 11:03:33] &lt;kokey&gt; ;-)<br/>[11-Nov-2010 11:03:33] &lt;nyeates&gt; This will mark my first IRC community developer session with zenoss, without the late Matt Ray<br/>[11-Nov-2010 11:04:06] &lt;nyeates&gt; For those that do not know, I am Nick Yeates at Zenoss Inc. I am taking some of Matt Rays duties<br/>[11-Nov-2010 11:04:14] &lt;nyeates&gt; Matt was our former Community Manager<br/>[11-Nov-2010 11:04:32] &lt;Simon4&gt; kokey: "Wave hands around and scream loudly" ?<br/>[11-Nov-2010 11:04:33] &lt;jrh0090&gt; This will also mark my first IRC developer session as a developer<br/>[11-Nov-2010 11:05:00] &lt;nyeates&gt; yup, thanks for coming Joseph<br/>[11-Nov-2010 11:05:14] &lt;jrh0090&gt; np<br/>[11-Nov-2010 11:05:22] &lt;nyeates&gt; Joseph Hanson has been with Zenoss for the last 8 months and is here to pitch in where he can<br/>[11-Nov-2010 11:06:54] &lt;nyeates&gt; Jospeh, do you know anything about distributed hubs?<br/>[11-Nov-2010 11:07:08] &lt;nyeates&gt; if not, its all good as I am going to point simon at the right resources no matter<br/>[11-Nov-2010 11:07:11] &lt;jrh0090&gt; unfortunately not much, I have worked with distributed collectors a little bit but not really hubs<br/>[11-Nov-2010 11:07:17] &lt;nyeates&gt; k<br/>[11-Nov-2010 11:09:06] &lt;nyeates&gt; so yeah - i didnt see a rush of ppl heading in here for this today. I think it is going to be light. But please, hit us up with your questions, discussions, or favorite lol-cat links<br/>[11-Nov-2010 11:11:05] &lt;rmatte&gt; hehe<br/>[11-Nov-2010 11:13:22] &lt;kokey&gt; I didn't know it was happening, when is the next one?<br/>[11-Nov-2010 11:13:39] &lt;jrh0090&gt; They should be every two weeks<br/>[11-Nov-2010 11:13:41] &lt;nyeates&gt; thurs's every 2 weeks<br/>[11-Nov-2010 11:13:45] &lt;kokey&gt; I'm doing a trial of it here and will probably be oozing questions from about 2 weeks from now<br/>[11-Nov-2010 11:13:50] &lt;kokey&gt; ok, perfect<br/>[11-Nov-2010 11:14:07] &lt;rmatte&gt; well, you can always ooze away when it's not a dev session too <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/><br/>[11-Nov-2010 11:14:25] &lt;kokey&gt; yeah I do anyway, this channel's been incredibly helpful<br/>[11-Nov-2010 11:14:25] &lt;rmatte&gt; aloha kells<br/>[11-Nov-2010 11:14:35] &lt;kells&gt; G'day, g'day!<br/>[11-Nov-2010 11:15:52] &lt;rmatte&gt; kells: wow, I didn't know teksavvy was in the states.&#160; I thought they were a Canadian ISP.<br/>[11-Nov-2010 11:16:29] &lt;kells&gt; They are -- I'm living in Toronto<br/>[11-Nov-2010 11:16:34] &lt;rmatte&gt; ohhh<br/>[11-Nov-2010 11:16:46] &lt;rmatte&gt; didn't realize that<br/>[11-Nov-2010 11:17:01] &lt;rmatte&gt; I'm from Ottawa<br/>[11-Nov-2010 11:17:22] &lt;kells&gt; Oh cool!&#160; I haven't lived there in years, but it's an incredible place in Autumn<br/>[11-Nov-2010 11:17:30] &lt;rmatte&gt; indeed<br/>[11-Nov-2010 11:18:02] &lt;rmatte&gt; So have you been in Toronto a long time?&#160; I always thought you were based out of Austin or something.<br/>[11-Nov-2010 11:18:27] &lt;kells&gt; About 6 months.&#160; Before that I was in Calgary. <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:18:34] &lt;rmatte&gt; ah right, Calgary<br/>[11-Nov-2010 11:18:53] &lt;rmatte&gt; I knew there was someone in Calgary, forgot it was you<br/>[11-Nov-2010 11:19:47] &lt;kells&gt; Any neat projects on the go?<br/>[11-Nov-2010 11:20:27] &lt;kokey&gt; I was wondering if there is something in the pipeline to make the multi graph reports more idiot friendly<br/>[11-Nov-2010 11:20:30] &lt;rmatte&gt; you mean ZenPack projects?<br/>[11-Nov-2010 11:20:37] &lt;kokey&gt; setting them up that is<br/>[11-Nov-2010 11:21:07] &lt;kells&gt; Well, there's actually some major changes planned for reporting in the next release.<br/>[11-Nov-2010 11:21:43] &lt;jrh0090&gt; I don't think it will affect existing multi-graph reports though, it is more of a replacement<br/>[11-Nov-2010 11:21:47] &lt;kells&gt; The packaging is completely up in the air, but a new capability will be added that will allow you to do very high quality reporting (with multi-tenanting)<br/>[11-Nov-2010 11:22:07] &lt;kells&gt; Right.&#160; The existing reporting in Zenoss will be untouched.<br/>[11-Nov-2010 11:22:53] &lt;kells&gt; It's more of a data warehouse type scheme with the ability to do dashboard type things as well as all sorts of crazy reports.<br/>[11-Nov-2010 11:23:38] &lt;kokey&gt; ah just what i wanted to hear<br/>[11-Nov-2010 11:23:50] &lt;rmatte&gt; kells: I hear none of that may make it in to core?<br/>[11-Nov-2010 11:24:02] &lt;kells&gt; I don't know how they're going to package it.<br/>[11-Nov-2010 11:24:07] * rmatte nods<br/>[11-Nov-2010 11:24:07] &lt;nyeates&gt; it is pretty nice. Packaging and pricing is up in the air<br/>[11-Nov-2010 11:24:14] &lt;kells&gt; I believe that it will be an extra charge option<br/>[11-Nov-2010 11:24:23] &lt;nyeates&gt; likely<br/>[11-Nov-2010 11:24:24] &lt;kokey&gt; and how soon, also up in the air?<br/>[11-Nov-2010 11:24:27] &lt;kells&gt; It *might* be available as a chargeable option for core<br/>[11-Nov-2010 11:24:33] &lt;kells&gt; Keerikes!&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:24:52] &lt;kokey&gt; i'm hoping in under 6 months ;-)<br/>[11-Nov-2010 11:24:54] &lt;kells&gt; Avalon is projected for first quarter of 2011<br/>[11-Nov-2010 11:24:58] &lt;jrh0090&gt; I think around the new year<br/>[11-Nov-2010 11:25:04] &lt;kokey&gt; ok perfect<br/>[11-Nov-2010 11:25:13] &lt;jrh0090&gt; yes, first quarter is probably a better answer <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:25:20] &lt;rmatte&gt; kells: yeh the releases have been pretty close to every 6 months, decent cycle<br/>[11-Nov-2010 11:26:17] &lt;kells&gt; Just finished zenping conversion to the new framework, just in case anybody's interested. <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:27:00] &lt;kells&gt; Or maybe not....&#160; <img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/><br/>[11-Nov-2010 11:27:31] &lt;kells&gt; It does latency graphing and allows for non-management IP monitoring.<br/>[11-Nov-2010 11:27:48] &lt;kells&gt; Roughly comparable to the existing fping zenpack but more lightweight.<br/>[11-Nov-2010 11:28:13] &lt;Simon4&gt; awesome<br/>[11-Nov-2010 11:28:15] &lt;nyeates&gt; explain non-management IP mon?<br/>[11-Nov-2010 11:28:48] &lt;nyeates&gt; im intersted to understand<br/>[11-Nov-2010 11:28:48] &lt;jrh0090&gt; It also eliminates the need to store routes in the ZODB, right ?<br/>[11-Nov-2010 11:29:37] &lt;kells&gt; As an example, a large-ish router or switch may have a hundred or so network interfaces hanging off it. Right now you pick one IP address to ping, and that's all you get.<br/>[11-Nov-2010 11:30:05] &lt;kells&gt; If you want other interfaces monitored, you need to poll the SNMP status or run an external ping command or rely on SNMP traps<br/>[11-Nov-2010 11:30:59] &lt;kells&gt; As pointed out, the routes are no longer calculated from the model, but are gathered directly from traceroute.&#160; No more "Route xxx not in topology" messages in the zenhub log! (Yay!)<br/>[11-Nov-2010 11:31:03] &lt;nyeates&gt; hi chad<br/>[11-Nov-2010 11:32:28] pmcguire is now known as ptmcg<br/>[11-Nov-2010 11:32:33] &lt;kells&gt; The user interface for MIBs will be slightly spruced up, so you'll be able to add MIBs directly from the GUI.<br/>[11-Nov-2010 11:32:53] &lt;kells&gt; The mib browser functionality probably won't make it into Avalon.<br/>[11-Nov-2010 11:34:23] &lt;kells&gt; zenperfsnmp, zenping, zenstatus and zencommand have all been converted<br/>[11-Nov-2010 11:40:35] &lt;nyeates&gt; nice kells....thats exciting to hear your mib browser might wiggle in eventually<br/>[11-Nov-2010 11:46:07] &lt;davetoo&gt; oh, right <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/>&#160; I don't usually get up this early <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:46:43] &lt;nyeates&gt; hi davetoo<br/>[11-Nov-2010 11:47:06] &lt;davetoo&gt; nyeates: hi; somebody asked about a roadmap the other day.&#160; How's that going?<br/>[11-Nov-2010 11:47:40] &lt;nyeates&gt; that has sparked some internal discussion....it is ongoing and I will be getting back<br/>[11-Nov-2010 11:47:46] &lt;davetoo&gt; *nod*<br/>[11-Nov-2010 11:48:37] &lt;kells&gt; Is there anything in particular you're interested in?<br/>[11-Nov-2010 11:49:40] &lt;davetoo&gt; I think the question was prompted by a blog post I made about RelStorage; I do know the story with that, through off-channel discussions.<br/>[11-Nov-2010 11:49:56] &lt;davetoo&gt; The next thing I'm interested in is the new ZEP code in svn<br/>[11-Nov-2010 11:50:09] &lt;kells&gt; Uh oh <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:50:14] &lt;davetoo&gt; I think that is there mostly to support an Enterprise feature <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:50:16] &lt;davetoo&gt; heh<br/>[11-Nov-2010 11:50:47] &lt;jrh0090&gt; Zep is the new event processing system. It is a huge change with the goal of processing several times more events then we currently do<br/>[11-Nov-2010 11:50:57] &lt;ptmcg&gt; ZEP will be part of core, offloading compute-intensive CPU work from zenhub<br/>[11-Nov-2010 11:51:26] &lt;davetoo&gt; transforms and such?<br/>[11-Nov-2010 11:51:49] &lt;davetoo&gt; Will it help zensyslog performance?<br/>[11-Nov-2010 11:51:50] &lt;jrh0090&gt; transforms will be taken care of by a new daemon<br/>[11-Nov-2010 11:52:37] &lt;davetoo&gt; i.e. will any of the work that zensyslog does be moved/offloaded to zep?<br/>[11-Nov-2010 11:52:39] &lt;kells&gt; What's the issue with zensyslog performance? Losing messages internally, or sending messages to zenhub?<br/>[11-Nov-2010 11:52:56] &lt;davetoo&gt; in the past it's been a huge CPU hog for me.<br/>[11-Nov-2010 11:53:11] &lt;ptmcg&gt; wow, people poke around in svn?<br/>[11-Nov-2010 11:53:14] &lt;kells&gt; With zensyslog, there are some new daemon options (in 3.0) that allow you to get more buffer space to deal with losing messages.<br/>[11-Nov-2010 11:53:35] &lt;ptmcg&gt; I'll have to be careful about my checkin comments...<br/>[11-Nov-2010 11:53:37] &lt;davetoo&gt; ptmcg: I don't know how many people do, but yeah, I do <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:53:39] &lt;kells&gt; zensyslog also allows you to drop messages based on regexes, so that might be an approach too.<br/>[11-Nov-2010 11:54:19] &lt;davetoo&gt; regexes can be slow if not carefully written, of course.&#160; Sometimes substring ops are faster.<br/>[11-Nov-2010 11:54:38] &lt;davetoo&gt; anyway, good to hear about zep.&#160; Thanks.<br/>[11-Nov-2010 11:55:08] &lt;kells&gt; In your case, were you able to isolate the cause of the CPU load?<br/>[11-Nov-2010 11:55:10] &lt;davetoo&gt; ptmcg: in fact I'm trying to clone it to Git,<br/>[11-Nov-2010 11:55:36] &lt;davetoo&gt; kells: no, and project needs dictated that I defer that problem; I'm no longer working at that firm.<br/>[11-Nov-2010 11:55:49] &lt;kells&gt; Ah, okay<br/>[11-Nov-2010 11:57:38] &lt;kells&gt; I hadn't seen any issues with CPU performance and zensyslog. Usually it's an issue with losing messages due to buffer space issues.<br/>[11-Nov-2010 11:57:51] &lt;kells&gt; And regular syslogd has issues with that too<br/>[11-Nov-2010 11:57:58] &lt;rmatte&gt; the simplest way to deal with high load on zensyslog is to put syslog-ng before it, have it filter out most of the garbage and forward the rest to Zenoss<br/>[11-Nov-2010 11:58:11] &lt;davetoo&gt; rmatte: which is what I was going to do, yes.<br/>[11-Nov-2010 11:59:52] &lt;davetoo&gt; Can you talk about how AMQP/Rabbit, protobuffers, and zep fit together?<br/>[11-Nov-2010 12:00:20] &lt;davetoo&gt; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:00:25] &lt;ptmcg&gt; !!!<br/>[11-Nov-2010 12:00:25] &lt;jrh0090&gt; That is a loaded question <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:00:30] &lt;davetoo&gt; hehehehe<br/>[11-Nov-2010 12:00:57] &lt;jrh0090&gt; In a nutshell we are using rabbitmq to communicate from zenhub to ZEP<br/>[11-Nov-2010 12:01:15] &lt;davetoo&gt; I've been looking at the code from the standpoint of HA and distributed processing<br/>[11-Nov-2010 12:01:16] &lt;jrh0090&gt; events will hang out in the queue until they are processed by zep<br/>[11-Nov-2010 12:01:22] &lt;davetoo&gt; ah<br/>[11-Nov-2010 12:01:26] &lt;jrh0090&gt; this allows us to handle event storms and high loads better<br/>[11-Nov-2010 12:01:50] &lt;jrh0090&gt; the protobufs are an IDL (interface definition language) so we can send objects accross the wire instead of strings<br/>[11-Nov-2010 12:01:52] &lt;kokey&gt; ok, i have very important drinking to do<br/>[11-Nov-2010 12:01:52] &lt;davetoo&gt; aye<br/>[11-Nov-2010 12:01:55] &lt;kokey&gt; bye everyone<br/>[11-Nov-2010 12:01:57] &lt;Simon4&gt; seu<br/>[11-Nov-2010 12:02:21] &lt;ptmcg&gt; kokey: is there unimportant drinking?<br/>[11-Nov-2010 12:02:34] &lt;davetoo&gt; interesting<br/>[11-Nov-2010 12:02:35] &lt;kokey&gt; yeah sometimes it's just because i'm thirsty<br/>[11-Nov-2010 12:02:38] &lt;rmatte&gt; not when I'm around<br/>[11-Nov-2010 12:02:40] &lt;rmatte&gt; lol<br/>[11-Nov-2010 12:03:11] &lt;tiredofme&gt; has anyone had success with application dependencies? essentially, don't alert me about my websites if the db backend dies for the webservers<br/>[11-Nov-2010 12:03:54] &lt;rmatte&gt; tiredofme: didn't you implement that transform and it worked?<br/>[11-Nov-2010 12:04:41] &lt;tiredofme&gt; rmatte: yep, it seemed to work for the local device that it applies to. I'm just wondering if anyone had examples of making that sort of transform work across multiple systems<br/>[11-Nov-2010 12:05:03] &lt;rmatte&gt; I designed the transform to be general<br/>[11-Nov-2010 12:05:07] &lt;rmatte&gt; it should apply to anything<br/>[11-Nov-2010 12:05:34] &lt;rmatte&gt; but if it's not working, you need to step back and examine the logic<br/>[11-Nov-2010 12:05:39] &lt;rmatte&gt; forget about python, pseudo code it out<br/>[11-Nov-2010 12:05:45] &lt;rmatte&gt; use a flow chart if you have to<br/>[11-Nov-2010 12:06:02] &lt;rmatte&gt; then once you have the logic figured out, examine the transform and make the necessary modifications<br/>[11-Nov-2010 12:06:41] &lt;tiredofme&gt; got it<br/>[11-Nov-2010 12:07:19] &lt;ptmcg&gt; what is the nastiest, ugliest transform you've ever written?<br/>[11-Nov-2010 12:07:48] &lt;rmatte&gt; ptmcg: in terms of complexity?<br/>[11-Nov-2010 12:08:06] &lt;rmatte&gt; I never write "ugly" transforms, they are works of art <img height="16px" src="../4.5.6/images/emoticons/silly.gif" width="16px"/><br/>[11-Nov-2010 12:08:17] &lt;rmatte&gt; <img height="16px" src="../4.5.6/images/emoticons/grin.gif" width="16px"/><br/>[11-Nov-2010 12:08:17] &lt;ptmcg&gt; complexity, external dependencies, whatever<br/>[11-Nov-2010 12:08:24] &lt;davetoo&gt; I wish there were an option to upload transforms as a file; I'd rather keep them versioned<br/>[11-Nov-2010 12:08:28] &lt;rmatte&gt; ah, I stay away from external dependencies<br/>[11-Nov-2010 12:08:46] &lt;rmatte&gt; actually there was one...<br/>[11-Nov-2010 12:09:05] &lt;Simon4&gt; davetoo: someone I know might have written a zenpack that wraps up transforms in svn and delivers them as zenpack contents<br/>[11-Nov-2010 12:09:12] &lt;Simon4&gt; so you can do just that<br/>[11-Nov-2010 12:09:19] &lt;davetoo&gt; aye<br/>[11-Nov-2010 12:09:48] &lt;rmatte&gt; trying to dig it up...<br/>[11-Nov-2010 12:09:59] &lt;ptmcg&gt; ah... a good story is coming...<br/>[11-Nov-2010 12:10:11] &lt;davetoo&gt; ?<br/>[11-Nov-2010 12:10:35] &lt;rmatte&gt; http://dev.zenoss.org/trac/ticket/5376<br/>[11-Nov-2010 12:10:40] &lt;rmatte&gt; the transform in that trac ticket<br/>[11-Nov-2010 12:10:57] &lt;rmatte&gt; the goal was to actually have the operational status represent the status of interfaces pre 2.5<br/>[11-Nov-2010 12:11:07] &lt;rmatte&gt; before /Status/IpInterface was introduced<br/>[11-Nov-2010 12:11:13] &lt;rmatte&gt; (which still isn't created by default)<br/>[11-Nov-2010 12:11:41] &lt;rmatte&gt; but it didn't work since Zenoss would stop monitoring the interface after the status was changed<br/>[11-Nov-2010 12:12:31] &lt;rmatte&gt; I updated this to reflect the use of /Status/IpInterface: http://community.zenoss.org/docs/DOC-2494<br/>[11-Nov-2010 12:13:21] &lt;rmatte&gt; also, all that import stuff was necessary at the time<br/>[11-Nov-2010 12:13:31] &lt;rmatte&gt; it isn't anymore since dmd is now available in transforms by default<br/>[11-Nov-2010 12:13:43] &lt;ptmcg&gt; The device is too<br/>[11-Nov-2010 12:13:54] &lt;rmatte&gt; oh?<br/>[11-Nov-2010 12:13:58] &lt;rmatte&gt; I wasn't aware of that<br/>[11-Nov-2010 12:14:03] &lt;rmatte&gt; is it just "d"?<br/>[11-Nov-2010 12:14:05] &lt;Simon4&gt; dev and evt<br/>[11-Nov-2010 12:14:06] &lt;rmatte&gt; or is it dev?<br/>[11-Nov-2010 12:14:10] &lt;ptmcg&gt; The lookup from evt.ipAddress -&gt; device should already be done, I believe<br/>[11-Nov-2010 12:14:12] &lt;rmatte&gt; ah ok<br/>[11-Nov-2010 12:14:14] &lt;rmatte&gt; good to know<br/>[11-Nov-2010 12:14:16] * Simon4 didn't know dmd was avail - is that a new thing for 3?<br/>[11-Nov-2010 12:14:19] &lt;ptmcg&gt; dev and device are both defined<br/>[11-Nov-2010 12:14:39] &lt;rmatte&gt; Simon4: nah, new thing for 2.5<br/>[11-Nov-2010 12:14:40] &lt;ptmcg&gt; I don't think it is anything new<br/>[11-Nov-2010 12:14:44] &lt;Simon4&gt; rmatte: ah cool<br/>[11-Nov-2010 12:14:47] &lt;rmatte&gt; it wasn't available in 2.<br/>[11-Nov-2010 12:14:49] &lt;rmatte&gt; 2.4*<br/>[11-Nov-2010 12:16:44] &lt;davetoo&gt; back on the dependency thing: how/when is the pingtree used for layer 3 dependencies...<br/>[11-Nov-2010 12:17:06] &lt;davetoo&gt; I see some bits in the code about polling for device ping issues<br/>[11-Nov-2010 12:17:15] &lt;nyeates&gt; ive been here since 2.3.3&#160; at least, and i *thought* dmd has been around<br/>[11-Nov-2010 12:17:46] &lt;rmatte&gt; nyeates: I started out with 2.3.2 as my first version<br/>[11-Nov-2010 12:17:55] &lt;ptmcg&gt; 'log' is also defined<br/>[11-Nov-2010 12:18:02] &lt;rmatte&gt; I wasn't able to use dmd in a transform without importing it before 2.5<br/>[11-Nov-2010 12:18:13] &lt;rmatte&gt; actually, there was a patch to allow that, let me find it...<br/>[11-Nov-2010 12:18:21] &lt;nyeates&gt; ohh, i misunderstood<br/>[11-Nov-2010 12:18:42] * nyeates slaps himself witha&#160; wet fish<br/>[11-Nov-2010 12:19:11] &lt;rmatte&gt; Patch 14049 - Adds support for the use of "dmd" in transforms (as you would use it in zendmd).<br/>[11-Nov-2010 12:19:24] &lt;davetoo&gt; but I'm not clear on whether all daemons stop testing/polling based on that, and... I'm not sure if there's an Acquisition path or something that goes up the pingtree to see if an upstream router is down<br/>[11-Nov-2010 12:20:59] &lt;davetoo&gt; i.e. does getDevicePingIssues(?) see only that device, or is that polling a property that's part of an Acquisition tree?<br/>[11-Nov-2010 12:21:26] &lt;rmatte&gt; davetoo: in my experience the layer 3 dependencies are extremely flaky.&#160; I've never gotten them working.<br/>[11-Nov-2010 12:21:31] &lt;davetoo&gt; (I'm still not sure I understand that Acquisition black magic)<br/>[11-Nov-2010 12:22:06] &lt;davetoo&gt; rmatte: that's why I'm asking these questions <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/>&#160; It seems like there should be some observer patterns to invalidate subtrees as soon as a router goes down...<br/>[11-Nov-2010 12:22:22] &lt;rmatte&gt; yup<br/>[11-Nov-2010 12:23:55] &lt;rmatte&gt; I still vote for manual device dependencies to be implemented<br/>[11-Nov-2010 12:24:01] &lt;rmatte&gt; I'd rather just define what is what myself<br/>[11-Nov-2010 12:24:21] &lt;rmatte&gt; automation is fine, but not always effective<br/>[11-Nov-2010 12:30:10] &lt;mloven&gt; any zendmd ninjas out there today?&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:30:43] &lt;rmatte&gt; what do you need?<br/>[11-Nov-2010 12:31:07] &lt;mloven&gt; I'm looking for a zendmd script that will display the number of devices of a particular type, per device group...<br/>[11-Nov-2010 12:31:14] &lt;mloven&gt; so for example:<br/>[11-Nov-2010 12:32:42] &lt;mloven&gt; Group1 has a router at /Devices/Network/Router and 2 routers at Devices/Network/Cisco/Router.&#160; The zendmd script should display something like:<br/>[11-Nov-2010 12:33:01] &lt;mloven&gt; Group Name&#160;&#160;&#160; Routers<br/>[11-Nov-2010 12:33:02] &lt;mloven&gt; Group1&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 3<br/>[11-Nov-2010 12:33:13] &lt;mloven&gt; crazy right?&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:33:26] &lt;rmatte&gt; that's not difficult to do BUT...<br/>[11-Nov-2010 12:33:43] &lt;rmatte&gt; /Devices/Network/Cisco/Router is just an organizer<br/>[11-Nov-2010 12:33:57] &lt;rmatte&gt; It could just as easily be /Devices/Network/Cisco/ClownPants<br/>[11-Nov-2010 12:33:59] &lt;mloven&gt; yep.<br/>[11-Nov-2010 12:34:10] &lt;Simon4&gt; is "Group1" an actual group in zenoss?<br/>[11-Nov-2010 12:34:24] &lt;mloven&gt; for the purposes of this example, yes...<br/>[11-Nov-2010 12:34:26] &lt;rmatte&gt; do you have a system where the last organizer in the device classes is always the device type?<br/>[11-Nov-2010 12:35:19] &lt;rmatte&gt; Honestly, it would be easier for you to use Systems and define Router, Switch, Firewall, etc... in there<br/>[11-Nov-2010 12:35:27] &lt;rmatte&gt; then assign the devices to whatever system group<br/>[11-Nov-2010 12:35:28] &lt;mloven&gt; rmatte: no, in some cases, we have, say /Devices/Network/Cisco/Router/Voice Gateway, or similar<br/>[11-Nov-2010 12:36:05] &lt;rmatte&gt; because your device class structure isn't going to be as concrete/accurate<br/>[11-Nov-2010 12:36:44] &lt;mloven&gt; rmatte:&#160; that's a doable option<br/>[11-Nov-2010 12:36:52] &lt;rmatte&gt; then that would be your best option<br/>[11-Nov-2010 12:37:06] &lt;rmatte&gt; much easier to just query systems groups than to try and do a bunch of magic<br/>[11-Nov-2010 12:37:07] &lt;davetoo&gt; however,<br/>[11-Nov-2010 12:37:20] &lt;davetoo&gt; iit at used to be the case that /Devices/Network/Router was special<br/>[11-Nov-2010 12:37:26] &lt;davetoo&gt; is it no longer the case?<br/>[11-Nov-2010 12:37:33] &lt;rmatte&gt; "Special"?<br/>[11-Nov-2010 12:37:36] &lt;rmatte&gt; in what sense?<br/>[11-Nov-2010 12:37:50] &lt;rmatte&gt; It's just a class<br/>[11-Nov-2010 12:37:59] &lt;davetoo&gt; Routers were treated differently...<br/>[11-Nov-2010 12:38:10] &lt;davetoo&gt; maybe that was only a zendisc thing<br/>[11-Nov-2010 12:38:11] &lt;rmatte&gt; maybe based on whatever plugins are defined in that class<br/>[11-Nov-2010 12:38:15] &lt;mloven&gt; like "short-bus" special?&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:38:23] &lt;davetoo&gt; no, not in the traditional templates sense<br/>[11-Nov-2010 12:38:25] &lt;rmatte&gt; nothing to keep you from creating your own class and defining the same zProperties/Plugins<br/>[11-Nov-2010 12:38:38] &lt;davetoo&gt; rmatte: right, I'm not talking about that stuff <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:38:51] &lt;rmatte&gt; well I don't see what else would apply<br/>[11-Nov-2010 12:38:56] &lt;davetoo&gt; but.. my CRS is preventing me from remembering if it was anything more than how zendisc treated them.<br/>[11-Nov-2010 12:38:58] * rmatte listens intently<br/>[11-Nov-2010 12:39:13] &lt;davetoo&gt; I'll find my question in the mail archives later<br/>[11-Nov-2010 12:39:17] &lt;davetoo&gt; busy righ tnow<br/>[11-Nov-2010 12:39:17] &lt;rmatte&gt; k<br/>[11-Nov-2010 12:39:26] &lt;davetoo&gt; you could search<br/>[11-Nov-2010 12:39:36] &lt;davetoo&gt; it's old enough that either EAD or ECN answered<br/>[11-Nov-2010 12:40:36] &lt;mloven&gt; either way, the "system" approach should circumvent any issues, right?<br/>[11-Nov-2010 12:41:34] &lt;rmatte&gt; yessir<br/>[11-Nov-2010 12:44:14] &lt;mloven&gt; ok.&#160; done deal then.&#160;&#160; given that option, how would one go about squeezing zendmd to give those results?<br/>[11-Nov-2010 12:46:26] &lt;rmatte&gt; the number of devices in each?<br/>[11-Nov-2010 12:46:42] &lt;mloven&gt; yeah, just a count.<br/>[11-Nov-2010 12:46:46] &lt;rmatte&gt; pretty simply...<br/>[11-Nov-2010 12:46:52] &lt;mloven&gt; but per group<br/>[11-Nov-2010 12:47:50] &lt;rmatte&gt; yeh, give me a minute<br/>[11-Nov-2010 12:48:45] &lt;nyeates&gt; BTW, we will announce Summer of Zenpack winners Mon morn, likely<br/>[11-Nov-2010 12:48:53] &lt;rmatte&gt; coolio<br/>[11-Nov-2010 12:49:07] &lt;nyeates&gt; there really are some cool ones - and i hope that those not scouring our ZPs can use the winners list as a "best of the best" list<br/>[11-Nov-2010 12:49:10] &lt;rmatte&gt; If I win I'm picking the porsche 911 as my prize<br/>[11-Nov-2010 12:49:24] &lt;nyeates&gt; weve got 16 prizes we are giving away, and a few of you in here are winners :-)<br/>[11-Nov-2010 12:49:37] &lt;nyeates&gt; we ran out of those, sorry<br/>[11-Nov-2010 12:49:40] * Simon4 wants the aston martin<br/>[11-Nov-2010 12:49:50] &lt;rmatte&gt; I had 6 submissions, 3 of which were new original packs, so I hope that I've at least won something <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:50:30] &lt;nyeates&gt; egor and andrea had most submissions i think....probably you were 3rd ryan<br/>[11-Nov-2010 12:50:40] &lt;rmatte&gt; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:50:43] &lt;rmatte&gt; Egor is a machine<br/>[11-Nov-2010 12:51:12] &lt;rmatte&gt; which reminds me, I have an enhancement planned for his WMI Performance pack<br/>[11-Nov-2010 12:51:19] &lt;rmatte&gt; just need to find time to do it<br/>[11-Nov-2010 12:51:37] &lt;nyeates&gt; cool<br/>[11-Nov-2010 12:52:06] &lt;rmatte&gt; It's going to allow it to monitor windows mount points<br/>[11-Nov-2010 12:52:14] &lt;rmatte&gt; instead of just logical filesystems<br/>[11-Nov-2010 12:52:46] &lt;nyeates&gt; i think that that is oft requested feature when i was in support<br/>[11-Nov-2010 12:53:16] &lt;rmatte&gt; mloven: I'm almost done with this dmd script, don't worry, haven't forgotten lol<br/>[11-Nov-2010 12:53:41] &lt;rmatte&gt; mloven: so you just want a count of each type, but per group?<br/>[11-Nov-2010 12:53:51] &lt;rmatte&gt; So something like:<br/>[11-Nov-2010 12:53:54] &lt;rmatte&gt; Group 1:<br/>[11-Nov-2010 12:53:57] &lt;rmatte&gt; Network: 4<br/>[11-Nov-2010 12:53:59] &lt;rmatte&gt; Security: 0<br/>[11-Nov-2010 12:54:02] &lt;rmatte&gt; or whatever<br/>[11-Nov-2010 12:54:03] &lt;rmatte&gt; ?<br/>[11-Nov-2010 12:54:42] &lt;rmatte&gt; nyeates: yeh, it's being requested by a large client of ours (who apparently has their own instance of Zenoss running internally)<br/>[11-Nov-2010 12:54:57] &lt;rmatte&gt; nyeates: but they lack a Zenoss wizard to get that level of monitoring in place <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:55:10] &lt;rmatte&gt; Looking at the WMI queries it's going to be very simple to implement<br/>[11-Nov-2010 12:55:23] &lt;rmatte&gt; just going to use Win32_Volume instead of Win32_LogicalDisk<br/>[11-Nov-2010 12:55:28] &lt;rmatte&gt; since it has all the same values<br/>[11-Nov-2010 12:55:34] &lt;rmatte&gt; but also provides values for the mount points<br/>[11-Nov-2010 12:55:49] &lt;mloven&gt; rmatte:&#160; yeah, so how many routers Group1 has, how many routers Group2 has, and so on.<br/>[11-Nov-2010 12:55:54] &lt;rmatte&gt; and I checked where egor is already pulling the filesystem IO info from, it supplies info for the mount points too<br/>[11-Nov-2010 12:56:10] &lt;rmatte&gt; mloven: k, 1 more min and I'll have it for you<br/>[11-Nov-2010 12:56:24] &lt;ptmcg&gt; I've seen some problems with collecting parameters from Win32_Volume - if you try this please send in your results, either success or the other kind<br/>[11-Nov-2010 12:57:15] &lt;rmatte&gt; ptmcg: will do<br/>[11-Nov-2010 12:57:29] &lt;rmatte&gt; I examined the values and they all checked out, so hopefully it'll work as expected<br/>[11-Nov-2010 13:00:10] &lt;rmatte&gt; mloven: hmmm, it'll take a few more minutes, just hit a small sticking point<br/>[11-Nov-2010 13:04:46] &lt;mloven&gt; rmatte:&#160; np, I appreciate the help<br/>[11-Nov-2010 13:05:13] &lt;davetoo&gt; Thanks, dev guys <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 13:05:33] &lt;nyeates&gt; yes thx to all!<br/>[11-Nov-2010 13:06:54] &lt;nyeates&gt; Im gonna duck out now and change the title....later everyone<br/>[11-Nov-2010 13:07:44] &lt;rmatte&gt; later<br/></pre></div><!-- [DocumentBodyEnd:67053916-ae71-4e6d-9b0b-7de453e2e82c] -->
+<!-- [DocumentBodyStart:67053916-ae71-4e6d-9b0b-7de453e2e82c] --><div class="jive-rendered-content"><pre>[11-Nov-2010 10:38:48] &lt;nyeates&gt; Hola all<br/>[11-Nov-2010 10:39:12] &lt;rmatte&gt; hola<br/>[11-Nov-2010 10:39:30] &lt;nyeates&gt; today we will run our gathering in spanish<br/>[11-Nov-2010 10:39:34] &lt;nyeates&gt; ...kidding :-)<br/>[11-Nov-2010 10:39:35] &lt;rmatte&gt; haha<br/>[11-Nov-2010 10:39:50] &lt;rmatte&gt; forgot that it's developer day<br/>[11-Nov-2010 10:40:01] &lt;nyeates&gt; 20 mins<br/>[11-Nov-2010 10:40:35] &lt;rmatte&gt; Simon4: I assumed that's what the ACL views were for<br/>[11-Nov-2010 10:40:57] &lt;rmatte&gt; I've never actually seen them in action<br/>[11-Nov-2010 10:41:08] &lt;Simon4&gt; rmatte: I haven't seen anything obvious that says that, but I haven't dug too far<br/>[11-Nov-2010 10:41:18] &lt;Simon4&gt; the user management stuff looked fairly identical from core-&gt;enterprise<br/>[11-Nov-2010 10:41:35] &lt;rmatte&gt; yeh, there is "ACL" functionality though that is supposed to limit what each user can see<br/>[11-Nov-2010 10:42:12] &lt;nyeates&gt; yes, there is ACL's.....u can define what devices and reports and alerts that users or groups can have access to<br/>[11-Nov-2010 10:42:20] &lt;nyeates&gt; that is in enterprise<br/>[11-Nov-2010 10:42:22] &lt;rmatte&gt; yeh<br/>[11-Nov-2010 10:42:45] &lt;nyeates&gt; useful for ISPs or people with disparate groups<br/>[11-Nov-2010 10:42:54] &lt;Simon4&gt; ah cool<br/>[11-Nov-2010 10:42:58] * Simon4 goes to see how to do that<br/>[11-Nov-2010 10:43:11] &lt;nyeates&gt; see it in the extended mon guide<br/>[11-Nov-2010 10:46:16] * Simon4 will hassle the trainer when they appear in december<br/>[11-Nov-2010 10:46:43] &lt;rmatte&gt; hehe<br/>[11-Nov-2010 10:46:53] &lt;rmatte&gt; rocket: how goes things on the front line?<br/>[11-Nov-2010 10:47:31] &lt;rmatte&gt; (using front line in a war terminology sense of course)<br/>[11-Nov-2010 10:47:36] &lt;kokey&gt; haha<br/>[11-Nov-2010 10:47:38] &lt;kokey&gt; thanks<br/>[11-Nov-2010 10:47:56] &lt;kokey&gt; i was busy reading through the docs now about users etc. and noticed the good acl stuff is only in enterprise<br/>[11-Nov-2010 10:48:06] &lt;rmatte&gt; yeh<br/>[11-Nov-2010 10:48:15] &lt;kokey&gt; it's a darn pain that enterprise trial is only a windows exe vmware<br/>[11-Nov-2010 10:48:18] &lt;rmatte&gt; which is why I have 15 separate production zenoss instanced hehe<br/>[11-Nov-2010 10:48:22] &lt;rmatte&gt; instances*<br/>[11-Nov-2010 10:48:50] &lt;rmatte&gt; kokey: really?&#160; I'll bet if you bugged them you could get your hands on a different installer.<br/>[11-Nov-2010 10:49:30] &lt;rmatte&gt; ...but if you use it for more than 30 days they'll dispatch an angry gorilla with a big stick to meet up with you<br/>[11-Nov-2010 10:49:43] &lt;nyeates&gt; hah wow....there was a enterprise user who had 12 instances world wide...mostly b/c of geographic lag between the sites.....otherwise, all distributed enterprise is done with remote collectors and hubs<br/>[11-Nov-2010 10:49:45] &lt;kokey&gt; yeah i think what i'll do is let them engage me further and do more vendor song and dance then i'll probably get the installer<br/>[11-Nov-2010 10:50:16] &lt;rmatte&gt; nyeates: yeh, I basically have 1 instance per client for the larger clients, and then some multi-client instances<br/>[11-Nov-2010 10:50:19] &lt;Simon4&gt; nyeates: know if you can have multiple copies of zenactions to get some redundancy in alerting?<br/>[11-Nov-2010 10:50:31] * Simon4 has redundancy issues to solve right now<br/>[11-Nov-2010 10:50:58] &lt;rmatte&gt; Simon4: you mean if the hub goes down?<br/>[11-Nov-2010 10:51:09] &lt;kokey&gt; this is a small site, i think i'll only have about 600 devices in total<br/>[11-Nov-2010 10:51:10] &lt;nyeates&gt; Simon4: multiple instances of zenactions on a single server? is that what u mean?<br/>[11-Nov-2010 10:51:17] &lt;kokey&gt; and could probably do it with about 6 collectors<br/>[11-Nov-2010 10:51:42] &lt;Simon4&gt; nyeates: so two hubs (across disparate geographical locations), zenactions on each hub sending alerts for teh events raised by collectors reporting to those hubs<br/>[11-Nov-2010 10:52:48] &lt;rmatte&gt; Simon4: you'd have the same collectors reporting to both hubs you mean?<br/>[11-Nov-2010 10:52:54] * rmatte doesn't get what you mean<br/>[11-Nov-2010 10:53:33] &lt;Simon4&gt; rmatte: no, just trying to remove the single point of failure that seems to be a single copy of zenactions, and struggling to get my head around how<br/>[11-Nov-2010 10:54:02] &lt;Simon4&gt; everything else can be made redundant somehow, but if we lose the master events/alerts just die<br/>[11-Nov-2010 10:54:02] &lt;rmatte&gt; You could just enable watchdog to watch that daemon<br/>[11-Nov-2010 10:54:08] &lt;rmatte&gt; that way if it fails it'll be automatically restarted<br/>[11-Nov-2010 10:54:11] &lt;Simon4&gt; that does nothing if the network in that DC dies<br/>[11-Nov-2010 10:54:29] &lt;rmatte&gt; true<br/>[11-Nov-2010 10:54:33] &lt;Simon4&gt; daemon failures are the least of my worries<br/>[11-Nov-2010 10:54:39] &lt;nyeates&gt; Simon4: hmmmm, yeah i am not clear on how multiple hubs works out<br/>[11-Nov-2010 10:54:44] &lt;rmatte&gt; why not just have something outside that DC checking up on it?<br/>[11-Nov-2010 10:55:11] &lt;rmatte&gt; you're option for some super complicated solution when the simplest will probably do fine<br/>[11-Nov-2010 10:55:15] &lt;rmatte&gt; opting*<br/>[11-Nov-2010 10:55:27] &lt;Simon4&gt; rmatte: beacause for the time that that network is down, you're completely blind to any events occurring in $other_dc, even though you have all this zenoss infrastructure in there still collecting/monitoring<br/>[11-Nov-2010 10:55:32] &lt;Simon4&gt; which seems totally stupid<br/>[11-Nov-2010 10:55:59] * Simon4 is trying ot make this as simple as possible, whilst still keeping within business requirements, trust me <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 10:56:08] &lt;rmatte&gt; How is a second instance of zenactions going to help in that case though?<br/>[11-Nov-2010 10:56:17] &lt;rmatte&gt; are you actually talking about full failover of monitoring?<br/>[11-Nov-2010 10:56:39] &lt;Simon4&gt; rmatte: it may not, I was raising the question to nyeates as he (she?) may&#160; have known a good way to solve this problem<br/>[11-Nov-2010 10:56:44] &lt;Simon4&gt; no, I'm not<br/>[11-Nov-2010 10:56:52] &lt;Simon4&gt; I'm talking about multiple-hub installs that you can do in enterprise<br/>[11-Nov-2010 10:57:04] &lt;Simon4&gt; we already have full failover, it's a PITA<br/>[11-Nov-2010 10:57:11] &lt;rmatte&gt; If the network is down, how do you hope to get the info to the second zenactions daemon?<br/>[11-Nov-2010 10:57:52] &lt;nyeates&gt; Simon4: oh i did not know you were speaking in terms of enterprise....yes this can be done....and now we have a seperate product that will diostribute event creation<br/>[11-Nov-2010 10:57:52] &lt;Simon4&gt; rmatte: that's the question I'm asking <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 10:58:19] &lt;Simon4&gt; nyeates: works in 2.5? or 3 only?<br/>[11-Nov-2010 10:58:48] &lt;nyeates&gt; Simon4: I will follow up with you afterwards and get you connected with some ppl who know details....i think it is a 3.0 thing, but ill check<br/>[11-Nov-2010 10:58:56] &lt;Simon4&gt; thanks<br/>[11-Nov-2010 10:59:22] &lt;rmatte&gt; Simon4: carrier pigeons work well as a backup link I hear <img height="16px" src="../4.5.6/images/emoticons/silly.gif" width="16px"/><br/>[11-Nov-2010 10:59:29] &lt;Simon4&gt; <img height="16px" src="../4.5.6/images/emoticons/grin.gif" width="16px"/><br/>[11-Nov-2010 10:59:31] &lt;rmatte&gt; muahaha<br/>[11-Nov-2010 10:59:40] &lt;rmatte&gt; they make a terrible mess though<br/>[11-Nov-2010 10:59:45] &lt;nyeates&gt; lol<br/>[11-Nov-2010 11:02:53] &lt;nyeates&gt; Ok everyone<br/>[11-Nov-2010 11:03:30] &lt;kokey&gt; maybe when the hub fails initiate the DR procedure<br/>[11-Nov-2010 11:03:33] &lt;kokey&gt; ;-)<br/>[11-Nov-2010 11:03:33] &lt;nyeates&gt; This will mark my first IRC community developer session with zenoss, without the late Matt Ray<br/>[11-Nov-2010 11:04:06] &lt;nyeates&gt; For those that do not know, I am Nick Yeates at Zenoss Inc. I am taking some of Matt Rays duties<br/>[11-Nov-2010 11:04:14] &lt;nyeates&gt; Matt was our former Community Manager<br/>[11-Nov-2010 11:04:32] &lt;Simon4&gt; kokey: "Wave hands around and scream loudly" ?<br/>[11-Nov-2010 11:04:33] &lt;jrh0090&gt; This will also mark my first IRC developer session as a developer<br/>[11-Nov-2010 11:05:00] &lt;nyeates&gt; yup, thanks for coming Joseph<br/>[11-Nov-2010 11:05:14] &lt;jrh0090&gt; np<br/>[11-Nov-2010 11:05:22] &lt;nyeates&gt; Joseph Hanson has been with Zenoss for the last 8 months and is here to pitch in where he can<br/>[11-Nov-2010 11:06:54] &lt;nyeates&gt; Jospeh, do you know anything about distributed hubs?<br/>[11-Nov-2010 11:07:08] &lt;nyeates&gt; if not, its all good as I am going to point simon at the right resources no matter<br/>[11-Nov-2010 11:07:11] &lt;jrh0090&gt; unfortunately not much, I have worked with distributed collectors a little bit but not really hubs<br/>[11-Nov-2010 11:07:17] &lt;nyeates&gt; k<br/>[11-Nov-2010 11:09:06] &lt;nyeates&gt; so yeah - i didnt see a rush of ppl heading in here for this today. I think it is going to be light. But please, hit us up with your questions, discussions, or favorite lol-cat links<br/>[11-Nov-2010 11:11:05] &lt;rmatte&gt; hehe<br/>[11-Nov-2010 11:13:22] &lt;kokey&gt; I didn't know it was happening, when is the next one?<br/>[11-Nov-2010 11:13:39] &lt;jrh0090&gt; They should be every two weeks<br/>[11-Nov-2010 11:13:41] &lt;nyeates&gt; thurs's every 2 weeks<br/>[11-Nov-2010 11:13:45] &lt;kokey&gt; I'm doing a trial of it here and will probably be oozing questions from about 2 weeks from now<br/>[11-Nov-2010 11:13:50] &lt;kokey&gt; ok, perfect<br/>[11-Nov-2010 11:14:07] &lt;rmatte&gt; well, you can always ooze away when it's not a dev session too <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/><br/>[11-Nov-2010 11:14:25] &lt;kokey&gt; yeah I do anyway, this channel's been incredibly helpful<br/>[11-Nov-2010 11:14:25] &lt;rmatte&gt; aloha kells<br/>[11-Nov-2010 11:14:35] &lt;kells&gt; G'day, g'day!<br/>[11-Nov-2010 11:15:52] &lt;rmatte&gt; kells: wow, I didn't know teksavvy was in the states.&#160; I thought they were a Canadian ISP.<br/>[11-Nov-2010 11:16:29] &lt;kells&gt; They are -- I'm living in Toronto<br/>[11-Nov-2010 11:16:34] &lt;rmatte&gt; ohhh<br/>[11-Nov-2010 11:16:46] &lt;rmatte&gt; didn't realize that<br/>[11-Nov-2010 11:17:01] &lt;rmatte&gt; I'm from Ottawa<br/>[11-Nov-2010 11:17:22] &lt;kells&gt; Oh cool!&#160; I haven't lived there in years, but it's an incredible place in Autumn<br/>[11-Nov-2010 11:17:30] &lt;rmatte&gt; indeed<br/>[11-Nov-2010 11:18:02] &lt;rmatte&gt; So have you been in Toronto a long time?&#160; I always thought you were based out of Austin or something.<br/>[11-Nov-2010 11:18:27] &lt;kells&gt; About 6 months.&#160; Before that I was in Calgary. <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:18:34] &lt;rmatte&gt; ah right, Calgary<br/>[11-Nov-2010 11:18:53] &lt;rmatte&gt; I knew there was someone in Calgary, forgot it was you<br/>[11-Nov-2010 11:19:47] &lt;kells&gt; Any neat projects on the go?<br/>[11-Nov-2010 11:20:27] &lt;kokey&gt; I was wondering if there is something in the pipeline to make the multi graph reports more idiot friendly<br/>[11-Nov-2010 11:20:30] &lt;rmatte&gt; you mean ZenPack projects?<br/>[11-Nov-2010 11:20:37] &lt;kokey&gt; setting them up that is<br/>[11-Nov-2010 11:21:07] &lt;kells&gt; Well, there's actually some major changes planned for reporting in the next release.<br/>[11-Nov-2010 11:21:43] &lt;jrh0090&gt; I don't think it will affect existing multi-graph reports though, it is more of a replacement<br/>[11-Nov-2010 11:21:47] &lt;kells&gt; The packaging is completely up in the air, but a new capability will be added that will allow you to do very high quality reporting (with multi-tenanting)<br/>[11-Nov-2010 11:22:07] &lt;kells&gt; Right.&#160; The existing reporting in Zenoss will be untouched.<br/>[11-Nov-2010 11:22:53] &lt;kells&gt; It's more of a data warehouse type scheme with the ability to do dashboard type things as well as all sorts of crazy reports.<br/>[11-Nov-2010 11:23:38] &lt;kokey&gt; ah just what i wanted to hear<br/>[11-Nov-2010 11:23:50] &lt;rmatte&gt; kells: I hear none of that may make it in to core?<br/>[11-Nov-2010 11:24:02] &lt;kells&gt; I don't know how they're going to package it.<br/>[11-Nov-2010 11:24:07] * rmatte nods<br/>[11-Nov-2010 11:24:07] &lt;nyeates&gt; it is pretty nice. Packaging and pricing is up in the air<br/>[11-Nov-2010 11:24:14] &lt;kells&gt; I believe that it will be an extra charge option<br/>[11-Nov-2010 11:24:23] &lt;nyeates&gt; likely<br/>[11-Nov-2010 11:24:24] &lt;kokey&gt; and how soon, also up in the air?<br/>[11-Nov-2010 11:24:27] &lt;kells&gt; It *might* be available as a chargeable option for core<br/>[11-Nov-2010 11:24:33] &lt;kells&gt; Keerikes!&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:24:52] &lt;kokey&gt; i'm hoping in under 6 months ;-)<br/>[11-Nov-2010 11:24:54] &lt;kells&gt; Avalon is projected for first quarter of 2011<br/>[11-Nov-2010 11:24:58] &lt;jrh0090&gt; I think around the new year<br/>[11-Nov-2010 11:25:04] &lt;kokey&gt; ok perfect<br/>[11-Nov-2010 11:25:13] &lt;jrh0090&gt; yes, first quarter is probably a better answer <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:25:20] &lt;rmatte&gt; kells: yeh the releases have been pretty close to every 6 months, decent cycle<br/>[11-Nov-2010 11:26:17] &lt;kells&gt; Just finished zenping conversion to the new framework, just in case anybody's interested. <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:27:00] &lt;kells&gt; Or maybe not....&#160; <img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/><br/>[11-Nov-2010 11:27:31] &lt;kells&gt; It does latency graphing and allows for non-management IP monitoring.<br/>[11-Nov-2010 11:27:48] &lt;kells&gt; Roughly comparable to the existing fping zenpack but more lightweight.<br/>[11-Nov-2010 11:28:13] &lt;Simon4&gt; awesome<br/>[11-Nov-2010 11:28:15] &lt;nyeates&gt; explain non-management IP mon?<br/>[11-Nov-2010 11:28:48] &lt;nyeates&gt; im intersted to understand<br/>[11-Nov-2010 11:28:48] &lt;jrh0090&gt; It also eliminates the need to store routes in the ZODB, right ?<br/>[11-Nov-2010 11:29:37] &lt;kells&gt; As an example, a large-ish router or switch may have a hundred or so network interfaces hanging off it. Right now you pick one IP address to ping, and that's all you get.<br/>[11-Nov-2010 11:30:05] &lt;kells&gt; If you want other interfaces monitored, you need to poll the SNMP status or run an external ping command or rely on SNMP traps<br/>[11-Nov-2010 11:30:59] &lt;kells&gt; As pointed out, the routes are no longer calculated from the model, but are gathered directly from traceroute.&#160; No more "Route xxx not in topology" messages in the zenhub log! (Yay!)<br/>[11-Nov-2010 11:31:03] &lt;nyeates&gt; hi chad<br/>[11-Nov-2010 11:32:28] pmcguire is now known as ptmcg<br/>[11-Nov-2010 11:32:33] &lt;kells&gt; The user interface for MIBs will be slightly spruced up, so you'll be able to add MIBs directly from the GUI.<br/>[11-Nov-2010 11:32:53] &lt;kells&gt; The mib browser functionality probably won't make it into Avalon.<br/>[11-Nov-2010 11:34:23] &lt;kells&gt; zenperfsnmp, zenping, zenstatus and zencommand have all been converted<br/>[11-Nov-2010 11:40:35] &lt;nyeates&gt; nice kells....thats exciting to hear your mib browser might wiggle in eventually<br/>[11-Nov-2010 11:46:07] &lt;davetoo&gt; oh, right <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/>&#160; I don't usually get up this early <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:46:43] &lt;nyeates&gt; hi davetoo<br/>[11-Nov-2010 11:47:06] &lt;davetoo&gt; nyeates: hi; somebody asked about a roadmap the other day.&#160; How's that going?<br/>[11-Nov-2010 11:47:40] &lt;nyeates&gt; that has sparked some internal discussion....it is ongoing and I will be getting back<br/>[11-Nov-2010 11:47:46] &lt;davetoo&gt; *nod*<br/>[11-Nov-2010 11:48:37] &lt;kells&gt; Is there anything in particular you're interested in?<br/>[11-Nov-2010 11:49:40] &lt;davetoo&gt; I think the question was prompted by a blog post I made about RelStorage; I do know the story with that, through off-channel discussions.<br/>[11-Nov-2010 11:49:56] &lt;davetoo&gt; The next thing I'm interested in is the new ZEP code in svn<br/>[11-Nov-2010 11:50:09] &lt;kells&gt; Uh oh <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:50:14] &lt;davetoo&gt; I think that is there mostly to support an Enterprise feature <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:50:16] &lt;davetoo&gt; heh<br/>[11-Nov-2010 11:50:47] &lt;jrh0090&gt; Zep is the new event processing system. It is a huge change with the goal of processing several times more events then we currently do<br/>[11-Nov-2010 11:50:57] &lt;ptmcg&gt; ZEP will be part of core, offloading compute-intensive CPU work from zenhub<br/>[11-Nov-2010 11:51:26] &lt;davetoo&gt; transforms and such?<br/>[11-Nov-2010 11:51:49] &lt;davetoo&gt; Will it help zensyslog performance?<br/>[11-Nov-2010 11:51:50] &lt;jrh0090&gt; transforms will be taken care of by a new daemon<br/>[11-Nov-2010 11:52:37] &lt;davetoo&gt; i.e. will any of the work that zensyslog does be moved/offloaded to zep?<br/>[11-Nov-2010 11:52:39] &lt;kells&gt; What's the issue with zensyslog performance? Losing messages internally, or sending messages to zenhub?<br/>[11-Nov-2010 11:52:56] &lt;davetoo&gt; in the past it's been a huge CPU hog for me.<br/>[11-Nov-2010 11:53:11] &lt;ptmcg&gt; wow, people poke around in svn?<br/>[11-Nov-2010 11:53:14] &lt;kells&gt; With zensyslog, there are some new daemon options (in 3.0) that allow you to get more buffer space to deal with losing messages.<br/>[11-Nov-2010 11:53:35] &lt;ptmcg&gt; I'll have to be careful about my checkin comments...<br/>[11-Nov-2010 11:53:37] &lt;davetoo&gt; ptmcg: I don't know how many people do, but yeah, I do <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 11:53:39] &lt;kells&gt; zensyslog also allows you to drop messages based on regexes, so that might be an approach too.<br/>[11-Nov-2010 11:54:19] &lt;davetoo&gt; regexes can be slow if not carefully written, of course.&#160; Sometimes substring ops are faster.<br/>[11-Nov-2010 11:54:38] &lt;davetoo&gt; anyway, good to hear about zep.&#160; Thanks.<br/>[11-Nov-2010 11:55:08] &lt;kells&gt; In your case, were you able to isolate the cause of the CPU load?<br/>[11-Nov-2010 11:55:10] &lt;davetoo&gt; ptmcg: in fact I'm trying to clone it to Git,<br/>[11-Nov-2010 11:55:36] &lt;davetoo&gt; kells: no, and project needs dictated that I defer that problem; I'm no longer working at that firm.<br/>[11-Nov-2010 11:55:49] &lt;kells&gt; Ah, okay<br/>[11-Nov-2010 11:57:38] &lt;kells&gt; I hadn't seen any issues with CPU performance and zensyslog. Usually it's an issue with losing messages due to buffer space issues.<br/>[11-Nov-2010 11:57:51] &lt;kells&gt; And regular syslogd has issues with that too<br/>[11-Nov-2010 11:57:58] &lt;rmatte&gt; the simplest way to deal with high load on zensyslog is to put syslog-ng before it, have it filter out most of the garbage and forward the rest to Zenoss<br/>[11-Nov-2010 11:58:11] &lt;davetoo&gt; rmatte: which is what I was going to do, yes.<br/>[11-Nov-2010 11:59:52] &lt;davetoo&gt; Can you talk about how AMQP/Rabbit, protobuffers, and zep fit together?<br/>[11-Nov-2010 12:00:20] &lt;davetoo&gt; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:00:25] &lt;ptmcg&gt; !!!<br/>[11-Nov-2010 12:00:25] &lt;jrh0090&gt; That is a loaded question <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:00:30] &lt;davetoo&gt; hehehehe<br/>[11-Nov-2010 12:00:57] &lt;jrh0090&gt; In a nutshell we are using rabbitmq to communicate from zenhub to ZEP<br/>[11-Nov-2010 12:01:15] &lt;davetoo&gt; I've been looking at the code from the standpoint of HA and distributed processing<br/>[11-Nov-2010 12:01:16] &lt;jrh0090&gt; events will hang out in the queue until they are processed by zep<br/>[11-Nov-2010 12:01:22] &lt;davetoo&gt; ah<br/>[11-Nov-2010 12:01:26] &lt;jrh0090&gt; this allows us to handle event storms and high loads better<br/>[11-Nov-2010 12:01:50] &lt;jrh0090&gt; the protobufs are an IDL (interface definition language) so we can send objects accross the wire instead of strings<br/>[11-Nov-2010 12:01:52] &lt;kokey&gt; ok, i have very important drinking to do<br/>[11-Nov-2010 12:01:52] &lt;davetoo&gt; aye<br/>[11-Nov-2010 12:01:55] &lt;kokey&gt; bye everyone<br/>[11-Nov-2010 12:01:57] &lt;Simon4&gt; seu<br/>[11-Nov-2010 12:02:21] &lt;ptmcg&gt; kokey: is there unimportant drinking?<br/>[11-Nov-2010 12:02:34] &lt;davetoo&gt; interesting<br/>[11-Nov-2010 12:02:35] &lt;kokey&gt; yeah sometimes it's just because i'm thirsty<br/>[11-Nov-2010 12:02:38] &lt;rmatte&gt; not when I'm around<br/>[11-Nov-2010 12:02:40] &lt;rmatte&gt; lol<br/>[11-Nov-2010 12:03:11] &lt;tiredofme&gt; has anyone had success with application dependencies? essentially, don't alert me about my websites if the db backend dies for the webservers<br/>[11-Nov-2010 12:03:54] &lt;rmatte&gt; tiredofme: didn't you implement that transform and it worked?<br/>[11-Nov-2010 12:04:41] &lt;tiredofme&gt; rmatte: yep, it seemed to work for the local device that it applies to. I'm just wondering if anyone had examples of making that sort of transform work across multiple systems<br/>[11-Nov-2010 12:05:03] &lt;rmatte&gt; I designed the transform to be general<br/>[11-Nov-2010 12:05:07] &lt;rmatte&gt; it should apply to anything<br/>[11-Nov-2010 12:05:34] &lt;rmatte&gt; but if it's not working, you need to step back and examine the logic<br/>[11-Nov-2010 12:05:39] &lt;rmatte&gt; forget about python, pseudo code it out<br/>[11-Nov-2010 12:05:45] &lt;rmatte&gt; use a flow chart if you have to<br/>[11-Nov-2010 12:06:02] &lt;rmatte&gt; then once you have the logic figured out, examine the transform and make the necessary modifications<br/>[11-Nov-2010 12:06:41] &lt;tiredofme&gt; got it<br/>[11-Nov-2010 12:07:19] &lt;ptmcg&gt; what is the nastiest, ugliest transform you've ever written?<br/>[11-Nov-2010 12:07:48] &lt;rmatte&gt; ptmcg: in terms of complexity?<br/>[11-Nov-2010 12:08:06] &lt;rmatte&gt; I never write "ugly" transforms, they are works of art <img height="16px" src="../4.5.6/images/emoticons/silly.gif" width="16px"/><br/>[11-Nov-2010 12:08:17] &lt;rmatte&gt; <img height="16px" src="../4.5.6/images/emoticons/grin.gif" width="16px"/><br/>[11-Nov-2010 12:08:17] &lt;ptmcg&gt; complexity, external dependencies, whatever<br/>[11-Nov-2010 12:08:24] &lt;davetoo&gt; I wish there were an option to upload transforms as a file; I'd rather keep them versioned<br/>[11-Nov-2010 12:08:28] &lt;rmatte&gt; ah, I stay away from external dependencies<br/>[11-Nov-2010 12:08:46] &lt;rmatte&gt; actually there was one...<br/>[11-Nov-2010 12:09:05] &lt;Simon4&gt; davetoo: someone I know might have written a zenpack that wraps up transforms in svn and delivers them as zenpack contents<br/>[11-Nov-2010 12:09:12] &lt;Simon4&gt; so you can do just that<br/>[11-Nov-2010 12:09:19] &lt;davetoo&gt; aye<br/>[11-Nov-2010 12:09:48] &lt;rmatte&gt; trying to dig it up...<br/>[11-Nov-2010 12:09:59] &lt;ptmcg&gt; ah... a good story is coming...<br/>[11-Nov-2010 12:10:11] &lt;davetoo&gt; ?<br/>[11-Nov-2010 12:10:35] &lt;rmatte&gt; http://dev.zenoss.org/trac/ticket/5376<br/>[11-Nov-2010 12:10:40] &lt;rmatte&gt; the transform in that trac ticket<br/>[11-Nov-2010 12:10:57] &lt;rmatte&gt; the goal was to actually have the operational status represent the status of interfaces pre 2.5<br/>[11-Nov-2010 12:11:07] &lt;rmatte&gt; before /Status/IpInterface was introduced<br/>[11-Nov-2010 12:11:13] &lt;rmatte&gt; (which still isn't created by default)<br/>[11-Nov-2010 12:11:41] &lt;rmatte&gt; but it didn't work since Zenoss would stop monitoring the interface after the status was changed<br/>[11-Nov-2010 12:12:31] &lt;rmatte&gt; I updated this to reflect the use of /Status/IpInterface: docs/DOC-2494<br/>[11-Nov-2010 12:13:21] &lt;rmatte&gt; also, all that import stuff was necessary at the time<br/>[11-Nov-2010 12:13:31] &lt;rmatte&gt; it isn't anymore since dmd is now available in transforms by default<br/>[11-Nov-2010 12:13:43] &lt;ptmcg&gt; The device is too<br/>[11-Nov-2010 12:13:54] &lt;rmatte&gt; oh?<br/>[11-Nov-2010 12:13:58] &lt;rmatte&gt; I wasn't aware of that<br/>[11-Nov-2010 12:14:03] &lt;rmatte&gt; is it just "d"?<br/>[11-Nov-2010 12:14:05] &lt;Simon4&gt; dev and evt<br/>[11-Nov-2010 12:14:06] &lt;rmatte&gt; or is it dev?<br/>[11-Nov-2010 12:14:10] &lt;ptmcg&gt; The lookup from evt.ipAddress -&gt; device should already be done, I believe<br/>[11-Nov-2010 12:14:12] &lt;rmatte&gt; ah ok<br/>[11-Nov-2010 12:14:14] &lt;rmatte&gt; good to know<br/>[11-Nov-2010 12:14:16] * Simon4 didn't know dmd was avail - is that a new thing for 3?<br/>[11-Nov-2010 12:14:19] &lt;ptmcg&gt; dev and device are both defined<br/>[11-Nov-2010 12:14:39] &lt;rmatte&gt; Simon4: nah, new thing for 2.5<br/>[11-Nov-2010 12:14:40] &lt;ptmcg&gt; I don't think it is anything new<br/>[11-Nov-2010 12:14:44] &lt;Simon4&gt; rmatte: ah cool<br/>[11-Nov-2010 12:14:47] &lt;rmatte&gt; it wasn't available in 2.<br/>[11-Nov-2010 12:14:49] &lt;rmatte&gt; 2.4*<br/>[11-Nov-2010 12:16:44] &lt;davetoo&gt; back on the dependency thing: how/when is the pingtree used for layer 3 dependencies...<br/>[11-Nov-2010 12:17:06] &lt;davetoo&gt; I see some bits in the code about polling for device ping issues<br/>[11-Nov-2010 12:17:15] &lt;nyeates&gt; ive been here since 2.3.3&#160; at least, and i *thought* dmd has been around<br/>[11-Nov-2010 12:17:46] &lt;rmatte&gt; nyeates: I started out with 2.3.2 as my first version<br/>[11-Nov-2010 12:17:55] &lt;ptmcg&gt; 'log' is also defined<br/>[11-Nov-2010 12:18:02] &lt;rmatte&gt; I wasn't able to use dmd in a transform without importing it before 2.5<br/>[11-Nov-2010 12:18:13] &lt;rmatte&gt; actually, there was a patch to allow that, let me find it...<br/>[11-Nov-2010 12:18:21] &lt;nyeates&gt; ohh, i misunderstood<br/>[11-Nov-2010 12:18:42] * nyeates slaps himself witha&#160; wet fish<br/>[11-Nov-2010 12:19:11] &lt;rmatte&gt; Patch 14049 - Adds support for the use of "dmd" in transforms (as you would use it in zendmd).<br/>[11-Nov-2010 12:19:24] &lt;davetoo&gt; but I'm not clear on whether all daemons stop testing/polling based on that, and... I'm not sure if there's an Acquisition path or something that goes up the pingtree to see if an upstream router is down<br/>[11-Nov-2010 12:20:59] &lt;davetoo&gt; i.e. does getDevicePingIssues(?) see only that device, or is that polling a property that's part of an Acquisition tree?<br/>[11-Nov-2010 12:21:26] &lt;rmatte&gt; davetoo: in my experience the layer 3 dependencies are extremely flaky.&#160; I've never gotten them working.<br/>[11-Nov-2010 12:21:31] &lt;davetoo&gt; (I'm still not sure I understand that Acquisition black magic)<br/>[11-Nov-2010 12:22:06] &lt;davetoo&gt; rmatte: that's why I'm asking these questions <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/>&#160; It seems like there should be some observer patterns to invalidate subtrees as soon as a router goes down...<br/>[11-Nov-2010 12:22:22] &lt;rmatte&gt; yup<br/>[11-Nov-2010 12:23:55] &lt;rmatte&gt; I still vote for manual device dependencies to be implemented<br/>[11-Nov-2010 12:24:01] &lt;rmatte&gt; I'd rather just define what is what myself<br/>[11-Nov-2010 12:24:21] &lt;rmatte&gt; automation is fine, but not always effective<br/>[11-Nov-2010 12:30:10] &lt;mloven&gt; any zendmd ninjas out there today?&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:30:43] &lt;rmatte&gt; what do you need?<br/>[11-Nov-2010 12:31:07] &lt;mloven&gt; I'm looking for a zendmd script that will display the number of devices of a particular type, per device group...<br/>[11-Nov-2010 12:31:14] &lt;mloven&gt; so for example:<br/>[11-Nov-2010 12:32:42] &lt;mloven&gt; Group1 has a router at /Devices/Network/Router and 2 routers at Devices/Network/Cisco/Router.&#160; The zendmd script should display something like:<br/>[11-Nov-2010 12:33:01] &lt;mloven&gt; Group Name&#160;&#160;&#160; Routers<br/>[11-Nov-2010 12:33:02] &lt;mloven&gt; Group1&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 3<br/>[11-Nov-2010 12:33:13] &lt;mloven&gt; crazy right?&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:33:26] &lt;rmatte&gt; that's not difficult to do BUT...<br/>[11-Nov-2010 12:33:43] &lt;rmatte&gt; /Devices/Network/Cisco/Router is just an organizer<br/>[11-Nov-2010 12:33:57] &lt;rmatte&gt; It could just as easily be /Devices/Network/Cisco/ClownPants<br/>[11-Nov-2010 12:33:59] &lt;mloven&gt; yep.<br/>[11-Nov-2010 12:34:10] &lt;Simon4&gt; is "Group1" an actual group in zenoss?<br/>[11-Nov-2010 12:34:24] &lt;mloven&gt; for the purposes of this example, yes...<br/>[11-Nov-2010 12:34:26] &lt;rmatte&gt; do you have a system where the last organizer in the device classes is always the device type?<br/>[11-Nov-2010 12:35:19] &lt;rmatte&gt; Honestly, it would be easier for you to use Systems and define Router, Switch, Firewall, etc... in there<br/>[11-Nov-2010 12:35:27] &lt;rmatte&gt; then assign the devices to whatever system group<br/>[11-Nov-2010 12:35:28] &lt;mloven&gt; rmatte: no, in some cases, we have, say /Devices/Network/Cisco/Router/Voice Gateway, or similar<br/>[11-Nov-2010 12:36:05] &lt;rmatte&gt; because your device class structure isn't going to be as concrete/accurate<br/>[11-Nov-2010 12:36:44] &lt;mloven&gt; rmatte:&#160; that's a doable option<br/>[11-Nov-2010 12:36:52] &lt;rmatte&gt; then that would be your best option<br/>[11-Nov-2010 12:37:06] &lt;rmatte&gt; much easier to just query systems groups than to try and do a bunch of magic<br/>[11-Nov-2010 12:37:07] &lt;davetoo&gt; however,<br/>[11-Nov-2010 12:37:20] &lt;davetoo&gt; iit at used to be the case that /Devices/Network/Router was special<br/>[11-Nov-2010 12:37:26] &lt;davetoo&gt; is it no longer the case?<br/>[11-Nov-2010 12:37:33] &lt;rmatte&gt; "Special"?<br/>[11-Nov-2010 12:37:36] &lt;rmatte&gt; in what sense?<br/>[11-Nov-2010 12:37:50] &lt;rmatte&gt; It's just a class<br/>[11-Nov-2010 12:37:59] &lt;davetoo&gt; Routers were treated differently...<br/>[11-Nov-2010 12:38:10] &lt;davetoo&gt; maybe that was only a zendisc thing<br/>[11-Nov-2010 12:38:11] &lt;rmatte&gt; maybe based on whatever plugins are defined in that class<br/>[11-Nov-2010 12:38:15] &lt;mloven&gt; like "short-bus" special?&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:38:23] &lt;davetoo&gt; no, not in the traditional templates sense<br/>[11-Nov-2010 12:38:25] &lt;rmatte&gt; nothing to keep you from creating your own class and defining the same zProperties/Plugins<br/>[11-Nov-2010 12:38:38] &lt;davetoo&gt; rmatte: right, I'm not talking about that stuff <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:38:51] &lt;rmatte&gt; well I don't see what else would apply<br/>[11-Nov-2010 12:38:56] &lt;davetoo&gt; but.. my CRS is preventing me from remembering if it was anything more than how zendisc treated them.<br/>[11-Nov-2010 12:38:58] * rmatte listens intently<br/>[11-Nov-2010 12:39:13] &lt;davetoo&gt; I'll find my question in the mail archives later<br/>[11-Nov-2010 12:39:17] &lt;davetoo&gt; busy righ tnow<br/>[11-Nov-2010 12:39:17] &lt;rmatte&gt; k<br/>[11-Nov-2010 12:39:26] &lt;davetoo&gt; you could search<br/>[11-Nov-2010 12:39:36] &lt;davetoo&gt; it's old enough that either EAD or ECN answered<br/>[11-Nov-2010 12:40:36] &lt;mloven&gt; either way, the "system" approach should circumvent any issues, right?<br/>[11-Nov-2010 12:41:34] &lt;rmatte&gt; yessir<br/>[11-Nov-2010 12:44:14] &lt;mloven&gt; ok.&#160; done deal then.&#160;&#160; given that option, how would one go about squeezing zendmd to give those results?<br/>[11-Nov-2010 12:46:26] &lt;rmatte&gt; the number of devices in each?<br/>[11-Nov-2010 12:46:42] &lt;mloven&gt; yeah, just a count.<br/>[11-Nov-2010 12:46:46] &lt;rmatte&gt; pretty simply...<br/>[11-Nov-2010 12:46:52] &lt;mloven&gt; but per group<br/>[11-Nov-2010 12:47:50] &lt;rmatte&gt; yeh, give me a minute<br/>[11-Nov-2010 12:48:45] &lt;nyeates&gt; BTW, we will announce Summer of Zenpack winners Mon morn, likely<br/>[11-Nov-2010 12:48:53] &lt;rmatte&gt; coolio<br/>[11-Nov-2010 12:49:07] &lt;nyeates&gt; there really are some cool ones - and i hope that those not scouring our ZPs can use the winners list as a "best of the best" list<br/>[11-Nov-2010 12:49:10] &lt;rmatte&gt; If I win I'm picking the porsche 911 as my prize<br/>[11-Nov-2010 12:49:24] &lt;nyeates&gt; weve got 16 prizes we are giving away, and a few of you in here are winners :-)<br/>[11-Nov-2010 12:49:37] &lt;nyeates&gt; we ran out of those, sorry<br/>[11-Nov-2010 12:49:40] * Simon4 wants the aston martin<br/>[11-Nov-2010 12:49:50] &lt;rmatte&gt; I had 6 submissions, 3 of which were new original packs, so I hope that I've at least won something <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:50:30] &lt;nyeates&gt; egor and andrea had most submissions i think....probably you were 3rd ryan<br/>[11-Nov-2010 12:50:40] &lt;rmatte&gt; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:50:43] &lt;rmatte&gt; Egor is a machine<br/>[11-Nov-2010 12:51:12] &lt;rmatte&gt; which reminds me, I have an enhancement planned for his WMI Performance pack<br/>[11-Nov-2010 12:51:19] &lt;rmatte&gt; just need to find time to do it<br/>[11-Nov-2010 12:51:37] &lt;nyeates&gt; cool<br/>[11-Nov-2010 12:52:06] &lt;rmatte&gt; It's going to allow it to monitor windows mount points<br/>[11-Nov-2010 12:52:14] &lt;rmatte&gt; instead of just logical filesystems<br/>[11-Nov-2010 12:52:46] &lt;nyeates&gt; i think that that is oft requested feature when i was in support<br/>[11-Nov-2010 12:53:16] &lt;rmatte&gt; mloven: I'm almost done with this dmd script, don't worry, haven't forgotten lol<br/>[11-Nov-2010 12:53:41] &lt;rmatte&gt; mloven: so you just want a count of each type, but per group?<br/>[11-Nov-2010 12:53:51] &lt;rmatte&gt; So something like:<br/>[11-Nov-2010 12:53:54] &lt;rmatte&gt; Group 1:<br/>[11-Nov-2010 12:53:57] &lt;rmatte&gt; Network: 4<br/>[11-Nov-2010 12:53:59] &lt;rmatte&gt; Security: 0<br/>[11-Nov-2010 12:54:02] &lt;rmatte&gt; or whatever<br/>[11-Nov-2010 12:54:03] &lt;rmatte&gt; ?<br/>[11-Nov-2010 12:54:42] &lt;rmatte&gt; nyeates: yeh, it's being requested by a large client of ours (who apparently has their own instance of Zenoss running internally)<br/>[11-Nov-2010 12:54:57] &lt;rmatte&gt; nyeates: but they lack a Zenoss wizard to get that level of monitoring in place <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 12:55:10] &lt;rmatte&gt; Looking at the WMI queries it's going to be very simple to implement<br/>[11-Nov-2010 12:55:23] &lt;rmatte&gt; just going to use Win32_Volume instead of Win32_LogicalDisk<br/>[11-Nov-2010 12:55:28] &lt;rmatte&gt; since it has all the same values<br/>[11-Nov-2010 12:55:34] &lt;rmatte&gt; but also provides values for the mount points<br/>[11-Nov-2010 12:55:49] &lt;mloven&gt; rmatte:&#160; yeah, so how many routers Group1 has, how many routers Group2 has, and so on.<br/>[11-Nov-2010 12:55:54] &lt;rmatte&gt; and I checked where egor is already pulling the filesystem IO info from, it supplies info for the mount points too<br/>[11-Nov-2010 12:56:10] &lt;rmatte&gt; mloven: k, 1 more min and I'll have it for you<br/>[11-Nov-2010 12:56:24] &lt;ptmcg&gt; I've seen some problems with collecting parameters from Win32_Volume - if you try this please send in your results, either success or the other kind<br/>[11-Nov-2010 12:57:15] &lt;rmatte&gt; ptmcg: will do<br/>[11-Nov-2010 12:57:29] &lt;rmatte&gt; I examined the values and they all checked out, so hopefully it'll work as expected<br/>[11-Nov-2010 13:00:10] &lt;rmatte&gt; mloven: hmmm, it'll take a few more minutes, just hit a small sticking point<br/>[11-Nov-2010 13:04:46] &lt;mloven&gt; rmatte:&#160; np, I appreciate the help<br/>[11-Nov-2010 13:05:13] &lt;davetoo&gt; Thanks, dev guys <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/>[11-Nov-2010 13:05:33] &lt;nyeates&gt; yes thx to all!<br/>[11-Nov-2010 13:06:54] &lt;nyeates&gt; Im gonna duck out now and change the title....later everyone<br/>[11-Nov-2010 13:07:44] &lt;rmatte&gt; later<br/></pre></div><!-- [DocumentBodyEnd:67053916-ae71-4e6d-9b0b-7de453e2e82c] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1290,11 +839,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1372,157 +921,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

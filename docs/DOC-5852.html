@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Dev chat 04/15/2010 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2141&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "7ACCE1DDA102E33AA1499DA7E09E2A50";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2141&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 5852, 2141, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         5852,
-
-                    containerType:      14,
-                    containerID:        2141,
-
-                    contentObject: {
-                            document:          5852,
-                            version:           1
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=5852",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 5852,
-            containerID: "jive-more-like-this-102-5852",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 5852;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,7 +366,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
                 <a href="../community/documentation/irc.html">
             IRC</a> &gt; 
@@ -828,18 +377,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-5852/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-5852/restore'>
         <input type="hidden" name="version" value="1" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-5852"/>
         <input type="hidden" name="document.restore.DOC-5852" value="1394831930821-5TMEWLDPYUNBOHAUJRDSHH9NE4IMCRP4"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-5852/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-5852/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-5852"/>
         <input type="hidden" name="document.delete.DOC-5852" value="1394831930826-HHLQSE28G5MHZIQFHK0M82VW9G3EFDD1"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-5852"/>
         <input type="hidden" name="document.publish.DOC-5852" value="1394831930831-7RR5FVMLB1B3GQIX7MHOJL0PWTTORDG0"/>
         <input type="hidden" name="document" value="DOC-5852" />
@@ -895,7 +444,7 @@ Password:                </label>
         <div class="jive-content-header-details">
 
 Created on: Apr 15, 2010 12:31 PM by
-<a href="http://community.zenoss.org/people/mray"
+<a href="people/mray"
 data-externalId=""
 data-username="mray"
 data-avatarId="1026"
@@ -906,7 +455,7 @@ class="jiveTT-hover-user jive-username-link"
 >Matt Ray</a>            <span>-</span>
 Last Modified:&nbsp;
 Apr 15, 2010 12:34 PM
-by <a href="http://community.zenoss.org/people/mray"
+by <a href="people/mray"
 data-externalId=""
 data-username="mray"
 data-avatarId="1026"
@@ -946,7 +495,7 @@ class="jiveTT-hover-user jive-username-link"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:f5652d78-557a-4058-8c9d-80c9f34824c2] --><div class="jive-rendered-content"><p>9:51:21 AM bedwards: I'm a Zenoss Developer<br/>9:51:42 AM themactech: Hi, can I ask you a few questions?<br/>9:52:54 AM bedwards: yes<br/>mrayzenoss has changed the topic to: Zenoss Developers are here to answer questions (9:53:51 AM)<br/>9:54:17 AM themactech: I have some questions regarding types of data, I have made some custom zProperties, using zendmd, with devices._setProperty('zWarExp','',type='date') as an example<br/>9:54:42 AM themactech: now how is such a property different from say, the comment field<br/>9:55:23 AM themactech: I have set these custom properties at the root device location, as I was made to understand that is the only place you can create custom zProperties<br/>9:56:06 AM themactech: they take the default values when that was specified in the zendmd command, but I can't seem to overwrite the values at lower branches in the device tree, it gives me an error message<br/>9:56:31 AM bedwards: what is the message?<br/>9:56:39 AM themactech: some datetime error<br/>9:57:38 AM themactech: also, i have written custom modelers, that would say map and OID value to the 'comments' field, and I can't seem to map that data to my custom zProperties<br/>9:59:38 AM themactech: I have a zProperty called zCustom1, and when I try to map a value to it from a collector plugin with snmpGetMap = GetMap '.1.3.6.x.x.x.x.x' : 'zCustom1' it does not work, though it works fine if I put 'comment' field, then that value goes into the comment field with no issue<br/>10:02:32 AM mrayzenoss: themactech: don't you have a forum post that talks about what you're trying to do?<br/>10:02:44 AM themactech: Yes I do<br/>10:06:07 AM Jesper: question. (I talked a bit about this earlier today) I have 2000+ routers with various Internet connection speeds, and I would like to I'm trying to set up my Zenoss installation to support speeds on ADSL connections. What's the easiest/best way to go about this?<br/>jmp242 left the room. (10:06:24 AM)<br/>10:06:58 AM Jesper: I've tried to make a subclass with routers that has eg. a 4Mbit/768Kbit connection, but I can't quite seem to figure out how to add a correct template to it.<br/>10:07:50 AM Jesper: that is, other than making a local copy. And that's not really a viable approach on more than a few routers.<br/>10:07:51 AM bedwards: themactech, we don't have any date zProps so you are in uncharted territory.&#160; Maybe you need a Zope date instead of a datetime date.<br/>10:08:24 AM themactech: I have the same problem with my other zProperties, one is a integer and the others are strings<br/>10:08:44 AM themactech: and what is the difference between an added zProperty, and a custom schema, or are they the same<br/>10:09:03 AM cgibbons: do any of our plugins actually set/modify zProperties via ApplyDataMap, Brian? I'm trying to think of an example.<br/>10:09:04 AM themactech: and are these different from the other fields that show in the status tab, i.e. comment, tag #, serial #<br/>10:09:20 AM cgibbons: Looking at the code I'm not sure it would work right either.<br/>10:09:39 AM themactech: What I'm trying to do is make some custom fields to show device-personalized data in the status tab<br/>10:09:57 AM bedwards: I don't know of any.&#160; I don't think ApplyDataMap makes a setZenProperty call<br/>10:10:18 AM cgibbons: looks like it does an aq_base(obj) when it tries to get the attr, too<br/>10:10:40 AM themactech: for example the promise raid boxes I need to monitor have 2 controllers, having the same firmware on both is critical so I want to show the firmware version of both controllers in the status tab and maybe even set a threshold if both are not identical, which can happen when you swap out a defective<br/>10:11:28 AM bedwards: You should subclass Device and add a new attribute.<br/>10:11:42 AM themactech: if a custom zProperty is not the way to go, what are my options, are their any differences vs a zProperty and a custom schema?<br/>10:12:17 AM themactech: the zWarExp was for me to try and implement warranty expiration tracking and alerts for gear<br/>10:13:05 AM themactech: usually if you let a warranty expire on a piece of gear you cannot renew it, and this happens a lot and clients are notorious for not tracking this properly, we would implement this in zenoss if possible<br/>10:13:05 AM bedwards: basically zProperty might be acquired, an attribute will always be directly on the instance.&#160; I don't think that custom schema is what you want either.&#160; I'm looking for an example.<br/>10:14:54 AM themactech: how do I add an attribute, and how is an attribute different from a zProperty, also keep in mind I want to set these with custom modelers, I have a custom modeler for Apple devices that will get the serial number via SNMP and query Apple's website to pull the warranty expiration, amongst other things<br/>10:15:28 AM themactech: Dont want to have to input these manually for large apple deployments<br/>10:16:00 AM themactech: also if you renew your warranty, your warranty expiration date would be automatically update as Apple updates their database, same can be done with Dell<br/>10:19:24 AM bedwards: check out EC2Manager in the ZenAWS zenpack.&#160; It subclasses Device and adds an access_id attribute.<br/>10:19:38 AM themactech: is that available for core?<br/>10:19:42 AM themactech: i'm using core<br/>10:19:52 AM mrayzenoss: yeah, it's the AWS ZenPack<br/>10:19:57 AM themactech: alright will do<br/>10:21:09 AM themactech: now when I want to modify the UI skin for this data, I know how to insert a &lt;dt&gt;data here&lt;/dt&gt; table, and russell at the community day in austin told me that the text in the &lt;dt&gt;&lt;/dt&gt; could hold a zenoss variable, but I can't find the syntax to do so<br/>10:21:52 AM themactech: because what I am trying to do is create say 2 custom fields, called custom1 and custom2, and have 2 other fields called customheader1 customheader2<br/>10:22:17 AM themactech: and have the &lt;dt&gt;&lt;/dt&gt; table display the value in customheader1 instead of static text<br/>10:22:57 AM bedwards: Jesper, are you writing a new zenpack for a type of device that isn't currently supported?<br/>10:23:51 AM themactech: this way for a class of devices, for example my promise raids, it would display "FW CTRL 1" and then the firmware, but for another device class, I could set the customheader1 value to "codec license" and then it would display "codec license" and for example mpeg, avi as the value<br/>10:24:18 AM mrayzenoss: themactech: would it be easier just to stuff everything into zLinks?<br/>10:24:26 AM mrayzenoss: wouldn't have to edit the apges<br/>10:24:31 AM mrayzenoss: s/apges/pages/<br/>10:24:58 AM themactech: but then setting threshold would be complicated no? I would have to parse thru the zlink field to extract actual data<br/>10:25:12 AM mrayzenoss: threshold?<br/>10:25:50 AM themactech: yes, if I set the custom1 field to hold firmware of controller1, and custom2 to hold firmware of controller2, i want to be able to test if both are equal and alert if not<br/>10:26:16 AM themactech: so if a client replaces a controller and it shipped from Promise Inc with older firmware and client does not check it, I will know and warn him<br/>10:26:28 AM themactech: also I do want alerts tied to the warranty expiration<br/>10:26:53 AM themactech: I would really like to make a nice zenpack that integrates warranty status tracking into zenoss<br/>10:26:55 AM mrayzenoss: ahh, I just meant for presenting the data on the status page, not for alerting on it<br/>10:27:02 AM themactech: our clients would appreciate that feature<br/>10:27:21 AM mrayzenoss: I know I've seen people link to their Dell pages by the service tag<br/>10:27:22 AM Jane_Curry: hiya<br/>10:27:23 AM bedwards: themactech, check out ec2ManagerStatus.pt.&#160; It displays the access_id attribute.<br/>10:27:31 AM bedwards: hello Jane<br/>10:27:38 AM themactech: oh, well i can already display data with a custom schema, and have already successfully modified the skin to show it<br/>10:28:05 AM themactech: I just don't know how to set that custom schema from a modeler plugin<br/>10:29:01 AM themactech: as for what russell told me in austin last week, can the text in a &lt;dt&gt;&lt;/dt&gt; be dynamic with a zenoss variable?<br/>10:29:09 AM themactech: or was that info wrong?<br/>10:29:35 AM Jane_Curry: Does anyone know what the collector parameter "Maximum ping failures" actually does in 2.5.1 / 2.5.2?<br/>10:29:46 AM themactech: I've tried about every combo of syntax i.e. &lt;dt&gt;here/zCustom1&lt;/dt&gt;<br/>10:30:03 AM Jane_Curry: Devices definitely still get pinged after they have been down after this number of failed pings<br/>10:30:29 AM Jesper: bedwards: no, I don't think so. It's a Cisco router that get detected just fine and everything. The problem is the WAN connection, it's detected as 100Mbit (Ethernet link speed) and it is in fact just 4Mbit/768Kbit (ADSL). I want to make a "high utilization" template for it, that supports both up- and download. I can do that on one unit, but I can't figure out how to make it as a template for multiple routers/units.<br/>10:31:07 AM themactech: make your template and bind it to the device class<br/>10:31:17 AM Jesper: I'm uncertain if it's a ZenPack I need to make, or if it's a Template, or....<br/>10:31:18 AM themactech: then put all these devices in that class<br/>10:31:29 AM Jesper: ok<br/>10:32:34 AM themactech: that is something that threw me off as well when i was testing, I made a template directly in the subclass I wanted it to apply to, and it ONLY showed in that subclass, yet it would not apply to it until i chose Bind template and bound it to the device class i wanted<br/>10:33:08 AM themactech: that made no sense to me as I figured if I made the template IN the class it should have been bound to it by default but its not the case<br/>10:33:42 AM themactech: so go to /devices/routes/jasper's_kick_ass_routes/ add a template with name of your choise<br/>10:33:44 AM themactech: choice<br/>10:33:59 AM bedwards: we are working on making template definition/binding clearer in the UI for the next release<br/>10:34:00 AM jplouis: themactech: unfortunately you can't modify custom schema values or zProperties from a modeler plugin. bedwards was correct, you will have to subclass Device to add a new type<br/>10:34:09 AM themactech: do all your settings datapoints, graphs, thresholds, etc, when done, bind it to that class<br/>10:34:45 AM themactech: alright thanks, I will look into it, now I can still show those attributes in the status page?<br/>10:35:14 AM bedwards: you have to override the default status page like the AWS zenpack does<br/>10:35:18 AM jplouis: yes, if you create you own version of the status page<br/>10:35:21 AM themactech: ok<br/>10:35:49 AM themactech: now, for the cherry on top, can the text in a &lt;dt&gt;&lt;/dt&gt; entry contain dynamic zenoss data<br/>10:36:05 AM themactech: or only static text?<br/>10:36:30 AM jplouis: I'm not sure what you are referring to, don't know what &lt;dt&gt; is<br/>10:36:46 AM Brixius: I think you have to goto zProperties/zDeviceTemplates of the device class and add it in there.<br/>10:36:47 AM themactech: when you modify the skin of the status page to show a new field<br/>10:37:05 AM themactech: you have to add a dt table<br/>10:37:18 AM rocket: page templates in general have access to some dynamic data via tales expressions etc<br/>10:37:51 AM themactech: that's what I was told and it works fine for the DATA of the field, however I can't seem to have the HEADER of the field contain such data<br/>10:37:58 AM themactech: (dt)TestFoo(/dt)<br/>10:37:58 AM themactech: (dd)<br/>10:37:59 AM themactech: (div tal:content="here/cTestFoo"/&gt;<br/>10:37:59 AM themactech: (/dd)<br/>10:38:04 AM themactech: this is an example<br/>10:38:34 AM themactech: what I want is to make (dt)TestFoo(/dt) use here/insertzenossvarhere<br/>10:38:46 AM Jesper: themactech: ok, thank you very much. Gotta run now, but I'll have a look at that later.&#160;&#160;&#160; and bedwards, sounds good about the UI in the next release.<br/>10:39:07 AM themactech: in the (dd)(/dd) section this works fine but I can't seem to do it in the (dt)(/dt)<br/>10:40:36 AM themactech: that would allow me to have custom fields, that I can set the header for, so the layout in the status tab would dynamically change to specifically taylor to a device class<br/>10:41:34 AM themactech: I want to show firmware version for both controllers for my Promise boxes, set customheader1 and customheader2 to "FW CTRL 1" and "FW CTRL 2" and voil&#224;! my status page is customized for my promise boxes<br/>10:42:43 AM jplouis: does &lt;dt tal:content="here/foo"&gt; not work?<br/>10:42:45 AM themactech: for another device class, say my Vbrick streaming devices, I need to show what video codecs are registered on that device, so I set the customheader1 and 2 to what I need and presto! status tab is customized for my vbricks, all of this with only one custom status page<br/>10:42:53 AM rocket: themactech: can you do &lt;dt tal:content="here/foo"&gt; ?<br/>10:42:58 AM rocket: jplouis: you beat me to it <br/>10:43:19 AM themactech: I think I tried that but I give it another go, my zenoss virtualbox is firing up now<br/>10:46:22 AM themactech: OMG it works, you guys rock, customized status pages PER device class are now mine!!! MUHAHAHAHAHA<br/>10:47:05 AM themactech: I had the syntax wrong before, I'm not very well versed in HTML<br/>10:47:09 AM themactech: thanks a bunch<br/>10:47:14 AM jplouis: dt tags are just html tags, nothing special.&#160; You can do the tal:content for any html tag<br/>10:47:16 AM jplouis: NP<br/>10:47:59 AM themactech: this IRC thing is a weekly event right?<br/>10:48:04 AM mrayzenoss: biweekly<br/>10:48:06 AM jplouis: 2 weeks<br/>10:48:08 AM themactech: perfect<br/>10:48:13 AM mrayzenoss: themactech: looking forward to any ZenPacks you want to send in <br/>10:48:30 AM themactech: I've gotten more answers in 5 minutes then in 3 months of posting in the forums<br/>10:49:03 AM bedwards: The dt is not the issue here, Dude. I'm talking about drawing a line in the sand, Dude. Across this line, you DO NOT...<br/>10:49:18 AM themactech: Well, I can't give away the Apple secret sauce but the warranty tracking and the custom field per class is something I will be able to post in the community<br/>10:49:36 AM themactech: if I get it all done right<br/>10:50:52 AM Brixius: themactech: Wouldn't that be AppleSauce... What's the secret... lol<br/>10:51:11 AM Brixius: should say, where's the secret...<br/>10:51:15 AM themactech: I am working on templates for very detailed monitoring of Apple xsans<br/>10:51:40 AM citrus2: its funny that bi weekly can mean twice a week or once every 2 weeks<br/>10:51:45 AM citrus2: english...<br/>10:52:04 AM themactech: yeah, well french is my native tongue so I beat you on complexity right there<br/>10:52:15 AM bedwards: brixius: you should be in product marketing. also, what you said about zDeviceTemplates is correct. The "Bind Templates" and "Reset Bindings" menu items just set that zProperty.<br/>10:52:20 AM themactech: though I never got why you anglos drive on a parkway and park in a driveway<br/>10:52:39 AM bedwards: semiweekly = twice a week<br/>10:53:47 AM themactech: ok, well I guess I have a lot of testing to do, hopefully I can do most of this within 2 weeks so I can be here to bug you guys some more in the next session<br/>10:53:57 AM themactech: when do these end, I assume you're all not here till 11pm<br/>10:54:41 AM bedwards: In six minutes the official Developer chat is done, but people are on here all the time.<br/>10:55:22 AM themactech: alright, well thank you all very much for the info, its much appreciated, I will try out the leads you gave me, have a great day fellas<br/>10:57:48 AM themactech: hey, I just remembered a question I wanted to ask<br/>10:58:23 AM themactech: I have looked up how zenoss sets model name and os name, it does so via the relationship set by the OSproductkey and HWproductkey<br/>10:58:51 AM themactech: that means you have to keep an updated db of os and hw products<br/>10:59:02 AM themactech: could a modeler add entries in there automatically?<br/>10:59:19 AM Jane_Curry: Anyone seen my earlier querstion...<br/>10:59:22 AM Jane_Curry: Does anyone know what the collector parameter "Maximum ping failures" actually does in 2.5.1 / 2.5.2?<br/>11:00:01 AM themactech: so my apple modeler that pulls the apple model name from apple's web site, could I have the modeler check models in the Apple manufacturer, and if it does not find it, add the proper entry<br/>11:00:16 AM themactech: that way my modeler would automatically update the product and os database<br/>11:00:40 AM bedwards: it adds new products/manufacturers by default<br/>11:00:59 AM bedwards: Jane: I have not tested Maximum ping failures<br/>11:01:45 AM themactech: thanks<br/><span>11:06:56 AM mrayzenoss: Jane_Curry: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5809">http://dev.zenoss.org/trac/ticket/5809</a><br/>11:16:05 AM Jane_Curry: Thanks Matt - v helpful<br/>11:16:46 AM Simon4_: evening all<br/>11:16:59 AM Simon4_: volcanic ash is fail.<br/>11:17:11 AM mrayzenoss: Simon4_: interfere with your vacation?<br/>11:17:22 AM Simon4_: mrayzenoss: I'm supposed to be on a plane to NZ right now <br/>11:17:36 AM mrayzenoss: awwww, that's terrible<br/>11:20:28 AM Simon4_: in other, more zenoss stuff... ssh collectors. Do these have to be a command on the remote server that returns stuff in nagios format? or can you extend a class in a similar way to a ssh modeler where you can run commands and parse the output?<br/>11:20:42 AM Simon4_: I've been trying to find a zenpack that I can copy from, but failing so far<br/>11:22:20 AM Simon4_: basically want it to ssh to the device, run some "show xxxx" commands, parse the output and use those values for collection<br/>11:25:15 AM mrayzenoss: Simon4_: you can definitely do modeling and collection, take a look at the LinuxMonitor or OpenSolaris<br/>11:25:43 AM Simon4_: thanks&#160; off for a look now<br/><span>11:26:19 AM mrayzenoss: Simon4_: and this: </span><a class="jive-link-external-small" href="DOC-2381.html">http://community.zenoss.org/docs/DOC-2381</a><br/>11:28:35 AM Simon4_: cool... modelling I have down (hpbladechassis uses it), just want to get collection working via ssh also so we're not using 4 different ways of talking to the chassis</p></div><!-- [DocumentBodyEnd:f5652d78-557a-4058-8c9d-80c9f34824c2] -->
+<!-- [DocumentBodyStart:f5652d78-557a-4058-8c9d-80c9f34824c2] --><div class="jive-rendered-content"><p>9:51:21 AM bedwards: I'm a Zenoss Developer<br/>9:51:42 AM themactech: Hi, can I ask you a few questions?<br/>9:52:54 AM bedwards: yes<br/>mrayzenoss has changed the topic to: Zenoss Developers are here to answer questions (9:53:51 AM)<br/>9:54:17 AM themactech: I have some questions regarding types of data, I have made some custom zProperties, using zendmd, with devices._setProperty('zWarExp','',type='date') as an example<br/>9:54:42 AM themactech: now how is such a property different from say, the comment field<br/>9:55:23 AM themactech: I have set these custom properties at the root device location, as I was made to understand that is the only place you can create custom zProperties<br/>9:56:06 AM themactech: they take the default values when that was specified in the zendmd command, but I can't seem to overwrite the values at lower branches in the device tree, it gives me an error message<br/>9:56:31 AM bedwards: what is the message?<br/>9:56:39 AM themactech: some datetime error<br/>9:57:38 AM themactech: also, i have written custom modelers, that would say map and OID value to the 'comments' field, and I can't seem to map that data to my custom zProperties<br/>9:59:38 AM themactech: I have a zProperty called zCustom1, and when I try to map a value to it from a collector plugin with snmpGetMap = GetMap '.1.3.6.x.x.x.x.x' : 'zCustom1' it does not work, though it works fine if I put 'comment' field, then that value goes into the comment field with no issue<br/>10:02:32 AM mrayzenoss: themactech: don't you have a forum post that talks about what you're trying to do?<br/>10:02:44 AM themactech: Yes I do<br/>10:06:07 AM Jesper: question. (I talked a bit about this earlier today) I have 2000+ routers with various Internet connection speeds, and I would like to I'm trying to set up my Zenoss installation to support speeds on ADSL connections. What's the easiest/best way to go about this?<br/>jmp242 left the room. (10:06:24 AM)<br/>10:06:58 AM Jesper: I've tried to make a subclass with routers that has eg. a 4Mbit/768Kbit connection, but I can't quite seem to figure out how to add a correct template to it.<br/>10:07:50 AM Jesper: that is, other than making a local copy. And that's not really a viable approach on more than a few routers.<br/>10:07:51 AM bedwards: themactech, we don't have any date zProps so you are in uncharted territory.&#160; Maybe you need a Zope date instead of a datetime date.<br/>10:08:24 AM themactech: I have the same problem with my other zProperties, one is a integer and the others are strings<br/>10:08:44 AM themactech: and what is the difference between an added zProperty, and a custom schema, or are they the same<br/>10:09:03 AM cgibbons: do any of our plugins actually set/modify zProperties via ApplyDataMap, Brian? I'm trying to think of an example.<br/>10:09:04 AM themactech: and are these different from the other fields that show in the status tab, i.e. comment, tag #, serial #<br/>10:09:20 AM cgibbons: Looking at the code I'm not sure it would work right either.<br/>10:09:39 AM themactech: What I'm trying to do is make some custom fields to show device-personalized data in the status tab<br/>10:09:57 AM bedwards: I don't know of any.&#160; I don't think ApplyDataMap makes a setZenProperty call<br/>10:10:18 AM cgibbons: looks like it does an aq_base(obj) when it tries to get the attr, too<br/>10:10:40 AM themactech: for example the promise raid boxes I need to monitor have 2 controllers, having the same firmware on both is critical so I want to show the firmware version of both controllers in the status tab and maybe even set a threshold if both are not identical, which can happen when you swap out a defective<br/>10:11:28 AM bedwards: You should subclass Device and add a new attribute.<br/>10:11:42 AM themactech: if a custom zProperty is not the way to go, what are my options, are their any differences vs a zProperty and a custom schema?<br/>10:12:17 AM themactech: the zWarExp was for me to try and implement warranty expiration tracking and alerts for gear<br/>10:13:05 AM themactech: usually if you let a warranty expire on a piece of gear you cannot renew it, and this happens a lot and clients are notorious for not tracking this properly, we would implement this in zenoss if possible<br/>10:13:05 AM bedwards: basically zProperty might be acquired, an attribute will always be directly on the instance.&#160; I don't think that custom schema is what you want either.&#160; I'm looking for an example.<br/>10:14:54 AM themactech: how do I add an attribute, and how is an attribute different from a zProperty, also keep in mind I want to set these with custom modelers, I have a custom modeler for Apple devices that will get the serial number via SNMP and query Apple's website to pull the warranty expiration, amongst other things<br/>10:15:28 AM themactech: Dont want to have to input these manually for large apple deployments<br/>10:16:00 AM themactech: also if you renew your warranty, your warranty expiration date would be automatically update as Apple updates their database, same can be done with Dell<br/>10:19:24 AM bedwards: check out EC2Manager in the ZenAWS zenpack.&#160; It subclasses Device and adds an access_id attribute.<br/>10:19:38 AM themactech: is that available for core?<br/>10:19:42 AM themactech: i'm using core<br/>10:19:52 AM mrayzenoss: yeah, it's the AWS ZenPack<br/>10:19:57 AM themactech: alright will do<br/>10:21:09 AM themactech: now when I want to modify the UI skin for this data, I know how to insert a &lt;dt&gt;data here&lt;/dt&gt; table, and russell at the community day in austin told me that the text in the &lt;dt&gt;&lt;/dt&gt; could hold a zenoss variable, but I can't find the syntax to do so<br/>10:21:52 AM themactech: because what I am trying to do is create say 2 custom fields, called custom1 and custom2, and have 2 other fields called customheader1 customheader2<br/>10:22:17 AM themactech: and have the &lt;dt&gt;&lt;/dt&gt; table display the value in customheader1 instead of static text<br/>10:22:57 AM bedwards: Jesper, are you writing a new zenpack for a type of device that isn't currently supported?<br/>10:23:51 AM themactech: this way for a class of devices, for example my promise raids, it would display "FW CTRL 1" and then the firmware, but for another device class, I could set the customheader1 value to "codec license" and then it would display "codec license" and for example mpeg, avi as the value<br/>10:24:18 AM mrayzenoss: themactech: would it be easier just to stuff everything into zLinks?<br/>10:24:26 AM mrayzenoss: wouldn't have to edit the apges<br/>10:24:31 AM mrayzenoss: s/apges/pages/<br/>10:24:58 AM themactech: but then setting threshold would be complicated no? I would have to parse thru the zlink field to extract actual data<br/>10:25:12 AM mrayzenoss: threshold?<br/>10:25:50 AM themactech: yes, if I set the custom1 field to hold firmware of controller1, and custom2 to hold firmware of controller2, i want to be able to test if both are equal and alert if not<br/>10:26:16 AM themactech: so if a client replaces a controller and it shipped from Promise Inc with older firmware and client does not check it, I will know and warn him<br/>10:26:28 AM themactech: also I do want alerts tied to the warranty expiration<br/>10:26:53 AM themactech: I would really like to make a nice zenpack that integrates warranty status tracking into zenoss<br/>10:26:55 AM mrayzenoss: ahh, I just meant for presenting the data on the status page, not for alerting on it<br/>10:27:02 AM themactech: our clients would appreciate that feature<br/>10:27:21 AM mrayzenoss: I know I've seen people link to their Dell pages by the service tag<br/>10:27:22 AM Jane_Curry: hiya<br/>10:27:23 AM bedwards: themactech, check out ec2ManagerStatus.pt.&#160; It displays the access_id attribute.<br/>10:27:31 AM bedwards: hello Jane<br/>10:27:38 AM themactech: oh, well i can already display data with a custom schema, and have already successfully modified the skin to show it<br/>10:28:05 AM themactech: I just don't know how to set that custom schema from a modeler plugin<br/>10:29:01 AM themactech: as for what russell told me in austin last week, can the text in a &lt;dt&gt;&lt;/dt&gt; be dynamic with a zenoss variable?<br/>10:29:09 AM themactech: or was that info wrong?<br/>10:29:35 AM Jane_Curry: Does anyone know what the collector parameter "Maximum ping failures" actually does in 2.5.1 / 2.5.2?<br/>10:29:46 AM themactech: I've tried about every combo of syntax i.e. &lt;dt&gt;here/zCustom1&lt;/dt&gt;<br/>10:30:03 AM Jane_Curry: Devices definitely still get pinged after they have been down after this number of failed pings<br/>10:30:29 AM Jesper: bedwards: no, I don't think so. It's a Cisco router that get detected just fine and everything. The problem is the WAN connection, it's detected as 100Mbit (Ethernet link speed) and it is in fact just 4Mbit/768Kbit (ADSL). I want to make a "high utilization" template for it, that supports both up- and download. I can do that on one unit, but I can't figure out how to make it as a template for multiple routers/units.<br/>10:31:07 AM themactech: make your template and bind it to the device class<br/>10:31:17 AM Jesper: I'm uncertain if it's a ZenPack I need to make, or if it's a Template, or....<br/>10:31:18 AM themactech: then put all these devices in that class<br/>10:31:29 AM Jesper: ok<br/>10:32:34 AM themactech: that is something that threw me off as well when i was testing, I made a template directly in the subclass I wanted it to apply to, and it ONLY showed in that subclass, yet it would not apply to it until i chose Bind template and bound it to the device class i wanted<br/>10:33:08 AM themactech: that made no sense to me as I figured if I made the template IN the class it should have been bound to it by default but its not the case<br/>10:33:42 AM themactech: so go to /devices/routes/jasper's_kick_ass_routes/ add a template with name of your choise<br/>10:33:44 AM themactech: choice<br/>10:33:59 AM bedwards: we are working on making template definition/binding clearer in the UI for the next release<br/>10:34:00 AM jplouis: themactech: unfortunately you can't modify custom schema values or zProperties from a modeler plugin. bedwards was correct, you will have to subclass Device to add a new type<br/>10:34:09 AM themactech: do all your settings datapoints, graphs, thresholds, etc, when done, bind it to that class<br/>10:34:45 AM themactech: alright thanks, I will look into it, now I can still show those attributes in the status page?<br/>10:35:14 AM bedwards: you have to override the default status page like the AWS zenpack does<br/>10:35:18 AM jplouis: yes, if you create you own version of the status page<br/>10:35:21 AM themactech: ok<br/>10:35:49 AM themactech: now, for the cherry on top, can the text in a &lt;dt&gt;&lt;/dt&gt; entry contain dynamic zenoss data<br/>10:36:05 AM themactech: or only static text?<br/>10:36:30 AM jplouis: I'm not sure what you are referring to, don't know what &lt;dt&gt; is<br/>10:36:46 AM Brixius: I think you have to goto zProperties/zDeviceTemplates of the device class and add it in there.<br/>10:36:47 AM themactech: when you modify the skin of the status page to show a new field<br/>10:37:05 AM themactech: you have to add a dt table<br/>10:37:18 AM rocket: page templates in general have access to some dynamic data via tales expressions etc<br/>10:37:51 AM themactech: that's what I was told and it works fine for the DATA of the field, however I can't seem to have the HEADER of the field contain such data<br/>10:37:58 AM themactech: (dt)TestFoo(/dt)<br/>10:37:58 AM themactech: (dd)<br/>10:37:59 AM themactech: (div tal:content="here/cTestFoo"/&gt;<br/>10:37:59 AM themactech: (/dd)<br/>10:38:04 AM themactech: this is an example<br/>10:38:34 AM themactech: what I want is to make (dt)TestFoo(/dt) use here/insertzenossvarhere<br/>10:38:46 AM Jesper: themactech: ok, thank you very much. Gotta run now, but I'll have a look at that later.&#160;&#160;&#160; and bedwards, sounds good about the UI in the next release.<br/>10:39:07 AM themactech: in the (dd)(/dd) section this works fine but I can't seem to do it in the (dt)(/dt)<br/>10:40:36 AM themactech: that would allow me to have custom fields, that I can set the header for, so the layout in the status tab would dynamically change to specifically taylor to a device class<br/>10:41:34 AM themactech: I want to show firmware version for both controllers for my Promise boxes, set customheader1 and customheader2 to "FW CTRL 1" and "FW CTRL 2" and voil&#224;! my status page is customized for my promise boxes<br/>10:42:43 AM jplouis: does &lt;dt tal:content="here/foo"&gt; not work?<br/>10:42:45 AM themactech: for another device class, say my Vbrick streaming devices, I need to show what video codecs are registered on that device, so I set the customheader1 and 2 to what I need and presto! status tab is customized for my vbricks, all of this with only one custom status page<br/>10:42:53 AM rocket: themactech: can you do &lt;dt tal:content="here/foo"&gt; ?<br/>10:42:58 AM rocket: jplouis: you beat me to it <br/>10:43:19 AM themactech: I think I tried that but I give it another go, my zenoss virtualbox is firing up now<br/>10:46:22 AM themactech: OMG it works, you guys rock, customized status pages PER device class are now mine!!! MUHAHAHAHAHA<br/>10:47:05 AM themactech: I had the syntax wrong before, I'm not very well versed in HTML<br/>10:47:09 AM themactech: thanks a bunch<br/>10:47:14 AM jplouis: dt tags are just html tags, nothing special.&#160; You can do the tal:content for any html tag<br/>10:47:16 AM jplouis: NP<br/>10:47:59 AM themactech: this IRC thing is a weekly event right?<br/>10:48:04 AM mrayzenoss: biweekly<br/>10:48:06 AM jplouis: 2 weeks<br/>10:48:08 AM themactech: perfect<br/>10:48:13 AM mrayzenoss: themactech: looking forward to any ZenPacks you want to send in <br/>10:48:30 AM themactech: I've gotten more answers in 5 minutes then in 3 months of posting in the forums<br/>10:49:03 AM bedwards: The dt is not the issue here, Dude. I'm talking about drawing a line in the sand, Dude. Across this line, you DO NOT...<br/>10:49:18 AM themactech: Well, I can't give away the Apple secret sauce but the warranty tracking and the custom field per class is something I will be able to post in the community<br/>10:49:36 AM themactech: if I get it all done right<br/>10:50:52 AM Brixius: themactech: Wouldn't that be AppleSauce... What's the secret... lol<br/>10:51:11 AM Brixius: should say, where's the secret...<br/>10:51:15 AM themactech: I am working on templates for very detailed monitoring of Apple xsans<br/>10:51:40 AM citrus2: its funny that bi weekly can mean twice a week or once every 2 weeks<br/>10:51:45 AM citrus2: english...<br/>10:52:04 AM themactech: yeah, well french is my native tongue so I beat you on complexity right there<br/>10:52:15 AM bedwards: brixius: you should be in product marketing. also, what you said about zDeviceTemplates is correct. The "Bind Templates" and "Reset Bindings" menu items just set that zProperty.<br/>10:52:20 AM themactech: though I never got why you anglos drive on a parkway and park in a driveway<br/>10:52:39 AM bedwards: semiweekly = twice a week<br/>10:53:47 AM themactech: ok, well I guess I have a lot of testing to do, hopefully I can do most of this within 2 weeks so I can be here to bug you guys some more in the next session<br/>10:53:57 AM themactech: when do these end, I assume you're all not here till 11pm<br/>10:54:41 AM bedwards: In six minutes the official Developer chat is done, but people are on here all the time.<br/>10:55:22 AM themactech: alright, well thank you all very much for the info, its much appreciated, I will try out the leads you gave me, have a great day fellas<br/>10:57:48 AM themactech: hey, I just remembered a question I wanted to ask<br/>10:58:23 AM themactech: I have looked up how zenoss sets model name and os name, it does so via the relationship set by the OSproductkey and HWproductkey<br/>10:58:51 AM themactech: that means you have to keep an updated db of os and hw products<br/>10:59:02 AM themactech: could a modeler add entries in there automatically?<br/>10:59:19 AM Jane_Curry: Anyone seen my earlier querstion...<br/>10:59:22 AM Jane_Curry: Does anyone know what the collector parameter "Maximum ping failures" actually does in 2.5.1 / 2.5.2?<br/>11:00:01 AM themactech: so my apple modeler that pulls the apple model name from apple's web site, could I have the modeler check models in the Apple manufacturer, and if it does not find it, add the proper entry<br/>11:00:16 AM themactech: that way my modeler would automatically update the product and os database<br/>11:00:40 AM bedwards: it adds new products/manufacturers by default<br/>11:00:59 AM bedwards: Jane: I have not tested Maximum ping failures<br/>11:01:45 AM themactech: thanks<br/><span>11:06:56 AM mrayzenoss: Jane_Curry: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5809">http://dev.zenoss.org/trac/ticket/5809</a><br/>11:16:05 AM Jane_Curry: Thanks Matt - v helpful<br/>11:16:46 AM Simon4_: evening all<br/>11:16:59 AM Simon4_: volcanic ash is fail.<br/>11:17:11 AM mrayzenoss: Simon4_: interfere with your vacation?<br/>11:17:22 AM Simon4_: mrayzenoss: I'm supposed to be on a plane to NZ right now <br/>11:17:36 AM mrayzenoss: awwww, that's terrible<br/>11:20:28 AM Simon4_: in other, more zenoss stuff... ssh collectors. Do these have to be a command on the remote server that returns stuff in nagios format? or can you extend a class in a similar way to a ssh modeler where you can run commands and parse the output?<br/>11:20:42 AM Simon4_: I've been trying to find a zenpack that I can copy from, but failing so far<br/>11:22:20 AM Simon4_: basically want it to ssh to the device, run some "show xxxx" commands, parse the output and use those values for collection<br/>11:25:15 AM mrayzenoss: Simon4_: you can definitely do modeling and collection, take a look at the LinuxMonitor or OpenSolaris<br/>11:25:43 AM Simon4_: thanks&#160; off for a look now<br/><span>11:26:19 AM mrayzenoss: Simon4_: and this: </span><a class="jive-link-external-small" href="DOC-2381.html">docs/DOC-2381</a><br/>11:28:35 AM Simon4_: cool... modelling I have down (hpbladechassis uses it), just want to get collection working via ssh also so we're not using 4 different ways of talking to the chassis</p></div><!-- [DocumentBodyEnd:f5652d78-557a-4058-8c9d-80c9f34824c2] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1192,7 +741,7 @@ View print preview
                             </a>
                         </li>
                         <li>
-                            <a href="http://community.zenoss.org/blogs/zenossblog/2010/04/14/zenoss-irc-session-thursday-april-15-at-11am-edt--updated">
+                            <a href="blogs/zenossblog/2010/04/14/zenoss-irc-session-thursday-april-15-at-11am-edt--updated">
                             <span class="jive-icon-med jive-icon-blog"></span>
                                 Zenoss IRC session Thursday April 15 at 11am EDT - UPDATED
                             </a>
@@ -1238,7 +787,7 @@ View print preview
                     </li>
         </ul>
         <div class="jive-sidebar-viewall">
-            <a href="http://community.zenoss.org/people/mray" class="font-color-meta j-link-viewall"><strong>View Matt Ray's profile</strong></a>
+            <a href="people/mray" class="font-color-meta j-link-viewall"><strong>View Matt Ray's profile</strong></a>
         </div>
     </div>
 </div>
@@ -1295,11 +844,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1377,157 +926,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

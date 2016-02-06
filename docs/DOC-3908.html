@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- 6.2 2 Performance Monitoring -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2216&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "8D87EB505FCBFF5FA799E1747C895746";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2216&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 3908, 2216, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         3908,
-
-                    containerType:      14,
-                    containerID:        2216,
-
-                    contentObject: {
-                            document:          3908,
-                            version:           2
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2216&postedFromGUIEditor=true&contentObjectType=102&object=3908",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 3908,
-            containerID: "jive-more-like-this-102-3908",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 3908;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2216;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2216;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,11 +366,11 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation/official_documentation">
+                <a href="community/documentation/official_documentation">
             Zenoss Core Product Documentation</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation/official_documentation/zenoss-guide">
+                <a href="community/documentation/official_documentation/zenoss-guide">
             Zenoss Administration</a> &gt; 
                 <a href="../community/documentation/official_documentation/zenoss-guide/2.5.0">
             2.5.0</a> &gt; 
@@ -832,18 +381,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-3908/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-3908/restore'>
         <input type="hidden" name="version" value="2" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-3908"/>
         <input type="hidden" name="document.restore.DOC-3908" value="1394831024514-NS7UJRGNEWNWA8N2UJS5ROGCTH0CQ2VZ"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-3908/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-3908/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-3908"/>
         <input type="hidden" name="document.delete.DOC-3908" value="1394831024519-K39LW43I5BY6ZTKUD2TC3C4IIYQ8J46O"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-3908"/>
         <input type="hidden" name="document.publish.DOC-3908" value="1394831024525-9OMQWNSXYR9WLVODOS5IDG45K4TIML3P"/>
         <input type="hidden" name="document" value="DOC-3908" />
@@ -893,7 +442,7 @@ Password:                </label>
         </div>
         <div class="jive-content-header-version">
             VERSION 2&nbsp;
-                <a href="http://community.zenoss.org/docs/DOC-3908/diff?secondVersionNumber=2" title="Click to view document history"><img class="jive-icon-sml jive-icon-search" src="../4.5.6/images/transparent.png" alt="Click to view document history" /></a>
+                <a href="docs/DOC-3908/diff?secondVersionNumber=2" title="Click to view document history"><img class="jive-icon-sml jive-icon-search" src="../4.5.6/images/transparent.png" alt="Click to view document history" /></a>
 
 
         </div>
@@ -951,7 +500,7 @@ class="jiveTT-hover-user jive-username-link"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:b5e76957-b62a-461a-82a4-8a4a32c302be] --><div class="jive-rendered-content"><div class="navheader"><table style="width: 100%;" summary="Navigation header"><tbody><tr><th align="center" colspan="3" style=";">6.2. Performance Monitoring</th></tr><tr><td align="left" style=";" width="20%"><a class="jive-link-external-small" href="http://community.zenoss.org/zenoss-guide/2.5.0/ch06s01.html">Prev</a> </td><th align="center" style=";" width="60%">Chapter 6. Core Monitoring</th><td align="right" style=";" width="20%"> <a class="jive-link-external-small" href="http://community.zenoss.org/zenoss-guide/2.5.0/ch06s03.html">Next</a></td></tr></tbody></table><hr/></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both;"><a class="jive-link-anchor-small" name="d4e2638">#</a>6.2. Performance Monitoring</h2></div></div></div><p>Read this chapter to learn about Zenoss performance monitoring and performance templates.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2641">#</a>6.2.1. About Performance Monitoring</h3></div></div></div><p>Zenoss uses several methods to monitor performance metrics of devices and device components. These are:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>ZenPerfSNMP</strong></span> - Collects data through SNMP from any device correctly configured for SNMP monitoring.</p></li><li><p><span class="bold"><strong>ZenWinPerf</strong></span> (Zenoss Enterprise only) - ZenPack that allows performance monitoring of Windows servers.</p></li><li><p><span class="bold"><strong>ZenCommand</strong></span> - Logs in to devices (by using telnet or ssh) and runs scripts to collect performance data.</p></li><li><p><span class="bold"><strong>Other ZenPacks</strong></span> - Collect additional performance data. Examples include the ZenJMX ZenPack, which collects data from enterprise Java applications, and the HttpMonitor ZenPack, which checks the availability and responsiveness of Web pages.</p></li></ul></div><p>Regardless of the monitoring method used, Zenoss stores performance monitoring configuration information in <em class="glossterm">performance templates</em>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2659">#</a>6.2.2. Performance Templates</h3></div></div></div><p>Performance templates determine how Zenoss collects performance data for devices and device components. You can define performance templates for device classes and individual devices.</p><p>Templates comprise three types of objects:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>Data Sources</strong></span> - Specify the exact data points to collect, and the method to use to collect them.</p></li><li><p><span class="bold"><strong>Thresholds</strong></span> - Define expected bounds for collected data, and specify events to be created in Zenoss if the data does not match those bounds.</p></li><li><p><span class="bold"><strong>Graph Definitions</strong></span> - Describe how to graph the collected data on the device or device components.</p></li></ul></div><p>Before Zenoss can collect performance data for a device or component, it must determine which templates apply. This process is called <em class="glossterm">template binding</em>.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2675">#</a>6.2.2.1. Viewing Performance Templates</h4></div></div></div><p>The Templates page lists all of the performance templates available to a device or device class.</p><p>To view available performance templates for a device, select <span class="bold"><strong>More &gt; All Templates</strong></span> from the Devices page menu. To view available performance templates for device classes, click the Templates tab from the Devices area.</p><p>The Available Performance Templates page shows the performance templates that are defined for a particular device or device class, and for those defined further up the device class hierarchy. If more than one template of the same name is defined, then only the one to which this device or device class can bind appears in the list.</p><p>Click a template in the list to view details about defined data sources, thresholds, and to see graph definition details.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2682">#</a><p class="title"><strong>Figure 6.11. Performance Template for Load Average Graph</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 540px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1672/loadaveragetemplate.png"><img alt="loadaveragetemplate.png" class="jive-image-thumbnail jive-image" height="478" src="../servlet/JiveServlet/downloadImage/102-3908-2-1672/450-478/loadaveragetemplate.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2688">#</a>6.2.3. Template Binding</h3></div></div></div><p>Before Zenoss can collect performance data for a device or component, it must determine which templates apply. This process is called template binding.</p><p>First, Zenoss determines the list of template names that apply to a device or component. For device components, this usually is the meta type of the component (for example, FileSystem, CPU, or HardDisk). For devices, this list is defined by the zDeviceTemplates zProperty.</p><p>After defining the list, Zenoss locates templates that match the names on the list. For each name, Zenoss searches the device and then searches the device class hierarchy. Zenoss uses the lowest template in the hierarchy that it can locate with the correct name, ignoring others of the same name that might exist further up the device class hierarchy.</p><h4><a class="jive-link-anchor-small" name="d4e2693">#</a>Viewing Templates Available for Binding</h4><p>To see which templates are available for binding, view the Templates page for any device or device class. This page shows all templates that are defined at this point or higher in the device hierarchy.</p><h4><a class="jive-link-anchor-small" name="d4e2695">#</a>Changing Templates Available for Binding</h4><p>To change which templates are currently bound:</p><div class="orderedlist"><ol type="1"><li><p>Select Bind Templates from the Available Performance Templates table menu.</p><p>The Bind Performance Templates dialog appears.</p></li><li><p>Select a performance template (Ctrl-Click to select more than one), and then click <span class="bold"><strong>OK</strong></span>.</p><p>The selected performance template appears in the list of available templates.</p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Alternatively, you can edit the zDeviceTemplates zProperty (from the zProperties page) to change which templates are bound. You cannot edit the bound name for a device component.</p></div><div class="informaltable"><table border="1"><colgroup><col align="left" width="192"></col><col align="left" width="480"></col></colgroup><thead><tr><th align="center" style="border:1px solid black;">Name Binding</th><th align="center" style="border:1px solid black;">Definition</th></tr></thead><tbody><tr><td align="left" style="border:1px solid black;">Device</td><td align="left" style="border:1px solid black;">The device object. (These OIDs do not have an snmp index number.)</td></tr><tr><td align="left" style="border:1px solid black;">FileSystem</td><td align="left" style="border:1px solid black;">The file system object currently uses the host resources MIB.</td></tr><tr><td align="left" style="border:1px solid black;">Interface</td><td align="left" style="border:1px solid black;">Interfaces are bound using their interface type. (For example: ethernetCsmacd.)</td></tr><tr><td align="left" style="border:1px solid black;">HardDisk</td><td align="left" style="border:1px solid black;">Hard disk object for I/O stats, such as Windows boxes with Informant MIB.</td></tr></tbody></table></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2728">#</a>6.2.4. Data Sources</h3></div></div></div><p>Data sources specify which data points to collect and how to collect them. Each performance template comprises one or more data sources. Zenoss provides two built-in data source types: SNMP and COMMAND. (Other data source types are provided through ZenPacks.)</p><h4><a class="jive-link-anchor-small" name="d4e2731">#</a>About SNMP Data Sources</h4><p>SNMP data sources define data to be collected via SNMP by the ZenPerfSNMP daemon. They contain one additional field to specify which SNMP OID to collect. (Many OIDs must end in .0 to work correctly.) Because SNMP data sources specify only one performance metric, they contain a single data point. For more information, see the section titled SNMP Monitoring.</p><h4><a class="jive-link-anchor-small" name="d4e2733">#</a>About COMMAND Data Sources</h4><p>COMMAND data sources specify data to be collected by a shell command that is executed on the Zenoss server or on a monitored device. The ZenCommand daemon processes COMMAND data sources. A COMMAND data source may return one or more performance metrics, and usually has one data point for each metric.</p><p>Shell commands used with COMMAND data sources must return data that conforms to the Nagios plug-in output specification. For more information, see the section titled Monitoring Using ZenCommand.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2736">#</a>6.2.4.1. Adding a Data Source</h4></div></div></div><p>To add a data source to a performance template:</p><div class="orderedlist"><ol type="1"><li><p>From the Performance Template page, select Add DataSource from the Data Sources table menu.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2742">#</a><p class="title"><strong>Figure 6.12. Add Data Source</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 450px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1673/adddatasourceselection.png"><img alt="adddatasourceselection.png" class="jive-image" height="318" src="../servlet/JiveServlet/downloadImage/102-3908-2-1673/450-318/adddatasourceselection.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/><p>The Data Source page appears.</p></li><li><p>Enter or select values to define the data source.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2751">#</a><p class="title"><strong>Figure 6.13. SNMP Data Source</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 450px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1674/datasource.png"><img alt="datasource.png" class="jive-image-thumbnail jive-image" height="204" src="../servlet/JiveServlet/downloadImage/102-3908-2-1674/450-204/datasource.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></li></ol></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2757">#</a>6.2.5. Data Points</h3></div></div></div><p>Data sources can return data for one or more performance metrics. Each metric retrieved by a data source is represented by a data point.</p><h4><a class="jive-link-anchor-small" name="d4e2760">#</a>Defining Data Points</h4><p>You can define data points to data sources with all source types except SNMP and VMware. Because these data source types each rely on a single data point for performance metrics, additional data point definition is not needed.</p><p>To add a data point to a data source:</p><div class="orderedlist"><ol type="1"><li><p>Select a data source from the Data Sources area of the Performance Template page.</p></li><li><p>From the DataPoints table menu on the Data Source page, select Add Datapoint.</p></li><li><p>In the Add a New DataPoint dialog, enter a name for the data point, and then click Add.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For COMMAND data points, the name should be the same as that used by the shell command when returning data.</p></div></li><li><p>Enter information or make selections to define the data point.</p><div class="itemizedlist"><ul type="disc"><li><p>Name - Displays the name you entered in the Add a New DataPoint dialog.</p></li><li><p>Type - Specify the RRD data source type to use for storing data for this data point. (Zenoss uses RRDTool to store performance data.) Available options are:</p><div class="itemizedlist"><ul type="circle"><li><p>COUNTER - Saves the rate of change of the value over a step period. This assumes that the value is always increasing (the difference between the current and the previous value is greater than 0). Traffic counters on a router are an ideal candidate for using COUNTER.</p></li><li><p>DERIVED - Same as COUNTER, but additionally allows negative values. If you want to see the rate of change in free disk space on your server, for example, then you might want to select this value.</p></li><li><p>ABSOLUTE - Saves the rate of change, but assumes that the previous value is set to 0. The difference between the current and the previous value is always equal to the current value. Thus, ABSOLUTE stores the current value, divided by the step interval.</p></li><li><p>GAUGE - Does not save the rate of change, but saves the actual value. There are no divisions or calculations. To see memory consumption in a server, for example, you might want to select this value.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Rather than COUNTER, you may want to define a data point using DERIVED and with a minimum of zero. This creates the same conditions as COUNTER, with one exception. Because COUNTER is a "smart" data type, it can wrap the data when a maximum number of values is reached in the system. An issue can occur when there is a loss of reporting and the system (when looking at COUNTER values) thinks it should wrap the data. This creates an artificial spike in the system and creates statistical anomalies.</p></div></li></ul></div></li><li><p>RRDMin - Enter a value. Any value received that is less than this number is ignored.</p></li><li><p>RRDMax - Ener a value. Any value received that is greater than this number is ignored.</p></li><li><p>Create CMD - Enter an RRD expression used to create the database for this data point. If you do not enter a value, then Zenoss uses a default applicable to most situations.</p><p>For details about the rrdcreate command, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html</a></p></li></ul></div></li><li><p>Click Save to save the data point.</p></li></ol></div><div class="figure"><a class="jive-link-anchor-small" name="d4e2801">#</a><p class="title"><strong>Figure 6.14. Define a Data Point</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 450px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1675/datapoints.png"><img alt="datapoints.png" class="jive-image" height="246" src="../servlet/JiveServlet/downloadImage/102-3908-2-1675/450-246/datapoints.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2807">#</a>6.2.6. Data Point Aliases</h3></div></div></div><p>Zenoss performance reports pull information from various data points that represent a metric. The report itself knows which data points it requires, and which modifications are needed, if any, to put the data in its proper units and format.</p><p>The addition of a data point requires changing the report.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2811">#</a><p class="title"><strong>Figure 6.15. CPU Utilization Report</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 540px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1678/aliasexample_cpu_before.png"><img alt="aliasexample_cpu_before.png" class="jive-image-thumbnail jive-image" height="301" src="../servlet/JiveServlet/downloadImage/102-3908-2-1678/450-301/aliasexample_cpu_before.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/><p>To allow for more flexibility in changes, some Zenoss reports use <span class="emphasis"><em>data point aliases</em></span>. Data point aliases group data points so they can be more easily used for reporting. In addition, if the data points return data in different units, then the plugin can normalize that data into a common unit.</p><p>An alias-based report looks up the data points that share a common alias string, and then uses them. This approach allows you to add data points without changing the report.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2820">#</a><p class="title"><strong>Figure 6.16. Alias-Based CPU Utilization Report</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 630px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1677/aliasexample_cpu_after.png"><img alt="aliasexample_cpu_after.png" class="jive-image-thumbnail jive-image" height="211" src="../servlet/JiveServlet/downloadImage/102-3908-2-1677/450-211/aliasexample_cpu_after.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/><p>In the simplest cases, data from the target data points are returned in units expected by a report. For cases in which data are not returned in the same units, an alias can use an associated formula at the data point. For example, if a data point returns data in kilobytes, but the report expects data in bytes, then the formula multiplies the value by 1024.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2827">#</a>6.2.6.1. Alias Formula Evaluation</h4></div></div></div><p>Zenoss evaluates the alias formula in three passes.</p><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e2830">#</a>6.2.6.1.1. Reverse Polish Notation</h5></div></div></div><p>When complete, the alias formula must resolve to a Reverse Polish Notation (RPN) formula that can be used by RRDtool. For the simple conversion of kilobytes into bytes, the formula is:</p><pre class="programlisting">1024,*</pre><p>For more information on RRDtool and RPN formulas, browse to this site:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph_rpn.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph_rpn.en.html</a></p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e2837">#</a>6.2.6.1.2. Using TALES Expressions in Alias Formulas</h5></div></div></div><p>For cases in which contextual information is needed, the alias formula can contain a TALES expression that has access to the device as context (labeled as "here"). The result of the TALES evaluation should be an RRD formula.</p><p>For example, if the desired value is the data point value divided by total memory, the formula is:</p><pre class="programlisting">${here/hw/totalMemory},/</pre><p>For more information on TALES, refer to the appendix in this guide titled "TALES Expressions," or to the TALES Specification 1.3, at:</p><p><a class="jive-link-external-small" href="http://wiki.zope.org/ZPT/TALESSpecification13">http://wiki.zope.org/ZPT/TALESSpecification13</a></p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e2845">#</a>6.2.6.1.3. Using Python in Alias Formulas</h5></div></div></div><p>You also can embed full Python code in an alias formula for execution. The code must construct a string that results in a valid RRD formula. To signal Zenoss to evaluate the formula correctly, it must begin with:</p><pre class="programlisting">__EVAL:</pre><p>Using the same example as in the previous section (division by total memory), the formula is:</p><pre class="programlisting">__EVAL:here.hw.totalMemory + &ldquo;,/&#8221;</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2851">#</a>6.2.6.2. Adding a Data Point Alias</h4></div></div></div><p>To add a data point alias:</p><div class="orderedlist"><ol type="1"><li><p>Navigate to a data source on a template.</p></li><li><p>Select a data point.</p></li><li><p>From the page menu, select Add DataPoint Alias.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2861">#</a><p class="title"><strong>Figure 6.17. Add Data Point Alias</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 360px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1679/adddatapointalias.jpg"><img alt="adddatapointalias.jpg" class="jive-image" height="177" src="../servlet/JiveServlet/downloadImage/102-3908-2-1679/449-177/adddatapointalias.jpg" width="449"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></li><li><p>In the Add Data Point Alias dialog, enter the alias name and the formula.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If the data point returns values in the desired units, then leave the value for formula blank.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2871">#</a><p class="title"><strong>Figure 6.18. Data Point Alias Dialog</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 225px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1680/datapointalias_dialog.jpg"><img alt="datapointalias_dialog.jpg" class="jive-image" height="204" src="../servlet/JiveServlet/downloadImage/102-3908-2-1680/298-204/datapointalias_dialog.jpg" width="298"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></div></li><li><p>Click <span class="bold"><strong>Add</strong></span> to add the data point alias.</p></li></ol></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2880">#</a>6.2.6.3. Zenoss Reports That Use Aliases</h4></div></div></div><p>For information about Zenoss reports that use aliases, refer to the chapter titled "Reporting."</p><p>The following table shows Zenoss performance reports that use aliases, and the aliases used. To add data points to a report, add the alias, and then ensure the values return in the expected units.</p><h5><a class="jive-link-anchor-small" name="d4e2884">#</a>CPU Utilization</h5><div class="informaltable"><table border="1"><colgroup><col align="left" width="288"></col><col align="left" width="288"></col></colgroup><thead><tr><th align="center" style="border:1px solid black;"> Alias</th><th align="center" style="border:1px solid black;">Expected Units </th></tr></thead><tbody><tr><td align="left" style="border:1px solid black;">loadAverage5min</td><td align="left" style="border:1px solid black;">Processes</td></tr><tr><td align="left" style="border:1px solid black;">cpu_pct</td><td align="left" style="border:1px solid black;">Percent</td></tr></tbody></table></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2900">#</a>6.2.7. Thresholds</h3></div></div></div><p>Thresholds define expected bounds for data points. When the value returned by a data point violates a threshold, Zenoss creates an event.</p><h4><a class="jive-link-anchor-small" name="d4e2903">#</a>Min/Max Threshold</h4><p>Zenoss provides one built-in threshold type: the Min/Max Threshold. (Other threshold types are provided through ZenPacks.)</p><p>Min/Max thresholds inspect incoming data to determine whether it exceeds a given maximum or falls below a given minimum. You can use a Min/Max threshold to check for these scenarios:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="emphasis"><em>The current value is less than a minimum value</em></span>. To do this, you should set only a minimum value for the threshold. Any value less than this number results in creation of a threshold event.</p></li><li><p><span class="emphasis"><em>The current value is greater than a maximum value</em></span>. To do this, you should set only a maximum value for the threshold. Any value greater than this number results in creation of a threshold event.</p></li><li><p><span class="emphasis"><em>The current value is not a single, pre-defined number</em></span>. To do this, you should set the minimum and maximum values for the threshold to the same value. This will be the only "good" number. If the returned value is not this number, then a threshold event is created.</p></li><li><p><span class="emphasis"><em>The current value falls outside a pre-defined range</em></span>. To do this, you should set the minimum value to the lowest value within the good range, and the maximum value to the highest value within the good range. If the returned value is less than the minimum, or greater than the maximum, then a threshold event is created.</p></li><li><p><span class="emphasis"><em>The current value falls within a pre-defined range</em></span>. To do this, you should set the minimum value to the highest value within the bad range, and the maximum value to the lowest value within the bad range. If the returned value is greater than the maximum, and less than the minimum, then a threshold event is created.</p></li></ul></div><h4><a class="jive-link-anchor-small" name="d4e2922">#</a>Adding Thresholds</h4><p>Follow these steps to define a Min/Max threshold for a data point.</p><div class="orderedlist"><ol type="1"><li><p>From the Performance Template page, select Add a Threshold from the Thresholds table menu.</p><p>The Add a New Threshold dialog appears.</p></li><li><p>Enter an ID for the new threshold, and then click <span class="bold"><strong>OK</strong></span>.</p><p>The Min/Max Threshold page appears.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2932">#</a><p class="title"><strong>Figure 6.19. Add a Threshold</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 450px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1681/thresholddefinition.png"><img alt="thresholddefinition.png" class="jive-image" height="345" src="../servlet/JiveServlet/downloadImage/102-3908-2-1681/450-345/thresholddefinition.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></li><li><p>Enter or select values to define the threshold:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>Name</strong></span> - Displays the value for the ID you entered on the Add a New Threshold dialog. This name appears on the Performance Template page.</p></li><li><p><span class="bold"><strong>Data Points</strong></span> - Select one or more data points to which this threshold will apply.</p></li><li><p><span class="bold"><strong>Min Value</strong></span> - If this field contains a value, then each time one of the select data points falls below this value an event is triggered. This field may contain a number or a Python expression.</p><p>When using a Python expression, the variable <code class="varname">here</code> references the device or component for which data is being collected. For example, an 85% threshold on an interface might be specified as:</p><pre class="programlisting">here.speed * .85/8</pre><p>The division by 8 is because interface speed frequently is reported in bits/second, where the performance data is bytes/second.</p></li><li><p><span class="bold"><strong>Max Value</strong></span> - If this field contains a value, then each time one of the selected data points goes above this value an event is triggered. This field may contain a number or a Python expression.</p></li><li><p><span class="bold"><strong>Event Class</strong></span> - Select the event class of the event that will be triggered when this threshold is breached.</p></li><li><p><span class="bold"><strong>Severity</strong></span> - Select the severity level of the first event triggered when this threshold is breached.</p></li><li><p><span class="bold"><strong>Escalate Count</strong></span> - Enter the number of consecutive times this threshold can be broken before the event severity is escalated by one step.</p></li><li><p><span class="bold"><strong>Enabled</strong></span> - Select True to enable the threshold, or False to disable it.</p></li></ul></div></li><li><p>Click <span class="bold"><strong>Save</strong></span> to save the threshold.</p></li></ol></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2972">#</a>6.2.8. Performance Graphs</h3></div></div></div><p>You can include any of the data points or thresholds from a performance template in a <span class="emphasis"><em>performance graph</em></span>.</p><p>To define a graph:</p><div class="orderedlist"><ol type="1"><li><p>Navigate to a performance template whose data you want represented in a graph.</p></li><li><p>From the Graph Definitions table menu, select Add Graph.</p><p>The Add a New Graph dialog appears.</p></li><li><p>Enter the name of the graph, and then click <span class="bold"><strong>OK</strong></span>.</p><p>The Graph Definition page appears.</p></li><li><p>Enter information or select values to define the graph:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>Name</strong></span> - Optionally edit the name of the graph you entered in the Add a New Graph dialog. This name appears as the title of the graph.</p></li><li><p><span class="bold"><strong>Height</strong></span> - Enter the height of the graph, in pixels.</p></li><li><p><span class="bold"><strong>Width</strong></span> - Enter the width of the graph, in pixels.</p></li><li><p><span class="bold"><strong>Units</strong></span> - Enter a label for the graph's vertical axis.</p></li><li><p><span class="bold"><strong>Logarithmic Scale</strong></span> - Select True to specify that the scale of the vertical axis is logarithmic. Select False (the default) to set the scale to linear. You might want to set the value to True, for example, if the data being graphed grows exponentially. Only positive data can be graphed logarithmically.</p></li><li><p><span class="bold"><strong>Base 1024</strong></span> - Select True if the data you are graphing is measured in multiples of 1024. By default, this value is False.</p></li><li><p><span class="bold"><strong>Min Y</strong></span> - Enter the bottom value for the graph's vertical axis.</p></li><li><p><span class="bold"><strong>Max Y</strong></span> - Enter the top value for the graph's vertical axis.</p></li><li><p><span class="bold"><strong>Has Summary</strong></span> - Select True to display a summary of the data's current, average, and maximum values at the bottom of the graph.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e3017">#</a><p class="title"><strong>Figure 6.20. Graph Definition</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 540px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1682/graphconfig.png"><img alt="graphconfig.png" class="jive-image-thumbnail jive-image" height="276" src="../servlet/JiveServlet/downloadImage/102-3908-2-1682/450-276/graphconfig.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></li></ul></div></li></ol></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e3023">#</a>6.2.8.1. Graph Points</h4></div></div></div><p>Graph points represent each data point or threshold that is part of a graph. You can add any number of graph points to a graph definition by adding data points or thresholds.</p><p>From the Graph Points table menu:</p><div class="orderedlist"><ol type="1"><li><p>Select Add DataPoint, Add Threshold, or Add Custom.</p></li><li><p>Select values for the graph point, and then click <span class="bold"><strong>OK</strong></span>.</p><p>The new graph point appears on the Graph Definition page.</p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Thresholds are always drawn before other graph points.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e3036">#</a>6.2.8.1.1. Re-sequencing Graph Points</h5></div></div></div><p>To re-sequence graph points, enter a sequence number in one or more Seq fields and then select Re-sequence GraphPoints from the the Graph Points table menu. The graphs points are re-ordered as specified.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e3039">#</a>6.2.8.1.2. DataPoint Graph Points</h5></div></div></div><p>DataPoint graph points draw the value of data points from the template on a graph.</p><div class="section" lang="en"><div class="titlepage"><div><div><h6 class="title"><a class="jive-link-anchor-small" name="d4e3042">#</a>6.2.8.1.2.1. Adding DataPoint Graph Points</h6></div></div></div><p>To define a DataPoint graph point:</p><div class="orderedlist"><ol type="1"><li><p>From the Graph Points table menu, select Add DataPoint.</p><p>The GraphPoint dialog appears.</p></li><li><p>Select one or more data points defined in this template. One DataPoint graph point is created for each data point you select from the list.</p></li><li><p>Optionally, select the Include Related Thresholds option. If selected, then any graph points are created for any thresholds that have been applied to the select data points as well.</p></li><li><p>Click <span class="bold"><strong>OK</strong></span> to add the graph point.</p></li></ol></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h6 class="title"><a class="jive-link-anchor-small" name="d4e3056">#</a>6.2.8.1.2.2. Editing DataPoint Graph Points</h6></div></div></div><p>Click the name of the graph point to go to its edit page. Enter information or select values to edit the graph point:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>Name</strong></span> - This is the name that appears on the Graph Definition page. By default, it appears in the graph legend.</p></li><li><p><span class="bold"><strong>Consolidation</strong></span> - Specify the RRD function used to graph the data point's data to the size of the graph. Most of the time, the default value of AVERAGE is appropriate.</p></li><li><p><span class="bold"><strong>RPN</strong></span> - Optionally enter an RPN expression that alters the value of the data being graphed for the data point. For example, if the data is stored as bits, but you want to graph it as bytes, enter an RPN value of "8,/" to divide by 8. For more information about RRDTool RPN notation, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/tut/rpntutorial.en.html">http://oss.oetiker.ch/rrdtool/tut/rpntutorial.en.html</a></p></li><li><p><span class="bold"><strong>Limit</strong></span> - Optionally specify a maximum value for the data being graphed.</p></li><li><p><span class="bold"><strong>Line Type</strong></span> - Select Line to graph the data as a line. Select Area to fill the area between the line and the horizontal axis with the line color. Select None to use this data point for custom RRD commands and do not want it to be explicitly drawn.</p></li><li><p><span class="bold"><strong>Line Width</strong></span> - Enter the pixel width of the line.</p></li><li><p><span class="bold"><strong>Stacked</strong></span> - If True, then the line or area is drawn above the previously drawn data. At any point in time on the graph, the value plotted for this data is the sum of the previously drawn data and the value of this data point now. You might set this value, for example, to asses total packets if measuring packets in and packets out.</p></li><li><p><span class="bold"><strong>Color</strong></span> - Optionally specify a color for the line or area. Enter a six-digit hexadecimal color value with an optional two-digit hex value to specify an alpha channel. An alpha channel value is only used if 'stacked' is True.</p></li><li><p><span class="bold"><strong>Format</strong></span> - Specify the RRD format to use when displaying values in the graph summary. For more information on RRDTool formatting strings, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html</a></p></li><li><p><span class="bold"><strong>Legend</strong></span> - Name to use for the data in the graph legend. By default, this is a TALES expression that specifies the graph point name. The variables available in this TALES expression are here (the device or component being graphed) and graphPoint (the graph point itself).</p></li><li><p><span class="bold"><strong>Available RRD Variables</strong></span> - Lists the RRD variables defined in this graph definition. These values can be used in the RPN field.</p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h6 class="title"><a class="jive-link-anchor-small" name="d4e3097">#</a>6.2.8.1.2.3. Editing Threshold Graph Points</h6></div></div></div><p>Threshold graph points graph the value of thresholds from the template.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e3100">#</a>6.2.8.1.3. Threshold Graph Points</h5></div></div></div><p>Threshold graph points graph the value of thresholds from the template.</p><p>To add a threshold graph point to the graph definition:</p><div class="orderedlist"><ol type="1"><li><p>Select Add Threshold from the Graph Points table menu.</p><p>The Add GraphPoint dialog.</p></li><li><p>Select one or more thresholds defined in this template. One threshold graph point is created for each threshold you select in this list.</p></li></ol></div><p>You can edit values for Name, Color, and Legend for a threshold graph point. Refer to the definitions in the section titled Editing DataPoint Graph Points for more information.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e3111">#</a>6.2.8.1.4. Custom Graph Points</h5></div></div></div><p>Custom graph points allow you to insert specific RRD graph commands into the graph definition.</p><p>For details on DEF, CDEF, and VDEF commands, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph_data.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph_data.en.html</a></p><p>For details on other RRD commands, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html</a></p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e3120">#</a>6.2.8.2. Custom Graph Definition</h4></div></div></div><p>The Custom Graph Definition tab allows you to specify your own set of RRD commands to draw a graph. The graph points specified on the Custom Graph Definition tab are used to define data that is available to the commands you specify here; however, the graph points are not drawn unless you explicitly draw them with the commands you specify here. The Available RRD Variables lists the values defined by the graph points that are available for use.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e3123">#</a>6.2.8.3. Graph Commands</h4></div></div></div><p>The Graph Commands tab shows an approximate representation of the RRD commands that will be used to draw a graph. This representation provides helpful debugging information when using custom graph points or the Custom Definition tab.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e3126">#</a>6.2.9. Changing Graph Display Order</h3></div></div></div><p>You can change the sequence of the appearance of graphs. To do this:</p><div class="orderedlist"><ol type="1"><li><p>Navigate to a device.</p></li><li><p>From the page menu, select More &gt; Templates.</p></li><li><p>Click <span class="bold"><strong>Create Local Copy</strong></span>.</p></li><li><p>Click the name of the template.</p></li><li><p>In the Graphs area of the page, use the Seq options to order the graphs.</p></li></ol></div></div></div><div class="navfooter"><hr/><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" style=";" width="40%"><a class="jive-link-external-small" href="http://community.zenoss.org/zenoss-guide/2.5.0/ch06s01.html">Prev</a> </td><td align="center" style=";" width="20%"><a class="jive-link-external-small" href="http://community.zenoss.org/zenoss-guide/2.5.0/ch06.html">Up</a></td><td align="right" style=";" width="40%"> <a class="jive-link-external-small" href="http://community.zenoss.org/zenoss-guide/2.5.0/ch06s03.html">Next</a></td></tr><tr><td align="left" style=";" valign="top" width="40%">6.1. Availability Monitoring </td><td align="center" style=";" width="20%"><a class="jive-link-external-small" href="http://community.zenoss.org/zenoss-guide/2.5.0/index.html">Home</a></td><td align="right" style=";" valign="top" width="40%"> 6.3. Monitoring Using ZenCommand</td></tr></tbody></table></div></div><!-- [DocumentBodyEnd:b5e76957-b62a-461a-82a4-8a4a32c302be] -->
+<!-- [DocumentBodyStart:b5e76957-b62a-461a-82a4-8a4a32c302be] --><div class="jive-rendered-content"><div class="navheader"><table style="width: 100%;" summary="Navigation header"><tbody><tr><th align="center" colspan="3" style=";">6.2. Performance Monitoring</th></tr><tr><td align="left" style=";" width="20%"><a class="jive-link-external-small" href="zenoss-guide/2.5.0/ch06s01.html">Prev</a> </td><th align="center" style=";" width="60%">Chapter 6. Core Monitoring</th><td align="right" style=";" width="20%"> <a class="jive-link-external-small" href="zenoss-guide/2.5.0/ch06s03.html">Next</a></td></tr></tbody></table><hr/></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both;"><a class="jive-link-anchor-small" name="d4e2638">#</a>6.2. Performance Monitoring</h2></div></div></div><p>Read this chapter to learn about Zenoss performance monitoring and performance templates.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2641">#</a>6.2.1. About Performance Monitoring</h3></div></div></div><p>Zenoss uses several methods to monitor performance metrics of devices and device components. These are:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>ZenPerfSNMP</strong></span> - Collects data through SNMP from any device correctly configured for SNMP monitoring.</p></li><li><p><span class="bold"><strong>ZenWinPerf</strong></span> (Zenoss Enterprise only) - ZenPack that allows performance monitoring of Windows servers.</p></li><li><p><span class="bold"><strong>ZenCommand</strong></span> - Logs in to devices (by using telnet or ssh) and runs scripts to collect performance data.</p></li><li><p><span class="bold"><strong>Other ZenPacks</strong></span> - Collect additional performance data. Examples include the ZenJMX ZenPack, which collects data from enterprise Java applications, and the HttpMonitor ZenPack, which checks the availability and responsiveness of Web pages.</p></li></ul></div><p>Regardless of the monitoring method used, Zenoss stores performance monitoring configuration information in <em class="glossterm">performance templates</em>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2659">#</a>6.2.2. Performance Templates</h3></div></div></div><p>Performance templates determine how Zenoss collects performance data for devices and device components. You can define performance templates for device classes and individual devices.</p><p>Templates comprise three types of objects:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>Data Sources</strong></span> - Specify the exact data points to collect, and the method to use to collect them.</p></li><li><p><span class="bold"><strong>Thresholds</strong></span> - Define expected bounds for collected data, and specify events to be created in Zenoss if the data does not match those bounds.</p></li><li><p><span class="bold"><strong>Graph Definitions</strong></span> - Describe how to graph the collected data on the device or device components.</p></li></ul></div><p>Before Zenoss can collect performance data for a device or component, it must determine which templates apply. This process is called <em class="glossterm">template binding</em>.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2675">#</a>6.2.2.1. Viewing Performance Templates</h4></div></div></div><p>The Templates page lists all of the performance templates available to a device or device class.</p><p>To view available performance templates for a device, select <span class="bold"><strong>More &gt; All Templates</strong></span> from the Devices page menu. To view available performance templates for device classes, click the Templates tab from the Devices area.</p><p>The Available Performance Templates page shows the performance templates that are defined for a particular device or device class, and for those defined further up the device class hierarchy. If more than one template of the same name is defined, then only the one to which this device or device class can bind appears in the list.</p><p>Click a template in the list to view details about defined data sources, thresholds, and to see graph definition details.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2682">#</a><p class="title"><strong>Figure 6.11. Performance Template for Load Average Graph</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 540px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1672/loadaveragetemplate.png"><img alt="loadaveragetemplate.png" class="jive-image-thumbnail jive-image" height="478" src="../servlet/JiveServlet/downloadImage/102-3908-2-1672/450-478/loadaveragetemplate.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2688">#</a>6.2.3. Template Binding</h3></div></div></div><p>Before Zenoss can collect performance data for a device or component, it must determine which templates apply. This process is called template binding.</p><p>First, Zenoss determines the list of template names that apply to a device or component. For device components, this usually is the meta type of the component (for example, FileSystem, CPU, or HardDisk). For devices, this list is defined by the zDeviceTemplates zProperty.</p><p>After defining the list, Zenoss locates templates that match the names on the list. For each name, Zenoss searches the device and then searches the device class hierarchy. Zenoss uses the lowest template in the hierarchy that it can locate with the correct name, ignoring others of the same name that might exist further up the device class hierarchy.</p><h4><a class="jive-link-anchor-small" name="d4e2693">#</a>Viewing Templates Available for Binding</h4><p>To see which templates are available for binding, view the Templates page for any device or device class. This page shows all templates that are defined at this point or higher in the device hierarchy.</p><h4><a class="jive-link-anchor-small" name="d4e2695">#</a>Changing Templates Available for Binding</h4><p>To change which templates are currently bound:</p><div class="orderedlist"><ol type="1"><li><p>Select Bind Templates from the Available Performance Templates table menu.</p><p>The Bind Performance Templates dialog appears.</p></li><li><p>Select a performance template (Ctrl-Click to select more than one), and then click <span class="bold"><strong>OK</strong></span>.</p><p>The selected performance template appears in the list of available templates.</p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Alternatively, you can edit the zDeviceTemplates zProperty (from the zProperties page) to change which templates are bound. You cannot edit the bound name for a device component.</p></div><div class="informaltable"><table border="1"><colgroup><col align="left" width="192"></col><col align="left" width="480"></col></colgroup><thead><tr><th align="center" style="border:1px solid black;">Name Binding</th><th align="center" style="border:1px solid black;">Definition</th></tr></thead><tbody><tr><td align="left" style="border:1px solid black;">Device</td><td align="left" style="border:1px solid black;">The device object. (These OIDs do not have an snmp index number.)</td></tr><tr><td align="left" style="border:1px solid black;">FileSystem</td><td align="left" style="border:1px solid black;">The file system object currently uses the host resources MIB.</td></tr><tr><td align="left" style="border:1px solid black;">Interface</td><td align="left" style="border:1px solid black;">Interfaces are bound using their interface type. (For example: ethernetCsmacd.)</td></tr><tr><td align="left" style="border:1px solid black;">HardDisk</td><td align="left" style="border:1px solid black;">Hard disk object for I/O stats, such as Windows boxes with Informant MIB.</td></tr></tbody></table></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2728">#</a>6.2.4. Data Sources</h3></div></div></div><p>Data sources specify which data points to collect and how to collect them. Each performance template comprises one or more data sources. Zenoss provides two built-in data source types: SNMP and COMMAND. (Other data source types are provided through ZenPacks.)</p><h4><a class="jive-link-anchor-small" name="d4e2731">#</a>About SNMP Data Sources</h4><p>SNMP data sources define data to be collected via SNMP by the ZenPerfSNMP daemon. They contain one additional field to specify which SNMP OID to collect. (Many OIDs must end in .0 to work correctly.) Because SNMP data sources specify only one performance metric, they contain a single data point. For more information, see the section titled SNMP Monitoring.</p><h4><a class="jive-link-anchor-small" name="d4e2733">#</a>About COMMAND Data Sources</h4><p>COMMAND data sources specify data to be collected by a shell command that is executed on the Zenoss server or on a monitored device. The ZenCommand daemon processes COMMAND data sources. A COMMAND data source may return one or more performance metrics, and usually has one data point for each metric.</p><p>Shell commands used with COMMAND data sources must return data that conforms to the Nagios plug-in output specification. For more information, see the section titled Monitoring Using ZenCommand.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2736">#</a>6.2.4.1. Adding a Data Source</h4></div></div></div><p>To add a data source to a performance template:</p><div class="orderedlist"><ol type="1"><li><p>From the Performance Template page, select Add DataSource from the Data Sources table menu.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2742">#</a><p class="title"><strong>Figure 6.12. Add Data Source</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 450px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1673/adddatasourceselection.png"><img alt="adddatasourceselection.png" class="jive-image" height="318" src="../servlet/JiveServlet/downloadImage/102-3908-2-1673/450-318/adddatasourceselection.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/><p>The Data Source page appears.</p></li><li><p>Enter or select values to define the data source.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2751">#</a><p class="title"><strong>Figure 6.13. SNMP Data Source</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 450px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1674/datasource.png"><img alt="datasource.png" class="jive-image-thumbnail jive-image" height="204" src="../servlet/JiveServlet/downloadImage/102-3908-2-1674/450-204/datasource.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></li></ol></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2757">#</a>6.2.5. Data Points</h3></div></div></div><p>Data sources can return data for one or more performance metrics. Each metric retrieved by a data source is represented by a data point.</p><h4><a class="jive-link-anchor-small" name="d4e2760">#</a>Defining Data Points</h4><p>You can define data points to data sources with all source types except SNMP and VMware. Because these data source types each rely on a single data point for performance metrics, additional data point definition is not needed.</p><p>To add a data point to a data source:</p><div class="orderedlist"><ol type="1"><li><p>Select a data source from the Data Sources area of the Performance Template page.</p></li><li><p>From the DataPoints table menu on the Data Source page, select Add Datapoint.</p></li><li><p>In the Add a New DataPoint dialog, enter a name for the data point, and then click Add.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>For COMMAND data points, the name should be the same as that used by the shell command when returning data.</p></div></li><li><p>Enter information or make selections to define the data point.</p><div class="itemizedlist"><ul type="disc"><li><p>Name - Displays the name you entered in the Add a New DataPoint dialog.</p></li><li><p>Type - Specify the RRD data source type to use for storing data for this data point. (Zenoss uses RRDTool to store performance data.) Available options are:</p><div class="itemizedlist"><ul type="circle"><li><p>COUNTER - Saves the rate of change of the value over a step period. This assumes that the value is always increasing (the difference between the current and the previous value is greater than 0). Traffic counters on a router are an ideal candidate for using COUNTER.</p></li><li><p>DERIVED - Same as COUNTER, but additionally allows negative values. If you want to see the rate of change in free disk space on your server, for example, then you might want to select this value.</p></li><li><p>ABSOLUTE - Saves the rate of change, but assumes that the previous value is set to 0. The difference between the current and the previous value is always equal to the current value. Thus, ABSOLUTE stores the current value, divided by the step interval.</p></li><li><p>GAUGE - Does not save the rate of change, but saves the actual value. There are no divisions or calculations. To see memory consumption in a server, for example, you might want to select this value.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Rather than COUNTER, you may want to define a data point using DERIVED and with a minimum of zero. This creates the same conditions as COUNTER, with one exception. Because COUNTER is a "smart" data type, it can wrap the data when a maximum number of values is reached in the system. An issue can occur when there is a loss of reporting and the system (when looking at COUNTER values) thinks it should wrap the data. This creates an artificial spike in the system and creates statistical anomalies.</p></div></li></ul></div></li><li><p>RRDMin - Enter a value. Any value received that is less than this number is ignored.</p></li><li><p>RRDMax - Ener a value. Any value received that is greater than this number is ignored.</p></li><li><p>Create CMD - Enter an RRD expression used to create the database for this data point. If you do not enter a value, then Zenoss uses a default applicable to most situations.</p><p>For details about the rrdcreate command, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html</a></p></li></ul></div></li><li><p>Click Save to save the data point.</p></li></ol></div><div class="figure"><a class="jive-link-anchor-small" name="d4e2801">#</a><p class="title"><strong>Figure 6.14. Define a Data Point</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 450px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1675/datapoints.png"><img alt="datapoints.png" class="jive-image" height="246" src="../servlet/JiveServlet/downloadImage/102-3908-2-1675/450-246/datapoints.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2807">#</a>6.2.6. Data Point Aliases</h3></div></div></div><p>Zenoss performance reports pull information from various data points that represent a metric. The report itself knows which data points it requires, and which modifications are needed, if any, to put the data in its proper units and format.</p><p>The addition of a data point requires changing the report.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2811">#</a><p class="title"><strong>Figure 6.15. CPU Utilization Report</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 540px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1678/aliasexample_cpu_before.png"><img alt="aliasexample_cpu_before.png" class="jive-image-thumbnail jive-image" height="301" src="../servlet/JiveServlet/downloadImage/102-3908-2-1678/450-301/aliasexample_cpu_before.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/><p>To allow for more flexibility in changes, some Zenoss reports use <span class="emphasis"><em>data point aliases</em></span>. Data point aliases group data points so they can be more easily used for reporting. In addition, if the data points return data in different units, then the plugin can normalize that data into a common unit.</p><p>An alias-based report looks up the data points that share a common alias string, and then uses them. This approach allows you to add data points without changing the report.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2820">#</a><p class="title"><strong>Figure 6.16. Alias-Based CPU Utilization Report</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 630px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1677/aliasexample_cpu_after.png"><img alt="aliasexample_cpu_after.png" class="jive-image-thumbnail jive-image" height="211" src="../servlet/JiveServlet/downloadImage/102-3908-2-1677/450-211/aliasexample_cpu_after.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/><p>In the simplest cases, data from the target data points are returned in units expected by a report. For cases in which data are not returned in the same units, an alias can use an associated formula at the data point. For example, if a data point returns data in kilobytes, but the report expects data in bytes, then the formula multiplies the value by 1024.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2827">#</a>6.2.6.1. Alias Formula Evaluation</h4></div></div></div><p>Zenoss evaluates the alias formula in three passes.</p><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e2830">#</a>6.2.6.1.1. Reverse Polish Notation</h5></div></div></div><p>When complete, the alias formula must resolve to a Reverse Polish Notation (RPN) formula that can be used by RRDtool. For the simple conversion of kilobytes into bytes, the formula is:</p><pre class="programlisting">1024,*</pre><p>For more information on RRDtool and RPN formulas, browse to this site:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph_rpn.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph_rpn.en.html</a></p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e2837">#</a>6.2.6.1.2. Using TALES Expressions in Alias Formulas</h5></div></div></div><p>For cases in which contextual information is needed, the alias formula can contain a TALES expression that has access to the device as context (labeled as "here"). The result of the TALES evaluation should be an RRD formula.</p><p>For example, if the desired value is the data point value divided by total memory, the formula is:</p><pre class="programlisting">${here/hw/totalMemory},/</pre><p>For more information on TALES, refer to the appendix in this guide titled "TALES Expressions," or to the TALES Specification 1.3, at:</p><p><a class="jive-link-external-small" href="http://wiki.zope.org/ZPT/TALESSpecification13">http://wiki.zope.org/ZPT/TALESSpecification13</a></p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e2845">#</a>6.2.6.1.3. Using Python in Alias Formulas</h5></div></div></div><p>You also can embed full Python code in an alias formula for execution. The code must construct a string that results in a valid RRD formula. To signal Zenoss to evaluate the formula correctly, it must begin with:</p><pre class="programlisting">__EVAL:</pre><p>Using the same example as in the previous section (division by total memory), the formula is:</p><pre class="programlisting">__EVAL:here.hw.totalMemory + &ldquo;,/&#8221;</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2851">#</a>6.2.6.2. Adding a Data Point Alias</h4></div></div></div><p>To add a data point alias:</p><div class="orderedlist"><ol type="1"><li><p>Navigate to a data source on a template.</p></li><li><p>Select a data point.</p></li><li><p>From the page menu, select Add DataPoint Alias.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2861">#</a><p class="title"><strong>Figure 6.17. Add Data Point Alias</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 360px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1679/adddatapointalias.jpg"><img alt="adddatapointalias.jpg" class="jive-image" height="177" src="../servlet/JiveServlet/downloadImage/102-3908-2-1679/449-177/adddatapointalias.jpg" width="449"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></li><li><p>In the Add Data Point Alias dialog, enter the alias name and the formula.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>If the data point returns values in the desired units, then leave the value for formula blank.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2871">#</a><p class="title"><strong>Figure 6.18. Data Point Alias Dialog</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 225px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1680/datapointalias_dialog.jpg"><img alt="datapointalias_dialog.jpg" class="jive-image" height="204" src="../servlet/JiveServlet/downloadImage/102-3908-2-1680/298-204/datapointalias_dialog.jpg" width="298"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></div></li><li><p>Click <span class="bold"><strong>Add</strong></span> to add the data point alias.</p></li></ol></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e2880">#</a>6.2.6.3. Zenoss Reports That Use Aliases</h4></div></div></div><p>For information about Zenoss reports that use aliases, refer to the chapter titled "Reporting."</p><p>The following table shows Zenoss performance reports that use aliases, and the aliases used. To add data points to a report, add the alias, and then ensure the values return in the expected units.</p><h5><a class="jive-link-anchor-small" name="d4e2884">#</a>CPU Utilization</h5><div class="informaltable"><table border="1"><colgroup><col align="left" width="288"></col><col align="left" width="288"></col></colgroup><thead><tr><th align="center" style="border:1px solid black;"> Alias</th><th align="center" style="border:1px solid black;">Expected Units </th></tr></thead><tbody><tr><td align="left" style="border:1px solid black;">loadAverage5min</td><td align="left" style="border:1px solid black;">Processes</td></tr><tr><td align="left" style="border:1px solid black;">cpu_pct</td><td align="left" style="border:1px solid black;">Percent</td></tr></tbody></table></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2900">#</a>6.2.7. Thresholds</h3></div></div></div><p>Thresholds define expected bounds for data points. When the value returned by a data point violates a threshold, Zenoss creates an event.</p><h4><a class="jive-link-anchor-small" name="d4e2903">#</a>Min/Max Threshold</h4><p>Zenoss provides one built-in threshold type: the Min/Max Threshold. (Other threshold types are provided through ZenPacks.)</p><p>Min/Max thresholds inspect incoming data to determine whether it exceeds a given maximum or falls below a given minimum. You can use a Min/Max threshold to check for these scenarios:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="emphasis"><em>The current value is less than a minimum value</em></span>. To do this, you should set only a minimum value for the threshold. Any value less than this number results in creation of a threshold event.</p></li><li><p><span class="emphasis"><em>The current value is greater than a maximum value</em></span>. To do this, you should set only a maximum value for the threshold. Any value greater than this number results in creation of a threshold event.</p></li><li><p><span class="emphasis"><em>The current value is not a single, pre-defined number</em></span>. To do this, you should set the minimum and maximum values for the threshold to the same value. This will be the only "good" number. If the returned value is not this number, then a threshold event is created.</p></li><li><p><span class="emphasis"><em>The current value falls outside a pre-defined range</em></span>. To do this, you should set the minimum value to the lowest value within the good range, and the maximum value to the highest value within the good range. If the returned value is less than the minimum, or greater than the maximum, then a threshold event is created.</p></li><li><p><span class="emphasis"><em>The current value falls within a pre-defined range</em></span>. To do this, you should set the minimum value to the highest value within the bad range, and the maximum value to the lowest value within the bad range. If the returned value is greater than the maximum, and less than the minimum, then a threshold event is created.</p></li></ul></div><h4><a class="jive-link-anchor-small" name="d4e2922">#</a>Adding Thresholds</h4><p>Follow these steps to define a Min/Max threshold for a data point.</p><div class="orderedlist"><ol type="1"><li><p>From the Performance Template page, select Add a Threshold from the Thresholds table menu.</p><p>The Add a New Threshold dialog appears.</p></li><li><p>Enter an ID for the new threshold, and then click <span class="bold"><strong>OK</strong></span>.</p><p>The Min/Max Threshold page appears.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e2932">#</a><p class="title"><strong>Figure 6.19. Add a Threshold</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 450px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1681/thresholddefinition.png"><img alt="thresholddefinition.png" class="jive-image" height="345" src="../servlet/JiveServlet/downloadImage/102-3908-2-1681/450-345/thresholddefinition.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></li><li><p>Enter or select values to define the threshold:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>Name</strong></span> - Displays the value for the ID you entered on the Add a New Threshold dialog. This name appears on the Performance Template page.</p></li><li><p><span class="bold"><strong>Data Points</strong></span> - Select one or more data points to which this threshold will apply.</p></li><li><p><span class="bold"><strong>Min Value</strong></span> - If this field contains a value, then each time one of the select data points falls below this value an event is triggered. This field may contain a number or a Python expression.</p><p>When using a Python expression, the variable <code class="varname">here</code> references the device or component for which data is being collected. For example, an 85% threshold on an interface might be specified as:</p><pre class="programlisting">here.speed * .85/8</pre><p>The division by 8 is because interface speed frequently is reported in bits/second, where the performance data is bytes/second.</p></li><li><p><span class="bold"><strong>Max Value</strong></span> - If this field contains a value, then each time one of the selected data points goes above this value an event is triggered. This field may contain a number or a Python expression.</p></li><li><p><span class="bold"><strong>Event Class</strong></span> - Select the event class of the event that will be triggered when this threshold is breached.</p></li><li><p><span class="bold"><strong>Severity</strong></span> - Select the severity level of the first event triggered when this threshold is breached.</p></li><li><p><span class="bold"><strong>Escalate Count</strong></span> - Enter the number of consecutive times this threshold can be broken before the event severity is escalated by one step.</p></li><li><p><span class="bold"><strong>Enabled</strong></span> - Select True to enable the threshold, or False to disable it.</p></li></ul></div></li><li><p>Click <span class="bold"><strong>Save</strong></span> to save the threshold.</p></li></ol></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e2972">#</a>6.2.8. Performance Graphs</h3></div></div></div><p>You can include any of the data points or thresholds from a performance template in a <span class="emphasis"><em>performance graph</em></span>.</p><p>To define a graph:</p><div class="orderedlist"><ol type="1"><li><p>Navigate to a performance template whose data you want represented in a graph.</p></li><li><p>From the Graph Definitions table menu, select Add Graph.</p><p>The Add a New Graph dialog appears.</p></li><li><p>Enter the name of the graph, and then click <span class="bold"><strong>OK</strong></span>.</p><p>The Graph Definition page appears.</p></li><li><p>Enter information or select values to define the graph:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>Name</strong></span> - Optionally edit the name of the graph you entered in the Add a New Graph dialog. This name appears as the title of the graph.</p></li><li><p><span class="bold"><strong>Height</strong></span> - Enter the height of the graph, in pixels.</p></li><li><p><span class="bold"><strong>Width</strong></span> - Enter the width of the graph, in pixels.</p></li><li><p><span class="bold"><strong>Units</strong></span> - Enter a label for the graph's vertical axis.</p></li><li><p><span class="bold"><strong>Logarithmic Scale</strong></span> - Select True to specify that the scale of the vertical axis is logarithmic. Select False (the default) to set the scale to linear. You might want to set the value to True, for example, if the data being graphed grows exponentially. Only positive data can be graphed logarithmically.</p></li><li><p><span class="bold"><strong>Base 1024</strong></span> - Select True if the data you are graphing is measured in multiples of 1024. By default, this value is False.</p></li><li><p><span class="bold"><strong>Min Y</strong></span> - Enter the bottom value for the graph's vertical axis.</p></li><li><p><span class="bold"><strong>Max Y</strong></span> - Enter the top value for the graph's vertical axis.</p></li><li><p><span class="bold"><strong>Has Summary</strong></span> - Select True to display a summary of the data's current, average, and maximum values at the bottom of the graph.</p><div class="figure"><a class="jive-link-anchor-small" name="d4e3017">#</a><p class="title"><strong>Figure 6.20. Graph Definition</strong></p><div class="figure-contents"><div class="screenshot"><div class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 540px;" summary="manufactured viewport for HTML img"><tbody><tr><td style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-3908-2-1682/graphconfig.png"><img alt="graphconfig.png" class="jive-image-thumbnail jive-image" height="276" src="../servlet/JiveServlet/downloadImage/102-3908-2-1682/450-276/graphconfig.png" width="450"/></a></td></tr></tbody></table></div></div></div></div><br class="figure-break"/></li></ul></div></li></ol></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e3023">#</a>6.2.8.1. Graph Points</h4></div></div></div><p>Graph points represent each data point or threshold that is part of a graph. You can add any number of graph points to a graph definition by adding data points or thresholds.</p><p>From the Graph Points table menu:</p><div class="orderedlist"><ol type="1"><li><p>Select Add DataPoint, Add Threshold, or Add Custom.</p></li><li><p>Select values for the graph point, and then click <span class="bold"><strong>OK</strong></span>.</p><p>The new graph point appears on the Graph Definition page.</p></li></ol></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>Thresholds are always drawn before other graph points.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e3036">#</a>6.2.8.1.1. Re-sequencing Graph Points</h5></div></div></div><p>To re-sequence graph points, enter a sequence number in one or more Seq fields and then select Re-sequence GraphPoints from the the Graph Points table menu. The graphs points are re-ordered as specified.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e3039">#</a>6.2.8.1.2. DataPoint Graph Points</h5></div></div></div><p>DataPoint graph points draw the value of data points from the template on a graph.</p><div class="section" lang="en"><div class="titlepage"><div><div><h6 class="title"><a class="jive-link-anchor-small" name="d4e3042">#</a>6.2.8.1.2.1. Adding DataPoint Graph Points</h6></div></div></div><p>To define a DataPoint graph point:</p><div class="orderedlist"><ol type="1"><li><p>From the Graph Points table menu, select Add DataPoint.</p><p>The GraphPoint dialog appears.</p></li><li><p>Select one or more data points defined in this template. One DataPoint graph point is created for each data point you select from the list.</p></li><li><p>Optionally, select the Include Related Thresholds option. If selected, then any graph points are created for any thresholds that have been applied to the select data points as well.</p></li><li><p>Click <span class="bold"><strong>OK</strong></span> to add the graph point.</p></li></ol></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h6 class="title"><a class="jive-link-anchor-small" name="d4e3056">#</a>6.2.8.1.2.2. Editing DataPoint Graph Points</h6></div></div></div><p>Click the name of the graph point to go to its edit page. Enter information or select values to edit the graph point:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="bold"><strong>Name</strong></span> - This is the name that appears on the Graph Definition page. By default, it appears in the graph legend.</p></li><li><p><span class="bold"><strong>Consolidation</strong></span> - Specify the RRD function used to graph the data point's data to the size of the graph. Most of the time, the default value of AVERAGE is appropriate.</p></li><li><p><span class="bold"><strong>RPN</strong></span> - Optionally enter an RPN expression that alters the value of the data being graphed for the data point. For example, if the data is stored as bits, but you want to graph it as bytes, enter an RPN value of "8,/" to divide by 8. For more information about RRDTool RPN notation, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/tut/rpntutorial.en.html">http://oss.oetiker.ch/rrdtool/tut/rpntutorial.en.html</a></p></li><li><p><span class="bold"><strong>Limit</strong></span> - Optionally specify a maximum value for the data being graphed.</p></li><li><p><span class="bold"><strong>Line Type</strong></span> - Select Line to graph the data as a line. Select Area to fill the area between the line and the horizontal axis with the line color. Select None to use this data point for custom RRD commands and do not want it to be explicitly drawn.</p></li><li><p><span class="bold"><strong>Line Width</strong></span> - Enter the pixel width of the line.</p></li><li><p><span class="bold"><strong>Stacked</strong></span> - If True, then the line or area is drawn above the previously drawn data. At any point in time on the graph, the value plotted for this data is the sum of the previously drawn data and the value of this data point now. You might set this value, for example, to asses total packets if measuring packets in and packets out.</p></li><li><p><span class="bold"><strong>Color</strong></span> - Optionally specify a color for the line or area. Enter a six-digit hexadecimal color value with an optional two-digit hex value to specify an alpha channel. An alpha channel value is only used if 'stacked' is True.</p></li><li><p><span class="bold"><strong>Format</strong></span> - Specify the RRD format to use when displaying values in the graph summary. For more information on RRDTool formatting strings, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html</a></p></li><li><p><span class="bold"><strong>Legend</strong></span> - Name to use for the data in the graph legend. By default, this is a TALES expression that specifies the graph point name. The variables available in this TALES expression are here (the device or component being graphed) and graphPoint (the graph point itself).</p></li><li><p><span class="bold"><strong>Available RRD Variables</strong></span> - Lists the RRD variables defined in this graph definition. These values can be used in the RPN field.</p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h6 class="title"><a class="jive-link-anchor-small" name="d4e3097">#</a>6.2.8.1.2.3. Editing Threshold Graph Points</h6></div></div></div><p>Threshold graph points graph the value of thresholds from the template.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e3100">#</a>6.2.8.1.3. Threshold Graph Points</h5></div></div></div><p>Threshold graph points graph the value of thresholds from the template.</p><p>To add a threshold graph point to the graph definition:</p><div class="orderedlist"><ol type="1"><li><p>Select Add Threshold from the Graph Points table menu.</p><p>The Add GraphPoint dialog.</p></li><li><p>Select one or more thresholds defined in this template. One threshold graph point is created for each threshold you select in this list.</p></li></ol></div><p>You can edit values for Name, Color, and Legend for a threshold graph point. Refer to the definitions in the section titled Editing DataPoint Graph Points for more information.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a class="jive-link-anchor-small" name="d4e3111">#</a>6.2.8.1.4. Custom Graph Points</h5></div></div></div><p>Custom graph points allow you to insert specific RRD graph commands into the graph definition.</p><p>For details on DEF, CDEF, and VDEF commands, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph_data.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph_data.en.html</a></p><p>For details on other RRD commands, go to:</p><p><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html">http://oss.oetiker.ch/rrdtool/doc/rrdgraph_graph.en.html</a></p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e3120">#</a>6.2.8.2. Custom Graph Definition</h4></div></div></div><p>The Custom Graph Definition tab allows you to specify your own set of RRD commands to draw a graph. The graph points specified on the Custom Graph Definition tab are used to define data that is available to the commands you specify here; however, the graph points are not drawn unless you explicitly draw them with the commands you specify here. The Available RRD Variables lists the values defined by the graph points that are available for use.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d4e3123">#</a>6.2.8.3. Graph Commands</h4></div></div></div><p>The Graph Commands tab shows an approximate representation of the RRD commands that will be used to draw a graph. This representation provides helpful debugging information when using custom graph points or the Custom Definition tab.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d4e3126">#</a>6.2.9. Changing Graph Display Order</h3></div></div></div><p>You can change the sequence of the appearance of graphs. To do this:</p><div class="orderedlist"><ol type="1"><li><p>Navigate to a device.</p></li><li><p>From the page menu, select More &gt; Templates.</p></li><li><p>Click <span class="bold"><strong>Create Local Copy</strong></span>.</p></li><li><p>Click the name of the template.</p></li><li><p>In the Graphs area of the page, use the Seq options to order the graphs.</p></li></ol></div></div></div><div class="navfooter"><hr/><table summary="Navigation footer" width="100%"><tbody><tr><td align="left" style=";" width="40%"><a class="jive-link-external-small" href="zenoss-guide/2.5.0/ch06s01.html">Prev</a> </td><td align="center" style=";" width="20%"><a class="jive-link-external-small" href="zenoss-guide/2.5.0/ch06.html">Up</a></td><td align="right" style=";" width="40%"> <a class="jive-link-external-small" href="zenoss-guide/2.5.0/ch06s03.html">Next</a></td></tr><tr><td align="left" style=";" valign="top" width="40%">6.1. Availability Monitoring </td><td align="center" style=";" width="20%"><a class="jive-link-external-small" href="zenoss-guide/2.5.0/index.html">Home</a></td><td align="right" style=";" valign="top" width="40%"> 6.3. Monitoring Using ZenCommand</td></tr></tbody></table></div></div><!-- [DocumentBodyEnd:b5e76957-b62a-461a-82a4-8a4a32c302be] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1313,11 +862,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1395,157 +944,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

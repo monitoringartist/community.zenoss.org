@@ -15,42 +15,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Testing -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../../opensearch.xml"
@@ -63,80 +33,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/community/testing/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -147,48 +49,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2226&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -223,105 +84,27 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "DCAA3E9A2D99698607952081C58AE583";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../../4.5.6/resources/scripts/gen/f222b10839719a706de6248e98578d85.js"></script>
-<script type="text/javascript">
-        (function() {
-            var i18n = {
-                startBlogWatch: 'You are receiving email notifications for this blog. To unsubscribe, click \"Stop email notifications\" below.',
-                stopBlogWatch: 'You have stopped receiving email notifications for this blog. To subscribe to events in this blog via email, click \"Receive email notifications\" below.',
-                startPostWatch: 'You are receiving email notifications for this blog post. To unsubscribe, click \"Stop email notifications\" below.',
-                stopPostWatch: 'You have stopped receiving email notifications for this blog post. To subscribe to events in this blog post via email, click \"Receive email notifications\" below.',
-                watchError: 'An internal error occurred while updating email notifications.'
-            };
-                return new jive.blog.Watch(1656, null, i18n);
-
-        })();
-
-
-</script>
 
 
     
     
     
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://community.zenoss.org/blogs/xmlrpc/?blog=1656" />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="blogs/xmlrpc/?blog=1656" />
 
 
         <link rel="alternate" type="application/rss+xml"
                 title="Recent Posts Feed"
-                href="http://community.zenoss.org/community/testing/blog/feeds/posts" />
+                href="community/testing/blog/feeds/posts" />
 
         <link rel="alternate" type="application/rss+xml"
                 title="Recent Comments Feed"
-                href="http://community.zenoss.org/community/testing/blog/feeds/comments" />
+                href="community/testing/blog/feeds/comments" />
 
         <link rel="alternate" type="application/rss+xml"
                 title="Recent Trackbacks Feed"
-                href="http://community.zenoss.org/community/testing/blog/feeds/trackbacks" />
+                href="community/testing/blog/feeds/trackbacks" />
 
 
     <link rel="stylesheet" href="../../4.5.6/styles/jive-content.css" type="text/css" media="all" />
@@ -415,7 +198,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -429,18 +212,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2226;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -472,15 +243,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -567,7 +338,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -581,18 +352,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2226;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -609,7 +368,7 @@ Password:                </label>
     <span>
                 <a href="../../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/testing">
+                <a href="community/testing">
             Testing</a> &gt; 
                 <a class='jive-breadcrumb-last' href="blog.html">
             Blog</a></span>
@@ -623,7 +382,7 @@ Password:                </label>
 
     <div id="jive-body-intro-content">
 
-                <a href="http://community.zenoss.org/community/testing?view=blog"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>Up to Blog Posts in&nbsp;Testing</a>
+                <a href="community/testing?view=blog"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>Up to Blog Posts in&nbsp;Testing</a>
 
     </div>
 </div>
@@ -688,7 +447,7 @@ Password:                </label>
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -697,7 +456,7 @@ Password:                </label>
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/08/16/a-return-to-normalcy-301-qa-test-day-081910#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/08/16/a-return-to-normalcy-301-qa-test-day-081910#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -706,7 +465,7 @@ Password:                </label>
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/08/16/a-return-to-normalcy-301-qa-test-day-081910" class="font-color-normal">A return to normalcy... (3.0.1 QA Test Day 08.19.10)</a> </h2>
+                        <h2><a href="community/testing/blog/2010/08/16/a-return-to-normalcy-301-qa-test-day-081910" class="font-color-normal">A return to normalcy... (3.0.1 QA Test Day 08.19.10)</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -732,7 +491,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:568a924f-ff19-4956-b8cf-178f9b8ed332] --><div class="jive-rendered-content"><p>First, my apologies for not updating this blog recently - getting 3.0.0, 3.0.1, and now the pending 3.0.2 out the door has been a hectic process.&#160; That being said, 3.0.1 went out the middle of the last week, and we will be having a QA Test this Thursday, August 19th.&#160; We will be taking feedback and helping offer tips and answer questions around 3.0.1. Development on our next release (named Avalon) is in full swing, as well.&#160; QA is balancing between maintenance releases and testing the latest trunk bits.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Server:&#160; <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We will also post a transcript of the day's conversation to the <a class="jive-link-community-small" href="http://community.zenoss.org/community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:568a924f-ff19-4956-b8cf-178f9b8ed332] -->
+                    <!-- [DocumentBodyStart:568a924f-ff19-4956-b8cf-178f9b8ed332] --><div class="jive-rendered-content"><p>First, my apologies for not updating this blog recently - getting 3.0.0, 3.0.1, and now the pending 3.0.2 out the door has been a hectic process.&#160; That being said, 3.0.1 went out the middle of the last week, and we will be having a QA Test this Thursday, August 19th.&#160; We will be taking feedback and helping offer tips and answer questions around 3.0.1. Development on our next release (named Avalon) is in full swing, as well.&#160; QA is balancing between maintenance releases and testing the latest trunk bits.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Server:&#160; <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We will also post a transcript of the day's conversation to the <a class="jive-link-community-small" href="community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:568a924f-ff19-4956-b8cf-178f9b8ed332] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -745,29 +504,29 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/08/16/a-return-to-normalcy-301-qa-test-day-081910#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/08/16/a-return-to-normalcy-301-qa-test-day-081910#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/08/16/a-return-to-normalcy-301-qa-test-day-081910"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/08/16/a-return-to-normalcy-301-qa-test-day-081910"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test">test</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testlink">testlink</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_link">test_link</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/ticket">ticket</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/3.0.1">3.0.1</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/3.0.2">3.0.2</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/test">test</a>,
+                         <a href="community/testing/blog/tags/testlink">testlink</a>,
+                         <a href="community/testing/blog/tags/test_link">test_link</a>,
+                         <a href="community/testing/blog/tags/ticket">ticket</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>,
+                         <a href="community/testing/blog/tags/3.0.1">3.0.1</a>,
+                         <a href="community/testing/blog/tags/3.0.2">3.0.2</a>
                     </span>
 
                 </div>
@@ -796,7 +555,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -805,7 +564,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/07/09/zenoss-30-release-candidate-1-rc1-has-been-posted#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/07/09/zenoss-30-release-candidate-1-rc1-has-been-posted#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -814,7 +573,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/07/09/zenoss-30-release-candidate-1-rc1-has-been-posted" class="font-color-normal">Zenoss 3.0 Release Candidate 1 (RC1) has been posted!!!</a> </h2>
+                        <h2><a href="community/testing/blog/2010/07/09/zenoss-30-release-candidate-1-rc1-has-been-posted" class="font-color-normal">Zenoss 3.0 Release Candidate 1 (RC1) has been posted!!!</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -853,28 +612,28 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/07/09/zenoss-30-release-candidate-1-rc1-has-been-posted#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/07/09/zenoss-30-release-candidate-1-rc1-has-been-posted#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/07/09/zenoss-30-release-candidate-1-rc1-has-been-posted"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/07/09/zenoss-30-release-candidate-1-rc1-has-been-posted"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenpack">zenpack</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/python">python</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/beta">beta</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/trac">trac</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/ticket">ticket</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/3.0">3.0</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/newui">newui</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/zenpack">zenpack</a>,
+                         <a href="community/testing/blog/tags/python">python</a>,
+                         <a href="community/testing/blog/tags/beta">beta</a>,
+                         <a href="community/testing/blog/tags/trac">trac</a>,
+                         <a href="community/testing/blog/tags/ticket">ticket</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/3.0">3.0</a>,
+                         <a href="community/testing/blog/tags/newui">newui</a>
                     </span>
 
                 </div>
@@ -903,7 +662,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -912,7 +671,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/06/08/zenoss-30-beta-1-released-qa-test-day-061010#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/06/08/zenoss-30-beta-1-released-qa-test-day-061010#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -921,7 +680,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/06/08/zenoss-30-beta-1-released-qa-test-day-061010" class="font-color-normal">Zenoss 3.0 Beta #1 released, QA Test Day 06.10.10</a> </h2>
+                        <h2><a href="community/testing/blog/2010/06/08/zenoss-30-beta-1-released-qa-test-day-061010" class="font-color-normal">Zenoss 3.0 Beta #1 released, QA Test Day 06.10.10</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -947,7 +706,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:043a7386-70f6-4d95-9b3c-373dd4d57570] --><div class="jive-rendered-content"><p>It's here!&#160; While folks have been able to take a look at <a class="jive-link-external-small" href="http://public-demo.zenoss.com/">http://public-demo.zenoss.com/</a> (login is admin/zenoss) for some time, and the four Zenoss 3.0 Alpha releases were downloaded by a large number of folks, I am proud today to announce the first 3.0 beta! Since the last alpha that was posted, we have fixed over 100 outstanding tickets, and gotten upgrades from previous Zenoss versions running.&#160; Note that for beta #1 the only artifacts available are RPMs; expect the stack installers to be along for beta #2.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>From the original alpha blog post - "Zenoss 3.0 includes a number of bug fixes,&#160; and, most importantly, a completed redesigned user interface, as well&#160; as Python 2.6 and Zope 2.12.&#160; The new user interface features an updated&#160; framework, new navigation layout, and redesigned pages."</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The upgrade process from 2.5.x to 3.0 should follow the same process from 2.4 to 2.5 (I would use those instructions for references).&#160; I would love to get any feedback in the Zenoss Testing forum about issues you saw with the upgrades, so we can try and get those fixes in to make beta #2 (ostensibly next week).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This&#160; Thursday, June 10th, from 10am EST until 5pm EST, the Zenoss QA team&#160; will be available for collecting feedback, answering any questions, and&#160; testing any issues that are reported with the 3.0 beta.&#160; The 3.0 Beta&#160; can be reached from our "alpha" server, <a class="jive-link-external-small" href="http://alpha.zenoss.com/2.5.70-beta/">http://alpha.zenoss.com/2.5.70-beta/</a>.&#160;&#160; For a quick glance at the outstanding Stone Crab tickets, you can also&#160; view the developer queue Trac report (#3) - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a>.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For&#160; those of you that wish to join us on IRC, we will be running this session on</p><p>Server:&#160; <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll also record a transcript of the day's conversations and links will be available from the <a class="jive-link-community-small" href="http://community.zenoss.org/community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:043a7386-70f6-4d95-9b3c-373dd4d57570] -->
+                    <!-- [DocumentBodyStart:043a7386-70f6-4d95-9b3c-373dd4d57570] --><div class="jive-rendered-content"><p>It's here!&#160; While folks have been able to take a look at <a class="jive-link-external-small" href="http://public-demo.zenoss.com/">http://public-demo.zenoss.com/</a> (login is admin/zenoss) for some time, and the four Zenoss 3.0 Alpha releases were downloaded by a large number of folks, I am proud today to announce the first 3.0 beta! Since the last alpha that was posted, we have fixed over 100 outstanding tickets, and gotten upgrades from previous Zenoss versions running.&#160; Note that for beta #1 the only artifacts available are RPMs; expect the stack installers to be along for beta #2.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>From the original alpha blog post - "Zenoss 3.0 includes a number of bug fixes,&#160; and, most importantly, a completed redesigned user interface, as well&#160; as Python 2.6 and Zope 2.12.&#160; The new user interface features an updated&#160; framework, new navigation layout, and redesigned pages."</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The upgrade process from 2.5.x to 3.0 should follow the same process from 2.4 to 2.5 (I would use those instructions for references).&#160; I would love to get any feedback in the Zenoss Testing forum about issues you saw with the upgrades, so we can try and get those fixes in to make beta #2 (ostensibly next week).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This&#160; Thursday, June 10th, from 10am EST until 5pm EST, the Zenoss QA team&#160; will be available for collecting feedback, answering any questions, and&#160; testing any issues that are reported with the 3.0 beta.&#160; The 3.0 Beta&#160; can be reached from our "alpha" server, <a class="jive-link-external-small" href="http://alpha.zenoss.com/2.5.70-beta/">http://alpha.zenoss.com/2.5.70-beta/</a>.&#160;&#160; For a quick glance at the outstanding Stone Crab tickets, you can also&#160; view the developer queue Trac report (#3) - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a>.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For&#160; those of you that wish to join us on IRC, we will be running this session on</p><p>Server:&#160; <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll also record a transcript of the day's conversations and links will be available from the <a class="jive-link-community-small" href="community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:043a7386-70f6-4d95-9b3c-373dd4d57570] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -960,27 +719,27 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/06/08/zenoss-30-beta-1-released-qa-test-day-061010#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/06/08/zenoss-30-beta-1-released-qa-test-day-061010#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/06/08/zenoss-30-beta-1-released-qa-test-day-061010"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/06/08/zenoss-30-beta-1-released-qa-test-day-061010"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/python">python</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/beta">beta</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/3.0">3.0</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/newui">newui</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/python">python</a>,
+                         <a href="community/testing/blog/tags/beta">beta</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>,
+                         <a href="community/testing/blog/tags/3.0">3.0</a>,
+                         <a href="community/testing/blog/tags/newui">newui</a>
                     </span>
 
                 </div>
@@ -1009,7 +768,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1018,7 +777,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/05/20/work-continues-on-releasing-the-30-beta#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/05/20/work-continues-on-releasing-the-30-beta#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -1027,7 +786,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/05/20/work-continues-on-releasing-the-30-beta" class="font-color-normal">Work continues on releasing the "3.0" Beta</a> </h2>
+                        <h2><a href="community/testing/blog/2010/05/20/work-continues-on-releasing-the-30-beta" class="font-color-normal">Work continues on releasing the "3.0" Beta</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1066,22 +825,22 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/05/20/work-continues-on-releasing-the-30-beta#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/05/20/work-continues-on-releasing-the-30-beta#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/05/20/work-continues-on-releasing-the-30-beta"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/05/20/work-continues-on-releasing-the-30-beta"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/beta">beta</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/3.0">3.0</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/beta">beta</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/3.0">3.0</a>
                     </span>
 
                 </div>
@@ -1110,7 +869,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1119,7 +878,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/05/12/alpha-4-released-qa-test-day-on-051310#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/05/12/alpha-4-released-qa-test-day-on-051310#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -1128,7 +887,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/05/12/alpha-4-released-qa-test-day-on-051310" class="font-color-normal">Alpha #4 released, QA Test Day on 05.13.10</a> </h2>
+                        <h2><a href="community/testing/blog/2010/05/12/alpha-4-released-qa-test-day-on-051310" class="font-color-normal">Alpha #4 released, QA Test Day on 05.13.10</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1154,7 +913,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:d8f20788-f9aa-4070-a58e-1fc1eef9f2e4] --><div class="jive-rendered-content"><p>The fourth revision of the full Zenoss 3.0 (2.5.70) alpha release is now available for&#160; download and&#160; installation.&#160; Zenoss 3.0 includes a number of bug fixes,&#160; and, most importantly, a completed redesigned user interface, as well&#160; as Python 2.6 and Zope 2.12.&#160; The new user interface features an updated&#160; framework, new navigation layout, and redesigned pages.&#160; This will also&#160; be important for ZenPack authors, as this is the first time that they&#160; can test their ZenPack compatibility with the latest UI changes, and see&#160; how things work with the new user interface (newUI).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This&#160; Thursday, May 13th, , from roughly 10am EST until 5pm EST, the Zenoss QA team&#160; will be available for collecting feedback, answering any questions, and&#160; testing any issues that may arise with your 3.0 testing.&#160; The 3.0 alpha&#160; can be reached from our alpha server, <a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.70-alpha/">http://alpha.zenoss.com/files/2.5.70-alpha/</a>.&#160;&#160; For a quick glance at the outstanding Stone Crab tickets, you can also&#160; view the Trac report #3 (developer queue) - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For&#160; those of you&#160; that wish to join, we will be running this session&#160; on</p><p>Server:&#160; <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll&#160;&#160; record a transcript of the day's&#160; conversations and links will be&#160;&#160; available from the <a class="jive-link-community-small" href="http://community.zenoss.org/community/testing">Testing</a> and&#160; <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>JUST IN!</p><ul><li>over 60 ticket fixes<br/></li></ul><h2><br/></h2></div><!-- [DocumentBodyEnd:d8f20788-f9aa-4070-a58e-1fc1eef9f2e4] -->
+                    <!-- [DocumentBodyStart:d8f20788-f9aa-4070-a58e-1fc1eef9f2e4] --><div class="jive-rendered-content"><p>The fourth revision of the full Zenoss 3.0 (2.5.70) alpha release is now available for&#160; download and&#160; installation.&#160; Zenoss 3.0 includes a number of bug fixes,&#160; and, most importantly, a completed redesigned user interface, as well&#160; as Python 2.6 and Zope 2.12.&#160; The new user interface features an updated&#160; framework, new navigation layout, and redesigned pages.&#160; This will also&#160; be important for ZenPack authors, as this is the first time that they&#160; can test their ZenPack compatibility with the latest UI changes, and see&#160; how things work with the new user interface (newUI).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This&#160; Thursday, May 13th, , from roughly 10am EST until 5pm EST, the Zenoss QA team&#160; will be available for collecting feedback, answering any questions, and&#160; testing any issues that may arise with your 3.0 testing.&#160; The 3.0 alpha&#160; can be reached from our alpha server, <a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.70-alpha/">http://alpha.zenoss.com/files/2.5.70-alpha/</a>.&#160;&#160; For a quick glance at the outstanding Stone Crab tickets, you can also&#160; view the Trac report #3 (developer queue) - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For&#160; those of you&#160; that wish to join, we will be running this session&#160; on</p><p>Server:&#160; <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll&#160;&#160; record a transcript of the day's&#160; conversations and links will be&#160;&#160; available from the <a class="jive-link-community-small" href="community/testing">Testing</a> and&#160; <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>JUST IN!</p><ul><li>over 60 ticket fixes<br/></li></ul><h2><br/></h2></div><!-- [DocumentBodyEnd:d8f20788-f9aa-4070-a58e-1fc1eef9f2e4] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -1167,29 +926,29 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/05/12/alpha-4-released-qa-test-day-on-051310#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/05/12/alpha-4-released-qa-test-day-on-051310#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/05/12/alpha-4-released-qa-test-day-on-051310"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/05/12/alpha-4-released-qa-test-day-on-051310"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test">test</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testlink">testlink</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testcase">testcase</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_case">test_case</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_link">test_link</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/3.0">3.0</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/test">test</a>,
+                         <a href="community/testing/blog/tags/testlink">testlink</a>,
+                         <a href="community/testing/blog/tags/testcase">testcase</a>,
+                         <a href="community/testing/blog/tags/test_case">test_case</a>,
+                         <a href="community/testing/blog/tags/test_link">test_link</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>,
+                         <a href="community/testing/blog/tags/3.0">3.0</a>
                     </span>
 
                 </div>
@@ -1218,7 +977,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1227,7 +986,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/05/05/050610--qa-test-day--zenoss-30-alpha-3#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/05/05/050610--qa-test-day--zenoss-30-alpha-3#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -1236,7 +995,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/05/05/050610--qa-test-day--zenoss-30-alpha-3" class="font-color-normal">05.06.10 - QA Test Day - Zenoss 3.0 Alpha #3</a> </h2>
+                        <h2><a href="community/testing/blog/2010/05/05/050610--qa-test-day--zenoss-30-alpha-3" class="font-color-normal">05.06.10 - QA Test Day - Zenoss 3.0 Alpha #3</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1262,7 +1021,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:79bbcf33-2143-42e9-b407-ad6aa1a3adc6] --><div class="jive-rendered-content"><p>The third revision of the full Zenoss 3.0 (2.5.70) alpha release is now available for&#160; download and&#160; installation.&#160; Zenoss 3.0 includes a number of bug fixes,&#160; and, most importantly, a completed redesigned user interface, as well&#160; as Python 2.6 and Zope 2.12.&#160; The new user interface features an updated&#160; framework, new navigation layout, and redesigned pages.&#160; This will also&#160; be important for ZenPack authors, as this is the first time that they&#160; can test their ZenPack compatibility with the latest UI changes, and see&#160; how things work with the new user interface (newUI).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This&#160; Thursday, May 6th, , from roughly 10am EST until 5pm EST, the Zenoss QA team&#160; will be available for collecting feedback, answering any questions, and&#160; testing any issues that may arise with your 3.0 testing.&#160; The 3.0 alpha&#160; can be reached from our alpha server, <a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.70-alpha/">http://alpha.zenoss.com/files/2.5.70-alpha/</a>.&#160;&#160; For a quick glance at the outstanding Stone Crab tickets, you can also&#160; view the Trac report #3 (developer queue) - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For&#160; those of you&#160; that wish to join, we will be running this session&#160; on</p><p>Server:&#160; <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll&#160;&#160; record a transcript of the day's&#160; conversations and links will be&#160;&#160; available from the <a class="jive-link-community-small" href="http://community.zenoss.org/community/testing">Testing</a> and&#160; <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>JUST IN!</p><ul><li>Updated Device Details page</li><li>over 40 ticket fixes<br/></li></ul><h2><br/></h2></div><!-- [DocumentBodyEnd:79bbcf33-2143-42e9-b407-ad6aa1a3adc6] -->
+                    <!-- [DocumentBodyStart:79bbcf33-2143-42e9-b407-ad6aa1a3adc6] --><div class="jive-rendered-content"><p>The third revision of the full Zenoss 3.0 (2.5.70) alpha release is now available for&#160; download and&#160; installation.&#160; Zenoss 3.0 includes a number of bug fixes,&#160; and, most importantly, a completed redesigned user interface, as well&#160; as Python 2.6 and Zope 2.12.&#160; The new user interface features an updated&#160; framework, new navigation layout, and redesigned pages.&#160; This will also&#160; be important for ZenPack authors, as this is the first time that they&#160; can test their ZenPack compatibility with the latest UI changes, and see&#160; how things work with the new user interface (newUI).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This&#160; Thursday, May 6th, , from roughly 10am EST until 5pm EST, the Zenoss QA team&#160; will be available for collecting feedback, answering any questions, and&#160; testing any issues that may arise with your 3.0 testing.&#160; The 3.0 alpha&#160; can be reached from our alpha server, <a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.70-alpha/">http://alpha.zenoss.com/files/2.5.70-alpha/</a>.&#160;&#160; For a quick glance at the outstanding Stone Crab tickets, you can also&#160; view the Trac report #3 (developer queue) - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For&#160; those of you&#160; that wish to join, we will be running this session&#160; on</p><p>Server:&#160; <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll&#160;&#160; record a transcript of the day's&#160; conversations and links will be&#160;&#160; available from the <a class="jive-link-community-small" href="community/testing">Testing</a> and&#160; <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>JUST IN!</p><ul><li>Updated Device Details page</li><li>over 40 ticket fixes<br/></li></ul><h2><br/></h2></div><!-- [DocumentBodyEnd:79bbcf33-2143-42e9-b407-ad6aa1a3adc6] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -1275,27 +1034,27 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/05/05/050610--qa-test-day--zenoss-30-alpha-3#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/05/05/050610--qa-test-day--zenoss-30-alpha-3#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/05/05/050610--qa-test-day--zenoss-30-alpha-3"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/05/05/050610--qa-test-day--zenoss-30-alpha-3"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenpack">zenpack</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenpacks">zenpacks</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/ticket">ticket</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/3.0">3.0</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/zenpack">zenpack</a>,
+                         <a href="community/testing/blog/tags/zenpacks">zenpacks</a>,
+                         <a href="community/testing/blog/tags/ticket">ticket</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>,
+                         <a href="community/testing/blog/tags/3.0">3.0</a>
                     </span>
 
                 </div>
@@ -1324,7 +1083,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1333,7 +1092,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>1</a>
+                            <a href="community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>1</a>
                         </div>
                     </div>
 
@@ -1342,7 +1101,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday" class="font-color-normal">3.0 alpha #1 released, test day this Thursday</a> </h2>
+                        <h2><a href="community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday" class="font-color-normal">3.0 alpha #1 released, test day this Thursday</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1368,7 +1127,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:29730f5e-e2d9-4144-9b31-060d6a394df1] --><div class="jive-rendered-content"><p>The first full Zenoss 3.0 (2.5.70) alpha release is now available for download and&#160; installation.&#160; Zenoss 3.0 includes a number of bug fixes, and, most importantly, a completed redesigned user interface, as well as Python 2.6 and Zope 2.12.&#160; The new user interface features an updated framework, new navigation layout, and redesigned pages.&#160; This will also be important for ZenPack authors, as this is the first time that they can test their ZenPack compatibility with the latest UI changes, and see how things work with the new user interface (newUI).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This Thursday, April 22nd, from 10am EST until 5pm EST, the Zenoss QA team will be available for collecting feedback, answering any questions, and testing any issues that may arise with your 3.0 testing.&#160; The 3.0 alpha can be reached from our alpha server, <a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.70-alpha/">http://alpha.zenoss.com/files/2.5.70-alpha/</a>.&#160; For a quick glance at the outstanding Stone Crab tickets, you can also view the Trac report #3 (developer queue) - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For those of you&#160; that wish to join, we will be running this session&#160; on</p><p>Server: <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll&#160; record a transcript of the day's&#160; conversations and links will be&#160; available from the <a class="jive-link-community-small" href="http://community.zenoss.org/community/testing">Testing</a> and&#160; <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Current issues:</p><p><span> 1) </span><a class="jive-link-external-small" href="http://dev.zenoss.com/trac/ticket/6303">http://dev.zenoss.com/trac/ticket/6303</a><span> - Submit button on Step2: Specify or Discover Devices to Monitor is broken</span></p><p>workaround: Just click to skip to dashboard from the wizard, and then add your devices through the new UI</p><h2><br/></h2></div><!-- [DocumentBodyEnd:29730f5e-e2d9-4144-9b31-060d6a394df1] -->
+                    <!-- [DocumentBodyStart:29730f5e-e2d9-4144-9b31-060d6a394df1] --><div class="jive-rendered-content"><p>The first full Zenoss 3.0 (2.5.70) alpha release is now available for download and&#160; installation.&#160; Zenoss 3.0 includes a number of bug fixes, and, most importantly, a completed redesigned user interface, as well as Python 2.6 and Zope 2.12.&#160; The new user interface features an updated framework, new navigation layout, and redesigned pages.&#160; This will also be important for ZenPack authors, as this is the first time that they can test their ZenPack compatibility with the latest UI changes, and see how things work with the new user interface (newUI).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This Thursday, April 22nd, from 10am EST until 5pm EST, the Zenoss QA team will be available for collecting feedback, answering any questions, and testing any issues that may arise with your 3.0 testing.&#160; The 3.0 alpha can be reached from our alpha server, <a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.70-alpha/">http://alpha.zenoss.com/files/2.5.70-alpha/</a>.&#160; For a quick glance at the outstanding Stone Crab tickets, you can also view the Trac report #3 (developer queue) - <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For those of you&#160; that wish to join, we will be running this session&#160; on</p><p>Server: <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll&#160; record a transcript of the day's&#160; conversations and links will be&#160; available from the <a class="jive-link-community-small" href="community/testing">Testing</a> and&#160; <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Current issues:</p><p><span> 1) </span><a class="jive-link-external-small" href="http://dev.zenoss.com/trac/ticket/6303">http://dev.zenoss.com/trac/ticket/6303</a><span> - Submit button on Step2: Specify or Discover Devices to Monitor is broken</span></p><p>workaround: Just click to skip to dashboard from the wizard, and then add your devices through the new UI</p><h2><br/></h2></div><!-- [DocumentBodyEnd:29730f5e-e2d9-4144-9b31-060d6a394df1] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -1381,30 +1140,30 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday#comments"><span class="jive-icon-sml jive-icon-comment"></span>1&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday#comments"><span class="jive-icon-sml jive-icon-comment"></span>1&nbsp;Comments</a>
                         </span>
 
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenpack">zenpack</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenpacks">zenpacks</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/trac">trac</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/ticket">ticket</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/3.0">3.0</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/newui">newui</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/zenpack">zenpack</a>,
+                         <a href="community/testing/blog/tags/zenpacks">zenpacks</a>,
+                         <a href="community/testing/blog/tags/trac">trac</a>,
+                         <a href="community/testing/blog/tags/ticket">ticket</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>,
+                         <a href="community/testing/blog/tags/3.0">3.0</a>,
+                         <a href="community/testing/blog/tags/newui">newui</a>
                     </span>
 
                 </div>
@@ -1433,7 +1192,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1442,7 +1201,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>2</a>
+                            <a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>2</a>
                         </div>
                     </div>
 
@@ -1451,7 +1210,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases" class="font-color-normal">Desperately seeking community test cases!</a> </h2>
+                        <h2><a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases" class="font-color-normal">Desperately seeking community test cases!</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1490,27 +1249,27 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#comments"><span class="jive-icon-sml jive-icon-comment"></span>2&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#comments"><span class="jive-icon-sml jive-icon-comment"></span>2&nbsp;Comments</a>
                         </span>
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>0&nbsp;References</a>
+                            <a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>0&nbsp;References</a>
                         </span>
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test">test</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testlink">testlink</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testcase">testcase</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_case">test_case</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_link">test_link</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/test">test</a>,
+                         <a href="community/testing/blog/tags/testlink">testlink</a>,
+                         <a href="community/testing/blog/tags/testcase">testcase</a>,
+                         <a href="community/testing/blog/tags/test_case">test_case</a>,
+                         <a href="community/testing/blog/tags/test_link">test_link</a>
                     </span>
 
                 </div>
@@ -1539,7 +1298,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1548,7 +1307,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -1557,7 +1316,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades" class="font-color-normal">QA Test Day - official 2.5.2 upgrades!</a> </h2>
+                        <h2><a href="community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades" class="font-color-normal">QA Test Day - official 2.5.2 upgrades!</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1583,7 +1342,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:b9f8f2eb-dce0-4e19-bf35-b6403a0ecfce] --><div class="jive-rendered-content"><p>The final Zenoss 2.5.2 release is now available for download and installation.&#160; Zenoss 2.5.2 is our largest maintenance release since I have been with the company, with over 145 fixes between internal and external combined.&#160; It also includes the new Xen core zenpack, which allows monitoring of Xen servers.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>While development with the new trunk UI continues, I felt that one last QA test day to cover this 2.5.2 interim release was called for.&#160; This Thursday, March 4th, from 10am until 5pm EST, the Zenoss QA team will be available for answering questions and testing any issues that may arise with your upgrades from 2.5.1 and 2.4.x to 2.5.2.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The code can be found on the normal download locations.&#160; For a list of the tickets fixed, and to view some important release details, please reference the Zenoss 2.5.2 Community Release Notes.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For those of you that wish to join, we will be running this session&#160; on</p><p>Server: <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll record a transcript of the day's&#160; conversations and links will be available from the <a class="jive-link-community-small" href="http://community.zenoss.org/community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:b9f8f2eb-dce0-4e19-bf35-b6403a0ecfce] -->
+                    <!-- [DocumentBodyStart:b9f8f2eb-dce0-4e19-bf35-b6403a0ecfce] --><div class="jive-rendered-content"><p>The final Zenoss 2.5.2 release is now available for download and installation.&#160; Zenoss 2.5.2 is our largest maintenance release since I have been with the company, with over 145 fixes between internal and external combined.&#160; It also includes the new Xen core zenpack, which allows monitoring of Xen servers.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>While development with the new trunk UI continues, I felt that one last QA test day to cover this 2.5.2 interim release was called for.&#160; This Thursday, March 4th, from 10am until 5pm EST, the Zenoss QA team will be available for answering questions and testing any issues that may arise with your upgrades from 2.5.1 and 2.4.x to 2.5.2.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The code can be found on the normal download locations.&#160; For a list of the tickets fixed, and to view some important release details, please reference the Zenoss 2.5.2 Community Release Notes.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For those of you that wish to join, we will be running this session&#160; on</p><p>Server: <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel:&#160; <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll record a transcript of the day's&#160; conversations and links will be available from the <a class="jive-link-community-small" href="community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:b9f8f2eb-dce0-4e19-bf35-b6403a0ecfce] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -1596,25 +1355,25 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/community">community</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/2.5">2.5</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/2.5.2">2.5.2</a>
+                         <a href="community/testing/blog/tags/community">community</a>,
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/2.5">2.5</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>,
+                         <a href="community/testing/blog/tags/2.5.2">2.5.2</a>
                     </span>
 
                 </div>
@@ -1643,7 +1402,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1652,7 +1411,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -1661,7 +1420,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day" class="font-color-normal">Zenoss 2.5.2 Beta RC - QA Test Day</a> </h2>
+                        <h2><a href="community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day" class="font-color-normal">Zenoss 2.5.2 Beta RC - QA Test Day</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1687,7 +1446,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:abcee9be-e549-4f9c-8f54-08e5e2efe00f] --><div class="jive-rendered-content"><p><span>Thursday, February 4th will be the third Zenoss QA Test Day, this time covering our 2.5.2 release candidates.&#160; For a quick look at what is fixed to the 2.5.2 release, you can view report #6 on Trac - </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a><span>.&#160; A number of fixes around the Event Console have made it in, as well as hardening around ZenPack installs, network hierarchy nesting fixes, and some zenmib fixes.&#160; Altogether, 85 are fixed in 2.5.2.&#160; The primary goal of this Test Day is to catch any issues that might make the launch difficult.&#160; Special focus will again be directed to the updated Event Console and the resulting fixes.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>As always, my stretch goal is to get some community members interacting directly with Test Link.&#160; In order for Zenoss' QA efforts to scale with new features as well as continue to increase regression coverage, we will need assistance from the community.&#160; The benefits to product quality go both directions, though, and I hope that more people will realize how important this is as we move forward.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Download artifacts for test (updated artifacts should be posted Monday/Tuesday):</p><p><a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.2-beta">http://alpha.zenoss.com/files/2.5.2-beta</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Tickets included in 2.5.2:</p><p><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/query?group=patch_state&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=priority&amp;col=milestone&amp;col=component&amp;col=changetime&amp;order=status&amp;report=6&amp;patch=2.5.2">http://dev.zenoss.org/trac/query?group=patch_state&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=priority&amp;col=milestone&amp;col=component&amp;col=changetime&amp;order=status&amp;report=6&amp;patch=2.5.2</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Zenoss QA Test Day forum post:</p><p><a class="jive-link-thread-small" href="../../thread/12540.html">http://community.zenoss.org/thread/12540</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For those of you that wish to join, we will be running this session on</p><p>Server: <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel: <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll record a transcript of the day's conversations and links will be available from the <a class="jive-link-community-small" href="http://community.zenoss.org/community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:abcee9be-e549-4f9c-8f54-08e5e2efe00f] -->
+                    <!-- [DocumentBodyStart:abcee9be-e549-4f9c-8f54-08e5e2efe00f] --><div class="jive-rendered-content"><p><span>Thursday, February 4th will be the third Zenoss QA Test Day, this time covering our 2.5.2 release candidates.&#160; For a quick look at what is fixed to the 2.5.2 release, you can view report #6 on Trac - </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a><span>.&#160; A number of fixes around the Event Console have made it in, as well as hardening around ZenPack installs, network hierarchy nesting fixes, and some zenmib fixes.&#160; Altogether, 85 are fixed in 2.5.2.&#160; The primary goal of this Test Day is to catch any issues that might make the launch difficult.&#160; Special focus will again be directed to the updated Event Console and the resulting fixes.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>As always, my stretch goal is to get some community members interacting directly with Test Link.&#160; In order for Zenoss' QA efforts to scale with new features as well as continue to increase regression coverage, we will need assistance from the community.&#160; The benefits to product quality go both directions, though, and I hope that more people will realize how important this is as we move forward.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Download artifacts for test (updated artifacts should be posted Monday/Tuesday):</p><p><a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.2-beta">http://alpha.zenoss.com/files/2.5.2-beta</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Tickets included in 2.5.2:</p><p><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/query?group=patch_state&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=priority&amp;col=milestone&amp;col=component&amp;col=changetime&amp;order=status&amp;report=6&amp;patch=2.5.2">http://dev.zenoss.org/trac/query?group=patch_state&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=priority&amp;col=milestone&amp;col=component&amp;col=changetime&amp;order=status&amp;report=6&amp;patch=2.5.2</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Zenoss QA Test Day forum post:</p><p><a class="jive-link-thread-small" href="../../thread/12540.html">thread/12540</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For those of you that wish to join, we will be running this session on</p><p>Server: <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel: <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll record a transcript of the day's conversations and links will be available from the <a class="jive-link-community-small" href="community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:abcee9be-e549-4f9c-8f54-08e5e2efe00f] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -1700,35 +1459,35 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>2&nbsp;References</a>
+                            <a href="community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>2&nbsp;References</a>
                         </span>
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/events">events</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/beta">beta</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/trac">trac</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/2.5">2.5</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testlink">testlink</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testcase">testcase</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_case">test_case</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_link">test_link</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/ticket">ticket</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/events">events</a>,
+                         <a href="community/testing/blog/tags/beta">beta</a>,
+                         <a href="community/testing/blog/tags/trac">trac</a>,
+                         <a href="community/testing/blog/tags/2.5">2.5</a>,
+                         <a href="community/testing/blog/tags/testlink">testlink</a>,
+                         <a href="community/testing/blog/tags/testcase">testcase</a>,
+                         <a href="community/testing/blog/tags/test_case">test_case</a>,
+                         <a href="community/testing/blog/tags/test_link">test_link</a>,
+                         <a href="community/testing/blog/tags/ticket">ticket</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>
                     </span>
 
                 </div>
@@ -1757,7 +1516,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1766,7 +1525,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -1775,7 +1534,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta" class="font-color-normal">Next Zenoss QA Test Day - 2.5.2 Beta</a> </h2>
+                        <h2><a href="community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta" class="font-color-normal">Next Zenoss QA Test Day - 2.5.2 Beta</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1801,7 +1560,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:b199293a-f5b2-42c2-8d33-286db3303d85] --><div class="jive-rendered-content"><p><span>Thursday, January 21st will be the second Zenoss QA Test Day, this time covering our in-development 2.5.2 release.&#160; For a quick look at what is targeted to the 2.5.2 release, you can view report #6 on Trac - </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a><span>.&#160; A number of fixes around the Event Console have made it in, as well as hardening around ZenPack installs, network hierarchy nesting fixes, and some zenmib fixes.&#160; Altogether, almost 80 fixes are targeted to 2.5.2.&#160; The primary goal of the Test Day is to work with the 2.5.2-beta installers, testing fresh installs and upgrades, as well as examining functionality in 2.5.2 itself, to make sure no regressions are present.&#160; Special focus will again be directed to the updated Event Console and the resulting fixes.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>As always, my stretch goal is to get some community members interacting directly with Test Link.&#160; In order for Zenoss' QA efforts to scale with new features as well as continue to increase regression coverage, we will need assistance from the community.&#160; The benefits to product quality go both directions, though, and I hope that more people will realize how important this is as we move forward.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Download artifacts for test:</p><p><a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.2-beta">http://alpha.zenoss.com/files/2.5.2-beta</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Tickets included in 2.5.2:</p><p><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/query?group=patch_state&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=priority&amp;col=milestone&amp;col=component&amp;col=changetime&amp;order=status&amp;report=6&amp;patch=2.5.2">http://dev.zenoss.org/trac/query?group=patch_state&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=priority&amp;col=milestone&amp;col=component&amp;col=changetime&amp;order=status&amp;report=6&amp;patch=2.5.2</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Zenoss QA Test Day forum post:</p><p><a class="jive-link-external-small" href="../../thread/12540.html">http://community.zenoss.org/thread/12540</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For those of you that wish to join, we will be running this session on</p><p>Server: <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel: <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll record a transcript of the day's conversations and links will be available from the <a class="jive-link-community-small" href="http://community.zenoss.org/community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:b199293a-f5b2-42c2-8d33-286db3303d85] -->
+                    <!-- [DocumentBodyStart:b199293a-f5b2-42c2-8d33-286db3303d85] --><div class="jive-rendered-content"><p><span>Thursday, January 21st will be the second Zenoss QA Test Day, this time covering our in-development 2.5.2 release.&#160; For a quick look at what is targeted to the 2.5.2 release, you can view report #6 on Trac - </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/report">http://dev.zenoss.org/trac/report</a><span>.&#160; A number of fixes around the Event Console have made it in, as well as hardening around ZenPack installs, network hierarchy nesting fixes, and some zenmib fixes.&#160; Altogether, almost 80 fixes are targeted to 2.5.2.&#160; The primary goal of the Test Day is to work with the 2.5.2-beta installers, testing fresh installs and upgrades, as well as examining functionality in 2.5.2 itself, to make sure no regressions are present.&#160; Special focus will again be directed to the updated Event Console and the resulting fixes.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>As always, my stretch goal is to get some community members interacting directly with Test Link.&#160; In order for Zenoss' QA efforts to scale with new features as well as continue to increase regression coverage, we will need assistance from the community.&#160; The benefits to product quality go both directions, though, and I hope that more people will realize how important this is as we move forward.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Download artifacts for test:</p><p><a class="jive-link-external-small" href="http://alpha.zenoss.com/files/2.5.2-beta">http://alpha.zenoss.com/files/2.5.2-beta</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Tickets included in 2.5.2:</p><p><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/query?group=patch_state&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=priority&amp;col=milestone&amp;col=component&amp;col=changetime&amp;order=status&amp;report=6&amp;patch=2.5.2">http://dev.zenoss.org/trac/query?group=patch_state&amp;col=id&amp;col=summary&amp;col=status&amp;col=owner&amp;col=priority&amp;col=milestone&amp;col=component&amp;col=changetime&amp;order=status&amp;report=6&amp;patch=2.5.2</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Zenoss QA Test Day forum post:</p><p><a class="jive-link-external-small" href="../../thread/12540.html">thread/12540</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>For those of you that wish to join, we will be running this session on</p><p>Server: <strong>irc.freenode.net</strong> (port 6667)</p><p>Channel: <strong>#zenoss-testing</strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>We'll record a transcript of the day's conversations and links will be available from the <a class="jive-link-community-small" href="community/testing">Testing</a> and <a class="jive-link-community-small" href="../documentation/irc.html">IRC</a> pages.</p></div><!-- [DocumentBodyEnd:b199293a-f5b2-42c2-8d33-286db3303d85] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -1814,35 +1573,35 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>1&nbsp;References</a>
+                            <a href="community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>1&nbsp;References</a>
                         </span>
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/01/18/next-zenoss-qa-test-day--252-beta"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/events">events</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/beta">beta</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/trac">trac</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/2.5">2.5</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testlink">testlink</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testcase">testcase</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_case">test_case</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_link">test_link</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/ticket">ticket</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/events">events</a>,
+                         <a href="community/testing/blog/tags/beta">beta</a>,
+                         <a href="community/testing/blog/tags/trac">trac</a>,
+                         <a href="community/testing/blog/tags/2.5">2.5</a>,
+                         <a href="community/testing/blog/tags/testlink">testlink</a>,
+                         <a href="community/testing/blog/tags/testcase">testcase</a>,
+                         <a href="community/testing/blog/tags/test_case">test_case</a>,
+                         <a href="community/testing/blog/tags/test_link">test_link</a>,
+                         <a href="community/testing/blog/tags/ticket">ticket</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>
                     </span>
 
                 </div>
@@ -1871,7 +1630,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1880,7 +1639,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -1889,7 +1648,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day" class="font-color-normal">Updates and the upcoming Test Day</a> </h2>
+                        <h2><a href="community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day" class="font-color-normal">Updates and the upcoming Test Day</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -1928,28 +1687,28 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>0&nbsp;References</a>
+                            <a href="community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>0&nbsp;References</a>
                         </span>
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2010/01/12/updates-and-the-upcoming-test-day"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/trac">trac</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/ticket">ticket</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/trac">trac</a>,
+                         <a href="community/testing/blog/tags/ticket">ticket</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>
                     </span>
 
                 </div>
@@ -1978,7 +1737,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -1987,7 +1746,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -1996,7 +1755,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added" class="font-color-normal">Many new Event Console test cases have been added!</a> </h2>
+                        <h2><a href="community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added" class="font-color-normal">Many new Event Console test cases have been added!</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -2022,7 +1781,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:f258115f-7908-437b-810e-c4113891f702] --><div class="jive-rendered-content"><p><span>I just wanted to mention to everyone folling the Zenoss Testing Community that a lot of work has gone into the Event Console test cases (as a follow-on to the work that happened on the last community testing day).&#160; 21 new tests cases were added, and a number of older test cases were updated and enhanced.&#160; You can see the forum post describing the test cases and their titles here - </span><a class="jive-link-message-small" href="../../message/44017.html#44017">http://community.zenoss.org/message/44017</a><span>.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Over the coming weeks, more work will go into other areas of the test case repository, as we try and flesh out the Zenoss Regression Suite.</p></div><!-- [DocumentBodyEnd:f258115f-7908-437b-810e-c4113891f702] -->
+                    <!-- [DocumentBodyStart:f258115f-7908-437b-810e-c4113891f702] --><div class="jive-rendered-content"><p><span>I just wanted to mention to everyone folling the Zenoss Testing Community that a lot of work has gone into the Event Console test cases (as a follow-on to the work that happened on the last community testing day).&#160; 21 new tests cases were added, and a number of older test cases were updated and enhanced.&#160; You can see the forum post describing the test cases and their titles here - </span><a class="jive-link-message-small" href="../../message/44017.html#44017">message/44017</a><span>.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Over the coming weeks, more work will go into other areas of the test case repository, as we try and flesh out the Zenoss Regression Suite.</p></div><!-- [DocumentBodyEnd:f258115f-7908-437b-810e-c4113891f702] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -2035,28 +1794,28 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>0&nbsp;References</a>
+                            <a href="community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>0&nbsp;References</a>
                         </span>
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testlink">testlink</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testcase">testcase</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_case">test_case</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_link">test_link</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/testlink">testlink</a>,
+                         <a href="community/testing/blog/tags/testcase">testcase</a>,
+                         <a href="community/testing/blog/tags/test_case">test_case</a>,
+                         <a href="community/testing/blog/tags/test_link">test_link</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>
                     </span>
 
                 </div>
@@ -2085,7 +1844,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -2094,7 +1853,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/11/qa-test-day-retrospective#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2009/12/11/qa-test-day-retrospective#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -2103,7 +1862,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2009/12/11/qa-test-day-retrospective" class="font-color-normal">QA Test Day Retrospective</a> </h2>
+                        <h2><a href="community/testing/blog/2009/12/11/qa-test-day-retrospective" class="font-color-normal">QA Test Day Retrospective</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -2129,7 +1888,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:624162ab-1715-4789-b5a1-fe042c1b837b] --><div class="jive-rendered-content"><p><span>I wanted to take some time and discuss the first Zenoss QA Test Day that took place yesterday (covering the Event Console).&#160; An entire transcript of the chat can be found online at </span><a class="jive-link-wiki-small" href="../../docs/DOC-4611.html">http://community.zenoss.org/docs/DOC-4611</a><span>. </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>First, I wanted to thank all of the attendees that joined #zenoss-testing and participated in the discussion.&#160; For the Test Day, 13 tickets (</span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/query?status=assigned&amp;status=backlog&amp;status=new&amp;order=priority&amp;col=id&amp;col=summary&amp;col=status&amp;col=type&amp;col=priority&amp;col=milestone&amp;col=component&amp;keywords=~testday">http://dev.zenoss.org/trac/query?status=assigned&amp;status=backlog&amp;status=new&amp;order=priority&amp;col=id&amp;col=summary&amp;col=status&amp;col=type&amp;col=priority&amp;col=milestone&amp;col=component&amp;keywords=~testday</a><span>) were inserted around the Event Console and the events documentation in the Administration guide.&#160; 8 new test cases around the Event Console were also added. </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If anyone has any feedback about the test day (what worked well, what could have worked better), please make sure to either comment on this blog post, or add to the zenoss-testing forum post on this topic.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Some ideas that came from the QA group on how we might do things differently in the future:</p><ul><li>Use a collaborative screen-sharing tool (such as dim dim) to help reproduce tickets</li><li>Have a separate Test Day involving the alpha/beta vs. current functionality</li><li>Better adherence to (and a better defined) agenda for the test day</li><li>Repetitive tasks/operations, since the chat lasts for 8 hours, repeatedly revisit areas on a regular basis</li></ul><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I would love to hear what other ideas folks have, and want to thank everyone for going easy on us with this first chat!</p></div><!-- [DocumentBodyEnd:624162ab-1715-4789-b5a1-fe042c1b837b] -->
+                    <!-- [DocumentBodyStart:624162ab-1715-4789-b5a1-fe042c1b837b] --><div class="jive-rendered-content"><p><span>I wanted to take some time and discuss the first Zenoss QA Test Day that took place yesterday (covering the Event Console).&#160; An entire transcript of the chat can be found online at </span><a class="jive-link-wiki-small" href="../../docs/DOC-4611.html">docs/DOC-4611</a><span>. </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>First, I wanted to thank all of the attendees that joined #zenoss-testing and participated in the discussion.&#160; For the Test Day, 13 tickets (</span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/query?status=assigned&amp;status=backlog&amp;status=new&amp;order=priority&amp;col=id&amp;col=summary&amp;col=status&amp;col=type&amp;col=priority&amp;col=milestone&amp;col=component&amp;keywords=~testday">http://dev.zenoss.org/trac/query?status=assigned&amp;status=backlog&amp;status=new&amp;order=priority&amp;col=id&amp;col=summary&amp;col=status&amp;col=type&amp;col=priority&amp;col=milestone&amp;col=component&amp;keywords=~testday</a><span>) were inserted around the Event Console and the events documentation in the Administration guide.&#160; 8 new test cases around the Event Console were also added. </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If anyone has any feedback about the test day (what worked well, what could have worked better), please make sure to either comment on this blog post, or add to the zenoss-testing forum post on this topic.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Some ideas that came from the QA group on how we might do things differently in the future:</p><ul><li>Use a collaborative screen-sharing tool (such as dim dim) to help reproduce tickets</li><li>Have a separate Test Day involving the alpha/beta vs. current functionality</li><li>Better adherence to (and a better defined) agenda for the test day</li><li>Repetitive tasks/operations, since the chat lasts for 8 hours, repeatedly revisit areas on a regular basis</li></ul><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I would love to hear what other ideas folks have, and want to thank everyone for going easy on us with this first chat!</p></div><!-- [DocumentBodyEnd:624162ab-1715-4789-b5a1-fe042c1b837b] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -2142,32 +1901,32 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/11/qa-test-day-retrospective#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2009/12/11/qa-test-day-retrospective#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/11/qa-test-day-retrospective#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>1&nbsp;References</a>
+                            <a href="community/testing/blog/2009/12/11/qa-test-day-retrospective#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>1&nbsp;References</a>
                         </span>
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2009/12/11/qa-test-day-retrospective"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2009/12/11/qa-test-day-retrospective"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/trac">trac</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testlink">testlink</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testcase">testcase</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_case">test_case</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_link">test_link</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/ticket">ticket</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/trac">trac</a>,
+                         <a href="community/testing/blog/tags/testlink">testlink</a>,
+                         <a href="community/testing/blog/tags/testcase">testcase</a>,
+                         <a href="community/testing/blog/tags/test_case">test_case</a>,
+                         <a href="community/testing/blog/tags/test_link">test_link</a>,
+                         <a href="community/testing/blog/tags/ticket">ticket</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>
                     </span>
 
                 </div>
@@ -2196,7 +1955,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/32.png?a=1107"
+            src="people/bbibeault/avatar/32.png?a=1107"
             border="0" height="32" width="32"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
@@ -2205,7 +1964,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div class="jive-social-actions">
                         <div class="jive-reply">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/07/zenoss-qa-test-day#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
+                            <a href="community/testing/blog/2009/12/07/zenoss-qa-test-day#comments"><span class="jive-icon-sml jive-icon-comment-add"></span>0</a>
                         </div>
                     </div>
 
@@ -2214,7 +1973,7 @@ class="jiveTT-hover-user jive-username-link"
 
                     <div>
                         <div class="jive-blog-post-subject-header-block">
-                        <h2><a href="http://community.zenoss.org/community/testing/blog/2009/12/07/zenoss-qa-test-day" class="font-color-normal">Zenoss QA Test Day</a> </h2>
+                        <h2><a href="community/testing/blog/2009/12/07/zenoss-qa-test-day" class="font-color-normal">Zenoss QA Test Day</a> </h2>
                         <em>Posted by
 <a href="../../people/bbibeault.html"
 data-externalId=""
@@ -2240,7 +1999,7 @@ class="jiveTT-hover-user jive-username-link"
             <div class="jive-blog-post-body clearfix">
                 <div class="jive-blog-post-message">
                     <!--[if IE]><div class="ie"><![endif]-->
-                    <!-- [DocumentBodyStart:4a6f739f-a632-465e-be2e-285b3ec7ce1f] --><div class="jive-rendered-content"><p><span>This Thursday will be the inaugural Zenoss QA Test Day.&#160; After reading up on a few other groups that seem to be using this test day with significant success, Matt recommended it to the QA group, and it seemed like a great idea.&#160; To see the actual thread describing the test day, you can go directly to it: </span><a class="jive-link-thread-small" href="../../thread/12200.html">http://community.zenoss.org/thread/12200</a><span>.&#160; </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Based on some of the original feedback that came in when 2.5.0 went live, I suspect that a number of community members have reproducible edge cases that have not yet been documented.&#160; My goal for this first test day is to get the outstanding defects entered into the system, and to get test cases to cover these situations in the future, such that we do not regress in the future.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>My stretch goal is to get some community members interacting with directly with Test Link.&#160; In order for Zenoss QA to scale with new features and continue to increase regression coverage, we will need assistance from the community.&#160; The benefits go both directions, though, and I hope that more people will realize this as we move forward.</p></div><!-- [DocumentBodyEnd:4a6f739f-a632-465e-be2e-285b3ec7ce1f] -->
+                    <!-- [DocumentBodyStart:4a6f739f-a632-465e-be2e-285b3ec7ce1f] --><div class="jive-rendered-content"><p><span>This Thursday will be the inaugural Zenoss QA Test Day.&#160; After reading up on a few other groups that seem to be using this test day with significant success, Matt recommended it to the QA group, and it seemed like a great idea.&#160; To see the actual thread describing the test day, you can go directly to it: </span><a class="jive-link-thread-small" href="../../thread/12200.html">thread/12200</a><span>.&#160; </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Based on some of the original feedback that came in when 2.5.0 went live, I suspect that a number of community members have reproducible edge cases that have not yet been documented.&#160; My goal for this first test day is to get the outstanding defects entered into the system, and to get test cases to cover these situations in the future, such that we do not regress in the future.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>My stretch goal is to get some community members interacting with directly with Test Link.&#160; In order for Zenoss QA to scale with new features and continue to increase regression coverage, we will need assistance from the community.&#160; The benefits go both directions, though, and I hope that more people will realize this as we move forward.</p></div><!-- [DocumentBodyEnd:4a6f739f-a632-465e-be2e-285b3ec7ce1f] -->
                     <!--[if IE]></div><![endif]-->
                 </div>
 
@@ -2253,30 +2012,30 @@ class="jiveTT-hover-user jive-username-link"
 
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/07/zenoss-qa-test-day#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
+                            <a href="community/testing/blog/2009/12/07/zenoss-qa-test-day#comments"><span class="jive-icon-sml jive-icon-comment"></span>0&nbsp;Comments</a>
                         </span>
 
                         <span class="jive-content-footer-item">
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/07/zenoss-qa-test-day#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>0&nbsp;References</a>
+                            <a href="community/testing/blog/2009/12/07/zenoss-qa-test-day#trackbacks"><span class="jive-icon-sml jive-icon-blog-trackbacks"></span>0&nbsp;References</a>
                         </span>
 
                     <span class="jive-content-footer-item">
-                        <a href="http://community.zenoss.org/community/testing/blog/2009/12/07/zenoss-qa-test-day"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
+                        <a href="community/testing/blog/2009/12/07/zenoss-qa-test-day"><span class="jive-icon-med jive-icon-link"></span>Permalink</a>
                     </span>
 
                     <!-- Start TagSets/Categories -->
                     <!-- End TagSets/Categories -->
                     <span class="jive-content-footer-item"><span class="jive-icon-sml jive-icon-tag"></span>Tags:
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testing">testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testlink">testlink</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testcase">testcase</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_case">test_case</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_link">test_link</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/defect">defect</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/alpha">alpha</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/test_day">test_day</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
-                         <a href="http://community.zenoss.org/community/testing/blog/tags/testday">testday</a>
+                         <a href="community/testing/blog/tags/testing">testing</a>,
+                         <a href="community/testing/blog/tags/testlink">testlink</a>,
+                         <a href="community/testing/blog/tags/testcase">testcase</a>,
+                         <a href="community/testing/blog/tags/test_case">test_case</a>,
+                         <a href="community/testing/blog/tags/test_link">test_link</a>,
+                         <a href="community/testing/blog/tags/defect">defect</a>,
+                         <a href="community/testing/blog/tags/alpha">alpha</a>,
+                         <a href="community/testing/blog/tags/test_day">test_day</a>,
+                         <a href="community/testing/blog/tags/zenoss-testing">zenoss-testing</a>,
+                         <a href="community/testing/blog/tags/testday">testday</a>
                     </span>
 
                 </div>
@@ -2341,12 +2100,12 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/benp/avatar/22.png?a=-1"
+            src="people/benp/avatar/22.png?a=-1"
             border="0" height="22" width="22"
             alt="Benjamin PREISS"
             /><span username="benp" style="display:none;"></span></a>
-<a href="http://community.zenoss.org/community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday#comment-1926">Benjamin PREISS</a>
-on                <a href="http://community.zenoss.org/community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday" class="jive-blog-entry">
+<a href="community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday#comment-1926">Benjamin PREISS</a>
+on                <a href="community/testing/blog/2010/04/20/30-alpha-1-released-test-day-this-thursday" class="jive-blog-entry">
                     3.0 alpha #1 released, test day this Thursday
                 </a>
                 </li>
@@ -2363,18 +2122,18 @@ on                <a href="http://community.zenoss.org/community/testing/blog/20
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/bbibeault/avatar/22.png?a=1107"
+            src="people/bbibeault/avatar/22.png?a=1107"
             border="0" height="22" width="22"
             alt="bbibeault"
             /><span username="bbibeault" style="display:none;"></span></a>
-<a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#comment-1904">bbibeault</a>
-on                <a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases" class="jive-blog-entry">
+<a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#comment-1904">bbibeault</a>
+on                <a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases" class="jive-blog-entry">
                     Desperately seeking community test cases!
                 </a>
                 </li>
                 <li class="clearfix font-color-meta">
 
-<a href="http://community.zenoss.org/people/jcurry"
+<a href="people/jcurry"
    data-externalId=""
    data-username="jcurry"
    data-avatarId="1412"
@@ -2385,12 +2144,12 @@ on                <a href="http://community.zenoss.org/community/testing/blog/20
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/jcurry/avatar/22.png?a=1412"
+            src="people/jcurry/avatar/22.png?a=1412"
             border="0" height="22" width="22"
             alt="jcurry"
             /><span username="jcurry" style="display:none;"></span></a>
-<a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#comment-1903">jcurry</a>
-on                <a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases" class="jive-blog-entry">
+<a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases#comment-1903">jcurry</a>
+on                <a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases" class="jive-blog-entry">
                     Desperately seeking community test cases!
                 </a>
                 </li>
@@ -2407,31 +2166,31 @@ on                <a href="http://community.zenoss.org/community/testing/blog/20
         <div class="jive-box-body jive-sidebar-body jive-sidebar-body-popular">
             <ul class="jive-icon-list">
                     <li>
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/04/05/desperately-seeking-community-test-cases">
+                        <a href="community/testing/blog/2010/04/05/desperately-seeking-community-test-cases">
                             <span class="jive-icon-med jive-icon-blog"></span>
                             Desperately seeking community test cases!
                         </a>
                     </li>
                     <li>
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades">
+                        <a href="community/testing/blog/2010/03/02/qa-test-day--official-252-upgrades">
                             <span class="jive-icon-med jive-icon-blog"></span>
                             QA Test Day - official 2.5.2 upgrades!
                         </a>
                     </li>
                     <li>
-                        <a href="http://community.zenoss.org/community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day">
+                        <a href="community/testing/blog/2010/01/29/zenoss-252-beta-rc--qa-test-day">
                             <span class="jive-icon-med jive-icon-blog"></span>
                             Zenoss 2.5.2 Beta RC - QA Test Day
                         </a>
                     </li>
                     <li>
-                        <a href="http://community.zenoss.org/community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added">
+                        <a href="community/testing/blog/2009/12/28/many-new-event-console-test-cases-have-been-added">
                             <span class="jive-icon-med jive-icon-blog"></span>
                             Many new Event Console test cases have been added!
                         </a>
                     </li>
                     <li>
-                        <a href="http://community.zenoss.org/community/testing/blog/2009/12/11/qa-test-day-retrospective">
+                        <a href="community/testing/blog/2009/12/11/qa-test-day-retrospective">
                             <span class="jive-icon-med jive-icon-blog"></span>
                             QA Test Day Retrospective
                         </a>
@@ -2456,25 +2215,25 @@ on                <a href="http://community.zenoss.org/community/testing/blog/20
 
 
             <ul class="jive-simple-list jive-sidebar-archives">
-                <li><a href="http://community.zenoss.org/community/testing/blog/2010/08">August 2010 </a></li>
+                <li><a href="community/testing/blog/2010/08">August 2010 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2010/07">July 2010 </a></li>
+                <li><a href="community/testing/blog/2010/07">July 2010 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2010/06">June 2010 </a></li>
+                <li><a href="community/testing/blog/2010/06">June 2010 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2010/05">May 2010 </a></li>
+                <li><a href="community/testing/blog/2010/05">May 2010 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2010/04">April 2010 </a></li>
+                <li><a href="community/testing/blog/2010/04">April 2010 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2010/03">March 2010 </a></li>
+                <li><a href="community/testing/blog/2010/03">March 2010 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2010/02">February 2010 </a></li>
+                <li><a href="community/testing/blog/2010/02">February 2010 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2010/01">January 2010 </a></li>
+                <li><a href="community/testing/blog/2010/01">January 2010 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2009/12">December 2009 </a></li>
+                <li><a href="community/testing/blog/2009/12">December 2009 </a></li>
                 
-                <li><a href="http://community.zenoss.org/community/testing/blog/2009/11">November 2009 </a></li>
+                <li><a href="community/testing/blog/2009/11">November 2009 </a></li>
                 
             </ul>
 
@@ -2482,21 +2241,21 @@ on                <a href="http://community.zenoss.org/community/testing/blog/20
 
     <strong>By tag:</strong>
     <ul class="jive-tagcloud-list jive-sidebar-populartags">
-            <li class="jive-tagset-popularity0"><a href="http://community.zenoss.org/community/testing/blog/tags/3.0" title="Used 6 times">3.0</a></li>
-            <li class="jive-tagset-popularity5"><a href="http://community.zenoss.org/community/testing/blog/tags/alpha" title="Used 11 times">alpha</a></li>
-            <li class="jive-tagset-popularity0"><a href="http://community.zenoss.org/community/testing/blog/tags/beta" title="Used 5 times">beta</a></li>
-            <li class="jive-tagset-popularity3"><a href="http://community.zenoss.org/community/testing/blog/tags/community" title="Used 9 times">community</a></li>
-            <li class="jive-tagset-popularity8"><a href="http://community.zenoss.org/community/testing/blog/tags/defect" title="Used 14 times">defect</a></li>
-            <li class="jive-tagset-popularity3"><a href="http://community.zenoss.org/community/testing/blog/tags/test_case" title="Used 9 times">test_case</a></li>
-            <li class="jive-tagset-popularity7"><a href="http://community.zenoss.org/community/testing/blog/tags/test_day" title="Used 13 times">test_day</a></li>
-            <li class="jive-tagset-popularity4"><a href="http://community.zenoss.org/community/testing/blog/tags/test_link" title="Used 10 times">test_link</a></li>
-            <li class="jive-tagset-popularity3"><a href="http://community.zenoss.org/community/testing/blog/tags/testcase" title="Used 9 times">testcase</a></li>
-            <li class="jive-tagset-popularity6"><a href="http://community.zenoss.org/community/testing/blog/tags/testday" title="Used 12 times">testday</a></li>
-            <li class="jive-tagset-popularity9"><a href="http://community.zenoss.org/community/testing/blog/tags/testing" title="Used 15 times">testing</a></li>
-            <li class="jive-tagset-popularity4"><a href="http://community.zenoss.org/community/testing/blog/tags/testlink" title="Used 10 times">testlink</a></li>
-            <li class="jive-tagset-popularity4"><a href="http://community.zenoss.org/community/testing/blog/tags/ticket" title="Used 10 times">ticket</a></li>
-            <li class="jive-tagset-popularity1"><a href="http://community.zenoss.org/community/testing/blog/tags/trac" title="Used 7 times">trac</a></li>
-            <li class="jive-tagset-popularity7"><a href="http://community.zenoss.org/community/testing/blog/tags/zenoss-testing" title="Used 13 times">zenoss-testing</a></li>
+            <li class="jive-tagset-popularity0"><a href="community/testing/blog/tags/3.0" title="Used 6 times">3.0</a></li>
+            <li class="jive-tagset-popularity5"><a href="community/testing/blog/tags/alpha" title="Used 11 times">alpha</a></li>
+            <li class="jive-tagset-popularity0"><a href="community/testing/blog/tags/beta" title="Used 5 times">beta</a></li>
+            <li class="jive-tagset-popularity3"><a href="community/testing/blog/tags/community" title="Used 9 times">community</a></li>
+            <li class="jive-tagset-popularity8"><a href="community/testing/blog/tags/defect" title="Used 14 times">defect</a></li>
+            <li class="jive-tagset-popularity3"><a href="community/testing/blog/tags/test_case" title="Used 9 times">test_case</a></li>
+            <li class="jive-tagset-popularity7"><a href="community/testing/blog/tags/test_day" title="Used 13 times">test_day</a></li>
+            <li class="jive-tagset-popularity4"><a href="community/testing/blog/tags/test_link" title="Used 10 times">test_link</a></li>
+            <li class="jive-tagset-popularity3"><a href="community/testing/blog/tags/testcase" title="Used 9 times">testcase</a></li>
+            <li class="jive-tagset-popularity6"><a href="community/testing/blog/tags/testday" title="Used 12 times">testday</a></li>
+            <li class="jive-tagset-popularity9"><a href="community/testing/blog/tags/testing" title="Used 15 times">testing</a></li>
+            <li class="jive-tagset-popularity4"><a href="community/testing/blog/tags/testlink" title="Used 10 times">testlink</a></li>
+            <li class="jive-tagset-popularity4"><a href="community/testing/blog/tags/ticket" title="Used 10 times">ticket</a></li>
+            <li class="jive-tagset-popularity1"><a href="community/testing/blog/tags/trac" title="Used 7 times">trac</a></li>
+            <li class="jive-tagset-popularity7"><a href="community/testing/blog/tags/zenoss-testing" title="Used 13 times">zenoss-testing</a></li>
     </ul>
 
         
@@ -2557,11 +2316,11 @@ on                <a href="http://community.zenoss.org/community/testing/blog/20
         Community
        <ul class="sitemap">
         <li><a href="../../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -2639,157 +2398,21 @@ on                <a href="http://community.zenoss.org/community/testing/blog/20
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Dev Chat 08/04/2011 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2141&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "B4EAB01E426AFBC5BF0061006B1A6779";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2141&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 11951, 2141, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         11951,
-
-                    containerType:      14,
-                    containerID:        2141,
-
-                    contentObject: {
-                            document:          11951,
-                            version:           1
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=11951",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 11951,
-            containerID: "jive-more-like-this-102-11951",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 11951;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,7 +366,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
                 <a href="../community/documentation/irc.html">
             IRC</a> &gt; 
@@ -828,18 +377,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-11951/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-11951/restore'>
         <input type="hidden" name="version" value="1" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-11951"/>
         <input type="hidden" name="document.restore.DOC-11951" value="1394834647969-K7NI32HR9BSTYXL5FBH8MQ35J97T1VPQ"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-11951/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-11951/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-11951"/>
         <input type="hidden" name="document.delete.DOC-11951" value="1394834647976-MTO6QGMGEQJEFVSXUB6LHKR8RCQ2I08V"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-11951"/>
         <input type="hidden" name="document.publish.DOC-11951" value="1394834647981-HVGTG29JBEMC5SSV8J5XQZKMSP722RVF"/>
         <input type="hidden" name="document" value="DOC-11951" />
@@ -946,7 +495,7 @@ class="jiveTT-hover-user jive-username-link jive-user-disabled"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:301a87bb-95f0-462c-82f2-898de4732e38] --><div class="jive-rendered-content"><p>[04-Aug-2011 10:56:01] &lt;nyeates&gt; rmatte: was it you with the custom report problems a bit ago?</p><p>[04-Aug-2011 10:56:34] &lt;rmatte&gt; nyeates: yes, but I ended up modifying the ZenPack to allow aliases to be added for that datasource type under Zenoss 2.5</p><p>[04-Aug-2011 10:56:51] &lt;rmatte&gt; I know that Kells came up with a working solution which should make it in to 3.2</p><p>[04-Aug-2011 10:56:57] &lt;nyeates&gt; ahhhh, Hackman was on the money!</p><p>[04-Aug-2011 10:57:10] &lt;rmatte&gt; I was pretty sure that he was...</p><p>[04-Aug-2011 10:57:36] &lt;rmatte&gt; but yeh, it still needs to be patched</p><p>[04-Aug-2011 10:57:46] &lt;rmatte&gt; it's an unnecessary limitation</p><p>[04-Aug-2011 10:57:55] &lt;rmatte&gt; apart from that, I love the new way that reports are written</p><p>[04-Aug-2011 10:57:59] &lt;rmatte&gt; way simpler than it was before</p><p>[04-Aug-2011 10:58:12] &lt;rmatte&gt; (for RRD/device property reports anyways)</p><p>[04-Aug-2011 10:58:37] &lt;nyeates&gt; cool - looking for your thread</p><p>[04-Aug-2011 10:58:54] &lt;rmatte&gt; Kells said that he had already opened a trac ticket for it and included a fix in the ticket</p><p>[04-Aug-2011 10:59:06] &lt;nyeates&gt; OH BTW all....this AM we updated Jive community.zenoss.org.... ive noticed a few small changes. Let me know if you have any issues</p><p>[04-Aug-2011 10:59:14] &lt;rmatte&gt; k</p><p>[04-Aug-2011 11:01:01] &lt;nyeates&gt; Hi xuru</p><p>[04-Aug-2011 11:01:06] &lt;xuru&gt; morning</p><p>[04-Aug-2011 11:02:03] &lt;xuru&gt; I'm really interested (or rather my boss) about having an uptime report <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[04-Aug-2011 11:02:31] &lt;nyeates&gt; oh sweet rmatte, i see kells respons on yer thread now....glad everyone pitched in to help you</p><p>[04-Aug-2011 11:03:36] &lt;rmatte&gt; yeh, it's always nice to see</p><p>[04-Aug-2011 11:04:19] &lt;rmatte&gt; xuru: an uptime report would be fairly easy to do</p><p>[04-Aug-2011 11:04:20] &lt;nyeates&gt; xuru: im looking now for an uptime report in community.... anyone else?</p><p>[04-Aug-2011 11:04:40] &lt;nyeates&gt; rmatte: you have that dmd script that does that too right</p><p>[04-Aug-2011 11:04:47] &lt;rmatte&gt; nyeates: there probably isn't one but it would be braindead simple to do</p><p>[04-Aug-2011 11:04:49] &lt;rmatte&gt; yeh I do</p><p>[04-Aug-2011 11:04:54] &lt;xuru&gt; rmatte: I would love to see one <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[04-Aug-2011 11:05:03] &lt;jmp242&gt; ohhh, Dev meeting today</p><p>[04-Aug-2011 11:05:19] &lt;rmatte&gt; xuru: does it matter if it's actually in the Zenoss interface, or would a stand-alone script work for you?</p><p>[04-Aug-2011 11:05:56] &lt;nyeates&gt; jmp242: Yes - Dev meeting officially started....weve got devs in room, so ask away</p><p>[04-Aug-2011 11:05:58] &lt;xuru&gt; rmatte: It would be better in the interface (for the CTO to see) but I'll take antyhing</p><p>[04-Aug-2011 11:06:21] &lt;rmatte&gt; k, let me see what I can do.</p><p>[04-Aug-2011 11:07:02] &lt;JohnnyNOC&gt; anyone having problems with the forums?&#160; i don't see a login button</p><p>[04-Aug-2011 11:07:03] &lt;JohnnyNOC&gt; :[</p><p>[04-Aug-2011 11:07:07] &lt;rmatte&gt; hmmm, this might be easier than I thought...</p><p>[04-Aug-2011 11:07:31] &lt;rmatte&gt; give me 2 minutes to test then I'll walk you through creating one</p><p>[04-Aug-2011 11:07:56] &lt;rmatte&gt; JohnnyNOC: they are updating Jive this morning</p><p>[04-Aug-2011 11:07:56] &lt;xuru&gt; rmatte: wow, sweet</p><p>[04-Aug-2011 11:08:00] &lt;rmatte&gt; let Nick know about the issue</p><p>[04-Aug-2011 11:08:02] &lt;nyeates&gt; JohnnyNOC: community.zenoss.org was upgraded last night....there are weirdnesses for a bit</p><p>[04-Aug-2011 11:08:23] &lt;nyeates&gt; first thing I inquired about is the login issue :-)</p><p>[04-Aug-2011 11:08:26] &lt;JohnnyNOC&gt; ok cool</p><p>[04-Aug-2011 11:08:38] &lt;JohnnyNOC&gt; i posted a question yesterday about a custom device report I Wanted to ask about</p><p>[04-Aug-2011 11:09:03] &lt;JohnnyNOC&gt; basically i have a bit of code i can use in zend to give me what i'm looking for..&#160; but haven't been able to figure out an equivalent to use in the 'query' field</p><p>[04-Aug-2011 11:09:21] &lt;JohnnyNOC&gt; i'm just trying to list every event with a specific event class, then print the device, component, summary , etc.</p><p>[04-Aug-2011 11:09:40] kerick_ is now known as kerick</p><p>[04-Aug-2011 11:09:48] pmcguire is now known as ptmcg</p><p>[04-Aug-2011 11:09:51] &lt;JohnnyNOC&gt; is this something i should be able to do?</p><p>[04-Aug-2011 11:10:07] &lt;xuru&gt; I keep getting the event "Windows service 'LnrRetrSvc' is stopped" from zenwin (and about two others on that box) even though the services are running.&#160; How do I debug this issue?</p><p>[04-Aug-2011 11:10:33] &lt;xuru&gt; hey ptmcg</p><p><span>[04-Aug-2011 11:10:46] &lt;JohnnyNOC&gt; </span><a class="jive-link-external-small" href="../message/60451.html#60451">http://community.zenoss.org/message/60451</a></p><p>[04-Aug-2011 11:10:55] &lt;ptmcg&gt; hello xuru</p><p>[04-Aug-2011 11:11:02] &lt;rmatte&gt; xuru: you've remodeled I assume?</p><p>[04-Aug-2011 11:11:09] &lt;xuru&gt; yeah</p><p>[04-Aug-2011 11:11:17] &lt;rmatte&gt; xuru: have you tried restarting zenwin?</p><p>[04-Aug-2011 11:11:26] &lt;xuru&gt; yep</p><p>[04-Aug-2011 11:11:39] &lt;rmatte&gt; the next thing I'd suggest is a reindex() and a commit()</p><p>[04-Aug-2011 11:11:49] &lt;nyeates&gt; rmatte: if you do an uptime report, make sure to send it at me or the forums - there are quite a few requests and no solution i see</p><p>[04-Aug-2011 11:11:51] &lt;xuru&gt; ok, I'll give that a try</p><p>[04-Aug-2011 11:11:56] &lt;rmatte&gt; (that has fixed similar issues for me in the past)</p><p>[04-Aug-2011 11:12:13] &lt;rmatte&gt; nyeates: well, I'm seeing if I can make one just using the custom report interface</p><p>[04-Aug-2011 11:12:23] &lt;rmatte&gt; but it may not be possible if there's no "get" function for it</p><p>[04-Aug-2011 11:12:42] &lt;rmatte&gt; there's the uptimeStr() function, but it doesn't like that</p><p>[04-Aug-2011 11:14:42] &lt;JohnnyNOC&gt; nobody knows how to create a custom event report?</p><p>[04-Aug-2011 11:14:44] &lt;JohnnyNOC&gt; <img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/></p><p>[04-Aug-2011 11:14:48] &lt;xuru&gt; Also, in the month of july I got 28 of these critical alerts: Event: 'disk space threshold: 141.9% used (-2.1GB free)'</p><p>[04-Aug-2011 11:15:07] &lt;rmatte&gt; JohnnyNOC: when I need dumps like what you're describing I just write a custom dmd script to do it</p><p>[04-Aug-2011 11:15:18] &lt;rmatte&gt; or do a MySQL query</p><p>[04-Aug-2011 11:15:31] &lt;JohnnyNOC&gt; rmatte i'm trying to avoid that but will go that route if necessary</p><p>[04-Aug-2011 11:15:58] &lt;JohnnyNOC&gt; but why can't a simply create a report of a specific eventclass?</p><p>[04-Aug-2011 11:16:02] &lt;rmatte&gt; either way, if the event console filters aren't cutting it for you, then development work is your only option</p><p><span>[04-Aug-2011 11:16:13] &lt;nyeates&gt; any dev had a sec to look at JohnnyNOCs </span><a class="jive-link-external-small" href="../message/60451.html#60451">http://community.zenoss.org/message/60451</a><span> ??</span></p><p>[04-Aug-2011 11:16:27] &lt;JohnnyNOC&gt; for example, i'm using TALES event attributes such as eventClass</p><p>[04-Aug-2011 11:16:39] &lt;JohnnyNOC&gt; but it says eventClass is not defined</p><p>[04-Aug-2011 11:16:59] &lt;nyeates&gt; Johhny: you are trying to create a UI report to show event details? is this right?</p><p>[04-Aug-2011 11:17:01] &lt;JohnnyNOC&gt; how can i simply get every event of a specific event class?&#160; that's all iw ant to start</p><p>[04-Aug-2011 11:17:03] &lt;JohnnyNOC&gt; nyeates yes</p><p>[04-Aug-2011 11:17:14] &lt;JohnnyNOC&gt; i want to know all events of a particular event class just to start, and i can't get that to work</p><p>[04-Aug-2011 11:17:35] &lt;rmatte&gt; JohnnyNOC: ok, I just saw your question and I have tons of experience working with events...</p><p>[04-Aug-2011 11:17:42] &lt;dgarcia_&gt; xuru - i've seen this happen when the device needs to be removed because quota's were change, disk space was added, etc</p><p>[04-Aug-2011 11:17:55] &lt;rmatte&gt; is your question actually how to write the report, or is your question whether or not the code you provided will do what you're asking?</p><p>[04-Aug-2011 11:18:04] &lt;simonjj&gt; hello all</p><p>[04-Aug-2011 11:18:06] &lt;rmatte&gt; all of the reports in the interface are coded</p><p>[04-Aug-2011 11:18:12] &lt;simonjj&gt; SDuensin: we have people running net-snmp on windows very successfully</p><p>[04-Aug-2011 11:18:13] &lt;JohnnyNOC&gt; well, in my post, i'm saying i want to accomplish with a report, what the little code snippet does</p><p>[04-Aug-2011 11:18:32] &lt;JohnnyNOC&gt; show me all the events of a particular eventClass, then tell me e.device, e.component, e.summary, etc.</p><p>[04-Aug-2011 11:18:44] &lt;rmatte&gt; JohnnyNOC: Have you actually dug in to any of the code for existing reports?</p><p>[04-Aug-2011 11:18:47] &lt;JohnnyNOC&gt; but i can't seem to figure out how to get the events in the eventclass</p><p>[04-Aug-2011 11:18:59] &lt;simonjj&gt; net-snmp on windows it's very nice because you can do all kinds of scripting and have net-snmp take care of execution... all you do is ask for the results</p><p>[04-Aug-2011 11:19:02] &lt;JohnnyNOC&gt; i have yes, but i don't know what is/isn't allowed in the query field when i try to create the report</p><p>[04-Aug-2011 11:19:04] &lt;xuru&gt; dgarcia_: well, the box in question is the security cameras server, and hasn't been touched in a long while</p><p>[04-Aug-2011 11:19:22] &lt;rmatte&gt; JohnnyNOC: ohhhh, you're trying to do it with the "Custom Reports" option, correct?</p><p>[04-Aug-2011 11:19:37] &lt;xuru&gt; dgarcia_: but I could try and remove it and re-add it</p><p>[04-Aug-2011 11:19:41] &lt;JohnnyNOC&gt; rmatte yes</p><p>[04-Aug-2011 11:19:44] &lt;JohnnyNOC&gt; add custom device report</p><p>[04-Aug-2011 11:20:05] &lt;simonjj&gt; JohnnyNOC: that's a no go</p><p>[04-Aug-2011 11:20:13] &lt;simonjj&gt; at least out-of-box</p><p>[04-Aug-2011 11:20:35] &lt;xuru&gt; simonjj: what do you use for snmp software on windows?</p><p>[04-Aug-2011 11:20:41] &lt;rmatte&gt; bingo I got uptime report working, and it's braindead simple to do too</p><p>[04-Aug-2011 11:20:43] &lt;simonjj&gt; net-snmp</p><p>[04-Aug-2011 11:20:56] &lt;rmatte&gt; who was it who wanted the uptime report again?</p><p>[04-Aug-2011 11:21:22] &lt;simonjj&gt; it's certainly more involved than the built-in + informant but the capabilities of net-snmp are vastly superior</p><p>[04-Aug-2011 11:21:27] &lt;klone&gt; rmatte, it was xuru</p><p>[04-Aug-2011 11:21:34] &lt;rmatte&gt; xuru: you still alive?</p><p>[04-Aug-2011 11:21:35] &lt;kells&gt; Ahh, yeah, tales won't work in those reports.&#160; But python will work.&#160; IIRC you need to prefix the line with "python:" (no quotes).&#160; Checking....</p><p>[04-Aug-2011 11:21:41] &lt;xuru&gt; yes sir</p><p>[04-Aug-2011 11:21:41] &lt;rmatte&gt; xuru: I have your solution</p><p>[04-Aug-2011 11:21:53] * xuru does a happy dance</p><p>[04-Aug-2011 11:21:53] &lt;rmatte&gt; ok, follow my steps...</p><p>[04-Aug-2011 11:21:59] &lt;rmatte&gt; go to the reports section</p><p>[04-Aug-2011 11:22:09] &lt;rmatte&gt; click on Custom Device Reports</p><p>[04-Aug-2011 11:22:13] &lt;xuru&gt; ok</p><p>[04-Aug-2011 11:22:21] &lt;rmatte&gt; then select the option to add a new report</p><p>[04-Aug-2011 11:22:26] &lt;rmatte&gt; and call it Device Uptime</p><p>[04-Aug-2011 11:22:30] &lt;nyeates&gt; JohnnyNOC: maybe you can get at the information you want in a diff way....navigate to the event class you are interested in, then click on 'Events'</p><p>[04-Aug-2011 11:22:32] &lt;xuru&gt; I already have one setup</p><p>[04-Aug-2011 11:22:39] &lt;nyeates&gt; this gives you a event console just for the events in that event class</p><p>[04-Aug-2011 11:22:45] &lt;JohnnyNOC&gt; Note</p><p>[04-Aug-2011 11:22:45] &lt;JohnnyNOC&gt; For a complete list of valid options, refer to the information on Device schema in the appendix titled</p><p>[04-Aug-2011 11:22:45] &lt;JohnnyNOC&gt; "TALES Expressions."</p><p>[04-Aug-2011 11:22:50] &lt;rmatte&gt; xuru: so you just want to add uptime to the existing report?</p><p>[04-Aug-2011 11:22:51] &lt;JohnnyNOC&gt; so now you're saying i can't use them?</p><p>[04-Aug-2011 11:23:10] &lt;xuru&gt; rmatte: yeah, I have nothing for Query, etc</p><p>[04-Aug-2011 11:23:14] &lt;rmatte&gt; ok</p><p>[04-Aug-2011 11:23:47] &lt;rmatte&gt; for Columns, put the following...</p><p>[04-Aug-2011 11:23:51] &lt;rmatte&gt; getId</p><p>[04-Aug-2011 11:23:51] &lt;rmatte&gt; getManageIp</p><p>[04-Aug-2011 11:23:51] &lt;rmatte&gt; uptimeStr</p><p>[04-Aug-2011 11:24:03] &lt;JohnnyNOC&gt; nyeates i'm trying to create a report..&#160; i can certainly view all of the events of a certain type with the dashboard without any problems</p><p>[04-Aug-2011 11:24:04] &lt;rmatte&gt; for Column Names, put the following...</p><p>[04-Aug-2011 11:24:05] &lt;rmatte&gt; Device</p><p>[04-Aug-2011 11:24:05] &lt;xuru&gt; ok</p><p>[04-Aug-2011 11:24:06] &lt;rmatte&gt; IP Address</p><p>[04-Aug-2011 11:24:06] &lt;rmatte&gt; Uptime</p><p>[04-Aug-2011 11:24:20] &lt;rmatte&gt; for Sort Column, put: uptimeStr</p><p>[04-Aug-2011 11:24:25] &lt;rmatte&gt; to sort by uptime by default</p><p>[04-Aug-2011 11:24:33] &lt;xuru&gt; ok</p><p>[04-Aug-2011 11:24:37] &lt;nyeates&gt; I think the theme for today is reports :-p</p><p>[04-Aug-2011 11:24:43] &lt;xuru&gt; hehe</p><p>[04-Aug-2011 11:24:48] &lt;SDuensin&gt; Greetings!</p><p>[04-Aug-2011 11:25:03] &lt;rmatte&gt; actually nevermind</p><p>[04-Aug-2011 11:25:09] &lt;JohnnyNOC&gt; well, for what it's worth, that disappoints me</p><p>[04-Aug-2011 11:25:10] &lt;JohnnyNOC&gt; :[</p><p>[04-Aug-2011 11:25:13] &lt;rmatte&gt; oh no wait, that's right</p><p>[04-Aug-2011 11:25:26] &lt;xuru&gt; nyeates: it would be nice to make reports easier to do.&#160; Some kind of wizard to walk you through a custom report</p><p>[04-Aug-2011 11:25:43] &lt;jgartman&gt; JohnnyNOC: I believe kells is checking that TALES comment.</p><p>[04-Aug-2011 11:25:53] &lt;rmatte&gt; xuru: they have that, it's called Datacenter Insight and it's an enterprise only feature</p><p>[04-Aug-2011 11:26:03] &lt;xuru&gt; ah, bummer</p><p>[04-Aug-2011 11:26:04] &lt;JohnnyNOC&gt; jgartman i hope so, i'm patiently waiting</p><p>[04-Aug-2011 11:26:20] &lt;rmatte&gt; xuru: anyways, after you've populated the fields like I said you'll have your report</p><p>[04-Aug-2011 11:26:36] &lt;xuru&gt; rmatte: what do I put in for the Query?</p><p>[04-Aug-2011 11:26:38] &lt;rmatte&gt; for some reason it's refusing to sort by uptime by default for me, but if you click on the column it'll do it</p><p>[04-Aug-2011 11:26:46] &lt;rmatte&gt; xuru: leave Query blank</p><p>[04-Aug-2011 11:26:50] &lt;xuru&gt; oh</p><p>[04-Aug-2011 11:27:08] &lt;xuru&gt; ah, ok</p><p>[04-Aug-2011 11:27:15] &lt;xuru&gt; nice</p><p>[04-Aug-2011 11:27:22] &lt;kells&gt; In the *body* of a Custom Device report, you can do python if if starts with "python:", but no TALEs.&#160; Python is more powerful, so that's a good thing.</p><p>[04-Aug-2011 11:27:37] &lt;JohnnyNOC&gt; what is the body</p><p>[04-Aug-2011 11:27:43] &lt;kells&gt; TALES is used in the section to determine which devices to choose</p><p>[04-Aug-2011 11:27:55] &lt;nyeates&gt; xuru: reports currently do suck... they were the #2 voted for feature in ZCA survey.... maybe in future a community project will start on it... nothing easier for now though sorry</p><p>[04-Aug-2011 11:27:58] &lt;kells&gt; The body of the report is the 'fields' section</p><p>[04-Aug-2011 11:28:06] &lt;JohnnyNOC&gt; kells i'm using 3.1.0</p><p>[04-Aug-2011 11:28:08] &lt;JohnnyNOC&gt; there is no fields section</p><p>[04-Aug-2011 11:28:11] &lt;xuru&gt; so having the query blank means just take each device as it is without filtering anything</p><p>[04-Aug-2011 11:28:31] &lt;xuru&gt; nyeates: at least they are aware of it</p><p>[04-Aug-2011 11:28:35] &lt;xuru&gt; nyeates: thanks</p><p>[04-Aug-2011 11:28:42] &lt;rmatte&gt; nyeates: I plan to write quite a few custom ones in my spare time... I'd be willing to accept suggestions</p><p>[04-Aug-2011 11:28:43] &lt;xuru&gt; rmatte: thanks!</p><p>[04-Aug-2011 11:28:46] &lt;kells&gt; Sorry, 'Columns'</p><p>[04-Aug-2011 11:28:54] &lt;rmatte&gt; I've got the actual report coding down pretty well at this point</p><p>[04-Aug-2011 11:29:00] &lt;rmatte&gt; xuru: no problem</p><p>[04-Aug-2011 11:29:04] &lt;JohnnyNOC&gt; ok, and I can use python: in the query field?</p><p>[04-Aug-2011 11:29:11] &lt;rmatte&gt; nyeates: you saw my simple solution for an uptime report?</p><p>[04-Aug-2011 11:29:26] &lt;Hackman238&gt; kells: Hail!</p><p>[04-Aug-2011 11:29:33] &lt;Hackman238&gt; nyeates: How goes it?</p><p>[04-Aug-2011 11:29:35] &lt;kells&gt; python: "&lt;a href='%s'&gt;%s&lt;/a&gt;" % (device.getPrimaryUrlPath(), device.titleOrId())</p><p>[04-Aug-2011 11:29:35] &lt;kells&gt; python:device.getPrimaryId().replace('/zport/dmd', '').rsplit('/devices', 1)[0]</p><p>[04-Aug-2011 11:29:36] &lt;kells&gt; snmpSysName</p><p>[04-Aug-2011 11:29:36] &lt;kells&gt; snmpLocation</p><p>[04-Aug-2011 11:29:36] &lt;kells&gt; snmpContact</p><p>[04-Aug-2011 11:29:37] &lt;kells&gt; snmpDescr</p><p>[04-Aug-2011 11:29:37] &lt;Hackman238&gt; kells: How goes it?</p><p>[04-Aug-2011 11:29:43] &lt;xuru&gt; rmatte: a bit harder one...&#160; How about an uptime report that gives a % a machine was up for a specified period?</p><p>[04-Aug-2011 11:29:50] &lt;kells&gt; THere's an example columns section</p><p>[04-Aug-2011 11:30:09] &lt;kells&gt; The names would be something like "Name, Device Class, SNMP Name, Location, Contact, Description"</p><p>[04-Aug-2011 11:30:10] &lt;rmatte&gt; xuru: that's called the availability report</p><p>[04-Aug-2011 11:30:43] &lt;rmatte&gt; and it already exists</p><p>[04-Aug-2011 11:30:43] &lt;rmatte&gt; lol</p><p>[04-Aug-2011 11:30:47] &lt;kells&gt; Hackman238: lief is good</p><p>[04-Aug-2011 11:30:48] &lt;JohnnyNOC&gt; kells that is great to know but what about my query</p><p>[04-Aug-2011 11:30:50] &lt;xuru&gt; yeah, just noticed that one...&#160; but it doesn't seem to bring anything up for me</p><p>[04-Aug-2011 11:31:03] &lt;rmatte&gt; xuru: it's based on ping status of the devices</p><p>[04-Aug-2011 11:31:08] &lt;JohnnyNOC&gt; are you saying i can prepend python: in the fields field for the 3 lines of python i pasted here:</p><p><span>[04-Aug-2011 11:31:10] &lt;JohnnyNOC&gt; </span><a class="jive-link-external-small" href="../message/60451.html#60451#60451">http://community.zenoss.org/message/60451#60451</a></p><p>[04-Aug-2011 11:31:16] &lt;JohnnyNOC&gt; er, query field i'm sorry</p><p>[04-Aug-2011 11:31:20] &lt;xuru&gt; rmatte: I'll take a look at it again</p><p>[04-Aug-2011 11:31:21] &lt;JohnnyNOC&gt; or is it strictly in columns?</p><p>[04-Aug-2011 11:31:46] &lt;nyeates&gt; xuru: can you create a forum post on this when you get a chance? Ill paste rmattes solution in for others to use!</p><p>[04-Aug-2011 11:31:57] &lt;nyeates&gt; tho.....i think forums are unusable right now</p><p>[04-Aug-2011 11:32:06] &lt;rmatte&gt; xuru: what the report does exactly is it scans through the event database for the period looking for ping down events for each devices, then it calculated the amount of time the device spent as down and divides it by the period of time to get the percentage</p><p>[04-Aug-2011 11:32:08] &lt;xuru&gt; nyeates: sure</p><p>[04-Aug-2011 11:32:23] &lt;rmatte&gt; xuru: it's pretty much the business standard way of doing availability status for devices</p><p>[04-Aug-2011 11:32:34] &lt;kells&gt; If you really want to do events, then you'll need to use something rather than a "Custom Device Report"</p><p>[04-Aug-2011 11:32:53] &lt;xuru&gt; rmatte: ah, ok, I might have to play around with a custom one...&#160; might have to dig into it's code</p><p>[04-Aug-2011 11:32:57] &lt;kells&gt; You'll need to build a report.</p><p>[04-Aug-2011 11:32:57] &lt;rmatte&gt; yeh, for events you'd need to actually code a report</p><p>[04-Aug-2011 11:33:16] &lt;rmatte&gt; xuru: I don't see why it wouldn't work as is for you</p><p>[04-Aug-2011 11:33:18] &lt;JohnnyNOC&gt; ok, thanks.</p><p>[04-Aug-2011 11:33:20] &lt;rmatte&gt; makes no sense if it doesn't</p><p>[04-Aug-2011 11:33:57] &lt;ptmcg&gt; rmatte: I recently rewrote the Availability Reports logic, there were some pretty glaring holes.&#160; For instance, if a Ping Down was received before the start of the window, and then no more Ping up or down events during the window, the old report would assume 100% up.</p><p>[04-Aug-2011 11:34:31] &lt;rmatte&gt; ptmcg: I actually wrote my own stand-alone report a long while back and made the same fixes</p><p>[04-Aug-2011 11:34:58] &lt;rmatte&gt; actually hmmmm...</p><p>[04-Aug-2011 11:35:06] &lt;rmatte&gt; how is that technically possible though?</p><p>[04-Aug-2011 11:35:15] &lt;xuru&gt; yeah, it's never actually worked for me</p><p>[04-Aug-2011 11:35:24] &lt;rmatte&gt; you should receive a ping down every cycle until the device comes back up</p><p>[04-Aug-2011 11:35:30] &lt;JohnnyNOC&gt; i guess i have a bad attitude</p><p>[04-Aug-2011 11:35:54] &lt;xuru&gt; I set it for 1/1/2011 to today and got nothing in the list...&#160; do you have to specify a device?</p><p>[04-Aug-2011 11:36:29] &lt;rmatte&gt; xuru: the availability report you mean?</p><p>[04-Aug-2011 11:36:36] &lt;xuru&gt; rmatte: yeah</p><p>[04-Aug-2011 11:36:47] &lt;rmatte&gt; no, it defaults to running it for every single device for a 7 day period</p><p>[04-Aug-2011 11:36:51] &lt;ptmcg&gt; Well, I'm coming from a slightly different control background, so I don't assume events will always get cyclic downs/clears - if that is not an issue in actual practice, then noharm done</p><p>[04-Aug-2011 11:37:07] &lt;rmatte&gt; xuru: when you say you're getting 'nothing', you're not even seeing devices?</p><p>[04-Aug-2011 11:37:22] &lt;xuru&gt; rmatte: correct.&#160; No devices in the list</p><p>[04-Aug-2011 11:37:34] &lt;xuru&gt; rmatte: but it does spin for quiet a while first</p><p>[04-Aug-2011 11:37:35] &lt;rmatte&gt; ptmcg: yeh, in the case of Zenoss they do for ping events</p><p>[04-Aug-2011 11:37:45] &lt;rmatte&gt; ptmcg: better safe than sorry anyways</p><p>[04-Aug-2011 11:37:56] &lt;xuru&gt; I'm talking about Performance Reports &gt; Availability Report</p><p>[04-Aug-2011 11:38:04] &lt;rmatte&gt; xuru: so am I</p><p>[04-Aug-2011 11:38:11] &lt;rmatte&gt; I've never had issues with that report, it always works</p><p>[04-Aug-2011 11:38:31] &lt;xuru&gt; Performance Reports &gt; Availability &gt; Availability Report per Collection seems to work</p><p>[04-Aug-2011 11:38:48] &lt;rmatte&gt; per collection?</p><p>[04-Aug-2011 11:38:52] &lt;nyeates&gt; xuru: what version zenoss you on?</p><p>[04-Aug-2011 11:38:55] &lt;rmatte&gt; it sounds like they've changed it a lot</p><p>[04-Aug-2011 11:38:58] themactech_ is now known as themactech</p><p>[04-Aug-2011 11:39:00] &lt;nyeates&gt; I saw issues with it in old version of Z</p><p>[04-Aug-2011 11:39:24] &lt;rmatte&gt; xuru: you running 3.1?</p><p>[04-Aug-2011 11:39:28] &lt;xuru&gt; Version: 3.1.0-0</p><p>[04-Aug-2011 11:39:38] &lt;nyeates&gt; huh</p><p>[04-Aug-2011 11:39:40] &lt;rmatte&gt; ok, I'm loading up my 3.1 box to try</p><p>[04-Aug-2011 11:40:10] &lt;rmatte&gt; xuru: is that enterprise Zenoss?</p><p>[04-Aug-2011 11:40:11] &lt;xuru&gt; is there a way to see what report comes from what zenpack?</p><p>[04-Aug-2011 11:40:15] &lt;xuru&gt; rmatte: no</p><p>[04-Aug-2011 11:40:25] &lt;xuru&gt; we can't afford that <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[04-Aug-2011 11:40:27] &lt;rmatte&gt; I don't even have "Availability Report per Collection" on mine</p><p>[04-Aug-2011 11:40:34] &lt;rmatte&gt; not sure what you're talking about</p><p>[04-Aug-2011 11:40:39] &lt;xuru&gt; It might be from a zenpack</p><p>[04-Aug-2011 11:41:08] &lt;xuru&gt; ZenPacks.community.AvailabilityReportPerCollection</p><p>[04-Aug-2011 11:41:11] &lt;xuru&gt; yeah</p><p>[04-Aug-2011 11:41:26] &lt;xuru&gt; Jane Curry</p><p>[04-Aug-2011 11:41:32] &lt;rmatte&gt; I just ran the regular availability report on my 3.1 box and it worked like a charm</p><p>[04-Aug-2011 11:41:34] &lt;xuru&gt; my hero <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[04-Aug-2011 11:42:00] &lt;rmatte&gt; you'd need to do some debugging to figure out where it's tripping up</p><p>[04-Aug-2011 11:42:14] &lt;xuru&gt; cure</p><p>[04-Aug-2011 11:42:17] &lt;xuru&gt; err sure</p><p>[04-Aug-2011 11:42:39] &lt;jmp242&gt; is the forum mailing list now supposed to be that huge / distracting HTML stuff</p><p>[04-Aug-2011 11:43:51] &lt;xuru&gt; I think the biggest issue that I face right now is the false alarms for the disk space</p><p>[04-Aug-2011 11:44:06] &lt;xuru&gt; the whole crying wolf thing</p><p>[04-Aug-2011 11:44:07] &lt;rmatte&gt; false alarm in what sense?</p><p>[04-Aug-2011 11:44:24] &lt;xuru&gt; disk space threshold: 141.9% used (-2.1GB free)</p><p>[04-Aug-2011 11:44:33] &lt;rmatte&gt; sounds like you need to remodel the device</p><p>[04-Aug-2011 11:44:38] &lt;rmatte&gt; what kind of device is that?</p><p>[04-Aug-2011 11:44:40] &lt;xuru&gt; then a half hour later, it clears</p><p>[04-Aug-2011 11:45:15] &lt;xuru&gt; windows 2003 I think</p><p>[04-Aug-2011 11:45:21] &lt;xuru&gt; yeah</p><p>[04-Aug-2011 11:45:32] &lt;rmatte&gt; does someone perhaps plug/unplug a usb filesystem from it often?</p><p>[04-Aug-2011 11:45:53] &lt;rmatte&gt; or does some filesystem mount/dismount regularly?</p><p>[04-Aug-2011 11:45:55] &lt;JohnnyNOC&gt; xuru i had/have that problem and it seemed to be related to the collector plugins being used</p><p>[04-Aug-2011 11:45:58] &lt;xuru&gt; no, like I said, it's for the security cameras, and never gets touched</p><p>[04-Aug-2011 11:46:11] &lt;straterra&gt; Does it get mounted/unmounted?</p><p>[04-Aug-2011 11:46:13] &lt;xuru&gt; JohnnyNOC: ah, could be</p><p>[04-Aug-2011 11:46:17] &lt;JohnnyNOC&gt; for example, i had multiple collector plugins trying to calculate those values</p><p>[04-Aug-2011 11:46:31] &lt;xuru&gt; no, it uses a SAN and doesn't get mounted/unmounted</p><p>[04-Aug-2011 11:46:49] &lt;rmatte&gt; "collector plugins" are actually modeler plugins, they are only used when modelling</p><p>[04-Aug-2011 11:46:56] &lt;rmatte&gt; templates are used for the actual collection</p><p>[04-Aug-2011 11:47:57] &lt;xuru&gt; it would be nice to be able to set the modelers at a tree level, and force that down the tree</p><p>[04-Aug-2011 11:48:22] &lt;rmatte&gt; you can set them at a device class level</p><p>[04-Aug-2011 11:48:26] &lt;JohnnyNOC&gt; rmatte you are correct, but if you model your device incorrectly then ...</p><p>[04-Aug-2011 11:48:35] &lt;rmatte&gt; you shouldn't be setting them at a device level, it'll get very messy very quickly</p><p>[04-Aug-2011 11:48:59] &lt;xuru&gt; rmatte: right, but say I want to set every device below /Server/Windows to have a set of modelers only</p><p>[04-Aug-2011 11:48:59] &lt;JohnnyNOC&gt; i don't know if that's the problem xuru is having, but i have experienced that while using the HPMon and DellMon zenpacks with for example, WMIPerf</p><p>[04-Aug-2011 11:49:16] &lt;xuru&gt; rmatte: right</p><p>[04-Aug-2011 11:49:26] &lt;rmatte&gt; xuru: as long as you haven't locally defined zCollectorPlugins on the devices, then yes, you can do that</p><p>[04-Aug-2011 11:49:30] &lt;bigegor&gt; hi all</p><p>[04-Aug-2011 11:49:35] &lt;xuru&gt; JohnnyNOC: ah, good to know</p><p>[04-Aug-2011 11:49:37] &lt;xuru&gt; hey bigegor</p><p>[04-Aug-2011 11:49:47] &lt;JohnnyNOC&gt; hello bigegor!</p><p>[04-Aug-2011 11:49:48] &lt;rmatte&gt; Zenoss is built to be the way you're describing</p><p>[04-Aug-2011 11:50:00] &lt;rmatte&gt; but settings at lower levels always override settings at higher levels</p><p>[04-Aug-2011 11:50:14] &lt;xuru&gt; rmatte: yes, but it would be nice to clear all the devices / nodes below that level</p><p>[04-Aug-2011 11:50:24] &lt;rmatte&gt; so if you went around assigning collector plugins directly to devices themselves rather than to classes, you've overridge everything above</p><p>[04-Aug-2011 11:50:37] &lt;xuru&gt; yep</p><p>[04-Aug-2011 11:50:44] &lt;rmatte&gt; that option would be nice... but it shouldn't happen automatically</p><p>[04-Aug-2011 11:50:55] &lt;rmatte&gt; and it can be done with a bit of zendmd magic anyways</p><p>[04-Aug-2011 11:51:05] &lt;xuru&gt; no, but it would be nice to have the option in the menu perhaps</p><p>[04-Aug-2011 11:51:12] &lt;rmatte&gt; agreed</p><p>[04-Aug-2011 11:51:27] &lt;xuru&gt; I have people here that are allergic to command lines here :/</p><p>[04-Aug-2011 11:51:44] &lt;rmatte&gt; then they shouldn't be working in the monitoring field <img height="16px" src="../4.5.6/images/emoticons/silly.gif" width="16px"/></p><p>[04-Aug-2011 11:51:52] &lt;JohnnyNOC&gt; these people could be management</p><p>[04-Aug-2011 11:51:58] &lt;xuru&gt;&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[04-Aug-2011 11:51:59] &lt;JohnnyNOC&gt; (the same people i'd like to create fancy zenoss reports for)</p><p>[04-Aug-2011 11:52:07] &lt;rmatte&gt; JohnnyNOC: then they shouldn't be touching settings</p><p>[04-Aug-2011 11:52:16] &lt;xuru&gt; we're a small shop, so there are only a few of us here</p><p>[04-Aug-2011 11:52:21] &lt;JohnnyNOC&gt; you know, a lot of things shouldn't, but do</p><p>[04-Aug-2011 11:52:40] &lt;rmatte&gt; JohnnyNOC: I've locked every manager here out of being able to change any settings in Zenoss</p><p>[04-Aug-2011 11:52:44] &lt;rmatte&gt; too much room for error</p><p>[04-Aug-2011 11:52:50] &lt;JohnnyNOC&gt; that's great</p><p>[04-Aug-2011 11:53:10] &lt;rmatte&gt; "Why are all the devices gone on this Zenoss box?" "Oh, I accidentally spilled my coffee in my lap and clicked delete"</p><p>[04-Aug-2011 11:53:11] &lt;xuru&gt; I've been looking around and Zenoss seems to be the best/only solutions for a small company that needs to report availability, and monitor uptime and it's devices</p><p>[04-Aug-2011 11:53:28] &lt;rmatte&gt; yes, Zenoss is the best I've seen</p><p>[04-Aug-2011 11:53:29] &lt;xuru&gt; rmatte: hehe</p><p>[04-Aug-2011 11:53:34] &lt;rmatte&gt; it's simple, makes sense, and works well</p><p>[04-Aug-2011 11:53:52] &lt;xuru&gt; just wish there was a pricing option for small businesses</p><p>[04-Aug-2011 11:53:57] * xuru looks at nyeates </p><p>[04-Aug-2011 11:54:16] &lt;rmatte&gt; doubt that'll ever happen, though we're trying to get something going with the community</p><p>[04-Aug-2011 11:54:29] &lt;rmatte&gt; where community members could be hired to develop features</p><p>[04-Aug-2011 11:54:43] &lt;xuru&gt; rmatte: that sounds interesting</p><p>[04-Aug-2011 11:54:50] &lt;Hackman238&gt; That topic will be discussed at the next ZCA meeting</p><p>[04-Aug-2011 11:55:22] &lt;xuru&gt; cool</p><p>[04-Aug-2011 11:55:49] &lt;Hackman238&gt; Sorry I've been quiet, its nuts busy here today</p><p>[04-Aug-2011 11:55:55] &lt;Hackman238&gt; Wrangling bugs</p><p>[04-Aug-2011 11:56:42] &lt;nyeates&gt; Yeah its a tough thing to do the community business match making....i know its been tried in the past and not ever taken off... hopefully it can be done this time around</p><p>[04-Aug-2011 11:56:59] &lt;Hackman238&gt; Plus tring to find a damn pump crystal/substitute for my new laser....Nd:YLO3 hard to find cheap</p><p>[04-Aug-2011 11:57:03] &lt;JohnnyNOC&gt; nyeates would zenoss.org link to zenoss consultants to provide those types of servics?</p><p>[04-Aug-2011 11:57:07] &lt;JohnnyNOC&gt; or, would they consider</p><p><span>[04-Aug-2011 11:57:27] &lt;xuru&gt; btw, I've created a wiki at </span><a class="jive-link-external-small" href="http://zenoss.wikia.com/wiki/Zenoss_Wiki">http://zenoss.wikia.com/wiki/Zenoss_Wiki</a><span> and could use some help putting in hacks and tricks</span></p><p>[04-Aug-2011 11:57:41] &lt;JohnnyNOC&gt; perhaps it's not the greatest example but people in the qmail community did something like that on qmail.org</p><p>[04-Aug-2011 11:57:48] &lt;JohnnyNOC&gt; linking to consultants that offer commercial support</p><p>[04-Aug-2011 11:58:24] &lt;Hackman238&gt; xuru: Man left me out</p><p>[04-Aug-2011 11:58:25] &lt;nyeates&gt; JohnnyNOC: there is an entire section for that on our community portal... maybe we need to be more proactive or make it simpler</p><p>[04-Aug-2011 11:58:41] &lt;xuru&gt; Hackman238: ?&#160; blogs?</p><p>[04-Aug-2011 11:58:53] &lt;rmatte&gt; xuru: there is already a wiki on the community site with lots of tips/tricks documents already</p><p>[04-Aug-2011 11:58:57] &lt;jmp242&gt; yea</p><p>[04-Aug-2011 11:59:03] &lt;jmp242&gt; I'd work on the community site's wiki</p><p>[04-Aug-2011 11:59:12] &lt;jmp242&gt; hehe, actually I already do</p><p>[04-Aug-2011 11:59:46] &lt;nyeates&gt; Xuru, would you be willing to go on a list of people "looking to pay someone for zenoss work"?</p><p>[04-Aug-2011 11:59:46] &lt;xuru&gt; yeah, but I was thinking of keeping it separate from zenoss</p><p>[04-Aug-2011 11:59:56] &lt;rmatte&gt; eugh, someone must be downloading torrents here or something, our internet connection is garbage right now</p><p>[04-Aug-2011 12:00:01] [disconnected at Thu Aug&#160; 4 12:00:01 2011]</p><p>[04-Aug-2011 12:00:01] [connected at Thu Aug&#160; 4 12:00:01 2011]</p><p>[04-Aug-2011 12:00:16] [zenoss-logger (logger bot) has joined #zenoss]</p><p>[04-Aug-2011 12:00:26] &lt;xuru&gt; oh oh</p><p>[04-Aug-2011 12:00:43] &lt;rmatte&gt; ummm wow... the first page of the community site looks like garbage right now</p><p>[04-Aug-2011 12:00:57] &lt;rmatte&gt; Browse links running down the left pushing everything else down, missing login fields</p><p>[04-Aug-2011 12:00:58] &lt;rmatte&gt; lol</p><p>[04-Aug-2011 12:01:12] &lt;nyeates&gt; I will start a simple page, that has two list: one for buyers, one for sellers...and rid of the other unused sections of old....start with something simple</p><p>[04-Aug-2011 12:01:15] &lt;rmatte&gt; The spaces box has overlapping text</p><p>[04-Aug-2011 12:01:24] &lt;rmatte&gt; spaces/places box rather</p><p>[04-Aug-2011 12:01:40] &lt;nyeates&gt; Yeah i saw this too rmatte</p><p>[04-Aug-2011 12:01:50] &lt;rmatte&gt; oh nevermind, it just took ages to load</p><p>[04-Aug-2011 12:01:56] &lt;nyeates&gt; Any other last min dev questions before devs start shipping out in mass?</p><p>[04-Aug-2011 12:02:02] &lt;rmatte&gt; once it loaded the formatting is different</p><p>[04-Aug-2011 12:02:27] &lt;xuru&gt; nyeates: not right now, but I'll try and save them up for next time <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[04-Aug-2011 12:03:05] &lt;rmatte&gt; yeh, I don't really have any questions this morning</p><p>[04-Aug-2011 12:04:08] &lt;xuru&gt; rmatte: I was thinking more of an API kind of documentation look and feel to the wiki</p><p><span>[04-Aug-2011 12:05:09] &lt;xuru&gt; rmatte: for example, under events I have </span><a class="jive-link-external-small" href="http://zenoss.wikia.com/wiki/Events">http://zenoss.wikia.com/wiki/Events</a></p><p>[04-Aug-2011 12:05:31] &lt;xuru&gt; as a couple of examples of transforming events</p><p>[04-Aug-2011 12:06:10] &lt;nyeates&gt; Allright - this concludes today dev 'reporting' session :-)</p><p>[04-Aug-2011 12:06:18] &lt;xuru&gt; thanks nyeates</p><p><span>[04-Aug-2011 12:07:07] &lt;xuru&gt; rmatte: loosely based on </span><a class="jive-link-external-small" href="http://www.wowwiki.com/Portal:Interface_customization">http://www.wowwiki.com/Portal:Interface_customization</a></p><p>[04-Aug-2011 12:07:19] &lt;xuru&gt; which is a game I'm addicted too <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[04-Aug-2011 12:07:23] &lt;nyeates&gt; Everyone - look for 3.2.0 feature list on the blog today! snmpv3 traps are coming, and lots of UI enhancements</p><p><span>[04-Aug-2011 12:07:40] &lt;rmatte&gt; xuru: </span><a class="jive-link-wiki-small" href="DOC-2554.html">http://community.zenoss.org/docs/DOC-2554</a></p><p>[04-Aug-2011 12:07:41] &lt;xuru&gt; oh sweet, thanks</p></div><!-- [DocumentBodyEnd:301a87bb-95f0-462c-82f2-898de4732e38] -->
+<!-- [DocumentBodyStart:301a87bb-95f0-462c-82f2-898de4732e38] --><div class="jive-rendered-content"><p>[04-Aug-2011 10:56:01] &lt;nyeates&gt; rmatte: was it you with the custom report problems a bit ago?</p><p>[04-Aug-2011 10:56:34] &lt;rmatte&gt; nyeates: yes, but I ended up modifying the ZenPack to allow aliases to be added for that datasource type under Zenoss 2.5</p><p>[04-Aug-2011 10:56:51] &lt;rmatte&gt; I know that Kells came up with a working solution which should make it in to 3.2</p><p>[04-Aug-2011 10:56:57] &lt;nyeates&gt; ahhhh, Hackman was on the money!</p><p>[04-Aug-2011 10:57:10] &lt;rmatte&gt; I was pretty sure that he was...</p><p>[04-Aug-2011 10:57:36] &lt;rmatte&gt; but yeh, it still needs to be patched</p><p>[04-Aug-2011 10:57:46] &lt;rmatte&gt; it's an unnecessary limitation</p><p>[04-Aug-2011 10:57:55] &lt;rmatte&gt; apart from that, I love the new way that reports are written</p><p>[04-Aug-2011 10:57:59] &lt;rmatte&gt; way simpler than it was before</p><p>[04-Aug-2011 10:58:12] &lt;rmatte&gt; (for RRD/device property reports anyways)</p><p>[04-Aug-2011 10:58:37] &lt;nyeates&gt; cool - looking for your thread</p><p>[04-Aug-2011 10:58:54] &lt;rmatte&gt; Kells said that he had already opened a trac ticket for it and included a fix in the ticket</p><p>[04-Aug-2011 10:59:06] &lt;nyeates&gt; OH BTW all....this AM we updated Jive community.zenoss.org.... ive noticed a few small changes. Let me know if you have any issues</p><p>[04-Aug-2011 10:59:14] &lt;rmatte&gt; k</p><p>[04-Aug-2011 11:01:01] &lt;nyeates&gt; Hi xuru</p><p>[04-Aug-2011 11:01:06] &lt;xuru&gt; morning</p><p>[04-Aug-2011 11:02:03] &lt;xuru&gt; I'm really interested (or rather my boss) about having an uptime report <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[04-Aug-2011 11:02:31] &lt;nyeates&gt; oh sweet rmatte, i see kells respons on yer thread now....glad everyone pitched in to help you</p><p>[04-Aug-2011 11:03:36] &lt;rmatte&gt; yeh, it's always nice to see</p><p>[04-Aug-2011 11:04:19] &lt;rmatte&gt; xuru: an uptime report would be fairly easy to do</p><p>[04-Aug-2011 11:04:20] &lt;nyeates&gt; xuru: im looking now for an uptime report in community.... anyone else?</p><p>[04-Aug-2011 11:04:40] &lt;nyeates&gt; rmatte: you have that dmd script that does that too right</p><p>[04-Aug-2011 11:04:47] &lt;rmatte&gt; nyeates: there probably isn't one but it would be braindead simple to do</p><p>[04-Aug-2011 11:04:49] &lt;rmatte&gt; yeh I do</p><p>[04-Aug-2011 11:04:54] &lt;xuru&gt; rmatte: I would love to see one <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[04-Aug-2011 11:05:03] &lt;jmp242&gt; ohhh, Dev meeting today</p><p>[04-Aug-2011 11:05:19] &lt;rmatte&gt; xuru: does it matter if it's actually in the Zenoss interface, or would a stand-alone script work for you?</p><p>[04-Aug-2011 11:05:56] &lt;nyeates&gt; jmp242: Yes - Dev meeting officially started....weve got devs in room, so ask away</p><p>[04-Aug-2011 11:05:58] &lt;xuru&gt; rmatte: It would be better in the interface (for the CTO to see) but I'll take antyhing</p><p>[04-Aug-2011 11:06:21] &lt;rmatte&gt; k, let me see what I can do.</p><p>[04-Aug-2011 11:07:02] &lt;JohnnyNOC&gt; anyone having problems with the forums?&#160; i don't see a login button</p><p>[04-Aug-2011 11:07:03] &lt;JohnnyNOC&gt; :[</p><p>[04-Aug-2011 11:07:07] &lt;rmatte&gt; hmmm, this might be easier than I thought...</p><p>[04-Aug-2011 11:07:31] &lt;rmatte&gt; give me 2 minutes to test then I'll walk you through creating one</p><p>[04-Aug-2011 11:07:56] &lt;rmatte&gt; JohnnyNOC: they are updating Jive this morning</p><p>[04-Aug-2011 11:07:56] &lt;xuru&gt; rmatte: wow, sweet</p><p>[04-Aug-2011 11:08:00] &lt;rmatte&gt; let Nick know about the issue</p><p>[04-Aug-2011 11:08:02] &lt;nyeates&gt; JohnnyNOC: community.zenoss.org was upgraded last night....there are weirdnesses for a bit</p><p>[04-Aug-2011 11:08:23] &lt;nyeates&gt; first thing I inquired about is the login issue :-)</p><p>[04-Aug-2011 11:08:26] &lt;JohnnyNOC&gt; ok cool</p><p>[04-Aug-2011 11:08:38] &lt;JohnnyNOC&gt; i posted a question yesterday about a custom device report I Wanted to ask about</p><p>[04-Aug-2011 11:09:03] &lt;JohnnyNOC&gt; basically i have a bit of code i can use in zend to give me what i'm looking for..&#160; but haven't been able to figure out an equivalent to use in the 'query' field</p><p>[04-Aug-2011 11:09:21] &lt;JohnnyNOC&gt; i'm just trying to list every event with a specific event class, then print the device, component, summary , etc.</p><p>[04-Aug-2011 11:09:40] kerick_ is now known as kerick</p><p>[04-Aug-2011 11:09:48] pmcguire is now known as ptmcg</p><p>[04-Aug-2011 11:09:51] &lt;JohnnyNOC&gt; is this something i should be able to do?</p><p>[04-Aug-2011 11:10:07] &lt;xuru&gt; I keep getting the event "Windows service 'LnrRetrSvc' is stopped" from zenwin (and about two others on that box) even though the services are running.&#160; How do I debug this issue?</p><p>[04-Aug-2011 11:10:33] &lt;xuru&gt; hey ptmcg</p><p><span>[04-Aug-2011 11:10:46] &lt;JohnnyNOC&gt; </span><a class="jive-link-external-small" href="../message/60451.html#60451">message/60451</a></p><p>[04-Aug-2011 11:10:55] &lt;ptmcg&gt; hello xuru</p><p>[04-Aug-2011 11:11:02] &lt;rmatte&gt; xuru: you've remodeled I assume?</p><p>[04-Aug-2011 11:11:09] &lt;xuru&gt; yeah</p><p>[04-Aug-2011 11:11:17] &lt;rmatte&gt; xuru: have you tried restarting zenwin?</p><p>[04-Aug-2011 11:11:26] &lt;xuru&gt; yep</p><p>[04-Aug-2011 11:11:39] &lt;rmatte&gt; the next thing I'd suggest is a reindex() and a commit()</p><p>[04-Aug-2011 11:11:49] &lt;nyeates&gt; rmatte: if you do an uptime report, make sure to send it at me or the forums - there are quite a few requests and no solution i see</p><p>[04-Aug-2011 11:11:51] &lt;xuru&gt; ok, I'll give that a try</p><p>[04-Aug-2011 11:11:56] &lt;rmatte&gt; (that has fixed similar issues for me in the past)</p><p>[04-Aug-2011 11:12:13] &lt;rmatte&gt; nyeates: well, I'm seeing if I can make one just using the custom report interface</p><p>[04-Aug-2011 11:12:23] &lt;rmatte&gt; but it may not be possible if there's no "get" function for it</p><p>[04-Aug-2011 11:12:42] &lt;rmatte&gt; there's the uptimeStr() function, but it doesn't like that</p><p>[04-Aug-2011 11:14:42] &lt;JohnnyNOC&gt; nobody knows how to create a custom event report?</p><p>[04-Aug-2011 11:14:44] &lt;JohnnyNOC&gt; <img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/></p><p>[04-Aug-2011 11:14:48] &lt;xuru&gt; Also, in the month of july I got 28 of these critical alerts: Event: 'disk space threshold: 141.9% used (-2.1GB free)'</p><p>[04-Aug-2011 11:15:07] &lt;rmatte&gt; JohnnyNOC: when I need dumps like what you're describing I just write a custom dmd script to do it</p><p>[04-Aug-2011 11:15:18] &lt;rmatte&gt; or do a MySQL query</p><p>[04-Aug-2011 11:15:31] &lt;JohnnyNOC&gt; rmatte i'm trying to avoid that but will go that route if necessary</p><p>[04-Aug-2011 11:15:58] &lt;JohnnyNOC&gt; but why can't a simply create a report of a specific eventclass?</p><p>[04-Aug-2011 11:16:02] &lt;rmatte&gt; either way, if the event console filters aren't cutting it for you, then development work is your only option</p><p><span>[04-Aug-2011 11:16:13] &lt;nyeates&gt; any dev had a sec to look at JohnnyNOCs </span><a class="jive-link-external-small" href="../message/60451.html#60451">message/60451</a><span> ??</span></p><p>[04-Aug-2011 11:16:27] &lt;JohnnyNOC&gt; for example, i'm using TALES event attributes such as eventClass</p><p>[04-Aug-2011 11:16:39] &lt;JohnnyNOC&gt; but it says eventClass is not defined</p><p>[04-Aug-2011 11:16:59] &lt;nyeates&gt; Johhny: you are trying to create a UI report to show event details? is this right?</p><p>[04-Aug-2011 11:17:01] &lt;JohnnyNOC&gt; how can i simply get every event of a specific event class?&#160; that's all iw ant to start</p><p>[04-Aug-2011 11:17:03] &lt;JohnnyNOC&gt; nyeates yes</p><p>[04-Aug-2011 11:17:14] &lt;JohnnyNOC&gt; i want to know all events of a particular event class just to start, and i can't get that to work</p><p>[04-Aug-2011 11:17:35] &lt;rmatte&gt; JohnnyNOC: ok, I just saw your question and I have tons of experience working with events...</p><p>[04-Aug-2011 11:17:42] &lt;dgarcia_&gt; xuru - i've seen this happen when the device needs to be removed because quota's were change, disk space was added, etc</p><p>[04-Aug-2011 11:17:55] &lt;rmatte&gt; is your question actually how to write the report, or is your question whether or not the code you provided will do what you're asking?</p><p>[04-Aug-2011 11:18:04] &lt;simonjj&gt; hello all</p><p>[04-Aug-2011 11:18:06] &lt;rmatte&gt; all of the reports in the interface are coded</p><p>[04-Aug-2011 11:18:12] &lt;simonjj&gt; SDuensin: we have people running net-snmp on windows very successfully</p><p>[04-Aug-2011 11:18:13] &lt;JohnnyNOC&gt; well, in my post, i'm saying i want to accomplish with a report, what the little code snippet does</p><p>[04-Aug-2011 11:18:32] &lt;JohnnyNOC&gt; show me all the events of a particular eventClass, then tell me e.device, e.component, e.summary, etc.</p><p>[04-Aug-2011 11:18:44] &lt;rmatte&gt; JohnnyNOC: Have you actually dug in to any of the code for existing reports?</p><p>[04-Aug-2011 11:18:47] &lt;JohnnyNOC&gt; but i can't seem to figure out how to get the events in the eventclass</p><p>[04-Aug-2011 11:18:59] &lt;simonjj&gt; net-snmp on windows it's very nice because you can do all kinds of scripting and have net-snmp take care of execution... all you do is ask for the results</p><p>[04-Aug-2011 11:19:02] &lt;JohnnyNOC&gt; i have yes, but i don't know what is/isn't allowed in the query field when i try to create the report</p><p>[04-Aug-2011 11:19:04] &lt;xuru&gt; dgarcia_: well, the box in question is the security cameras server, and hasn't been touched in a long while</p><p>[04-Aug-2011 11:19:22] &lt;rmatte&gt; JohnnyNOC: ohhhh, you're trying to do it with the "Custom Reports" option, correct?</p><p>[04-Aug-2011 11:19:37] &lt;xuru&gt; dgarcia_: but I could try and remove it and re-add it</p><p>[04-Aug-2011 11:19:41] &lt;JohnnyNOC&gt; rmatte yes</p><p>[04-Aug-2011 11:19:44] &lt;JohnnyNOC&gt; add custom device report</p><p>[04-Aug-2011 11:20:05] &lt;simonjj&gt; JohnnyNOC: that's a no go</p><p>[04-Aug-2011 11:20:13] &lt;simonjj&gt; at least out-of-box</p><p>[04-Aug-2011 11:20:35] &lt;xuru&gt; simonjj: what do you use for snmp software on windows?</p><p>[04-Aug-2011 11:20:41] &lt;rmatte&gt; bingo I got uptime report working, and it's braindead simple to do too</p><p>[04-Aug-2011 11:20:43] &lt;simonjj&gt; net-snmp</p><p>[04-Aug-2011 11:20:56] &lt;rmatte&gt; who was it who wanted the uptime report again?</p><p>[04-Aug-2011 11:21:22] &lt;simonjj&gt; it's certainly more involved than the built-in + informant but the capabilities of net-snmp are vastly superior</p><p>[04-Aug-2011 11:21:27] &lt;klone&gt; rmatte, it was xuru</p><p>[04-Aug-2011 11:21:34] &lt;rmatte&gt; xuru: you still alive?</p><p>[04-Aug-2011 11:21:35] &lt;kells&gt; Ahh, yeah, tales won't work in those reports.&#160; But python will work.&#160; IIRC you need to prefix the line with "python:" (no quotes).&#160; Checking....</p><p>[04-Aug-2011 11:21:41] &lt;xuru&gt; yes sir</p><p>[04-Aug-2011 11:21:41] &lt;rmatte&gt; xuru: I have your solution</p><p>[04-Aug-2011 11:21:53] * xuru does a happy dance</p><p>[04-Aug-2011 11:21:53] &lt;rmatte&gt; ok, follow my steps...</p><p>[04-Aug-2011 11:21:59] &lt;rmatte&gt; go to the reports section</p><p>[04-Aug-2011 11:22:09] &lt;rmatte&gt; click on Custom Device Reports</p><p>[04-Aug-2011 11:22:13] &lt;xuru&gt; ok</p><p>[04-Aug-2011 11:22:21] &lt;rmatte&gt; then select the option to add a new report</p><p>[04-Aug-2011 11:22:26] &lt;rmatte&gt; and call it Device Uptime</p><p>[04-Aug-2011 11:22:30] &lt;nyeates&gt; JohnnyNOC: maybe you can get at the information you want in a diff way....navigate to the event class you are interested in, then click on 'Events'</p><p>[04-Aug-2011 11:22:32] &lt;xuru&gt; I already have one setup</p><p>[04-Aug-2011 11:22:39] &lt;nyeates&gt; this gives you a event console just for the events in that event class</p><p>[04-Aug-2011 11:22:45] &lt;JohnnyNOC&gt; Note</p><p>[04-Aug-2011 11:22:45] &lt;JohnnyNOC&gt; For a complete list of valid options, refer to the information on Device schema in the appendix titled</p><p>[04-Aug-2011 11:22:45] &lt;JohnnyNOC&gt; "TALES Expressions."</p><p>[04-Aug-2011 11:22:50] &lt;rmatte&gt; xuru: so you just want to add uptime to the existing report?</p><p>[04-Aug-2011 11:22:51] &lt;JohnnyNOC&gt; so now you're saying i can't use them?</p><p>[04-Aug-2011 11:23:10] &lt;xuru&gt; rmatte: yeah, I have nothing for Query, etc</p><p>[04-Aug-2011 11:23:14] &lt;rmatte&gt; ok</p><p>[04-Aug-2011 11:23:47] &lt;rmatte&gt; for Columns, put the following...</p><p>[04-Aug-2011 11:23:51] &lt;rmatte&gt; getId</p><p>[04-Aug-2011 11:23:51] &lt;rmatte&gt; getManageIp</p><p>[04-Aug-2011 11:23:51] &lt;rmatte&gt; uptimeStr</p><p>[04-Aug-2011 11:24:03] &lt;JohnnyNOC&gt; nyeates i'm trying to create a report..&#160; i can certainly view all of the events of a certain type with the dashboard without any problems</p><p>[04-Aug-2011 11:24:04] &lt;rmatte&gt; for Column Names, put the following...</p><p>[04-Aug-2011 11:24:05] &lt;rmatte&gt; Device</p><p>[04-Aug-2011 11:24:05] &lt;xuru&gt; ok</p><p>[04-Aug-2011 11:24:06] &lt;rmatte&gt; IP Address</p><p>[04-Aug-2011 11:24:06] &lt;rmatte&gt; Uptime</p><p>[04-Aug-2011 11:24:20] &lt;rmatte&gt; for Sort Column, put: uptimeStr</p><p>[04-Aug-2011 11:24:25] &lt;rmatte&gt; to sort by uptime by default</p><p>[04-Aug-2011 11:24:33] &lt;xuru&gt; ok</p><p>[04-Aug-2011 11:24:37] &lt;nyeates&gt; I think the theme for today is reports :-p</p><p>[04-Aug-2011 11:24:43] &lt;xuru&gt; hehe</p><p>[04-Aug-2011 11:24:48] &lt;SDuensin&gt; Greetings!</p><p>[04-Aug-2011 11:25:03] &lt;rmatte&gt; actually nevermind</p><p>[04-Aug-2011 11:25:09] &lt;JohnnyNOC&gt; well, for what it's worth, that disappoints me</p><p>[04-Aug-2011 11:25:10] &lt;JohnnyNOC&gt; :[</p><p>[04-Aug-2011 11:25:13] &lt;rmatte&gt; oh no wait, that's right</p><p>[04-Aug-2011 11:25:26] &lt;xuru&gt; nyeates: it would be nice to make reports easier to do.&#160; Some kind of wizard to walk you through a custom report</p><p>[04-Aug-2011 11:25:43] &lt;jgartman&gt; JohnnyNOC: I believe kells is checking that TALES comment.</p><p>[04-Aug-2011 11:25:53] &lt;rmatte&gt; xuru: they have that, it's called Datacenter Insight and it's an enterprise only feature</p><p>[04-Aug-2011 11:26:03] &lt;xuru&gt; ah, bummer</p><p>[04-Aug-2011 11:26:04] &lt;JohnnyNOC&gt; jgartman i hope so, i'm patiently waiting</p><p>[04-Aug-2011 11:26:20] &lt;rmatte&gt; xuru: anyways, after you've populated the fields like I said you'll have your report</p><p>[04-Aug-2011 11:26:36] &lt;xuru&gt; rmatte: what do I put in for the Query?</p><p>[04-Aug-2011 11:26:38] &lt;rmatte&gt; for some reason it's refusing to sort by uptime by default for me, but if you click on the column it'll do it</p><p>[04-Aug-2011 11:26:46] &lt;rmatte&gt; xuru: leave Query blank</p><p>[04-Aug-2011 11:26:50] &lt;xuru&gt; oh</p><p>[04-Aug-2011 11:27:08] &lt;xuru&gt; ah, ok</p><p>[04-Aug-2011 11:27:15] &lt;xuru&gt; nice</p><p>[04-Aug-2011 11:27:22] &lt;kells&gt; In the *body* of a Custom Device report, you can do python if if starts with "python:", but no TALEs.&#160; Python is more powerful, so that's a good thing.</p><p>[04-Aug-2011 11:27:37] &lt;JohnnyNOC&gt; what is the body</p><p>[04-Aug-2011 11:27:43] &lt;kells&gt; TALES is used in the section to determine which devices to choose</p><p>[04-Aug-2011 11:27:55] &lt;nyeates&gt; xuru: reports currently do suck... they were the #2 voted for feature in ZCA survey.... maybe in future a community project will start on it... nothing easier for now though sorry</p><p>[04-Aug-2011 11:27:58] &lt;kells&gt; The body of the report is the 'fields' section</p><p>[04-Aug-2011 11:28:06] &lt;JohnnyNOC&gt; kells i'm using 3.1.0</p><p>[04-Aug-2011 11:28:08] &lt;JohnnyNOC&gt; there is no fields section</p><p>[04-Aug-2011 11:28:11] &lt;xuru&gt; so having the query blank means just take each device as it is without filtering anything</p><p>[04-Aug-2011 11:28:31] &lt;xuru&gt; nyeates: at least they are aware of it</p><p>[04-Aug-2011 11:28:35] &lt;xuru&gt; nyeates: thanks</p><p>[04-Aug-2011 11:28:42] &lt;rmatte&gt; nyeates: I plan to write quite a few custom ones in my spare time... I'd be willing to accept suggestions</p><p>[04-Aug-2011 11:28:43] &lt;xuru&gt; rmatte: thanks!</p><p>[04-Aug-2011 11:28:46] &lt;kells&gt; Sorry, 'Columns'</p><p>[04-Aug-2011 11:28:54] &lt;rmatte&gt; I've got the actual report coding down pretty well at this point</p><p>[04-Aug-2011 11:29:00] &lt;rmatte&gt; xuru: no problem</p><p>[04-Aug-2011 11:29:04] &lt;JohnnyNOC&gt; ok, and I can use python: in the query field?</p><p>[04-Aug-2011 11:29:11] &lt;rmatte&gt; nyeates: you saw my simple solution for an uptime report?</p><p>[04-Aug-2011 11:29:26] &lt;Hackman238&gt; kells: Hail!</p><p>[04-Aug-2011 11:29:33] &lt;Hackman238&gt; nyeates: How goes it?</p><p>[04-Aug-2011 11:29:35] &lt;kells&gt; python: "&lt;a href='%s'&gt;%s&lt;/a&gt;" % (device.getPrimaryUrlPath(), device.titleOrId())</p><p>[04-Aug-2011 11:29:35] &lt;kells&gt; python:device.getPrimaryId().replace('/zport/dmd', '').rsplit('/devices', 1)[0]</p><p>[04-Aug-2011 11:29:36] &lt;kells&gt; snmpSysName</p><p>[04-Aug-2011 11:29:36] &lt;kells&gt; snmpLocation</p><p>[04-Aug-2011 11:29:36] &lt;kells&gt; snmpContact</p><p>[04-Aug-2011 11:29:37] &lt;kells&gt; snmpDescr</p><p>[04-Aug-2011 11:29:37] &lt;Hackman238&gt; kells: How goes it?</p><p>[04-Aug-2011 11:29:43] &lt;xuru&gt; rmatte: a bit harder one...&#160; How about an uptime report that gives a % a machine was up for a specified period?</p><p>[04-Aug-2011 11:29:50] &lt;kells&gt; THere's an example columns section</p><p>[04-Aug-2011 11:30:09] &lt;kells&gt; The names would be something like "Name, Device Class, SNMP Name, Location, Contact, Description"</p><p>[04-Aug-2011 11:30:10] &lt;rmatte&gt; xuru: that's called the availability report</p><p>[04-Aug-2011 11:30:43] &lt;rmatte&gt; and it already exists</p><p>[04-Aug-2011 11:30:43] &lt;rmatte&gt; lol</p><p>[04-Aug-2011 11:30:47] &lt;kells&gt; Hackman238: lief is good</p><p>[04-Aug-2011 11:30:48] &lt;JohnnyNOC&gt; kells that is great to know but what about my query</p><p>[04-Aug-2011 11:30:50] &lt;xuru&gt; yeah, just noticed that one...&#160; but it doesn't seem to bring anything up for me</p><p>[04-Aug-2011 11:31:03] &lt;rmatte&gt; xuru: it's based on ping status of the devices</p><p>[04-Aug-2011 11:31:08] &lt;JohnnyNOC&gt; are you saying i can prepend python: in the fields field for the 3 lines of python i pasted here:</p><p><span>[04-Aug-2011 11:31:10] &lt;JohnnyNOC&gt; </span><a class="jive-link-external-small" href="../message/60451.html#60451#60451">message/60451#60451</a></p><p>[04-Aug-2011 11:31:16] &lt;JohnnyNOC&gt; er, query field i'm sorry</p><p>[04-Aug-2011 11:31:20] &lt;xuru&gt; rmatte: I'll take a look at it again</p><p>[04-Aug-2011 11:31:21] &lt;JohnnyNOC&gt; or is it strictly in columns?</p><p>[04-Aug-2011 11:31:46] &lt;nyeates&gt; xuru: can you create a forum post on this when you get a chance? Ill paste rmattes solution in for others to use!</p><p>[04-Aug-2011 11:31:57] &lt;nyeates&gt; tho.....i think forums are unusable right now</p><p>[04-Aug-2011 11:32:06] &lt;rmatte&gt; xuru: what the report does exactly is it scans through the event database for the period looking for ping down events for each devices, then it calculated the amount of time the device spent as down and divides it by the period of time to get the percentage</p><p>[04-Aug-2011 11:32:08] &lt;xuru&gt; nyeates: sure</p><p>[04-Aug-2011 11:32:23] &lt;rmatte&gt; xuru: it's pretty much the business standard way of doing availability status for devices</p><p>[04-Aug-2011 11:32:34] &lt;kells&gt; If you really want to do events, then you'll need to use something rather than a "Custom Device Report"</p><p>[04-Aug-2011 11:32:53] &lt;xuru&gt; rmatte: ah, ok, I might have to play around with a custom one...&#160; might have to dig into it's code</p><p>[04-Aug-2011 11:32:57] &lt;kells&gt; You'll need to build a report.</p><p>[04-Aug-2011 11:32:57] &lt;rmatte&gt; yeh, for events you'd need to actually code a report</p><p>[04-Aug-2011 11:33:16] &lt;rmatte&gt; xuru: I don't see why it wouldn't work as is for you</p><p>[04-Aug-2011 11:33:18] &lt;JohnnyNOC&gt; ok, thanks.</p><p>[04-Aug-2011 11:33:20] &lt;rmatte&gt; makes no sense if it doesn't</p><p>[04-Aug-2011 11:33:57] &lt;ptmcg&gt; rmatte: I recently rewrote the Availability Reports logic, there were some pretty glaring holes.&#160; For instance, if a Ping Down was received before the start of the window, and then no more Ping up or down events during the window, the old report would assume 100% up.</p><p>[04-Aug-2011 11:34:31] &lt;rmatte&gt; ptmcg: I actually wrote my own stand-alone report a long while back and made the same fixes</p><p>[04-Aug-2011 11:34:58] &lt;rmatte&gt; actually hmmmm...</p><p>[04-Aug-2011 11:35:06] &lt;rmatte&gt; how is that technically possible though?</p><p>[04-Aug-2011 11:35:15] &lt;xuru&gt; yeah, it's never actually worked for me</p><p>[04-Aug-2011 11:35:24] &lt;rmatte&gt; you should receive a ping down every cycle until the device comes back up</p><p>[04-Aug-2011 11:35:30] &lt;JohnnyNOC&gt; i guess i have a bad attitude</p><p>[04-Aug-2011 11:35:54] &lt;xuru&gt; I set it for 1/1/2011 to today and got nothing in the list...&#160; do you have to specify a device?</p><p>[04-Aug-2011 11:36:29] &lt;rmatte&gt; xuru: the availability report you mean?</p><p>[04-Aug-2011 11:36:36] &lt;xuru&gt; rmatte: yeah</p><p>[04-Aug-2011 11:36:47] &lt;rmatte&gt; no, it defaults to running it for every single device for a 7 day period</p><p>[04-Aug-2011 11:36:51] &lt;ptmcg&gt; Well, I'm coming from a slightly different control background, so I don't assume events will always get cyclic downs/clears - if that is not an issue in actual practice, then noharm done</p><p>[04-Aug-2011 11:37:07] &lt;rmatte&gt; xuru: when you say you're getting 'nothing', you're not even seeing devices?</p><p>[04-Aug-2011 11:37:22] &lt;xuru&gt; rmatte: correct.&#160; No devices in the list</p><p>[04-Aug-2011 11:37:34] &lt;xuru&gt; rmatte: but it does spin for quiet a while first</p><p>[04-Aug-2011 11:37:35] &lt;rmatte&gt; ptmcg: yeh, in the case of Zenoss they do for ping events</p><p>[04-Aug-2011 11:37:45] &lt;rmatte&gt; ptmcg: better safe than sorry anyways</p><p>[04-Aug-2011 11:37:56] &lt;xuru&gt; I'm talking about Performance Reports &gt; Availability Report</p><p>[04-Aug-2011 11:38:04] &lt;rmatte&gt; xuru: so am I</p><p>[04-Aug-2011 11:38:11] &lt;rmatte&gt; I've never had issues with that report, it always works</p><p>[04-Aug-2011 11:38:31] &lt;xuru&gt; Performance Reports &gt; Availability &gt; Availability Report per Collection seems to work</p><p>[04-Aug-2011 11:38:48] &lt;rmatte&gt; per collection?</p><p>[04-Aug-2011 11:38:52] &lt;nyeates&gt; xuru: what version zenoss you on?</p><p>[04-Aug-2011 11:38:55] &lt;rmatte&gt; it sounds like they've changed it a lot</p><p>[04-Aug-2011 11:38:58] themactech_ is now known as themactech</p><p>[04-Aug-2011 11:39:00] &lt;nyeates&gt; I saw issues with it in old version of Z</p><p>[04-Aug-2011 11:39:24] &lt;rmatte&gt; xuru: you running 3.1?</p><p>[04-Aug-2011 11:39:28] &lt;xuru&gt; Version: 3.1.0-0</p><p>[04-Aug-2011 11:39:38] &lt;nyeates&gt; huh</p><p>[04-Aug-2011 11:39:40] &lt;rmatte&gt; ok, I'm loading up my 3.1 box to try</p><p>[04-Aug-2011 11:40:10] &lt;rmatte&gt; xuru: is that enterprise Zenoss?</p><p>[04-Aug-2011 11:40:11] &lt;xuru&gt; is there a way to see what report comes from what zenpack?</p><p>[04-Aug-2011 11:40:15] &lt;xuru&gt; rmatte: no</p><p>[04-Aug-2011 11:40:25] &lt;xuru&gt; we can't afford that <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[04-Aug-2011 11:40:27] &lt;rmatte&gt; I don't even have "Availability Report per Collection" on mine</p><p>[04-Aug-2011 11:40:34] &lt;rmatte&gt; not sure what you're talking about</p><p>[04-Aug-2011 11:40:39] &lt;xuru&gt; It might be from a zenpack</p><p>[04-Aug-2011 11:41:08] &lt;xuru&gt; ZenPacks.community.AvailabilityReportPerCollection</p><p>[04-Aug-2011 11:41:11] &lt;xuru&gt; yeah</p><p>[04-Aug-2011 11:41:26] &lt;xuru&gt; Jane Curry</p><p>[04-Aug-2011 11:41:32] &lt;rmatte&gt; I just ran the regular availability report on my 3.1 box and it worked like a charm</p><p>[04-Aug-2011 11:41:34] &lt;xuru&gt; my hero <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[04-Aug-2011 11:42:00] &lt;rmatte&gt; you'd need to do some debugging to figure out where it's tripping up</p><p>[04-Aug-2011 11:42:14] &lt;xuru&gt; cure</p><p>[04-Aug-2011 11:42:17] &lt;xuru&gt; err sure</p><p>[04-Aug-2011 11:42:39] &lt;jmp242&gt; is the forum mailing list now supposed to be that huge / distracting HTML stuff</p><p>[04-Aug-2011 11:43:51] &lt;xuru&gt; I think the biggest issue that I face right now is the false alarms for the disk space</p><p>[04-Aug-2011 11:44:06] &lt;xuru&gt; the whole crying wolf thing</p><p>[04-Aug-2011 11:44:07] &lt;rmatte&gt; false alarm in what sense?</p><p>[04-Aug-2011 11:44:24] &lt;xuru&gt; disk space threshold: 141.9% used (-2.1GB free)</p><p>[04-Aug-2011 11:44:33] &lt;rmatte&gt; sounds like you need to remodel the device</p><p>[04-Aug-2011 11:44:38] &lt;rmatte&gt; what kind of device is that?</p><p>[04-Aug-2011 11:44:40] &lt;xuru&gt; then a half hour later, it clears</p><p>[04-Aug-2011 11:45:15] &lt;xuru&gt; windows 2003 I think</p><p>[04-Aug-2011 11:45:21] &lt;xuru&gt; yeah</p><p>[04-Aug-2011 11:45:32] &lt;rmatte&gt; does someone perhaps plug/unplug a usb filesystem from it often?</p><p>[04-Aug-2011 11:45:53] &lt;rmatte&gt; or does some filesystem mount/dismount regularly?</p><p>[04-Aug-2011 11:45:55] &lt;JohnnyNOC&gt; xuru i had/have that problem and it seemed to be related to the collector plugins being used</p><p>[04-Aug-2011 11:45:58] &lt;xuru&gt; no, like I said, it's for the security cameras, and never gets touched</p><p>[04-Aug-2011 11:46:11] &lt;straterra&gt; Does it get mounted/unmounted?</p><p>[04-Aug-2011 11:46:13] &lt;xuru&gt; JohnnyNOC: ah, could be</p><p>[04-Aug-2011 11:46:17] &lt;JohnnyNOC&gt; for example, i had multiple collector plugins trying to calculate those values</p><p>[04-Aug-2011 11:46:31] &lt;xuru&gt; no, it uses a SAN and doesn't get mounted/unmounted</p><p>[04-Aug-2011 11:46:49] &lt;rmatte&gt; "collector plugins" are actually modeler plugins, they are only used when modelling</p><p>[04-Aug-2011 11:46:56] &lt;rmatte&gt; templates are used for the actual collection</p><p>[04-Aug-2011 11:47:57] &lt;xuru&gt; it would be nice to be able to set the modelers at a tree level, and force that down the tree</p><p>[04-Aug-2011 11:48:22] &lt;rmatte&gt; you can set them at a device class level</p><p>[04-Aug-2011 11:48:26] &lt;JohnnyNOC&gt; rmatte you are correct, but if you model your device incorrectly then ...</p><p>[04-Aug-2011 11:48:35] &lt;rmatte&gt; you shouldn't be setting them at a device level, it'll get very messy very quickly</p><p>[04-Aug-2011 11:48:59] &lt;xuru&gt; rmatte: right, but say I want to set every device below /Server/Windows to have a set of modelers only</p><p>[04-Aug-2011 11:48:59] &lt;JohnnyNOC&gt; i don't know if that's the problem xuru is having, but i have experienced that while using the HPMon and DellMon zenpacks with for example, WMIPerf</p><p>[04-Aug-2011 11:49:16] &lt;xuru&gt; rmatte: right</p><p>[04-Aug-2011 11:49:26] &lt;rmatte&gt; xuru: as long as you haven't locally defined zCollectorPlugins on the devices, then yes, you can do that</p><p>[04-Aug-2011 11:49:30] &lt;bigegor&gt; hi all</p><p>[04-Aug-2011 11:49:35] &lt;xuru&gt; JohnnyNOC: ah, good to know</p><p>[04-Aug-2011 11:49:37] &lt;xuru&gt; hey bigegor</p><p>[04-Aug-2011 11:49:47] &lt;JohnnyNOC&gt; hello bigegor!</p><p>[04-Aug-2011 11:49:48] &lt;rmatte&gt; Zenoss is built to be the way you're describing</p><p>[04-Aug-2011 11:50:00] &lt;rmatte&gt; but settings at lower levels always override settings at higher levels</p><p>[04-Aug-2011 11:50:14] &lt;xuru&gt; rmatte: yes, but it would be nice to clear all the devices / nodes below that level</p><p>[04-Aug-2011 11:50:24] &lt;rmatte&gt; so if you went around assigning collector plugins directly to devices themselves rather than to classes, you've overridge everything above</p><p>[04-Aug-2011 11:50:37] &lt;xuru&gt; yep</p><p>[04-Aug-2011 11:50:44] &lt;rmatte&gt; that option would be nice... but it shouldn't happen automatically</p><p>[04-Aug-2011 11:50:55] &lt;rmatte&gt; and it can be done with a bit of zendmd magic anyways</p><p>[04-Aug-2011 11:51:05] &lt;xuru&gt; no, but it would be nice to have the option in the menu perhaps</p><p>[04-Aug-2011 11:51:12] &lt;rmatte&gt; agreed</p><p>[04-Aug-2011 11:51:27] &lt;xuru&gt; I have people here that are allergic to command lines here :/</p><p>[04-Aug-2011 11:51:44] &lt;rmatte&gt; then they shouldn't be working in the monitoring field <img height="16px" src="../4.5.6/images/emoticons/silly.gif" width="16px"/></p><p>[04-Aug-2011 11:51:52] &lt;JohnnyNOC&gt; these people could be management</p><p>[04-Aug-2011 11:51:58] &lt;xuru&gt;&#160; <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[04-Aug-2011 11:51:59] &lt;JohnnyNOC&gt; (the same people i'd like to create fancy zenoss reports for)</p><p>[04-Aug-2011 11:52:07] &lt;rmatte&gt; JohnnyNOC: then they shouldn't be touching settings</p><p>[04-Aug-2011 11:52:16] &lt;xuru&gt; we're a small shop, so there are only a few of us here</p><p>[04-Aug-2011 11:52:21] &lt;JohnnyNOC&gt; you know, a lot of things shouldn't, but do</p><p>[04-Aug-2011 11:52:40] &lt;rmatte&gt; JohnnyNOC: I've locked every manager here out of being able to change any settings in Zenoss</p><p>[04-Aug-2011 11:52:44] &lt;rmatte&gt; too much room for error</p><p>[04-Aug-2011 11:52:50] &lt;JohnnyNOC&gt; that's great</p><p>[04-Aug-2011 11:53:10] &lt;rmatte&gt; "Why are all the devices gone on this Zenoss box?" "Oh, I accidentally spilled my coffee in my lap and clicked delete"</p><p>[04-Aug-2011 11:53:11] &lt;xuru&gt; I've been looking around and Zenoss seems to be the best/only solutions for a small company that needs to report availability, and monitor uptime and it's devices</p><p>[04-Aug-2011 11:53:28] &lt;rmatte&gt; yes, Zenoss is the best I've seen</p><p>[04-Aug-2011 11:53:29] &lt;xuru&gt; rmatte: hehe</p><p>[04-Aug-2011 11:53:34] &lt;rmatte&gt; it's simple, makes sense, and works well</p><p>[04-Aug-2011 11:53:52] &lt;xuru&gt; just wish there was a pricing option for small businesses</p><p>[04-Aug-2011 11:53:57] * xuru looks at nyeates </p><p>[04-Aug-2011 11:54:16] &lt;rmatte&gt; doubt that'll ever happen, though we're trying to get something going with the community</p><p>[04-Aug-2011 11:54:29] &lt;rmatte&gt; where community members could be hired to develop features</p><p>[04-Aug-2011 11:54:43] &lt;xuru&gt; rmatte: that sounds interesting</p><p>[04-Aug-2011 11:54:50] &lt;Hackman238&gt; That topic will be discussed at the next ZCA meeting</p><p>[04-Aug-2011 11:55:22] &lt;xuru&gt; cool</p><p>[04-Aug-2011 11:55:49] &lt;Hackman238&gt; Sorry I've been quiet, its nuts busy here today</p><p>[04-Aug-2011 11:55:55] &lt;Hackman238&gt; Wrangling bugs</p><p>[04-Aug-2011 11:56:42] &lt;nyeates&gt; Yeah its a tough thing to do the community business match making....i know its been tried in the past and not ever taken off... hopefully it can be done this time around</p><p>[04-Aug-2011 11:56:59] &lt;Hackman238&gt; Plus tring to find a damn pump crystal/substitute for my new laser....Nd:YLO3 hard to find cheap</p><p>[04-Aug-2011 11:57:03] &lt;JohnnyNOC&gt; nyeates would zenoss.org link to zenoss consultants to provide those types of servics?</p><p>[04-Aug-2011 11:57:07] &lt;JohnnyNOC&gt; or, would they consider</p><p><span>[04-Aug-2011 11:57:27] &lt;xuru&gt; btw, I've created a wiki at </span><a class="jive-link-external-small" href="http://zenoss.wikia.com/wiki/Zenoss_Wiki">http://zenoss.wikia.com/wiki/Zenoss_Wiki</a><span> and could use some help putting in hacks and tricks</span></p><p>[04-Aug-2011 11:57:41] &lt;JohnnyNOC&gt; perhaps it's not the greatest example but people in the qmail community did something like that on qmail.org</p><p>[04-Aug-2011 11:57:48] &lt;JohnnyNOC&gt; linking to consultants that offer commercial support</p><p>[04-Aug-2011 11:58:24] &lt;Hackman238&gt; xuru: Man left me out</p><p>[04-Aug-2011 11:58:25] &lt;nyeates&gt; JohnnyNOC: there is an entire section for that on our community portal... maybe we need to be more proactive or make it simpler</p><p>[04-Aug-2011 11:58:41] &lt;xuru&gt; Hackman238: ?&#160; blogs?</p><p>[04-Aug-2011 11:58:53] &lt;rmatte&gt; xuru: there is already a wiki on the community site with lots of tips/tricks documents already</p><p>[04-Aug-2011 11:58:57] &lt;jmp242&gt; yea</p><p>[04-Aug-2011 11:59:03] &lt;jmp242&gt; I'd work on the community site's wiki</p><p>[04-Aug-2011 11:59:12] &lt;jmp242&gt; hehe, actually I already do</p><p>[04-Aug-2011 11:59:46] &lt;nyeates&gt; Xuru, would you be willing to go on a list of people "looking to pay someone for zenoss work"?</p><p>[04-Aug-2011 11:59:46] &lt;xuru&gt; yeah, but I was thinking of keeping it separate from zenoss</p><p>[04-Aug-2011 11:59:56] &lt;rmatte&gt; eugh, someone must be downloading torrents here or something, our internet connection is garbage right now</p><p>[04-Aug-2011 12:00:01] [disconnected at Thu Aug&#160; 4 12:00:01 2011]</p><p>[04-Aug-2011 12:00:01] [connected at Thu Aug&#160; 4 12:00:01 2011]</p><p>[04-Aug-2011 12:00:16] [zenoss-logger (logger bot) has joined #zenoss]</p><p>[04-Aug-2011 12:00:26] &lt;xuru&gt; oh oh</p><p>[04-Aug-2011 12:00:43] &lt;rmatte&gt; ummm wow... the first page of the community site looks like garbage right now</p><p>[04-Aug-2011 12:00:57] &lt;rmatte&gt; Browse links running down the left pushing everything else down, missing login fields</p><p>[04-Aug-2011 12:00:58] &lt;rmatte&gt; lol</p><p>[04-Aug-2011 12:01:12] &lt;nyeates&gt; I will start a simple page, that has two list: one for buyers, one for sellers...and rid of the other unused sections of old....start with something simple</p><p>[04-Aug-2011 12:01:15] &lt;rmatte&gt; The spaces box has overlapping text</p><p>[04-Aug-2011 12:01:24] &lt;rmatte&gt; spaces/places box rather</p><p>[04-Aug-2011 12:01:40] &lt;nyeates&gt; Yeah i saw this too rmatte</p><p>[04-Aug-2011 12:01:50] &lt;rmatte&gt; oh nevermind, it just took ages to load</p><p>[04-Aug-2011 12:01:56] &lt;nyeates&gt; Any other last min dev questions before devs start shipping out in mass?</p><p>[04-Aug-2011 12:02:02] &lt;rmatte&gt; once it loaded the formatting is different</p><p>[04-Aug-2011 12:02:27] &lt;xuru&gt; nyeates: not right now, but I'll try and save them up for next time <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[04-Aug-2011 12:03:05] &lt;rmatte&gt; yeh, I don't really have any questions this morning</p><p>[04-Aug-2011 12:04:08] &lt;xuru&gt; rmatte: I was thinking more of an API kind of documentation look and feel to the wiki</p><p><span>[04-Aug-2011 12:05:09] &lt;xuru&gt; rmatte: for example, under events I have </span><a class="jive-link-external-small" href="http://zenoss.wikia.com/wiki/Events">http://zenoss.wikia.com/wiki/Events</a></p><p>[04-Aug-2011 12:05:31] &lt;xuru&gt; as a couple of examples of transforming events</p><p>[04-Aug-2011 12:06:10] &lt;nyeates&gt; Allright - this concludes today dev 'reporting' session :-)</p><p>[04-Aug-2011 12:06:18] &lt;xuru&gt; thanks nyeates</p><p><span>[04-Aug-2011 12:07:07] &lt;xuru&gt; rmatte: loosely based on </span><a class="jive-link-external-small" href="http://www.wowwiki.com/Portal:Interface_customization">http://www.wowwiki.com/Portal:Interface_customization</a></p><p>[04-Aug-2011 12:07:19] &lt;xuru&gt; which is a game I'm addicted too <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[04-Aug-2011 12:07:23] &lt;nyeates&gt; Everyone - look for 3.2.0 feature list on the blog today! snmpv3 traps are coming, and lots of UI enhancements</p><p><span>[04-Aug-2011 12:07:40] &lt;rmatte&gt; xuru: </span><a class="jive-link-wiki-small" href="DOC-2554.html">docs/DOC-2554</a></p><p>[04-Aug-2011 12:07:41] &lt;xuru&gt; oh sweet, thanks</p></div><!-- [DocumentBodyEnd:301a87bb-95f0-462c-82f2-898de4732e38] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1195,7 +744,7 @@ View print preview
                             </a>
                         </li>
                         <li>
-                            <a href="http://community.zenoss.org/blogs/zenossblog/2011/08/16/developer-irc-session-thursday-august-18th">
+                            <a href="blogs/zenossblog/2011/08/16/developer-irc-session-thursday-august-18th">
                             <span class="jive-icon-med jive-icon-blog"></span>
                                 Developer IRC Session Thursday August 18th
                             </a>
@@ -1298,11 +847,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1380,157 +929,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

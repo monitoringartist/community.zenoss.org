@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Original State In Maintenance Window -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/message/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2003&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,308 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "0AD6B523F6B4036972E4BACD3D5A9866";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/13c4a1e809cc2ae0220d618f0ffde0c1.js"></script>
-<script type="text/javascript">
-        $j(function() {
-			$j('.jive-shared-list-toggle').click(function() {
-				$j('.jive-shared-list-short').toggle();
-				$j('.jive-shared-list-all').toggle();
-                                return false;
-			});
-        });
-
-
-        var _editor_lang = "en";
-        var _jive_video_picker__url = "?container=2003&containerType=14";
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(1, 15504, 2003, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-        /*********************************************
-         * autosave settings and initialization for discussion/question replies
-         *********************************************/
-        (function(){
-                window.autoSave = new DummyAutoSave(false);
-        })();
-        /*********************************************
-         * done setting up autosave
-         *********************************************/
-        (function() {
-            var options = {
-                draftExists:        false,
-                isModerated:        false,
-                isThreaded:         false,
-                resourceType:       1,
-                resourceID:         15504,
-
-                containerType:      14,
-                containerID:        2003,
-
-                listAction:         "/comment-list.jspa",
-                resourceVersionID:  -1,
-
-                preferredMode:      'advanced',
-                currentMode:        'advanced',
-                rteDisabledBrowser: false,
-                isAnonymous:        true,
-
-                question:           true,
-                imagesEnabled:      false,
-                rteOptions : {
-                    controller    : jiveControl,
-                    preset        : "mini-w-quote",
-                    autoSave      : autoSave,
-                    preferredMode : "advanced",
-                    startMode     : "advanced",
-                    mobileUI      : false,
-                    toggleText    : 'Show Full Editor',
-                    alwaysUseTabText : 'Always use this editor',
-                    editDisabledText : 'You are using a device that only enables you to add content.',
-                    editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                    communityName : 'Zenoss Community',
-                    height        : 300,
-                    _imagePickerUrl : "/post!imagePicker.jspa?containerType=14&container=2003&message=60159&postedFromGUIEditor=true&reply=true",
-                    _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-                },
-                i18n: {
-                    postSuccessText:         'Your message was posted successfully.',
-                    postErrorText:           'An error occurred while trying to submit your post. Please try again.',
-                    forumThrdReplyTo:        'Reply to',
-
-                    // Question text for discussions-question.soy
-                    questionNotAnswered:     'This question is {0}Not Answered.{1}',
-                    markQuestionAsAssumedAnswered: '{0}{1}Mark as assumed answered{2}{3}',
-                    questionAssumedAnswered: 'This question is {0}Assumed Answered.{1}',
-                    questionAnswered: 'This question has been {0}Answered.{1}',
-                    correctAnswer: 'Correct Answer',
-                    helpfulAnswer: 'Helpful Answer',
-                    helpfulAnswers: 'Helpful Answers',
-                    byWord: 'by&nbsp;',
-                    onWord: '&nbsp;on&nbsp;',
-                    leftParen: '(',
-                    rightParen: ')',
-                    unmarkAsCorrectAnswer: 'Unmark as Correct',
-                    unmarkAsHelpfulAnswer: 'Unmark as Helpful',
-                    seeAnswerInContext: 'See the answer in context',
-                    seeThisAnswer: 'See this answer',
-                    allHelpfulAnswersAwarded: 'You\'ve awarded all available Helpful Answers',
-                    oneHelpfulAnswerLeft: 'You have {0} more Helpful answer to award.',
-                    someHelpfulAnswersLeft: 'You have {0} more Helpful answers to award.',
-                    postUserWroteLabel: '{0} wrote',
-                    postGuestWroteLabel: 'Guest wrote',
-                    formSubmitPleaseWait:'Please Wait ...',
-                    postReplyMustBeApprvdText:'Please note, your reply will need to be approved by a moderator before it is posted in the forum.',
-                    globalLoginRequired:'You are no longer logged in. Please {0}log in{1} to continue.',
-                    advEditor:'Use advanced editor'
-                }
-            };
-
-            // Create DiscusssionApp
-            var discussisons = new jive.DiscussionApp.Main(options);
-        })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 2,
-            objectID: 56649,
-            containerID: "jive-more-like-this-2-56649",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -531,30 +92,14 @@ jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], 
 
             <link rel="alternate" type="application/rss+xml"
                 title=" zenoss-users Discussions Feed"
-                href="http://community.zenoss.org/community/feeds/threads?community=2003">
+                href="community/feeds/threads?community=2003">
 
         <link rel="alternate" type="application/rss+xml"
             title="Messages in 'Original State In Maintenance Window' Discussion Feed"
-            href="http://community.zenoss.org/community/feeds/messages?thread=15504">
+            href="community/feeds/messages?thread=15504">
 
 
 
-    <script type="text/javascript">
-        function updateMessageFromDraft(draft) {
-            // dwr can't deserialize Image so just send along the image ID's
-            draft.imageIDs = [];
-            for (var i = 0; i < draft.images.length; i++) {
-                draft.imageIDs[i] = draft.images[i].ID;
-            }
-            draft.images = [];
-
-            MessageCreate.updateImagesFromDraft(draft,
-            {
-                timeout: DWRTimeout, // 20 seconds
-                errorHandler: editorErrorHandler
-            });
-        }
-    </script>
 
 
 
@@ -579,13 +124,6 @@ jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], 
                 width: 500px;
             }
         </style>
-        <script type="text/javascript">
-            $j(document).ready(function() {
-                if ($j.browser.msie && $j.browser.version < 7) {
-                    $j('.jive-modal-scrollto-container').removeClass('jive-modal-scrollto-container');
-                }
-            });
-        </script>
     <![endif]-->
 
 
@@ -675,7 +213,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -689,18 +227,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2003;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -732,15 +258,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -827,7 +353,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -841,18 +367,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2003;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -869,7 +383,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/forums">
+                <a href="community/forums">
             Forums</a> &gt; 
                 <a href="../community/forums/zenoss-users.html">
             zenoss-users</a> &gt; 
@@ -903,7 +417,7 @@ Password:                </label>
         <input type="hidden" name="message.post.15504" value="[placeholder]"/>
 
 
-	<form action="http://community.zenoss.org/post.jspa?container=2003&amp;containerType=14&amp;thread=15504&amp;message=60159&amp;reply=true" method="post" name="isInline" id="postform" >
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=15504&amp;message=60159&amp;reply=true" method="post" name="isInline" id="postform" >
 	<input type="hidden" name="containerType" value="14">
 	<input type="hidden" name="container" value="2003">
 
@@ -994,7 +508,7 @@ You can not post a blank message. Please type your message and try again.		</div
                         <strong>10 Replies</strong>
                     <a href="60224%3Ftstart=0.html#60224" >Latest reply</a>:
                     Jul 25, 2011 12:38 PM by
-mikea730                        <span><a href="http://community.zenoss.org/community/feeds/messages?thread=15504"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+mikea730                        <span><a href="community/feeds/messages?thread=15504"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
 
 
 
@@ -1026,7 +540,7 @@ mikea730                        <span><a href="http://community.zenoss.org/commu
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/stevez/avatar/46.png?a=-1"
+            src="people/stevez/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="stevez"
             /><span username="stevez" style="display:none;"></span></a>
@@ -1130,7 +644,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/stevez/avatar/46.png?a=-1"
+            src="people/stevez/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="stevez"
             /><span username="stevez" style="display:none;"></span></a>
@@ -1176,7 +690,7 @@ class="jiveTT-hover-user jive-username-link"
                     <div id="discussion-action-div-56666" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=56666&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=56666&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-56666-" class="acclaim-container">
@@ -1236,7 +750,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/stevez/avatar/46.png?a=-1"
+            src="people/stevez/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="stevez"
             /><span username="stevez" style="display:none;"></span></a>
@@ -1282,7 +796,7 @@ class="jiveTT-hover-user jive-username-link"
                     <div id="discussion-action-div-56668" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=56668&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=56668&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-56668-" class="acclaim-container">
@@ -1342,7 +856,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/stevez/avatar/46.png?a=-1"
+            src="people/stevez/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="stevez"
             /><span username="stevez" style="display:none;"></span></a>
@@ -1388,7 +902,7 @@ class="jiveTT-hover-user jive-username-link"
                     <div id="discussion-action-div-56673" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=56673&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=56673&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-56673-" class="acclaim-container">
@@ -1448,7 +962,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/stevez/avatar/46.png?a=-1"
+            src="people/stevez/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="stevez"
             /><span username="stevez" style="display:none;"></span></a>
@@ -1494,7 +1008,7 @@ class="jiveTT-hover-user jive-username-link"
                     <div id="discussion-action-div-56674" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=56674&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=56674&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-56674-" class="acclaim-container">
@@ -1596,7 +1110,7 @@ class="jiveTT-hover-user jive-username-link jive-user-disabled"
                     <div id="discussion-action-div-59469" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=59469&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=59469&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-59469-" class="acclaim-container">
@@ -1656,7 +1170,7 @@ class="jiveTT-hover-user jive-username-link jive-user-disabled"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/mikea730/avatar/46.png?a=-1"
+            src="people/mikea730/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="mikea730"
             /><span username="mikea730" style="display:none;"></span></a>
@@ -1702,7 +1216,7 @@ class="jiveTT-hover-user jive-username-link"
                     <div id="discussion-action-div-60156" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=60156&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=60156&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-60156-" class="acclaim-container">
@@ -1762,7 +1276,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/stevez/avatar/46.png?a=-1"
+            src="people/stevez/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="stevez"
             /><span username="stevez" style="display:none;"></span></a>
@@ -1808,7 +1322,7 @@ class="jiveTT-hover-user jive-username-link"
                     <div id="discussion-action-div-60159" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=60159&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=60159&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-60159-" class="acclaim-container">
@@ -1868,7 +1382,7 @@ class="jiveTT-hover-user jive-username-link"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/ones_and_zeros/avatar/46.png?a=-1"
+            src="people/ones_and_zeros/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="ones_and_zeros"
             /><span username="ones_and_zeros" style="display:none;"></span></a>
@@ -1914,7 +1428,7 @@ class="jiveTT-hover-user jive-username-link"
                     <div id="discussion-action-div-60179" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=60179&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=60179&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-60179-" class="acclaim-container">
@@ -2016,7 +1530,7 @@ class="jiveTT-hover-user jive-username-link jive-user-disabled"
                     <div id="discussion-action-div-60205" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=60205&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=60205&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-60205-" class="acclaim-container">
@@ -2076,7 +1590,7 @@ class="jiveTT-hover-user jive-username-link jive-user-disabled"
     <img
             class="jive-avatar"
 
-            src="http://community.zenoss.org/people/mikea730/avatar/46.png?a=-1"
+            src="people/mikea730/avatar/46.png?a=-1"
             border="0" height="46" width="46"
             alt="mikea730"
             /><span username="mikea730" style="display:none;"></span></a>
@@ -2122,7 +1636,7 @@ class="jiveTT-hover-user jive-username-link"
                     <div id="discussion-action-div-60224" class="jive-content-controls clearfix">
                         <ul>
 
-                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=60224&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+                                <li><a href="message-abuse!input.jspa?objectID=60224&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
 
                             <li class="discussion-message-acclaim">
 <div id="acclaim-container-2-60224-" class="acclaim-container">
@@ -2174,11 +1688,6 @@ class="jiveTT-hover-user jive-username-link"
     <div id="jive-body-sidebarcol-container">
         <!-- BEGIN sidebar column -->
         <div id="jive-body-sidebarcol">
-        <script type="text/javascript">
-            function createDocFromThread() {
-                    document.location = '/thread-to-doc.jspa?thread=15504';
-            }
-        </script>
 
 <div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
 
@@ -2334,11 +1843,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -2416,157 +1925,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

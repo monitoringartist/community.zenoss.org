@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Release Notes for Zenoss Core Version 3.0.3 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2140&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "B020B22A32616BAD70A84D09815BA908";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2140&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 9379, 2140, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         9379,
-
-                    containerType:      14,
-                    containerID:        2140,
-
-                    contentObject: {
-                            document:          9379,
-                            version:           2
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2140&postedFromGUIEditor=true&contentObjectType=102&object=9379",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 9379,
-            containerID: "jive-more-like-this-102-9379",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 9379;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2140;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2140;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,9 +366,9 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation/official_documentation">
+                <a href="community/documentation/official_documentation">
             Zenoss Core Product Documentation</a> &gt; 
                 <a href="../community/documentation/official_documentation/release_notes.html">
             Release Notes</a> &gt; 
@@ -830,18 +379,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-9379/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-9379/restore'>
         <input type="hidden" name="version" value="2" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-9379"/>
         <input type="hidden" name="document.restore.DOC-9379" value="1394833354701-29ZEBDWP2BSSVVBH7C3FD685RL0O1WNV"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-9379/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-9379/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-9379"/>
         <input type="hidden" name="document.delete.DOC-9379" value="1394833354708-C5EJ8DT3PXUEPQQME1RAA47AN9C5W25X"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-9379"/>
         <input type="hidden" name="document.publish.DOC-9379" value="1394833354713-M62WIFBJSHCA0ELIFU69CP1QCJMC62K3"/>
         <input type="hidden" name="document" value="DOC-9379" />
@@ -891,7 +440,7 @@ Password:                </label>
         </div>
         <div class="jive-content-header-version">
             VERSION 2&nbsp;
-                <a href="http://community.zenoss.org/docs/DOC-9379/diff?secondVersionNumber=2" title="Click to view document history"><img class="jive-icon-sml jive-icon-search" src="../4.5.6/images/transparent.png" alt="Click to view document history" /></a>
+                <a href="docs/DOC-9379/diff?secondVersionNumber=2" title="Click to view document history"><img class="jive-icon-sml jive-icon-search" src="../4.5.6/images/transparent.png" alt="Click to view document history" /></a>
 
 
         </div>
@@ -949,7 +498,7 @@ class="jiveTT-hover-user jive-username-link"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:f39e77c4-13e6-457b-81c0-33f6b02fe511] --><div class="jive-rendered-content"><div><p class="copyright">Copyright &copy; 2010 Zenoss, Inc., 275 West St. Suite 204, Annapolis, MD 21401, U.S.A. All rights reserved.</p></div><div><div class="legalnotice" title="Legal Notice"><a class="jive-link-anchor-small" name="d0e10"> </a><p><span>This work is licensed under a Creative Commons Attribution Share Alike 3.0 License. To view a copy of this license, visit </span><a class="jive-link-external-small" href="http://creativecommons.org/licenses/by-sa/3.0/;">http://creativecommons.org/licenses/by-sa/3.0/;</a><span> or send a letter to Creative Commons, 171 2nd Street, Suite 300, San Francisco, California, 94105, USA.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><div align="center" class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 90px;" summary="manufactured viewport for HTML img"><tbody><tr><td align="center" style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-9379-2-5908/CCL.png"><img alt="CCL.png" class="jive-image" height="35" src="../servlet/JiveServlet/downloadImage/102-9379-2-5908/100-35/CCL.png" width="100"/></a></td></tr></tbody></table></div><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The Zenoss logo is a registered trademark of Zenoss, Inc. Zenoss and Open Enterprise Management are trademarks of Zenoss, Inc. in the U.S. and other countries.</p><p>Amazon Web Services, AWS, Amazon Elastic Compute Cloud, and Amazon EC2 are trademarks of Amazon.com, Inc. or its affiliates in the United States and/or other countries.</p><p>Flash is a registered trademark of Adobe Systems Incorporated.</p><p>Linux is a registered trademark of Linus Torvalds.</p><p>Oracle, the Oracle logo, and Java are registered trademarks of the Oracle Corporation and/or its affiliates.</p><p>SNMP Informant is a trademark of Garth K. Williams (Informant Systems, Inc.).</p><p>Sybase is a registered trademark of Sybase, Inc.</p><p>Tomcat is a trademark of the Apache Software Foundation.</p><p>VMware is a registered trademark or trademark of VMware, Inc. in the United States and/or other jurisdictions.</p><p>Windows is a registered trademark of Microsoft Corporation in the United States and other countries.</p><p>All other companies and products mentioned are trademarks and property of their respective owners.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Part Number: 02-102010-3.0-v04</p></div></div><hr/><div class="toc"><dl><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e43">1. About These Notes</a></span></dt><dd><dl><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e70">1.1. What's New in Zenoss 3.0?</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e94">1.2. Downloading Zenoss Core</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e102">1.3. Supported Software and Environments</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e172">1.4. Installation, Upgrade and Implementation Notes</a></span></dt><dd><dl><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e180">1.4.1. Memory Requirements</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e185">1.4.2. Upgrade</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e408">1.4.3. Event Status</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e429">1.4.4. Search</a></span></dt></dl></dd><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e437">1.5. Known Issues</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e488">1.6. Defects Fixed in this Release</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e496">1.7. Reporting Problems and Providing Feedback</a></span></dt><dd><dl><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e507">1.7.1. Product Documentation Feedback</a></span></dt></dl></dd></dl></dd></dl></div><div class="section" title="1. About These Notes"><div class="titlepage"><div><div><h2 class="title" style="clear: both;"><a class="jive-link-anchor-small" name="d0e43"> </a>1. About These Notes</h2></div></div></div><p>These release notes contain important information about this release of Zenoss, including:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>New features</p></li><li class="listitem"><p>Where to download the software</p></li><li class="listitem"><p>Supported software and environments</p></li><li class="listitem"><p>Installation, upgrade, and implementation notes</p></li><li class="listitem"><p>Known issues</p></li><li class="listitem"><p>Defects and issues fixed in the release</p></li><li class="listitem"><p>Reporting problems and providing feedback</p></li></ul></div><div class="section" title="1.1. What's New in Zenoss 3.0?"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e70"> </a>1.1. What's New in Zenoss 3.0?</h3></div></div></div><p>Version 3.0 of Zenoss Core offers:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Completely redesigned user interface designed to improve operational effectiveness through simplified navigation, redesigned pages, and embedded tooltips and page tips.</p></li><li class="listitem"><p>Expanded integration and customization through new REST API. In addition to its scriptable command line interface, interactive shell, and expansive Web services API based on XML-RPC, Zenoss now offers a REST API with easily consumable XML or JSON return formats. The benefit to end users is more flexible and simplified options for customization and rapid integration with other management tools.</p></li><li class="listitem"><p>New search facility (accessed from the Infrastructure page) allows simultaneous substring search on device names, IP addresses, and device classes.</p></li><li class="listitem"><p>Product documentation in EPUB e-book format. You can read EPUB books from your iPhone, iPad, Sony Reader, or Nook, or by using e-reader software such as Stanza, FBReader (for Linux devices), or the EPUBReader plugin (for Firefox users).</p></li><li class="listitem"><p>Upgraded versions of Python (2.6) and Zope (2.12).</p></li><li class="listitem"><p>Reliability and availability improvements.</p></li></ul></div></div><div class="section" title="1.2. Downloading Zenoss Core"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e94"> </a>1.2. Downloading Zenoss Core</h3></div></div></div><p>Zenoss Core is available from this location:</p><p><a class="jive-link-external-small" href="http://www.zenoss.com/download" target="_top">http://www.zenoss.com/download</a></p></div><div class="section" title="1.3. Supported Software and Environments"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e102"> </a>1.3. Supported Software and Environments</h3></div></div></div><p>You can install Zenoss Core on these platforms:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Linux&#174;</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>RedHat&#174; Enterprise Linux 4, 5</p></li><li class="listitem"><p>CentOS 4, 5</p></li><li class="listitem"><p>Fedora<sup>TM</sup> Core 12, 13</p></li><li class="listitem"><p>Debian&#174; 5</p></li><li class="listitem"><p>Ubuntu&#174; Server 8.04, 10.04</p></li><li class="listitem"><p>openSUSE 10.3, 11.1</p></li><li class="listitem"><p>SUSE&#174; Linux Enterprise Server 10, 11</p></li></ul></div></li><li class="listitem"><p>Mac OS&#174; X v10.5 Leopard&#174;, Mac OS&#174; X v10.6 Snow Leopard&#174;</p></li><li class="listitem"><p>Windows&#174; (requires VMware<sup>TM</sup> Player and the Zenoss Virtual Appliance)</p></li></ul></div><p>For each system that will access Zenoss through a Web browser, you need:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Firefox 3.x or Internet Explorer 7, 8</p></li><li class="listitem"><p>Adobe&#174; Flash&#174; Player</p></li></ul></div><p>The following partial list of resources can be managed by Zenoss:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Windows Server (2000, 2003, 2008), Windows XP, and Windows Vista&#174;, Windows 7</p></li><li class="listitem"><p>Linux or other UNIX&#174; server</p></li><li class="listitem"><p>Tomcat<sup>TM</sup> and other Java&#174;/JMX servers</p></li><li class="listitem"><p>Any SNMP- or SSH-enabled device</p></li></ul></div></div><div class="section" title="1.4. Installation, Upgrade and Implementation Notes"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e172"> </a>1.4. Installation, Upgrade and Implementation Notes</h3></div></div></div><p>Read this section for important installation, upgrade, and implementation updates. For complete installation and update instructions, refer to the latest version of the <span class="emphasis"><em>Zenoss Core Installation</em></span> guide.</p><div class="section" title="1.4.1. Memory Requirements"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e180"> </a>1.4.1. Memory Requirements</h4></div></div></div><p>For a small Zenoss installation (fewer than 250 devices), your system must have a minimum of 4GB available RAM. (Defect 6898)</p></div><div class="section" title="1.4.2. Upgrade"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e185"> </a>1.4.2. Upgrade</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Refer to the following table to determine the upgrade path you must follow when upgrading to a newer version of Zenoss.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note"><h3 class="title">Note</h3><p>Zenoss strongly recommends that you upgrade to the latest release to receive the latest features and defect fixes.</p></div><div class="informaltable"><table border="1"><colgroup><col align="center" width="288"></col><col align="center" width="288"></col></colgroup><thead><tr><th align="center" style="border:1px solid black;">If your current version is: </th><th align="center" style="border:1px solid black;">You can upgrade directly to this version: </th></tr></thead><tbody><tr><td align="center" style="border:1px solid black;">2.1.x</td><td align="center" style="border:1px solid black;">2.1.3</td></tr><tr><td align="center" style="border:1px solid black;">2.1.3</td><td align="center" style="border:1px solid black;">2.2.4</td></tr><tr><td align="center" style="border:1px solid black;">2.2.x</td><td align="center" style="border:1px solid black;">2.2.4</td></tr><tr><td align="center" style="border:1px solid black;">2.2.4</td><td align="center" style="border:1px solid black;">2.3.3</td></tr><tr><td align="center" style="border:1px solid black;">2.3.x</td><td align="center" style="border:1px solid black;">2.4.5</td></tr><tr><td align="center" style="border:1px solid black;">2.4.x</td><td align="center" style="border:1px solid black;">2.5.2</td></tr><tr><td align="center" style="border:1px solid black;">2.5.x</td><td align="center" style="border:1px solid black;">3.0.3*</td></tr><tr><td align="center" style="border:1px solid black;">3.0.x</td><td align="center" style="border:1px solid black;">3.0.3</td></tr></tbody></table></div><p>*Before upgrading from Version 2.5.x, you must install the PreUpgrade ZenPack to prepare your environment for the transition. This version depends on a new global catalog that indexes most objects in your database for quick retrieval.</p><p>Run this ZenPack only against the Zenoss master; do not run it against Zenoss collectors.</p><p>To prepare your environment:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Download and save the PreUpgrade30 ZenPack <code class="code">.egg</code> file from the Zenoss Community ZenPacks page:</p><p><a class="jive-link-community-small" href="http://community.zenoss.org/community/zenpacks" target="_top">http://community.zenoss.org/community/zenpacks</a></p></li><li class="listitem"><p>Run the following command as the zenoss user:</p><pre class="programlisting">zenpack --install ZenPacks.zenoss.PreUpgrade30</pre></li><li class="listitem"><p>Stop, and then restart the system with the following commands:</p><pre class="programlisting">zopectl stop<br/>zenhub stop<br/>zopectl start<br/>zenhub start</pre></li><li class="listitem"><p>Run the following command to build the catalog:</p><pre class="programlisting">zencatalog start</pre><p>When the <code class="code">zencatalog</code> daemon starts, it will traverse your database and build the catalog.</p><p>You can check the progress of the daemon from the event console, or from the <code class="code">zencatalog.log</code> file. Run the following command:</p><pre class="programlisting">tail -f $ZENHOME/log/zencatalog.log</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note"><h3 class="title">Note</h3><p>You must wait until <code class="code">zencatalog</code> finishes before continuing upgrade. The amount of time required to create the global catalog depends on the number of devices and components in your database.</p></div></li></ol></div></li><li class="listitem"><p>Before upgrade, you must perform a "<code class="filename">service zenoss start</code>" (as root user) or "<code class="filename">zenoss start</code>" (as user zenoss) before restarting Zenoss. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/7033" target="_top">7033</a>)</p><p>Otherwise, you will see the following error:</p><p><code class="filename">Daemon: zeoctl Error: no program specified; use -p or -C</code></p></li><li class="listitem"><p>Zenoss does not test or evaluate community, customer-developed, and custom ZenPacks for upgrades.</p><p>If you are using one or more ZenPacks that are not installed through the standard Zenoss installation process, you should contact the ZenPack author about its compatibility with your upgrade version. Zenoss further recommends you test the ZenPack for upgrade compatibility in a test environment.</p></li><li class="listitem"><p>Older versions of Zenoss used a persistent disk cache in the <code class="filename">zope.conf</code> file. If you originally installed an older Zenoss version, it is possible that your upgraded system still has this cache enabled. This configuration is not compatible with Zenoss 3.0.x, and must be disabled before starting the upgrade process. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/7069" target="_top">7069</a>)</p><p>Follow these steps to disable and remove the cache:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>In the <code class="filename">zope.conf</code> file, verify that the <code class="code">client zeo1</code> line is commented out, as follows:</p><pre class="programlisting">&lt;zodb_db main&gt;<br/>&#160; mount-point /<br/>&#160; # ZODB cache, in number of objects<br/>&#160; cache-size 5000<br/>&#160; &lt;zeoclient&gt;<br/>&#160;&#160;&#160; server localhost:8100<br/>&#160;&#160;&#160; storage 1<br/>&#160;&#160;&#160; name zeostorage<br/>&#160;&#160;&#160; var $INSTANCE/var<br/>&#160;&#160;&#160; # ZEO client cache, in bytes<br/>&#160;&#160;&#160; cache-size 20MB<br/>&#160;&#160;&#160; # Uncomment to have a persistent disk cache<br/>&#160;&#160;&#160; #client zeo1<br/>&#160; &lt;/zeoclient&gt;<br/>&lt;/zodb_db&gt;<br/></pre></li><li class="listitem"><p>As the <code class="code">zenoss</code> user, enter these commands to remove old caches, if they exist:</p><pre class="programlisting">zenoss stop<br/>rm $ZENHOME/var/*.zec<br/>zenoss start</pre></li></ol></div></li><li class="listitem"><p>There is a known issue when upgrading from Zenoss 2.5.2 to Zenoss 3.0.x, for users who have installed ZenPacks with compiled C extensions. (LDAPAuthenticator ZenPacks users will most commonly experience this problem.)</p><p>The problem results from moving from Python 2.4 to Python 2.5 or later. Zenoss 3.0.x uses Python 2.6.</p><p>During upgrade, on a 64-bit OS, you may see this error during the post-upgrade process:</p><p><code class="code">undefined symbol: Py_InitModule4</code></p><p>This message interrupts the upgrade. If it appears, you must:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Upgrade ZenPacks with new Python 2.6-compiled extensions</p></li><li class="listitem"><p>Run the post-upgrade cleanup script:</p><p><code class="code">remove_preupgrade_zenpack.sh</code></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note"><h3 class="title">Note</h3><p>For Enterprise ZenPacks, the post-upgrade cleanup step is included in the Enterprise ZenPack RPM installation. If you have additional custom or community ZenPacks exhibiting this error, then you must run this script manually after installing ZenPacks with new Python 2.6-compatible extensions.</p></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note"><h3 class="title">Note</h3><p>The zeo database daemon must be running when you run the script.</p></div></li></ol></div><p>Users on a 32-bit OS may see this message during the post-upgrade step:</p><p><code class="code">RuntimeWarning: Python C API version mismatch for module</code> <span class="emphasis"><em>XXXX</em></span>: <code class="code">This Python has API version 1013 module XXXX has version 1012.</code></p><p>where <span class="emphasis"><em>XXXX</em></span> contains the name of a specific, compiled C extension. This warning will not prevent the <code class="filename">remove_preupgrade_zenpack.sh</code> script from completing, but it does indicate that one or more extensions must be rebuilt for Python 2.6 before you can fully deploy your updated Zenoss system.</p></li><li class="listitem"><p>On upgrade, you may see a message similar to:</p><pre class="programlisting">WARNING:ZEO.zrpc:(9906) CW: error connecting to ('localhost', 8100): ECONNREFUSED<br/>INFO:zen.migrate:Database going to version Zenoss 3.0.3</pre><p>This message is benign and can be disregarded.</p></li></ul></div></div><div class="section" title="1.4.3. Event Status"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e408"> </a>1.4.3. Event Status</h4></div></div></div><p>Available status calculation has changed. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.com/trac/ticket/7192" target="_top">7192</a>).</p><p>In Version 3.0.1, the status on the device details page showed 'Up' regardless of the associated /Status/Ping events, if:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>The zPingMonitorIgnore configuration property is True,</p><p>OR</p></li><li class="listitem"><p>The device's Production State is below the value of the device's zProdStateThreshold configuration property</p></li></ul></div><p>In Version 3.0.2 and later, the status is determined by the current /Status/Ping events of the device, regardless of the value of the configuration properties.</p></div><div class="section" title="1.4.4. Search"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e429"> </a>1.4.4. Search</h4></div></div></div><p>Global Device Search is available as a Core ZenPack. You can download this ZenPack from:</p><p><a class="jive-link-wiki-small" href="DOC-7453.html" target="_top">http://community.zenoss.org/docs/DOC-7453</a></p></div></div><div class="section" title="1.5. Known Issues"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e437"> </a>1.5. Known Issues</h3></div></div></div><p>The following issues are known for this version of Zenoss Core.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>A new attribute, monitoredStartModes, has been added to WinServices so that only Windows services that are expected to be running are actually reported as "down." Optional services that are Disabled or Manual startup are, by default, not reported as down. (Internal Defect 2248)</p></li><li class="listitem"><p>ZenPacks whose names include an underscore break on export. To resolve this issue, reinstall the ZenPack via the command line, and then restart Zope. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5239" target="_top">5239</a>)</p></li><li class="listitem"><p>If an SSH connection times out (for example, <code class="filename">sshd</code> is dead, or remote device is unavailable), multiple events are generated. After SSH connections can be restored, when <code class="filename">zencommand</code> runs again, no clear event is generated. Events must be manually cleared when the device starts responding again. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5386" target="_top">5386</a>)</p></li><li class="listitem"><p>Starting up the BitRock stack may produce ClientDisconnected errors in log files. These do not indicate a problem and should be ignored. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5508" target="_top">5508</a>)</p></li><li class="listitem"><p>If your installation's $ZENHOME contains a dot (.), then Zenoss does not function correctly. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5838" target="_top">5838</a>)</p></li><li class="listitem"><p>Zenoss displays a status of "unknown" for Windows services that are disabled or not monitored. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/7028" target="_top">7028</a>)</p></li><li class="listitem"><p>The zenmodeler daemon does not provide valid feedback on SNMPv3 authentication issues. (<a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/7165" target="_top">Defect 7165</a>)</p></li></ul></div></div><div class="section" title="1.6. Defects Fixed in this Release"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e488"> </a>1.6. Defects Fixed in this Release</h3></div></div></div><p>Go to the following location to view defects fixed in this version of Zenoss:</p><p><a class="jive-link-external-small" href="http://tinyurl.com/28eh3uf" target="_top">http://tinyurl.com/28eh3uf</a></p></div><div class="section" title="1.7. Reporting Problems and Providing Feedback"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e496"> </a>1.7. Reporting Problems and Providing Feedback</h3></div></div></div><p>Use the Zenoss forums (<a class="jive-link-community-small" href="http://community.zenoss.org/community/forums" target="_top">http://community.zenoss.org/community/forums</a>) and Trac (<a class="jive-link-external-small" href="http://dev.zenoss.org/trac" target="_top">http://dev.zenoss.org/trac</a>) to submit issues and provide feedback.</p><div class="section" title="1.7.1. Product Documentation Feedback"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e507"> </a>1.7.1. Product Documentation Feedback</h4></div></div></div><p>Zenoss welcomes your comments and suggestions to help us improve our product documentation. Please send your comments to:</p><p><a class="jive-link-email-small" href="mailto:docs@zenoss.com" target="_top">docs@zenoss.com</a></p></div></div></div></div><!-- [DocumentBodyEnd:f39e77c4-13e6-457b-81c0-33f6b02fe511] -->
+<!-- [DocumentBodyStart:f39e77c4-13e6-457b-81c0-33f6b02fe511] --><div class="jive-rendered-content"><div><p class="copyright">Copyright &copy; 2010 Zenoss, Inc., 275 West St. Suite 204, Annapolis, MD 21401, U.S.A. All rights reserved.</p></div><div><div class="legalnotice" title="Legal Notice"><a class="jive-link-anchor-small" name="d0e10"> </a><p><span>This work is licensed under a Creative Commons Attribution Share Alike 3.0 License. To view a copy of this license, visit </span><a class="jive-link-external-small" href="http://creativecommons.org/licenses/by-sa/3.0/;">http://creativecommons.org/licenses/by-sa/3.0/;</a><span> or send a letter to Creative Commons, 171 2nd Street, Suite 300, San Francisco, California, 94105, USA.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><div align="center" class="mediaobject"><table border="0" cellpadding="0" cellspacing="0" style="width: 90px;" summary="manufactured viewport for HTML img"><tbody><tr><td align="center" style="border:0px solid black;"><a href="../servlet/JiveServlet/showImage/102-9379-2-5908/CCL.png"><img alt="CCL.png" class="jive-image" height="35" src="../servlet/JiveServlet/downloadImage/102-9379-2-5908/100-35/CCL.png" width="100"/></a></td></tr></tbody></table></div><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The Zenoss logo is a registered trademark of Zenoss, Inc. Zenoss and Open Enterprise Management are trademarks of Zenoss, Inc. in the U.S. and other countries.</p><p>Amazon Web Services, AWS, Amazon Elastic Compute Cloud, and Amazon EC2 are trademarks of Amazon.com, Inc. or its affiliates in the United States and/or other countries.</p><p>Flash is a registered trademark of Adobe Systems Incorporated.</p><p>Linux is a registered trademark of Linus Torvalds.</p><p>Oracle, the Oracle logo, and Java are registered trademarks of the Oracle Corporation and/or its affiliates.</p><p>SNMP Informant is a trademark of Garth K. Williams (Informant Systems, Inc.).</p><p>Sybase is a registered trademark of Sybase, Inc.</p><p>Tomcat is a trademark of the Apache Software Foundation.</p><p>VMware is a registered trademark or trademark of VMware, Inc. in the United States and/or other jurisdictions.</p><p>Windows is a registered trademark of Microsoft Corporation in the United States and other countries.</p><p>All other companies and products mentioned are trademarks and property of their respective owners.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Part Number: 02-102010-3.0-v04</p></div></div><hr/><div class="toc"><dl><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e43">1. About These Notes</a></span></dt><dd><dl><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e70">1.1. What's New in Zenoss 3.0?</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e94">1.2. Downloading Zenoss Core</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e102">1.3. Supported Software and Environments</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e172">1.4. Installation, Upgrade and Implementation Notes</a></span></dt><dd><dl><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e180">1.4.1. Memory Requirements</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e185">1.4.2. Upgrade</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e408">1.4.3. Event Status</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e429">1.4.4. Search</a></span></dt></dl></dd><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e437">1.5. Known Issues</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e488">1.6. Defects Fixed in this Release</a></span></dt><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e496">1.7. Reporting Problems and Providing Feedback</a></span></dt><dd><dl><dt><span class="section"><a class="jive-link-anchor-small" href="DOC-9379.html#d0e507">1.7.1. Product Documentation Feedback</a></span></dt></dl></dd></dl></dd></dl></div><div class="section" title="1. About These Notes"><div class="titlepage"><div><div><h2 class="title" style="clear: both;"><a class="jive-link-anchor-small" name="d0e43"> </a>1. About These Notes</h2></div></div></div><p>These release notes contain important information about this release of Zenoss, including:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>New features</p></li><li class="listitem"><p>Where to download the software</p></li><li class="listitem"><p>Supported software and environments</p></li><li class="listitem"><p>Installation, upgrade, and implementation notes</p></li><li class="listitem"><p>Known issues</p></li><li class="listitem"><p>Defects and issues fixed in the release</p></li><li class="listitem"><p>Reporting problems and providing feedback</p></li></ul></div><div class="section" title="1.1. What's New in Zenoss 3.0?"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e70"> </a>1.1. What's New in Zenoss 3.0?</h3></div></div></div><p>Version 3.0 of Zenoss Core offers:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Completely redesigned user interface designed to improve operational effectiveness through simplified navigation, redesigned pages, and embedded tooltips and page tips.</p></li><li class="listitem"><p>Expanded integration and customization through new REST API. In addition to its scriptable command line interface, interactive shell, and expansive Web services API based on XML-RPC, Zenoss now offers a REST API with easily consumable XML or JSON return formats. The benefit to end users is more flexible and simplified options for customization and rapid integration with other management tools.</p></li><li class="listitem"><p>New search facility (accessed from the Infrastructure page) allows simultaneous substring search on device names, IP addresses, and device classes.</p></li><li class="listitem"><p>Product documentation in EPUB e-book format. You can read EPUB books from your iPhone, iPad, Sony Reader, or Nook, or by using e-reader software such as Stanza, FBReader (for Linux devices), or the EPUBReader plugin (for Firefox users).</p></li><li class="listitem"><p>Upgraded versions of Python (2.6) and Zope (2.12).</p></li><li class="listitem"><p>Reliability and availability improvements.</p></li></ul></div></div><div class="section" title="1.2. Downloading Zenoss Core"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e94"> </a>1.2. Downloading Zenoss Core</h3></div></div></div><p>Zenoss Core is available from this location:</p><p><a class="jive-link-external-small" href="http://www.zenoss.com/download" target="_top">http://www.zenoss.com/download</a></p></div><div class="section" title="1.3. Supported Software and Environments"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e102"> </a>1.3. Supported Software and Environments</h3></div></div></div><p>You can install Zenoss Core on these platforms:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Linux&#174;</p><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>RedHat&#174; Enterprise Linux 4, 5</p></li><li class="listitem"><p>CentOS 4, 5</p></li><li class="listitem"><p>Fedora<sup>TM</sup> Core 12, 13</p></li><li class="listitem"><p>Debian&#174; 5</p></li><li class="listitem"><p>Ubuntu&#174; Server 8.04, 10.04</p></li><li class="listitem"><p>openSUSE 10.3, 11.1</p></li><li class="listitem"><p>SUSE&#174; Linux Enterprise Server 10, 11</p></li></ul></div></li><li class="listitem"><p>Mac OS&#174; X v10.5 Leopard&#174;, Mac OS&#174; X v10.6 Snow Leopard&#174;</p></li><li class="listitem"><p>Windows&#174; (requires VMware<sup>TM</sup> Player and the Zenoss Virtual Appliance)</p></li></ul></div><p>For each system that will access Zenoss through a Web browser, you need:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Firefox 3.x or Internet Explorer 7, 8</p></li><li class="listitem"><p>Adobe&#174; Flash&#174; Player</p></li></ul></div><p>The following partial list of resources can be managed by Zenoss:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Windows Server (2000, 2003, 2008), Windows XP, and Windows Vista&#174;, Windows 7</p></li><li class="listitem"><p>Linux or other UNIX&#174; server</p></li><li class="listitem"><p>Tomcat<sup>TM</sup> and other Java&#174;/JMX servers</p></li><li class="listitem"><p>Any SNMP- or SSH-enabled device</p></li></ul></div></div><div class="section" title="1.4. Installation, Upgrade and Implementation Notes"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e172"> </a>1.4. Installation, Upgrade and Implementation Notes</h3></div></div></div><p>Read this section for important installation, upgrade, and implementation updates. For complete installation and update instructions, refer to the latest version of the <span class="emphasis"><em>Zenoss Core Installation</em></span> guide.</p><div class="section" title="1.4.1. Memory Requirements"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e180"> </a>1.4.1. Memory Requirements</h4></div></div></div><p>For a small Zenoss installation (fewer than 250 devices), your system must have a minimum of 4GB available RAM. (Defect 6898)</p></div><div class="section" title="1.4.2. Upgrade"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e185"> </a>1.4.2. Upgrade</h4></div></div></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Refer to the following table to determine the upgrade path you must follow when upgrading to a newer version of Zenoss.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note"><h3 class="title">Note</h3><p>Zenoss strongly recommends that you upgrade to the latest release to receive the latest features and defect fixes.</p></div><div class="informaltable"><table border="1"><colgroup><col align="center" width="288"></col><col align="center" width="288"></col></colgroup><thead><tr><th align="center" style="border:1px solid black;">If your current version is: </th><th align="center" style="border:1px solid black;">You can upgrade directly to this version: </th></tr></thead><tbody><tr><td align="center" style="border:1px solid black;">2.1.x</td><td align="center" style="border:1px solid black;">2.1.3</td></tr><tr><td align="center" style="border:1px solid black;">2.1.3</td><td align="center" style="border:1px solid black;">2.2.4</td></tr><tr><td align="center" style="border:1px solid black;">2.2.x</td><td align="center" style="border:1px solid black;">2.2.4</td></tr><tr><td align="center" style="border:1px solid black;">2.2.4</td><td align="center" style="border:1px solid black;">2.3.3</td></tr><tr><td align="center" style="border:1px solid black;">2.3.x</td><td align="center" style="border:1px solid black;">2.4.5</td></tr><tr><td align="center" style="border:1px solid black;">2.4.x</td><td align="center" style="border:1px solid black;">2.5.2</td></tr><tr><td align="center" style="border:1px solid black;">2.5.x</td><td align="center" style="border:1px solid black;">3.0.3*</td></tr><tr><td align="center" style="border:1px solid black;">3.0.x</td><td align="center" style="border:1px solid black;">3.0.3</td></tr></tbody></table></div><p>*Before upgrading from Version 2.5.x, you must install the PreUpgrade ZenPack to prepare your environment for the transition. This version depends on a new global catalog that indexes most objects in your database for quick retrieval.</p><p>Run this ZenPack only against the Zenoss master; do not run it against Zenoss collectors.</p><p>To prepare your environment:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Download and save the PreUpgrade30 ZenPack <code class="code">.egg</code> file from the Zenoss Community ZenPacks page:</p><p><a class="jive-link-community-small" href="community/zenpacks" target="_top">community/zenpacks</a></p></li><li class="listitem"><p>Run the following command as the zenoss user:</p><pre class="programlisting">zenpack --install ZenPacks.zenoss.PreUpgrade30</pre></li><li class="listitem"><p>Stop, and then restart the system with the following commands:</p><pre class="programlisting">zopectl stop<br/>zenhub stop<br/>zopectl start<br/>zenhub start</pre></li><li class="listitem"><p>Run the following command to build the catalog:</p><pre class="programlisting">zencatalog start</pre><p>When the <code class="code">zencatalog</code> daemon starts, it will traverse your database and build the catalog.</p><p>You can check the progress of the daemon from the event console, or from the <code class="code">zencatalog.log</code> file. Run the following command:</p><pre class="programlisting">tail -f $ZENHOME/log/zencatalog.log</pre><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note"><h3 class="title">Note</h3><p>You must wait until <code class="code">zencatalog</code> finishes before continuing upgrade. The amount of time required to create the global catalog depends on the number of devices and components in your database.</p></div></li></ol></div></li><li class="listitem"><p>Before upgrade, you must perform a "<code class="filename">service zenoss start</code>" (as root user) or "<code class="filename">zenoss start</code>" (as user zenoss) before restarting Zenoss. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/7033" target="_top">7033</a>)</p><p>Otherwise, you will see the following error:</p><p><code class="filename">Daemon: zeoctl Error: no program specified; use -p or -C</code></p></li><li class="listitem"><p>Zenoss does not test or evaluate community, customer-developed, and custom ZenPacks for upgrades.</p><p>If you are using one or more ZenPacks that are not installed through the standard Zenoss installation process, you should contact the ZenPack author about its compatibility with your upgrade version. Zenoss further recommends you test the ZenPack for upgrade compatibility in a test environment.</p></li><li class="listitem"><p>Older versions of Zenoss used a persistent disk cache in the <code class="filename">zope.conf</code> file. If you originally installed an older Zenoss version, it is possible that your upgraded system still has this cache enabled. This configuration is not compatible with Zenoss 3.0.x, and must be disabled before starting the upgrade process. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/7069" target="_top">7069</a>)</p><p>Follow these steps to disable and remove the cache:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>In the <code class="filename">zope.conf</code> file, verify that the <code class="code">client zeo1</code> line is commented out, as follows:</p><pre class="programlisting">&lt;zodb_db main&gt;<br/>&#160; mount-point /<br/>&#160; # ZODB cache, in number of objects<br/>&#160; cache-size 5000<br/>&#160; &lt;zeoclient&gt;<br/>&#160;&#160;&#160; server localhost:8100<br/>&#160;&#160;&#160; storage 1<br/>&#160;&#160;&#160; name zeostorage<br/>&#160;&#160;&#160; var $INSTANCE/var<br/>&#160;&#160;&#160; # ZEO client cache, in bytes<br/>&#160;&#160;&#160; cache-size 20MB<br/>&#160;&#160;&#160; # Uncomment to have a persistent disk cache<br/>&#160;&#160;&#160; #client zeo1<br/>&#160; &lt;/zeoclient&gt;<br/>&lt;/zodb_db&gt;<br/></pre></li><li class="listitem"><p>As the <code class="code">zenoss</code> user, enter these commands to remove old caches, if they exist:</p><pre class="programlisting">zenoss stop<br/>rm $ZENHOME/var/*.zec<br/>zenoss start</pre></li></ol></div></li><li class="listitem"><p>There is a known issue when upgrading from Zenoss 2.5.2 to Zenoss 3.0.x, for users who have installed ZenPacks with compiled C extensions. (LDAPAuthenticator ZenPacks users will most commonly experience this problem.)</p><p>The problem results from moving from Python 2.4 to Python 2.5 or later. Zenoss 3.0.x uses Python 2.6.</p><p>During upgrade, on a 64-bit OS, you may see this error during the post-upgrade process:</p><p><code class="code">undefined symbol: Py_InitModule4</code></p><p>This message interrupts the upgrade. If it appears, you must:</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem"><p>Upgrade ZenPacks with new Python 2.6-compiled extensions</p></li><li class="listitem"><p>Run the post-upgrade cleanup script:</p><p><code class="code">remove_preupgrade_zenpack.sh</code></p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note"><h3 class="title">Note</h3><p>For Enterprise ZenPacks, the post-upgrade cleanup step is included in the Enterprise ZenPack RPM installation. If you have additional custom or community ZenPacks exhibiting this error, then you must run this script manually after installing ZenPacks with new Python 2.6-compatible extensions.</p></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;" title="Note"><h3 class="title">Note</h3><p>The zeo database daemon must be running when you run the script.</p></div></li></ol></div><p>Users on a 32-bit OS may see this message during the post-upgrade step:</p><p><code class="code">RuntimeWarning: Python C API version mismatch for module</code> <span class="emphasis"><em>XXXX</em></span>: <code class="code">This Python has API version 1013 module XXXX has version 1012.</code></p><p>where <span class="emphasis"><em>XXXX</em></span> contains the name of a specific, compiled C extension. This warning will not prevent the <code class="filename">remove_preupgrade_zenpack.sh</code> script from completing, but it does indicate that one or more extensions must be rebuilt for Python 2.6 before you can fully deploy your updated Zenoss system.</p></li><li class="listitem"><p>On upgrade, you may see a message similar to:</p><pre class="programlisting">WARNING:ZEO.zrpc:(9906) CW: error connecting to ('localhost', 8100): ECONNREFUSED<br/>INFO:zen.migrate:Database going to version Zenoss 3.0.3</pre><p>This message is benign and can be disregarded.</p></li></ul></div></div><div class="section" title="1.4.3. Event Status"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e408"> </a>1.4.3. Event Status</h4></div></div></div><p>Available status calculation has changed. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.com/trac/ticket/7192" target="_top">7192</a>).</p><p>In Version 3.0.1, the status on the device details page showed 'Up' regardless of the associated /Status/Ping events, if:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>The zPingMonitorIgnore configuration property is True,</p><p>OR</p></li><li class="listitem"><p>The device's Production State is below the value of the device's zProdStateThreshold configuration property</p></li></ul></div><p>In Version 3.0.2 and later, the status is determined by the current /Status/Ping events of the device, regardless of the value of the configuration properties.</p></div><div class="section" title="1.4.4. Search"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e429"> </a>1.4.4. Search</h4></div></div></div><p>Global Device Search is available as a Core ZenPack. You can download this ZenPack from:</p><p><a class="jive-link-wiki-small" href="DOC-7453.html" target="_top">docs/DOC-7453</a></p></div></div><div class="section" title="1.5. Known Issues"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e437"> </a>1.5. Known Issues</h3></div></div></div><p>The following issues are known for this version of Zenoss Core.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>A new attribute, monitoredStartModes, has been added to WinServices so that only Windows services that are expected to be running are actually reported as "down." Optional services that are Disabled or Manual startup are, by default, not reported as down. (Internal Defect 2248)</p></li><li class="listitem"><p>ZenPacks whose names include an underscore break on export. To resolve this issue, reinstall the ZenPack via the command line, and then restart Zope. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5239" target="_top">5239</a>)</p></li><li class="listitem"><p>If an SSH connection times out (for example, <code class="filename">sshd</code> is dead, or remote device is unavailable), multiple events are generated. After SSH connections can be restored, when <code class="filename">zencommand</code> runs again, no clear event is generated. Events must be manually cleared when the device starts responding again. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5386" target="_top">5386</a>)</p></li><li class="listitem"><p>Starting up the BitRock stack may produce ClientDisconnected errors in log files. These do not indicate a problem and should be ignored. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5508" target="_top">5508</a>)</p></li><li class="listitem"><p>If your installation's $ZENHOME contains a dot (.), then Zenoss does not function correctly. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5838" target="_top">5838</a>)</p></li><li class="listitem"><p>Zenoss displays a status of "unknown" for Windows services that are disabled or not monitored. (Defect <a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/7028" target="_top">7028</a>)</p></li><li class="listitem"><p>The zenmodeler daemon does not provide valid feedback on SNMPv3 authentication issues. (<a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/7165" target="_top">Defect 7165</a>)</p></li></ul></div></div><div class="section" title="1.6. Defects Fixed in this Release"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e488"> </a>1.6. Defects Fixed in this Release</h3></div></div></div><p>Go to the following location to view defects fixed in this version of Zenoss:</p><p><a class="jive-link-external-small" href="http://tinyurl.com/28eh3uf" target="_top">http://tinyurl.com/28eh3uf</a></p></div><div class="section" title="1.7. Reporting Problems and Providing Feedback"><div class="titlepage"><div><div><h3 class="title"><a class="jive-link-anchor-small" name="d0e496"> </a>1.7. Reporting Problems and Providing Feedback</h3></div></div></div><p>Use the Zenoss forums (<a class="jive-link-community-small" href="community/forums" target="_top">community/forums</a>) and Trac (<a class="jive-link-external-small" href="http://dev.zenoss.org/trac" target="_top">http://dev.zenoss.org/trac</a>) to submit issues and provide feedback.</p><div class="section" title="1.7.1. Product Documentation Feedback"><div class="titlepage"><div><div><h4 class="title"><a class="jive-link-anchor-small" name="d0e507"> </a>1.7.1. Product Documentation Feedback</h4></div></div></div><p>Zenoss welcomes your comments and suggestions to help us improve our product documentation. Please send your comments to:</p><p><a class="jive-link-email-small" href="mailto:docs@zenoss.com" target="_top">docs@zenoss.com</a></p></div></div></div></div><!-- [DocumentBodyEnd:f39e77c4-13e6-457b-81c0-33f6b02fe511] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1287,11 +836,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1369,157 +918,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

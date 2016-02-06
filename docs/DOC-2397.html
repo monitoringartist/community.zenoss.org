@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Dev chat 07/23/2009 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2141&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "F0DF8C27E313A0C0E7451126EA221D75";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2141&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 2397, 2141, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         2397,
-
-                    containerType:      14,
-                    containerID:        2141,
-
-                    contentObject: {
-                            document:          2397,
-                            version:           1
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=2397",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 2397,
-            containerID: "jive-more-like-this-102-2397",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 2397;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,7 +366,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
                 <a href="../community/documentation/irc.html">
             IRC</a> &gt; 
@@ -828,18 +377,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-2397/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-2397/restore'>
         <input type="hidden" name="version" value="1" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-2397"/>
         <input type="hidden" name="document.restore.DOC-2397" value="1394830204937-6B8YGBNDUW65QFJSBZYECO18DGOGGTXK"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-2397/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-2397/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-2397"/>
         <input type="hidden" name="document.delete.DOC-2397" value="1394830204942-6F72HTVKH3M2CF5P71U3MYFN16AXIBK3"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-2397"/>
         <input type="hidden" name="document.publish.DOC-2397" value="1394830204946-HR0KWTY39ADQ0JERNZTF88SBLH82LMET"/>
         <input type="hidden" name="document" value="DOC-2397" />
@@ -946,7 +495,7 @@ class="jiveTT-hover-user jive-username-link"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:fef66acf-cb89-4940-a1f0-c3ec705d0292] --><div class="jive-rendered-content"><span>Wednesday, July 22, 2009 3:00</span><br/><br/><span>The topic for #zenoss is: Zenoss Developers will be here Thursday at 11am Eastern (9:58:26 AM)</span><br/><span>9:58:39 AM jb: sup matt</span><br/><span>9:58:52 AM mrayzenoss: morning all</span><br/><span>9:59:07 AM bedwards: hello</span><br/><span>9:59:08 AM jmp242: morning</span><br/><span>9:59:09 AM mrayzenoss: bedwards and I will be answering questions this morning, other Zenossians may join in</span><br/><span>mrayzenoss has changed the topic to: Zenoss Developers are here for your questions (9:59:23 AM)</span><br/><span>9:59:32 AM bwest: hello all</span><br/><span>10:01:30 AM jb: mrayzenoss: it would be nice to get zenwinperf stats on the collector graphs..</span><br/><span>10:02:37 AM twm1010: jb: I bet you can add it.</span><br/><span>10:02:42 AM toninog: zenback/zenrestore... does anyone use it ?</span><br/><span>10:03:06 AM mrayzenoss: jb: that sounds like a good ticket or enhancement suggestion, you can enter it on the customer portal</span><br/><span>10:03:42 AM jb: k</span><br/><span>10:04:00 AM toninog: hi all...</span><br/><span>10:04:06 AM twm1010: but zenwinperf is a daemon in enterprise</span><br/><span>10:04:16 AM twm1010: specifically for collecting perf data over WMI?</span><br/><span>10:04:23 AM toninog: I was wondering if anyone had any sucess stories for using drbd ?</span><br/><span>10:04:28 AM stefanlsd: What kind of questions will you guys be answering? I have a technical question...</span><br/><span>10:04:40 AM chudler: toninog: we use drbd with success</span><br/><span>10:04:49 AM LiamW: They answer all questions</span><br/><span>10:04:52 AM mrayzenoss: twm1010: yes</span><br/><span>10:05:00 AM mrayzenoss: stefanlsd: whatever you want to ask</span><br/><span>10:05:16 AM toninog: chudler: mike here is frightfully afraid of it... is there any compelling evidence I can use to attack his fear?</span><br/><span>10:05:43 AM LiamW: mray: When monitoring SSH devices how do I get zenoss to create an event when the interface is down?</span><br/><span><span>10:06:01 AM jb: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5357">http://dev.zenoss.org/trac/ticket/5357</a></span><br/><span>10:06:09 AM chudler: probably not, it is a terrible situation to be afraid of technology. Perhaps if mike could elucidate on his fears.</span><br/><span>10:06:32 AM stefanlsd: thanks! I've written a custom command to log to our helpdesk. Im using a transform on a ping to suppress any further notifications on a device which works, (we get one email) but it seems like it still runs the custom command for each device it should suppress. ie. how can i suppress the custom command also...</span><br/><span>10:06:40 AM chudler: drbd is not just something someone cooked up in their basement, FWIW</span><br/><span>10:06:56 AM toninog: chudler: hehe - hence is fear</span><br/><span>10:07:21 AM toninog: its is a pity that the zoDB cannot be distributed like a mysql (or any other sql server) can</span><br/><span>10:08:03 AM bedwards: LiamW: you need to add an event to the result object returned by the parser</span><br/><span>10:08:14 AM mrayzenoss: LiamW: is there a ping down event associated with the interface?</span><br/><span>10:08:17 AM chudler: it is very well thought out, clean and performs well. There are probably thousands of happy users out there. I think it will be in the mainline kernel Real Soon Now</span><br/><span>10:09:06 AM LiamW: mray: I am not receiveing any events when an interface goes down, whether it is SNMP or SSH</span><br/><span>10:09:07 AM toninog: chudler: have you had a time when you actually tested its failover and did so successfully?</span><br/><span>10:09:16 AM chudler: toninog: yes</span><br/><span>10:09:30 AM toninog: chudler: is your drbd systems geographically dispersed ?</span><br/><span>10:10:17 AM jb: be careful with DRBD if your boxes aren't local to each other.. DRBD isn't very happy over high latency links.</span><br/><span>10:10:35 AM chudler: toninog: no</span><br/><span>10:10:50 AM toninog: jb: have you had experience with the drbd over low latency links ?</span><br/><span>10:10:56 AM jb: yep</span><br/><span>10:11:03 AM jb: i use DRBD for several heartbeat clusters</span><br/><span>10:11:12 AM jb: im talking &lt; 5ms though</span><br/><span>10:11:24 AM toninog: jb: ok - and do you have any scary stories ?</span><br/><span>10:11:27 AM rmatte: when using the stack installer to upgrade, it shouldn't write over my current zenoss config files (in $ZENHOME/etc)? Or will it?</span><br/><span>10:11:41 AM jb: nope</span><br/><span>10:11:48 AM jb: occasinally a split brain occurs..</span><br/><span>10:11:52 AM toninog: jb: excellent.. is it just lag then ?</span><br/><span>10:12:38 AM jb: yeah, just test it..</span><br/><span>10:13:14 AM toninog: jb: excellent... I think I will </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>10:13:19 AM LiamW: rocket: will you be adding memory to the Linux monitor addon zenpack?</span><br/><span>10:13:34 AM mrayzenoss: rmatte: there may be a ticket about that</span><br/><span>10:13:58 AM mrayzenoss: LiamW: what kind of memory?</span><br/><span>10:14:07 AM mrayzenoss: LiamW: like a perf graph?</span><br/><span>10:14:12 AM rmatte: mrayzenoss: just looking for a will or won't, that way I'll know whether or not I need to back them up and restore them afterwards (no big deal if I do)</span><br/><span>10:14:26 AM rmatte: I guess I'll know after this upgrade lol</span><br/><span>10:14:51 AM LiamW: buffer, cache, used etc</span><br/><span>10:15:37 AM toninog: chudler: jb: thanks for the info ...</span><br/><span><span>10:15:58 AM mrayzenoss: rmatte: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/4967">http://dev.zenoss.org/trac/ticket/4967</a><span> Looks like it's supposed to work and we haven't had customer issues with it, but someone lost their etc on a failed upgrade</span></span><br/><span>10:16:02 AM mrayzenoss: so back it up to be safe</span><br/><span>10:16:13 AM rmatte: mrayzenoss: ok, sounds good, thanks</span><br/><span>10:17:11 AM rmatte: I finally got this clones vm to work on our test box, it was geared up to run on one of our super servers in our blade enclosure at a data center, then I copied it down to a server in our lab environment and it kept crashing lol</span><br/><span>10:17:19 AM rmatte: cloned*</span><br/><span><span>10:17:22 AM mrayzenoss: LiamW: You can open tickets against community ZenPacks in the Community ZenPack repository: </span><a class="jive-link-external-small" href="../index.html">http://community.zenoss.org</a></span><br/><span>10:17:35 AM LiamW: ok</span><br/><span>10:17:36 AM mrayzenoss: LiamW: and submit patches </span><br/><span>10:17:43 AM twm1010: Is there a good tutorial/guide on creating custom device reports?</span><br/><span>10:18:16 AM twm1010: I'm looking to create one that shows me all the gigabit ports on my core switches that are currently linked at 100Mb.</span><br/><span>10:18:26 AM bedwards: stefanlsd: I don't know of a way to suppress custom commands. you can open an enhancement request.</span><br/><span>10:18:44 AM rmatte: twm1010: you'd probably have to code that</span><br/><span>10:19:02 AM rmatte: twm1010: using the easy report interface under the edit tab in custom reports is very limited</span><br/><span><span>10:19:16 AM mrayzenoss: twm1010: </span><a class="jive-link-external-small" href="http://www.zenoss.com/community/docs/zenoss-dev-guide/2.4.2/ch14.html">http://www.zenoss.com/community/docs/zenoss-dev-guide/2.4.2/ch14.html</a><span> and </span><a class="jive-link-external-small" href="http://www.zenoss.com/community/docs/zenoss-guide/2.4.2/ch12s08.html">http://www.zenoss.com/community/docs/zenoss-guide/2.4.2/ch12s08.html</a></span><br/><span>10:19:30 AM mrayzenoss: twm1010: King Crab will have some more hooks to make zendmd calls easier</span><br/><span>10:19:33 AM LiamW: Where do I check to ensure that the zenoss cron jobs are running?</span><br/><span>10:20:09 AM rmatte: mrayzenoss: any chance that the report exporting gets fixed by King Crab?</span><br/><span>10:20:25 AM mrayzenoss: rmatte: Chet took your tickets that you opened, so those should get fixed</span><br/><span>10:20:36 AM rmatte: good stuff</span><br/><span>10:21:08 AM rmatte: the one is like a two second fix, the other one is really just Zenoss directly accessing the values in Zope rather than taking in to account the final values displayed in the report</span><br/><span>10:21:31 AM twm1010: mrayzenoss: any good examples out there I can use to backwards build what i need? like someone who created an interface inventory report or something?</span><br/><span>10:22:16 AM rmatte: twm1010: you could just look at the interface utilization report, it includes speeds of interfaces</span><br/><span>10:22:17 AM mrayzenoss: LiamW: not sure, you could check the stuff in $ZENHOME/logs for whatever you're calling, or I like to add "MARK-CRON" stuff to logs as a notifier that my cronjobs are running</span><br/><span>10:22:37 AM rmatte: twm1010: you then just have to add something to the report that only lists interfaces that are 100mbps</span><br/><span>10:22:53 AM twm1010: now how did i miss that...</span><br/><span>10:23:09 AM rmatte: </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>10:23:42 AM twm1010: ah, well, excel can do that easy enough</span><br/><span>10:24:06 AM rmatte: yeh, the problem is that when you export to excel, it doesn't show the same values as in the report</span><br/><span>10:24:16 AM rmatte: instead of 100mbps you'll see like 100000000</span><br/><span>10:24:18 AM rmatte: or something</span><br/><span>10:24:21 AM twm1010: eh, thats okay</span><br/><span>10:24:22 AM mrayzenoss: the MAC Address report has more stuff with Interfaces for another example</span><br/><span><span>10:24:48 AM mrayzenoss: </span><a class="jive-link-external-small" href="http://community.zenoss.org/trac-zenpacks/wiki/ZenPackssodonnellMACReport">http://community.zenoss.org/trac-zenpacks/wiki/ZenPackssodonnellMACReport</a></span><br/><span>10:25:00 AM twm1010: im looking for gigabit ports linked at 100Mbps... we've had people using up our expensive reports for management cards that only link at 100</span><br/><span>10:25:00 AM rmatte: twm1010: also, that export is broken for exporting, you won't see the interfaces column, but it's easy to fix</span><br/><span>10:25:01 AM twm1010: nice huh?</span><br/><span>10:25:35 AM twm1010: that particular report won't export is what you're saying?</span><br/><span><span>10:25:36 AM rmatte: twm1010: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5350">http://dev.zenoss.org/trac/ticket/5350</a></span><br/><span>10:25:36 AM mrayzenoss: feel free to send in any custom reports as ZenPacks</span><br/><span>10:25:45 AM rmatte: it'll export, the interfaces column will be missing</span><br/><span>10:25:58 AM rmatte: read that track ticket I posted, it explains how to fix it</span><br/><span>10:26:11 AM twm1010: mrayzenoss: I'd love to write some, but the problem is that I don't know the variables/column names to query?</span><br/><span>10:26:40 AM rmatte: after you edit the file, run: python $ZENHOME/Products/ZenReports/ReportLoader.py --force</span><br/><span>10:26:40 AM twm1010: rmatte: thanks, I'll edit the report</span><br/><span>10:26:47 AM rmatte: as zenoss user, to load the report</span><br/><span>10:26:49 AM rmatte: then it'll work</span><br/><span>10:27:20 AM rmatte: the report writing is pretty brutal, I'm just starting to wrap my mind around it</span><br/><span>10:27:26 AM jb: rocket: around?</span><br/><span>10:29:39 AM twm1010: Yeah I jumped over to our SolarWinds box to try and get what I need, but thanks to licensing, we only monitor some of the ports, not what I need here</span><br/><span>10:30:28 AM rmatte: ah, yeh, we're using solarwinds for reporting as well</span><br/><span>10:30:39 AM jb: we are too</span><br/><span>10:30:50 AM rmatte: I'd prefer to use Zenoss, but the reporting in it is a bit shaky at the moment</span><br/><span>10:31:00 AM rmatte: I'm sure it'll improve down the road</span><br/><span>10:31:03 AM jb: we monitor all network stuff with solarwinds..</span><br/><span>10:31:16 AM rmatte: for actual monitoring we use Zenoss</span><br/><span>10:31:21 AM rmatte: for reporting we use solarwinds</span><br/><span>10:35:10 AM rmatte: the fact that solarwinds only runs in windows is a bit of a deal breaker for the monitoring aspect</span><br/><span>10:48:54 AM mrayzenoss: kinda quiet after the first bunch of questions...</span><br/><span>10:52:46 AM jmp242: 4</span><br/><span>10:53:47 AM rmatte: yeh lol</span><br/><span>10:54:54 AM rmatte: I'm running a test upgrade right now, waiting to see how well it works. We're going to be deploying it to our production servers provided it works properly</span><br/><span>10:55:01 AM mrayzenoss: ok, let's see. There will probably be a 2.4.3 in a few weeks. We're still shooting for a beta testing for King Crab around late next month</span><br/><span>10:55:33 AM rmatte: cool</span><br/><span>10:55:59 AM rmatte: I'll probably load up the beta version of King crab on a VM in our lab</span><br/><span>10:56:23 AM mrayzenoss: excellent. We sent out a ton of t-shirts to beta testers last release</span><br/><span>10:56:50 AM rmatte: are there t-shirts for this release? </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>10:57:06 AM mrayzenoss: yeah, there will be beta tester t-shirts again</span><br/><span>10:57:11 AM rmatte: nice</span><br/><span>10:57:11 AM mrayzenoss: we should be putting up a demo server for feedback on the new event console soon</span><br/><span>10:57:24 AM mrayzenoss: Ian demoed it Monday, it's very nice</span><br/><span>10:57:37 AM rmatte: yeh, I can't wait to see that, does that mean the device list view is going to be a bit different too? (since it's similar)</span><br/><span>10:57:43 AM mrayzenoss: not yet</span><br/><span>10:57:52 AM rmatte: ah</span><br/><span>10:57:55 AM mrayzenoss: We're tackling one screen at a time</span><br/><span>10:58:01 AM rmatte: gotcha</span><br/><span>10:58:11 AM mrayzenoss: this will clear up the Event Console and Event Views</span><br/><span>10:58:37 AM mrayzenoss: let you save queries, better filtering and ordering, it's very slick</span><br/><span>10:58:51 AM rmatte: actually, I just remembered a trac ticket that I wanted to log for Zenoss auto-clearing events... It's not possible to auto-clear above error, so the Critical events never get cleared</span><br/><span>11:00:10 AM mrayzenoss: don't know the history of that, wonder if that's intentional</span><br/><span>11:00:27 AM rmatte: possibly, but seems like the user should be able to do it if they wish to</span><br/><span>11:00:34 AM mrayzenoss: agreed</span><br/><span>11:01:15 AM rmatte: in our case, we have it sending events to our ticketing system, so no one actually goes in to Zenoss to acknowledge or clear events, so we have it set to auto-clear them every hour</span><br/><span>11:01:35 AM rmatte: by "clear" I mean move to history</span><br/><span>11:01:37 AM mrayzenoss: well that's a shame, you won't get the full glory of the new Event Console </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>11:02:17 AM rmatte: well, I still use the event console for tuning, but the analysts just use the ticketing system, easier to work with, plus it allows us to run multiple instances of Zenoss and have all the events displayed in one spot</span><br/><span>11:02:25 AM rmatte: and we can sort alerts out by queue if need be</span><br/><span>11:03:37 AM rmatte: where we're lacking right now is in the reporting aspect, which is something we're working on</span><br/><span>11:04:19 AM mrayzenoss: yeah, reporting just missed the cut for King Crab, it's a known weakness</span><br/><span>11:04:36 AM rmatte: well, the upgrade didn't trash my ldap settings, that's good news</span><br/><span>11:05:15 AM rmatte: it'd be nice to see a better gui based report designer</span><br/><span>11:05:38 AM rmatte: where you can pick common components, such as intefaces, disk, etc... and build reports then apply filters or whatever and save the report</span><br/><span>11:05:50 AM mrayzenoss: that would be nice </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>11:06:17 AM rmatte: By the way, when I get the message that the google maps API is not valid, the map loads anyways, so how necessary is that actual key?</span><br/><span>11:06:27 AM mrayzenoss: that seems odd</span><br/><span>11:06:35 AM mrayzenoss: do you have an API key in there?</span><br/><span>11:06:37 AM rmatte: I've never had the map not load from a bad key</span><br/><span>11:06:42 AM rmatte: yeh, there's a key in there</span><br/><span>11:07:04 AM rmatte: it just complains that it's not valid (since I'm accessing the box using a different IP/hostname than it is on the prod version of the image)</span><br/><span>11:07:07 AM rmatte: but the map loads anyways</span><br/><span>11:07:27 AM mrayzenoss: perhaps the API key was made by IP and it changed? Or by hostname and the IP changed?</span><br/><span>11:07:33 AM mrayzenoss: yup</span><br/><span>11:07:37 AM rmatte: yeh, that's probably it</span><br/><span>11:07:54 AM rmatte: but the fact that it still works means you could potentially just use 1 key, and just find a way to eliminate that error message</span><br/><span>11:07:54 AM mrayzenoss: minor annoyance, I don't know if there's a fix</span><br/><span>11:07:58 AM rmatte: provided it works regardless</span><br/><span>11:08:08 AM mrayzenoss: possibly, I don't know</span><br/><span>11:08:20 AM mrayzenoss: maybe they figure the annoyance is enough </span><br/><span>11:08:21 AM rmatte: does the enterprise version just generate keys on the fly?</span><br/><span>11:08:46 AM mrayzenoss: I'm not sure, I think they provide the API key for you</span><br/><span>11:09:04 AM rmatte: ah</span><br/><span>11:09:07 AM mrayzenoss: I really don't have any exposure to that part</span><br/><span>11:09:18 AM rmatte: alright hehe, just curious</span><br/><span>11:09:36 AM rmatte: ummm weird</span><br/><span>11:10:05 AM rmatte: oh wait, nevermind, it worked</span><br/><span>11:10:20 AM rmatte: I was looking at "Available Zenoss Version" which still says 2.3.3</span><br/><span>11:10:40 AM rmatte: but the upgrade worked, very smoothly</span><br/><span>11:11:14 AM mrayzenoss: is it firewalled? that's weird. Mine says 2.4.2</span><br/><span>11:16:47 AM mrayzenoss: Alright, I'm gonna let bedwards off the hook and call it a session. I'll be around per usual, but thanks to everyone who stopped by</span><br/><span><span>mrayzenoss has changed the topic to: Help Zenoss Expand our Testing: </span><a class="jive-link-external-small" href="http://tinyurl.com/ntyu7b">http://tinyurl.com/ntyu7b</a><span> (11:17:52 AM)</span></span></div><!-- [DocumentBodyEnd:fef66acf-cb89-4940-a1f0-c3ec705d0292] -->
+<!-- [DocumentBodyStart:fef66acf-cb89-4940-a1f0-c3ec705d0292] --><div class="jive-rendered-content"><span>Wednesday, July 22, 2009 3:00</span><br/><br/><span>The topic for #zenoss is: Zenoss Developers will be here Thursday at 11am Eastern (9:58:26 AM)</span><br/><span>9:58:39 AM jb: sup matt</span><br/><span>9:58:52 AM mrayzenoss: morning all</span><br/><span>9:59:07 AM bedwards: hello</span><br/><span>9:59:08 AM jmp242: morning</span><br/><span>9:59:09 AM mrayzenoss: bedwards and I will be answering questions this morning, other Zenossians may join in</span><br/><span>mrayzenoss has changed the topic to: Zenoss Developers are here for your questions (9:59:23 AM)</span><br/><span>9:59:32 AM bwest: hello all</span><br/><span>10:01:30 AM jb: mrayzenoss: it would be nice to get zenwinperf stats on the collector graphs..</span><br/><span>10:02:37 AM twm1010: jb: I bet you can add it.</span><br/><span>10:02:42 AM toninog: zenback/zenrestore... does anyone use it ?</span><br/><span>10:03:06 AM mrayzenoss: jb: that sounds like a good ticket or enhancement suggestion, you can enter it on the customer portal</span><br/><span>10:03:42 AM jb: k</span><br/><span>10:04:00 AM toninog: hi all...</span><br/><span>10:04:06 AM twm1010: but zenwinperf is a daemon in enterprise</span><br/><span>10:04:16 AM twm1010: specifically for collecting perf data over WMI?</span><br/><span>10:04:23 AM toninog: I was wondering if anyone had any sucess stories for using drbd ?</span><br/><span>10:04:28 AM stefanlsd: What kind of questions will you guys be answering? I have a technical question...</span><br/><span>10:04:40 AM chudler: toninog: we use drbd with success</span><br/><span>10:04:49 AM LiamW: They answer all questions</span><br/><span>10:04:52 AM mrayzenoss: twm1010: yes</span><br/><span>10:05:00 AM mrayzenoss: stefanlsd: whatever you want to ask</span><br/><span>10:05:16 AM toninog: chudler: mike here is frightfully afraid of it... is there any compelling evidence I can use to attack his fear?</span><br/><span>10:05:43 AM LiamW: mray: When monitoring SSH devices how do I get zenoss to create an event when the interface is down?</span><br/><span><span>10:06:01 AM jb: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5357">http://dev.zenoss.org/trac/ticket/5357</a></span><br/><span>10:06:09 AM chudler: probably not, it is a terrible situation to be afraid of technology. Perhaps if mike could elucidate on his fears.</span><br/><span>10:06:32 AM stefanlsd: thanks! I've written a custom command to log to our helpdesk. Im using a transform on a ping to suppress any further notifications on a device which works, (we get one email) but it seems like it still runs the custom command for each device it should suppress. ie. how can i suppress the custom command also...</span><br/><span>10:06:40 AM chudler: drbd is not just something someone cooked up in their basement, FWIW</span><br/><span>10:06:56 AM toninog: chudler: hehe - hence is fear</span><br/><span>10:07:21 AM toninog: its is a pity that the zoDB cannot be distributed like a mysql (or any other sql server) can</span><br/><span>10:08:03 AM bedwards: LiamW: you need to add an event to the result object returned by the parser</span><br/><span>10:08:14 AM mrayzenoss: LiamW: is there a ping down event associated with the interface?</span><br/><span>10:08:17 AM chudler: it is very well thought out, clean and performs well. There are probably thousands of happy users out there. I think it will be in the mainline kernel Real Soon Now</span><br/><span>10:09:06 AM LiamW: mray: I am not receiveing any events when an interface goes down, whether it is SNMP or SSH</span><br/><span>10:09:07 AM toninog: chudler: have you had a time when you actually tested its failover and did so successfully?</span><br/><span>10:09:16 AM chudler: toninog: yes</span><br/><span>10:09:30 AM toninog: chudler: is your drbd systems geographically dispersed ?</span><br/><span>10:10:17 AM jb: be careful with DRBD if your boxes aren't local to each other.. DRBD isn't very happy over high latency links.</span><br/><span>10:10:35 AM chudler: toninog: no</span><br/><span>10:10:50 AM toninog: jb: have you had experience with the drbd over low latency links ?</span><br/><span>10:10:56 AM jb: yep</span><br/><span>10:11:03 AM jb: i use DRBD for several heartbeat clusters</span><br/><span>10:11:12 AM jb: im talking &lt; 5ms though</span><br/><span>10:11:24 AM toninog: jb: ok - and do you have any scary stories ?</span><br/><span>10:11:27 AM rmatte: when using the stack installer to upgrade, it shouldn't write over my current zenoss config files (in $ZENHOME/etc)? Or will it?</span><br/><span>10:11:41 AM jb: nope</span><br/><span>10:11:48 AM jb: occasinally a split brain occurs..</span><br/><span>10:11:52 AM toninog: jb: excellent.. is it just lag then ?</span><br/><span>10:12:38 AM jb: yeah, just test it..</span><br/><span>10:13:14 AM toninog: jb: excellent... I think I will </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>10:13:19 AM LiamW: rocket: will you be adding memory to the Linux monitor addon zenpack?</span><br/><span>10:13:34 AM mrayzenoss: rmatte: there may be a ticket about that</span><br/><span>10:13:58 AM mrayzenoss: LiamW: what kind of memory?</span><br/><span>10:14:07 AM mrayzenoss: LiamW: like a perf graph?</span><br/><span>10:14:12 AM rmatte: mrayzenoss: just looking for a will or won't, that way I'll know whether or not I need to back them up and restore them afterwards (no big deal if I do)</span><br/><span>10:14:26 AM rmatte: I guess I'll know after this upgrade lol</span><br/><span>10:14:51 AM LiamW: buffer, cache, used etc</span><br/><span>10:15:37 AM toninog: chudler: jb: thanks for the info ...</span><br/><span><span>10:15:58 AM mrayzenoss: rmatte: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/4967">http://dev.zenoss.org/trac/ticket/4967</a><span> Looks like it's supposed to work and we haven't had customer issues with it, but someone lost their etc on a failed upgrade</span></span><br/><span>10:16:02 AM mrayzenoss: so back it up to be safe</span><br/><span>10:16:13 AM rmatte: mrayzenoss: ok, sounds good, thanks</span><br/><span>10:17:11 AM rmatte: I finally got this clones vm to work on our test box, it was geared up to run on one of our super servers in our blade enclosure at a data center, then I copied it down to a server in our lab environment and it kept crashing lol</span><br/><span>10:17:19 AM rmatte: cloned*</span><br/><span><span>10:17:22 AM mrayzenoss: LiamW: You can open tickets against community ZenPacks in the Community ZenPack repository: </span><a class="jive-link-external-small" href="../index.html">http://community.zenoss.org</a></span><br/><span>10:17:35 AM LiamW: ok</span><br/><span>10:17:36 AM mrayzenoss: LiamW: and submit patches </span><br/><span>10:17:43 AM twm1010: Is there a good tutorial/guide on creating custom device reports?</span><br/><span>10:18:16 AM twm1010: I'm looking to create one that shows me all the gigabit ports on my core switches that are currently linked at 100Mb.</span><br/><span>10:18:26 AM bedwards: stefanlsd: I don't know of a way to suppress custom commands. you can open an enhancement request.</span><br/><span>10:18:44 AM rmatte: twm1010: you'd probably have to code that</span><br/><span>10:19:02 AM rmatte: twm1010: using the easy report interface under the edit tab in custom reports is very limited</span><br/><span><span>10:19:16 AM mrayzenoss: twm1010: </span><a class="jive-link-external-small" href="http://www.zenoss.com/community/docs/zenoss-dev-guide/2.4.2/ch14.html">http://www.zenoss.com/community/docs/zenoss-dev-guide/2.4.2/ch14.html</a><span> and </span><a class="jive-link-external-small" href="http://www.zenoss.com/community/docs/zenoss-guide/2.4.2/ch12s08.html">http://www.zenoss.com/community/docs/zenoss-guide/2.4.2/ch12s08.html</a></span><br/><span>10:19:30 AM mrayzenoss: twm1010: King Crab will have some more hooks to make zendmd calls easier</span><br/><span>10:19:33 AM LiamW: Where do I check to ensure that the zenoss cron jobs are running?</span><br/><span>10:20:09 AM rmatte: mrayzenoss: any chance that the report exporting gets fixed by King Crab?</span><br/><span>10:20:25 AM mrayzenoss: rmatte: Chet took your tickets that you opened, so those should get fixed</span><br/><span>10:20:36 AM rmatte: good stuff</span><br/><span>10:21:08 AM rmatte: the one is like a two second fix, the other one is really just Zenoss directly accessing the values in Zope rather than taking in to account the final values displayed in the report</span><br/><span>10:21:31 AM twm1010: mrayzenoss: any good examples out there I can use to backwards build what i need? like someone who created an interface inventory report or something?</span><br/><span>10:22:16 AM rmatte: twm1010: you could just look at the interface utilization report, it includes speeds of interfaces</span><br/><span>10:22:17 AM mrayzenoss: LiamW: not sure, you could check the stuff in $ZENHOME/logs for whatever you're calling, or I like to add "MARK-CRON" stuff to logs as a notifier that my cronjobs are running</span><br/><span>10:22:37 AM rmatte: twm1010: you then just have to add something to the report that only lists interfaces that are 100mbps</span><br/><span>10:22:53 AM twm1010: now how did i miss that...</span><br/><span>10:23:09 AM rmatte: </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>10:23:42 AM twm1010: ah, well, excel can do that easy enough</span><br/><span>10:24:06 AM rmatte: yeh, the problem is that when you export to excel, it doesn't show the same values as in the report</span><br/><span>10:24:16 AM rmatte: instead of 100mbps you'll see like 100000000</span><br/><span>10:24:18 AM rmatte: or something</span><br/><span>10:24:21 AM twm1010: eh, thats okay</span><br/><span>10:24:22 AM mrayzenoss: the MAC Address report has more stuff with Interfaces for another example</span><br/><span><span>10:24:48 AM mrayzenoss: </span><a class="jive-link-external-small" href="trac-zenpacks/wiki/ZenPackssodonnellMACReport">trac-zenpacks/wiki/ZenPackssodonnellMACReport</a></span><br/><span>10:25:00 AM twm1010: im looking for gigabit ports linked at 100Mbps... we've had people using up our expensive reports for management cards that only link at 100</span><br/><span>10:25:00 AM rmatte: twm1010: also, that export is broken for exporting, you won't see the interfaces column, but it's easy to fix</span><br/><span>10:25:01 AM twm1010: nice huh?</span><br/><span>10:25:35 AM twm1010: that particular report won't export is what you're saying?</span><br/><span><span>10:25:36 AM rmatte: twm1010: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5350">http://dev.zenoss.org/trac/ticket/5350</a></span><br/><span>10:25:36 AM mrayzenoss: feel free to send in any custom reports as ZenPacks</span><br/><span>10:25:45 AM rmatte: it'll export, the interfaces column will be missing</span><br/><span>10:25:58 AM rmatte: read that track ticket I posted, it explains how to fix it</span><br/><span>10:26:11 AM twm1010: mrayzenoss: I'd love to write some, but the problem is that I don't know the variables/column names to query?</span><br/><span>10:26:40 AM rmatte: after you edit the file, run: python $ZENHOME/Products/ZenReports/ReportLoader.py --force</span><br/><span>10:26:40 AM twm1010: rmatte: thanks, I'll edit the report</span><br/><span>10:26:47 AM rmatte: as zenoss user, to load the report</span><br/><span>10:26:49 AM rmatte: then it'll work</span><br/><span>10:27:20 AM rmatte: the report writing is pretty brutal, I'm just starting to wrap my mind around it</span><br/><span>10:27:26 AM jb: rocket: around?</span><br/><span>10:29:39 AM twm1010: Yeah I jumped over to our SolarWinds box to try and get what I need, but thanks to licensing, we only monitor some of the ports, not what I need here</span><br/><span>10:30:28 AM rmatte: ah, yeh, we're using solarwinds for reporting as well</span><br/><span>10:30:39 AM jb: we are too</span><br/><span>10:30:50 AM rmatte: I'd prefer to use Zenoss, but the reporting in it is a bit shaky at the moment</span><br/><span>10:31:00 AM rmatte: I'm sure it'll improve down the road</span><br/><span>10:31:03 AM jb: we monitor all network stuff with solarwinds..</span><br/><span>10:31:16 AM rmatte: for actual monitoring we use Zenoss</span><br/><span>10:31:21 AM rmatte: for reporting we use solarwinds</span><br/><span>10:35:10 AM rmatte: the fact that solarwinds only runs in windows is a bit of a deal breaker for the monitoring aspect</span><br/><span>10:48:54 AM mrayzenoss: kinda quiet after the first bunch of questions...</span><br/><span>10:52:46 AM jmp242: 4</span><br/><span>10:53:47 AM rmatte: yeh lol</span><br/><span>10:54:54 AM rmatte: I'm running a test upgrade right now, waiting to see how well it works. We're going to be deploying it to our production servers provided it works properly</span><br/><span>10:55:01 AM mrayzenoss: ok, let's see. There will probably be a 2.4.3 in a few weeks. We're still shooting for a beta testing for King Crab around late next month</span><br/><span>10:55:33 AM rmatte: cool</span><br/><span>10:55:59 AM rmatte: I'll probably load up the beta version of King crab on a VM in our lab</span><br/><span>10:56:23 AM mrayzenoss: excellent. We sent out a ton of t-shirts to beta testers last release</span><br/><span>10:56:50 AM rmatte: are there t-shirts for this release? </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>10:57:06 AM mrayzenoss: yeah, there will be beta tester t-shirts again</span><br/><span>10:57:11 AM rmatte: nice</span><br/><span>10:57:11 AM mrayzenoss: we should be putting up a demo server for feedback on the new event console soon</span><br/><span>10:57:24 AM mrayzenoss: Ian demoed it Monday, it's very nice</span><br/><span>10:57:37 AM rmatte: yeh, I can't wait to see that, does that mean the device list view is going to be a bit different too? (since it's similar)</span><br/><span>10:57:43 AM mrayzenoss: not yet</span><br/><span>10:57:52 AM rmatte: ah</span><br/><span>10:57:55 AM mrayzenoss: We're tackling one screen at a time</span><br/><span>10:58:01 AM rmatte: gotcha</span><br/><span>10:58:11 AM mrayzenoss: this will clear up the Event Console and Event Views</span><br/><span>10:58:37 AM mrayzenoss: let you save queries, better filtering and ordering, it's very slick</span><br/><span>10:58:51 AM rmatte: actually, I just remembered a trac ticket that I wanted to log for Zenoss auto-clearing events... It's not possible to auto-clear above error, so the Critical events never get cleared</span><br/><span>11:00:10 AM mrayzenoss: don't know the history of that, wonder if that's intentional</span><br/><span>11:00:27 AM rmatte: possibly, but seems like the user should be able to do it if they wish to</span><br/><span>11:00:34 AM mrayzenoss: agreed</span><br/><span>11:01:15 AM rmatte: in our case, we have it sending events to our ticketing system, so no one actually goes in to Zenoss to acknowledge or clear events, so we have it set to auto-clear them every hour</span><br/><span>11:01:35 AM rmatte: by "clear" I mean move to history</span><br/><span>11:01:37 AM mrayzenoss: well that's a shame, you won't get the full glory of the new Event Console </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>11:02:17 AM rmatte: well, I still use the event console for tuning, but the analysts just use the ticketing system, easier to work with, plus it allows us to run multiple instances of Zenoss and have all the events displayed in one spot</span><br/><span>11:02:25 AM rmatte: and we can sort alerts out by queue if need be</span><br/><span>11:03:37 AM rmatte: where we're lacking right now is in the reporting aspect, which is something we're working on</span><br/><span>11:04:19 AM mrayzenoss: yeah, reporting just missed the cut for King Crab, it's a known weakness</span><br/><span>11:04:36 AM rmatte: well, the upgrade didn't trash my ldap settings, that's good news</span><br/><span>11:05:15 AM rmatte: it'd be nice to see a better gui based report designer</span><br/><span>11:05:38 AM rmatte: where you can pick common components, such as intefaces, disk, etc... and build reports then apply filters or whatever and save the report</span><br/><span>11:05:50 AM mrayzenoss: that would be nice </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span>11:06:17 AM rmatte: By the way, when I get the message that the google maps API is not valid, the map loads anyways, so how necessary is that actual key?</span><br/><span>11:06:27 AM mrayzenoss: that seems odd</span><br/><span>11:06:35 AM mrayzenoss: do you have an API key in there?</span><br/><span>11:06:37 AM rmatte: I've never had the map not load from a bad key</span><br/><span>11:06:42 AM rmatte: yeh, there's a key in there</span><br/><span>11:07:04 AM rmatte: it just complains that it's not valid (since I'm accessing the box using a different IP/hostname than it is on the prod version of the image)</span><br/><span>11:07:07 AM rmatte: but the map loads anyways</span><br/><span>11:07:27 AM mrayzenoss: perhaps the API key was made by IP and it changed? Or by hostname and the IP changed?</span><br/><span>11:07:33 AM mrayzenoss: yup</span><br/><span>11:07:37 AM rmatte: yeh, that's probably it</span><br/><span>11:07:54 AM rmatte: but the fact that it still works means you could potentially just use 1 key, and just find a way to eliminate that error message</span><br/><span>11:07:54 AM mrayzenoss: minor annoyance, I don't know if there's a fix</span><br/><span>11:07:58 AM rmatte: provided it works regardless</span><br/><span>11:08:08 AM mrayzenoss: possibly, I don't know</span><br/><span>11:08:20 AM mrayzenoss: maybe they figure the annoyance is enough </span><br/><span>11:08:21 AM rmatte: does the enterprise version just generate keys on the fly?</span><br/><span>11:08:46 AM mrayzenoss: I'm not sure, I think they provide the API key for you</span><br/><span>11:09:04 AM rmatte: ah</span><br/><span>11:09:07 AM mrayzenoss: I really don't have any exposure to that part</span><br/><span>11:09:18 AM rmatte: alright hehe, just curious</span><br/><span>11:09:36 AM rmatte: ummm weird</span><br/><span>11:10:05 AM rmatte: oh wait, nevermind, it worked</span><br/><span>11:10:20 AM rmatte: I was looking at "Available Zenoss Version" which still says 2.3.3</span><br/><span>11:10:40 AM rmatte: but the upgrade worked, very smoothly</span><br/><span>11:11:14 AM mrayzenoss: is it firewalled? that's weird. Mine says 2.4.2</span><br/><span>11:16:47 AM mrayzenoss: Alright, I'm gonna let bedwards off the hook and call it a session. I'll be around per usual, but thanks to everyone who stopped by</span><br/><span><span>mrayzenoss has changed the topic to: Help Zenoss Expand our Testing: </span><a class="jive-link-external-small" href="http://tinyurl.com/ntyu7b">http://tinyurl.com/ntyu7b</a><span> (11:17:52 AM)</span></span></div><!-- [DocumentBodyEnd:fef66acf-cb89-4940-a1f0-c3ec705d0292] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1187,7 +736,7 @@ View print preview
                             </a>
                         </li>
                         <li>
-                            <a href="http://community.zenoss.org/blogs/zenossblog/2009/07/21/zenoss-irc-session-thursday-july-23-updated">
+                            <a href="blogs/zenossblog/2009/07/21/zenoss-irc-session-thursday-july-23-updated">
                             <span class="jive-icon-med jive-icon-blog"></span>
                                 Zenoss IRC Session Thursday July 23 UPDATED
                             </a>
@@ -1286,11 +835,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1368,157 +917,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

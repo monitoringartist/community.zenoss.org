@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- QA Test Day 12/10/2009 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2141&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "F876B3428063BD2B1275E528ADBA2D69";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2141&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 4611, 2141, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         4611,
-
-                    containerType:      14,
-                    containerID:        2141,
-
-                    contentObject: {
-                            document:          4611,
-                            version:           1
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=4611",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 4611,
-            containerID: "jive-more-like-this-102-4611",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 4611;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,7 +366,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
                 <a href="../community/documentation/irc.html">
             IRC</a> &gt; 
@@ -828,18 +377,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-4611/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-4611/restore'>
         <input type="hidden" name="version" value="1" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-4611"/>
         <input type="hidden" name="document.restore.DOC-4611" value="1394831377891-JAPN2EBV9SMN11TOKTTMZG3ESAB9IWOK"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-4611/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-4611/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-4611"/>
         <input type="hidden" name="document.delete.DOC-4611" value="1394831377897-G4PY1H76AP2S850OWS5K31TVE52EU7EK"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-4611"/>
         <input type="hidden" name="document.publish.DOC-4611" value="1394831377902-KM4OJLOMER1BKVM99VWWF4OYNWNLBOFJ"/>
         <input type="hidden" name="document" value="DOC-4611" />
@@ -895,7 +444,7 @@ Password:                </label>
         <div class="jive-content-header-details">
 
 Created on: Dec 10, 2009 6:00 PM by
-<a href="http://community.zenoss.org/people/mray"
+<a href="people/mray"
 data-externalId=""
 data-username="mray"
 data-avatarId="1026"
@@ -906,7 +455,7 @@ class="jiveTT-hover-user jive-username-link"
 >Matt Ray</a>            <span>-</span>
 Last Modified:&nbsp;
 Dec 10, 2009 6:02 PM
-by <a href="http://community.zenoss.org/people/mray"
+by <a href="people/mray"
 data-externalId=""
 data-username="mray"
 data-avatarId="1026"
@@ -946,7 +495,7 @@ class="jiveTT-hover-user jive-username-link"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:64a35849-bef8-4e21-8c7b-23004172cdb8] --><div class="jive-rendered-content"><a class="jive-link-blog-small" href="http://community.zenoss.org/blogs/zenossblog/2009/12/07/zenoss-qa-test-day-december-10-updated2x">Zenoss QA Test Day December 10 UPDATED</a><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><strong>mrayzenoss has changed the topic to: Zenoss QA Test Day: Event Console Testing: http://tr.im/zenoss_qa (7:58:35 AM)</strong><br/><span> </span><strong>8:48:58 AM </strong><span>bbibeault1: Morning everyone.</span><br/><span> </span><strong>8:56:15 AM </strong><span>wquesada: Morning</span><br/><span> </span><strong>9:01:05 AM </strong><span>cumanzor: Good morning</span><br/><span> </span><strong>9:24:26 AM </strong><span>wquesada: Hey ke4qqq ... </span><br/><span> </span><strong>9:24:26 AM </strong><span>wquesada: Do you have any experience that would like to share regarding the Event Console ?</span><br/><span> </span><strong>9:29:57 AM </strong><span>bbibeault1: All - I am bringing up another installation of 2.5.1 for testing.</span><br/><span> </span><strong>9:30:37 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="../message/43102%3Bjsessionid=AD705A62A8AB7E1B8D54C32FD8EC2AFF.node0.html#43102">http://community.zenoss.org/message/43102;jsessionid=AD705A62A8AB7E1B8D54C32FD8EC2AFF.node0#43102</a><span> (jcurry) </span><a class="jive-link-external-small" href="../message/43102.html#43102">http://community.zenoss.org/message/43102</a></span><br/><span> </span><strong>9:32:48 AM </strong><span><span>bbibeault1: And for anyone that wants to follow the forum post defining some of the items we will be reviewing - </span><a class="jive-link-external-small" href="../message/43204.html#43204">http://community.zenoss.org/message/43204</a></span><br/><span> </span><strong>9:43:54 AM </strong><span>bbibeault1: Welcome.</span><br/><span> </span><strong>9:43:57 AM </strong><span>ckrough: Hello</span><br/><span> </span><strong>9:45:46 AM </strong><span>wquesada: hi there ..</span><br/><span> </span><strong>9:56:57 AM </strong><span>bbibeault1: Hello Jane.</span><br/><span> </span><strong>9:57:44 AM </strong><span>Jane_Curry: Hi there - need to monitor this and standard IRC channel for next hour so please bear with me....</span><br/><span> </span><strong>9:59:44 AM </strong><span>bbibeault1: That is fine, I appreciate the participation.</span><br/><span> </span><strong>10:01:01 AM </strong><span>bbibeault1: Welcome!</span><br/><span> </span><strong>10:01:10 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:01:38 AM </strong><span>bbibeault1: Due to some destructive testing I am bringing up a fresh 2.5.1 installation for testing.</span><br/><span> </span><strong>10:01:52 AM </strong><span>rmatte: I've already got one running, so I'm good</span><br/><span> </span><strong>10:02:51 AM </strong><span>rmatte: now is this purely performance related or can we point out missing features?</span><br/><span> </span><strong>10:02:55 AM </strong><span>mrayzenoss: yes</span><br/><span> </span><strong>10:03:00 AM </strong><span>mrayzenoss: </span><br/><span> </span><strong>10:03:08 AM </strong><span>rmatte: yes to which</span><br/><span> </span><strong>10:03:10 AM </strong><span>bbibeault1: Everything around the event console, please.</span><br/><span> </span><strong>10:03:11 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:03:15 AM </strong><span>cumanzor: I have fresh 2.5.1 ready on a RHEL 5.4 machine</span><br/><span> </span><strong>10:03:26 AM </strong><span>rmatte: bbibeault1: right, that's what I meant</span><br/><span> </span><strong>10:03:41 AM </strong><span>mrayzenoss: so we're looking for things not covered by current test plans and for issues not covered by tickets yet</span><br/><span> </span><strong>10:03:44 AM </strong><span>bbibeault1: Also, I am going to do some freshening and updating of the test cases around the Event Console, if anyone would like to follow along and/or offer feedback.</span><br/><span> </span><strong>10:03:49 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.com/testlink/index.php">http://dev.zenoss.com/testlink/index.php</a></span><br/><span> </span><strong>10:03:50 AM </strong><span>mrayzenoss: so let's open new test cases and new tickets</span><br/><span> </span><strong>10:03:52 AM </strong><span>rmatte: bbibeault1: first thing, which I've pointed out a few times, when you go to Event History, there is no quick way to specify a range of dates to view history for</span><br/><span> </span><strong>10:04:25 AM </strong><span>bbibeault1: 1s</span><br/><span> </span><strong>10:04:38 AM </strong><span>rmatte: k</span><br/><span> </span><strong>10:04:51 AM </strong><span><span>mrayzenoss: rmatte: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5659">http://dev.zenoss.org/trac/ticket/5659</a></span><br/><span> </span><strong>10:05:21 AM </strong><span>rmatte: mrayzenoss: k, just wanted to make sure it wasn't forgotten </span><br/><span> </span><strong>10:05:29 AM </strong><span>rmatte: I forgot about that trac ticket</span><br/><span> </span><strong>10:05:51 AM </strong><span>zenethian: </span><br/><span> </span><strong>10:06:09 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:09:09 AM </strong><span>rmatte: a couple other cosmetic things... when you double click on an event, to the right to the big event severity icon in the top left of the events details window, there is this "&gt;" graphic.&#160; It looks pixelated like it was created smaller but stretched to be larger.&#160; Aesthetically, it really takes away from the whole new smooth look of the event console.</span><br/><span> </span><strong>10:09:44 AM </strong><span>rmatte: In the event details window, when a trap is received, the trap's details, which were previously stored under their own details tab, are now mashed together with all of the other info for the event</span><br/><span> </span><strong>10:10:27 AM </strong><span>mrayzenoss: hmmm&#8230; my alpha VM game me a server connection error the first time I went to the event console</span><br/><span> </span><strong>10:10:33 AM </strong><span>rmatte: It would be nice if there were a second link such as the "Show more details..." link which expands to reveal the details, but only reveals the details for traps</span><br/><span> </span><strong>10:10:52 AM </strong><span>bbibeault1: There are some known issues with the alpha, but I wasn't aware of the server connection error.</span><br/><span> </span><strong>10:11:13 AM </strong><span>bbibeault1: rmatte, are any of these in Trac already?&#160; If not, I'll get entering.</span><br/><span> </span><strong>10:11:37 AM </strong><span>rmatte: bbibeault1: I'll have to search around and see, but I doubt it</span><br/><span> </span><strong>10:11:46 AM </strong><span>rmatte: bbibeault1: I think they were only mentioned on the forums thus far</span><br/><span> </span><strong>10:11:51 AM </strong><span>bbibeault1: I will start searching on those, keep the feedback coming.&#160; </span><br/><span> </span><strong>10:11:55 AM </strong><span>rmatte: thanks</span><br/><span> </span><strong>10:13:16 AM </strong><span>rmatte: oh, another stupid cosmetic issue, but which also takes away from the overall look of the console is the filter list at the top.&#160; It doesn't fully expand to the width of the event console, it leaves a fairly large gap at the right-hand edge (This is in Firefox, I haven't checked with IE)</span><br/><span> </span><strong>10:13:56 AM </strong><span>rmatte: There also used to be an option to toggle the filters on or off, which appears to have vanished, but I found it was a nice feature</span><br/><span> </span><strong>10:15:09 AM </strong><span><span>mrayzenoss: bbibeault1: here's the gap he mentioned </span><a class="jive-link-external-small" href="http://imagebin.org/74922">http://imagebin.org/74922</a></span><br/><span> </span><strong>10:15:35 AM </strong><span>bbibeault1: On my machine, that gap is just the width of the scroll bar for the events themselves.</span><br/><span> </span><strong>10:15:51 AM </strong><span>mrayzenoss: well I've got no events, so all I have is a gap</span><br/><span> </span><strong>10:15:59 AM </strong><span>rmatte: oh, I guess it's because the scrollbar doesn't show up until you have events flooding off the screen</span><br/><span> </span><strong>10:16:10 AM </strong><span>bbibeault1: Ahh, but we always leave the space there.</span><br/><span> </span><strong>10:16:12 AM </strong><span>rmatte: it should really auto-expand when the scrollbar appears in my opinion</span><br/><span> </span><strong>10:16:22 AM </strong><span>rmatte: just looks cleaner</span><br/><span> </span><strong>10:16:27 AM </strong><span>mrayzenoss: which log should have the "Server connection error"?</span><br/><span> </span><strong>10:16:39 AM </strong><span>rmatte: mrayzenoss: I'd imagine zenhub</span><br/><span> </span><strong>10:17:17 AM </strong><span>mrayzenoss: hm&#8230; nothing there and nothing in z2.log</span><br/><span> </span><strong>10:17:23 AM </strong><span>rmatte: hmmm</span><br/><span> </span><strong>10:17:35 AM </strong><span>rmatte: well, Z2 is just web request log as far as I can tell</span><br/><span> </span><strong>10:19:31 AM </strong><span>rmatte: oh, check zeo.log</span><br/><span> </span><strong>10:19:39 AM </strong><span><span>mrayzenoss: found this in my event.log </span><a class="jive-link-external-small" href="http://pastebin.org/63140">http://pastebin.org/63140</a></span><br/><span> </span><strong>10:19:41 AM </strong><span>rmatte: actually, that might just be zope related</span><br/><span> </span><strong>10:19:59 AM </strong><span>rmatte: ah, my event.log files are all clean</span><br/><span> </span><strong>10:20:28 AM </strong><span><span>bbibeault1: rmatte: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5917">http://dev.zenoss.org/trac/ticket/5917</a></span><br/><span> </span><strong>10:20:46 AM </strong><span>rmatte: thanks</span><br/><span> </span><strong>10:23:37 AM </strong><span>bbibeault1: rmatte: For the option on toggling filters on or off, you mean rendering of the filters themselves, or all filtering in ttal?</span><br/><span> </span><strong>10:23:40 AM </strong><span>bbibeault1: total?</span><br/><span> </span><strong>10:23:51 AM </strong><span>rmatte: it would just make the filter bar dissapear</span><br/><span> </span><strong>10:24:01 AM </strong><span>bbibeault1: ok</span><br/><span> </span><strong>10:24:06 AM </strong><span>rmatte: there was an option for it in 2.5</span><br/><span> </span><strong>10:24:10 AM </strong><span>rmatte: but it dissapeared</span><br/><span> </span><strong>10:24:18 AM </strong><span>bbibeault1: In 2.5?&#160; It disappeared between 2.5 and 2.5.1?</span><br/><span> </span><strong>10:24:21 AM </strong><span>rmatte: or it might have actually been as far back as one of the betas</span><br/><span> </span><strong>10:24:32 AM </strong><span>rmatte: I don't recall exactly when it dissapeared</span><br/><span> </span><strong>10:25:01 AM </strong><span><span>cumanzor: to mrayzenoss: about that gap </span><a class="jive-link-external-small" href="http://imagebin.org/74922">http://imagebin.org/74922</a><span>, gap width is 19px and it's consistent on all browsers</span></span><br/><span> </span><strong>10:25:21 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>10:25:31 AM </strong><span>rmatte: I like the little frowny face</span><br/><span> </span><strong>10:25:33 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:29:34 AM </strong><span><span>bbibeault1: rmatte: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5918">http://dev.zenoss.org/trac/ticket/5918</a><span> (ticket regarding the hiding of the filters)</span></span><br/><span> </span><strong>10:31:34 AM </strong><span>rmatte: cool</span><br/><span> </span><strong>10:34:40 AM </strong><span>bbibeault1: rmatte: With viewing the event history by a date range, doesn't setting "First Seen" and "Last Seen" get you the filter you want?</span><br/><span> </span><strong>10:35:12 AM </strong><span>rmatte: bbibeault1: no, doing that will only show you events with a start and end date that specifically matches what you set</span><br/><span> </span><strong>10:35:23 AM </strong><span>rmatte: bbibeault1: instead of an actual range</span><br/><span> </span><strong>10:35:32 AM </strong><span>bbibeault1: o.O</span><br/><span> </span><strong>10:35:46 AM </strong><span>bbibeault1: 1m testing on a trunk system...</span><br/><span> </span><strong>10:36:19 AM </strong><span>rmatte: I haven't tried in a while, maybe they did change the behaviour of it, I'll check...</span><br/><span> </span><strong>10:36:49 AM </strong><span>rmatte: I have events from 2009-12-08 to 2009-11-03, so if I set that range I should still see all of the events...</span><br/><span> </span><strong>10:37:16 AM </strong><span>rmatte: I said the dates backwards, but you get the idea</span><br/><span> </span><strong>10:37:17 AM </strong><span>rmatte: lol</span><br/><span> </span><strong>10:37:35 AM </strong><span>bbibeault1: I just saw something odd around this, myself.</span><br/><span> </span><strong>10:38:01 AM </strong><span>rmatte: ah, it looks like it does actually work now</span><br/><span> </span><strong>10:38:17 AM </strong><span>rmatte: but I'm still not sure if it's really perfect</span><br/><span> </span><strong>10:38:23 AM </strong><span>bbibeault1: I get events in the middle, but on my test system I start with more events, and when I filter I get a smaller subset.</span><br/><span> </span><strong>10:38:34 AM </strong><span>bbibeault1: Trying to figure out the root cause here.</span><br/><span> </span><strong>10:38:34 AM </strong><span>rmatte: if I set the last seen as 2009-12-08 the event for that date dissapears</span><br/><span> </span><strong>10:38:40 AM </strong><span>rmatte: but if I set it to 2009-12-09 it appears</span><br/><span> </span><strong>10:39:01 AM </strong><span><span>mrayzenoss: I get this stack trace everytime I hit the event console on the alpha build: </span><a class="jive-link-external-small" href="http://pastebin.org/63148">http://pastebin.org/63148</a></span><br/><span> </span><strong>10:39:07 AM </strong><span>bbibeault1: Note the default time is 00:00:00</span><br/><span> </span><strong>10:39:09 AM </strong><span>rmatte: k cool, definitely need to get that right since that's an important tool</span><br/><span> </span><strong>10:39:28 AM </strong><span>rmatte: right, but there's no option to set time in the calendar</span><br/><span> </span><strong>10:39:38 AM </strong><span>rmatte: lol</span><br/><span> </span><strong>10:40:00 AM </strong><span>rmatte: I suppose you could type it in, but that seems unnecessarily tedious</span><br/><span> </span><strong>10:41:35 AM </strong><span>rmatte: OOOOH, I just remember something else I had noticed</span><br/><span> </span><strong>10:41:57 AM </strong><span>rmatte: click on one of the fields at the top to sort a row, then click on it again, the filter bar turns all gray (input fields vanish)</span><br/><span> </span><strong>10:42:17 AM </strong><span>rmatte: hmmmm</span><br/><span> </span><strong>10:42:28 AM </strong><span>rmatte: it's not doing it now, I think fields need to actually be populated for it to happen</span><br/><span> </span><strong>10:42:33 AM </strong><span>rmatte: let me work out how to reproduce it</span><br/><span> </span><strong>10:42:45 AM </strong><span>rmatte: yeh, that's it</span><br/><span> </span><strong>10:42:52 AM </strong><span>rmatte: populate the first time and last time fields</span><br/><span> </span><strong>10:42:58 AM </strong><span>rmatte: then click on "Summary" at the top to sort</span><br/><span> </span><strong>10:43:01 AM </strong><span>rmatte: then click on it again</span><br/><span> </span><strong>10:43:08 AM </strong><span>rmatte: all of the input fields on the filter bar vanish</span><br/><span> </span><strong>10:43:26 AM </strong><span>bbibeault1: rmatte: I'm getting overloaded researching and typing these in.&#160;&#160;&#160; Can you document that one in trick please?</span><br/><span> </span><strong>10:43:37 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>10:43:52 AM </strong><span>bbibeault1: trac, that is.&#160; Also, getting some good feedback on the time/date seen issue.</span><br/><span> </span><strong>10:45:31 AM </strong><span>Alvaro1: i think that the default time for the Last Seen field should be 23:59</span><br/><span> </span><strong>10:45:52 AM </strong><span>rmatte: Components: Events and Alerts?</span><br/><span> </span><strong>10:45:59 AM </strong><span>rmatte: in Trac</span><br/><span> </span><strong>10:46:07 AM </strong><span>bbibeault1: Yes please.&#160; 1 favor, please add a keyword of "testday".</span><br/><span> </span><strong>10:46:18 AM </strong><span>rmatte: done</span><br/><span> </span><strong>10:46:24 AM </strong><span>bbibeault1: Just trying to keep track of what comes out of this, thanks.</span><br/><span> </span><strong>10:47:15 AM </strong><span><span>rmatte: bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5920">http://dev.zenoss.org/trac/ticket/5920</a></span><br/><span> </span><strong>10:47:22 AM </strong><span><span>mrayzenoss: bbibeault1: just added </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5919">http://dev.zenoss.org/trac/ticket/5919</a></span><br/><span> </span><strong>10:47:42 AM </strong><span>bbibeault1: Thanks guys</span><br/><span> </span><strong>10:48:24 AM </strong><span>rmatte: bbibeault1: did you log one for the pixelated image?</span><br/><span> </span><strong>10:49:00 AM </strong><span>bbibeault1: Not yet, still getting through the first seen last seen.</span><br/><span> </span><strong>10:49:16 AM </strong><span>rmatte: k cool</span><br/><span> </span><strong>10:49:18 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5921">http://dev.zenoss.org/trac/ticket/5921</a><span> on times being rendered in the first place (not supposed to be there)</span></span><br/><span> </span><strong>10:49:27 AM </strong><span>bbibeault1: Still working on the filtering on date.</span><br/><span> </span><strong>10:49:28 AM </strong><span>rmatte: yeh</span><br/><span> </span><strong>10:50:08 AM </strong><span>rmatte: Ian shall have his work cut out for him</span><br/><span> </span><strong>10:50:09 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:50:24 AM </strong><span>bbibeault1: As will QA (more test cases needed)</span><br/><span> </span><strong>10:50:33 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>10:56:26 AM </strong><span>rmatte: seeing if I can find any other strange behaviour...</span><br/><span> </span><strong>10:56:38 AM </strong><span>rmatte: *points at zenethian *</span><br/><span> </span><strong>10:56:40 AM </strong><span>rmatte: there's some</span><br/><span> </span><strong>10:57:02 AM </strong><span>bbibeault1: I am not having much luck figuring out these start and end dates for events.</span><br/><span> </span><strong>10:57:16 AM </strong><span>bbibeault1: The behavior I see isn't matching up, sometimes I get a superset of events, sometimes a subset, it seems.</span><br/><span> </span><strong>10:57:29 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>10:57:33 AM </strong><span>rmatte: it's quite wonky</span><br/><span> </span><strong>10:58:00 AM </strong><span>bbibeault1: Well if we can figure out the nature on the wonky-ness, the change of fixing it goes up 5%.&#160; </span><br/><span> </span><strong>10:58:09 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>11:08:47 AM </strong><span>bbibeault1: Still digging on this event filtering by first seen/last seen.</span><br/><span> </span><strong>11:10:31 AM </strong><span>mrayzenoss: I'm rebuilding a 2.5.1 box to test some of the ZenUser event console issues</span><br/><span> </span><strong>11:29:13 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5921">http://dev.zenoss.org/trac/ticket/5921</a><span> updated; still trying to figure out what is going on here.</span></span><br/><span> </span><strong>11:34:29 AM </strong><span>cumanzor: Be careful when you set both First seen and last Seen filter using the today button, both dates will have the hour as 00:00:00, no events will be displayed because of that</span><br/><span> </span><strong>11:38:07 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5922">http://dev.zenoss.org/trac/ticket/5922</a><span> - Error with display count of displayed tickets</span></span><br/><span> </span><strong>11:42:46 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5923">http://dev.zenoss.org/trac/ticket/5923</a><span> - Empty row at bottom of event console (throws off the DISPLAYING count)</span></span><br/><span> </span><strong>11:43:39 AM </strong><span>bbibeault1: Welcome</span><br/><span> </span><strong>12:11:40 PM </strong><span><span>wquesada: created :</span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5924">http://dev.zenoss.org/trac/ticket/5924</a></span><br/><span> </span><strong>12:19:24 PM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5925">http://dev.zenoss.org/trac/ticket/5925</a><span> - Event history does not have export as XML option</span></span><br/><span> </span><strong>12:19:44 PM </strong><span>bbibeault1: Note : Test cases are being created as we go through the event console, as well.&#160; Anyone can contribute if they have some time.</span><br/><span> </span><strong>12:20:36 PM </strong><span><span>bbibeault1: Matt, how is your 2.5.1 machine that we were going to use to discuss </span><a class="jive-link-external-small" href="../message/43102.html#43102">http://community.zenoss.org/message/43102</a><span> coming along?</span></span><br/><span> </span><strong>12:21:41 PM </strong><span>mrayzenoss: heh, sitting on the new install wizard </span><br/><span> </span><strong>12:33:44 PM </strong><span>rmatte: hehe</span><br/><span> </span><strong>12:33:55 PM </strong><span>mrayzenoss: logged in as the readonly Zenuser account and sent all the events to history... fudge</span><br/><span> </span><strong>12:34:27 PM </strong><span>mrayzenoss: from the Event History: 009/12/10 03:53:53.000 readonly said:</span><br/><span> Deleted by user</span><br/><span> </span><br/><span> </span><strong>12:45:38 PM </strong><span>rmatte: that's extremely useful</span><br/><span> </span><strong>12:45:39 PM </strong><span>rmatte: lol</span><br/><span> </span><strong>1:04:05 PM </strong><span>Jane_Curry: I bet you can undelete it too - for another logged comment by user!</span><br/><span> </span><strong>1:18:27 PM </strong><span>bbibeault1: Feedback from #zenoss:</span><br/><span> </span><strong>1:19:45 PM </strong><span>bbibeault1: cain22&#160; ok, not sure if i'm loving the new event viewer</span><br/><span> </span><strong>1:19:45 PM </strong><span>bbibeault1: RoundQube&#160; cain22 what are you issues with it?</span><br/><span> </span><strong>1:19:46 PM </strong><span>bbibeault1: cain22&#160; well, it took me second to realize how to open up the event in detail....</span><br/><span> </span><strong>1:19:50 PM </strong><span>bbibeault1: daveborg98&#160; That took me a minute as well.</span><br/><span> </span><strong>1:19:54 PM </strong><span>bbibeault1: cain22&#160; and maybe its jsut me, but since its smaller font, it alot of the info seems to blend in, making it harder to recongize events at a glance</span><br/><span> </span><strong>1:19:59 PM </strong><span>bbibeault1: mrayzenoss&#160; cain22: Configure-&gt;Show severity row colors</span><br/><span> </span><strong>1:20:03 PM </strong><span>bbibeault1: cain22&#160; i did.&#160; colors makes it easier...but font size is what i was refering to...</span><br/><span> </span><strong>1:20:07 PM </strong><span>bbibeault1: daveborg98&#160; I personally like it. I am at 1680x1050 res. and I can see a lot of the event details on that screen.&#160; It does make it a little more difficult on my 1920x1200 screen though.</span><br/><span> </span><strong>1:26:57 PM </strong><span><span>mrayzenoss: Jane_Curry: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5926">http://dev.zenoss.org/trac/ticket/5926</a></span><br/><span> </span><strong>2:11:10 PM </strong><span>bbibeault1: Performing a defect review now.</span><br/><span> </span><strong>3:30:34 PM </strong><span>bbibeault1: A few new tickets have been added, and right now a few of us are updating some of the Event Console test cases.</span><br/><span> </span><strong>3:30:46 PM </strong><span>bbibeault1: Any other community feedback?&#160; Issues or questions that you have had?</span><br/><span> </span><strong>3:34:46 PM </strong><span><span>Alvaro2: I included this defect about the horizontal scrollbar. </span><a class="jive-link-external-small" href="http://dev.zenoss.com/trac/ticket/5927">http://dev.zenoss.com/trac/ticket/5927</a></span><br/><span> </span><strong>4:02:24 PM </strong><span>bbibeault1: Note : I am adding test cases around the Event Fields (admin guide, section 7.1.x)</span><br/><span> </span><strong>4:03:02 PM </strong><span>bbibeault1: TC created - javascript:ET(3107)javascript:ET(3107)</span><br/><span> </span><strong>4:03:07 PM </strong><span>cumanzor: Adding a few testcases about event manager options that affect the event console</span><br/><span> </span><strong>4:14:47 PM </strong><span>bbibeault1: TC created - javascript:ET(3109)javascript:ET(3109)</span><br/><span> </span><strong>4:21:46 PM </strong><span>bbibeault1: TC created - javascript:ET(3111)javascript:ET(3111)</span><br/><span> </span><strong>4:32:28 PM </strong><span>Fuzzy_T: 2009-12-10 16:31:45,171 WARNING zen.zenmib: Unable to find a file providing the OID RFC1215</span><br/><span> </span><strong>4:34:13 PM </strong><span>cumanzor: new testcase added (3115)</span><br/><span> </span><strong>4:34:24 PM </strong><span>bbibeault1: Fuzzy, where did that message come from?</span><br/><span> </span><strong>4:38:03 PM </strong><span>cumanzor: Fuzzy_T, which MIB are you currently using?</span><br/><span> </span><strong>4:38:45 PM </strong><span>Fuzzy_T: nevermind</span><br/><span> </span><strong>4:53:26 PM </strong><span>bbibeault1: Guys I am going to sign off, I think that overall this was a productive day, got a good number of defects in, and a few test cases created, as well!</span><br/><span> </span><strong>4:54:56 PM </strong><span>mrayzenoss: Thanks guys, I'll grab a transcript of today and post it on the Community IRC page</span><br/><span> </span><strong>mrayzenoss has changed the topic to: Help Improve Zenoss' Testing: http://community.zenoss.org/community/testing (4:55:22 PM)</strong></div><!-- [DocumentBodyEnd:64a35849-bef8-4e21-8c7b-23004172cdb8] -->
+<!-- [DocumentBodyStart:64a35849-bef8-4e21-8c7b-23004172cdb8] --><div class="jive-rendered-content"><a class="jive-link-blog-small" href="blogs/zenossblog/2009/12/07/zenoss-qa-test-day-december-10-updated2x">Zenoss QA Test Day December 10 UPDATED</a><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><strong>mrayzenoss has changed the topic to: Zenoss QA Test Day: Event Console Testing: http://tr.im/zenoss_qa (7:58:35 AM)</strong><br/><span> </span><strong>8:48:58 AM </strong><span>bbibeault1: Morning everyone.</span><br/><span> </span><strong>8:56:15 AM </strong><span>wquesada: Morning</span><br/><span> </span><strong>9:01:05 AM </strong><span>cumanzor: Good morning</span><br/><span> </span><strong>9:24:26 AM </strong><span>wquesada: Hey ke4qqq ... </span><br/><span> </span><strong>9:24:26 AM </strong><span>wquesada: Do you have any experience that would like to share regarding the Event Console ?</span><br/><span> </span><strong>9:29:57 AM </strong><span>bbibeault1: All - I am bringing up another installation of 2.5.1 for testing.</span><br/><span> </span><strong>9:30:37 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="../message/43102%3Bjsessionid=AD705A62A8AB7E1B8D54C32FD8EC2AFF.node0.html#43102">message/43102;jsessionid=AD705A62A8AB7E1B8D54C32FD8EC2AFF.node0#43102</a><span> (jcurry) </span><a class="jive-link-external-small" href="../message/43102.html#43102">message/43102</a></span><br/><span> </span><strong>9:32:48 AM </strong><span><span>bbibeault1: And for anyone that wants to follow the forum post defining some of the items we will be reviewing - </span><a class="jive-link-external-small" href="../message/43204.html#43204">message/43204</a></span><br/><span> </span><strong>9:43:54 AM </strong><span>bbibeault1: Welcome.</span><br/><span> </span><strong>9:43:57 AM </strong><span>ckrough: Hello</span><br/><span> </span><strong>9:45:46 AM </strong><span>wquesada: hi there ..</span><br/><span> </span><strong>9:56:57 AM </strong><span>bbibeault1: Hello Jane.</span><br/><span> </span><strong>9:57:44 AM </strong><span>Jane_Curry: Hi there - need to monitor this and standard IRC channel for next hour so please bear with me....</span><br/><span> </span><strong>9:59:44 AM </strong><span>bbibeault1: That is fine, I appreciate the participation.</span><br/><span> </span><strong>10:01:01 AM </strong><span>bbibeault1: Welcome!</span><br/><span> </span><strong>10:01:10 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:01:38 AM </strong><span>bbibeault1: Due to some destructive testing I am bringing up a fresh 2.5.1 installation for testing.</span><br/><span> </span><strong>10:01:52 AM </strong><span>rmatte: I've already got one running, so I'm good</span><br/><span> </span><strong>10:02:51 AM </strong><span>rmatte: now is this purely performance related or can we point out missing features?</span><br/><span> </span><strong>10:02:55 AM </strong><span>mrayzenoss: yes</span><br/><span> </span><strong>10:03:00 AM </strong><span>mrayzenoss: </span><br/><span> </span><strong>10:03:08 AM </strong><span>rmatte: yes to which</span><br/><span> </span><strong>10:03:10 AM </strong><span>bbibeault1: Everything around the event console, please.</span><br/><span> </span><strong>10:03:11 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:03:15 AM </strong><span>cumanzor: I have fresh 2.5.1 ready on a RHEL 5.4 machine</span><br/><span> </span><strong>10:03:26 AM </strong><span>rmatte: bbibeault1: right, that's what I meant</span><br/><span> </span><strong>10:03:41 AM </strong><span>mrayzenoss: so we're looking for things not covered by current test plans and for issues not covered by tickets yet</span><br/><span> </span><strong>10:03:44 AM </strong><span>bbibeault1: Also, I am going to do some freshening and updating of the test cases around the Event Console, if anyone would like to follow along and/or offer feedback.</span><br/><span> </span><strong>10:03:49 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.com/testlink/index.php">http://dev.zenoss.com/testlink/index.php</a></span><br/><span> </span><strong>10:03:50 AM </strong><span>mrayzenoss: so let's open new test cases and new tickets</span><br/><span> </span><strong>10:03:52 AM </strong><span>rmatte: bbibeault1: first thing, which I've pointed out a few times, when you go to Event History, there is no quick way to specify a range of dates to view history for</span><br/><span> </span><strong>10:04:25 AM </strong><span>bbibeault1: 1s</span><br/><span> </span><strong>10:04:38 AM </strong><span>rmatte: k</span><br/><span> </span><strong>10:04:51 AM </strong><span><span>mrayzenoss: rmatte: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5659">http://dev.zenoss.org/trac/ticket/5659</a></span><br/><span> </span><strong>10:05:21 AM </strong><span>rmatte: mrayzenoss: k, just wanted to make sure it wasn't forgotten </span><br/><span> </span><strong>10:05:29 AM </strong><span>rmatte: I forgot about that trac ticket</span><br/><span> </span><strong>10:05:51 AM </strong><span>zenethian: </span><br/><span> </span><strong>10:06:09 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:09:09 AM </strong><span>rmatte: a couple other cosmetic things... when you double click on an event, to the right to the big event severity icon in the top left of the events details window, there is this "&gt;" graphic.&#160; It looks pixelated like it was created smaller but stretched to be larger.&#160; Aesthetically, it really takes away from the whole new smooth look of the event console.</span><br/><span> </span><strong>10:09:44 AM </strong><span>rmatte: In the event details window, when a trap is received, the trap's details, which were previously stored under their own details tab, are now mashed together with all of the other info for the event</span><br/><span> </span><strong>10:10:27 AM </strong><span>mrayzenoss: hmmm&#8230; my alpha VM game me a server connection error the first time I went to the event console</span><br/><span> </span><strong>10:10:33 AM </strong><span>rmatte: It would be nice if there were a second link such as the "Show more details..." link which expands to reveal the details, but only reveals the details for traps</span><br/><span> </span><strong>10:10:52 AM </strong><span>bbibeault1: There are some known issues with the alpha, but I wasn't aware of the server connection error.</span><br/><span> </span><strong>10:11:13 AM </strong><span>bbibeault1: rmatte, are any of these in Trac already?&#160; If not, I'll get entering.</span><br/><span> </span><strong>10:11:37 AM </strong><span>rmatte: bbibeault1: I'll have to search around and see, but I doubt it</span><br/><span> </span><strong>10:11:46 AM </strong><span>rmatte: bbibeault1: I think they were only mentioned on the forums thus far</span><br/><span> </span><strong>10:11:51 AM </strong><span>bbibeault1: I will start searching on those, keep the feedback coming.&#160; </span><br/><span> </span><strong>10:11:55 AM </strong><span>rmatte: thanks</span><br/><span> </span><strong>10:13:16 AM </strong><span>rmatte: oh, another stupid cosmetic issue, but which also takes away from the overall look of the console is the filter list at the top.&#160; It doesn't fully expand to the width of the event console, it leaves a fairly large gap at the right-hand edge (This is in Firefox, I haven't checked with IE)</span><br/><span> </span><strong>10:13:56 AM </strong><span>rmatte: There also used to be an option to toggle the filters on or off, which appears to have vanished, but I found it was a nice feature</span><br/><span> </span><strong>10:15:09 AM </strong><span><span>mrayzenoss: bbibeault1: here's the gap he mentioned </span><a class="jive-link-external-small" href="http://imagebin.org/74922">http://imagebin.org/74922</a></span><br/><span> </span><strong>10:15:35 AM </strong><span>bbibeault1: On my machine, that gap is just the width of the scroll bar for the events themselves.</span><br/><span> </span><strong>10:15:51 AM </strong><span>mrayzenoss: well I've got no events, so all I have is a gap</span><br/><span> </span><strong>10:15:59 AM </strong><span>rmatte: oh, I guess it's because the scrollbar doesn't show up until you have events flooding off the screen</span><br/><span> </span><strong>10:16:10 AM </strong><span>bbibeault1: Ahh, but we always leave the space there.</span><br/><span> </span><strong>10:16:12 AM </strong><span>rmatte: it should really auto-expand when the scrollbar appears in my opinion</span><br/><span> </span><strong>10:16:22 AM </strong><span>rmatte: just looks cleaner</span><br/><span> </span><strong>10:16:27 AM </strong><span>mrayzenoss: which log should have the "Server connection error"?</span><br/><span> </span><strong>10:16:39 AM </strong><span>rmatte: mrayzenoss: I'd imagine zenhub</span><br/><span> </span><strong>10:17:17 AM </strong><span>mrayzenoss: hm&#8230; nothing there and nothing in z2.log</span><br/><span> </span><strong>10:17:23 AM </strong><span>rmatte: hmmm</span><br/><span> </span><strong>10:17:35 AM </strong><span>rmatte: well, Z2 is just web request log as far as I can tell</span><br/><span> </span><strong>10:19:31 AM </strong><span>rmatte: oh, check zeo.log</span><br/><span> </span><strong>10:19:39 AM </strong><span><span>mrayzenoss: found this in my event.log </span><a class="jive-link-external-small" href="http://pastebin.org/63140">http://pastebin.org/63140</a></span><br/><span> </span><strong>10:19:41 AM </strong><span>rmatte: actually, that might just be zope related</span><br/><span> </span><strong>10:19:59 AM </strong><span>rmatte: ah, my event.log files are all clean</span><br/><span> </span><strong>10:20:28 AM </strong><span><span>bbibeault1: rmatte: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5917">http://dev.zenoss.org/trac/ticket/5917</a></span><br/><span> </span><strong>10:20:46 AM </strong><span>rmatte: thanks</span><br/><span> </span><strong>10:23:37 AM </strong><span>bbibeault1: rmatte: For the option on toggling filters on or off, you mean rendering of the filters themselves, or all filtering in ttal?</span><br/><span> </span><strong>10:23:40 AM </strong><span>bbibeault1: total?</span><br/><span> </span><strong>10:23:51 AM </strong><span>rmatte: it would just make the filter bar dissapear</span><br/><span> </span><strong>10:24:01 AM </strong><span>bbibeault1: ok</span><br/><span> </span><strong>10:24:06 AM </strong><span>rmatte: there was an option for it in 2.5</span><br/><span> </span><strong>10:24:10 AM </strong><span>rmatte: but it dissapeared</span><br/><span> </span><strong>10:24:18 AM </strong><span>bbibeault1: In 2.5?&#160; It disappeared between 2.5 and 2.5.1?</span><br/><span> </span><strong>10:24:21 AM </strong><span>rmatte: or it might have actually been as far back as one of the betas</span><br/><span> </span><strong>10:24:32 AM </strong><span>rmatte: I don't recall exactly when it dissapeared</span><br/><span> </span><strong>10:25:01 AM </strong><span><span>cumanzor: to mrayzenoss: about that gap </span><a class="jive-link-external-small" href="http://imagebin.org/74922">http://imagebin.org/74922</a><span>, gap width is 19px and it's consistent on all browsers</span></span><br/><span> </span><strong>10:25:21 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>10:25:31 AM </strong><span>rmatte: I like the little frowny face</span><br/><span> </span><strong>10:25:33 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:29:34 AM </strong><span><span>bbibeault1: rmatte: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5918">http://dev.zenoss.org/trac/ticket/5918</a><span> (ticket regarding the hiding of the filters)</span></span><br/><span> </span><strong>10:31:34 AM </strong><span>rmatte: cool</span><br/><span> </span><strong>10:34:40 AM </strong><span>bbibeault1: rmatte: With viewing the event history by a date range, doesn't setting "First Seen" and "Last Seen" get you the filter you want?</span><br/><span> </span><strong>10:35:12 AM </strong><span>rmatte: bbibeault1: no, doing that will only show you events with a start and end date that specifically matches what you set</span><br/><span> </span><strong>10:35:23 AM </strong><span>rmatte: bbibeault1: instead of an actual range</span><br/><span> </span><strong>10:35:32 AM </strong><span>bbibeault1: o.O</span><br/><span> </span><strong>10:35:46 AM </strong><span>bbibeault1: 1m testing on a trunk system...</span><br/><span> </span><strong>10:36:19 AM </strong><span>rmatte: I haven't tried in a while, maybe they did change the behaviour of it, I'll check...</span><br/><span> </span><strong>10:36:49 AM </strong><span>rmatte: I have events from 2009-12-08 to 2009-11-03, so if I set that range I should still see all of the events...</span><br/><span> </span><strong>10:37:16 AM </strong><span>rmatte: I said the dates backwards, but you get the idea</span><br/><span> </span><strong>10:37:17 AM </strong><span>rmatte: lol</span><br/><span> </span><strong>10:37:35 AM </strong><span>bbibeault1: I just saw something odd around this, myself.</span><br/><span> </span><strong>10:38:01 AM </strong><span>rmatte: ah, it looks like it does actually work now</span><br/><span> </span><strong>10:38:17 AM </strong><span>rmatte: but I'm still not sure if it's really perfect</span><br/><span> </span><strong>10:38:23 AM </strong><span>bbibeault1: I get events in the middle, but on my test system I start with more events, and when I filter I get a smaller subset.</span><br/><span> </span><strong>10:38:34 AM </strong><span>bbibeault1: Trying to figure out the root cause here.</span><br/><span> </span><strong>10:38:34 AM </strong><span>rmatte: if I set the last seen as 2009-12-08 the event for that date dissapears</span><br/><span> </span><strong>10:38:40 AM </strong><span>rmatte: but if I set it to 2009-12-09 it appears</span><br/><span> </span><strong>10:39:01 AM </strong><span><span>mrayzenoss: I get this stack trace everytime I hit the event console on the alpha build: </span><a class="jive-link-external-small" href="http://pastebin.org/63148">http://pastebin.org/63148</a></span><br/><span> </span><strong>10:39:07 AM </strong><span>bbibeault1: Note the default time is 00:00:00</span><br/><span> </span><strong>10:39:09 AM </strong><span>rmatte: k cool, definitely need to get that right since that's an important tool</span><br/><span> </span><strong>10:39:28 AM </strong><span>rmatte: right, but there's no option to set time in the calendar</span><br/><span> </span><strong>10:39:38 AM </strong><span>rmatte: lol</span><br/><span> </span><strong>10:40:00 AM </strong><span>rmatte: I suppose you could type it in, but that seems unnecessarily tedious</span><br/><span> </span><strong>10:41:35 AM </strong><span>rmatte: OOOOH, I just remember something else I had noticed</span><br/><span> </span><strong>10:41:57 AM </strong><span>rmatte: click on one of the fields at the top to sort a row, then click on it again, the filter bar turns all gray (input fields vanish)</span><br/><span> </span><strong>10:42:17 AM </strong><span>rmatte: hmmmm</span><br/><span> </span><strong>10:42:28 AM </strong><span>rmatte: it's not doing it now, I think fields need to actually be populated for it to happen</span><br/><span> </span><strong>10:42:33 AM </strong><span>rmatte: let me work out how to reproduce it</span><br/><span> </span><strong>10:42:45 AM </strong><span>rmatte: yeh, that's it</span><br/><span> </span><strong>10:42:52 AM </strong><span>rmatte: populate the first time and last time fields</span><br/><span> </span><strong>10:42:58 AM </strong><span>rmatte: then click on "Summary" at the top to sort</span><br/><span> </span><strong>10:43:01 AM </strong><span>rmatte: then click on it again</span><br/><span> </span><strong>10:43:08 AM </strong><span>rmatte: all of the input fields on the filter bar vanish</span><br/><span> </span><strong>10:43:26 AM </strong><span>bbibeault1: rmatte: I'm getting overloaded researching and typing these in.&#160;&#160;&#160; Can you document that one in trick please?</span><br/><span> </span><strong>10:43:37 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>10:43:52 AM </strong><span>bbibeault1: trac, that is.&#160; Also, getting some good feedback on the time/date seen issue.</span><br/><span> </span><strong>10:45:31 AM </strong><span>Alvaro1: i think that the default time for the Last Seen field should be 23:59</span><br/><span> </span><strong>10:45:52 AM </strong><span>rmatte: Components: Events and Alerts?</span><br/><span> </span><strong>10:45:59 AM </strong><span>rmatte: in Trac</span><br/><span> </span><strong>10:46:07 AM </strong><span>bbibeault1: Yes please.&#160; 1 favor, please add a keyword of "testday".</span><br/><span> </span><strong>10:46:18 AM </strong><span>rmatte: done</span><br/><span> </span><strong>10:46:24 AM </strong><span>bbibeault1: Just trying to keep track of what comes out of this, thanks.</span><br/><span> </span><strong>10:47:15 AM </strong><span><span>rmatte: bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5920">http://dev.zenoss.org/trac/ticket/5920</a></span><br/><span> </span><strong>10:47:22 AM </strong><span><span>mrayzenoss: bbibeault1: just added </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5919">http://dev.zenoss.org/trac/ticket/5919</a></span><br/><span> </span><strong>10:47:42 AM </strong><span>bbibeault1: Thanks guys</span><br/><span> </span><strong>10:48:24 AM </strong><span>rmatte: bbibeault1: did you log one for the pixelated image?</span><br/><span> </span><strong>10:49:00 AM </strong><span>bbibeault1: Not yet, still getting through the first seen last seen.</span><br/><span> </span><strong>10:49:16 AM </strong><span>rmatte: k cool</span><br/><span> </span><strong>10:49:18 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5921">http://dev.zenoss.org/trac/ticket/5921</a><span> on times being rendered in the first place (not supposed to be there)</span></span><br/><span> </span><strong>10:49:27 AM </strong><span>bbibeault1: Still working on the filtering on date.</span><br/><span> </span><strong>10:49:28 AM </strong><span>rmatte: yeh</span><br/><span> </span><strong>10:50:08 AM </strong><span>rmatte: Ian shall have his work cut out for him</span><br/><span> </span><strong>10:50:09 AM </strong><span>rmatte: </span><br/><span> </span><strong>10:50:24 AM </strong><span>bbibeault1: As will QA (more test cases needed)</span><br/><span> </span><strong>10:50:33 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>10:56:26 AM </strong><span>rmatte: seeing if I can find any other strange behaviour...</span><br/><span> </span><strong>10:56:38 AM </strong><span>rmatte: *points at zenethian *</span><br/><span> </span><strong>10:56:40 AM </strong><span>rmatte: there's some</span><br/><span> </span><strong>10:57:02 AM </strong><span>bbibeault1: I am not having much luck figuring out these start and end dates for events.</span><br/><span> </span><strong>10:57:16 AM </strong><span>bbibeault1: The behavior I see isn't matching up, sometimes I get a superset of events, sometimes a subset, it seems.</span><br/><span> </span><strong>10:57:29 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>10:57:33 AM </strong><span>rmatte: it's quite wonky</span><br/><span> </span><strong>10:58:00 AM </strong><span>bbibeault1: Well if we can figure out the nature on the wonky-ness, the change of fixing it goes up 5%.&#160; </span><br/><span> </span><strong>10:58:09 AM </strong><span>rmatte: yup</span><br/><span> </span><strong>11:08:47 AM </strong><span>bbibeault1: Still digging on this event filtering by first seen/last seen.</span><br/><span> </span><strong>11:10:31 AM </strong><span>mrayzenoss: I'm rebuilding a 2.5.1 box to test some of the ZenUser event console issues</span><br/><span> </span><strong>11:29:13 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5921">http://dev.zenoss.org/trac/ticket/5921</a><span> updated; still trying to figure out what is going on here.</span></span><br/><span> </span><strong>11:34:29 AM </strong><span>cumanzor: Be careful when you set both First seen and last Seen filter using the today button, both dates will have the hour as 00:00:00, no events will be displayed because of that</span><br/><span> </span><strong>11:38:07 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5922">http://dev.zenoss.org/trac/ticket/5922</a><span> - Error with display count of displayed tickets</span></span><br/><span> </span><strong>11:42:46 AM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5923">http://dev.zenoss.org/trac/ticket/5923</a><span> - Empty row at bottom of event console (throws off the DISPLAYING count)</span></span><br/><span> </span><strong>11:43:39 AM </strong><span>bbibeault1: Welcome</span><br/><span> </span><strong>12:11:40 PM </strong><span><span>wquesada: created :</span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5924">http://dev.zenoss.org/trac/ticket/5924</a></span><br/><span> </span><strong>12:19:24 PM </strong><span><span>bbibeault1: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5925">http://dev.zenoss.org/trac/ticket/5925</a><span> - Event history does not have export as XML option</span></span><br/><span> </span><strong>12:19:44 PM </strong><span>bbibeault1: Note : Test cases are being created as we go through the event console, as well.&#160; Anyone can contribute if they have some time.</span><br/><span> </span><strong>12:20:36 PM </strong><span><span>bbibeault1: Matt, how is your 2.5.1 machine that we were going to use to discuss </span><a class="jive-link-external-small" href="../message/43102.html#43102">message/43102</a><span> coming along?</span></span><br/><span> </span><strong>12:21:41 PM </strong><span>mrayzenoss: heh, sitting on the new install wizard </span><br/><span> </span><strong>12:33:44 PM </strong><span>rmatte: hehe</span><br/><span> </span><strong>12:33:55 PM </strong><span>mrayzenoss: logged in as the readonly Zenuser account and sent all the events to history... fudge</span><br/><span> </span><strong>12:34:27 PM </strong><span>mrayzenoss: from the Event History: 009/12/10 03:53:53.000 readonly said:</span><br/><span> Deleted by user</span><br/><span> </span><br/><span> </span><strong>12:45:38 PM </strong><span>rmatte: that's extremely useful</span><br/><span> </span><strong>12:45:39 PM </strong><span>rmatte: lol</span><br/><span> </span><strong>1:04:05 PM </strong><span>Jane_Curry: I bet you can undelete it too - for another logged comment by user!</span><br/><span> </span><strong>1:18:27 PM </strong><span>bbibeault1: Feedback from #zenoss:</span><br/><span> </span><strong>1:19:45 PM </strong><span>bbibeault1: cain22&#160; ok, not sure if i'm loving the new event viewer</span><br/><span> </span><strong>1:19:45 PM </strong><span>bbibeault1: RoundQube&#160; cain22 what are you issues with it?</span><br/><span> </span><strong>1:19:46 PM </strong><span>bbibeault1: cain22&#160; well, it took me second to realize how to open up the event in detail....</span><br/><span> </span><strong>1:19:50 PM </strong><span>bbibeault1: daveborg98&#160; That took me a minute as well.</span><br/><span> </span><strong>1:19:54 PM </strong><span>bbibeault1: cain22&#160; and maybe its jsut me, but since its smaller font, it alot of the info seems to blend in, making it harder to recongize events at a glance</span><br/><span> </span><strong>1:19:59 PM </strong><span>bbibeault1: mrayzenoss&#160; cain22: Configure-&gt;Show severity row colors</span><br/><span> </span><strong>1:20:03 PM </strong><span>bbibeault1: cain22&#160; i did.&#160; colors makes it easier...but font size is what i was refering to...</span><br/><span> </span><strong>1:20:07 PM </strong><span>bbibeault1: daveborg98&#160; I personally like it. I am at 1680x1050 res. and I can see a lot of the event details on that screen.&#160; It does make it a little more difficult on my 1920x1200 screen though.</span><br/><span> </span><strong>1:26:57 PM </strong><span><span>mrayzenoss: Jane_Curry: </span><a class="jive-link-external-small" href="http://dev.zenoss.org/trac/ticket/5926">http://dev.zenoss.org/trac/ticket/5926</a></span><br/><span> </span><strong>2:11:10 PM </strong><span>bbibeault1: Performing a defect review now.</span><br/><span> </span><strong>3:30:34 PM </strong><span>bbibeault1: A few new tickets have been added, and right now a few of us are updating some of the Event Console test cases.</span><br/><span> </span><strong>3:30:46 PM </strong><span>bbibeault1: Any other community feedback?&#160; Issues or questions that you have had?</span><br/><span> </span><strong>3:34:46 PM </strong><span><span>Alvaro2: I included this defect about the horizontal scrollbar. </span><a class="jive-link-external-small" href="http://dev.zenoss.com/trac/ticket/5927">http://dev.zenoss.com/trac/ticket/5927</a></span><br/><span> </span><strong>4:02:24 PM </strong><span>bbibeault1: Note : I am adding test cases around the Event Fields (admin guide, section 7.1.x)</span><br/><span> </span><strong>4:03:02 PM </strong><span>bbibeault1: TC created - javascript:ET(3107)javascript:ET(3107)</span><br/><span> </span><strong>4:03:07 PM </strong><span>cumanzor: Adding a few testcases about event manager options that affect the event console</span><br/><span> </span><strong>4:14:47 PM </strong><span>bbibeault1: TC created - javascript:ET(3109)javascript:ET(3109)</span><br/><span> </span><strong>4:21:46 PM </strong><span>bbibeault1: TC created - javascript:ET(3111)javascript:ET(3111)</span><br/><span> </span><strong>4:32:28 PM </strong><span>Fuzzy_T: 2009-12-10 16:31:45,171 WARNING zen.zenmib: Unable to find a file providing the OID RFC1215</span><br/><span> </span><strong>4:34:13 PM </strong><span>cumanzor: new testcase added (3115)</span><br/><span> </span><strong>4:34:24 PM </strong><span>bbibeault1: Fuzzy, where did that message come from?</span><br/><span> </span><strong>4:38:03 PM </strong><span>cumanzor: Fuzzy_T, which MIB are you currently using?</span><br/><span> </span><strong>4:38:45 PM </strong><span>Fuzzy_T: nevermind</span><br/><span> </span><strong>4:53:26 PM </strong><span>bbibeault1: Guys I am going to sign off, I think that overall this was a productive day, got a good number of defects in, and a few test cases created, as well!</span><br/><span> </span><strong>4:54:56 PM </strong><span>mrayzenoss: Thanks guys, I'll grab a transcript of today and post it on the Community IRC page</span><br/><span> </span><strong>mrayzenoss has changed the topic to: Help Improve Zenoss' Testing: community/testing (4:55:22 PM)</strong></div><!-- [DocumentBodyEnd:64a35849-bef8-4e21-8c7b-23004172cdb8] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1195,7 +744,7 @@ View print preview
                             </a>
                         </li>
                         <li>
-                            <a href="http://community.zenoss.org/community/testing/blog/2009/12/11/qa-test-day-retrospective">
+                            <a href="community/testing/blog/2009/12/11/qa-test-day-retrospective">
                             <span class="jive-icon-med jive-icon-blog"></span>
                                 QA Test Day Retrospective
                             </a>
@@ -1241,7 +790,7 @@ View print preview
                     </li>
         </ul>
         <div class="jive-sidebar-viewall">
-            <a href="http://community.zenoss.org/people/mray" class="font-color-meta j-link-viewall"><strong>View Matt Ray's profile</strong></a>
+            <a href="people/mray" class="font-color-meta j-link-viewall"><strong>View Matt Ray's profile</strong></a>
         </div>
     </div>
 </div>
@@ -1298,11 +847,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1380,157 +929,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

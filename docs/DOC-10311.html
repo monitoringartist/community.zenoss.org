@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Dev Chat 05/12/2011 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2141&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "06B3718841786491A3C81BC28530D2F4";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2141&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 10311, 2141, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         10311,
-
-                    containerType:      14,
-                    containerID:        2141,
-
-                    contentObject: {
-                            document:          10311,
-                            version:           2
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=10311",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 10311,
-            containerID: "jive-more-like-this-102-10311",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 10311;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,7 +366,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
                 <a href="../community/documentation/irc.html">
             IRC</a> &gt; 
@@ -828,18 +377,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-10311/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-10311/restore'>
         <input type="hidden" name="version" value="2" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-10311"/>
         <input type="hidden" name="document.restore.DOC-10311" value="1394833820776-I005LYKG3CMEU0DCVV5OD0TY4UAU3WIU"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-10311/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-10311/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-10311"/>
         <input type="hidden" name="document.delete.DOC-10311" value="1394833820787-M6W2PEA2BKP09ZKQQX75U6KM26ZA10XF"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-10311"/>
         <input type="hidden" name="document.publish.DOC-10311" value="1394833820803-Q48EL7AFXDRJHN8M6K8BILDVD0KG9QXL"/>
         <input type="hidden" name="document" value="DOC-10311" />
@@ -889,7 +438,7 @@ Password:                </label>
         </div>
         <div class="jive-content-header-version">
             VERSION 2&nbsp;
-                <a href="http://community.zenoss.org/docs/DOC-10311/diff?secondVersionNumber=2" title="Click to view document history"><img class="jive-icon-sml jive-icon-search" src="../4.5.6/images/transparent.png" alt="Click to view document history" /></a>
+                <a href="docs/DOC-10311/diff?secondVersionNumber=2" title="Click to view document history"><img class="jive-icon-sml jive-icon-search" src="../4.5.6/images/transparent.png" alt="Click to view document history" /></a>
 
 
         </div>
@@ -947,7 +496,7 @@ class="jiveTT-hover-user jive-username-link jive-user-disabled"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:36f342ae-b31f-4519-8269-8d2e29708a1e] --><div class="jive-rendered-content"><p>[12-May-2011 10:22:20] &lt;dhopp&gt; hey nyeates</p><p>[12-May-2011 10:22:56] &lt;dhopp&gt; dawn2020 has a weird problem&#226;&#8364;&brvbar;CPU threshold alerts are not triggers&#226;&#8364;&brvbar;threshold is enabled and from what I can tell seems like it's setup correctly&#226;&#8364;&brvbar;zenoss 3.1.0..ideas?</p><p>[12-May-2011 10:23:10] &lt;dhopp&gt; err..threshold alerts are not triggering</p><p>[12-May-2011 10:24:07] &lt;nyeates&gt; glad you clarified, had a hard time reading that</p><p>[12-May-2011 10:25:03] davetoo is now known as dcarmean</p><p>[12-May-2011 10:25:14] &lt;nyeates&gt; dawn2020: so yoiur graph shows a threshold being broken, but no event happens?</p><p>[12-May-2011 10:25:28] &lt;dawn2020&gt; yes</p><p>[12-May-2011 10:25:31] &lt;nyeates&gt; does the graphs visibly show the thresh on it? as a horizontal line....</p><p>[12-May-2011 10:25:39] &lt;dawn2020&gt; yes it does</p><p>[12-May-2011 10:25:44] &lt;nyeates&gt; can u post to us'</p><p>[12-May-2011 10:25:54] &lt;dawn2020&gt; i varied the values too...but still no luck</p><p>[12-May-2011 10:25:55] &lt;dawn2020&gt; sure</p><p>[12-May-2011 10:25:58] &lt;dpetzel&gt; anyone bored enough to try and help a first time zenpack developer (i use the word developer loosely)</p><p>[12-May-2011 10:26:26] &lt;nyeates&gt; dpetzel: in 35 mins it is developer hr, and we will have some zenoss devs in here</p><p>[12-May-2011 10:26:33] &lt;nyeates&gt; keep those Qs for sure!</p><p>[12-May-2011 10:26:41] &lt;dpetzel&gt; ah sweet</p><p>[12-May-2011 10:26:45] &lt;nyeates&gt; dpetzel: what are you working on</p><p>[12-May-2011 10:26:59] &lt;dpetzel&gt; trying to get a super basic f5 pack for core</p><p><span>[12-May-2011 10:27:17] &lt;dpetzel&gt; </span><a class="jive-link-external-small" href="../message/58567.html">http://community.zenoss.org/message/58567</a><span> is my dilema</span></p><p>[12-May-2011 10:27:25] &lt;nyeates&gt; im not familiar with what f5 is</p><p>[12-May-2011 10:27:31] &lt;dpetzel&gt; bigip load balancer</p><p>[12-May-2011 10:27:40] &lt;dpetzel&gt; there is an enterprise pack already, but nothing for core</p><p>[12-May-2011 10:27:52] &lt;nyeates&gt; ahh yes</p><p>[12-May-2011 10:28:35] &lt;dpetzel&gt; Im pretty sure Im only 1 or 2 "change this you dummy" and I'll have it working</p><p>[12-May-2011 10:30:01] &lt;nyeates&gt; gotcha, that is a long post....good detail....hopefully it can be digested in the dev hr</p><p><span>[12-May-2011 10:30:18] &lt;dawn2020&gt; Hi nyeates....please see the link </span><a class="jive-link-external-small" href="http://tinypic.com/view.php?pic=27wrc53&amp;s=7">http://tinypic.com/view.php?pic=27wrc53&amp;s=7</a></p><p>[12-May-2011 10:30:26] &lt;lorin&gt; @Nick:I am monitoring the devices through WMI i am not able to get the graphs for the same . can u please help me out in this</p><p>[12-May-2011 10:30:37] &lt;dhopp&gt; The distributed collector zenpack that Egor wrote&#226;&#8364;&brvbar;how does that work if the main zenoss (zenhub) goes down&#226;&#8364;&brvbar;if there is an event that happens is that lost?</p><p>[12-May-2011 10:31:23] diatonic|away is now known as diatonic</p><p>[12-May-2011 10:31:34] &lt;lorin&gt; when i click the grah getting the error as User-supplied Python expression ((here.speed or 1e9) / 8 * .95) for maximum value caused error: ['ifHCInOctets_ifHCInOctets', 'ifHCOutOctets_ifHCOutOctets']</p><p>[12-May-2011 10:35:11] &lt;nyeates&gt; others feel free to chime in, im helping dawn2020 right now</p><p>[12-May-2011 10:36:43] &lt;nyeates&gt; dawn2020: the x-axis.... 05, 06 07, etc...are those minutes? days?</p><p>[12-May-2011 10:36:51] &lt;dawn2020&gt; days</p><p>[12-May-2011 10:37:44] &lt;nyeates&gt; oh hmmm, can you soon in to show just the overage? like so the overage part, if its just 5 or 20 mins, zoom in to show just that</p><p>[12-May-2011 10:37:54] &lt;Hackman238&gt; dawn2020: Are you running zenhubs on the remote collectors?</p><p>[12-May-2011 10:38:09] &lt;nyeates&gt; i want to assure that it was sustained at that high amt, not jumping up an ddown</p><p>[12-May-2011 10:38:25] &lt;dawn2020&gt; @nyeates:sure</p><p>[12-May-2011 10:38:49] &lt;dawn2020&gt; @hackman23</p><p>[12-May-2011 10:38:54] &lt;dawn2020&gt; nope</p><p>[12-May-2011 10:39:44] &lt;Hackman238&gt; If there is an event and zenhub is down, there is no route from the daemons to mysql.</p><p>[12-May-2011 10:40:10] &lt;dhopp&gt; Hackman238: Was that question for dawn2020 meant for me?</p><p>[12-May-2011 10:40:51] &lt;Hackman238&gt; dhopp: Meant for you. Typo + {TAB} = wrong name :-)</p><p>[12-May-2011 10:40:58] &lt;dhopp&gt; hehe...</p><p>[12-May-2011 10:41:19] &lt;Hackman238&gt; dhopp: Do you run zenhub(s) on the remote collectors?</p><p>[12-May-2011 10:42:04] &lt;dhopp&gt; I haven't built it out yet&#226;&#8364;&brvbar;but we are building out a new zenoss infrastructure&#226;&#8364;&brvbar;my thought was to 3 zenoss machines.&#160; 1 "main" zenoss (primarily just the web interface) and then 2 remote collectors (1 in each of our DCs)</p><p>[12-May-2011 10:42:42] &lt;dhopp&gt; if we run zenhubs on the remote collector then all the collectors can't share a common device list right?</p><p>[12-May-2011 10:43:01] &lt;fragfutter&gt; i'm a bit lost. I want to write a modeler for a device, that detects hardware components. Should i write a new DeviceClass with it's own relations or do i only write my ComponentClass and extend the HWComponent._relations?</p><p>[12-May-2011 10:43:06] &lt;Hackman238&gt; dhopp: I'd reccomend dediated zenhubs on remote collectors</p><p><span>[12-May-2011 10:43:15] &lt;dawn2020&gt; @nyeates: </span><a class="jive-link-external-small" href="http://tinypic.com/view.php?pic=zjgk0g&amp;s=7">http://tinypic.com/view.php?pic=zjgk0g&amp;s=7</a></p><p>[12-May-2011 10:43:40] &lt;Hackman238&gt; dhopp: Sure they can. You don't want to run a seperate instance, only a dedicated zenhub.</p><p>[12-May-2011 10:43:40] &lt;dhopp&gt; Hackman238: ok&#226;&#8364;&brvbar;is that accomplished through Egor's zenpack or is that custom config?</p><p>[12-May-2011 10:44:33] &lt;dhopp&gt; also, how do you manage the device lists?&#160; Is there a central interface? (I'm going to be using core unfortunately&#226;&#8364;&brvbar;budget for enterprise got shot down)</p><p>[12-May-2011 10:44:53] &lt;Hackman238&gt; dhopp: I generally do it all custom, you'll need to check with someone about that pack.</p><p>[12-May-2011 10:45:37] &lt;Hackman238&gt; dhopp: Zope is what manages the device objects, zenhub is a daemon which handles dolling out configs, scheduling, and event stuff.</p><p>[12-May-2011 10:45:52] &lt;dhopp&gt; ah ok</p><p>[12-May-2011 10:46:59] &lt;Hackman238&gt; dhopp: Personally I can't tell you what Egors pack can and cannot do. I'd PM him and ask.</p><p>[12-May-2011 10:47:20] &lt;dhopp&gt; so users can go to one interface to see all events that happen (assuming all zenhubs use the same db).&#160; And then add templates through the same interface regardless of zenhub...</p><p>[12-May-2011 10:47:57] &lt;dhopp&gt; Hackman238: no problem&#226;&#8364;&brvbar;I can always install it too..just haven't gotten there...</p><p>[12-May-2011 10:48:00] &lt;Hackman238&gt; dhopp: Yes, you'd point each of your zenhubs at the same db.</p><p>[12-May-2011 10:48:26] &lt;Hackman238&gt; dhopp: Let me know if you need any help.</p><p>[12-May-2011 10:48:34] &lt;dhopp&gt; I'm sure I will :-)</p><p>[12-May-2011 10:49:23] &lt;dhopp&gt; Going to have ~750 servers to start and then will hopefully add ~300 network devices eventually</p><p>[12-May-2011 10:50:27] &lt;dhopp&gt; well in reality probably to start will be fewer servers then that&#226;&#8364;&brvbar;but that's what it should grow to</p><p>[12-May-2011 10:51:13] &lt;Hackman238&gt; dhopp: Always start small and work your way up. Jumping at something too large is almost certain failure.</p><p>[12-May-2011 10:51:25] &lt;Hackman238&gt; dhopp: Least thats how I look at stuff. :-)</p><p>[12-May-2011 10:51:29] &lt;nyeates&gt; dawn2020: let me get back to you....or ping me later....trying to get a developer lined up to come in here</p><p>[12-May-2011 10:52:07] &lt;dawn2020&gt; oh ok <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 10:53:23] &lt;dhopp&gt; Hackman238: So lets take my scenario..1 web interface for users to interact with, 2 "remote collectors" (each running their own zenhub).&#160; What daemons would have to be running on each of the servers then?, would the web interface have everything just nothing really be utilized?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 10:55:10] &lt;Hackman238&gt; dhopp: On the zope hostign box you could disable the perf daemons, but I would leave them on for self monitoring. Daemons on remote collectors would include the perf daemons you need, zenhub, zenmodeler, and zenrender.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:00:39] &lt;nyeates&gt; I want to repeat a specific dev-heavy line of questioning from dpetzel....i told him to wait til other had come in</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>[12-May-2011 11:00:57] &lt;nyeates&gt; Dpetzel, you want to iterate a summary here? he posted a long version at </span><a class="jive-link-external-small" href="../message/58567.html">http://community.zenoss.org/message/58567</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:01:14] &lt;Hackman238&gt; nyeates: That reminds me, I've a few people testing the new IPSLA pack for V2.5.2/3.X,4 ;-)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:01:36] &lt;nyeates&gt; hackman238: custs or core ppl?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:01:55] &lt;Hackman238&gt; nyeates: Both.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:02:10] &lt;Hackman238&gt; nyeates: Core compatible. Ent version includes remote management.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:02:46] &lt;dpetzel&gt; sure thing, so basiacally Im compelety new to writing zenpacks (aside from creating from the gui)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:02:51] &lt;dcarmean&gt; Egor's distributed collector pack (nominally) takes care of deciding which daemons run where.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:03:06] &lt;dpetzel&gt; I'm trying to write a pack to list BigIP virtual servers as components of the BigIP device</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:03:37] &lt;dpetzel&gt; I've followed Janes Doc and the Developers guide, and things seem to be modeling correclty, but the Virtual Server to device relationships never seem to happen</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:03:39] &lt;nyeates&gt; dawn2020: i saw your 2nd graph. Very odd how the CPU % is obviously over the threshold and you got no events. Have you checked history and/or made ABSOLUTELY sure there is no transform or settings in the event class properties that would be dropping the event? Make sure there is not some rule way up the tree that is applying to many events</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:04:40] &lt;nyeates&gt; Hackman238: Very nice! Youll have to send me a copy to check it out</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:11] &lt;dhopp&gt; dcaremean: do you know if it starts zenhub? or does it rely on zenhub from the "main" zenoss?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:15] &lt;Hackman238&gt; nyeates: Only RC3 right this moment. I'll PM you in a bit.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:23] &lt;dhopp&gt; I'm working on setting up a second collector to test it with</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:37] &lt;dhopp&gt; if that doesn't work, I might need more help from Hackman238 :-)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:57] &lt;dawn2020&gt; @nyeates: i did check that and we are not using any transforms for CPU</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:06:25] &lt;dawn2020&gt; the issue is not only for that device...its for all the devices</p><p><img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/></p><p>[12-May-2011 11:06:38] &lt;dawn2020&gt; windows as well as Linux</p><p>[12-May-2011 11:06:53] &lt;nyeates&gt; dpetzel: so im not familiar with how f5 big ip and its virtual servers relate.... but basically you are trying to make a new zenpack with components, and the components are not relating correctly back to the root device?</p><p>[12-May-2011 11:08:29] &lt;nyeates&gt; dawn2020: make a new device class from the root /Devices. Put a server in there. Make it go over threshold. See if event comes in</p><p>[12-May-2011 11:09:06] &lt;nyeates&gt; allows you to determine for sure that there isnt something blocking the events...unless of course its applying at root device lvl :-p</p><p>[12-May-2011 11:09:36] &lt;dawn2020&gt; sure will try it right away</p><p>[12-May-2011 11:14:31] &lt;jplouis&gt; dpetzel: is the zPythonClass set to BigipLtm on your device class?</p><p>[12-May-2011 11:15:13] &lt;rocket&gt; dpetzel: also an example of adding components is the community aix zenpack ..</p><p>[12-May-2011 11:15:32] &lt;rocket&gt; but thats more from the 2.5.2 timeframe</p><p>[12-May-2011 11:15:48] &lt;nyeates&gt; do components change big time for 3.x?</p><p>[12-May-2011 11:16:21] &lt;rocket&gt; no .. they themselves havent changed</p><p>[12-May-2011 11:16:36] &lt;rocket&gt; the ui elements for displaying them have somewhat .. eg the page templates etc</p><p>[12-May-2011 11:16:47] &lt;rocket&gt; the relationship code itself is still the same</p><p>[12-May-2011 11:17:00] &lt;jplouis&gt; dpetzel: when a device is added to a device class it looks at the zPythonClass zProperty to determine what type to instantiate.&#160; By default the value is Products.ZenModel.Device.</p><p>[12-May-2011 11:17:13] &lt;fragfutter&gt; is it the right way to extend the DeviceHW._relations, or is it better to have a new deviceclass?</p><p>[12-May-2011 11:18:06] &lt;rocket&gt; fragfutter: how are you extending the relations?</p><p>[12-May-2011 11:18:26] &lt;Dpetzel-mobile&gt; Yes python class is set</p><p>[12-May-2011 11:18:29] &lt;rocket&gt; fragfutter: It would be better to have a new class such that you are not impacting other devices ..</p><p>[12-May-2011 11:18:53] &lt;fragfutter&gt; the zenpacks __init__ has something like DeviceHW._relations += (( "myrelation", ...))</p><p>[12-May-2011 11:19:15] &lt;rocket&gt; especially if you are an enterprise customer .. as we dont really like it when you modify core features etc</p><p>[12-May-2011 11:19:33] &lt;rocket&gt; yea .. while you can do that .. please dont .. <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:19:43] &lt;fragfutter&gt; rocket: ok. thats new to me.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:20:30] &lt;rocket&gt; fragfutter: though its been about a year since I have done anything with it specifically.. I could be remembering wrongly</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:21:58] &lt;Jane_Curry&gt; Hiya....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:08] &lt;jplouis&gt; dpetzel: the error in the forum, ApplyDataMap: no relationship:LtmVs found on:MyDeviceName (&lt;class 'Products.ZenModel.Device.Device'&gt;, makes it seem like the device is the wrong class.&#160; Have you verified via zendmd that your device is an instance of the correct class</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:12] &lt;fragfutter&gt; rocket: i have a question of understanding then. If DeviceClass A adds hardware components hw_a. And DeviceClass B (written by someone else) has hw_b. How can i have a device that has both hw_a and hw_b? would i need to write a new DeviceClass C that inherits from both?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:15] &lt;Jane_Curry&gt; I would suggest that the UI display has changed LOTS in V3</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:54] &lt;dpetzel&gt; jpluis, I agree it lead me to believe it was wrong class, I'll check zendmd now</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:56] &lt;nyeates&gt; Hi Jane. Cant wait to find out what yer many new ZPs do</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:58] &lt;rocket&gt; fragfutter: yes</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:23:17] &lt;Jane_Curry&gt; That would be telling.......</p><p><img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[12-May-2011 11:23:39] &lt;fragfutter&gt; rocket: then i would need stick to extending _relations. That way i can slap my modeller on ony device i see.</p><p>[12-May-2011 11:24:34] &lt;rocket&gt; fragfutter: you can do it .. its possible .. it just adds to object complexity and possibly performance issues with those larger objects down the road</p><p>[12-May-2011 11:24:35] &lt;dpetzel&gt; deviceClass &lt;ToOneRelationship at deviceClass&gt;</p><p>[12-May-2011 11:25:52] &lt;dpetzel&gt; when I look at the configuration properties for the oranizer "/network/f5" zPythonClass = "ZenPacks.community.f5.BigipLtm.BigipLtm"</p><p>[12-May-2011 11:26:27] &lt;fragfutter&gt; rocket: but for example the HP Hardware monitoring by bigegor will detect Fans and add them to the device. If i now add a modeller to detect attached Monitors (stupid example, can't think of anything else). I would end up with a HP-Device, Monitor-Device, HP+Monitor-device</p><p>[12-May-2011 11:27:07] &lt;Jane_Curry&gt; OK.&#160; I have done a fair-sized piece of work for ZenSystems in Denmark and they have graciously agreed to make them available to the community</p><p>[12-May-2011 11:27:15] &lt;rocket&gt; fragfutter: you can extend his class .. thats fine .. eg a suborganizer that extends his class</p><p>[12-May-2011 11:27:33] &lt;rocket&gt; however I wouldnt recommend modifying the top level one</p><p>[12-May-2011 11:28:02] pmcguire is now known as ptmcg</p><p>[12-May-2011 11:28:06] &lt;rocket&gt; dpetzel: did you remodel?</p><p>[12-May-2011 11:28:12] &lt;fragfutter&gt; rocket: with class i mean Products.ZenModel.DeviceClass</p><p>[12-May-2011 11:28:29] &lt;rocket&gt; is that what Egor is modifying?</p><p>[12-May-2011 11:28:29] &lt;fragfutter&gt; rocket: not the hierachy in the web/gui</p><p>[12-May-2011 11:28:40] &lt;dpetzel&gt; rocket: I have a few times, tried deleteing re-addding with no luck as well</p><p><span>[12-May-2011 11:29:01] &lt;fragfutter&gt; rocket: </span><a class="jive-link-external-small" href="http://zenpacks.zenoss.org/trac-zenpacks/browser/zenpacks/ZenPacks.community.deviceAdvDetail/ZenPacks/community/deviceAdvDetail/__init__.py">http://zenpacks.zenoss.org/trac-zenpacks/browser/zenpacks/ZenPacks.community.deviceAdvDetail/ZenPacks/community/deviceAdvDetail/__init__.py</a></p><p>[12-May-2011 11:29:12] &lt;rocket&gt; fragfutter: right .. I understand that .. but egor really should have Products.ZenModel.HpDeviceClass or something like that</p><p>[12-May-2011 11:29:19] &lt;rocket&gt; and then extended that device class</p><p>[12-May-2011 11:29:56] &lt;rocket&gt; otherwise you are modifying core objects for everything in zenoss ..</p><p>[12-May-2011 11:30:07] &lt;fragfutter&gt; rocket: and jane has BridgeDeviceClass. Whenever i have a server that is from HP and has a bridgetable i would need to decide what to do.</p><p>[12-May-2011 11:31:26] &lt;rocket&gt; fragfutter: I see your point .. my main issue is trying to keep you more upgrade safe etc ..</p><p>[12-May-2011 11:31:38] &lt;Jane_Curry&gt; Jolly good point fragfutter - what IS the recommended way forward when you want to use attributes from 2 different device classes??</p><p>[12-May-2011 11:32:35] &lt;Hackman238&gt; fragfutter:You can find, in the IPSLAv2 zenpack, a version 2.5.2 example of creating a new device class</p><p>[12-May-2011 11:33:15] &lt;fragfutter&gt; Hackman238: or in janes bridge example (for zenoss 3).</p><p>[12-May-2011 11:33:37] &lt;rocket&gt; Jane_Curry: its a tricky issue, as one view recommends adding more code via a new zenpack, vs less code but object complexity</p><p>[12-May-2011 11:33:53] &lt;fragfutter&gt; they questions is (as jane said) how to combine attributes from multiple classes</p><p>[12-May-2011 11:33:58] &lt;Hackman238&gt; fragfutter: yep, your right LOL</p><p>[12-May-2011 11:34:00] &lt;Jane_Curry&gt; But I don't want to have to create a whole new device class to use functionality that is already provided by 2 other ZenPacks,</p><p>[12-May-2011 11:35:25] &lt;Jane_Curry&gt; Has it suddenly gone quiet????&#160;&#160; <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:31] &lt;Hackman238&gt; Thinking.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:32] &lt;Hackman238&gt; LOL</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:33] &lt;kokey&gt; yes</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:37] &lt;rocket&gt; Jane_Curry: the flexibility is there to do as you suggest .. some of it can be accomplished via smart use of organizer nesting and zope acquisition .. I would believe.&#160; jplouis probably has a better perspective on it than I</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:39] &lt;Jane_Curry&gt; ... hard....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:36:00] &lt;rocket&gt; honestly I havent done engineering level zenpack work for a while, with the position I am in now.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:36:06] &lt;Hackman238&gt; I agree with rocket, its just a matter of smart design.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:36:13] &lt;Jane_Curry&gt; How about a sample posted to the wiki for us??????</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:37:14] &lt;rocket&gt; nick?&#160; do you want to take that down as something to check into</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:37:31] &lt;rocket&gt; I am not sure if Chets example zenpack has anything like that in it</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:37:48] &lt;rocket&gt; Jane it gets tricky with different authors of zenpacks doing different things</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:38:08] &lt;nyeates&gt; Jane: I continue to work on convincing zenoss mgmt to up the amt of dev documentation. I have sent clear communications of this to our managment and #1 on the list was to get some cycles to put toward more detailed dev docs, so the community can fend for itself</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:38:18] &lt;rocket&gt; again I am not necessarily saying what you are doing is wrong.&#160; I am just noting some of the other side effects that you may not have thought about</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:39:28] &lt;dhopp&gt; is there going to be an RH6 rpm of the next release?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:40:38] &lt;kokey&gt; yeah</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:40:44] &lt;kokey&gt; somewhere in the next 6 and a half years</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:40:57] &lt;nyeates&gt; Jane, also, I want to have a side convo with you about Zenoss possibly taking in and vetting and officiating your dev docs. Right now, it is your stuff and we respect that, and we want to see if we can both take it to the next level. We can discuss offline.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:07] &lt;jplouis&gt; There is no clear recommended way to use attributes and relationships from multiple devices.&#160;&#160; It isn't problem zenoss has addressed</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:22] &lt;rocket&gt; dhopp: as far as I know no there will not be a RH6 rpm in our next immediate release ..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:41] &lt;dhopp&gt; doh</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:46] &lt;Jane_Curry&gt; I guess what we are saying is that this stuff isn't easy!&#160; But if we want the community to go forward, it's going to be snail-pace without input from dev</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:53] &lt;rocket&gt; dhopp: I believe our current strategy is to support RH6 when Centos6 is out ..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:16] &lt;rocket&gt; 90% of our customers are using Centos vs Redhat</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:19] &lt;fragfutter&gt; rocket: you might want to start building your rpms using scientific linux</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:23] &lt;Hackman238&gt; I dont understand why not just create a device class, like SLADevice (in my pack), create a new device class organizer under say /Networks called whatever and set whatevers class to ZenPacks.yourpack.yourclass.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:28] &lt;rocket&gt; so that is more of the driving force</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:36] &lt;Jane_Curry&gt; Thanks jp - that's what I thought but I could always hope that I had missed something</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:43:10] &lt;dhopp&gt; understood (we might use centos for this, we just have a patching process for rh)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:43:39] &lt;rocket&gt; dhopp: we just dont have enough build resources to track that one yet</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:43:52] &lt;dhopp&gt; understood</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:43:55] &lt;rocket&gt; dhopp: its been discussed.&#160; We just are not ready for it yet</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:44:33] &lt;Jane_Curry&gt; One thing that helps us all build ZenPack experience is lots of good examples - Egor has been a real trailblazer on this</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:44:36] &lt;dawn2020&gt; @nyeates: still the same....i created a new class 'test' with same</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:44:53] &lt;dawn2020&gt; datasources</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:45:10] &lt;Jane_Curry&gt; One of the ZenPacks that I have created for ZenSystems is for Juniper devices</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:45:26] &lt;jplouis&gt; Jane: unfortunately most of our good examples are in Enterprise</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:45:44] &lt;rocket&gt; jane did you look at chets example zenpack?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:45:54] &lt;rocket&gt; chet was putting some of those examples in there</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:46:39] &lt;kokey&gt; I think better dev documentation is also important to give people guidance on quality</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:46:42] &lt;Jane_Curry&gt; I looked at it early on, but I haven't looked at it recently and I think it has been updated???&#160; I'll go and grab it</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:00] &lt;kokey&gt; you want to avoid the nagios situation where there are a lot of plugins but most of them are terrible</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:06] &lt;dawn2020&gt; @nyeates: i tried putting in different event class and it worked</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:07] &lt;rocket&gt; I dont know when he has had time to update it ..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:18] &lt;Hackman238&gt; kokey: Could not be more true</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:23] &lt;dawn2020&gt; any ideas why it is like tat</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:35] &lt;Jane_Curry&gt; Totally agreed kokey.&#160; I build ZenPacks by copying other people's stuff but perhaps we are all passing on bad habits"???</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:48:13] &lt;rocket&gt; Jane_Curry: I think ultimately zenpacks will be addressed as we get more of the json api etc fleshed out ..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:48:40] &lt;rocket&gt; as we start building more of these apis and consistent ways of doing things progress will be made in this area</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:48:48] &lt;fragfutter&gt; i would like to have an incremental tutorial along the lines of. Adding an SNMP Modller to discover new components. Adding a Javascript so it will display in the gui. Adding Stuff so it will collect perfdata. ...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:49:48] &lt;rocket&gt; fragfutter: honestly so would I ..</p><p><img height="16px" src="../4.5.6/images/emoticons/silly.gif" width="16px"/> .. I havent had a chance to catch up on all of the new ui elements etc</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:50:28] &lt;nyeates&gt; dawn2020: i dont get yer last statement.... did you mean device class? if not, how did u go about doing what u are saying?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:50:59] &lt;rocket&gt; but I have no idea when any of this will be done .. as a support engineer, I have little to no say in the direction this will take ... other than describe to management customer frustrations</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>[12-May-2011 11:51:20] &lt;Jane_Curry&gt; fragfutter - do you have a copy of my Creating ZenPacks doc? </span><a class="jive-link-external-small" href="DOC-10268.html">http://community.zenoss.org/docs/DOC-10268</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:51:46] &lt;rocket&gt; as you can tell I deal more with upgrades and stability as of late, vs new features and device support</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:51:49] &lt;Jane_Curry&gt; It isn't a tutorial but it does try to lay out the steps</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:52:13] &lt;fragfutter&gt; Jane_Curry: yes. but for me it's lacking the tutorial part.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:52:19] &lt;rocket&gt; so you can see different perspectives for the same problem</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:52:59] &lt;nyeates&gt; kokey: interesting comment about nagios plugins</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:53:05] &lt;Jane_Curry&gt; &lt;rocket&gt; I hear what you say about hopefully things will get better but the V3 GUI has been out for nearly 12 months now and many of us are still struggling in the dark....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:54:07] &lt;nyeates&gt; fragfutter: ive noted the tutorial idea for when we ever get dev documentation more serious; tutorials or step by step are great initial learning toosl</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:54:11] &lt;Jane_Curry&gt; Just looked at the page for Chet's example ZenPack - not very happy to see that Zenoss 2.3!!!! is a pre-req</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:54:36] &lt;Hackman238&gt; Jane_Curry: Why not just unzip it and view the code?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:54:59] &lt;Hackman238&gt; Jane_Curry: I'm sure it'll all work in v3 XD LOL</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:55:03] &lt;fragfutter&gt; Hackman238: because anything related to gui has changed</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:55:14] &lt;dawn2020&gt;&#160; @nyeates: i mean i created a new device class and created the same windows datasource.... to collect the CPU datapoints...but put&#160; it in CPU event class it didnt work.....but when i put it in /perf/interface or /perf/memory event class ...event was triggered</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:55:23] &lt;Jane_Curry&gt; Not got that far yet - will do - but there probably isn't much that helps us with the V3 UI if the prereq is Zenoss 2.3</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:55:38] &lt;Hackman238&gt; fragfutter: Was supposed to be a joke about it supporting only an arcane version of zenoss</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:08] &lt;Hackman238&gt; GUI work in V3 is simply madness with the docs available.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:16] &lt;Jane_Curry&gt; XD?????&#160; X-Directory???&#160; eXcept Dafties????</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:18] &lt;rocket&gt; I dont think there was as much ui stuff in there</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:32] &lt;Hackman238&gt; Jane_Curry: Its laughing with eyes closed.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>[12-May-2011 11:56:34] &lt;nyeates&gt; dawn2020: can we work this in the forums from here? Can you paste our back and forth convo - or what you have, and your screenshots, and the descript above of what worked....then email url to </span><a class="jive-link-email-small" href="mailto:community@zenoss.com">community@zenoss.com</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:54] &lt;rocket&gt; Jane_Curry: I believe he was targeting more base class stuff than ui elements persay with that zenpack .. though I am sure there are some in there</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:57:31] &lt;dpetzel&gt; does anyeone know which logging I need to crank up to see why my device is being detected as deviceClass, rather than the class I have defiend in zPythonClass?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:57:40] &lt;dawn2020&gt; sure....but how to resolve the issue with /perf/cpu event class</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:57:43] &lt;Jane_Curry&gt; OK. I have had other folk ask if I have training for ZenPacks.&#160; At the moment I haven't....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:05] &lt;jplouis&gt; dpetzel:&#160; try running zenhub with -v10</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:11] &lt;Jane_Curry&gt; I don't wnat to start work on a ZenPack workshop is Zenoss themselves are already doing that?????????????????</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:14] &lt;Hackman238&gt; rocket: Maybe Zenoss should audit a handful of popular packs for best practice compliance and the community can then build docs from said known proper implemented code.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:19] &lt;dawn2020&gt; @nyeates: can i delete it and create a new event class with same name</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:45] &lt;Jane_Curry&gt; Hackman238 - great suggestion</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:59:54] &lt;Hackman238&gt; *cough*</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:01] [disconnected at Thu May 12 12:00:01 2011]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:01] [connected at Thu May 12 12:00:01 2011]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:16] [zenoss-logger (logger bot) has joined #zenoss]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:31] &lt;nyeates&gt; Jane_Curry: I do not know of any active ZenPack or dev workshops right now. Kells had worked on some stuff for one in the past, and he has mentioned that he would like to see it happen, but it has not had any backing from management at Zenoss Inc and I know of no plans.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:54] &lt;dpetzel&gt; jpluis: thanks, wading through that output now</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:01:05] &lt;Jane_Curry&gt; Suppose I create a workshop, with input mebbe from Kells...............</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:01:56] &lt;Jane_Curry&gt; I can deliver it.&#160; Youe guys can be licensed to deliver it.&#160; We run it in classrooms if folk will come.&#160; We run it as a remote class if there's no travel budget</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:02:23] &lt;Jane_Curry&gt; Should it be more than 1-day???&#160; I suspect you need at least 2 days</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:02:25] &lt;kells&gt; Jane_Curry: That would be cool -- just need to get an okey-doke from my management.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:02:48] &lt;Jane_Curry&gt; Hmmmm - that always seems to be where things stop</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:00] &lt;kells&gt; w/ JS stuff etc, probably three days is comfortable.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:06] &lt;Jane_Curry&gt; What can we do to make it stick this time???</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:30] * nyeates thinks</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:33] &lt;Jane_Curry&gt; **************************</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:33] &lt;kells&gt; nyeates: See if it's okay to pass along the outline to Jane</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:39] &lt;dpetzel&gt; jpluis, that uncovered 'ImportError: No module named Prodcuts.ZenRelations.RelSchema'</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:04:11] &lt;nyeates&gt; kells: sure... Jane, ill see if my boss is ok with us sending you the outline kells has but together</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:04:18] &lt;dpetzel&gt; so my ttypo is now very obvious</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:04:25] &lt;Jane_Curry&gt; Of the customers amongst us here, who would be likely to "attend" a 3-day ZenPack workshop?????</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:04:56] &lt;nyeates&gt; or a virtual one</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:05:02] &lt;dhopp&gt; Jane: I would like to, depends on where and cost of course</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:05:05] &lt;nyeates&gt; which i think is more likely to get people to attend</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:05:13] &lt;Jane_Curry&gt; Thats why "attend" is in quotes</p><p><img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[12-May-2011 12:05:13] &lt;Simon4&gt; Jane_Curry: I have workmates who could well be sent on such a thing</p><p>[12-May-2011 12:06:02] &lt;Hackman238&gt; Jane_Curry: Would if virtual.</p><p>[12-May-2011 12:06:20] &lt;Jane_Curry&gt; I suspect Zenoss is the sort of company that now needs a "business case" to do anything.&#160; We probably need some "guesstimates" for numbers of attendees....</p><p>[12-May-2011 12:06:23] &lt;nyeates&gt; curious why you said customers Jane.... did you mean Zenoss users in general?</p><p>[12-May-2011 12:06:42] &lt;nyeates&gt; yes true</p><p>[12-May-2011 12:07:04] &lt;Jane_Curry&gt; Sorry - yes - I meant Zenoss users.&#160; Definitely NOT implying just Enterprise customers</p><p>[12-May-2011 12:07:13] &lt;Jane_Curry&gt; probably more likely to get Core folk</p><p>[12-May-2011 12:07:26] &lt;dhopp&gt; Hackman238: so I was looking at Egors distributed monitor zenpack and it looks like he sets the remote monitor up to run everything but ['zeoctl','zopectl','zenhub','zenjobs','zenactions','zenmodeler'].&#160; Of those, is zenhub the only one that would need to be started on a remote collector to make the collector use that zenhub rather then the main one? (assuming zenhub is also configured for the right db)</p><p>[12-May-2011 12:07:51] &lt;nyeates&gt; Also, as I said jane: There has been some headway made on getting your zenpack docs looked over and made official....possibility of zenoss inc dev time spent on yer doc is high :-)</p><p>[12-May-2011 12:07:54] &lt;Jane_Curry&gt; but they do need to be "customers" in the sense that the workshop would NOT be "open source" as in FREE</p><p>[12-May-2011 12:08:18] &lt;Hackman238&gt; dhopp: Zenhub would need to be configured, set running, and daemons pointed to it rather than the Zope hosting zenhub.</p><p>[12-May-2011 12:08:58] &lt;dhopp&gt; but zeoctl would only run on the main server right?</p><p>[12-May-2011 12:09:28] &lt;Hackman238&gt; dhopp: zeo and zope run only on the main box.</p><p>[12-May-2011 12:09:44] &lt;dhopp&gt; ok</p><p>[12-May-2011 12:09:48] &lt;kells&gt; Uh oh.&#160; The rabble rouser has joined...</p><p>[12-May-2011 12:10:07] &lt;Hackman238&gt; kells: rabble rouser?</p><p>[12-May-2011 12:10:11] &lt;Jane_Curry&gt; Let the rabble commence.....</p><p>[12-May-2011 12:10:38] &lt;kells&gt; Welcoming matt into IRC <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:10:52] &lt;Hackman238&gt; kells: Oh.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:11:00] &lt;Jane_Curry&gt; mattray - thanks for the lead the other week.&#160; Didn't come to anything for me but I appreciate the pointer</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:11:51] &lt;mattray&gt; Jane_Curry: that's too bad, but I'll keep referring people</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:12:17] &lt;Jane_Curry&gt; Nick, Kells - can we get together outside the IRC sometime to try and make this ZenPack workshop happen?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:12:24] &lt;Jane_Curry&gt; Thanks Matt</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:12:40] &lt;jplouis&gt;&#160;&#160;&#160;&#160; dpetzel: can you do the following in zendmd? find("&lt;yourdevicename&gt;")</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:13:55] &lt;dpetzel&gt; jpluis, yeap I can</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:14] &lt;nyeates&gt; Jane, Kells: how is this coming Tues at 11pm EST (same time of day as this dev meeting)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:14] &lt;kells&gt; Jane: You've got my e-mail, so yeah, shoot me a note</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:19] &lt;dpetzel&gt; its working!!!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:36] &lt;dpetzel&gt; jpluis, so you gave me the info I needed with the zenhb verbosity</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:45] &lt;dpetzel&gt; it poitned out the typo I had causing the import error for the device class</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:15:00] &lt;dpetzel&gt; I fixed that (and then the subsequent typos I had elsewhere, and I can see the components now</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:15:01] &lt;nyeates&gt; death to typos</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:15:03] &lt;dpetzel&gt; thanks a ton!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:15:46] &lt;kells&gt; nyeates: I'd feel better if management had a heads up before anything got started.</p><p><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[12-May-2011 12:16:34] &lt;kells&gt; At the very least, an "Unless otherwise disallowed, we are going to do X"&#160; note <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:16:38] &lt;Jane_Curry&gt; I can make Tuesday May 17th at 11 (I hope that is am, not pm) EST - but only if we get some node from management, as Kells says</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:16:58] &lt;nyeates&gt; kells is right. We are employees spending our time. We will follow up by email and see what works.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:16:59] &lt;Jane_Curry&gt; sorry s/node///nod/</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:18:55] &lt;nyeates&gt; Thanks all for attending and taking part in our dev meeting</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:19:48] &lt;nyeates&gt; i hope it was helpful and we can continue to increase the dev and zenpack knowledge</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:58:28] &lt;nyeates&gt; [12:16]&#160; &lt;dawn2020&gt; Hi Nick...thanks a lot ....deleting the /perf/cpu event class and adding it back worked ...the cpu events has now triggered....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:58:28] &lt;nyeates&gt; [12:16]&#160; &lt;dawn2020&gt; thanks a lot</p><p><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[12-May-2011 12:58:45] &lt;nyeates&gt; ^ wanted to note that this was solved, for anyone who reads these logs after the fact</p></div><!-- [DocumentBodyEnd:36f342ae-b31f-4519-8269-8d2e29708a1e] -->
+<!-- [DocumentBodyStart:36f342ae-b31f-4519-8269-8d2e29708a1e] --><div class="jive-rendered-content"><p>[12-May-2011 10:22:20] &lt;dhopp&gt; hey nyeates</p><p>[12-May-2011 10:22:56] &lt;dhopp&gt; dawn2020 has a weird problem&#226;&#8364;&brvbar;CPU threshold alerts are not triggers&#226;&#8364;&brvbar;threshold is enabled and from what I can tell seems like it's setup correctly&#226;&#8364;&brvbar;zenoss 3.1.0..ideas?</p><p>[12-May-2011 10:23:10] &lt;dhopp&gt; err..threshold alerts are not triggering</p><p>[12-May-2011 10:24:07] &lt;nyeates&gt; glad you clarified, had a hard time reading that</p><p>[12-May-2011 10:25:03] davetoo is now known as dcarmean</p><p>[12-May-2011 10:25:14] &lt;nyeates&gt; dawn2020: so yoiur graph shows a threshold being broken, but no event happens?</p><p>[12-May-2011 10:25:28] &lt;dawn2020&gt; yes</p><p>[12-May-2011 10:25:31] &lt;nyeates&gt; does the graphs visibly show the thresh on it? as a horizontal line....</p><p>[12-May-2011 10:25:39] &lt;dawn2020&gt; yes it does</p><p>[12-May-2011 10:25:44] &lt;nyeates&gt; can u post to us'</p><p>[12-May-2011 10:25:54] &lt;dawn2020&gt; i varied the values too...but still no luck</p><p>[12-May-2011 10:25:55] &lt;dawn2020&gt; sure</p><p>[12-May-2011 10:25:58] &lt;dpetzel&gt; anyone bored enough to try and help a first time zenpack developer (i use the word developer loosely)</p><p>[12-May-2011 10:26:26] &lt;nyeates&gt; dpetzel: in 35 mins it is developer hr, and we will have some zenoss devs in here</p><p>[12-May-2011 10:26:33] &lt;nyeates&gt; keep those Qs for sure!</p><p>[12-May-2011 10:26:41] &lt;dpetzel&gt; ah sweet</p><p>[12-May-2011 10:26:45] &lt;nyeates&gt; dpetzel: what are you working on</p><p>[12-May-2011 10:26:59] &lt;dpetzel&gt; trying to get a super basic f5 pack for core</p><p><span>[12-May-2011 10:27:17] &lt;dpetzel&gt; </span><a class="jive-link-external-small" href="../message/58567.html">message/58567</a><span> is my dilema</span></p><p>[12-May-2011 10:27:25] &lt;nyeates&gt; im not familiar with what f5 is</p><p>[12-May-2011 10:27:31] &lt;dpetzel&gt; bigip load balancer</p><p>[12-May-2011 10:27:40] &lt;dpetzel&gt; there is an enterprise pack already, but nothing for core</p><p>[12-May-2011 10:27:52] &lt;nyeates&gt; ahh yes</p><p>[12-May-2011 10:28:35] &lt;dpetzel&gt; Im pretty sure Im only 1 or 2 "change this you dummy" and I'll have it working</p><p>[12-May-2011 10:30:01] &lt;nyeates&gt; gotcha, that is a long post....good detail....hopefully it can be digested in the dev hr</p><p><span>[12-May-2011 10:30:18] &lt;dawn2020&gt; Hi nyeates....please see the link </span><a class="jive-link-external-small" href="http://tinypic.com/view.php?pic=27wrc53&amp;s=7">http://tinypic.com/view.php?pic=27wrc53&amp;s=7</a></p><p>[12-May-2011 10:30:26] &lt;lorin&gt; @Nick:I am monitoring the devices through WMI i am not able to get the graphs for the same . can u please help me out in this</p><p>[12-May-2011 10:30:37] &lt;dhopp&gt; The distributed collector zenpack that Egor wrote&#226;&#8364;&brvbar;how does that work if the main zenoss (zenhub) goes down&#226;&#8364;&brvbar;if there is an event that happens is that lost?</p><p>[12-May-2011 10:31:23] diatonic|away is now known as diatonic</p><p>[12-May-2011 10:31:34] &lt;lorin&gt; when i click the grah getting the error as User-supplied Python expression ((here.speed or 1e9) / 8 * .95) for maximum value caused error: ['ifHCInOctets_ifHCInOctets', 'ifHCOutOctets_ifHCOutOctets']</p><p>[12-May-2011 10:35:11] &lt;nyeates&gt; others feel free to chime in, im helping dawn2020 right now</p><p>[12-May-2011 10:36:43] &lt;nyeates&gt; dawn2020: the x-axis.... 05, 06 07, etc...are those minutes? days?</p><p>[12-May-2011 10:36:51] &lt;dawn2020&gt; days</p><p>[12-May-2011 10:37:44] &lt;nyeates&gt; oh hmmm, can you soon in to show just the overage? like so the overage part, if its just 5 or 20 mins, zoom in to show just that</p><p>[12-May-2011 10:37:54] &lt;Hackman238&gt; dawn2020: Are you running zenhubs on the remote collectors?</p><p>[12-May-2011 10:38:09] &lt;nyeates&gt; i want to assure that it was sustained at that high amt, not jumping up an ddown</p><p>[12-May-2011 10:38:25] &lt;dawn2020&gt; @nyeates:sure</p><p>[12-May-2011 10:38:49] &lt;dawn2020&gt; @hackman23</p><p>[12-May-2011 10:38:54] &lt;dawn2020&gt; nope</p><p>[12-May-2011 10:39:44] &lt;Hackman238&gt; If there is an event and zenhub is down, there is no route from the daemons to mysql.</p><p>[12-May-2011 10:40:10] &lt;dhopp&gt; Hackman238: Was that question for dawn2020 meant for me?</p><p>[12-May-2011 10:40:51] &lt;Hackman238&gt; dhopp: Meant for you. Typo + {TAB} = wrong name :-)</p><p>[12-May-2011 10:40:58] &lt;dhopp&gt; hehe...</p><p>[12-May-2011 10:41:19] &lt;Hackman238&gt; dhopp: Do you run zenhub(s) on the remote collectors?</p><p>[12-May-2011 10:42:04] &lt;dhopp&gt; I haven't built it out yet&#226;&#8364;&brvbar;but we are building out a new zenoss infrastructure&#226;&#8364;&brvbar;my thought was to 3 zenoss machines.&#160; 1 "main" zenoss (primarily just the web interface) and then 2 remote collectors (1 in each of our DCs)</p><p>[12-May-2011 10:42:42] &lt;dhopp&gt; if we run zenhubs on the remote collector then all the collectors can't share a common device list right?</p><p>[12-May-2011 10:43:01] &lt;fragfutter&gt; i'm a bit lost. I want to write a modeler for a device, that detects hardware components. Should i write a new DeviceClass with it's own relations or do i only write my ComponentClass and extend the HWComponent._relations?</p><p>[12-May-2011 10:43:06] &lt;Hackman238&gt; dhopp: I'd reccomend dediated zenhubs on remote collectors</p><p><span>[12-May-2011 10:43:15] &lt;dawn2020&gt; @nyeates: </span><a class="jive-link-external-small" href="http://tinypic.com/view.php?pic=zjgk0g&amp;s=7">http://tinypic.com/view.php?pic=zjgk0g&amp;s=7</a></p><p>[12-May-2011 10:43:40] &lt;Hackman238&gt; dhopp: Sure they can. You don't want to run a seperate instance, only a dedicated zenhub.</p><p>[12-May-2011 10:43:40] &lt;dhopp&gt; Hackman238: ok&#226;&#8364;&brvbar;is that accomplished through Egor's zenpack or is that custom config?</p><p>[12-May-2011 10:44:33] &lt;dhopp&gt; also, how do you manage the device lists?&#160; Is there a central interface? (I'm going to be using core unfortunately&#226;&#8364;&brvbar;budget for enterprise got shot down)</p><p>[12-May-2011 10:44:53] &lt;Hackman238&gt; dhopp: I generally do it all custom, you'll need to check with someone about that pack.</p><p>[12-May-2011 10:45:37] &lt;Hackman238&gt; dhopp: Zope is what manages the device objects, zenhub is a daemon which handles dolling out configs, scheduling, and event stuff.</p><p>[12-May-2011 10:45:52] &lt;dhopp&gt; ah ok</p><p>[12-May-2011 10:46:59] &lt;Hackman238&gt; dhopp: Personally I can't tell you what Egors pack can and cannot do. I'd PM him and ask.</p><p>[12-May-2011 10:47:20] &lt;dhopp&gt; so users can go to one interface to see all events that happen (assuming all zenhubs use the same db).&#160; And then add templates through the same interface regardless of zenhub...</p><p>[12-May-2011 10:47:57] &lt;dhopp&gt; Hackman238: no problem&#226;&#8364;&brvbar;I can always install it too..just haven't gotten there...</p><p>[12-May-2011 10:48:00] &lt;Hackman238&gt; dhopp: Yes, you'd point each of your zenhubs at the same db.</p><p>[12-May-2011 10:48:26] &lt;Hackman238&gt; dhopp: Let me know if you need any help.</p><p>[12-May-2011 10:48:34] &lt;dhopp&gt; I'm sure I will :-)</p><p>[12-May-2011 10:49:23] &lt;dhopp&gt; Going to have ~750 servers to start and then will hopefully add ~300 network devices eventually</p><p>[12-May-2011 10:50:27] &lt;dhopp&gt; well in reality probably to start will be fewer servers then that&#226;&#8364;&brvbar;but that's what it should grow to</p><p>[12-May-2011 10:51:13] &lt;Hackman238&gt; dhopp: Always start small and work your way up. Jumping at something too large is almost certain failure.</p><p>[12-May-2011 10:51:25] &lt;Hackman238&gt; dhopp: Least thats how I look at stuff. :-)</p><p>[12-May-2011 10:51:29] &lt;nyeates&gt; dawn2020: let me get back to you....or ping me later....trying to get a developer lined up to come in here</p><p>[12-May-2011 10:52:07] &lt;dawn2020&gt; oh ok <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 10:53:23] &lt;dhopp&gt; Hackman238: So lets take my scenario..1 web interface for users to interact with, 2 "remote collectors" (each running their own zenhub).&#160; What daemons would have to be running on each of the servers then?, would the web interface have everything just nothing really be utilized?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 10:55:10] &lt;Hackman238&gt; dhopp: On the zope hostign box you could disable the perf daemons, but I would leave them on for self monitoring. Daemons on remote collectors would include the perf daemons you need, zenhub, zenmodeler, and zenrender.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:00:39] &lt;nyeates&gt; I want to repeat a specific dev-heavy line of questioning from dpetzel....i told him to wait til other had come in</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>[12-May-2011 11:00:57] &lt;nyeates&gt; Dpetzel, you want to iterate a summary here? he posted a long version at </span><a class="jive-link-external-small" href="../message/58567.html">message/58567</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:01:14] &lt;Hackman238&gt; nyeates: That reminds me, I've a few people testing the new IPSLA pack for V2.5.2/3.X,4 ;-)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:01:36] &lt;nyeates&gt; hackman238: custs or core ppl?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:01:55] &lt;Hackman238&gt; nyeates: Both.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:02:10] &lt;Hackman238&gt; nyeates: Core compatible. Ent version includes remote management.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:02:46] &lt;dpetzel&gt; sure thing, so basiacally Im compelety new to writing zenpacks (aside from creating from the gui)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:02:51] &lt;dcarmean&gt; Egor's distributed collector pack (nominally) takes care of deciding which daemons run where.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:03:06] &lt;dpetzel&gt; I'm trying to write a pack to list BigIP virtual servers as components of the BigIP device</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:03:37] &lt;dpetzel&gt; I've followed Janes Doc and the Developers guide, and things seem to be modeling correclty, but the Virtual Server to device relationships never seem to happen</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:03:39] &lt;nyeates&gt; dawn2020: i saw your 2nd graph. Very odd how the CPU % is obviously over the threshold and you got no events. Have you checked history and/or made ABSOLUTELY sure there is no transform or settings in the event class properties that would be dropping the event? Make sure there is not some rule way up the tree that is applying to many events</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:04:40] &lt;nyeates&gt; Hackman238: Very nice! Youll have to send me a copy to check it out</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:11] &lt;dhopp&gt; dcaremean: do you know if it starts zenhub? or does it rely on zenhub from the "main" zenoss?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:15] &lt;Hackman238&gt; nyeates: Only RC3 right this moment. I'll PM you in a bit.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:23] &lt;dhopp&gt; I'm working on setting up a second collector to test it with</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:37] &lt;dhopp&gt; if that doesn't work, I might need more help from Hackman238 :-)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:05:57] &lt;dawn2020&gt; @nyeates: i did check that and we are not using any transforms for CPU</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:06:25] &lt;dawn2020&gt; the issue is not only for that device...its for all the devices</p><p><img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/></p><p>[12-May-2011 11:06:38] &lt;dawn2020&gt; windows as well as Linux</p><p>[12-May-2011 11:06:53] &lt;nyeates&gt; dpetzel: so im not familiar with how f5 big ip and its virtual servers relate.... but basically you are trying to make a new zenpack with components, and the components are not relating correctly back to the root device?</p><p>[12-May-2011 11:08:29] &lt;nyeates&gt; dawn2020: make a new device class from the root /Devices. Put a server in there. Make it go over threshold. See if event comes in</p><p>[12-May-2011 11:09:06] &lt;nyeates&gt; allows you to determine for sure that there isnt something blocking the events...unless of course its applying at root device lvl :-p</p><p>[12-May-2011 11:09:36] &lt;dawn2020&gt; sure will try it right away</p><p>[12-May-2011 11:14:31] &lt;jplouis&gt; dpetzel: is the zPythonClass set to BigipLtm on your device class?</p><p>[12-May-2011 11:15:13] &lt;rocket&gt; dpetzel: also an example of adding components is the community aix zenpack ..</p><p>[12-May-2011 11:15:32] &lt;rocket&gt; but thats more from the 2.5.2 timeframe</p><p>[12-May-2011 11:15:48] &lt;nyeates&gt; do components change big time for 3.x?</p><p>[12-May-2011 11:16:21] &lt;rocket&gt; no .. they themselves havent changed</p><p>[12-May-2011 11:16:36] &lt;rocket&gt; the ui elements for displaying them have somewhat .. eg the page templates etc</p><p>[12-May-2011 11:16:47] &lt;rocket&gt; the relationship code itself is still the same</p><p>[12-May-2011 11:17:00] &lt;jplouis&gt; dpetzel: when a device is added to a device class it looks at the zPythonClass zProperty to determine what type to instantiate.&#160; By default the value is Products.ZenModel.Device.</p><p>[12-May-2011 11:17:13] &lt;fragfutter&gt; is it the right way to extend the DeviceHW._relations, or is it better to have a new deviceclass?</p><p>[12-May-2011 11:18:06] &lt;rocket&gt; fragfutter: how are you extending the relations?</p><p>[12-May-2011 11:18:26] &lt;Dpetzel-mobile&gt; Yes python class is set</p><p>[12-May-2011 11:18:29] &lt;rocket&gt; fragfutter: It would be better to have a new class such that you are not impacting other devices ..</p><p>[12-May-2011 11:18:53] &lt;fragfutter&gt; the zenpacks __init__ has something like DeviceHW._relations += (( "myrelation", ...))</p><p>[12-May-2011 11:19:15] &lt;rocket&gt; especially if you are an enterprise customer .. as we dont really like it when you modify core features etc</p><p>[12-May-2011 11:19:33] &lt;rocket&gt; yea .. while you can do that .. please dont .. <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:19:43] &lt;fragfutter&gt; rocket: ok. thats new to me.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:20:30] &lt;rocket&gt; fragfutter: though its been about a year since I have done anything with it specifically.. I could be remembering wrongly</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:21:58] &lt;Jane_Curry&gt; Hiya....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:08] &lt;jplouis&gt; dpetzel: the error in the forum, ApplyDataMap: no relationship:LtmVs found on:MyDeviceName (&lt;class 'Products.ZenModel.Device.Device'&gt;, makes it seem like the device is the wrong class.&#160; Have you verified via zendmd that your device is an instance of the correct class</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:12] &lt;fragfutter&gt; rocket: i have a question of understanding then. If DeviceClass A adds hardware components hw_a. And DeviceClass B (written by someone else) has hw_b. How can i have a device that has both hw_a and hw_b? would i need to write a new DeviceClass C that inherits from both?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:15] &lt;Jane_Curry&gt; I would suggest that the UI display has changed LOTS in V3</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:54] &lt;dpetzel&gt; jpluis, I agree it lead me to believe it was wrong class, I'll check zendmd now</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:56] &lt;nyeates&gt; Hi Jane. Cant wait to find out what yer many new ZPs do</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:22:58] &lt;rocket&gt; fragfutter: yes</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:23:17] &lt;Jane_Curry&gt; That would be telling.......</p><p><img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[12-May-2011 11:23:39] &lt;fragfutter&gt; rocket: then i would need stick to extending _relations. That way i can slap my modeller on ony device i see.</p><p>[12-May-2011 11:24:34] &lt;rocket&gt; fragfutter: you can do it .. its possible .. it just adds to object complexity and possibly performance issues with those larger objects down the road</p><p>[12-May-2011 11:24:35] &lt;dpetzel&gt; deviceClass &lt;ToOneRelationship at deviceClass&gt;</p><p>[12-May-2011 11:25:52] &lt;dpetzel&gt; when I look at the configuration properties for the oranizer "/network/f5" zPythonClass = "ZenPacks.community.f5.BigipLtm.BigipLtm"</p><p>[12-May-2011 11:26:27] &lt;fragfutter&gt; rocket: but for example the HP Hardware monitoring by bigegor will detect Fans and add them to the device. If i now add a modeller to detect attached Monitors (stupid example, can't think of anything else). I would end up with a HP-Device, Monitor-Device, HP+Monitor-device</p><p>[12-May-2011 11:27:07] &lt;Jane_Curry&gt; OK.&#160; I have done a fair-sized piece of work for ZenSystems in Denmark and they have graciously agreed to make them available to the community</p><p>[12-May-2011 11:27:15] &lt;rocket&gt; fragfutter: you can extend his class .. thats fine .. eg a suborganizer that extends his class</p><p>[12-May-2011 11:27:33] &lt;rocket&gt; however I wouldnt recommend modifying the top level one</p><p>[12-May-2011 11:28:02] pmcguire is now known as ptmcg</p><p>[12-May-2011 11:28:06] &lt;rocket&gt; dpetzel: did you remodel?</p><p>[12-May-2011 11:28:12] &lt;fragfutter&gt; rocket: with class i mean Products.ZenModel.DeviceClass</p><p>[12-May-2011 11:28:29] &lt;rocket&gt; is that what Egor is modifying?</p><p>[12-May-2011 11:28:29] &lt;fragfutter&gt; rocket: not the hierachy in the web/gui</p><p>[12-May-2011 11:28:40] &lt;dpetzel&gt; rocket: I have a few times, tried deleteing re-addding with no luck as well</p><p><span>[12-May-2011 11:29:01] &lt;fragfutter&gt; rocket: </span><a class="jive-link-external-small" href="http://zenpacks.zenoss.org/trac-zenpacks/browser/zenpacks/ZenPacks.community.deviceAdvDetail/ZenPacks/community/deviceAdvDetail/__init__.py">http://zenpacks.zenoss.org/trac-zenpacks/browser/zenpacks/ZenPacks.community.deviceAdvDetail/ZenPacks/community/deviceAdvDetail/__init__.py</a></p><p>[12-May-2011 11:29:12] &lt;rocket&gt; fragfutter: right .. I understand that .. but egor really should have Products.ZenModel.HpDeviceClass or something like that</p><p>[12-May-2011 11:29:19] &lt;rocket&gt; and then extended that device class</p><p>[12-May-2011 11:29:56] &lt;rocket&gt; otherwise you are modifying core objects for everything in zenoss ..</p><p>[12-May-2011 11:30:07] &lt;fragfutter&gt; rocket: and jane has BridgeDeviceClass. Whenever i have a server that is from HP and has a bridgetable i would need to decide what to do.</p><p>[12-May-2011 11:31:26] &lt;rocket&gt; fragfutter: I see your point .. my main issue is trying to keep you more upgrade safe etc ..</p><p>[12-May-2011 11:31:38] &lt;Jane_Curry&gt; Jolly good point fragfutter - what IS the recommended way forward when you want to use attributes from 2 different device classes??</p><p>[12-May-2011 11:32:35] &lt;Hackman238&gt; fragfutter:You can find, in the IPSLAv2 zenpack, a version 2.5.2 example of creating a new device class</p><p>[12-May-2011 11:33:15] &lt;fragfutter&gt; Hackman238: or in janes bridge example (for zenoss 3).</p><p>[12-May-2011 11:33:37] &lt;rocket&gt; Jane_Curry: its a tricky issue, as one view recommends adding more code via a new zenpack, vs less code but object complexity</p><p>[12-May-2011 11:33:53] &lt;fragfutter&gt; they questions is (as jane said) how to combine attributes from multiple classes</p><p>[12-May-2011 11:33:58] &lt;Hackman238&gt; fragfutter: yep, your right LOL</p><p>[12-May-2011 11:34:00] &lt;Jane_Curry&gt; But I don't want to have to create a whole new device class to use functionality that is already provided by 2 other ZenPacks,</p><p>[12-May-2011 11:35:25] &lt;Jane_Curry&gt; Has it suddenly gone quiet????&#160;&#160; <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:31] &lt;Hackman238&gt; Thinking.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:32] &lt;Hackman238&gt; LOL</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:33] &lt;kokey&gt; yes</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:37] &lt;rocket&gt; Jane_Curry: the flexibility is there to do as you suggest .. some of it can be accomplished via smart use of organizer nesting and zope acquisition .. I would believe.&#160; jplouis probably has a better perspective on it than I</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:35:39] &lt;Jane_Curry&gt; ... hard....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:36:00] &lt;rocket&gt; honestly I havent done engineering level zenpack work for a while, with the position I am in now.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:36:06] &lt;Hackman238&gt; I agree with rocket, its just a matter of smart design.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:36:13] &lt;Jane_Curry&gt; How about a sample posted to the wiki for us??????</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:37:14] &lt;rocket&gt; nick?&#160; do you want to take that down as something to check into</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:37:31] &lt;rocket&gt; I am not sure if Chets example zenpack has anything like that in it</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:37:48] &lt;rocket&gt; Jane it gets tricky with different authors of zenpacks doing different things</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:38:08] &lt;nyeates&gt; Jane: I continue to work on convincing zenoss mgmt to up the amt of dev documentation. I have sent clear communications of this to our managment and #1 on the list was to get some cycles to put toward more detailed dev docs, so the community can fend for itself</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:38:18] &lt;rocket&gt; again I am not necessarily saying what you are doing is wrong.&#160; I am just noting some of the other side effects that you may not have thought about</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:39:28] &lt;dhopp&gt; is there going to be an RH6 rpm of the next release?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:40:38] &lt;kokey&gt; yeah</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:40:44] &lt;kokey&gt; somewhere in the next 6 and a half years</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:40:57] &lt;nyeates&gt; Jane, also, I want to have a side convo with you about Zenoss possibly taking in and vetting and officiating your dev docs. Right now, it is your stuff and we respect that, and we want to see if we can both take it to the next level. We can discuss offline.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:07] &lt;jplouis&gt; There is no clear recommended way to use attributes and relationships from multiple devices.&#160;&#160; It isn't problem zenoss has addressed</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:22] &lt;rocket&gt; dhopp: as far as I know no there will not be a RH6 rpm in our next immediate release ..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:41] &lt;dhopp&gt; doh</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:46] &lt;Jane_Curry&gt; I guess what we are saying is that this stuff isn't easy!&#160; But if we want the community to go forward, it's going to be snail-pace without input from dev</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:41:53] &lt;rocket&gt; dhopp: I believe our current strategy is to support RH6 when Centos6 is out ..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:16] &lt;rocket&gt; 90% of our customers are using Centos vs Redhat</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:19] &lt;fragfutter&gt; rocket: you might want to start building your rpms using scientific linux</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:23] &lt;Hackman238&gt; I dont understand why not just create a device class, like SLADevice (in my pack), create a new device class organizer under say /Networks called whatever and set whatevers class to ZenPacks.yourpack.yourclass.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:28] &lt;rocket&gt; so that is more of the driving force</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:42:36] &lt;Jane_Curry&gt; Thanks jp - that's what I thought but I could always hope that I had missed something</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:43:10] &lt;dhopp&gt; understood (we might use centos for this, we just have a patching process for rh)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:43:39] &lt;rocket&gt; dhopp: we just dont have enough build resources to track that one yet</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:43:52] &lt;dhopp&gt; understood</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:43:55] &lt;rocket&gt; dhopp: its been discussed.&#160; We just are not ready for it yet</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:44:33] &lt;Jane_Curry&gt; One thing that helps us all build ZenPack experience is lots of good examples - Egor has been a real trailblazer on this</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:44:36] &lt;dawn2020&gt; @nyeates: still the same....i created a new class 'test' with same</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:44:53] &lt;dawn2020&gt; datasources</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:45:10] &lt;Jane_Curry&gt; One of the ZenPacks that I have created for ZenSystems is for Juniper devices</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:45:26] &lt;jplouis&gt; Jane: unfortunately most of our good examples are in Enterprise</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:45:44] &lt;rocket&gt; jane did you look at chets example zenpack?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:45:54] &lt;rocket&gt; chet was putting some of those examples in there</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:46:39] &lt;kokey&gt; I think better dev documentation is also important to give people guidance on quality</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:46:42] &lt;Jane_Curry&gt; I looked at it early on, but I haven't looked at it recently and I think it has been updated???&#160; I'll go and grab it</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:00] &lt;kokey&gt; you want to avoid the nagios situation where there are a lot of plugins but most of them are terrible</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:06] &lt;dawn2020&gt; @nyeates: i tried putting in different event class and it worked</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:07] &lt;rocket&gt; I dont know when he has had time to update it ..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:18] &lt;Hackman238&gt; kokey: Could not be more true</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:23] &lt;dawn2020&gt; any ideas why it is like tat</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:47:35] &lt;Jane_Curry&gt; Totally agreed kokey.&#160; I build ZenPacks by copying other people's stuff but perhaps we are all passing on bad habits"???</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:48:13] &lt;rocket&gt; Jane_Curry: I think ultimately zenpacks will be addressed as we get more of the json api etc fleshed out ..</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:48:40] &lt;rocket&gt; as we start building more of these apis and consistent ways of doing things progress will be made in this area</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:48:48] &lt;fragfutter&gt; i would like to have an incremental tutorial along the lines of. Adding an SNMP Modller to discover new components. Adding a Javascript so it will display in the gui. Adding Stuff so it will collect perfdata. ...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:49:48] &lt;rocket&gt; fragfutter: honestly so would I ..</p><p><img height="16px" src="../4.5.6/images/emoticons/silly.gif" width="16px"/> .. I havent had a chance to catch up on all of the new ui elements etc</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:50:28] &lt;nyeates&gt; dawn2020: i dont get yer last statement.... did you mean device class? if not, how did u go about doing what u are saying?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:50:59] &lt;rocket&gt; but I have no idea when any of this will be done .. as a support engineer, I have little to no say in the direction this will take ... other than describe to management customer frustrations</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>[12-May-2011 11:51:20] &lt;Jane_Curry&gt; fragfutter - do you have a copy of my Creating ZenPacks doc? </span><a class="jive-link-external-small" href="DOC-10268.html">docs/DOC-10268</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:51:46] &lt;rocket&gt; as you can tell I deal more with upgrades and stability as of late, vs new features and device support</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:51:49] &lt;Jane_Curry&gt; It isn't a tutorial but it does try to lay out the steps</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:52:13] &lt;fragfutter&gt; Jane_Curry: yes. but for me it's lacking the tutorial part.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:52:19] &lt;rocket&gt; so you can see different perspectives for the same problem</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:52:59] &lt;nyeates&gt; kokey: interesting comment about nagios plugins</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:53:05] &lt;Jane_Curry&gt; &lt;rocket&gt; I hear what you say about hopefully things will get better but the V3 GUI has been out for nearly 12 months now and many of us are still struggling in the dark....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:54:07] &lt;nyeates&gt; fragfutter: ive noted the tutorial idea for when we ever get dev documentation more serious; tutorials or step by step are great initial learning toosl</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:54:11] &lt;Jane_Curry&gt; Just looked at the page for Chet's example ZenPack - not very happy to see that Zenoss 2.3!!!! is a pre-req</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:54:36] &lt;Hackman238&gt; Jane_Curry: Why not just unzip it and view the code?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:54:59] &lt;Hackman238&gt; Jane_Curry: I'm sure it'll all work in v3 XD LOL</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:55:03] &lt;fragfutter&gt; Hackman238: because anything related to gui has changed</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:55:14] &lt;dawn2020&gt;&#160; @nyeates: i mean i created a new device class and created the same windows datasource.... to collect the CPU datapoints...but put&#160; it in CPU event class it didnt work.....but when i put it in /perf/interface or /perf/memory event class ...event was triggered</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:55:23] &lt;Jane_Curry&gt; Not got that far yet - will do - but there probably isn't much that helps us with the V3 UI if the prereq is Zenoss 2.3</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:55:38] &lt;Hackman238&gt; fragfutter: Was supposed to be a joke about it supporting only an arcane version of zenoss</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:08] &lt;Hackman238&gt; GUI work in V3 is simply madness with the docs available.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:16] &lt;Jane_Curry&gt; XD?????&#160; X-Directory???&#160; eXcept Dafties????</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:18] &lt;rocket&gt; I dont think there was as much ui stuff in there</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:32] &lt;Hackman238&gt; Jane_Curry: Its laughing with eyes closed.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>[12-May-2011 11:56:34] &lt;nyeates&gt; dawn2020: can we work this in the forums from here? Can you paste our back and forth convo - or what you have, and your screenshots, and the descript above of what worked....then email url to </span><a class="jive-link-email-small" href="mailto:community@zenoss.com">community@zenoss.com</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:56:54] &lt;rocket&gt; Jane_Curry: I believe he was targeting more base class stuff than ui elements persay with that zenpack .. though I am sure there are some in there</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:57:31] &lt;dpetzel&gt; does anyeone know which logging I need to crank up to see why my device is being detected as deviceClass, rather than the class I have defiend in zPythonClass?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:57:40] &lt;dawn2020&gt; sure....but how to resolve the issue with /perf/cpu event class</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:57:43] &lt;Jane_Curry&gt; OK. I have had other folk ask if I have training for ZenPacks.&#160; At the moment I haven't....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:05] &lt;jplouis&gt; dpetzel:&#160; try running zenhub with -v10</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:11] &lt;Jane_Curry&gt; I don't wnat to start work on a ZenPack workshop is Zenoss themselves are already doing that?????????????????</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:14] &lt;Hackman238&gt; rocket: Maybe Zenoss should audit a handful of popular packs for best practice compliance and the community can then build docs from said known proper implemented code.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:19] &lt;dawn2020&gt; @nyeates: can i delete it and create a new event class with same name</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:58:45] &lt;Jane_Curry&gt; Hackman238 - great suggestion</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 11:59:54] &lt;Hackman238&gt; *cough*</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:01] [disconnected at Thu May 12 12:00:01 2011]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:01] [connected at Thu May 12 12:00:01 2011]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:16] [zenoss-logger (logger bot) has joined #zenoss]</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:31] &lt;nyeates&gt; Jane_Curry: I do not know of any active ZenPack or dev workshops right now. Kells had worked on some stuff for one in the past, and he has mentioned that he would like to see it happen, but it has not had any backing from management at Zenoss Inc and I know of no plans.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:00:54] &lt;dpetzel&gt; jpluis: thanks, wading through that output now</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:01:05] &lt;Jane_Curry&gt; Suppose I create a workshop, with input mebbe from Kells...............</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:01:56] &lt;Jane_Curry&gt; I can deliver it.&#160; Youe guys can be licensed to deliver it.&#160; We run it in classrooms if folk will come.&#160; We run it as a remote class if there's no travel budget</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:02:23] &lt;Jane_Curry&gt; Should it be more than 1-day???&#160; I suspect you need at least 2 days</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:02:25] &lt;kells&gt; Jane_Curry: That would be cool -- just need to get an okey-doke from my management.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:02:48] &lt;Jane_Curry&gt; Hmmmm - that always seems to be where things stop</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:00] &lt;kells&gt; w/ JS stuff etc, probably three days is comfortable.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:06] &lt;Jane_Curry&gt; What can we do to make it stick this time???</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:30] * nyeates thinks</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:33] &lt;Jane_Curry&gt; **************************</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:33] &lt;kells&gt; nyeates: See if it's okay to pass along the outline to Jane</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:03:39] &lt;dpetzel&gt; jpluis, that uncovered 'ImportError: No module named Prodcuts.ZenRelations.RelSchema'</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:04:11] &lt;nyeates&gt; kells: sure... Jane, ill see if my boss is ok with us sending you the outline kells has but together</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:04:18] &lt;dpetzel&gt; so my ttypo is now very obvious</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:04:25] &lt;Jane_Curry&gt; Of the customers amongst us here, who would be likely to "attend" a 3-day ZenPack workshop?????</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:04:56] &lt;nyeates&gt; or a virtual one</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:05:02] &lt;dhopp&gt; Jane: I would like to, depends on where and cost of course</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:05:05] &lt;nyeates&gt; which i think is more likely to get people to attend</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:05:13] &lt;Jane_Curry&gt; Thats why "attend" is in quotes</p><p><img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p><p>[12-May-2011 12:05:13] &lt;Simon4&gt; Jane_Curry: I have workmates who could well be sent on such a thing</p><p>[12-May-2011 12:06:02] &lt;Hackman238&gt; Jane_Curry: Would if virtual.</p><p>[12-May-2011 12:06:20] &lt;Jane_Curry&gt; I suspect Zenoss is the sort of company that now needs a "business case" to do anything.&#160; We probably need some "guesstimates" for numbers of attendees....</p><p>[12-May-2011 12:06:23] &lt;nyeates&gt; curious why you said customers Jane.... did you mean Zenoss users in general?</p><p>[12-May-2011 12:06:42] &lt;nyeates&gt; yes true</p><p>[12-May-2011 12:07:04] &lt;Jane_Curry&gt; Sorry - yes - I meant Zenoss users.&#160; Definitely NOT implying just Enterprise customers</p><p>[12-May-2011 12:07:13] &lt;Jane_Curry&gt; probably more likely to get Core folk</p><p>[12-May-2011 12:07:26] &lt;dhopp&gt; Hackman238: so I was looking at Egors distributed monitor zenpack and it looks like he sets the remote monitor up to run everything but ['zeoctl','zopectl','zenhub','zenjobs','zenactions','zenmodeler'].&#160; Of those, is zenhub the only one that would need to be started on a remote collector to make the collector use that zenhub rather then the main one? (assuming zenhub is also configured for the right db)</p><p>[12-May-2011 12:07:51] &lt;nyeates&gt; Also, as I said jane: There has been some headway made on getting your zenpack docs looked over and made official....possibility of zenoss inc dev time spent on yer doc is high :-)</p><p>[12-May-2011 12:07:54] &lt;Jane_Curry&gt; but they do need to be "customers" in the sense that the workshop would NOT be "open source" as in FREE</p><p>[12-May-2011 12:08:18] &lt;Hackman238&gt; dhopp: Zenhub would need to be configured, set running, and daemons pointed to it rather than the Zope hosting zenhub.</p><p>[12-May-2011 12:08:58] &lt;dhopp&gt; but zeoctl would only run on the main server right?</p><p>[12-May-2011 12:09:28] &lt;Hackman238&gt; dhopp: zeo and zope run only on the main box.</p><p>[12-May-2011 12:09:44] &lt;dhopp&gt; ok</p><p>[12-May-2011 12:09:48] &lt;kells&gt; Uh oh.&#160; The rabble rouser has joined...</p><p>[12-May-2011 12:10:07] &lt;Hackman238&gt; kells: rabble rouser?</p><p>[12-May-2011 12:10:11] &lt;Jane_Curry&gt; Let the rabble commence.....</p><p>[12-May-2011 12:10:38] &lt;kells&gt; Welcoming matt into IRC <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:10:52] &lt;Hackman238&gt; kells: Oh.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:11:00] &lt;Jane_Curry&gt; mattray - thanks for the lead the other week.&#160; Didn't come to anything for me but I appreciate the pointer</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:11:51] &lt;mattray&gt; Jane_Curry: that's too bad, but I'll keep referring people</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:12:17] &lt;Jane_Curry&gt; Nick, Kells - can we get together outside the IRC sometime to try and make this ZenPack workshop happen?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:12:24] &lt;Jane_Curry&gt; Thanks Matt</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:12:40] &lt;jplouis&gt;&#160;&#160;&#160;&#160; dpetzel: can you do the following in zendmd? find("&lt;yourdevicename&gt;")</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:13:55] &lt;dpetzel&gt; jpluis, yeap I can</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:14] &lt;nyeates&gt; Jane, Kells: how is this coming Tues at 11pm EST (same time of day as this dev meeting)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:14] &lt;kells&gt; Jane: You've got my e-mail, so yeah, shoot me a note</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:19] &lt;dpetzel&gt; its working!!!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:36] &lt;dpetzel&gt; jpluis, so you gave me the info I needed with the zenhb verbosity</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:14:45] &lt;dpetzel&gt; it poitned out the typo I had causing the import error for the device class</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:15:00] &lt;dpetzel&gt; I fixed that (and then the subsequent typos I had elsewhere, and I can see the components now</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:15:01] &lt;nyeates&gt; death to typos</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:15:03] &lt;dpetzel&gt; thanks a ton!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:15:46] &lt;kells&gt; nyeates: I'd feel better if management had a heads up before anything got started.</p><p><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[12-May-2011 12:16:34] &lt;kells&gt; At the very least, an "Unless otherwise disallowed, we are going to do X"&#160; note <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:16:38] &lt;Jane_Curry&gt; I can make Tuesday May 17th at 11 (I hope that is am, not pm) EST - but only if we get some node from management, as Kells says</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:16:58] &lt;nyeates&gt; kells is right. We are employees spending our time. We will follow up by email and see what works.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:16:59] &lt;Jane_Curry&gt; sorry s/node///nod/</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:18:55] &lt;nyeates&gt; Thanks all for attending and taking part in our dev meeting</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:19:48] &lt;nyeates&gt; i hope it was helpful and we can continue to increase the dev and zenpack knowledge</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:58:28] &lt;nyeates&gt; [12:16]&#160; &lt;dawn2020&gt; Hi Nick...thanks a lot ....deleting the /perf/cpu event class and adding it back worked ...the cpu events has now triggered....</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[12-May-2011 12:58:28] &lt;nyeates&gt; [12:16]&#160; &lt;dawn2020&gt; thanks a lot</p><p><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p>[12-May-2011 12:58:45] &lt;nyeates&gt; ^ wanted to note that this was solved, for anyone who reads these logs after the fact</p></div><!-- [DocumentBodyEnd:36f342ae-b31f-4519-8269-8d2e29708a1e] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1197,7 +746,7 @@ View print preview
                             </a>
                         </li>
                         <li>
-                            <a href="http://community.zenoss.org/blogs/zenossblog/2011/05/24/developer-irc-session-thursday-may-26th">
+                            <a href="blogs/zenossblog/2011/05/24/developer-irc-session-thursday-may-26th">
                             <span class="jive-icon-med jive-icon-blog"></span>
                                 Developer IRC Session Thursday May 26th
                             </a>
@@ -1300,11 +849,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1382,157 +931,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

@@ -11,42 +11,12 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 
-<script type="text/javascript">
-    if (top != self) {
-        var isSafeTopUrl = false;
-        try {
-            var topUrl = top.location.href;
-            var topUrlQsIdx = topUrl.indexOf('?');
-            if (topUrlQsIdx > 0) {
-                topUrl = topUrl.substring(0, topUrlQsIdx);
-            }
-            topUrl = topUrl.toLowerCase();
-
-            var safeTopUrls = new Array(
-                'http://community.zenoss.org/skin-basic.jspa',
-                'http://community.zenoss.org/skin-advanced.jspa',
-                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
-                'http://community.zenoss.org/skin-palette.jspa',
-                'http://community.zenoss.org/skin-palette!start.jspa'
-            );
-            for (var i = 0; i < safeTopUrls.length; i++) {
-                if (safeTopUrls[i].toLowerCase() == topUrl) {
-                    isSafeTopUrl = true;
-                    break;
-                }
-            }
-        } catch (err) {
-        }
-        if (!isSafeTopUrl) top.location = location;
-    }
-</script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="en-US" />
 <meta name="keywords" content=""/>
-<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
 <!-- Dev chat 09/15/2010 -->
-<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
 
 <link rel="search"
     href="../opensearch.xml"
@@ -59,80 +29,12 @@
     
 
 
-    <script type="text/javascript">
-        (function() {
-            var prepareUrl = function(url) {
-                if (url.indexOf(";") > 0) {
-                    url = url.substring(0, url.indexOf(";"));
-                }
-                if (url.charAt(url.length - 1) == '/') {
-                    url = url.substring(0, url.length - 1);
-                }
-                return url
-            };
-            if (typeof(window._jive_base_url) == "undefined") {
-                window._jive_base_url = prepareUrl("/")
-            }
-            if (typeof(window._jive_resource_url) == "undefined") {
-                window._jive_resource_url = prepareUrl("/4.5.6/")
-            }
-                if (typeof(window._jive_current_user) == "undefined") {
-                    window._jive_current_user = {
-                        anonymous: true,
-                        username: 'ANONYMOUS',
-                        ID: '-1',
-                        enabled: true,
-                        avatarID: '-1',
-                        displayName: ''
-                    };
-                }
 
 
-
-        })();
-
-        var _jive_effective_user_id = "-1";
-        var _jive_auth_token ="no-user";
-        var _jive_locale = "en_US";
-
-    </script>
-
-
-<script type="text/javascript">
-/* Kongregate Asychronous JavaScript Loader
-
-The MIT License
-
-Copyright (c) 2010 Kongregate Inc.
-*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
-</script>
 
     
       
       
-    <script type="text/javascript">
-        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
-        window.CS_BASE_URL = "";
-        window.CS_RESOURCE_BASE_URL = "/4.5.6";
-        window.tinyMCEPreInit = {
-            suffix : "_src",
-            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
-        };
-        if (typeof(_jive_project_i18n) == "undefined") {
-            var _jive_project_i18n = new Array();
-            _jive_project_i18n['project.calendar.task'] = "Task";
-            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
-            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
-            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
-            _jive_project_i18n['global.edit'] = "Edit";
-            _jive_project_i18n['global.delete'] = "Delete";
-            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
-            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
-            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
-            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
-            _jive_project_i18n['project.task.create.link'] = "Create a task";
-        }
-    </script>
      
 
 
@@ -143,48 +45,7 @@ Copyright (c) 2010 Kongregate Inc.
 
 
     
-<script type="text/javascript">
-kjs.run(function() {
-kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
-kjs.run(function() {
-        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
-
-
-}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
-}, [ 'Zapatec.Calendar--required' ]);
-</script>
     
-    <script type="text/javascript">
-        var profileShortUrl = "/profile-short.jspa";
-        var profileLoadingTooltip = "Loading user profile";
-        var profileErrorTooltip = "There was an error loading that profile information.";
-
-        var projectChooserUrl = "/project-chooser!input.jspa";
-
-        var containerShortUrl = "/container-short.jspa";
-        var containerLoadingTooltip = "Loading place information.";
-        var containerErrorTooltip = "There was an error loading that place information.";
-
-        var videoShortUrl = "/view-video-short.jspa";
-        var videoLoadingTooltip = "video.tooltip.loading";
-        var videoErrorTooltip = "video.tooltip.error";
-        var _jive_video_picker__url = "?container=2141&containerType=14";
-        var followErrorMessage = "An internal error occurred while following the project or space.";
-
-        (function() {
-            var originalWrite = document.write;
-            document.write = function() {
-                if(typeof $j != 'undefined' && $j.isReady) {
-                    console.warn("document.write called after document was loaded: ", arguments);
-                }
-                else {
-                    // In IE before version 8 `document.write()` does not
-                    // implement Function methods, like `apply()`.
-                    return Function.prototype.apply.call(originalWrite, document, arguments);
-                }
-            }
-        })();        
-    </script>
 
 
 
@@ -219,277 +80,8 @@ kjs.run(function() {
     <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
     <![endif]-->
 
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
-<script type="text/javascript">
-        // begin list of custom CSS
-        jive.rte.defaultStyles = new Array();
-        // end list of custom CSS
 
 
-            var jiveControl = new jive.model.Controller();
-            jive.rte.mobileUI = false;
-
-
-if (dwr == null) var dwr = {};
-if (dwr.engine == null) dwr.engine = {};
-if (DWREngine == null) var DWREngine = dwr.engine;
-
-dwr.engine._origScriptSessionId = "47DFE9217883F2EAC013762E16FC5719";
-dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
-dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
-dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
-dwr.engine._defaultPath = "/dwr/interface";
-dwr.engine._pollWithXhr = "false";
-
-
-    (function() {
-        var options = {
-            friendsRange : 20,
-            everyoneRange : 20,
-            youUsername : 'ANONYMOUS',
-            youID : -1,
-            isGuest : true
-        };
-
-        var i18n = {
-            acclaimLikingLike : "Like",
-            acclaimLikingUnlike : "Liked",
-            acclaimLikedNone : "None",
-            acclaimLikingLiked : "Person Liked This",
-            acclaimLikingLikedPlural : "People Liked This",
-            acclaimPeopleLiked : "People who liked this",
-            acclaimLikedYou : "You",
-            acclaimLikedFriends : "Connections",
-            acclaimLikedEveryone : "Everyone Else",
-            globalMore : "More",
-            globalClose : "Close"
-        };
-
-        new jive.Acclaim(options, i18n);
-    })();
-
-
-        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
-                profileErrorTooltip);
-        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
-        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
-                containerLoadingTooltip, containerErrorTooltip);
-        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
-                videoErrorTooltip);
-
-        var jiveFollow = new jive.Follow(followErrorMessage);
-
-
-</script>
-
-
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
-<script type="text/javascript">
-    window.errorHandlerMessage = "An error occurred:";
-
-    window.editorErrorHandler = function(message, exception) {
-        // if the message is something other than a timeout, show the message plus the error code
-        if (message.indexOf('Timeout') == -1) {
-            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
-            $j('#dwr-error-table').fadeIn();
-            setTimeout(function() {
-                $j('#dwr-error-table').fadeOut();
-            }, 10000);
-        }
-    };
-
-
-    
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
-        tinyMCE.addI18n('en.jivemacros',{
-                    "unused.jive.key" : "nothing."
-        });
-    }
-
-
-        window.RawHTMLSaveFunction = function(element_id, html, body){
-            var text = $j('#wysiwygtext');
-            if (text.is(':not(:visible)')) {
-                return html;
-            }else{
-                return text.val();
-            }
-        }
-        jive.rte.multiRTE = new Array();
-
-        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
-        window.refreshLinks = function() {
-            jive.rte.multiRTE.forEach(function(rteID) {
-                if ($j('#' + rteID + '_parent').length < 1) {
-                    // safari 2, text only
-                    $j('#' + rteID + '_toggle_html').hide();
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                    return;
-                }
-
-                if(currentMode == 'rawhtml') {
-                    $j('#' + rteID + '_toggle_html').css('display', 'block');
-                }else{
-                    $j('#' + rteID + '_toggle_html').hide();
-                }
-
-                if (preferredMode == currentMode) {
-                    $j('#jivePreferredEditorModeLinkHREF').hide();
-                } else {
-                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
-                }
-            });
-        }
-
-    window.editor = new jive.ext.y.HashTable();
-
-
-       
-jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
-jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
-
-
-
-</script>
-<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
-<script type="text/javascript">
-var _editor_lang = "en";
-var _jive_video_picker__url = "?container=2141&containerType=14"
-var _jive_images_enabled = false;
-
-
-    
-    function toggleFeatured() {
-
-        ToggleFeatured.toggleFeatured(102, 8502, 2141, 14, {
-            callback:function(featured) {
-
-                if (featured) {
-                    $j('#featured-toggle-unfeature').show();
-                    $j('#featured-toggle-feature').hide();
-                } else {
-                    $j('#featured-toggle-unfeature').hide();
-                    $j('#featured-toggle-feature').show();
-                }
-
-
-
-                Jive.AlertMessage('content-featured-notify', {
-                    beforeStart:function() {
-                        if (featured) {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
-                           
-                        } else {
-                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-
-            (function() {
-                var options = {
-                    resourceType:       102,
-                    resourceID:         8502,
-
-                    containerType:      14,
-                    containerID:        2141,
-
-                    contentObject: {
-                            document:          8502,
-                            version:           1
-                    },
-
-                    listAction:         "/doc-comments.jspa",
-
-                    isAnonymous:        true,
-                    isThreaded:         false,
-
-                    paginate:           true,
-
-                    pageSize:           25,
-                    isPrintPreview:     false,
-                    rteOptions : {
-                        controller    : jiveControl,
-                        preset        : "mini-w-quote",
-                        autoSave      : new DummyAutoSave(false),
-                        preferredMode : "advanced",
-                        startMode     : "advanced",
-                        mobileUI      : false,
-                        toggleText    : 'Show Full Editor',
-                        alwaysUseTabText : 'Always use this editor',
-                        editDisabledText : 'You are using a device that only enables you to add content.',
-                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
-                        communityName : 'Zenoss Community',
-                        height        : 200,
-                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=8502",
-                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
-
-                    },
-                    i18n: {
-                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
-                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
-                        postUserWroteLabel:      '{0} wrote',
-                        postGuestWroteLabel:     'Guest wrote',
-                        cmntEditingTitle:        'Editing comment',
-                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
-                        replyToTitle:            'Reply to {0}',
-                        formSubmitPleaseWait:    'Please Wait ...',
-                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
-                    }
-                };
-
-
-                // Create a separate CommentApp instance for each tab.
-                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
-
-                // Enable tab switching.
-                window.tabView = new jive.TabView('.jive-body-tabbar');
-            })();
-
-
-        new jive.MoreLikeThisApp.Main({
-            objectType: 102,
-            objectID: 8502,
-            containerID: "jive-more-like-this-102-8502",
-            numResults: 5,
-            noContentMessage: "No similar content found",
-            errorMessage: "Unable to retrieve content from the server:"
-        });
-
-
-</script>
 
 
     
@@ -510,25 +102,6 @@ var _jive_images_enabled = false;
 
 
 
-    <script type="text/javascript">
-        var documentID = 8502;
-
-        function publishDraft() {
-            $j('#documentPublishForm').submit();
-        }
-
-        function restoreVersion(version) {
-           if (confirm('Are you sure you want to restore this version of the document text?')){
-                $j('#documentRestoreForm').submit();
-           }
-        }
-
-        function deleteDocument() {
-            if (confirm('Are you sure you want to delete this document?')){
-                $j('#documentDeleteForm').submit();
-            }
-        }
-    </script>
 
     <!-- BEGIN action bar, only for non-binary documents -->
 
@@ -623,7 +196,7 @@ font-weight:bold;
     <!-- Load search for guests -->
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -637,18 +210,6 @@ font-weight:bold;
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
     <!-- END anon search -->
@@ -680,15 +241,15 @@ font-weight:bold;
           <tr valign="middle">
             <td colspan="2" height="80">
                 <ul id="navlist">
-                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
                     <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
                     <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
-                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
-                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
                     <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
-                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
-                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
                     <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
                 </ul>
             </td>
@@ -745,7 +306,7 @@ font-weight:bold;
             <span class="jive-userbar-login-username">
                 <label for="login-username">
 Username:                </label>
-                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <a href="docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
                 <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
                                id="login-username" />
             </span>
@@ -753,7 +314,7 @@ Username:                </label>
             <span class="jive-userbar-login-password">
                 <label for="login-password">
 Password:                </label>
-                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <a href="docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
                 <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
                                id="login-password" />
             </span>
@@ -775,7 +336,7 @@ Password:                </label>
 </div>        <div id="jive-userbar-right">
 
     <div id="jive-userbar-search">
-    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
         <input type="hidden" name="peopleEnabled" value="true"/>
 
         <input type="hidden" name="userID"/>
@@ -789,18 +350,6 @@ Password:                </label>
     </form>
 
     <div id="jive-spotlight-search-container"></div>
-    <script type="text/javascript">
-        var containerType = 14;
-        var containerID = 2141;
-
-        $j('#jive-userbar-search-form').submit(function() {
-            var query = $j('#jive-query').val();
-            var isWildcard = query.charAt(query.length-1) == '*';
-            if (query && !isWildcard) {
-                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
-            }
-        });
-    </script>
 </div>
 
         </div>
@@ -817,7 +366,7 @@ Password:                </label>
     <span>
                 <a href="../index.jspa.html">
             Zenoss Community</a> &gt; 
-                <a href="http://community.zenoss.org/community/documentation">
+                <a href="community/documentation">
             Documentation</a> &gt; 
                 <a href="../community/documentation/irc.html">
             IRC</a> &gt; 
@@ -828,18 +377,18 @@ Password:                </label>
 
             
 
-    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-8502/restore'>
+    <form id="documentRestoreForm" method="post" action='docs/DOC-8502/restore'>
         <input type="hidden" name="version" value="1" />
         <input type="hidden" name="jive.token.name" value="document.restore.DOC-8502"/>
         <input type="hidden" name="document.restore.DOC-8502" value="1394833013836-MC82KZRMWRMR3SP0GBI2AZ35QUILP8XS"/>
     </form>
 
-    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-8502/delete'>
+    <form id="documentDeleteForm" method="post" action='docs/DOC-8502/delete'>
         <input type="hidden" name="jive.token.name" value="document.delete.DOC-8502"/>
         <input type="hidden" name="document.delete.DOC-8502" value="1394833013842-QJJTH10TFD6BX2E1M52YP9LGBEAIOGVQ"/>
     </form>
 
-    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+    <form id="documentPublishForm" method="post" action='doc-publish.jspa'>
         <input type="hidden" name="jive.token.name" value="document.publish.DOC-8502"/>
         <input type="hidden" name="document.publish.DOC-8502" value="1394833013847-QDEQGMQ0PVOZLGRBJXS6YA3CF5I5J6A7"/>
         <input type="hidden" name="document" value="DOC-8502" />
@@ -895,7 +444,7 @@ Password:                </label>
         <div class="jive-content-header-details">
 
 Created on: Sep 17, 2010 11:20 AM by
-<a href="http://community.zenoss.org/people/mray"
+<a href="people/mray"
 data-externalId=""
 data-username="mray"
 data-avatarId="1026"
@@ -906,7 +455,7 @@ class="jiveTT-hover-user jive-username-link"
 >Matt Ray</a>            <span>-</span>
 Last Modified:&nbsp;
 Sep 17, 2010 11:21 AM
-by <a href="http://community.zenoss.org/people/mray"
+by <a href="people/mray"
 data-externalId=""
 data-username="mray"
 data-avatarId="1026"
@@ -946,7 +495,7 @@ class="jiveTT-hover-user jive-username-link"
     <div class="jive-content-body">
 
 
-<!-- [DocumentBodyStart:988621b1-7cf3-43f0-ba4b-29578b16da60] --><div class="jive-rendered-content"><p>[16-Sep-2010 09:59:58] &lt;mloven&gt; JaneCurry:&#160; I think Avalon is the same as 3.5...&#160; can anyone back me up on that one?</p><p>[16-Sep-2010 10:00:19] &lt;klinstifen&gt; huslage: batteling my own upgrade issues right now, but i haven't run across that issue</p><p>[16-Sep-2010 10:00:30] &lt;cgibbons&gt; Avalon is the next major release, due in early 2011, which will be 3.5 or 3.1 depending upon what marketing decides</p><p>[16-Sep-2010 10:00:31] &lt;fragfutter&gt; cgibbons: would it be an option to say "if you want partitioning use mysql5.1 otherwise 5.0 is fine"? "Partitioning brings you better performance for &lt;insertfeature&gt;".</p><p>[16-Sep-2010 10:00:45] &lt;huslage&gt; ok. it seems that this issue isn't getting any love. i'm just gonna downgrade it and be done with it</p><p>[16-Sep-2010 10:01:13] &lt;mray&gt; Obviously cgibbons is already here, but jgartman is here to answer questions as well</p><p>[16-Sep-2010 10:01:33] &lt;huslage&gt; jgartman ?? ideas?</p><p>[16-Sep-2010 10:01:33] &lt;ashp&gt; I see you guys talking about mysql and once again I'm reminded of how much RHEL pisses me off.</p><p>[16-Sep-2010 10:01:41] &lt;huslage&gt; lol</p><p>[16-Sep-2010 10:01:45] &lt;ashp&gt; We're stuck with 5.0, not wanting to add yet more custom rpms, until RHEL6</p><p>[16-Sep-2010 10:01:52] &lt;ashp&gt; and even then it's going to take a while to upgrade all our boxes.</p><p>[16-Sep-2010 10:02:03] &lt;cgibbons&gt;&#160; i'm having the argument about 5.1 right now, it's a fun meeting :)</p><p>[16-Sep-2010 10:02:34] &lt;fragfutter&gt; ashp: thats what you get for having a stable target. Rolling targets have their own issues</p><p>[16-Sep-2010 10:02:36] &lt;ashp&gt; cgibbons: All I can say is that, depending on when 3.1/5 is due out a requirement for 5.1 would be a pain</p><p>[16-Sep-2010 10:02:46] &lt;cgibbons&gt; yeah</p><p>[16-Sep-2010 10:02:50] &lt;ashp&gt; cgibbons: until RHEL6 releases and redhat are being obnoxious about a release date</p><p>[16-Sep-2010 10:03:00] &lt;fragfutter&gt; and debian.</p><p>[16-Sep-2010 10:03:09] &lt;mray&gt; cgibbons: we do have access to some sort of RH partner beta mailing list</p><p>[16-Sep-2010 10:03:21] &lt;cgibbons&gt; how much lag is there for centos once rhel does a new release?</p><p>[16-Sep-2010 10:03:29] &lt;mray&gt; usually a month</p><p>[16-Sep-2010 10:03:34] &lt;LarsN&gt; cgibbons: usually 1-3 months</p><p>[16-Sep-2010 10:03:35] &lt;mray&gt; for point releases</p><p>[16-Sep-2010 10:03:41] &lt;Jane_Curry&gt; just tried zendevicedump on my 3.0.2 and it worked fine - what level are you at?</p><p>[16-Sep-2010 10:04:15] &lt;fragfutter&gt; cgibbons, mray: debian lenny is also stuck at 5.0</p><p>[16-Sep-2010 10:04:20] &lt;LarsN&gt; major releases are a bit slower cgibbons.</p><p>[16-Sep-2010 10:04:51] &lt;chachan&gt; Hi guys, I have a few python script that run as datasources. But, sometimes these scripts break out and send a "No output from plugin" (I use a nagios parser), so, I wonder if there is a way to verbose it a little more the command execution. Did I make myself clear enough?</p><p>[16-Sep-2010 10:05:57] &lt;mray&gt; chachan: could the script send it's own output to a log?</p><p>[16-Sep-2010 10:06:21] &lt;mray&gt; chachan: I don't think command data sources have access to zenoss' logs</p><p>[16-Sep-2010 10:06:35] &lt;mray&gt; chachan: but you could dump to /tmp/myscripts.log</p><p>[16-Sep-2010 10:06:53] &lt;fragfutter&gt; wrap your python script in a shell script, inside the shell script pipe all output through tee</p><p>[16-Sep-2010 10:09:28] &lt;chachan&gt; Ok, I forgot say something, that problem occurs somethings. It's not a frecuent problem. So, if I execute using zencommand or execute it by hand. It executes right</p><p>[16-Sep-2010 10:09:49] &lt;chachan&gt; fragfutter, I tried this. But, as I mentioned, I can't caught the error</p><p>[16-Sep-2010 10:10:32] &lt;chachan&gt; I also try with a watch wrapper, but it's complicate to watch for hours the screen looking for an error</p><p>[16-Sep-2010 10:10:34] &lt;chachan&gt; :-/</p><p>[16-Sep-2010 10:10:42] &lt;chachan&gt; tried*</p><p>[16-Sep-2010 10:12:27] &lt;fragfutter&gt; chachan: #!/bin/bash\n/path/to/script.py 2&gt;/tmp/debug_$$.log |tee /tmp/debug_$$.log\n[ $? ] || logger "script failed, check log /tmp/debug_$$.log"</p><p>[16-Sep-2010 10:12:30] &lt;chachan&gt; I also get "General error". I think that this is not a useful information :(</p><p>[16-Sep-2010 10:12:40] &lt;Jane_Curry&gt; is bigegor there????</p><p>[16-Sep-2010 10:13:09] &lt;fragfutter&gt; Jane_Curry: quit about 20 minutes ago</p><p>[16-Sep-2010 10:14:03] &lt;chachan&gt; fragfutter, :-o</p><p>[16-Sep-2010 10:14:09] &lt;Jane_Curry&gt; aaahh - thanks</p><p>[16-Sep-2010 10:14:28] &lt;chachan&gt; ok, that I can wrap it into a "watch"</p><p>[16-Sep-2010 10:14:32] &lt;chachan&gt; thx</p><p>[16-Sep-2010 10:14:58] &lt;Jane_Curry&gt; anyone else trying to get ZenPacks work in 3.x?</p><p>[16-Sep-2010 10:15:20] &lt;LarsN&gt; Jane_Curry: the ones that are Python 2.6, already work.</p><p>[16-Sep-2010 10:15:30] &lt;fragfutter&gt; chachan: one misstake || -&gt; &amp;&amp;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[16-Sep-2010 10:15:38] &lt;chachan&gt; ok</p><p>[16-Sep-2010 10:15:46] &lt;LarsN&gt; Jane_Curry: many of the zenpacks on the site have two versions to download.&#160; One is py2.4-foo.bar</p><p>[16-Sep-2010 10:15:55] &lt;LarsN&gt; the other py2.6 (which for Zenoss 3.x you want)</p><p>[16-Sep-2010 10:16:23] &lt;fragfutter&gt; LarsN: guess the question is more about porting one jane wrote not using one existing</p><p>[16-Sep-2010 10:16:31] &lt;Jane_Curry&gt; You can generally strip off the py2.x and the ZenPack works on the "other" Python release</p><p>[16-Sep-2010 10:16:31] &lt;LarsN&gt; fragfutter: ahhhh.</p><p>[16-Sep-2010 10:17:03] &lt;LarsN&gt; Jane_Curry, fragfutter: roger.&#160; Nevermind me.&#160; My best quality is.....&#160; I'm almost completely stupid. :)</p><p>[16-Sep-2010 10:17:05] &lt;Jane_Curry&gt; I am trying to get the groupreporting one to work</p><p>[16-Sep-2010 10:17:25] &lt;Jane_Curry&gt; it's pretty straight forward and worked fine on 2.5.2</p><p>[16-Sep-2010 10:17:42] &lt;Jane_Curry&gt; :)</p><p>[16-Sep-2010 10:17:58] &lt;Jane_Curry&gt; or was that :(</p><p>[16-Sep-2010 10:19:24] &lt;klinstifen&gt; trying to eggify a zip zenpack and i get this error: valueerror: not a registered directory</p><p>[16-Sep-2010 10:19:45] &lt;klinstifen&gt; any way to correct that or is it a non issue?</p><p>[16-Sep-2010 10:20:53] &lt;fragfutter&gt; cgibbons, mray: shouldn't zenoss 3.0.2 be faster? i have no chagne in system load (io, cpu) from 3.0.1 to 3.0.2</p><p>[16-Sep-2010 10:22:54] &lt;LarsN&gt; fragfutter: the interfaces tab improved dramatically from 3.0.1 for me.</p><p>[16-Sep-2010 10:23:07] &lt;LarsN&gt; fragfutter: I didn't expect to see any server load changes.</p><p>[16-Sep-2010 10:23:18] &lt;mray&gt; fragfutter: the caching patch for the infrastructure is included, so that page is faster</p><p>[16-Sep-2010 10:23:32] &lt;mray&gt; but the overall performance on the system is probably the same</p><p>[16-Sep-2010 10:23:34] &lt;fragfutter&gt; ah ok.</p><p>[16-Sep-2010 10:23:57] &lt;mray&gt; most of the performance stuff is in Subversion already, but isn't tested for 3.0.x</p><p>[16-Sep-2010 10:24:27] &lt;mray&gt; there is a thread about getting rrdcache working with 3.0 if you want to patch that in</p><p>[16-Sep-2010 10:24:29] &lt;LarsN&gt; mray: did that blog entry ever get published regarding RelStorage on 3.0.2</p><p>[16-Sep-2010 10:24:29] &lt;LarsN&gt; ?</p><p>[16-Sep-2010 10:24:32] &lt;klinstifen&gt; what are the .egg-link files?</p><p>[16-Sep-2010 10:24:49] &lt;LarsN&gt; or is that still up coming.</p><p>[16-Sep-2010 10:24:53] &lt;fragfutter&gt; klinstifen: look inside, you will figure it out ;)</p><p>[16-Sep-2010 10:25:04] &lt;fragfutter&gt; mray: no need, just curious</p><p>[16-Sep-2010 10:25:44] &lt;klinstifen&gt; fragfutter: yeah it is just the path to the folder...but what's the point of the file?</p><p>[16-Sep-2010 10:26:05] &lt;mray&gt; LarsN: I'll ping mrchippy about it</p><p>[16-Sep-2010 10:26:11] &lt;fragfutter&gt; so zenoss can find an egg without having it in it's own basket</p><p>[16-Sep-2010 10:27:00] &lt;LarsN&gt; mray: yet again, you're my hero!</p><p><span>[16-Sep-2010 10:29:31] &lt;klinstifen&gt; trying to follow </span><a class="jive-link-external-small" href="DOC-2372.html">http://community.zenoss.org/docs/DOC-2372</a><span>, but i'm at a loss at step 3...where can i find the .egg file? eggifyzenpack doesnt seem to have created it</span></p><p>[16-Sep-2010 10:32:32] &lt;mray&gt; klinstifen: hmmm&#226;&#8364;&brvbar; with 3.0?</p><p>[16-Sep-2010 10:33:43] &lt;mray&gt; can you still load .zip zenpacks into 3.0?</p><p>[16-Sep-2010 10:34:00] &lt;mray&gt; I mean, we deprecated it but I doubt anyone disabled it</p><p>[16-Sep-2010 10:34:54] &lt;klinstifen&gt; mray, no 2.5.2. i upgraded to 3.0.1 without heading any of those "zip zenpacks wont work warnings" and lost my custom zip zenpacks.&#160; so i am on a test machine trying to eggify everything</p><p>[16-Sep-2010 10:35:15] &lt;klinstifen&gt; and that machine is running 2.5.2</p><p>[16-Sep-2010 10:35:48] &lt;mray&gt; klinstifen: it's been awhile, but doesn't eggifyzenpack update the zenpack in place, so you can then export it from the zenpacks list?</p><p>[16-Sep-2010 10:37:42] &lt;Parabola|Work&gt; good morning</p><p>[16-Sep-2010 10:37:57] &lt;klinstifen&gt; mray, err umm i dunno.&#160; are there any other docs on this besides the link i posted?</p><p>[16-Sep-2010 10:39:03] &lt;mray&gt; not that I'm aware of</p><p>[16-Sep-2010 10:39:08] &lt;mray&gt; perhaps eggifyzenpack --help?</p><p>[16-Sep-2010 10:39:24] &lt;mray&gt; I wrote that doc because there wasn't anything useful</p><p>[16-Sep-2010 10:39:34] &lt;klinstifen&gt; gotcha</p><p>[16-Sep-2010 10:39:45] &lt;klinstifen&gt; i am exporting right now...i think i was just missing the obvious</p><p>[16-Sep-2010 10:40:26] &lt;ericenns&gt; rmatte:</p><p>[16-Sep-2010 10:40:55] &lt;ericenns&gt; rmatte: Do you have a test 2.5.2 box?</p><p>[16-Sep-2010 10:48:59] &lt;st3v3o&gt; has anyone upgraded to 3.0.2 and broke AD/LDAP auth ?</p><p>[16-Sep-2010 10:49:30] &lt;st3v3o&gt; In the zope database I see that that the LDAPMultiPlugins product is broken</p><p>[16-Sep-2010 10:49:54] &lt;SEJeff_work&gt; st3v3o, core or enterprise?</p><p>[16-Sep-2010 10:49:59] &lt;SEJeff_work&gt; It works fine in enterprise</p><p>[16-Sep-2010 10:49:59] &lt;st3v3o&gt; core</p><p>[16-Sep-2010 10:50:03] &lt;SEJeff_work&gt; Hmmm</p><p>[16-Sep-2010 10:50:57] &lt;st3v3o&gt; yeah put a damper on my upgrade</p><p>[16-Sep-2010 10:55:50] &lt;Parabola|Work&gt; hey guys i know this isnt an ssh or linux support channel, but anyone mind sparing a minute to help me with SSH preshared keys</p><p>[16-Sep-2010 10:56:18] &lt;Parabola|Work&gt; i've got an article up that rmatte had linked me to the other day, my question is i already tried this once before, is there a good way to "wipe" out any of the keys i may have created testing?</p><p>[16-Sep-2010 10:57:28] &lt;jgartman&gt; What do you mean 'wipe out'? You can remove any ssh keys you're not using in your ~/.ssh directory if that's what you're asking.</p><p>[16-Sep-2010 10:57:50] &lt;st3v3o&gt; you can delete your .ssh file and start a new &#226;&#8364;&brvbar;or you can edit it to remove the host that connected</p><p>[16-Sep-2010 10:58:20] &lt;Jane_Curry&gt; st3v3o - yup - mine broke from 2.5.2 to 3.0.1</p><p><span>[16-Sep-2010 10:58:20] &lt;LarsN&gt; have any of you tried thise Zenoss/Mindtouch mashup?&#160; </span><a class="jive-link-external-small" href="DOC-5860.html">http://community.zenoss.org/docs/DOC-5860</a></p><p>[16-Sep-2010 10:58:48] &lt;st3v3o&gt; Jane_Curry:&#160; Did you have a work around &#226;&#8364;&brvbar;or still waiting on a fix ?</p><p>[16-Sep-2010 10:58:49] &lt;mray&gt; LarsN: I have :)</p><p>[16-Sep-2010 10:59:36] &lt;mray&gt; haven't looked into it lately</p><p>[16-Sep-2010 10:59:40] &lt;LarsN&gt; mray: we're looking at storing extra data inside Zenoss, such as Terminal Server Ports, PDU/Outlet information.&#160; And our master IP lists.</p><p>[16-Sep-2010 10:59:46] &lt;Jane_Curry&gt; I fixed it by basically following the "How to use LDAP for Authentication" doc</p><p>[16-Sep-2010 10:59:52] &lt;st3v3o&gt; ok were are event transforms hiding in 3.0.2 :)</p><p>[16-Sep-2010 11:00:25] &lt;LarsN&gt; things our developers typically need access to.&#160; I suspect the Wiki is going to be faster, and have a better search function than Zenoss does.&#160; And if it works, I don't have to give all the devs access to our monitoring server.</p><p>[16-Sep-2010 11:00:34] &lt;LarsN&gt; I'm going to have to try it out.&#160; :)</p><p>[16-Sep-2010 11:00:52] &lt;mray&gt; LarsN: the mashup was mostly intended as a proof of concept, a couple of people have used it</p><p>[16-Sep-2010 11:01:09] &lt;ericenns&gt; anyone know where I can find information about factory_type_information</p><p>[16-Sep-2010 11:01:13] &lt;Jane_Curry&gt; You probably need tto recompile the python-ldap stuff</p><p>[16-Sep-2010 11:01:15] &lt;st3v3o&gt; Jane_curry:&#160; did yours look like this from the zope interface</p><p><span>[16-Sep-2010 11:01:15] &lt;st3v3o&gt; </span><a class="jive-link-external-small" href="https://zen.arin.net/zport/acl_users/ActiveDirectory/manage_workspace">https://zen.arin.net/zport/acl_users/ActiveDirectory/manage_workspace</a></p><p>[16-Sep-2010 11:01:16] &lt;mray&gt; rather than push more stuff into Zenoss, you just keep it in a wiki and link to it via zlinks</p><p>[16-Sep-2010 11:01:48] &lt;Jane_Curry&gt; Sorry - can't reach that link..</p><p>[16-Sep-2010 11:02:13] &lt;st3v3o&gt; wasn't ment to be a link ..sorry..that is what shows on the screen</p><p><span>[16-Sep-2010 11:02:16] &lt;st3v3o&gt; </span><a class="jive-link-external-small" href="DOC-2510.html">http://community.zenoss.org/docs/DOC-2510</a></p><p>[16-Sep-2010 11:02:27] &lt;st3v3o&gt; This is the doc that I followed to set it up the first time</p><p>[16-Sep-2010 11:03:07] &lt;mray&gt; st3v3o: event transforms are under Events-&gt;Event Classes-&gt;Gear menu-&gt;Transform</p><p>[16-Sep-2010 11:03:10] &lt;st3v3o&gt; did you remove the LDAPUserFolder and LDAPMultiPlugin files and then start and readd them</p><p>[16-Sep-2010 11:04:11] &lt;Parabola|Work&gt; alright, this clean zenoss 3.0.2 install has been at 100% going on twenty minutes now</p><p>[16-Sep-2010 11:04:22] &lt;Parabola|Work&gt; i know that step takes a little bit of time, but 20min?</p><p>[16-Sep-2010 11:04:52] &lt;mray&gt; Parabola: platform/installer?</p><p>[16-Sep-2010 11:05:07] &lt;Jane_Curry&gt; I found that they had gone from the Products directory</p><p>[16-Sep-2010 11:05:21] &lt;Parabola|Work&gt; Stack installer (.bin) ubuntu 10.04 LTS 32bit</p><p>[16-Sep-2010 11:05:25] &lt;Parabola|Work&gt; clean install of OS as well</p><p>[16-Sep-2010 11:05:39] &lt;Parabola|Work&gt; its on a pentium d with 1 or 2gb of ram</p><p>[16-Sep-2010 11:05:45] &lt;mray&gt; weird, that's a very common target</p><p>[16-Sep-2010 11:05:56] &lt;Jane_Curry&gt; Bah!!&#160; Having upgraded to 3.0.2 yesterday, I find my LDAP folders have gone AGAIN from Products</p><p>[16-Sep-2010 11:06:10] &lt;Parabola|Work&gt; mray,&#160; ctrl+C ?</p><p>[16-Sep-2010 11:06:11] &lt;Parabola|Work&gt; lol</p><p>[16-Sep-2010 11:06:18] &lt;Parabola|Work&gt; or is there a log i can change TTys and check out</p><p>[16-Sep-2010 11:08:27] &lt;st3v3o&gt; mray: thanks</p><p>[16-Sep-2010 11:09:51] &lt;mray&gt; Parabola: I don't have a stack installer handy</p><p>[16-Sep-2010 11:10:10] &lt;mray&gt; not sure where the log is for the installer</p><p><span>[16-Sep-2010 11:10:47] &lt;Jane_Curry&gt; re LDAP, goto </span><a class="jive-link-external-small" href="http://">http://</a><span>&lt;your zenoss&gt;:8080/zport/manage</span></p><p>[16-Sep-2010 11:11:14] &lt;Jane_Curry&gt; and down acl_users - you will see broken LDAP objects - remove these</p><p>[16-Sep-2010 11:12:24] &lt;st3v3o&gt; ok its been removed</p><p>[16-Sep-2010 11:13:20] &lt;st3v3o&gt; but I don't see ActiveDirectory or LDAP Plugin under Add &#226;&#8364;&brvbar;.</p><p>[16-Sep-2010 11:13:57] &lt;st3v3o&gt; I do however see the folders $ZENHOME/Products/LDAPMultiPlugin and LDAPUserFolder</p><p>[16-Sep-2010 11:17:15] &lt;Jane_Curry&gt; I think you will need to recompile the python-ldap stuff</p><p>[16-Sep-2010 11:17:24] &lt;st3v3o&gt; I did it via RPM</p><p>[16-Sep-2010 11:17:45] &lt;st3v3o&gt; I"m doing yum update now to verify I'm at latest version</p><p>[16-Sep-2010 11:19:06] &lt;Parabola|Work&gt; it finsihed mray</p><p>[16-Sep-2010 11:19:08] &lt;Parabola|Work&gt; thanks for your help</p><p>[16-Sep-2010 11:19:16] &lt;Jane_Curry&gt; I keep a directory with all the source for python-ldap plus setup.py</p><p>[16-Sep-2010 11:19:23] &lt;Jane_Curry&gt; I simply rerun:</p><p>[16-Sep-2010 11:19:24] &lt;st3v3o&gt; yep python-ldap is up to date</p><p>[16-Sep-2010 11:19:36] &lt;Jane_Curry&gt; python setup.py install</p><p>[16-Sep-2010 11:19:56] &lt;st3v3o&gt; what installer did you use for zenoss?</p><p>[16-Sep-2010 11:20:04] &lt;Jane_Curry&gt; and this puts compiled code into the correct Zenoss Python directories</p><p>[16-Sep-2010 11:20:20] &lt;Parabola|Work&gt; although it wont launch</p><p>[16-Sep-2010 11:20:43] &lt;st3v3o&gt; setup.py is the zenoss install script I assume ?</p><p>[16-Sep-2010 11:20:51] &lt;Jane_Curry&gt; I believe so</p><p>[16-Sep-2010 11:21:04] &lt;Jane_Curry&gt; YOU ALSO NEED TO RESTART zenoss</p><p>[16-Sep-2010 11:21:24] &lt;st3v3o&gt; oh I've done that multiple times :)</p><p>[16-Sep-2010 11:25:02] mrayzenoss is now known as mray</p><p>[16-Sep-2010 11:25:09] &lt;Jane_Curry&gt; I've just redone the process myself after the 3.0.2 upgrade and it seems to have worked again</p><p>[16-Sep-2010 11:26:53] &lt;Jane_Curry&gt; The process has put python_ldap-2.3.10-py2.6-linux-i686.egg into</p><p><span>[16-Sep-2010 11:27:36] &lt;st3v3o&gt; </span><a class="jive-link-external-small" href="http://tinypic.com/r/2cx9855/7">http://tinypic.com/r/2cx9855/7</a></p><p>[16-Sep-2010 11:27:38] &lt;Jane_Curry&gt; the directory /usr/local/zenoss/python/lib/python2.6/site-packages</p><p>[16-Sep-2010 11:27:47] &lt;st3v3o&gt; you have more stuff in the drop down correct</p><p>[16-Sep-2010 11:27:53] &lt;st3v3o&gt; or am I lookin in the wrong place</p><p>[16-Sep-2010 11:30:11] &lt;Jane_Curry&gt; soory dont seem to have the plugin to see your tinypic - you do need to see the LDAP Multi Plugin on the dropdown from acl_users</p><p>[16-Sep-2010 11:30:49] &lt;st3v3o&gt; yeah I got nothing :?</p><p>[16-Sep-2010 11:32:47] &lt;Parabola|Work&gt; woo</p><p>[16-Sep-2010 11:32:50] &lt;Parabola|Work&gt; my SSH keys work!</p><p>[16-Sep-2010 11:33:06] &lt;Parabola|Work&gt; i do have a question, when is etup the remote collector, in this case 22 is not the port being used</p><p>[16-Sep-2010 11:33:10] &lt;Parabola|Work&gt; will i be able to change that</p><p>[16-Sep-2010 11:34:22] &lt;st3v3o&gt; hmm&#226;&#8364;&brvbar;well my mutli-graph reports are bunk also</p><p>[16-Sep-2010 11:34:40] &lt;st3v3o&gt; this upgrade was no bueno</p><p>[16-Sep-2010 11:34:41] &lt;Jane_Curry&gt; Different topic - changing thresholds in 3.0.2....</p><p>[16-Sep-2010 11:34:44] &lt;Parabola|Work&gt; :( it doesnt work</p><p>[16-Sep-2010 11:34:56] &lt;Parabola|Work&gt; i can ssh as root with no password, but not as the user "zenoss"</p><p>[16-Sep-2010 11:35:36] &lt;Jane_Curry&gt; I have made a local copy of the filesystem template for one machine and changed the threshold value and added a second threshold</p><p>[16-Sep-2010 11:35:54] &lt;Jane_Curry&gt; I see the new thresholds on the / filesystem</p><p>[16-Sep-2010 11:36:15] &lt;Jane_Curry&gt; but the other 3 filesystem graphs still have the old, single threshold</p><p>[16-Sep-2010 11:36:24] &lt;Jane_Curry&gt; Have stopped and restarted zenoss entirely</p><p>[16-Sep-2010 11:39:27] &lt;Parabola|Work&gt; oh my god</p><p><span>[16-Sep-2010 11:40:38] &lt;Parabola|Work&gt; i'm following this guide: </span><a class="jive-link-external-small" href="http://community.spiceworks.com/education/projects/Passwordless_SSH_Using_Shared_Keys">http://community.spiceworks.com/education/projects/Passwordless_SSH_Using_Shared_Keys</a><span> and it worked fine for root, but im unable to do this as user "zenoss"</span></p><p>[16-Sep-2010 11:40:56] &lt;Parabola|Work&gt; do i need to create the keys as root, then copy them to the users directories, as root?</p><p><span>[16-Sep-2010 11:41:48] &lt;st3v3o&gt; </span><a class="jive-link-external-small" href="http://wiki.bambling.org/doku.php?id=linux:ssh:generate_ssh_keys">http://wiki.bambling.org/doku.php?id=linux:ssh:generate_ssh_keys</a></p><p>[16-Sep-2010 11:42:00] &lt;st3v3o&gt; generate the keys as the user you want need them for</p><p>[16-Sep-2010 11:42:06] &lt;jgartman&gt; The key for zenoss should be added to the zenoss user's authorized_keys file, somewhere like: /home/zenoss/.ssh/authorized_keys</p><p>[16-Sep-2010 11:42:17] &lt;Parabola|Work&gt; st3v3o,&#160; and that doesnt work as zenoss</p><p>[16-Sep-2010 11:42:19] &lt;Parabola|Work&gt; it throws up errors</p><p>[16-Sep-2010 11:42:22] &lt;jgartman&gt; when you try to shell in as zenoss, it will check that file</p><p>[16-Sep-2010 11:42:31] &lt;Parabola|Work&gt; /usr/bin/ssh: /usr/local/zenoss/common/lib/libcrypto.so.0.9.8: no version information available (required by /usr/bin/ssh)</p><p>[16-Sep-2010 11:42:31] &lt;Parabola|Work&gt; lost connection</p><p>[16-Sep-2010 11:42:32] &lt;st3v3o&gt; what is the error ?</p><p>[16-Sep-2010 11:42:41] &lt;Parabola|Work&gt; worked fine as root</p><p>[16-Sep-2010 11:44:15] &lt;jgartman&gt; make sure /home/zenoss/.ssh etc have permissions and ownership setup correctly as well.</p><p>[16-Sep-2010 11:45:10] &lt;Parabola|Work&gt; i'll just 777 it</p><p>[16-Sep-2010 11:45:22] &lt;jgartman&gt; :[</p><p>[16-Sep-2010 11:45:39] &lt;Parabola|Work&gt; you act like i have any fking clue what the default perms should be on that folder</p><p>[16-Sep-2010 11:45:41] &lt;Parabola|Work&gt; lol</p><p>[16-Sep-2010 11:46:17] &lt;Parabola|Work&gt; im still geting the error</p><p>[16-Sep-2010 11:46:29] &lt;Parabola|Work&gt; i googled it</p><p>[16-Sep-2010 11:46:30] &lt;Jane_Curry&gt; I think you will find that 777 WONT work - try 600</p><p>[16-Sep-2010 11:47:01] &lt;Parabola|Work&gt; i got one result, its for the zenpack im using</p><p>[16-Sep-2010 11:47:18] &lt;jgartman&gt; 777 will be too open, 600 or 400 would be better like Jane said.</p><p>[16-Sep-2010 11:47:22] &lt;Parabola|Work&gt; its obviously not a perms error jesus</p><p>[16-Sep-2010 11:47:30] &lt;Parabola|Work&gt; read it, it says nothing about denied</p><p>[16-Sep-2010 11:47:39] &lt;Parabola|Work&gt; its at 600, it works as well as it did at 777</p><p>[16-Sep-2010 11:48:01] &lt;mray&gt; is the ssh key for the 'zenoss' user on the remote machine?</p><p>[16-Sep-2010 11:48:10] &lt;mray&gt; you said it worked as root</p><p>[16-Sep-2010 11:48:51] &lt;Parabola|Work&gt; i cant copy it</p><p>[16-Sep-2010 11:49:03] &lt;Parabola|Work&gt; i generated one as root, scp'ed it over as root, everything worked</p><p>[16-Sep-2010 11:49:08] &lt;Parabola|Work&gt; i generated one as zenoss, and cannot move it</p><p>[16-Sep-2010 11:49:26] &lt;Parabola|Work&gt; /usr/bin/ssh: /usr/local/zenoss/common/lib/libcrypto.so.0.9.8: no version information available (required by /usr/bin/ssh)</p><p>[16-Sep-2010 11:49:56] &lt;Parabola|Work&gt; the result on google was the same zenpack i'm trying to use, but he never mentioned a fix, it was a comment</p><p>[16-Sep-2010 11:54:28] &lt;jgartman&gt; If you can't copy the file, could you manually add it?</p><p>[16-Sep-2010 11:54:55] &lt;Parabola|Work&gt; trying another way</p><p>[16-Sep-2010 11:55:09] &lt;Parabola|Work&gt; logged in as root, moving the key to zenoss folder</p><p>[16-Sep-2010 11:55:12] &lt;Parabola|Work&gt; then, chang perms</p><p>[16-Sep-2010 11:55:29] &lt;mray&gt; perms and ownership?</p><p>[16-Sep-2010 11:55:37] &lt;Parabola|Work&gt; yes</p><p>[16-Sep-2010 11:55:48] &lt;Parabola|Work&gt; its not working though, please hold :) *plays hold music*</p><p>[16-Sep-2010 11:59:41] &lt;Parabola|Work&gt; well i found half my problem</p><p>[16-Sep-2010 11:59:48] &lt;Parabola|Work&gt; when i generate the keys, its not creating a public key file</p><p>[16-Sep-2010 12:00:19] &lt;Parabola|Work&gt; ooh i have a "?.pub"</p><p>[16-Sep-2010 12:00:40] &lt;Parabola|Work&gt; that can't be good!</p><p>[16-Sep-2010 12:05:18] &lt;Jane_Curry&gt; On 3.0.2, can anyone else see output from a remodel on the GUI - I just get a black screen - Firefox 3.5</p><p>[16-Sep-2010 12:09:27] &lt;Parabola|Work&gt; FML</p><p>[16-Sep-2010 12:09:35] &lt;Parabola|Work&gt; i manually copied the file over, and it still doesnt work</p><p>[16-Sep-2010 12:10:23] &lt;jgartman&gt; are you updating authorized_keys as well?</p><p>[16-Sep-2010 12:10:35] &lt;Parabola|Work&gt; I replaced the whole damn file</p><p>[16-Sep-2010 12:10:43] &lt;Orv&gt; Jane_Curry: Works OK here - output shows as expected.&#160; FF 4.0b6, though...</p><p>[16-Sep-2010 12:11:14] &lt;Orv&gt; Check the log - see if the remodel actually ran??</p><p>[16-Sep-2010 12:11:55] &lt;jgartman&gt; Parabola|Work: have you looked at the ssh logs or tried ssh -vvv?</p><p>[16-Sep-2010 12:12:20] &lt;jgartman&gt; on your remote box try: ssh -vvv zenoss@box, it will dump a bunch of stuff to the screen that might help.</p><p>[16-Sep-2010 12:12:51] &lt;jgartman&gt; on your zenoss box you can tail /var/log/secure and see what it says that might be helpful.</p><p>[16-Sep-2010 12:13:45] &lt;ballison&gt; i added a HTTP monitor in the gui... how long before i can test it with zencommand ?</p><p>[16-Sep-2010 12:14:24] &lt;ballison&gt; I just made a httpmonitor template and bound the template.. then went to terminal to test the http monitor with zencommand and it fails to be checking anything.</p><p>[16-Sep-2010 12:14:34] &lt;Parabola|Work&gt; jgartman, i scp'ed the file over as root to another folder, renamed it</p><p>[16-Sep-2010 12:14:35] &lt;Parabola|Work&gt; moved it</p><p>[16-Sep-2010 12:14:48] &lt;Parabola|Work&gt; i will check thoes, thanks</p><p>[16-Sep-2010 12:16:33] &lt;Jane_Curry&gt; Orv - have tried with a Firefox 3.5 on Linux and 3.5.11 on Win - pretty sure the command runs - the black screen flashes white and then goes black</p><p>[16-Sep-2010 12:16:47] &lt;Jane_Curry&gt; .. and stays black</p><p>[16-Sep-2010 12:22:01] &lt;Jane_Curry&gt;&#160; - just checked Z2.log - the modeler command is sent</p><p>[16-Sep-2010 12:22:17] &lt;Jane_Curry&gt; anyone got this working on a Firefox 3.x???</p><p>[16-Sep-2010 12:23:53] &lt;Parabola|Work&gt; i tried creating a dsa key instead of rsa</p><p>[16-Sep-2010 12:24:07] &lt;Parabola|Work&gt; for whatever reason ,when i export one as the zenoss user the pub key is named "?.pub"</p><p>[16-Sep-2010 12:28:13] &lt;Orv&gt; Jane_Curry: Let me try that for you...</p><p>[16-Sep-2010 12:29:45] &lt;Jane_Curry&gt; Much appreciated..</p><p>[16-Sep-2010 12:30:12] &lt;Orv&gt; Jane_Curry: Works as expect here in FF 3.5.11/Linux.&#160; Screen flashes white, then black, then modeling dialog appears.</p><p>[16-Sep-2010 12:30:17] &lt;Orv&gt; er - as expected...</p><p>[16-Sep-2010 12:30:44] &lt;Jane_Curry&gt; What Op Sys?</p><p>[16-Sep-2010 12:32:09] &lt;Orv&gt; SUSE Linux Enterprise Desktop 11, SP1</p><p>[16-Sep-2010 12:32:19] &lt;Orv&gt; openSUSE, basically.</p><p>[16-Sep-2010 12:32:45] &lt;Jane_Curry&gt; ok - much the same let me see if I can get a ff 3.5.11 or later</p><p>[16-Sep-2010 12:33:59] &lt;Orv&gt; FF 4.0 is looking pretty good at this point in late beta</p><p>[16-Sep-2010 12:40:59] &lt;Parabola|Work&gt; i havent used firefox since chrome came out</p><p>[16-Sep-2010 12:41:15] &lt;Parabola|Work&gt; i like being able to leave my browser open overnight and not find it eating a gig of ram in the morning</p><p>[16-Sep-2010 12:41:43] &lt;Jane_Curry&gt; ok - tried FF 3.6 - the difference is...</p><p>[16-Sep-2010 12:41:57] &lt;Jane_Curry&gt; .. just the black screen - no white flash first!</p><p>[16-Sep-2010 12:42:15] &lt;Orv&gt; Same computer?&#160; Maybe it's time to clear browser cache?</p><p>[16-Sep-2010 12:42:24] &lt;Orv&gt; pop up blocker?</p><p>[16-Sep-2010 12:42:27] &lt;Orv&gt; adblock?</p><p>[16-Sep-2010 12:42:30] * Orv guesses...</p><p>[16-Sep-2010 12:47:48] &lt;suprsonic&gt; what distrib of zenoss is the easiest to upgrade between releases?</p><p>[16-Sep-2010 12:48:07] &lt;suprsonic&gt; I've been running src on FreeBSD and its like pulling teeth to upgrade.\</p><p>[16-Sep-2010 12:50:06] &lt;Orv&gt; suprsonic: Seems like the stack installers are pretty easy to upgrade. Even I can do it :-)</p><p>[16-Sep-2010 12:50:19] &lt;Orv&gt; And they're available for quite a few distros</p><p>[16-Sep-2010 12:50:30] &lt;Orv&gt; I'm running it on CentOS - no issues.</p><p>[16-Sep-2010 12:50:45] &lt;ericenns&gt; I'm also running on CentOS no issues</p><p>[16-Sep-2010 12:51:19] &lt;mray&gt; CentOS/RHEL/Ubuntu are the most popular and therefore, the most tested</p></div><!-- [DocumentBodyEnd:988621b1-7cf3-43f0-ba4b-29578b16da60] -->
+<!-- [DocumentBodyStart:988621b1-7cf3-43f0-ba4b-29578b16da60] --><div class="jive-rendered-content"><p>[16-Sep-2010 09:59:58] &lt;mloven&gt; JaneCurry:&#160; I think Avalon is the same as 3.5...&#160; can anyone back me up on that one?</p><p>[16-Sep-2010 10:00:19] &lt;klinstifen&gt; huslage: batteling my own upgrade issues right now, but i haven't run across that issue</p><p>[16-Sep-2010 10:00:30] &lt;cgibbons&gt; Avalon is the next major release, due in early 2011, which will be 3.5 or 3.1 depending upon what marketing decides</p><p>[16-Sep-2010 10:00:31] &lt;fragfutter&gt; cgibbons: would it be an option to say "if you want partitioning use mysql5.1 otherwise 5.0 is fine"? "Partitioning brings you better performance for &lt;insertfeature&gt;".</p><p>[16-Sep-2010 10:00:45] &lt;huslage&gt; ok. it seems that this issue isn't getting any love. i'm just gonna downgrade it and be done with it</p><p>[16-Sep-2010 10:01:13] &lt;mray&gt; Obviously cgibbons is already here, but jgartman is here to answer questions as well</p><p>[16-Sep-2010 10:01:33] &lt;huslage&gt; jgartman ?? ideas?</p><p>[16-Sep-2010 10:01:33] &lt;ashp&gt; I see you guys talking about mysql and once again I'm reminded of how much RHEL pisses me off.</p><p>[16-Sep-2010 10:01:41] &lt;huslage&gt; lol</p><p>[16-Sep-2010 10:01:45] &lt;ashp&gt; We're stuck with 5.0, not wanting to add yet more custom rpms, until RHEL6</p><p>[16-Sep-2010 10:01:52] &lt;ashp&gt; and even then it's going to take a while to upgrade all our boxes.</p><p>[16-Sep-2010 10:02:03] &lt;cgibbons&gt;&#160; i'm having the argument about 5.1 right now, it's a fun meeting :)</p><p>[16-Sep-2010 10:02:34] &lt;fragfutter&gt; ashp: thats what you get for having a stable target. Rolling targets have their own issues</p><p>[16-Sep-2010 10:02:36] &lt;ashp&gt; cgibbons: All I can say is that, depending on when 3.1/5 is due out a requirement for 5.1 would be a pain</p><p>[16-Sep-2010 10:02:46] &lt;cgibbons&gt; yeah</p><p>[16-Sep-2010 10:02:50] &lt;ashp&gt; cgibbons: until RHEL6 releases and redhat are being obnoxious about a release date</p><p>[16-Sep-2010 10:03:00] &lt;fragfutter&gt; and debian.</p><p>[16-Sep-2010 10:03:09] &lt;mray&gt; cgibbons: we do have access to some sort of RH partner beta mailing list</p><p>[16-Sep-2010 10:03:21] &lt;cgibbons&gt; how much lag is there for centos once rhel does a new release?</p><p>[16-Sep-2010 10:03:29] &lt;mray&gt; usually a month</p><p>[16-Sep-2010 10:03:34] &lt;LarsN&gt; cgibbons: usually 1-3 months</p><p>[16-Sep-2010 10:03:35] &lt;mray&gt; for point releases</p><p>[16-Sep-2010 10:03:41] &lt;Jane_Curry&gt; just tried zendevicedump on my 3.0.2 and it worked fine - what level are you at?</p><p>[16-Sep-2010 10:04:15] &lt;fragfutter&gt; cgibbons, mray: debian lenny is also stuck at 5.0</p><p>[16-Sep-2010 10:04:20] &lt;LarsN&gt; major releases are a bit slower cgibbons.</p><p>[16-Sep-2010 10:04:51] &lt;chachan&gt; Hi guys, I have a few python script that run as datasources. But, sometimes these scripts break out and send a "No output from plugin" (I use a nagios parser), so, I wonder if there is a way to verbose it a little more the command execution. Did I make myself clear enough?</p><p>[16-Sep-2010 10:05:57] &lt;mray&gt; chachan: could the script send it's own output to a log?</p><p>[16-Sep-2010 10:06:21] &lt;mray&gt; chachan: I don't think command data sources have access to zenoss' logs</p><p>[16-Sep-2010 10:06:35] &lt;mray&gt; chachan: but you could dump to /tmp/myscripts.log</p><p>[16-Sep-2010 10:06:53] &lt;fragfutter&gt; wrap your python script in a shell script, inside the shell script pipe all output through tee</p><p>[16-Sep-2010 10:09:28] &lt;chachan&gt; Ok, I forgot say something, that problem occurs somethings. It's not a frecuent problem. So, if I execute using zencommand or execute it by hand. It executes right</p><p>[16-Sep-2010 10:09:49] &lt;chachan&gt; fragfutter, I tried this. But, as I mentioned, I can't caught the error</p><p>[16-Sep-2010 10:10:32] &lt;chachan&gt; I also try with a watch wrapper, but it's complicate to watch for hours the screen looking for an error</p><p>[16-Sep-2010 10:10:34] &lt;chachan&gt; :-/</p><p>[16-Sep-2010 10:10:42] &lt;chachan&gt; tried*</p><p>[16-Sep-2010 10:12:27] &lt;fragfutter&gt; chachan: #!/bin/bash\n/path/to/script.py 2&gt;/tmp/debug_$$.log |tee /tmp/debug_$$.log\n[ $? ] || logger "script failed, check log /tmp/debug_$$.log"</p><p>[16-Sep-2010 10:12:30] &lt;chachan&gt; I also get "General error". I think that this is not a useful information :(</p><p>[16-Sep-2010 10:12:40] &lt;Jane_Curry&gt; is bigegor there????</p><p>[16-Sep-2010 10:13:09] &lt;fragfutter&gt; Jane_Curry: quit about 20 minutes ago</p><p>[16-Sep-2010 10:14:03] &lt;chachan&gt; fragfutter, :-o</p><p>[16-Sep-2010 10:14:09] &lt;Jane_Curry&gt; aaahh - thanks</p><p>[16-Sep-2010 10:14:28] &lt;chachan&gt; ok, that I can wrap it into a "watch"</p><p>[16-Sep-2010 10:14:32] &lt;chachan&gt; thx</p><p>[16-Sep-2010 10:14:58] &lt;Jane_Curry&gt; anyone else trying to get ZenPacks work in 3.x?</p><p>[16-Sep-2010 10:15:20] &lt;LarsN&gt; Jane_Curry: the ones that are Python 2.6, already work.</p><p>[16-Sep-2010 10:15:30] &lt;fragfutter&gt; chachan: one misstake || -&gt; &amp;&amp;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[16-Sep-2010 10:15:38] &lt;chachan&gt; ok</p><p>[16-Sep-2010 10:15:46] &lt;LarsN&gt; Jane_Curry: many of the zenpacks on the site have two versions to download.&#160; One is py2.4-foo.bar</p><p>[16-Sep-2010 10:15:55] &lt;LarsN&gt; the other py2.6 (which for Zenoss 3.x you want)</p><p>[16-Sep-2010 10:16:23] &lt;fragfutter&gt; LarsN: guess the question is more about porting one jane wrote not using one existing</p><p>[16-Sep-2010 10:16:31] &lt;Jane_Curry&gt; You can generally strip off the py2.x and the ZenPack works on the "other" Python release</p><p>[16-Sep-2010 10:16:31] &lt;LarsN&gt; fragfutter: ahhhh.</p><p>[16-Sep-2010 10:17:03] &lt;LarsN&gt; Jane_Curry, fragfutter: roger.&#160; Nevermind me.&#160; My best quality is.....&#160; I'm almost completely stupid. :)</p><p>[16-Sep-2010 10:17:05] &lt;Jane_Curry&gt; I am trying to get the groupreporting one to work</p><p>[16-Sep-2010 10:17:25] &lt;Jane_Curry&gt; it's pretty straight forward and worked fine on 2.5.2</p><p>[16-Sep-2010 10:17:42] &lt;Jane_Curry&gt; :)</p><p>[16-Sep-2010 10:17:58] &lt;Jane_Curry&gt; or was that :(</p><p>[16-Sep-2010 10:19:24] &lt;klinstifen&gt; trying to eggify a zip zenpack and i get this error: valueerror: not a registered directory</p><p>[16-Sep-2010 10:19:45] &lt;klinstifen&gt; any way to correct that or is it a non issue?</p><p>[16-Sep-2010 10:20:53] &lt;fragfutter&gt; cgibbons, mray: shouldn't zenoss 3.0.2 be faster? i have no chagne in system load (io, cpu) from 3.0.1 to 3.0.2</p><p>[16-Sep-2010 10:22:54] &lt;LarsN&gt; fragfutter: the interfaces tab improved dramatically from 3.0.1 for me.</p><p>[16-Sep-2010 10:23:07] &lt;LarsN&gt; fragfutter: I didn't expect to see any server load changes.</p><p>[16-Sep-2010 10:23:18] &lt;mray&gt; fragfutter: the caching patch for the infrastructure is included, so that page is faster</p><p>[16-Sep-2010 10:23:32] &lt;mray&gt; but the overall performance on the system is probably the same</p><p>[16-Sep-2010 10:23:34] &lt;fragfutter&gt; ah ok.</p><p>[16-Sep-2010 10:23:57] &lt;mray&gt; most of the performance stuff is in Subversion already, but isn't tested for 3.0.x</p><p>[16-Sep-2010 10:24:27] &lt;mray&gt; there is a thread about getting rrdcache working with 3.0 if you want to patch that in</p><p>[16-Sep-2010 10:24:29] &lt;LarsN&gt; mray: did that blog entry ever get published regarding RelStorage on 3.0.2</p><p>[16-Sep-2010 10:24:29] &lt;LarsN&gt; ?</p><p>[16-Sep-2010 10:24:32] &lt;klinstifen&gt; what are the .egg-link files?</p><p>[16-Sep-2010 10:24:49] &lt;LarsN&gt; or is that still up coming.</p><p>[16-Sep-2010 10:24:53] &lt;fragfutter&gt; klinstifen: look inside, you will figure it out ;)</p><p>[16-Sep-2010 10:25:04] &lt;fragfutter&gt; mray: no need, just curious</p><p>[16-Sep-2010 10:25:44] &lt;klinstifen&gt; fragfutter: yeah it is just the path to the folder...but what's the point of the file?</p><p>[16-Sep-2010 10:26:05] &lt;mray&gt; LarsN: I'll ping mrchippy about it</p><p>[16-Sep-2010 10:26:11] &lt;fragfutter&gt; so zenoss can find an egg without having it in it's own basket</p><p>[16-Sep-2010 10:27:00] &lt;LarsN&gt; mray: yet again, you're my hero!</p><p><span>[16-Sep-2010 10:29:31] &lt;klinstifen&gt; trying to follow </span><a class="jive-link-external-small" href="DOC-2372.html">docs/DOC-2372</a><span>, but i'm at a loss at step 3...where can i find the .egg file? eggifyzenpack doesnt seem to have created it</span></p><p>[16-Sep-2010 10:32:32] &lt;mray&gt; klinstifen: hmmm&#226;&#8364;&brvbar; with 3.0?</p><p>[16-Sep-2010 10:33:43] &lt;mray&gt; can you still load .zip zenpacks into 3.0?</p><p>[16-Sep-2010 10:34:00] &lt;mray&gt; I mean, we deprecated it but I doubt anyone disabled it</p><p>[16-Sep-2010 10:34:54] &lt;klinstifen&gt; mray, no 2.5.2. i upgraded to 3.0.1 without heading any of those "zip zenpacks wont work warnings" and lost my custom zip zenpacks.&#160; so i am on a test machine trying to eggify everything</p><p>[16-Sep-2010 10:35:15] &lt;klinstifen&gt; and that machine is running 2.5.2</p><p>[16-Sep-2010 10:35:48] &lt;mray&gt; klinstifen: it's been awhile, but doesn't eggifyzenpack update the zenpack in place, so you can then export it from the zenpacks list?</p><p>[16-Sep-2010 10:37:42] &lt;Parabola|Work&gt; good morning</p><p>[16-Sep-2010 10:37:57] &lt;klinstifen&gt; mray, err umm i dunno.&#160; are there any other docs on this besides the link i posted?</p><p>[16-Sep-2010 10:39:03] &lt;mray&gt; not that I'm aware of</p><p>[16-Sep-2010 10:39:08] &lt;mray&gt; perhaps eggifyzenpack --help?</p><p>[16-Sep-2010 10:39:24] &lt;mray&gt; I wrote that doc because there wasn't anything useful</p><p>[16-Sep-2010 10:39:34] &lt;klinstifen&gt; gotcha</p><p>[16-Sep-2010 10:39:45] &lt;klinstifen&gt; i am exporting right now...i think i was just missing the obvious</p><p>[16-Sep-2010 10:40:26] &lt;ericenns&gt; rmatte:</p><p>[16-Sep-2010 10:40:55] &lt;ericenns&gt; rmatte: Do you have a test 2.5.2 box?</p><p>[16-Sep-2010 10:48:59] &lt;st3v3o&gt; has anyone upgraded to 3.0.2 and broke AD/LDAP auth ?</p><p>[16-Sep-2010 10:49:30] &lt;st3v3o&gt; In the zope database I see that that the LDAPMultiPlugins product is broken</p><p>[16-Sep-2010 10:49:54] &lt;SEJeff_work&gt; st3v3o, core or enterprise?</p><p>[16-Sep-2010 10:49:59] &lt;SEJeff_work&gt; It works fine in enterprise</p><p>[16-Sep-2010 10:49:59] &lt;st3v3o&gt; core</p><p>[16-Sep-2010 10:50:03] &lt;SEJeff_work&gt; Hmmm</p><p>[16-Sep-2010 10:50:57] &lt;st3v3o&gt; yeah put a damper on my upgrade</p><p>[16-Sep-2010 10:55:50] &lt;Parabola|Work&gt; hey guys i know this isnt an ssh or linux support channel, but anyone mind sparing a minute to help me with SSH preshared keys</p><p>[16-Sep-2010 10:56:18] &lt;Parabola|Work&gt; i've got an article up that rmatte had linked me to the other day, my question is i already tried this once before, is there a good way to "wipe" out any of the keys i may have created testing?</p><p>[16-Sep-2010 10:57:28] &lt;jgartman&gt; What do you mean 'wipe out'? You can remove any ssh keys you're not using in your ~/.ssh directory if that's what you're asking.</p><p>[16-Sep-2010 10:57:50] &lt;st3v3o&gt; you can delete your .ssh file and start a new &#226;&#8364;&brvbar;or you can edit it to remove the host that connected</p><p>[16-Sep-2010 10:58:20] &lt;Jane_Curry&gt; st3v3o - yup - mine broke from 2.5.2 to 3.0.1</p><p><span>[16-Sep-2010 10:58:20] &lt;LarsN&gt; have any of you tried thise Zenoss/Mindtouch mashup?&#160; </span><a class="jive-link-external-small" href="DOC-5860.html">docs/DOC-5860</a></p><p>[16-Sep-2010 10:58:48] &lt;st3v3o&gt; Jane_Curry:&#160; Did you have a work around &#226;&#8364;&brvbar;or still waiting on a fix ?</p><p>[16-Sep-2010 10:58:49] &lt;mray&gt; LarsN: I have :)</p><p>[16-Sep-2010 10:59:36] &lt;mray&gt; haven't looked into it lately</p><p>[16-Sep-2010 10:59:40] &lt;LarsN&gt; mray: we're looking at storing extra data inside Zenoss, such as Terminal Server Ports, PDU/Outlet information.&#160; And our master IP lists.</p><p>[16-Sep-2010 10:59:46] &lt;Jane_Curry&gt; I fixed it by basically following the "How to use LDAP for Authentication" doc</p><p>[16-Sep-2010 10:59:52] &lt;st3v3o&gt; ok were are event transforms hiding in 3.0.2 :)</p><p>[16-Sep-2010 11:00:25] &lt;LarsN&gt; things our developers typically need access to.&#160; I suspect the Wiki is going to be faster, and have a better search function than Zenoss does.&#160; And if it works, I don't have to give all the devs access to our monitoring server.</p><p>[16-Sep-2010 11:00:34] &lt;LarsN&gt; I'm going to have to try it out.&#160; :)</p><p>[16-Sep-2010 11:00:52] &lt;mray&gt; LarsN: the mashup was mostly intended as a proof of concept, a couple of people have used it</p><p>[16-Sep-2010 11:01:09] &lt;ericenns&gt; anyone know where I can find information about factory_type_information</p><p>[16-Sep-2010 11:01:13] &lt;Jane_Curry&gt; You probably need tto recompile the python-ldap stuff</p><p>[16-Sep-2010 11:01:15] &lt;st3v3o&gt; Jane_curry:&#160; did yours look like this from the zope interface</p><p><span>[16-Sep-2010 11:01:15] &lt;st3v3o&gt; </span><a class="jive-link-external-small" href="https://zen.arin.net/zport/acl_users/ActiveDirectory/manage_workspace">https://zen.arin.net/zport/acl_users/ActiveDirectory/manage_workspace</a></p><p>[16-Sep-2010 11:01:16] &lt;mray&gt; rather than push more stuff into Zenoss, you just keep it in a wiki and link to it via zlinks</p><p>[16-Sep-2010 11:01:48] &lt;Jane_Curry&gt; Sorry - can't reach that link..</p><p>[16-Sep-2010 11:02:13] &lt;st3v3o&gt; wasn't ment to be a link ..sorry..that is what shows on the screen</p><p><span>[16-Sep-2010 11:02:16] &lt;st3v3o&gt; </span><a class="jive-link-external-small" href="DOC-2510.html">docs/DOC-2510</a></p><p>[16-Sep-2010 11:02:27] &lt;st3v3o&gt; This is the doc that I followed to set it up the first time</p><p>[16-Sep-2010 11:03:07] &lt;mray&gt; st3v3o: event transforms are under Events-&gt;Event Classes-&gt;Gear menu-&gt;Transform</p><p>[16-Sep-2010 11:03:10] &lt;st3v3o&gt; did you remove the LDAPUserFolder and LDAPMultiPlugin files and then start and readd them</p><p>[16-Sep-2010 11:04:11] &lt;Parabola|Work&gt; alright, this clean zenoss 3.0.2 install has been at 100% going on twenty minutes now</p><p>[16-Sep-2010 11:04:22] &lt;Parabola|Work&gt; i know that step takes a little bit of time, but 20min?</p><p>[16-Sep-2010 11:04:52] &lt;mray&gt; Parabola: platform/installer?</p><p>[16-Sep-2010 11:05:07] &lt;Jane_Curry&gt; I found that they had gone from the Products directory</p><p>[16-Sep-2010 11:05:21] &lt;Parabola|Work&gt; Stack installer (.bin) ubuntu 10.04 LTS 32bit</p><p>[16-Sep-2010 11:05:25] &lt;Parabola|Work&gt; clean install of OS as well</p><p>[16-Sep-2010 11:05:39] &lt;Parabola|Work&gt; its on a pentium d with 1 or 2gb of ram</p><p>[16-Sep-2010 11:05:45] &lt;mray&gt; weird, that's a very common target</p><p>[16-Sep-2010 11:05:56] &lt;Jane_Curry&gt; Bah!!&#160; Having upgraded to 3.0.2 yesterday, I find my LDAP folders have gone AGAIN from Products</p><p>[16-Sep-2010 11:06:10] &lt;Parabola|Work&gt; mray,&#160; ctrl+C ?</p><p>[16-Sep-2010 11:06:11] &lt;Parabola|Work&gt; lol</p><p>[16-Sep-2010 11:06:18] &lt;Parabola|Work&gt; or is there a log i can change TTys and check out</p><p>[16-Sep-2010 11:08:27] &lt;st3v3o&gt; mray: thanks</p><p>[16-Sep-2010 11:09:51] &lt;mray&gt; Parabola: I don't have a stack installer handy</p><p>[16-Sep-2010 11:10:10] &lt;mray&gt; not sure where the log is for the installer</p><p><span>[16-Sep-2010 11:10:47] &lt;Jane_Curry&gt; re LDAP, goto </span><a class="jive-link-external-small" href="http://">http://</a><span>&lt;your zenoss&gt;:8080/zport/manage</span></p><p>[16-Sep-2010 11:11:14] &lt;Jane_Curry&gt; and down acl_users - you will see broken LDAP objects - remove these</p><p>[16-Sep-2010 11:12:24] &lt;st3v3o&gt; ok its been removed</p><p>[16-Sep-2010 11:13:20] &lt;st3v3o&gt; but I don't see ActiveDirectory or LDAP Plugin under Add &#226;&#8364;&brvbar;.</p><p>[16-Sep-2010 11:13:57] &lt;st3v3o&gt; I do however see the folders $ZENHOME/Products/LDAPMultiPlugin and LDAPUserFolder</p><p>[16-Sep-2010 11:17:15] &lt;Jane_Curry&gt; I think you will need to recompile the python-ldap stuff</p><p>[16-Sep-2010 11:17:24] &lt;st3v3o&gt; I did it via RPM</p><p>[16-Sep-2010 11:17:45] &lt;st3v3o&gt; I"m doing yum update now to verify I'm at latest version</p><p>[16-Sep-2010 11:19:06] &lt;Parabola|Work&gt; it finsihed mray</p><p>[16-Sep-2010 11:19:08] &lt;Parabola|Work&gt; thanks for your help</p><p>[16-Sep-2010 11:19:16] &lt;Jane_Curry&gt; I keep a directory with all the source for python-ldap plus setup.py</p><p>[16-Sep-2010 11:19:23] &lt;Jane_Curry&gt; I simply rerun:</p><p>[16-Sep-2010 11:19:24] &lt;st3v3o&gt; yep python-ldap is up to date</p><p>[16-Sep-2010 11:19:36] &lt;Jane_Curry&gt; python setup.py install</p><p>[16-Sep-2010 11:19:56] &lt;st3v3o&gt; what installer did you use for zenoss?</p><p>[16-Sep-2010 11:20:04] &lt;Jane_Curry&gt; and this puts compiled code into the correct Zenoss Python directories</p><p>[16-Sep-2010 11:20:20] &lt;Parabola|Work&gt; although it wont launch</p><p>[16-Sep-2010 11:20:43] &lt;st3v3o&gt; setup.py is the zenoss install script I assume ?</p><p>[16-Sep-2010 11:20:51] &lt;Jane_Curry&gt; I believe so</p><p>[16-Sep-2010 11:21:04] &lt;Jane_Curry&gt; YOU ALSO NEED TO RESTART zenoss</p><p>[16-Sep-2010 11:21:24] &lt;st3v3o&gt; oh I've done that multiple times :)</p><p>[16-Sep-2010 11:25:02] mrayzenoss is now known as mray</p><p>[16-Sep-2010 11:25:09] &lt;Jane_Curry&gt; I've just redone the process myself after the 3.0.2 upgrade and it seems to have worked again</p><p>[16-Sep-2010 11:26:53] &lt;Jane_Curry&gt; The process has put python_ldap-2.3.10-py2.6-linux-i686.egg into</p><p><span>[16-Sep-2010 11:27:36] &lt;st3v3o&gt; </span><a class="jive-link-external-small" href="http://tinypic.com/r/2cx9855/7">http://tinypic.com/r/2cx9855/7</a></p><p>[16-Sep-2010 11:27:38] &lt;Jane_Curry&gt; the directory /usr/local/zenoss/python/lib/python2.6/site-packages</p><p>[16-Sep-2010 11:27:47] &lt;st3v3o&gt; you have more stuff in the drop down correct</p><p>[16-Sep-2010 11:27:53] &lt;st3v3o&gt; or am I lookin in the wrong place</p><p>[16-Sep-2010 11:30:11] &lt;Jane_Curry&gt; soory dont seem to have the plugin to see your tinypic - you do need to see the LDAP Multi Plugin on the dropdown from acl_users</p><p>[16-Sep-2010 11:30:49] &lt;st3v3o&gt; yeah I got nothing :?</p><p>[16-Sep-2010 11:32:47] &lt;Parabola|Work&gt; woo</p><p>[16-Sep-2010 11:32:50] &lt;Parabola|Work&gt; my SSH keys work!</p><p>[16-Sep-2010 11:33:06] &lt;Parabola|Work&gt; i do have a question, when is etup the remote collector, in this case 22 is not the port being used</p><p>[16-Sep-2010 11:33:10] &lt;Parabola|Work&gt; will i be able to change that</p><p>[16-Sep-2010 11:34:22] &lt;st3v3o&gt; hmm&#226;&#8364;&brvbar;well my mutli-graph reports are bunk also</p><p>[16-Sep-2010 11:34:40] &lt;st3v3o&gt; this upgrade was no bueno</p><p>[16-Sep-2010 11:34:41] &lt;Jane_Curry&gt; Different topic - changing thresholds in 3.0.2....</p><p>[16-Sep-2010 11:34:44] &lt;Parabola|Work&gt; :( it doesnt work</p><p>[16-Sep-2010 11:34:56] &lt;Parabola|Work&gt; i can ssh as root with no password, but not as the user "zenoss"</p><p>[16-Sep-2010 11:35:36] &lt;Jane_Curry&gt; I have made a local copy of the filesystem template for one machine and changed the threshold value and added a second threshold</p><p>[16-Sep-2010 11:35:54] &lt;Jane_Curry&gt; I see the new thresholds on the / filesystem</p><p>[16-Sep-2010 11:36:15] &lt;Jane_Curry&gt; but the other 3 filesystem graphs still have the old, single threshold</p><p>[16-Sep-2010 11:36:24] &lt;Jane_Curry&gt; Have stopped and restarted zenoss entirely</p><p>[16-Sep-2010 11:39:27] &lt;Parabola|Work&gt; oh my god</p><p><span>[16-Sep-2010 11:40:38] &lt;Parabola|Work&gt; i'm following this guide: </span><a class="jive-link-external-small" href="http://community.spiceworks.com/education/projects/Passwordless_SSH_Using_Shared_Keys">http://community.spiceworks.com/education/projects/Passwordless_SSH_Using_Shared_Keys</a><span> and it worked fine for root, but im unable to do this as user "zenoss"</span></p><p>[16-Sep-2010 11:40:56] &lt;Parabola|Work&gt; do i need to create the keys as root, then copy them to the users directories, as root?</p><p><span>[16-Sep-2010 11:41:48] &lt;st3v3o&gt; </span><a class="jive-link-external-small" href="http://wiki.bambling.org/doku.php?id=linux:ssh:generate_ssh_keys">http://wiki.bambling.org/doku.php?id=linux:ssh:generate_ssh_keys</a></p><p>[16-Sep-2010 11:42:00] &lt;st3v3o&gt; generate the keys as the user you want need them for</p><p>[16-Sep-2010 11:42:06] &lt;jgartman&gt; The key for zenoss should be added to the zenoss user's authorized_keys file, somewhere like: /home/zenoss/.ssh/authorized_keys</p><p>[16-Sep-2010 11:42:17] &lt;Parabola|Work&gt; st3v3o,&#160; and that doesnt work as zenoss</p><p>[16-Sep-2010 11:42:19] &lt;Parabola|Work&gt; it throws up errors</p><p>[16-Sep-2010 11:42:22] &lt;jgartman&gt; when you try to shell in as zenoss, it will check that file</p><p>[16-Sep-2010 11:42:31] &lt;Parabola|Work&gt; /usr/bin/ssh: /usr/local/zenoss/common/lib/libcrypto.so.0.9.8: no version information available (required by /usr/bin/ssh)</p><p>[16-Sep-2010 11:42:31] &lt;Parabola|Work&gt; lost connection</p><p>[16-Sep-2010 11:42:32] &lt;st3v3o&gt; what is the error ?</p><p>[16-Sep-2010 11:42:41] &lt;Parabola|Work&gt; worked fine as root</p><p>[16-Sep-2010 11:44:15] &lt;jgartman&gt; make sure /home/zenoss/.ssh etc have permissions and ownership setup correctly as well.</p><p>[16-Sep-2010 11:45:10] &lt;Parabola|Work&gt; i'll just 777 it</p><p>[16-Sep-2010 11:45:22] &lt;jgartman&gt; :[</p><p>[16-Sep-2010 11:45:39] &lt;Parabola|Work&gt; you act like i have any fking clue what the default perms should be on that folder</p><p>[16-Sep-2010 11:45:41] &lt;Parabola|Work&gt; lol</p><p>[16-Sep-2010 11:46:17] &lt;Parabola|Work&gt; im still geting the error</p><p>[16-Sep-2010 11:46:29] &lt;Parabola|Work&gt; i googled it</p><p>[16-Sep-2010 11:46:30] &lt;Jane_Curry&gt; I think you will find that 777 WONT work - try 600</p><p>[16-Sep-2010 11:47:01] &lt;Parabola|Work&gt; i got one result, its for the zenpack im using</p><p>[16-Sep-2010 11:47:18] &lt;jgartman&gt; 777 will be too open, 600 or 400 would be better like Jane said.</p><p>[16-Sep-2010 11:47:22] &lt;Parabola|Work&gt; its obviously not a perms error jesus</p><p>[16-Sep-2010 11:47:30] &lt;Parabola|Work&gt; read it, it says nothing about denied</p><p>[16-Sep-2010 11:47:39] &lt;Parabola|Work&gt; its at 600, it works as well as it did at 777</p><p>[16-Sep-2010 11:48:01] &lt;mray&gt; is the ssh key for the 'zenoss' user on the remote machine?</p><p>[16-Sep-2010 11:48:10] &lt;mray&gt; you said it worked as root</p><p>[16-Sep-2010 11:48:51] &lt;Parabola|Work&gt; i cant copy it</p><p>[16-Sep-2010 11:49:03] &lt;Parabola|Work&gt; i generated one as root, scp'ed it over as root, everything worked</p><p>[16-Sep-2010 11:49:08] &lt;Parabola|Work&gt; i generated one as zenoss, and cannot move it</p><p>[16-Sep-2010 11:49:26] &lt;Parabola|Work&gt; /usr/bin/ssh: /usr/local/zenoss/common/lib/libcrypto.so.0.9.8: no version information available (required by /usr/bin/ssh)</p><p>[16-Sep-2010 11:49:56] &lt;Parabola|Work&gt; the result on google was the same zenpack i'm trying to use, but he never mentioned a fix, it was a comment</p><p>[16-Sep-2010 11:54:28] &lt;jgartman&gt; If you can't copy the file, could you manually add it?</p><p>[16-Sep-2010 11:54:55] &lt;Parabola|Work&gt; trying another way</p><p>[16-Sep-2010 11:55:09] &lt;Parabola|Work&gt; logged in as root, moving the key to zenoss folder</p><p>[16-Sep-2010 11:55:12] &lt;Parabola|Work&gt; then, chang perms</p><p>[16-Sep-2010 11:55:29] &lt;mray&gt; perms and ownership?</p><p>[16-Sep-2010 11:55:37] &lt;Parabola|Work&gt; yes</p><p>[16-Sep-2010 11:55:48] &lt;Parabola|Work&gt; its not working though, please hold :) *plays hold music*</p><p>[16-Sep-2010 11:59:41] &lt;Parabola|Work&gt; well i found half my problem</p><p>[16-Sep-2010 11:59:48] &lt;Parabola|Work&gt; when i generate the keys, its not creating a public key file</p><p>[16-Sep-2010 12:00:19] &lt;Parabola|Work&gt; ooh i have a "?.pub"</p><p>[16-Sep-2010 12:00:40] &lt;Parabola|Work&gt; that can't be good!</p><p>[16-Sep-2010 12:05:18] &lt;Jane_Curry&gt; On 3.0.2, can anyone else see output from a remodel on the GUI - I just get a black screen - Firefox 3.5</p><p>[16-Sep-2010 12:09:27] &lt;Parabola|Work&gt; FML</p><p>[16-Sep-2010 12:09:35] &lt;Parabola|Work&gt; i manually copied the file over, and it still doesnt work</p><p>[16-Sep-2010 12:10:23] &lt;jgartman&gt; are you updating authorized_keys as well?</p><p>[16-Sep-2010 12:10:35] &lt;Parabola|Work&gt; I replaced the whole damn file</p><p>[16-Sep-2010 12:10:43] &lt;Orv&gt; Jane_Curry: Works OK here - output shows as expected.&#160; FF 4.0b6, though...</p><p>[16-Sep-2010 12:11:14] &lt;Orv&gt; Check the log - see if the remodel actually ran??</p><p>[16-Sep-2010 12:11:55] &lt;jgartman&gt; Parabola|Work: have you looked at the ssh logs or tried ssh -vvv?</p><p>[16-Sep-2010 12:12:20] &lt;jgartman&gt; on your remote box try: ssh -vvv zenoss@box, it will dump a bunch of stuff to the screen that might help.</p><p>[16-Sep-2010 12:12:51] &lt;jgartman&gt; on your zenoss box you can tail /var/log/secure and see what it says that might be helpful.</p><p>[16-Sep-2010 12:13:45] &lt;ballison&gt; i added a HTTP monitor in the gui... how long before i can test it with zencommand ?</p><p>[16-Sep-2010 12:14:24] &lt;ballison&gt; I just made a httpmonitor template and bound the template.. then went to terminal to test the http monitor with zencommand and it fails to be checking anything.</p><p>[16-Sep-2010 12:14:34] &lt;Parabola|Work&gt; jgartman, i scp'ed the file over as root to another folder, renamed it</p><p>[16-Sep-2010 12:14:35] &lt;Parabola|Work&gt; moved it</p><p>[16-Sep-2010 12:14:48] &lt;Parabola|Work&gt; i will check thoes, thanks</p><p>[16-Sep-2010 12:16:33] &lt;Jane_Curry&gt; Orv - have tried with a Firefox 3.5 on Linux and 3.5.11 on Win - pretty sure the command runs - the black screen flashes white and then goes black</p><p>[16-Sep-2010 12:16:47] &lt;Jane_Curry&gt; .. and stays black</p><p>[16-Sep-2010 12:22:01] &lt;Jane_Curry&gt;&#160; - just checked Z2.log - the modeler command is sent</p><p>[16-Sep-2010 12:22:17] &lt;Jane_Curry&gt; anyone got this working on a Firefox 3.x???</p><p>[16-Sep-2010 12:23:53] &lt;Parabola|Work&gt; i tried creating a dsa key instead of rsa</p><p>[16-Sep-2010 12:24:07] &lt;Parabola|Work&gt; for whatever reason ,when i export one as the zenoss user the pub key is named "?.pub"</p><p>[16-Sep-2010 12:28:13] &lt;Orv&gt; Jane_Curry: Let me try that for you...</p><p>[16-Sep-2010 12:29:45] &lt;Jane_Curry&gt; Much appreciated..</p><p>[16-Sep-2010 12:30:12] &lt;Orv&gt; Jane_Curry: Works as expect here in FF 3.5.11/Linux.&#160; Screen flashes white, then black, then modeling dialog appears.</p><p>[16-Sep-2010 12:30:17] &lt;Orv&gt; er - as expected...</p><p>[16-Sep-2010 12:30:44] &lt;Jane_Curry&gt; What Op Sys?</p><p>[16-Sep-2010 12:32:09] &lt;Orv&gt; SUSE Linux Enterprise Desktop 11, SP1</p><p>[16-Sep-2010 12:32:19] &lt;Orv&gt; openSUSE, basically.</p><p>[16-Sep-2010 12:32:45] &lt;Jane_Curry&gt; ok - much the same let me see if I can get a ff 3.5.11 or later</p><p>[16-Sep-2010 12:33:59] &lt;Orv&gt; FF 4.0 is looking pretty good at this point in late beta</p><p>[16-Sep-2010 12:40:59] &lt;Parabola|Work&gt; i havent used firefox since chrome came out</p><p>[16-Sep-2010 12:41:15] &lt;Parabola|Work&gt; i like being able to leave my browser open overnight and not find it eating a gig of ram in the morning</p><p>[16-Sep-2010 12:41:43] &lt;Jane_Curry&gt; ok - tried FF 3.6 - the difference is...</p><p>[16-Sep-2010 12:41:57] &lt;Jane_Curry&gt; .. just the black screen - no white flash first!</p><p>[16-Sep-2010 12:42:15] &lt;Orv&gt; Same computer?&#160; Maybe it's time to clear browser cache?</p><p>[16-Sep-2010 12:42:24] &lt;Orv&gt; pop up blocker?</p><p>[16-Sep-2010 12:42:27] &lt;Orv&gt; adblock?</p><p>[16-Sep-2010 12:42:30] * Orv guesses...</p><p>[16-Sep-2010 12:47:48] &lt;suprsonic&gt; what distrib of zenoss is the easiest to upgrade between releases?</p><p>[16-Sep-2010 12:48:07] &lt;suprsonic&gt; I've been running src on FreeBSD and its like pulling teeth to upgrade.\</p><p>[16-Sep-2010 12:50:06] &lt;Orv&gt; suprsonic: Seems like the stack installers are pretty easy to upgrade. Even I can do it :-)</p><p>[16-Sep-2010 12:50:19] &lt;Orv&gt; And they're available for quite a few distros</p><p>[16-Sep-2010 12:50:30] &lt;Orv&gt; I'm running it on CentOS - no issues.</p><p>[16-Sep-2010 12:50:45] &lt;ericenns&gt; I'm also running on CentOS no issues</p><p>[16-Sep-2010 12:51:19] &lt;mray&gt; CentOS/RHEL/Ubuntu are the most popular and therefore, the most tested</p></div><!-- [DocumentBodyEnd:988621b1-7cf3-43f0-ba4b-29578b16da60] -->
 
 <!-- BEGIN attachments -->
 <!-- END attachments -->
@@ -1233,7 +782,7 @@ View print preview
                     </li>
         </ul>
         <div class="jive-sidebar-viewall">
-            <a href="http://community.zenoss.org/people/mray" class="font-color-meta j-link-viewall"><strong>View Matt Ray's profile</strong></a>
+            <a href="people/mray" class="font-color-meta j-link-viewall"><strong>View Matt Ray's profile</strong></a>
         </div>
     </div>
 </div>
@@ -1290,11 +839,11 @@ View print preview
         Community
        <ul class="sitemap">
         <li><a href="../index.jspa.html" title="Home">Home</a></li>
-           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
-           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
-           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
-           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
-           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
            <li><a href="../people.1.html" title="Membership">Membership</a></li>
        </ul>
      </td>
@@ -1372,157 +921,21 @@ View print preview
 
  <!-- BEGIN SCRIPTS --> 
 
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
-    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
-
-   <!-- JQUERY FUNCTIONS -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    $j(document).ready(function(){
-        
-        $j('.jive-sidebar').each(function() {
-            var cls = $j(this).attr('class');
-            if(cls == 'jive-sidebar') {
-                $j(this).addClass('zenoss-sidebar');
-            }
-        });
-        
-        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
-        // All links in main menu div
-        var menu_links = $j('ul[id=navlist] a');
-        // On mouse hover
-        /*menu_links.hover(
-                // In: Store and remove title
-                function() {  
-                        old_title = $j(this).attr('title');      
-                        $j(this).attr('title',''); 
-                },
-                // Out: Replace title
-                function() {  
-                        $j(this).attr('title', old_title);  
-                }  
-        );*/
-        
-        
-        // ANIMATE HOVER STATES FOR TOP NAVIGATION
-        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
-    
-        $j.each(navnum, function(index, item) {
-            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
-              var $span = $j('> span.hover', this).css('opacity', 0);
-                  $j(this).hover(function () {
-                    $span.stop().fadeTo(200, 1);
-                  }, function () {
-                    $span.stop().fadeTo(0, 0);
-                  });
-            });
-        });
-        // END HOVER STATES
-
-        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
-    
-    });
-    //--><!]]></script>
    <!-- END -->
 
     <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
-    <script type="text/javascript"><!--//--><![CDATA[//><!--
-    sfHover = function() {
-        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
-        for (var i=0; i<sfEls.length; i++) {
-            sfEls[i].onmouseover=function() {
-                this.className+=" sfhover";
-            }
-            sfEls[i].onmouseout=function() {
-                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-            }
-        }
-    }
-    if (window.attachEvent) window.attachEvent("onload", sfHover);
-    //--><!]]></script>
    <!-- END DROP DOWN -->       
 
    <!-- TWITTER SCRIPTS -->
-   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
-   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
 
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
-
-<!-- END SCRIPTS -->
-    </div>
-
-
-<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
-	<div class="jive-tooltip2-mid j-mini-modal">
-		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
-	</div>
-<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
-
-    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-70208-7']);
-
-  // To allow cross-domain tracking
-  _gaq.push(['_setDomainName', 'none']);
-  _gaq.push(['_setAllowLinker', true]);
-
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 <!-- END GOOGLE ANALYTICS CODE -->
 
 <!-- Pardot tracking code, async version -->
-<script type="text/javascript">
-	piAId = '4432';
-	piCId = '1601';
-	
-	(function() {
-		function async_load(){
-			var s = document.createElement('script'); s.type = 'text/javascript';
-			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-		}
-		if(window.attachEvent) { window.attachEvent('onload', async_load); }
-		else { window.addEventListener('load', async_load, false); }
-	})();
-</script>
 <!-- END Pardot tracking code, async version -->
 
-<script type="text/javascript">
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
-    "/spotlight-search.jspa", containerType, containerID);
-
-
-</script>
 
 
 
-</body>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
 </html>
 

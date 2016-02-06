@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Event Transforms : Find event classes with transforms : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-2555#comments</link>
+    <description>Comments on : Find event classes with transforms</description>
+    <language>en</language>
+    <pubDate>Mon, 15 Mar 2010 16:35:03 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2010-03-15T16:35:03Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Find event classes with transforms</title>
+      <link>http://community.zenoss.org/docs/DOC-2555#comments-1819</link>
+      <description>&lt;!-- [DocumentBodyStart:8d02a8ae-2011-4e7b-9fa2-f36754a3a622] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I am looking to inspect hundreds of mapping transforms for specific text. Extending Noel's solution above:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;pre class="doctest-block"&gt;&lt;p&gt;&amp;#160;&amp;#160; for ec in dmd.Events.getSubOrganizers():&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; if( ec.transform and ( ec.transform.find( 'TEXT-TO-FIND' ) &amp;gt;=0 ) ):&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; print ec.getOrganizerName()&lt;/p&gt;&lt;/pre&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This is great for finding forgotten transforms defined on Event Classes, but what about transforms defined in Event Class Mappings? In zendmd, you can inspect a single mapping transform directly at (e.g.):&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;pre class="doctest-block"&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dmd.Events.Event.Class.Path.instances.mappingName.transform&lt;/p&gt;&lt;/pre&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;but I have been playing with zendmd for a while and I am stuck on how to iterate down this far and check ALL mappings for ALL event classes.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I'm probably missing something that is obvious to a Python guru (which I am not) and I am guessing that I am working a problem that has been solved already. Does anyone in the community have a code fragment that can do what I am trying to do?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks,&lt;/p&gt;&lt;p&gt;--Mark&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8d02a8ae-2011-4e7b-9fa2-f36754a3a622] --&gt;</description>
+      <pubDate>Mon, 15 Mar 2010 16:35:03 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2555#comments-1819</guid>
+      <dc:date>2010-03-15T16:35:03Z</dc:date>
+      <clearspace:dateToText>3 years, 12 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Find event classes with transforms</title>
+      <link>http://community.zenoss.org/docs/DOC-2555#comments-1823</link>
+      <description>&lt;!-- [DocumentBodyStart:58273b2f-d3c0-4782-9d65-536879c0a471] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Persistence pays off, I figured this out:&lt;/p&gt;&lt;pre class="doctest-block"&gt;&lt;p&gt;#&lt;br/&gt;# Print all event class mappings (not event classes) that have transforms with specific text in them:&lt;br/&gt;#&lt;br/&gt;for ec in dmd.Events.getSubEventClasses():&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; for mapping in ec.instances():&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; if mapping.transform and mapping.transform.find('TEXT-TO-FIND')&amp;gt;=0:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; print mapping.absolute_url_path()&lt;/p&gt;&lt;/pre&gt;&lt;p&gt;--Mark S&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:58273b2f-d3c0-4782-9d65-536879c0a471] --&gt;</description>
+      <pubDate>Wed, 17 Mar 2010 19:50:58 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2555#comments-1823</guid>
+      <dc:date>2010-03-17T19:50:58Z</dc:date>
+      <clearspace:dateToText>3 years, 12 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

@@ -1,0 +1,983 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : Oracle Database Monitor : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-10244#comments</link>
+    <description>Comments on : Oracle Database Monitor</description>
+    <language>en</language>
+    <pubDate>Fri, 11 Mar 2011 09:34:39 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2011-03-11T09:34:39Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-3613</link>
+      <description>&lt;!-- [DocumentBodyStart:d39d66ad-4cad-4bc2-9c31-576aa30796fd] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Excellent work!&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The folloging grants for the zenoss db user are necessary:&lt;/p&gt;&lt;p&gt;grant select on v_$database to zenoss;&lt;br/&gt;grant select on dba_tablespaces to zenoss;&lt;br/&gt;grant select on dba_data_files to zenoss;&lt;br/&gt;grant select on v_$sysmetric to zenoss;&lt;br/&gt;grant select on dba_free_space to zenoss;&lt;br/&gt;grant select on v_$session to zenoss;&lt;br/&gt;grant select on dba_objects to zenoss;&lt;br/&gt;grant select on dba_segments to zenoss;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;In the sizeUsed data source the sql statement is wrong. To get the value of sizeUsed in blocks it's necessary to query dba_segments and not dba_free_space.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d39d66ad-4cad-4bc2-9c31-576aa30796fd] --&gt;</description>
+      <pubDate>Fri, 11 Mar 2011 09:34:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-3613</guid>
+      <dc:date>2011-03-11T09:34:39Z</dc:date>
+      <clearspace:dateToText>3 years, 3 days ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-3637</link>
+      <description>&lt;!-- [DocumentBodyStart:46bcbaa1-6cdb-4833-9fed-2c151a91b6ba] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi hune,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks for pointing that out, i've fixed sql statement in my Git repository.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Egor&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:46bcbaa1-6cdb-4833-9fed-2c151a91b6ba] --&gt;</description>
+      <pubDate>Mon, 14 Mar 2011 20:27:48 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-3637</guid>
+      <dc:date>2011-03-14T20:27:48Z</dc:date>
+      <clearspace:dateToText>3 years, 6 hours ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-3640</link>
+      <description>&lt;!-- [DocumentBodyStart:3c474eea-0414-4883-9936-546ee999a6e4] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks Egor!&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Would it be possible to add a threshold for the tablespace usage? I've tried to create one by myself but sadly couldn't get it to work. To get no false alarms because of tablespaces with auto-extension enabled an additional data point maxbytes is necessary:&lt;/p&gt;&lt;p&gt;select tablespace_name, sum(decode(autoextensible, 'YES', maxbytes, 'NO', bytes)) maxbytes from dba_data_files group by tablespace_name;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3c474eea-0414-4883-9936-546ee999a6e4] --&gt;</description>
+      <pubDate>Tue, 15 Mar 2011 07:45:01 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-3640</guid>
+      <dc:date>2011-03-15T07:45:01Z</dc:date>
+      <clearspace:dateToText>2 years, 12 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-3701</link>
+      <description>&lt;!-- [DocumentBodyStart:8f59d7b2-182c-4796-b10b-de5e7fa03f2f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi hune,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;you can modify SQL query in 'sizeUsed' data source:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;div id="_mcePaste"&gt;SELECT&amp;#160;&amp;#160;&amp;#160; b.BLOCKS/a.MAXBLOCKS percentUsed,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; b.BLOCKS sizeUsed,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; a.BYTES totalBytes,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME&lt;/div&gt;&lt;div id="_mcePaste"&gt;FROM&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BYTES) BYTES,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(decode(AUTOEXTENSIBLE, 'YES', MAXBLOCKS, 'NO', BLOCKS)) MAXBLOCKS&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_data_files&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) a&lt;/div&gt;&lt;div id="_mcePaste"&gt;LEFT JOIN&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BLOCKS) BLOCKS&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_segments&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) b&lt;/div&gt;&lt;div id="_mcePaste"&gt;USING&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (TABLESPACE_NAME)&lt;/div&gt;&lt;div id="_mcePaste"&gt;WHERE&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME='${here/dbname}'&lt;/div&gt;&lt;/blockquote&gt;&lt;p&gt;and then add 'percentUsed' data point and usage Min/Max threshold with Max value 0.9.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Egor&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8f59d7b2-182c-4796-b10b-de5e7fa03f2f] --&gt;</description>
+      <pubDate>Tue, 22 Mar 2011 21:17:25 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-3701</guid>
+      <dc:date>2011-03-22T21:17:25Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-3748</link>
+      <description>&lt;!-- [DocumentBodyStart:88060abd-dcc9-4a39-a078-af3cff289ed4] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Could you explain how to add more than one Database instance please?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;IE we have one server with two Oracle instances GEOLIVE and GEOTEST &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:88060abd-dcc9-4a39-a078-af3cff289ed4] --&gt;</description>
+      <pubDate>Thu, 31 Mar 2011 10:04:11 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-3748</guid>
+      <dc:date>2011-03-31T10:04:11Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-3749</link>
+      <description>&lt;!-- [DocumentBodyStart:ed193787-b3bc-4c28-97b7-13060e38b62d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Nathan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;you can add more lines to zOracleConnectStrings variable.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p&gt;(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${dev/manageIp})(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=GEOLIVE)))&lt;/p&gt;&lt;p&gt;
+(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=${dev/manageIp})(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=GEOTEST)))&lt;/p&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ed193787-b3bc-4c28-97b7-13060e38b62d] --&gt;</description>
+      <pubDate>Thu, 31 Mar 2011 14:18:08 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-3749</guid>
+      <dc:date>2011-03-31T14:18:08Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4303</link>
+      <description>&lt;!-- [DocumentBodyStart:03a35ef3-62fd-4cb0-a62f-39d25fa30c16] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;div id="_mcePaste"&gt;I'm guess I'm doing something wrong, but I cannot figure out.&lt;/div&gt;&lt;div id="_mcePaste"&gt; &lt;/div&gt;&lt;div id="_mcePaste"&gt;Using the query from Mar 22, and debug logging, this is what seems to happen:&lt;/div&gt;&lt;div&gt; &lt;/div&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;div id="_mcePaste"&gt;11-07-29 15:58:59,365 DEBUG zen.collector.scheduler: Task x.y.z.30 finished, result: {'SOMEPRODUCT_TSIDX_OracleTablespace_sizeUsed': [{'totalBytes': 10...00, 'sizeUsed': 51328, 'percentUsed': 51328}], 'SOMEPRODUCT_TSPOOL_IDX_OracleTablespace_sizeUsed': [{'totalBytes': 15...00, 'sizeUsed': 134656, 'percentUsed': 134656}], 'SOMEPRODUCT_SYSAUX_OracleTablespace_sizeUsed': [{'totalBytes': 24..96, 'sizeUsed': 14864, 'percentUsed': 14864}], 'SOMEPRODUCT_TSHIST_TAB_OracleTablespace_sizeUsed': [{'totalBytes': 31..00, 'sizeUsed': 383872, 'percentUsed': 383872}], 'SOMEPRODUCT_OracleSrvInst_sysmetric': [{'HostCPUUtilization': 2, 'GlobalCacheAverageCRGetTime': 0, 'DBBlockChangesPerSec': 64, 'CurrentLogonsCount': 27, 'GlobalCacheBlocksLost': 0, 'GlobalCacheBlocksCorrupted': 0, 'LogonsPerSec': 2, 'DatabaseWaitTimeRatio': 39, 'DBBlockGetsPerSec': 63, 'SharedPoolFree': 51, 'UserTransactionPerSec': 0, 'PhysicalReadsPerSec': 0, 'RedoGeneratedPerSec': 9784, 'PhysicalWritesPerSec': 0}], 'SOMEPRODUCT_TSTAB_OracleTablespace_sizeUsed': [{'totalBytes': 1572864000, 'sizeUsed': 91008, 'percentUsed': 91008}], 'SOMEPRODUCT_TSHIST_IDX_OracleTablespace_sizeUsed': [{'totalBytes': 1048576000, 'sizeUsed': 127744, 'percentUsed': 127744}], 'SOMEPRODUCT_USERS_OracleTablespace_sizeUsed': [{'totalBytes': 5242880, 'sizeUsed': 368, 'percentUsed': 368}], 'SOMEPRODUCT_OracleSrvInst_session': [{'ActiveBackgroundProcesses': 25, 'TotalBackgroundProcesses': 25, 'TotalSystemProcesses': 0, 'ActiveSystemProcesses': 0, 'TotalUserProcesses': 4, 'ActiveUserProcesses': 2}], 'SOMEPRODUCT_SYSTEM_OracleTablespace_sizeUsed': [{'totalBytes': 2147483648, 'sizeUsed': 152464, 'percentUsed': 152464}], 'SOMEPRODUCT_TSPOOL_TAB_OracleTablespace_sizeUsed': [{'totalBytes': 1887436800, 'sizeUsed': 159360, 'percentUsed': 159360}], 'SOMEPRODUCT_UNDOTBS1_OracleTablespace_sizeUsed': [{'totalBytes': 429916160, 'sizeUsed': 46944, 'percentUsed': 46944}], 'SOMEPRODUCT_OracleSrvInst_objects': [{'DbaInvalidObjects': 576}], 'SOMEPRODUCT_TSLOB_TAB_OracleTablespace_sizeUsed': [{'totalBytes': 9437184000, 'sizeUsed': 1074176, 'percentUsed': 1074176}]}&lt;/div&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;div&gt;(TLDR;&amp;#160; percentUsed returns the same value as sizeUsed. )&lt;/div&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;div&gt;The exact query I'm using now: (have tried a few)&lt;/div&gt;&lt;div id="_mcePaste"&gt; &lt;/div&gt;&lt;div id="_mcePaste"&gt; &lt;/div&gt;&lt;div id="_mcePaste"&gt;select percentUsed percentUsed,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sizeUsed sizeUsed,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; totalBytes totalBytes&lt;/div&gt;&lt;div id="_mcePaste"&gt;from (&lt;/div&gt;&lt;div id="_mcePaste"&gt;SELECT&amp;#160;&amp;#160;&amp;#160; (b.BLOCKS/a.MAXBLOCKS) percentUsed,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; b.BLOCKS sizeUsed,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; a.BYTES totalBytes,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME&lt;/div&gt;&lt;div id="_mcePaste"&gt;FROM&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BYTES) BYTES,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(decode(AUTOEXTENSIBLE, 'YES', MAXBLOCKS, 'NO', BLOCKS)) MAXBLOCKS&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_data_files&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) a&lt;/div&gt;&lt;div id="_mcePaste"&gt;LEFT JOIN&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BLOCKS) BLOCKS&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_segments&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) b&lt;/div&gt;&lt;div id="_mcePaste"&gt;USING&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (TABLESPACE_NAME)&lt;/div&gt;&lt;div id="_mcePaste"&gt;WHERE&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME='${here/dbname}')&lt;/div&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;div&gt;&lt;span&gt;My best guess is I'm either failing to read some of the instructions on &lt;/span&gt;&lt;a class="jive-link-wiki-small" href="http://community.zenoss.org/docs/DOC-5913"&gt;http://community.zenoss.org/docs/DOC-5913&lt;/a&gt;&lt;span&gt; (SQL Data source) or I'm using incompatible versions of Oracle Monitor (1.0) and SQL Data Source (1.6).&lt;/span&gt;&lt;/div&gt;&lt;div id="_mcePaste"&gt; &lt;/div&gt;&lt;div id="_mcePaste"&gt; &lt;/div&gt;&lt;div&gt; &lt;/div&gt;&lt;div&gt;Update: As I'm writing this the logs now show another message (which I've seen earlier today with another version of the query)&lt;/div&gt;&lt;div id="_mcePaste"&gt; &lt;/div&gt;&lt;div id="_mcePaste"&gt; &lt;/div&gt;&lt;div&gt; &lt;/div&gt;&lt;div id="_mcePaste"&gt; &lt;/div&gt;&lt;div id="_mcePaste"&gt;2011-07-29 16:12:21,746 DEBUG zen.zenperfsql: Successful collection from x.y.z.10 [x.y.z.10], results={'SOMEOTHERPRODUCT_SYSAUX_OracleTablespace_sizeUsed': [{'totalBytes': 18...00, 'sizeUsed': 85184, 'percentUsed': 'SYSAUX'}], 'SOMEOTHERPRODUCT_OracleSrvInst_objects': [{'DbaInvalidObjects': xy}], 'SOMEOTHERPRODUCT_SYSTEM_OracleTablespace_sizeUsed': [{'totalBytes': 18...00, 'sizeUsed': 125184, 'percentUsed': 'SYSTEM'}], 'SOMEOTHERPRODUCT_TSLOB_OracleTablespace_sizeUsed': [{'totalBytes': 107374182400, 'sizeUsed': 3860992, 'percentUsed': 'TSLOB'}], 'SOMEOTHERPRODUCT_TSSOMEOTHERPRODUCT_OracleTablespace_sizeUsed': [{'totalBytes': 41943040000, 'sizeUsed': 3149824, 'percentUsed': 'TSSOMEOTHERPRODUCT'}], 'SOMEOTHERPRODUCT_UNDOTBS2_OracleTablespace_sizeUsed': [{'totalBytes': 10485760000, 'sizeUsed': 43536, 'percentUsed': 'UNDOTBS2'}], 'SOMEOTHERPRODUCT_OracleSrvInst_sysmetric': [{'HostCPUUtilization': 2, 'GlobalCacheAverageCRGetTime': 0, 'DBBlockChangesPerSec': 205, 'CurrentLogonsCount': 56, 'GlobalCacheBlocksLost': 0, 'GlobalCacheBlocksCorrupted': 0, 'LogonsPerSec': 0, 'DatabaseWaitTimeRatio': 72, 'DBBlockGetsPerSec': 82914, 'SharedPoolFree': 23, 'UserTransactionPerSec': 3, 'PhysicalReadsPerSec': 2x, 'RedoGeneratedPerSec': 39x, 'PhysicalWritesPerSec': 27}], 'SOMEOTHERPRODUCT_USERS_OracleTablespace_sizeUsed': [{'totalBytes': 5242880, 'sizeUsed': 472, 'percentUsed': 'USERS'}], 'SOMEOTHERPRODUCT_OracleSrvInst_session': [{'ActiveBackgroundProcesses': 35, 'TotalBackgroundProcesses': 35, 'TotalSystemProcesses': 10, 'ActiveSystemProcesses': 2, 'TotalUserProcesses': 11, 'ActiveUserProcesses': 2}]}&lt;/div&gt;&lt;div&gt; &lt;/div&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;TLDR; percentUsed is now set to the value of the TABLESPACE_NAME column&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Anyone else has an idea?&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:03a35ef3-62fd-4cb0-a62f-39d25fa30c16] --&gt;</description>
+      <pubDate>Fri, 29 Jul 2011 14:26:31 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4303</guid>
+      <dc:date>2011-07-29T14:26:31Z</dc:date>
+      <clearspace:dateToText>2 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4399</link>
+      <description>&lt;!-- [DocumentBodyStart:b78da1b2-38cb-4e6a-bea7-1b221e177a36] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Erik,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;first, test the query from Mar 22 against your server with SQL*Net.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;SQLDataSource has some art of queue optimization mechanism. It tried replace multiple SELECT queries from one table with single query.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p&gt;Query for first component:&lt;/p&gt;&lt;p&gt;SELECT dp1, dp2&lt;/p&gt;&lt;p&gt;FROM table&lt;/p&gt;&lt;p&gt;WHERE compname="comp1"&lt;/p&gt;&lt;p&gt;Query for second component:&lt;/p&gt;&lt;p&gt;SELECT dp1, dp2&lt;/p&gt;&lt;p&gt;FROM table&lt;/p&gt;&lt;p&gt;WHERE compname="comp2"&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;will be automatically replaced by:&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p&gt;SELECT dp1, dp2, compname&lt;/p&gt;&lt;p&gt;FROM table&lt;/p&gt;&lt;/blockquote&gt;&lt;p&gt;not everytime SQL query can be parsed correctly (i'm still working on this). If query can not be correctly parsed it will be sent without any modifications. So you query must be specialy prepared:&lt;/p&gt;&lt;p&gt;1. query must return &lt;strong&gt;column names&lt;/strong&gt; =&lt;strong&gt; datapoint names&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;2. WHERE statement must be at the and of query and contains only 'AND' and '=' statements.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;So your qury must looks like this:&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p style="font-size: 12px;"&gt;select percentUsed percentUsed,&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sizeUsed sizeUsed,&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; totalBytes totalBytes,&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;from (&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;SELECT&amp;#160;&amp;#160;&amp;#160; (b.BLOCKS/a.MAXBLOCKS) percentUsed,&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; b.BLOCKS sizeUsed,&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; a.BYTES totalBytes,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;FROM&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BYTES) BYTES,&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(decode(AUTOEXTENSIBLE, 'YES', MAXBLOCKS, 'NO', BLOCKS)) MAXBLOCKS&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_data_files&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) a&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;LEFT JOIN&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BLOCKS) BLOCKS&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_segments&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) b&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;USING&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (TABLESPACE_NAME))&lt;/p&gt;&lt;p style="font-size: 12px;"&gt;WHERE&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME='${here/dbname}'&lt;/p&gt;&lt;/blockquote&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Egor&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b78da1b2-38cb-4e6a-bea7-1b221e177a36] --&gt;</description>
+      <pubDate>Fri, 05 Aug 2011 21:31:40 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4399</guid>
+      <dc:date>2011-08-05T21:31:40Z</dc:date>
+      <clearspace:dateToText>2 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4443</link>
+      <description>&lt;!-- [DocumentBodyStart:1fdd0605-70e5-4184-9ef1-0b7b09d040c0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I've gotten the zenpack to almost work. I can't see the performance graphs though. Is there any way I can troubleshoot this?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1fdd0605-70e5-4184-9ef1-0b7b09d040c0] --&gt;</description>
+      <pubDate>Tue, 16 Aug 2011 19:24:26 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4443</guid>
+      <dc:date>2011-08-16T19:24:26Z</dc:date>
+      <clearspace:dateToText>2 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4444</link>
+      <description>&lt;!-- [DocumentBodyStart:16ffd778-8a36-4198-9369-2bd63dd9ce0b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi zenoR,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;1. try to restart zenperfsql daemon&lt;/p&gt;&lt;p&gt;2. run zenperfsql as zenoss user with enabled debugging:&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p&gt;zenperfsql run -v10 -d yourdbserver&lt;/p&gt;&lt;/blockquote&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Egor&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:16ffd778-8a36-4198-9369-2bd63dd9ce0b] --&gt;</description>
+      <pubDate>Tue, 16 Aug 2011 19:41:13 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4444</guid>
+      <dc:date>2011-08-16T19:41:13Z</dc:date>
+      <clearspace:dateToText>2 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4453</link>
+      <description>&lt;!-- [DocumentBodyStart:3f9bdfbb-8c85-4231-aa4f-575b35b15b7c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I figured it out, the monitoring templates werent bound to the device class i had the oracle servers under. I fixed it. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;However i have another problem, the interconnect times and logon rates graphs are not getting any data. Would this be a problem with the permissions i have on the Oracle side or is it something on the Zenoss end.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks for all your help!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3f9bdfbb-8c85-4231-aa4f-575b35b15b7c] --&gt;</description>
+      <pubDate>Wed, 17 Aug 2011 16:01:11 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4453</guid>
+      <dc:date>2011-08-17T16:01:11Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4449</link>
+      <description>&lt;!-- [DocumentBodyStart:e4aaf076-fb23-43e8-99eb-0aee9362634b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi zenoR,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;you shouldn't bound any performance templates to device or device classes. Component templates (&lt;strong style="font-size: 12px;"&gt;OracleSrvInst&lt;/strong&gt; and &lt;strong style="font-size: 12px;"&gt;OracleTablespace&lt;/strong&gt;) Zenoss will bind automatically. You must add&lt;/p&gt;&lt;p&gt;&lt;strong style="font-size: 12px;"&gt;community.sql.OracleDatabaseMap&lt;/strong&gt; plugin to zCollectorPlugin list and remodel your server.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Egor&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e4aaf076-fb23-43e8-99eb-0aee9362634b] --&gt;</description>
+      <pubDate>Wed, 17 Aug 2011 16:12:17 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4449</guid>
+      <dc:date>2011-08-17T16:12:17Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4454</link>
+      <description>&lt;!-- [DocumentBodyStart:944eeac8-8b79-42a5-9d8a-0bb77e0d6de0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Maybe if I explain what I was doing...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I am monitoring windows servers with your WMI pack. One of them is a DB server with oracle instances on it. I added &lt;strong&gt;community.sql.OracleDatabaseMap &lt;/strong&gt;to the server but then the graphs wouldnt show up. So i went into the monitoring templates and overrode the two monitoring templates with a target of CIM/WMI. Then the graphs showed up. Was that wrong?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;div class="mcePaste" id="_mcePaste" style="position: absolute; top: 0px; left: 0px;"&gt;﻿&lt;/div&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:944eeac8-8b79-42a5-9d8a-0bb77e0d6de0] --&gt;</description>
+      <pubDate>Wed, 17 Aug 2011 16:28:06 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4454</guid>
+      <dc:date>2011-08-17T16:28:06Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4455</link>
+      <description>&lt;!-- [DocumentBodyStart:e1d5fc65-861a-4d9d-bbdf-5a4570f2ae39] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;that right.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;using Net*SQL execute against your server:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p class="line" id="LC194"&gt;SELECT metric_name,&lt;/p&gt;&lt;p class="line"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; cast(metric_id AS char(4)) PARAMETER,&lt;/p&gt;&lt;p class="line" id="LC195"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; VALUE from V$SYSMETRIC&lt;/p&gt;&lt;p class="line" id="LC196"&gt;WHERE group_id=2 AND metric_id in (2018, 2098)&lt;/p&gt;&lt;p class="line" id="LC197"&gt;ORDER BY metric_name&lt;/p&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e1d5fc65-861a-4d9d-bbdf-5a4570f2ae39] --&gt;</description>
+      <pubDate>Wed, 17 Aug 2011 18:10:21 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4455</guid>
+      <dc:date>2011-08-17T18:10:21Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4457</link>
+      <description>&lt;!-- [DocumentBodyStart:ab34a1aa-59f5-4e79-a522-3449d2d40310] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi, Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160; I'm testing this zenpack and it's awesome... now i'm trying to model two TNS on the same host, which is the syntax for separating the TNS list items?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ab34a1aa-59f5-4e79-a522-3449d2d40310] --&gt;</description>
+      <pubDate>Thu, 18 Aug 2011 12:52:45 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4457</guid>
+      <dc:date>2011-08-18T12:52:45Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4458</link>
+      <description>&lt;!-- [DocumentBodyStart:b5ea61a0-bad3-40aa-bc4a-48688bfb7db9] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;a class="jive-link-external-small" href="http://community.zenoss.org/docs/DOC-10244#comment-3749"&gt;http://community.zenoss.org/docs/DOC-10244#comment-3749&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b5ea61a0-bad3-40aa-bc4a-48688bfb7db9] --&gt;</description>
+      <pubDate>Thu, 18 Aug 2011 16:06:53 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4458</guid>
+      <dc:date>2011-08-18T16:06:53Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4470</link>
+      <description>&lt;!-- [DocumentBodyStart:6e615021-fc64-4cef-aaf1-f097c5cc85ff] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;shame on me, sorry i missread it :S&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanx&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6e615021-fc64-4cef-aaf1-f097c5cc85ff] --&gt;</description>
+      <pubDate>Thu, 18 Aug 2011 16:41:14 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4470</guid>
+      <dc:date>2011-08-18T16:41:14Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4618</link>
+      <description>&lt;!-- [DocumentBodyStart:f704946f-9146-4548-b48d-ecb88916e4b1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Im trying to install ZenPAcks.Community.RDBMS-2.1 on command line, but i got the following error:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Link to &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://pypi.python.org/simple/ZenPacks.community/deviceAdvDetail/"&gt;http://pypi.python.org/simple/ZenPacks.community/deviceAdvDetail/&lt;/a&gt;&lt;span&gt; ***BLOCKED*** by --allow -hosts&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Couldn't findindex page for 'ZenPacks.community.deviceAdvDetail' (maybe misspelled?)&lt;/p&gt;&lt;p&gt;&lt;span&gt;Link to &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://pypi.python.org/simple"&gt;http://pypi.python.org/simple&lt;/a&gt;&lt;span&gt; ***BLOCKED*** by --allow-hosts&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f704946f-9146-4548-b48d-ecb88916e4b1] --&gt;</description>
+      <pubDate>Mon, 26 Sep 2011 01:35:19 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4618</guid>
+      <dc:date>2011-09-26T01:35:19Z</dc:date>
+      <clearspace:dateToText>2 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4726</link>
+      <description>&lt;!-- [DocumentBodyStart:a343fbf3-3438-4606-8b91-507d65a300cc] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi bigegor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; When I tried to model the deivce, I found a warning message. Is theere anything that I missed on the symbolic link?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="widows: 2; text-indent: 0px; orphans: 2; letter-spacing: normal; color: #333333; text-transform: none; font: 12px Monaco, monospace; font-size: 10pt; white-space: normal; background-color: #ffffff; font-family: Arial; word-spacing: 0px;"&gt;2011-10-26 01:31:24,724 WARNING zen.PythonClient: Error in community.sql.OracleDatabaseMap: libclntsh.so.11.1: cannot open shared object file: No such file or directory&lt;/span&gt;&lt;/p&gt;&lt;div class="mcePaste" id="_mcePaste" style="position: absolute; top: 0px; left: 0px;"&gt;﻿&lt;/div&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a343fbf3-3438-4606-8b91-507d65a300cc] --&gt;</description>
+      <pubDate>Tue, 25 Oct 2011 17:37:05 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4726</guid>
+      <dc:date>2011-10-25T17:37:05Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4740</link>
+      <description>&lt;!-- [DocumentBodyStart:21e3a1d8-0bdb-41c8-8322-c888040ed47d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi, and thanks for the updated query. I've been a little busy with other stuff for a while but wanted to say it seems to work brilliantly now, I just need figure out how to adjust the cycletime.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;One snag I spent&amp;#160; some time on was that whatever I wrote into "SQL Query" in the "Edit Data Source" field it didn't change the actual query that was used even if I restarted zenperfsql or even zenoss. I ended up unpacking the egg, update the objects.xml file in the package, zip it back to an egg, uninstall Oracle Monitor and install my modified version.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;And if anyone here knows how to increase the cycle time, please let me know. : )&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:21e3a1d8-0bdb-41c8-8322-c888040ed47d] --&gt;</description>
+      <pubDate>Fri, 28 Oct 2011 10:26:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4740</guid>
+      <dc:date>2011-10-28T10:26:39Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4716</link>
+      <description>&lt;!-- [DocumentBodyStart:c1efd973-2ae2-40e9-a4f4-7ebb3d1e75c8] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi wilsonlai,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160; i had the same issue meanwhile zenoss user didn't have ORACLE_HOME and ORACLE_BASE defined... after i defined it on /etc/profile.d/oracle.sh (must be executable), it worked.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160; hope it helps.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt; bye!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c1efd973-2ae2-40e9-a4f4-7ebb3d1e75c8] --&gt;</description>
+      <pubDate>Fri, 28 Oct 2011 10:39:57 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4716</guid>
+      <dc:date>2011-10-28T10:39:57Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-4744</link>
+      <description>&lt;!-- [DocumentBodyStart:6f0659a9-f37b-483c-b137-314e8a103c52] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi luizz,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; You are definitely right. I have some environment variables missed, after adding back, the cx_Oracles works normally.&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Many thanks.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6f0659a9-f37b-483c-b137-314e8a103c52] --&gt;</description>
+      <pubDate>Mon, 31 Oct 2011 02:28:25 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-4744</guid>
+      <dc:date>2011-10-31T02:28:25Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5107</link>
+      <description>&lt;!-- [DocumentBodyStart:2ebe1d44-d8e5-48fc-99a9-3a675216091d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Dear Egor, We are having a problem with the data displayed appearing to be reversed in the graphic beloq you can see SYSTEM is only 16% utilised.&lt;/p&gt;&lt;p&gt;&lt;a href="http://community.zenoss.org/servlet/JiveServlet/showImage/105-5107-11570/revs.bmp"&gt;&lt;img alt="revs.bmp" class="jive-image" height="41" src="http://community.zenoss.org/servlet/JiveServlet/downloadImage/105-5107-11570/450-41/revs.bmp" width="450"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;However it is actually 84% utilised, here is a SQL query to show that&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;SQL&amp;gt; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; a.BYTES-b.bytes sizeUsed,&lt;br/&gt;&amp;#160; 2&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; a.BYTES totalBytes,&lt;br/&gt;&amp;#160; 3&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME&lt;br/&gt;&amp;#160; 4&amp;#160; FROM&lt;br/&gt;&amp;#160; 5&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;br/&gt;&amp;#160; 6&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;br/&gt;&amp;#160; 7&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BYTES) BYTES&lt;br/&gt;&amp;#160; 8&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_data_files&lt;br/&gt;&amp;#160; 9&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) a&lt;br/&gt;10&amp;#160;&amp;#160; 11&amp;#160; LEFT JOIN&lt;br/&gt;12&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;br/&gt;13&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;br/&gt;14&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BYTES) BYTES&lt;br/&gt;15&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_free_space&lt;br/&gt;16&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;br/&gt;17&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) b&lt;br/&gt;18&amp;#160; USING&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (TABLESPACE_NAME);&lt;/p&gt;&lt;p&gt;&amp;#160; SIZEUSED TOTALBYTES TABLESPACE_NAME&lt;br/&gt;---------- ---------- ------------------------------&lt;br/&gt;1357045760 1625292800 SYSTEM&lt;/p&gt;&lt;p&gt;This appears to be correct, could you explain what we need to change this? we have tried adding this SQL query to the ORACLE TABLESPACE template but it didn't seem to change the figures in the table.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Do we have to modify the .py files?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/plain.gif" width="16px"/&gt;&lt;/p&gt;&lt;div class="mcePaste" id="_mcePaste" style="position: absolute; top: 43px; left: 0px;"&gt;﻿&lt;/div&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:2ebe1d44-d8e5-48fc-99a9-3a675216091d] --&gt;</description>
+      <pubDate>Tue, 14 Feb 2012 16:25:02 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5107</guid>
+      <dc:date>2012-02-14T16:25:02Z</dc:date>
+      <clearspace:dateToText>2 years, 4 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5108</link>
+      <description>&lt;!-- [DocumentBodyStart:0010ba54-2d08-4e71-9de9-02bdf6e03948] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Nathan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;this problem already fixed in my github repository ( &lt;a class="jive-link-external-small" href="https://github.com/epuzanov/ZenPacks.community.OracleMon"&gt;https://github.com/epuzanov/ZenPacks.community.OracleMon &lt;/a&gt;). But you can simply replace 'dba_free_space' with 'dba_segments' in line 15.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:0010ba54-2d08-4e71-9de9-02bdf6e03948] --&gt;</description>
+      <pubDate>Tue, 14 Feb 2012 18:52:37 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5108</guid>
+      <dc:date>2012-02-14T18:52:37Z</dc:date>
+      <clearspace:dateToText>2 years, 4 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5109</link>
+      <description>&lt;!-- [DocumentBodyStart:b55e9b4b-c720-40de-a677-0f6b4c93819c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;HI Egor, thank you for replying but I am still getting that issue, here is the modified cmd and the output the actaully size used is much higher, I notice its looking at BLOCKS sizeUsed should it not be BYTES?&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;SQL&amp;gt; SELECT &lt;/td&gt;&lt;td style=";"&gt;b.BLOCKS sizeUsed,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;a.BYTES totalBytes,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;TABLESPACE_NAME&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;FROM&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;(&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;SELECT &lt;/td&gt;&lt;td style=";"&gt;TABLESPACE_NAME,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;sum(BYTES) BYTES&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;FROM&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;dba_data_files&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;GROUP BY TABLESPACE_NAME&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;) a&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;LEFT JOIN&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;(&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;SELECT &lt;/td&gt;&lt;td style=";"&gt;TABLESPACE_NAME,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;sum(BLOCKS) BLOCKS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;FROM&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;dba_segments&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;GROUP BY TABLESPACE_NAME&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;) b&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;USI&amp;#160; 2&lt;/td&gt;&lt;td style=";"&gt;3&lt;/td&gt;&lt;td style=";"&gt;4&lt;/td&gt;&lt;td style=";"&gt;5&lt;/td&gt;&lt;td style=";"&gt;6&lt;/td&gt;&lt;td style=";"&gt;7&lt;/td&gt;&lt;td style=";"&gt;8&lt;/td&gt;&lt;td style=";"&gt;9&amp;#160; NG&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;(TABLESPACE_NAME) 10&amp;#160;&amp;#160; 11&amp;#160;&amp;#160; 12&amp;#160;&amp;#160; 13&amp;#160;&amp;#160; 14&amp;#160;&amp;#160; 15&amp;#160;&amp;#160; 16&amp;#160;&amp;#160; 17&amp;#160;&amp;#160; 18&amp;#160; ;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160; SIZEUSED TOTALBYTES TABLESPACE_NAME&lt;/p&gt;&lt;p&gt;---------- ---------- ------------------------------&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;td style=";"&gt;165654 1625292800 SYSTEM&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt; &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b55e9b4b-c720-40de-a677-0f6b4c93819c] --&gt;</description>
+      <pubDate>Wed, 15 Feb 2012 09:45:52 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5109</guid>
+      <dc:date>2012-02-15T09:45:52Z</dc:date>
+      <clearspace:dateToText>2 years, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5127</link>
+      <description>&lt;!-- [DocumentBodyStart:29081686-20c9-4744-8079-bf722e7fcfb3] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi, &lt;a class="jive-link-profile-small" href="http://community.zenoss.org/people/nathan.harris"&gt;Nathan Harris&lt;/a&gt;, we found ourselves with the same problem, and modified the query just like follows:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;SELECT&amp;#160;&amp;#160;&amp;#160; NVL((ts.blocks-free.blocks),0) sizeUsed,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; NVL(ts.BYTES,0) totalBytes,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; NVL((ts.BYTES-free.bytes),0) usedBytes,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME&lt;/p&gt;&lt;p&gt;FROM&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BYTES) BYTES,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BLOCKS) BLOCKS&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_data_files&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) ts&lt;/p&gt;&lt;p&gt;LEFT JOIN&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BYTES) BYTES,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(BLOCKS) BLOCKS&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_free_space&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) free&lt;/p&gt;&lt;p&gt;USING&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (TABLESPACE_NAME)&lt;/p&gt;&lt;p&gt;WHERE&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME='${here/dbname}'&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This did the trick, but you have to remember to retrieve this new "usedBytes" point from the OracleTablespace sizeUsed datasource, and, of course, update the datapoints from the graph.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Ah! The NVL is for those moments when a tablespace is not online!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:29081686-20c9-4744-8079-bf722e7fcfb3] --&gt;</description>
+      <pubDate>Wed, 15 Feb 2012 09:53:28 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5127</guid>
+      <dc:date>2012-02-15T09:53:28Z</dc:date>
+      <clearspace:dateToText>2 years, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5133</link>
+      <description>&lt;!-- [DocumentBodyStart:8f46e220-ce78-4bc4-b162-fce817002750] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Sadly it didn't work for us, thank you for trying though&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt; remember the original output &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160; SIZEUSED TOTALBYTES TABLESPACE_NAME&lt;/p&gt;&lt;p&gt;---------- ---------- ------------------------------&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;165654 1625292800 SYSTEM&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;We are still getting the wrong stats in the table but I notice the SQL is correct (above) if you take&lt;/p&gt;&lt;p&gt;SIZEUSED X 8192 (Default Block Size BYTES) = 1352067948 now that is the correct figure but the table shows 1.5GB and 255.8MB used at 16%.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;It should be 1625292800/1024/1024 =1550MB or 1.5GB&lt;/p&gt;&lt;p&gt;Then 1352067948/1024/1024=1289MB or 1.2 GB&lt;/p&gt;&lt;p&gt;This makes SYSTEM tablespace 83% full&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I have no idea where the 255.8MB is coming from&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I am convinced that back end python is wrong, hopefull Egor can help on this one?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/cry.gif" width="16px"/&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8f46e220-ce78-4bc4-b162-fce817002750] --&gt;</description>
+      <pubDate>Tue, 21 Feb 2012 14:03:03 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5133</guid>
+      <dc:date>2012-02-21T14:03:03Z</dc:date>
+      <clearspace:dateToText>2 years, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5146</link>
+      <description>&lt;!-- [DocumentBodyStart:19210111-88d0-4f79-8307-9ae9d6a87c44] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor, any chance you could help with this one its is important I am sure its not just us?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:19210111-88d0-4f79-8307-9ae9d6a87c44] --&gt;</description>
+      <pubDate>Fri, 24 Feb 2012 16:00:06 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5146</guid>
+      <dc:date>2012-02-24T16:00:06Z</dc:date>
+      <clearspace:dateToText>2 years, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5156</link>
+      <description>&lt;!-- [DocumentBodyStart:65ee913d-d2d0-43dd-9915-5c88702708dd] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Nathan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;have you already tried to install this ZenPack from my github repository (ver:1.0.2)?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:65ee913d-d2d0-43dd-9915-5c88702708dd] --&gt;</description>
+      <pubDate>Sun, 26 Feb 2012 13:18:58 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5156</guid>
+      <dc:date>2012-02-26T13:18:58Z</dc:date>
+      <clearspace:dateToText>2 years, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5148</link>
+      <description>&lt;!-- [DocumentBodyStart:d9ca3794-224c-4da5-881a-36bd1b399454] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor, sorry did not realise this was different to the egg download&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Had some problems with installing the Source file, so just reverted to snapshot image could I just check for this to work I should&lt;/p&gt;&lt;p&gt;a.remove the old OracleMon zenpack first&lt;/p&gt;&lt;p&gt;b.Remove the Oracleplugin from all the Oracle servers and remodel&lt;/p&gt;&lt;p&gt;c.Clone the Git to the zenoss home&lt;/p&gt;&lt;p&gt;d.zenpack --install &amp;lt;New Oraclemon source directory)&lt;/p&gt;&lt;p&gt;e.restart zenoss&lt;/p&gt;&lt;p&gt;f.add the plugin to each Oracle DB server amd remodel&lt;/p&gt;&lt;p&gt;cheers&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d9ca3794-224c-4da5-881a-36bd1b399454] --&gt;</description>
+      <pubDate>Mon, 27 Feb 2012 11:21:08 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5148</guid>
+      <dc:date>2012-02-27T11:21:08Z</dc:date>
+      <clearspace:dateToText>2 years, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5270</link>
+      <description>&lt;!-- [DocumentBodyStart:ddb3df79-3199-4c74-8317-5332c042e62d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I'm searching for a way to model the diskgroups in Oracle. I'm very satisfied about the tablespace monitoring. I altered the query in the OracleDatabaseMap.py modeler script. This had the effect that after modeling the devices, besides the tablespaces, the diskgroups where visible too. But here I encountered a problem, besides the name of the diskgroup, there is no information about the diskgroup (no sizeused, %used,...). So I also altered the query in the OracleTablespace template to make sure that the diskgroup info is queried. But no effect, ... There is no generation of rrd files for the diskgroups. Altough I made sure that the selected colomns matched the defined datapoints in the template. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Do you have any suggestion for me? How can I model diskgroups the same way as you modeled the tablespaces?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks in advance,&lt;/p&gt;&lt;p&gt;Bart&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ddb3df79-3199-4c74-8317-5332c042e62d] --&gt;</description>
+      <pubDate>Wed, 14 Mar 2012 16:52:33 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5270</guid>
+      <dc:date>2012-03-14T16:52:33Z</dc:date>
+      <clearspace:dateToText>1 year, 12 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5242</link>
+      <description>&lt;!-- [DocumentBodyStart:9e9dd616-84b6-4619-a291-d30bf3f394d7] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Bart,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;check DataPoints aliases (here must be columns name in uppercase)&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:9e9dd616-84b6-4619-a291-d30bf3f394d7] --&gt;</description>
+      <pubDate>Wed, 14 Mar 2012 20:04:29 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5242</guid>
+      <dc:date>2012-03-14T20:04:29Z</dc:date>
+      <clearspace:dateToText>1 year, 12 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5278</link>
+      <description>&lt;!-- [DocumentBodyStart:54af9c6b-a322-4ed9-9c18-703be9fdf62b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The column names are in uppercase in the aliases (I did not alter the aliases, just the query in the oracletablespace template and the query in the modeler). Under the database tab, I can see my diskgroups but no data is provided for them. &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:54af9c6b-a322-4ed9-9c18-703be9fdf62b] --&gt;</description>
+      <pubDate>Thu, 15 Mar 2012 08:07:16 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5278</guid>
+      <dc:date>2012-03-15T08:07:16Z</dc:date>
+      <clearspace:dateToText>1 year, 12 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5586</link>
+      <description>&lt;!-- [DocumentBodyStart:2f8bf688-9803-48fb-921a-c079550fc0c1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;If I run the standard query on a device using the test button from the "edit data source" popup (from inside the monitoring templates -&amp;gt; oracle tablespace menu)&amp;#160; I get this output:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p class="streaming-container" style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;div class="streaming-line even"&gt; Preparing Command... &lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p class="streaming-line odd"&gt; exception while executing command &lt;/p&gt;&lt;p class="streaming-line even"&gt; type:&amp;#160;&amp;#160; value: query is empty &lt;/p&gt;&lt;p class="streaming-line odd"&gt;&amp;#160; &lt;/p&gt;&lt;p class="streaming-line even"&gt;&amp;#160; &lt;/p&gt;&lt;p class="streaming-line odd"&gt; DONE in 0 seconds &lt;/p&gt;&lt;p class="streaming-line odd" style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p class="streaming-line odd"&gt;If I remove the last like (the where clause) I get this:&lt;/p&gt;&lt;p class="streaming-line odd" style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p class="streaming-container" style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;div class="streaming-line even"&gt; Preparing Command... &lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p class="streaming-line odd"&gt; Executing query: "&amp;#160;&amp;#160;&amp;#160; select percentUsed percentUsed,&amp;#160; sizeUsed sizeUsed,&amp;#160; totalBytes totalBytes,&amp;#160; TABLESPACE_NAME&amp;#160; from (&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160; (b.BLOCKS/a.MAXBLOCKS) percentUsed,&amp;#160; b.BLOCKS sizeUsed,&amp;#160; a.BYTES totalBytes,&amp;#160; TABLESPACE_NAME&amp;#160; FROM&amp;#160; (&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&amp;#160; sum(BYTES) BYTES,&amp;#160; sum(decode(AUTOEXTENSIBLE, 'YES', MAXBLOCKS, 'NO', BLOCKS)) MAXBLOCKS&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_data_files&amp;#160; GROUP BY TABLESPACE_NAME&amp;#160; ) a&amp;#160; LEFT JOIN&amp;#160; (&amp;#160; SELECT&amp;#160;&amp;#160;&amp;#160;&amp;#160; TABLESPACE_NAME,&amp;#160; sum(BLOCKS) BLOCKS&amp;#160; FROM&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dba_segments&amp;#160; GROUP BY TABLESPACE_NAME&amp;#160; ) b&amp;#160; USING&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; (TABLESPACE_NAME))" &lt;/p&gt;&lt;p class="streaming-line even"&gt;&amp;#160; &lt;/p&gt;&lt;p class="streaming-line odd"&gt; exception while executing command &lt;/p&gt;&lt;p class="streaming-line even"&gt; type:&amp;#160;&amp;#160; value: __import__() argument 1 must be string, not list &lt;/p&gt;&lt;p class="streaming-line odd"&gt;&amp;#160; &lt;/p&gt;&lt;p class="streaming-line even"&gt;&amp;#160; &lt;/p&gt;&lt;p class="streaming-line odd"&gt; DONE in 0 seconds &lt;/p&gt;&lt;p class="streaming-line odd" style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p class="streaming-line odd"&gt;I've tested out the query using cx_oracle directly from pthon command line ad it works:&lt;/p&gt;&lt;p class="streaming-line odd" style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;root@DEFF-SYSMON:~# cat test_cx_oracle.py&lt;/p&gt;&lt;p&gt;import cx_Oracle&lt;/p&gt;&lt;p&gt;connection=cx_Oracle.connect('system/********@PROTOCOLLO');&lt;/p&gt;&lt;p&gt;cursor = connection.cursor()&lt;/p&gt;&lt;p&gt;cursor.execute("select percentUsed percentUsed, sizeUsed sizeUsed, totalBytes totalBytes, TABLESPACE_NAME from (SELECT (b.BLOCKS/a.MAXBLOCKS) percentUsed, b.BLOCKS sizeUsed, a.BYTES totalBytes, TABLESPACE_NAME FROM (SELECT TABLESPACE_NAME, sum(BYTES) BYTES, sum(decode(AUTOEXTENSIBLE, 'YES', MAXBLOCKS, 'NO', BLOCKS)) MAXBLOCKS FROM dba_data_files GROUP BY TABLESPACE_NAME) a LEFT JOIN (SELECT TABLESPACE_NAME, sum(BLOCKS) BLOCKS FROM dba_segments GROUP BY TABLESPACE_NAME) b USING (TABLESPACE_NAME))")&lt;/p&gt;&lt;p&gt;count = cursor.fetchall()[0][0]&lt;/p&gt;&lt;p&gt;print count&lt;/p&gt;&lt;p&gt;cursor.close()&lt;/p&gt;&lt;p&gt;connection.close()&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;root@DEFF-SYSMON:~# python test_cx_oracle.py&lt;/p&gt;&lt;p&gt;0.751953125&lt;/p&gt;&lt;p&gt;root@DEFF-SYSMON:~#&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Well I only read out just one column but that's enough to check out that cx_oracle is working.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;What else is wrong ?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Incidently: PROTOCOLLO is both the connect string in TNSNAMES.ora and the device name for the DB I want to monitor tablespace usage.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:2f8bf688-9803-48fb-921a-c079550fc0c1] --&gt;</description>
+      <pubDate>Mon, 07 May 2012 12:30:25 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5586</guid>
+      <dc:date>2012-05-07T12:30:25Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5600</link>
+      <description>&lt;!-- [DocumentBodyStart:6574dae9-712b-4907-acf5-726d4d50361d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I really appreciate the work you've done on this zenpack. It works great.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Have you thought about making it so that the zenpack also reports percent used based on the total max size available?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I'm working on this now but I'm by no means an sql expert.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This is what I use in sqlplus to find this information.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;SQL&amp;gt; set linesize 120&lt;/p&gt;&lt;p&gt;SQL&amp;gt; SELECT tablespace_name, ROUND(SUM(total_mb)-SUM(free_mb)) CUR_USE_MB, ROUND(SUM(total_mb)) CUR_SZ_MB, ROUND((SUM(total_mb)-SUM(free_mb))/SUM(total_mb)*100) CUR_PCT_FULL, ROUND(SUM(max_mb) - (SUM(total_mb)-SUM(free_mb))) FREE_SPACE_MB, ROUND(SUM(max_mb)) MAX_SZ_MB, ROUND((SUM(total_mb)-SUM(free_mb))/SUM(max_mb)*100) PCT_FULL FROM (&amp;#160; SELECT tablespace_name, SUM(bytes)/1024/1024 FREE_MB,&amp;#160; 0 TOTAL_MB, 0 MAX_MB&amp;#160; FROM dba_free_space&amp;#160; GROUP BY tablespace_name&amp;#160; UNION&amp;#160; SELECT tablespace_name, 0 CURRENT_MB,&amp;#160; SUM(bytes)/1024/1024 TOTAL_MB,&amp;#160; SUM(DECODE(maxbytes,0,bytes, maxbytes))/1024/1024 MAX_MB&amp;#160; FROM dba_data_files GROUP BY tablespace_name) GROUP BY tablespace_name;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;Ryan&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6574dae9-712b-4907-acf5-726d4d50361d] --&gt;</description>
+      <pubDate>Fri, 11 May 2012 15:55:02 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5600</guid>
+      <dc:date>2012-05-11T15:55:02Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5601</link>
+      <description>&lt;!-- [DocumentBodyStart:ec825221-5770-4049-8341-e9bc0b17873e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;In case anyone wonders this is what the output looks like.&lt;a href="http://community.zenoss.org/servlet/JiveServlet/showImage/105-5601-12146/Screenshot.png"&gt;&lt;img alt="Screenshot.png" class="jive-image" height="102" src="http://community.zenoss.org/servlet/JiveServlet/downloadImage/105-5601-12146/450-102/Screenshot.png" width="450"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ec825221-5770-4049-8341-e9bc0b17873e] --&gt;</description>
+      <pubDate>Fri, 11 May 2012 16:23:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5601</guid>
+      <dc:date>2012-05-11T16:23:18Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5622</link>
+      <description>&lt;!-- [DocumentBodyStart:fb17305d-0c16-4f86-a232-b830611f236d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Database Management Inva,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;1. how 'connection string' parameter in data source looks?&lt;/p&gt;&lt;p&gt;2. how &lt;span style="background-color: #f8f4e6; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;&lt;strong&gt;zOracleConnectionStrings&lt;/strong&gt;&lt;/span&gt; for this server looks like?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;PS. SQL Data Source 2.0 has an error in Test function, use a GIT version (2.0.70) or wait for the next release.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fb17305d-0c16-4f86-a232-b830611f236d] --&gt;</description>
+      <pubDate>Sun, 13 May 2012 20:16:43 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5622</guid>
+      <dc:date>2012-05-13T20:16:43Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5623</link>
+      <description>&lt;!-- [DocumentBodyStart:17651803-8c2f-4a25-8868-3dbbdbd87a0b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi hero,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks for pointing this out, i've fogotten to add '&lt;span style="font-family: 'Bitstream Vera Sans Mono', 'Courier New', monospace; font-size: 12px; text-align: -webkit-auto; background-color: #ffffff;"&gt;percentUsed&lt;/span&gt;' datapoint to 'sizeUsed' datasource.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:17651803-8c2f-4a25-8868-3dbbdbd87a0b] --&gt;</description>
+      <pubDate>Sun, 13 May 2012 20:27:52 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5623</guid>
+      <dc:date>2012-05-13T20:27:52Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5636</link>
+      <description>&lt;!-- [DocumentBodyStart:f6ed1669-0853-44e1-985c-e31ed68117d1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;zOracleConnectionString = 'cx_Oracle','system','${here/zOraclePassword}','${here/zOracleDSN}'&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zOracleDSN = (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=deff-prot2)PORT=1521))(CONNECT_DATA= (SID=orcl)))&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zOraclePassword = &amp;lt;the correct password for system&amp;gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The conenct string is taken right out of the tnsnames.ora file for the required db. For testing pourpuses we are momenterily using system so that user privileges and grants are surely not the issue.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f6ed1669-0853-44e1-985c-e31ed68117d1] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 07:05:53 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5636</guid>
+      <dc:date>2012-05-14T07:05:53Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5637</link>
+      <description>&lt;!-- [DocumentBodyStart:7f8db079-38f5-47e4-bfa8-4b06df532c76] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;In the Data Source the connection string looks like this:&lt;/p&gt;&lt;p&gt;${here/zOracleDSN}&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Incidently: does this mena that it should be gotten from the current device configuration properties entry zOracleDSN ?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:7f8db079-38f5-47e4-bfa8-4b06df532c76] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 07:22:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5637</guid>
+      <dc:date>2012-05-14T07:22:49Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5638</link>
+      <description>&lt;!-- [DocumentBodyStart:1e40ca66-e504-4684-af0a-b5fffc41bc5f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Yeah hero &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;if I run the query manually using sqlplus from a shell prompt that looks like the output I get but I can't get that to work from the device data source. &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1e40ca66-e504-4684-af0a-b5fffc41bc5f] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 07:42:15 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5638</guid>
+      <dc:date>2012-05-14T07:42:15Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5642</link>
+      <description>&lt;!-- [DocumentBodyStart:c672ad2e-adf7-4ffd-bdb1-69b8e83f46e3] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor and Database Management Inva,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Egor, I think we might have been talking about different things. I see that the percentUsed is calculated correctly but not being mapped anyplace. I added percentUsed to sizeUsed (i.e. sizeUsed.PercentUsed) and then added a threshhold MinMax of .80 with an event class of /DB. I tested this with a very low percent of .15 and it seems to work fine. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The one problem I do have is that it is for all the tablespaces and not individual ones. Any idea on how to get it to alert per tablespace?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;What I was referencing in the previous post was that during the select statement you used BYTES instead of MAXBYTES. For us the current size of the database is of no value because we have autoextend for tablespaces on and multiple datafiles allocated to tables. These datafiles are set to grow up to 4GB. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I changed the sum (BYTES) to sum (MAXBYTES) which gives me a more accurate value for the percent of the database files/tablesspaces being used.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I have a tablespace with roughly 10 datafiles allocated to it that can grow to 4GB each. The datafiles haven't grown to the max size yet so they are currently only 11,000 MB being shown. The Current use is 7025 MB.&amp;#160; This was giving me a percent used of 64%. When in reality the max size is 40,000 MB so the percent used should really be 18%. Hope my rambling makes sense. So my sql statement now looks like this:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;SELECT&lt;/td&gt;&lt;td style=";"&gt;b.BLOCKS/a.MAXBLOCKS percentUsed,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;b.BLOCKS sizeUsed,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;a.BYTES totalBytes,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;s.STATUS status,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;TABLESPACE_NAME&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;FROM&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;(&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;SELECT &lt;/td&gt;&lt;td style=";"&gt;TABLESPACE_NAME,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;decode( STATUS,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;'ONLINE', 2,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;'READ ONLY', 3,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;'OFFLINE', 4,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;1) STATUS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;FROM&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;dba_tablespaces&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;) s&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;LEFT JOIN&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;(&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;SELECT &lt;/td&gt;&lt;td style=";"&gt;TABLESPACE_NAME,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;sum(MAXBYTES) BYTES,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;sum(decode(AUTOEXTENSIBLE, 'YES', MAXBLOCKS, BLOCKS)) MAXBLOCKS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;FROM&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;dba_data_files&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;GROUP BY TABLESPACE_NAME&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;) a&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;USING (TABLESPACE_NAME)&lt;/p&gt;&lt;p&gt;LEFT JOIN&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;(&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;SELECT &lt;/td&gt;&lt;td style=";"&gt;TABLESPACE_NAME,&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;sum(BLOCKS) BLOCKS&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;FROM&amp;#160;&amp;#160;&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;dba_segments&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;GROUP BY TABLESPACE_NAME&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;br/&gt;&lt;/td&gt;&lt;td style=";"&gt;) b&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;USING (TABLESPACE_NAME)&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;WHERE&amp;#160; &lt;/td&gt;&lt;td style=";"&gt;TABLESPACE_NAME='${here/dbname}'&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Ryan&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c672ad2e-adf7-4ffd-bdb1-69b8e83f46e3] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 15:35:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5642</guid>
+      <dc:date>2012-05-14T15:35:39Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5644</link>
+      <description>&lt;!-- [DocumentBodyStart:7bd67212-177c-4b30-a21e-b8acdcd51706] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;i've understend your problem, and i'm working on solutions. Thanks for your comments.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:7bd67212-177c-4b30-a21e-b8acdcd51706] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 17:59:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5644</guid>
+      <dc:date>2012-05-14T17:59:10Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5645</link>
+      <description>&lt;!-- [DocumentBodyStart:b5f1d8da-0130-4dcb-8aaf-2a6c1645343d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi &lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;Database Management Inva,&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;have you added your database manually? After modelleing with &lt;strong style="background-color: #f8f4e6; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;community.sql.OracleDatabaseMap&lt;/strong&gt; plugin all your databases will be recognized and added to Zenoss automatically.&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b5f1d8da-0130-4dcb-8aaf-2a6c1645343d] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 18:05:03 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5645</guid>
+      <dc:date>2012-05-14T18:05:03Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5647</link>
+      <description>&lt;!-- [DocumentBodyStart:168df313-419a-49e4-aa36-fc89e5f455aa] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Is it possible to get with a threshold event the component instead of a blank text?&lt;/p&gt;&lt;p&gt;For example events at the class Perf/Filesystem the component is &lt;span style="color: #000000; font-family: Helvetica, sans-serif; font-size: 12px; text-align: -webkit-auto; background-color: #ffffff;"&gt;C:\ Label: Serial Number xxxxx&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #000000; font-family: Helvetica, sans-serif; font-size: 12px; text-align: -webkit-auto; background-color: #ffffff;"&gt;Or is it possible to transform the event message or summary with python code?&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:168df313-419a-49e4-aa36-fc89e5f455aa] --&gt;</description>
+      <pubDate>Tue, 15 May 2012 09:20:29 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5647</guid>
+      <dc:date>2012-05-15T09:20:29Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5648</link>
+      <description>&lt;!-- [DocumentBodyStart:4e3f3d8e-520f-4531-8f40-874f3bba8c6b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi bigegor:&lt;/p&gt;&lt;p&gt;Database was added manually.&lt;/p&gt;&lt;p&gt;There are the zenpacks we have installed:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.OndrejJakubcik.OracleHwMonitoring 1.1 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.community.OracleMon 1.1 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.community.RDBMS 2.3 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.community.SQLDataSource 2.0 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.community.VMwareDataSource 1.1.2 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.community.VMwareESXiMonitor 1.2 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.community.ZenODBC 4.0 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.community.deviceAdvDetail 2.7 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.community.zenHttpComponent 1.4 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;ZenPacks.zenoss.HttpMonitor 2.0.3 &lt;/td&gt;&lt;td style=";"&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;ZenPacks.zenoss.ZenossVirtualHostMonitor 2.3.6&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4e3f3d8e-520f-4531-8f40-874f3bba8c6b] --&gt;</description>
+      <pubDate>Tue, 15 May 2012 11:12:09 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5648</guid>
+      <dc:date>2012-05-15T11:12:09Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5675</link>
+      <description>&lt;!-- [DocumentBodyStart:67b4ecf8-3488-4f68-9227-08c59f1b8dce] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;Hi Ryan,&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;try version 1.2&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:67b4ecf8-3488-4f68-9227-08c59f1b8dce] --&gt;</description>
+      <pubDate>Sun, 20 May 2012 18:00:08 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5675</guid>
+      <dc:date>2012-05-20T18:00:08Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5676</link>
+      <description>&lt;!-- [DocumentBodyStart:ef731cb8-bfd5-48b3-9c5b-602dc8359a3c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;Hi &lt;/span&gt;&lt;span style="background-color: #ffffff; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;Database Management Inva,&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;add &lt;strong style="background-color: #f8f4e6; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;community.sql.OracleDatabaseMap&lt;/strong&gt; plugin to modeler plugins list and remodel your server.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ef731cb8-bfd5-48b3-9c5b-602dc8359a3c] --&gt;</description>
+      <pubDate>Sun, 20 May 2012 18:03:35 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5676</guid>
+      <dc:date>2012-05-20T18:03:35Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5679</link>
+      <description>&lt;!-- [DocumentBodyStart:5ac1cce3-11c2-43d6-9a98-d69e74c6b547] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Bigegor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;If I look in the devices modler plugin tab I can see in the right a such line. Does that mean that it's ok ?&lt;/p&gt;&lt;p&gt;But still I get no tablespace usage data.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5ac1cce3-11c2-43d6-9a98-d69e74c6b547] --&gt;</description>
+      <pubDate>Mon, 21 May 2012 07:43:20 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5679</guid>
+      <dc:date>2012-05-21T07:43:20Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5658</link>
+      <description>&lt;!-- [DocumentBodyStart:4d46d02e-0ef4-47c6-b468-44336b72e9fc] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Egor version 1.2 is working great. Nice Work.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4d46d02e-0ef4-47c6-b468-44336b72e9fc] --&gt;</description>
+      <pubDate>Tue, 22 May 2012 01:23:56 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5658</guid>
+      <dc:date>2012-05-22T01:23:56Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5767</link>
+      <description>&lt;!-- [DocumentBodyStart:40c485fc-4e41-4d36-91a5-3cfc48f4ff13] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello! I'm experiencing problems to install cx_Oracle. I've tried with Oracle Instant client 10.2 and 11.2 versions, but I ever see the same error: &lt;/p&gt;&lt;p&gt;/usr/bin/ld: skipping incompatible /opt/instantclient_10_2//libclntsh.so when searching for -lclntsh&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This error makes me impossible to finish cx_Oracle installation... Can someone help me? &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thank you!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:40c485fc-4e41-4d36-91a5-3cfc48f4ff13] --&gt;</description>
+      <pubDate>Tue, 12 Jun 2012 15:18:55 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5767</guid>
+      <dc:date>2012-06-12T15:18:55Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5768</link>
+      <description>&lt;!-- [DocumentBodyStart:ae9b7064-0beb-4581-9c86-e25bb915a411] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ups... It was a problem with platform... I was using 64bit client and this Zenpack needs 32bit client. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Using 32bit client everything works. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ae9b7064-0beb-4581-9c86-e25bb915a411] --&gt;</description>
+      <pubDate>Tue, 12 Jun 2012 15:30:15 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5768</guid>
+      <dc:date>2012-06-12T15:30:15Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5769</link>
+      <description>&lt;!-- [DocumentBodyStart:0c4c2016-ace4-46ed-b7e4-285fb0ce1fbc] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello again, &lt;/p&gt;&lt;p&gt;I've successfully installed your ZenPack and its dependencies, I've configured the zProperties, Templates and Modeler plugins... but Zenoss cannot discover the Oracle databases that exist on my servers. &lt;/p&gt;&lt;p&gt;The Oracle-related graphs appear without information. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Exists any log to discover where is the problem? &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thank you very much!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:0c4c2016-ace4-46ed-b7e4-285fb0ce1fbc] --&gt;</description>
+      <pubDate>Wed, 13 Jun 2012 11:17:01 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5769</guid>
+      <dc:date>2012-06-13T11:17:01Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5770</link>
+      <description>&lt;!-- [DocumentBodyStart:99d6eabb-24a4-45c3-b490-bd5ba22d615c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;More information... &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I've discovered that, when I model the device, every modeler appears on the log information... except Oracle "community.sql.OracleDatabaseMap". &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Why? I suppose that this is the root cause of the problem... &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:99d6eabb-24a4-45c3-b490-bd5ba22d615c] --&gt;</description>
+      <pubDate>Wed, 13 Jun 2012 11:25:43 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5770</guid>
+      <dc:date>2012-06-13T11:25:43Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5817</link>
+      <description>&lt;!-- [DocumentBodyStart:6294e464-b40a-4722-b969-85f5221d0aec] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello All,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;my zenoss server is running on redhat5-64bits. I am experiencing problems getting most perfromance graphs on oracle 8i and 9i database instances on solaris servers(SPAC)/HPUX. the only graph i get are sessions and odba objects. also the database instance are marked as down with no tables displayed. i used the clone git and it worked perferctly on oracle 10g running on redhat 5. I used cx_oracle-4.4 and oracle-instantclients-10.2.0.5- 64bits to ensure the zenpack would model 8i n 9i database instances. proper permission are granted by the DBA to these databases. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;i got this error while modeling &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2012-07-03 10:11:01,966 WARNING zen.SQLClient: Error in community.sql.OracleDatabaseMap query "SELECT TABLESPACE_NAME, a.CONTENTS, a.BLOCK_SIZE, b.BLOCKS, ( SELECT NAME FROM v$database WHERE rownum = 1 ) DATABASE FROM ( SELECT TABLESPACE_NAME, CONTENTS, BLOCK_SIZE FROM dba_tablespaces ) a INNER JOIN ( SELECT TABLESPACE_NAME, sum(decode(AUTOEXTENSIBLE, 'YES', MAXBLOCKS, BLOCKS)) BLOCKS FROM dba_data_files GROUP BY TABLESPACE_NAME) b USING (TABLESPACE_NAME)": ORA-00933: SQL command not properly ended 2012-07-03 10:11:01,966 INFO zen.SQLClient: SQL client finished collection for 192.168.1.1&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;i really need to get this working. kindly assist.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks&amp;#160; &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6294e464-b40a-4722-b969-85f5221d0aec] --&gt;</description>
+      <pubDate>Tue, 03 Jul 2012 09:13:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5817</guid>
+      <dc:date>2012-07-03T09:13:49Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5831</link>
+      <description>&lt;!-- [DocumentBodyStart:cd10fc37-dfcf-450c-bc3c-d21d46265468] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi ade adesote,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;if you can provide correct query syntax for Oracle 8i and 9i, i will fix this ZenPack.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:cd10fc37-dfcf-450c-bc3c-d21d46265468] --&gt;</description>
+      <pubDate>Tue, 03 Jul 2012 21:24:55 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5831</guid>
+      <dc:date>2012-07-03T21:24:55Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5832</link>
+      <description>&lt;!-- [DocumentBodyStart:ac78df43-d7bb-47fb-8083-cdc8426e548e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi ade adesote &amp;amp; bigegor, &lt;/p&gt;&lt;p&gt;I have the same problem (only graph sessions and dba objects) against Oracle 9.2.0.8 databases. But this behavior exists because Oracle 9i doesn't have statistics that Oracle 10g and 11g has. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;On the other hand, I haven't errors while modeling, but zenperfsql daemon stops after working half an hour, more or less. Without errors recorded in zenperfsql.log... Someone has had this problem? &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ac78df43-d7bb-47fb-8083-cdc8426e548e] --&gt;</description>
+      <pubDate>Wed, 04 Jul 2012 06:35:32 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5832</guid>
+      <dc:date>2012-07-04T06:35:32Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5833</link>
+      <description>&lt;!-- [DocumentBodyStart:85e3d073-c59c-44ca-913e-94f6b43aef36] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello Bigegor and Sistemas,&lt;/p&gt;&lt;p&gt;thanks for your prompt response.this is the error i got while modeling either oracle 9.2i or 8.1.7i database. hope this will help. thank you&amp;#160; &lt;a href="http://community.zenoss.org/servlet/JiveServlet/showImage/105-5833-12709/oracle-monitor-error.JPG"&gt;&lt;img alt="oracle-monitor-error.JPG" class="jive-image" height="160" src="http://community.zenoss.org/servlet/JiveServlet/downloadImage/105-5833-12709/450-160/oracle-monitor-error.JPG" width="450"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:85e3d073-c59c-44ca-913e-94f6b43aef36] --&gt;</description>
+      <pubDate>Wed, 04 Jul 2012 08:18:24 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5833</guid>
+      <dc:date>2012-07-04T08:18:24Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5838</link>
+      <description>&lt;!-- [DocumentBodyStart:324b4dc9-d819-482d-bb60-da2b96641f37] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi ade adesote,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;no this will NOT help, you have posted the same error log, but i've asked for CORRECT QUERY SYNTAX for Oracle 8 and 9.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:324b4dc9-d819-482d-bb60-da2b96641f37] --&gt;</description>
+      <pubDate>Sat, 07 Jul 2012 19:38:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5838</guid>
+      <dc:date>2012-07-07T19:38:39Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5839</link>
+      <description>&lt;!-- [DocumentBodyStart:130368bc-4c73-4f48-89ab-4a850d35c1de] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Sistemas Santiveri,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;yes, i'm aware of zenperfsql crashs, it looks like it conflict with zeneventlog and zenwin deamons. Try to stop they both.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:130368bc-4c73-4f48-89ab-4a850d35c1de] --&gt;</description>
+      <pubDate>Sat, 07 Jul 2012 19:46:33 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5839</guid>
+      <dc:date>2012-07-07T19:46:33Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-5862</link>
+      <description>&lt;!-- [DocumentBodyStart:4f52925f-d6ba-4d35-b5d1-c7d30c2ebd52] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello,&amp;#160; Sorry guy I am no database expert and I don&amp;rsquo;t have a clue of what this query should look like. I have spent days searching resources. But digging through this script --OracleDatabaseMap.py, the point where this error occurred is&amp;#160;&amp;#160;&amp;#160; tasks['db_%s'%inst] = (&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; """SELECT TABLESPACE_NAME,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; a.CONTENTS,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; a.BLOCK_SIZE,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; b.BLOCKS,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ( SELECT NAME&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM v$database&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; WHERE rownum = 1&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ) DATABASE&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM ( SELECT TABLESPACE_NAME,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; CONTENTS,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; BLOCK_SIZE&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM dba_tablespaces ) a&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; INNER JOIN (&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; SELECT TABLESPACE_NAME,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(decode(AUTOEXTENSIBLE, 'YES', MAXBLOCKS, BL&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; OCKS)) BLOCKS&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; FROM dba_data_files&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; GROUP BY TABLESPACE_NAME) b&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; USING (TABLESPACE_NAME)""",&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; None,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; cs,&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; {&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 'dbname':'tablespace_name',&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 'type':'contents',&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 'blockSize':'block_size',&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 'totalBlocks':'blocks',&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 'setDBSrvInst':'database',&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; })&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; return tasks&amp;#160; Permission on the database is : grant select on v_$database to zenoss; grant select on dba_tablespaces to zenoss; grant select on dba_data_files to zenoss; grant select on v_$sysmetric to zenoss; grant select on dba_free_space to zenoss; grant select on v_$session to zenoss; grant select on dba_objects to zenoss; grant select on dba_segments to zenoss&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4f52925f-d6ba-4d35-b5d1-c7d30c2ebd52] --&gt;</description>
+      <pubDate>Thu, 12 Jul 2012 09:29:15 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-5862</guid>
+      <dc:date>2012-07-12T09:29:15Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6067</link>
+      <description>&lt;!-- [DocumentBodyStart:d246f875-1c3c-468e-ad10-ecea0c09499f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello Egor, &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I want to test Zenoss 4.2, is your zenpack compatible with this version? If not... Have you planned to create a compatible version? Soon? &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thank you very much!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d246f875-1c3c-468e-ad10-ecea0c09499f] --&gt;</description>
+      <pubDate>Tue, 25 Sep 2012 09:56:44 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6067</guid>
+      <dc:date>2012-09-25T09:56:44Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6070</link>
+      <description>&lt;!-- [DocumentBodyStart:85c960e5-014e-4005-974f-4b12cacc243b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Sistemas Santiveri,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;it should work on Zenoss 4.2 too, with latest SQL Data Source and RDBMS ZenPacks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:85c960e5-014e-4005-974f-4b12cacc243b] --&gt;</description>
+      <pubDate>Tue, 25 Sep 2012 17:38:52 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6070</guid>
+      <dc:date>2012-09-25T17:38:52Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6091</link>
+      <description>&lt;!-- [DocumentBodyStart:8e98bcb0-1f50-43fb-9771-37c16926228c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks bigegor! I will test it today. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Best regards&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8e98bcb0-1f50-43fb-9771-37c16926228c] --&gt;</description>
+      <pubDate>Thu, 27 Sep 2012 08:32:48 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6091</guid>
+      <dc:date>2012-09-27T08:32:48Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6190</link>
+      <description>&lt;!-- [DocumentBodyStart:0e33af70-d8c6-4d25-9daf-624ab1d9b472] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I have managed to get this working on 4.2.0 with cx_Oracle and it all works. I am monitorig 2 Oracle servers with 11 databases each. The only problem I am seeing is a lot of "ORA-12545:Connect failed because target hos or object does not exist". Sometimes it's reporting this for all the db's on a server, sometimes only for a few. Any ideas what could be causing this?&lt;/p&gt;&lt;p&gt;&lt;br/&gt;Regards, Jim&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:0e33af70-d8c6-4d25-9daf-624ab1d9b472] --&gt;</description>
+      <pubDate>Sat, 03 Nov 2012 20:47:09 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6190</guid>
+      <dc:date>2012-11-03T20:47:09Z</dc:date>
+      <clearspace:dateToText>1 year, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6206</link>
+      <description>&lt;!-- [DocumentBodyStart:f2647cf8-1557-4df4-9878-647b02583d33] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Also what is the separator for zOracleTablespaceIgnoreNames?&amp;#160; I have tried space and comma to no avail.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks, Jim&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f2647cf8-1557-4df4-9878-647b02583d33] --&gt;</description>
+      <pubDate>Sat, 03 Nov 2012 21:03:57 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6206</guid>
+      <dc:date>2012-11-03T21:03:57Z</dc:date>
+      <clearspace:dateToText>1 year, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6199</link>
+      <description>&lt;!-- [DocumentBodyStart:3f144f23-42e2-44f8-8a57-421cce20c436] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Jim,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;zOracleTablespaceIgnoreNames, like others *Ignore zProperties in Zenoss used regex syntax, so you must use | &lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;(pipe without spaces)&lt;/span&gt; as separator.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3f144f23-42e2-44f8-8a57-421cce20c436] --&gt;</description>
+      <pubDate>Sun, 04 Nov 2012 10:39:51 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6199</guid>
+      <dc:date>2012-11-04T10:39:51Z</dc:date>
+      <clearspace:dateToText>1 year, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6205</link>
+      <description>&lt;!-- [DocumentBodyStart:5894fe4c-4a70-4318-b3e2-aa6cedf9a37e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor, &lt;/p&gt;&lt;p&gt;Yes that worked, any idea what would cause the "ORA-12545:Connect failed because target hos or object does not exist" errors? I get them 30-40% of the time.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards, Jim&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5894fe4c-4a70-4318-b3e2-aa6cedf9a37e] --&gt;</description>
+      <pubDate>Tue, 06 Nov 2012 20:14:38 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6205</guid>
+      <dc:date>2012-11-06T20:14:38Z</dc:date>
+      <clearspace:dateToText>1 year, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6303</link>
+      <description>&lt;!-- [DocumentBodyStart:d9ee127f-b292-4656-99cd-92c319f41aa0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;In Zenoss 4.2 I'm seeing the following error...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #444444; font-family: Helvetica, sans-serif; font-size: 12px; background-color: #eaf0f7;"&gt;Internal exception processing event: AttributeError("'OracleSrvInst' object has no attribute 'id'",)&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d9ee127f-b292-4656-99cd-92c319f41aa0] --&gt;</description>
+      <pubDate>Wed, 02 Jan 2013 20:33:46 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6303</guid>
+      <dc:date>2013-01-02T20:33:46Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6304</link>
+      <description>&lt;!-- [DocumentBodyStart:2d550ce7-0e79-4bd2-b08d-949632a52628] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;try to add to OracleDatabaseMap.py after line 109:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p&gt;if not getattr(om, 'id', None): continue&lt;/p&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:2d550ce7-0e79-4bd2-b08d-949632a52628] --&gt;</description>
+      <pubDate>Wed, 02 Jan 2013 21:24:13 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6304</guid>
+      <dc:date>2013-01-02T21:24:13Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6305</link>
+      <description>&lt;!-- [DocumentBodyStart:0ca3ee03-6560-4a60-a333-d72c147febd5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I get the error every cycle, not during modelling.&amp;#160; The error appears to be coming from zeneventd.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:0ca3ee03-6560-4a60-a333-d72c147febd5] --&gt;</description>
+      <pubDate>Wed, 02 Jan 2013 21:32:06 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6305</guid>
+      <dc:date>2013-01-02T21:32:06Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6292</link>
+      <description>&lt;!-- [DocumentBodyStart:7965e94a-35f7-4e11-927a-6579919d542c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I tried the suggested fix anyways even though I was pretty sure it wasn't going to work, then I remodeled the device and I'm still seeing the same error.&amp;#160; I'm guessing it's because that ZenPack hasn't really been converted to work with 4.x yet (based on the files in the ZenPack directory).&amp;#160; It's barely been converted to work with 3.x (no interfaces file).&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:7965e94a-35f7-4e11-927a-6579919d542c] --&gt;</description>
+      <pubDate>Thu, 03 Jan 2013 16:06:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6292</guid>
+      <dc:date>2013-01-03T16:06:39Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6306</link>
+      <description>&lt;!-- [DocumentBodyStart:646925a7-cae0-41df-9356-2deb82ec292e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;RDBMS ZenPack provides all necessary files for 3.x-4.x compatibility. This ZenPack only extends DBSrvInst and Database classes. But i think, this transform make the problem:&amp;#160; &lt;span style="color: #dd1144; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 12px; background-color: #ffffff;"&gt;Events/Status/OracleSrvInst&lt;/span&gt;. Try to replace string:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;span style="font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 12px; background-color: #ffffff;"&gt;if comp.id != evt.component: continue&lt;/span&gt;&lt;/blockquote&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;with&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;span style="font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 12px; background-color: #ffffff;"&gt;if comp.titleOrId() != evt.component: continue&lt;/span&gt;&lt;/blockquote&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;also check &lt;span style="color: #dd1144; font-family: Consolas, 'Liberation Mono', Courier, monospace; font-size: 12px; background-color: #ffffff;"&gt;Events/Status/OracleTablespace&lt;/span&gt; transform.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:646925a7-cae0-41df-9356-2deb82ec292e] --&gt;</description>
+      <pubDate>Thu, 03 Jan 2013 23:39:40 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6306</guid>
+      <dc:date>2013-01-03T23:39:40Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6293</link>
+      <description>&lt;!-- [DocumentBodyStart:46ac89f0-c230-4ea0-bca1-f0fb9b296855] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I am trying to monitor a RAC cluster with 2 servers with this zenpack, but the zenpack only works on one server at a time. When it is collecting data from one, the other reports ORA-12545 errors. Do I just need to monitor one of the servers?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards, Jim&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:46ac89f0-c230-4ea0-bca1-f0fb9b296855] --&gt;</description>
+      <pubDate>Tue, 08 Jan 2013 13:56:04 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6293</guid>
+      <dc:date>2013-01-08T13:56:04Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6307</link>
+      <description>&lt;!-- [DocumentBodyStart:c3694f73-c4e5-4e09-a051-d8d20e6e8fc1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Jim,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;check &lt;a class="jive-link-wiki-small" href="http://community.zenoss.org/docs/DOC-5800"&gt;Virtual IP&lt;/a&gt; Zenpack, it can help by monitoring clusters resources.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c3694f73-c4e5-4e09-a051-d8d20e6e8fc1] --&gt;</description>
+      <pubDate>Tue, 08 Jan 2013 21:35:38 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6307</guid>
+      <dc:date>2013-01-08T21:35:38Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6294</link>
+      <description>&lt;!-- [DocumentBodyStart:e3be2a59-3114-4330-ba6c-a6decda06643] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;That Virtual IP zenpack is for 3.x.x and I am using 4.2.0. Also I have started monitoring only one of the devices in the cluster but I still get ORA-12545 errors about 40% of the time. Any idea what could be causing this? &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Many thanks, Jim&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e3be2a59-3114-4330-ba6c-a6decda06643] --&gt;</description>
+      <pubDate>Wed, 09 Jan 2013 11:51:24 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6294</guid>
+      <dc:date>2013-01-09T11:51:24Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6436</link>
+      <description>&lt;!-- [DocumentBodyStart:f6b2e3e3-6000-4847-8009-c4d760867a12] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi all,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thank you for the great plugin...&lt;/p&gt;&lt;p&gt;I installed Zenoss 4.2.3 on Ubuntu 12.04 64 bit with hydruid scipts and works well ..:)&lt;/p&gt;&lt;p&gt;until I install OracleMon plugin.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I install the plugin from github.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I have error in Component | Database when it's viewed.&lt;/p&gt;&lt;p&gt;The error in the log like below:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2013-03-04T11:43:25 INFO extdirect Direct request failed: cannot convert float NaN to integer: DeviceRouter.getComponents [{'sort': 'name', 'uid': '/zport/dmd/Devices/Server/Oracle Database/devices/10.1.25.27', 'keys': ['uid', 'severity', 'status', 'dbSrvInst', 'name', 'type', 'totalBytesString', 'usedBytesString', 'capacity', 'locking', 'usesMonitorAttribute', 'monitored', 'monitor', 'uuid', 'uid', 'meta_type', 'monitor'], 'start': 0, 'meta_type': 'Database', 'limit': 50, 'page': 1, 'dir': 'ASC', 'name': None}]&lt;/p&gt;&lt;p&gt;------&lt;/p&gt;&lt;p&gt;2013-03-04T11:43:25 INFO extdirect DirectRouter suppressed the following exception (Response 4230cec5-75ba-42c8-b097-e4875a47d8bd):&lt;/p&gt;&lt;p&gt;Traceback (most recent call last):&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/Products/ZenUtils/extdirect/router.py", line 179, in _processDirectRequest&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; response.result = _targetfn(**data)&lt;/p&gt;&lt;p&gt;&amp;#160; File "&amp;lt;string&amp;gt;", line 2, in getComponents&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/Products/Zuul/decorators.py", line 115, in serviceConnectionError&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; return func(*args, **kwargs)&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/Products/Zuul/routers/device.py", line 187, in getComponents&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; data = Zuul.marshal(comps, keys=keys)&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/Products/Zuul/__init__.py", line 128, in marshal&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; marshalled_list.append(marshal(o, keys, marshallerName, objs))&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/Products/Zuul/__init__.py", line 101, in marshal&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; return marshal(marshaller.marshal(keys),&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/Products/Zuul/marshalling.py", line 79, in marshal&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; data = _marshalExplicitly(self._obj, _keys)&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/Products/Zuul/marshalling.py", line 53, in _marshalExplicitly&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; value = getattr(obj, key)&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/ZenPacks/ZenPacks.community.RDBMS/ZenPacks/community/RDBMS/info.py", line 60, in capacity&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; cap = self._object.capacity()&lt;/p&gt;&lt;p&gt;&amp;#160; File "/usr/local/zenoss/ZenPacks/ZenPacks.community.RDBMS/ZenPacks/community/RDBMS/Database.py", line 207, in capacity&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; totalBytes = long(self.totalBytes())&lt;/p&gt;&lt;p&gt;ValueError: cannot convert float NaN to integer&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Is there any clue to solve this??&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;Fadjar Tandabawana&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f6b2e3e3-6000-4847-8009-c4d760867a12] --&gt;</description>
+      <pubDate>Mon, 04 Mar 2013 04:44:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6436</guid>
+      <dc:date>2013-03-04T04:44:39Z</dc:date>
+      <clearspace:dateToText>1 year, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6447</link>
+      <description>&lt;!-- [DocumentBodyStart:c2e540e6-52c2-4f71-aaa3-83946943c088] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;That error will go away once data has been collected for the components.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c2e540e6-52c2-4f71-aaa3-83946943c088] --&gt;</description>
+      <pubDate>Mon, 04 Mar 2013 17:11:20 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6447</guid>
+      <dc:date>2013-03-04T17:11:20Z</dc:date>
+      <clearspace:dateToText>1 year, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6437</link>
+      <description>&lt;!-- [DocumentBodyStart:28a3e7db-ef2e-4f61-bd14-4a290ad79e0c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;THe other components already have the result..&lt;/p&gt;&lt;p&gt;BTW, this component run for 1 day without have a result..&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Please help.....&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;Fadjar Tandabawana&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:28a3e7db-ef2e-4f61-bd14-4a290ad79e0c] --&gt;</description>
+      <pubDate>Mon, 04 Mar 2013 17:22:30 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6437</guid>
+      <dc:date>2013-03-04T17:22:30Z</dc:date>
+      <clearspace:dateToText>1 year, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6448</link>
+      <description>&lt;!-- [DocumentBodyStart:b38d4b74-379f-493c-9ff2-9cd1b96d846f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The only way you can fix that to make it go away is to edit the ZenPack code.&amp;#160; In one of the .py files there will be functions that are called on to gather the RRD data.&amp;#160; You would need to modify those to return 0 if it doesn't get a value.&amp;#160; We're actually working on developing a whole new Oracle monitoring pack, but it's not 100% done yet (we weren't overly impressed with the performance of this one).&amp;#160; I would also need permission from my management to release it publicly (I'll try to get permission).&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b38d4b74-379f-493c-9ff2-9cd1b96d846f] --&gt;</description>
+      <pubDate>Mon, 04 Mar 2013 19:50:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6448</guid>
+      <dc:date>2013-03-04T19:50:39Z</dc:date>
+      <clearspace:dateToText>1 year, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6476</link>
+      <description>&lt;!-- [DocumentBodyStart:6eb9993f-6181-4ee8-a37c-178dd2bc88b5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ryan, do you have a date when the new &amp;amp; improved Oracle monitoring pack will be available? &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;VicC&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6eb9993f-6181-4ee8-a37c-178dd2bc88b5] --&gt;</description>
+      <pubDate>Wed, 20 Mar 2013 08:45:44 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6476</guid>
+      <dc:date>2013-03-20T08:45:44Z</dc:date>
+      <clearspace:dateToText>11 months, 4 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6477</link>
+      <description>&lt;!-- [DocumentBodyStart:9fa5f729-dfc0-4233-86e4-9297e8dc9b31] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I still have to get approval to release it in the first place so no date is currently available.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:9fa5f729-dfc0-4233-86e4-9297e8dc9b31] --&gt;</description>
+      <pubDate>Wed, 20 Mar 2013 14:19:25 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6477</guid>
+      <dc:date>2013-03-20T14:19:25Z</dc:date>
+      <clearspace:dateToText>11 months, 4 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6587</link>
+      <description>&lt;!-- [DocumentBodyStart:e49c99c0-7243-446b-b9d5-bb4bdd17e6ca] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Everyone!&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Please excuse my poor English. I'm a Junior Oracle DBA at a small company. I got a new task: try out zenoss oracle monitoring capabilities. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;So I am totally new with zenoss, and so far I did a the following:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Install 2 Oracle Linux 6.4 64bit in Virtualbox&lt;/p&gt;&lt;p&gt;-There is an Oracle 11g R2 DB on one of them (default install, port: 1521, sid: orcl). With ip address: 192.168.62.159&lt;/p&gt;&lt;p&gt;-create zenoss Oracle DB user with the following grants:&lt;/p&gt;&lt;p&gt;grant select on v_$database to zenoss;&lt;/p&gt;&lt;p&gt;grant select on dba_tablespaces to zenoss;&lt;/p&gt;&lt;p&gt;grant select on dba_data_files to zenoss;&lt;/p&gt;&lt;p&gt;grant select on v_$sysmetric to zenoss;&lt;/p&gt;&lt;p&gt;grant select on dba_free_space to zenoss;&lt;/p&gt;&lt;p&gt;grant select on v_$session to zenoss;&lt;/p&gt;&lt;p&gt;grant select on dba_objects to zenoss;&lt;/p&gt;&lt;p&gt;grant select on dba_segments to zenoss;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;-There is zenoss 4.2 on the other Oracle LInux6, with IP adress 192.168.62.126&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The steps how I installed zenoss:&lt;/p&gt;&lt;p&gt;yum -y remove mysql-libs&lt;/p&gt;&lt;p&gt;yum -y install unixODBC&lt;/p&gt;&lt;p&gt;yum -y install SDL&lt;/p&gt;&lt;p&gt;yum -y install tk&lt;/p&gt;&lt;p&gt;yum -y install sysstat&lt;/p&gt;&lt;p&gt;yum -y install net-snmp-utils&lt;/p&gt;&lt;p&gt;yum -y install libgcj&lt;/p&gt;&lt;p&gt;yum -y install memcached&lt;/p&gt;&lt;p&gt;&lt;span&gt;wget --no-check-certificate &lt;/span&gt;&lt;a class="jive-link-external-small" href="https://github.com/zenoss/core-autodeploy/tarball/4.2.3"&gt;https://github.com/zenoss/core-autodeploy/tarball/4.2.3&lt;/a&gt;&lt;span&gt; -O auto.tar.gz&lt;/span&gt;&lt;/p&gt;&lt;p&gt;tar xvf auto.tar.gz&lt;/p&gt;&lt;p&gt;cd zenoss-core-autodeploy-*&lt;/p&gt;&lt;p&gt;./core-autodeploy.sh&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;After i installed the following zenpacks with zenoss linux user:&lt;/p&gt;&lt;p&gt;-SQL Data Source ZenPack &lt;/p&gt;&lt;p&gt;-Advanced Device Details ZenPack &lt;/p&gt;&lt;p&gt;-RDBMS Monitoring ZenPack &lt;/p&gt;&lt;p&gt;-Oracle Database Monitor&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;After that I tried to configure the Oracle DB in zenoss but I could not managed to do it. I think maybe there were 3 main problem.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;1. I forgot to install the Oracle client in the first time and maybe the order is matter. I tried to installed it form here: &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;a class="jive-link-external-small" href="http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html"&gt;http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html&lt;/a&gt;&lt;span&gt;&amp;#160;&amp;#160; installed the following .rpm with linux root user:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;-Instant Client Package - Basic:&lt;/p&gt;&lt;p&gt;-Instant Client Package - SQL*Plus:&lt;/p&gt;&lt;p&gt;-Instant Client Package - ODBC&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2. I failed to install the external dependecies correctly: &lt;/p&gt;&lt;p&gt;- "unixODBC. Oracle ODBC driver must be installed and registered with name "OracleDB"."&amp;#160; --&amp;gt; How can I do this? I also not sure I hve to install unixODBC and cx_Oracle both or just one of them?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;3. I probably defined wrong the following value:&lt;/p&gt;&lt;p&gt;zOracleConnectionString='pyisqldb','DRIVER={OracleDB};SERVER=${192.168.62.159/dsn};UID=${zenoss/zOracleUser};PWD=&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;${zenoss/zOraclePassword}',ansi=True,cp_good_sql='SELECT 1 FROM DUAL'&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;PLease somebody can help me with this matter?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thank you in advancek you in advance for your reply.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e49c99c0-7243-446b-b9d5-bb4bdd17e6ca] --&gt;</description>
+      <pubDate>Fri, 17 May 2013 08:33:17 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6587</guid>
+      <dc:date>2013-05-17T08:33:17Z</dc:date>
+      <clearspace:dateToText>10 months, 18 hours ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6655</link>
+      <description>&lt;!-- [DocumentBodyStart:5e9723e0-a6f6-4755-86f7-47f6d5c5d5f6] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Is there any news about the permission?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I think I need to solve this bug...:)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;Fadjar Tandabawana&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5e9723e0-a6f6-4755-86f7-47f6d5c5d5f6] --&gt;</description>
+      <pubDate>Thu, 04 Jul 2013 09:39:12 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6655</guid>
+      <dc:date>2013-07-04T09:39:12Z</dc:date>
+      <clearspace:dateToText>8 months, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6671</link>
+      <description>&lt;!-- [DocumentBodyStart:aa61a3b6-8da5-4634-a0e7-18cf07a6cebc] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;To be honest I don't think it's going to happen but I'll ask again.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:aa61a3b6-8da5-4634-a0e7-18cf07a6cebc] --&gt;</description>
+      <pubDate>Thu, 04 Jul 2013 14:36:12 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6671</guid>
+      <dc:date>2013-07-04T14:36:12Z</dc:date>
+      <clearspace:dateToText>8 months, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6675</link>
+      <description>&lt;!-- [DocumentBodyStart:a413644f-8903-47af-bee0-eb279502212b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks for the beautiful work done.&lt;/p&gt;&lt;p&gt;I have tried install installing on Zenoss version 4.2.3 and seems everything working fine, except the graph not coming.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Requesting for your guidance here.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regds&lt;/p&gt;&lt;p&gt;Santosh Iyengar&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a413644f-8903-47af-bee0-eb279502212b] --&gt;</description>
+      <pubDate>Mon, 15 Jul 2013 12:09:54 GMT</pubDate>
+      <author>sly@mach.com</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6675</guid>
+      <dc:date>2013-07-15T12:09:54Z</dc:date>
+      <clearspace:dateToText>8 months, 1 day ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6669</link>
+      <description>&lt;!-- [DocumentBodyStart:5cccff56-5680-431a-9f67-af6896b5dba6] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I am facing an issue when clicked on componets-&amp;gt;Databases,&lt;/p&gt;&lt;p&gt;although the number of databases is counted right when it comes to detailing of it....&lt;/p&gt;&lt;p&gt;it flashes an error in yello band, "&lt;img/&gt;ValueError: cannot convert float NaN to Integer"&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;can anyone help me to work around..&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;As per some analysis done, i get to see that we may need python 2.4 to be used for this Zenpack and it may not work with 2.5 &amp;gt;.... and i am using Python 2.7.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I really don't wish to disturb my Zeenoss setup here.... can anyone help me....&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5cccff56-5680-431a-9f67-af6896b5dba6] --&gt;</description>
+      <pubDate>Mon, 22 Jul 2013 08:13:55 GMT</pubDate>
+      <author>sly@mach.com</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6669</guid>
+      <dc:date>2013-07-22T08:13:55Z</dc:date>
+      <clearspace:dateToText>7 months, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Oracle Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-10244#comments-6857</link>
+      <description>&lt;!-- [DocumentBodyStart:1cc76902-f12f-42cb-a29d-2da3b5db7c60] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;For Oracle monitoring the tablespace error, please upgrade to 4.2.4.&lt;/p&gt;&lt;p&gt;If you use Ubuntu, goe to this link:&lt;/p&gt;&lt;p&gt;&lt;a class="jive-link-external-small" href="http://hydruid-blog.com/?p=343#comment-2269"&gt;http://hydruid-blog.com/?p=343#comment-2269&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The problem in the oracle database monitoring was missing and everything works well.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;Fadjar Tandabawana&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1cc76902-f12f-42cb-a29d-2da3b5db7c60] --&gt;</description>
+      <pubDate>Wed, 18 Sep 2013 11:39:46 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10244#comments-6857</guid>
+      <dc:date>2013-09-18T11:39:46Z</dc:date>
+      <clearspace:dateToText>5 months, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

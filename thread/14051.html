@@ -1,0 +1,3059 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Zenoss Core Performance Tuning - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+<script type="text/javascript">
+    if (top != self) {
+        var isSafeTopUrl = false;
+        try {
+            var topUrl = top.location.href;
+            var topUrlQsIdx = topUrl.indexOf('?');
+            if (topUrlQsIdx > 0) {
+                topUrl = topUrl.substring(0, topUrlQsIdx);
+            }
+            topUrl = topUrl.toLowerCase();
+
+            var safeTopUrls = new Array(
+                'http://community.zenoss.org/skin-basic.jspa',
+                'http://community.zenoss.org/skin-advanced.jspa',
+                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
+                'http://community.zenoss.org/skin-palette.jspa',
+                'http://community.zenoss.org/skin-palette!start.jspa'
+            );
+            for (var i = 0; i < safeTopUrls.length; i++) {
+                if (safeTopUrls[i].toLowerCase() == topUrl) {
+                    isSafeTopUrl = true;
+                    break;
+                }
+            }
+        } catch (err) {
+        }
+        if (!isSafeTopUrl) top.location = location;
+    }
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
+<!-- Zenoss Core Performance Tuning -->
+<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+    <script type="text/javascript">
+        (function() {
+            var prepareUrl = function(url) {
+                if (url.indexOf(";") > 0) {
+                    url = url.substring(0, url.indexOf(";"));
+                }
+                if (url.charAt(url.length - 1) == '/') {
+                    url = url.substring(0, url.length - 1);
+                }
+                return url
+            };
+            if (typeof(window._jive_base_url) == "undefined") {
+                window._jive_base_url = prepareUrl("/")
+            }
+            if (typeof(window._jive_resource_url) == "undefined") {
+                window._jive_resource_url = prepareUrl("/4.5.6/")
+            }
+                if (typeof(window._jive_current_user) == "undefined") {
+                    window._jive_current_user = {
+                        anonymous: true,
+                        username: 'ANONYMOUS',
+                        ID: '-1',
+                        enabled: true,
+                        avatarID: '-1',
+                        displayName: ''
+                    };
+                }
+
+
+
+        })();
+
+        var _jive_effective_user_id = "-1";
+        var _jive_auth_token ="no-user";
+        var _jive_locale = "en_US";
+
+    </script>
+
+
+<script type="text/javascript">
+/* Kongregate Asychronous JavaScript Loader
+
+The MIT License
+
+Copyright (c) 2010 Kongregate Inc.
+*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/thread/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
+</script>
+
+    
+      
+      
+    <script type="text/javascript">
+        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
+        window.CS_BASE_URL = "";
+        window.CS_RESOURCE_BASE_URL = "/4.5.6";
+        window.tinyMCEPreInit = {
+            suffix : "_src",
+            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
+        };
+        if (typeof(_jive_project_i18n) == "undefined") {
+            var _jive_project_i18n = new Array();
+            _jive_project_i18n['project.calendar.task'] = "Task";
+            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
+            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
+            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
+            _jive_project_i18n['global.edit'] = "Edit";
+            _jive_project_i18n['global.delete'] = "Delete";
+            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
+            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
+            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
+            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
+            _jive_project_i18n['project.task.create.link'] = "Create a task";
+        }
+    </script>
+     
+
+
+
+
+    
+
+
+
+    
+<script type="text/javascript">
+kjs.run(function() {
+kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
+kjs.run(function() {
+        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
+
+
+}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
+}, [ 'Zapatec.Calendar--required' ]);
+</script>
+    
+    <script type="text/javascript">
+        var profileShortUrl = "/profile-short.jspa";
+        var profileLoadingTooltip = "Loading user profile";
+        var profileErrorTooltip = "There was an error loading that profile information.";
+
+        var projectChooserUrl = "/project-chooser!input.jspa";
+
+        var containerShortUrl = "/container-short.jspa";
+        var containerLoadingTooltip = "Loading place information.";
+        var containerErrorTooltip = "There was an error loading that place information.";
+
+        var videoShortUrl = "/view-video-short.jspa";
+        var videoLoadingTooltip = "video.tooltip.loading";
+        var videoErrorTooltip = "video.tooltip.error";
+        var _jive_video_picker__url = "?container=2003&containerType=14";
+        var followErrorMessage = "An internal error occurred while following the project or space.";
+
+        (function() {
+            var originalWrite = document.write;
+            document.write = function() {
+                if(typeof $j != 'undefined' && $j.isReady) {
+                    console.warn("document.write called after document was loaded: ", arguments);
+                }
+                else {
+                    // In IE before version 8 `document.write()` does not
+                    // implement Function methods, like `apply()`.
+                    return Function.prototype.apply.call(originalWrite, document, arguments);
+                }
+            }
+        })();        
+    </script>
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
+<script type="text/javascript">
+        // begin list of custom CSS
+        jive.rte.defaultStyles = new Array();
+        // end list of custom CSS
+
+
+            var jiveControl = new jive.model.Controller();
+            jive.rte.mobileUI = false;
+
+
+if (dwr == null) var dwr = {};
+if (dwr.engine == null) dwr.engine = {};
+if (DWREngine == null) var DWREngine = dwr.engine;
+
+dwr.engine._origScriptSessionId = "B820C67108AF2267ABE0F033BD616FD0";
+dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
+dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
+dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
+dwr.engine._defaultPath = "/dwr/interface";
+dwr.engine._pollWithXhr = "false";
+
+
+    (function() {
+        var options = {
+            friendsRange : 20,
+            everyoneRange : 20,
+            youUsername : 'ANONYMOUS',
+            youID : -1,
+            isGuest : true
+        };
+
+        var i18n = {
+            acclaimLikingLike : "Like",
+            acclaimLikingUnlike : "Liked",
+            acclaimLikedNone : "None",
+            acclaimLikingLiked : "Person Liked This",
+            acclaimLikingLikedPlural : "People Liked This",
+            acclaimPeopleLiked : "People who liked this",
+            acclaimLikedYou : "You",
+            acclaimLikedFriends : "Connections",
+            acclaimLikedEveryone : "Everyone Else",
+            globalMore : "More",
+            globalClose : "Close"
+        };
+
+        new jive.Acclaim(options, i18n);
+    })();
+
+
+        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
+                profileErrorTooltip);
+        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
+        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
+                containerLoadingTooltip, containerErrorTooltip);
+        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
+                videoErrorTooltip);
+
+        var jiveFollow = new jive.Follow(followErrorMessage);
+
+
+</script>
+
+
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
+<script type="text/javascript">
+    window.errorHandlerMessage = "An error occurred:";
+
+    window.editorErrorHandler = function(message, exception) {
+        // if the message is something other than a timeout, show the message plus the error code
+        if (message.indexOf('Timeout') == -1) {
+            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
+            $j('#dwr-error-table').fadeIn();
+            setTimeout(function() {
+                $j('#dwr-error-table').fadeOut();
+            }, 10000);
+        }
+    };
+
+
+    
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+
+
+        window.RawHTMLSaveFunction = function(element_id, html, body){
+            var text = $j('#wysiwygtext');
+            if (text.is(':not(:visible)')) {
+                return html;
+            }else{
+                return text.val();
+            }
+        }
+        jive.rte.multiRTE = new Array();
+
+        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
+        window.refreshLinks = function() {
+            jive.rte.multiRTE.forEach(function(rteID) {
+                if ($j('#' + rteID + '_parent').length < 1) {
+                    // safari 2, text only
+                    $j('#' + rteID + '_toggle_html').hide();
+                    $j('#jivePreferredEditorModeLinkHREF').hide();
+                    return;
+                }
+
+                if(currentMode == 'rawhtml') {
+                    $j('#' + rteID + '_toggle_html').css('display', 'block');
+                }else{
+                    $j('#' + rteID + '_toggle_html').hide();
+                }
+
+                if (preferredMode == currentMode) {
+                    $j('#jivePreferredEditorModeLinkHREF').hide();
+                } else {
+                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
+                }
+            });
+        }
+
+    window.editor = new jive.ext.y.HashTable();
+
+
+       
+jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+
+
+
+</script>
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/13c4a1e809cc2ae0220d618f0ffde0c1.js"></script>
+<script type="text/javascript">
+        $j(function() {
+			$j('.jive-shared-list-toggle').click(function() {
+				$j('.jive-shared-list-short').toggle();
+				$j('.jive-shared-list-all').toggle();
+                                return false;
+			});
+        });
+
+
+        var _editor_lang = "en";
+        var _jive_video_picker__url = "?container=2003&containerType=14";
+
+
+    
+    function toggleFeatured() {
+
+        ToggleFeatured.toggleFeatured(1, 14051, 2003, 14, {
+            callback:function(featured) {
+
+                if (featured) {
+                    $j('#featured-toggle-unfeature').show();
+                    $j('#featured-toggle-feature').hide();
+                } else {
+                    $j('#featured-toggle-unfeature').hide();
+                    $j('#featured-toggle-feature').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured) {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
+                           
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+
+        /*********************************************
+         * autosave settings and initialization for discussion/question replies
+         *********************************************/
+        (function(){
+                window.autoSave = new DummyAutoSave(false);
+        })();
+        /*********************************************
+         * done setting up autosave
+         *********************************************/
+        (function() {
+            var options = {
+                draftExists:        false,
+                isModerated:        false,
+                isThreaded:         false,
+                resourceType:       1,
+                resourceID:         14051,
+
+                containerType:      14,
+                containerID:        2003,
+
+                listAction:         "/comment-list.jspa",
+                resourceVersionID:  -1,
+
+                preferredMode:      'advanced',
+                currentMode:        'advanced',
+                rteDisabledBrowser: false,
+                isAnonymous:        true,
+
+                question:           false,
+                imagesEnabled:      false,
+                rteOptions : {
+                    controller    : jiveControl,
+                    preset        : "mini-w-quote",
+                    autoSave      : autoSave,
+                    preferredMode : "advanced",
+                    startMode     : "advanced",
+                    mobileUI      : false,
+                    toggleText    : 'Show Full Editor',
+                    alwaysUseTabText : 'Always use this editor',
+                    editDisabledText : 'You are using a device that only enables you to add content.',
+                    editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
+                    communityName : 'Zenoss Community',
+                    height        : 300,
+                    _imagePickerUrl : "/post!imagePicker.jspa?containerType=14&container=2003&message=50843&postedFromGUIEditor=true&reply=true",
+                    _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
+                },
+                i18n: {
+                    postSuccessText:         'Your message was posted successfully.',
+                    postErrorText:           'An error occurred while trying to submit your post. Please try again.',
+                    forumThrdReplyTo:        'Reply to',
+
+                    // Question text for discussions-question.soy
+                    questionNotAnswered:     'This question is {0}Not Answered.{1}',
+                    markQuestionAsAssumedAnswered: '{0}{1}Mark as assumed answered{2}{3}',
+                    questionAssumedAnswered: 'This question is {0}Assumed Answered.{1}',
+                    questionAnswered: 'This question has been {0}Answered.{1}',
+                    correctAnswer: 'Correct Answer',
+                    helpfulAnswer: 'Helpful Answer',
+                    helpfulAnswers: 'Helpful Answers',
+                    byWord: 'by&nbsp;',
+                    onWord: '&nbsp;on&nbsp;',
+                    leftParen: '(',
+                    rightParen: ')',
+                    unmarkAsCorrectAnswer: 'Unmark as Correct',
+                    unmarkAsHelpfulAnswer: 'Unmark as Helpful',
+                    seeAnswerInContext: 'See the answer in context',
+                    seeThisAnswer: 'See this answer',
+                    allHelpfulAnswersAwarded: 'You\'ve awarded all available Helpful Answers',
+                    oneHelpfulAnswerLeft: 'You have {0} more Helpful answer to award.',
+                    someHelpfulAnswersLeft: 'You have {0} more Helpful answers to award.',
+                    postUserWroteLabel: '{0} wrote',
+                    postGuestWroteLabel: 'Guest wrote',
+                    formSubmitPleaseWait:'Please Wait ...',
+                    postReplyMustBeApprvdText:'Please note, your reply will need to be approved by a moderator before it is posted in the forum.',
+                    globalLoginRequired:'You are no longer logged in. Please {0}log in{1} to continue.',
+                    advEditor:'Use advanced editor'
+                }
+            };
+
+            // Create DiscusssionApp
+            var discussisons = new jive.DiscussionApp.Main(options);
+        })();
+
+
+        new jive.MoreLikeThisApp.Main({
+            objectType: 2,
+            objectID: 50843,
+            containerID: "jive-more-like-this-2-50843",
+            numResults: 5,
+            noContentMessage: "No similar content found",
+            errorMessage: "Unable to retrieve content from the server:"
+        });
+
+
+</script>
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="http://community.zenoss.org/community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Zenoss Core Performance Tuning' Discussion Feed"
+            href="http://community.zenoss.org/community/feeds/messages?thread=14051">
+
+
+
+    <script type="text/javascript">
+        function updateMessageFromDraft(draft) {
+            // dwr can't deserialize Image so just send along the image ID's
+            draft.imageIDs = [];
+            for (var i = 0; i < draft.images.length; i++) {
+                draft.imageIDs[i] = draft.images[i].ID;
+            }
+            draft.images = [];
+
+            MessageCreate.updateImagesFromDraft(draft,
+            {
+                timeout: DWRTimeout, // 20 seconds
+                errorHandler: editorErrorHandler
+            });
+        }
+    </script>
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="14051%3Fstart=0&amp;tstart=0.html#50843"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+        <script type="text/javascript">
+            $j(document).ready(function() {
+                if ($j.browser.msie && $j.browser.version < 7) {
+                    $j('.jive-modal-scrollto-container').removeClass('jive-modal-scrollto-container');
+                }
+            });
+        </script>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-content jive-body-content-discussion" >
+
+
+<a href="14051.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+    <script type="text/javascript">
+        var containerType = 14;
+        var containerID = 2003;
+
+        $j('#jive-userbar-search-form').submit(function() {
+            var query = $j('#jive-query').val();
+            var isWildcard = query.charAt(query.length-1) == '*';
+            if (query && !isWildcard) {
+                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
+            }
+        });
+    </script>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="14051.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="14051.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+    <script type="text/javascript">
+        var containerType = 14;
+        var containerID = 2003;
+
+        $j('#jive-userbar-search-form').submit(function() {
+            var query = $j('#jive-query').val();
+            var isWildcard = query.charAt(query.length-1) == '*';
+            if (query && !isWildcard) {
+                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
+            }
+        });
+    </script>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="http://community.zenoss.org/community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.14051"/>
+        <input type="hidden" name="message.post.14051" value="[placeholder]"/>
+
+
+	<form action="http://community.zenoss.org/post.jspa?container=2003&amp;containerType=14&amp;thread=14051&amp;message=50843&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="14051">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Zenoss Core Performance Tuning"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+                        <!-- BEGIN pagination-->
+                        <span class="jive-pagination">
+                            <span class="jive-pagination-numbers">
+                                    <a href="14051%3Fstart=0&amp;tstart=0.html"
+                                        class="jive-pagination-current" >1</a>
+                                    <a href="14051%3Fstart=15&amp;tstart=0.html"
+                                         >2</a>
+                            </span>
+                            <span class="jive-pagination-prevnext">
+                                    <span class="jive-pagination-prev-none">Previous</span>
+                                    <a href="14051%3Fstart=15&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                            </span>
+                        </span>
+                    <!-- END pagination -->
+
+                    <strong>     
+        
+            37596&nbsp;Views
+        
+
+</strong>
+                        <strong>16 Replies</strong>
+                    <a href="../message/60317%3Ftstart=0.html#60317" >Latest reply</a>:
+                    Jul 28, 2011 7:24 PM by
+MattRK                        <span><a href="http://community.zenoss.org/community/feeds/messages?thread=14051"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="14051"></a><a name="50843"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/bbibeault.html"
+   data-externalId=""
+   data-username="bbibeault"
+   data-avatarId="1107"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6084, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/bbibeault/avatar/46.png?a=1107"
+            border="0" height="46" width="46"
+            alt="bbibeault"
+            /><span username="bbibeault" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-01.gif"
+           alt="ZenossEmployee" title="ZenossEmployee"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/bbibeault.html"
+data-externalId=""
+data-username="bbibeault"
+data-avatarId="1107"
+id="jive-608432817616446305633"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6084, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>bbibeault</a>                                    </div>
+                                    <em>142 posts since <br/>May 19, 2009</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Jul 22, 2010 2:13 PM</h3>
+                                        <h2><a href="../message/50843.html#50843">Zenoss Core Performance Tuning</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:83d5d9fa-0a45-4bb3-be2b-762b01fa37d6] --><div class="jive-rendered-content"><h1 id="internal-source-marker_0.7213658468192596"><span style="font-size: 24pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Zenoss Core Performance Tuning</span></h1><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">The&#160; purpose of this article is to highlight various steps a Zenoss&#160; administrator can take to resolve performance issues. Zenoss performance&#160; issues can have the following symptoms:</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><ul><li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">slowness of the web ui (event console, status page)</span></li><li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">frequent heartbeat failures</span></li><li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">gaps in performance graphs </span></li><li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">slow startup/restart times of Zenoss</span></li></ul><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">The&#160; above symptoms can be caused by any number of reasons. Here are the&#160; various areas that should be investigated when trying to tune a Zenoss&#160; deployment.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h2><span style="font-size: 18pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">System Resources</span></h2><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">The following system resource requirements assume the following:</span></p><ul><li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">a mix of devices is being monitored (Windows, Unix, routers, switches, firewalls) </span></li><li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">events will be removed from the database after a reasonable amount of time (6-12mo) </span></li><li style="list-style-type: disc; font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">no device is spewing an enormous amount of events at Zenoss (syslog or traps)</span></li></ul><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h3><span style="font-size: 14pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Deployment Size: S (0-250 Devices) </span></h3><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">4GB RAM </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">2 CPU Cores </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">300GB, 10K RPM Drives</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h3><span style="font-size: 14pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Deployment Size: M (250-500 Devices) </span></h3><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">4-8GB RAM </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">4 CPU Cores </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">300GB, 10K RPM Drive</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h3><span style="font-size: 14pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Deployment Size: L (500-1000) </span></h3><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">8GB RAM</span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">4-8 CPU Cores </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">75GB, 15K RPM Drives </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">300GB, 10K RPM Drives</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h3><span style="font-size: 14pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Deployment Size: XL (1000-1500) </span></h3><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">16GB RAM </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">8 CPU Cores </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">75GB, 15K RPM Drives</span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">300GB, 10K RPM Drives</span></p><h2><span style="font-size: 18pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Filesystem Tuning</span></h2><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Zenoss&#160; stores all its performance data in RRD files. As a result, Zenoss&#160; constantly has to access a great number of files during performance&#160; collection. These performance updates are 8 bytes per datapoint, which&#160; translates into 4KB filesystem blocks. Under such a high volume/low&#160; throughput usage pattern, journaled filesystems can be very bad for I/O&#160; performance. If possible, Zenoss servers should have a non-journaled&#160; filesystem partition for performance data (located under $ZENHOME/perf).</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">If the setup of a separate partition/filesystem is not possible we recommend the use of the options below:</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="text-indent: 36pt; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">defaults,noatime,nodiratime,data=writeback,commit=100</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span>These&#160; options should be placed into the /etc/fstab file and will take effect&#160; after rebooting the system. For more information on filesystem&#160; performance tuning with regards to increasing RRD performance, please&#160; see: </span><a class="jive-link-external-small" href="http://oss.oetiker.ch/rrdtool-trac/wiki/TuningRRD">http://oss.oetiker.ch/rrdtool-trac/wiki/TuningRRD</a></span></p><h2><span style="font-size: 18pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">MySQL Tuning</span></h2><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Assuming&#160; the above system resources are met, MySQL often becomes the first&#160; bottleneck. This is due to the default MySQL configuration being a&#160; &ldquo;starter only&#8221; configuration, and not intended for production use. When a&#160; Zenoss system is deployed for the first time, it is easy to&#160; underestimate the event load the system will have to deal with.&#160; Considering that Zenoss receives events from syslog, SNMP traps, and&#160; Windows event log, event load can easily add up to multiple gigabytes&#160; per week or even per day. It is therefore important to limit both the&#160; number of received events as well as the number of events retained in&#160; the database. This can be done by dropping unneeded events and&#160; configuring jobs to age events periodically.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Since&#160; Zenoss stores all event-based data in the MySQL database, MySQL&#160; performance impacts the entire Zenoss UI. The Zenoss administrator&#160; should use a configuration that allows MySQL to more fully utilize the&#160; hardware resources of the Zenoss server. The following configuration is a&#160; good starting point:</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">[mysqld] </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">user=mysql </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_file_per_table </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"># Default to using old password format for compatibility with mysql </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"># 3.x clients (those using the mysqlclient10 compatibility package). </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">old_passwords=1</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">skip_locking </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_buffer_pool_size = </span><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">[see below]</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_additional_mem_pool_size = 32M </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_log_buffer_size = 2M </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_flush_method = O_DIRECT </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_fast_shutdown = 1 </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_flush_log_at_trx_commit = 2 </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_thread_concurrency = 4 </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">query_cache_size = 32M</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_buffer_pool_size</span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"> should be set to the following:</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><table style="border: medium none; border-collapse: collapse;"><tbody><tr style="height: 0px;"><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">System Size</span></td><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">innodb_buffer_pool_size</span></td></tr><tr style="height: 0px;"><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">S</span></td><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">512M</span></td></tr><tr style="height: 0px;"><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">M</span></td><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">512M or 1024M (depending on RAM size)</span></td></tr><tr style="height: 0px;"><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">L</span></td><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">1024M</span></td></tr><tr style="height: 0px;"><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">XL</span></td><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">2048M</span></td></tr><tr style="height: 0px;"><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">XXL</span></td><td style="border-collapse: collapse;border: medium none;padding: 7px;vertical-align: top;border: 1px dotted #aaaaaa;"><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">4096M</span></td></tr></tbody></table><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Note:&#160; For most Zenoss dedicated MySQL installations the above configuration&#160; will work as shown; others might require additional options added to&#160; guarantee proper functioning of the database. Before deploying the&#160; configuration above please create a backup of your current configuration&#160; located under /etc/my.cnf. Deploy the configuration to /etc/my.cnf and&#160; restart the MySQL server.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><span>For&#160; administrators that want to take further steps to optimize MySQL we&#160; recommend the use of the excellent MySQLTuner script to be found at&#160; </span><a class="jive-link-external-small" href="http://wiki.mysqltuner.com/">http://wiki.mysqltuner.com/</a><span> MySQLTuner</span></span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h2><span style="font-size: 18pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Zope Performance</span></h2><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Zope&#160; is the application server that runs the Zenoss web UI. In combination&#160; with ZEO, user&#160; experience mostly hinges on proper performance tuning of&#160; the Zope-ZEO combo. Unfortunately, Zope/ZEO tunning is not an exact&#160; science. Optimal performance might require several iterations. However,&#160; the settings below will help to improve performance:</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Search and configure the following settings in $ZENHOME/etc/zope.conf</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Default setting: cache-size 5000 </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">S and M systems: cache-size 50000 </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">L and XL systems: cache-size 100000 (or more) </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">The&#160; recommendations made here assume you followed the hardware&#160; recommendations above. This setting will most likely have the single&#160; biggest impact on UI performance. It is related to how many objects are&#160; in the ZEO database, which in turn is a function of how many and what&#160; type of devices are in the system. If you log in as the admin user and&#160; visit the following URL: </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;"><a class="jive-link-external-small" href="http://YOUR_SERVER:8080/Control_Panel/Database/main/">http://YOUR_SERVER:8080/Control_Panel/Database/main/</a><span> manage_cacheParameters </span></span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">you&#160; will be able to see how many objects are in your database. Please note&#160; that the cache-size setting actually specifies the number of objects.&#160; This means that it might be difficult to gauge how much memory will&#160; actually be consumed. This can only be determined after Zope has been&#160; running by actually looking at ps/top output. Also, the cache is shared&#160; by all zserver-threads (see below), which means that if you increase the&#160; number of zserver-threads it is usually recommended to also increase&#160; the cache-size. The above recommendation assumes you don't run more than&#160; 6 threads.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Default setting: zserver-threads = 4 </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">S and M systems: zserver-threads = 4 </span></p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">L and XL systems: zserver-threads = 10 (also add pool-size 50 after cache-size in the configuration file) </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">This&#160; number represents the number of threads Zope uses to serve client&#160; requests. It it very important to understand that more is not equals&#160; better for this setting; on the contrary, some applications perform&#160; better with fewer threads. Also note that increasing the zserver-threads&#160; above 7 will require an increase in pool-size (see above).</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h2><span style="font-size: 18pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">ZEO Performance</span></h2><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">ZEO&#160; (Zope Enterprise Objects) is the database behind most of the Web UI. As&#160; mentioned above, ZEO and Zope both have to be tuned in order to achieve&#160; optimal UI performance. The data behind the ZEO database is stored in&#160; the $ZENHOME/var/Data.fs file. To ensure proper performance it is vital&#160; that this file be located on a fast filesystem.</span></p><h3><span style="font-size: 14pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Zeopack</span></h3><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">The&#160; ZEO database keeps tracks of all transactions that are performed, this&#160; means that the database file will grow over time to become quite large. A&#160; larger file will slow down overall access times, we therefore advice to&#160; &ldquo;pack&#8221; this file frequently. Packing means that old transactions are&#160; removed from the data store, resulting in a smaller file and therefore&#160; faster access. We generally recommend that the following job be run on a&#160; set schedule via cron to be run by the zenoss user. Also, it is&#160; important to combine the packing with a backup prior to the packing,&#160; since the data is changed during packing.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#run pack every monday morning at 2am </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">0 2 * * 1 bash -lc &ldquo;$ZENHOME/bin/zeopack.py -h localhost -p 8100 &gt;&gt; /PATH/TO/ SOME/logfile.log 2&gt;&amp;1</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h3><span style="font-size: 14pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: bold; font-style: normal; text-decoration: none; vertical-align: baseline;">Data.fs on ramdisk</span></h3><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">The&#160; ultimate speed-up can be achieved if one configures the Data.fs file to&#160; be located in a ramdisk. Note: The setup of the ramdisk and making it&#160; persistent to bring it back after reboot is outside the scope of this&#160; article. Given you have an available ramdisk, you can simply shutdown&#160; Zenoss delete any non Data.fs files (index, lock, tmp). Edit the&#160; $ZENHOME/etc/zeo.conf file and change the &lt;filestorage 1&gt; section&#160; to look as follows:</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">&lt;filestorage 1&gt; </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#old storage location </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#path $INSTANCE/var/Data.fs</span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#used for ramdisk </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">path /PATH/TO/RAMDISK/Data.fs </span></p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">&lt;/filestorage&gt;</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">Once&#160; you restart, zeo will access the Data.fs file in its new location.&#160; Note: since ramdisks are highly volatile it is recommended to perform&#160; high frequency backups on top of your regular backups. The following&#160; script could be used to do this:</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#!/bin/bash</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#this script creates backups and also handles cleanups #it is used to take care of the ramdisk</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#directory for the backups BLOC=$ZENHOME/backups/rapids/</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#create backup filename so we don't conflict</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">FILENAME=${BLOC}'rapidBackup.'`date&#160; +%F-%H-%M`'.tgz' /opt/zenoss/bin/zenbackup --no-eventsdb --no-perfdata&#160; --temp-dir=/apps/ zenoss/backups_tmp --file=${FILENAME}</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Courier New; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">#delete all backups older than 6h find ${BLOC} -mmin +720 -delete</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="font-size: 11pt; font-family: Arial; color: #000000; background-color: transparent; font-weight: normal; font-style: normal; text-decoration: none; vertical-align: baseline;">The&#160; above should be run every 30min or even more often, and the latest&#160; backup can be used to restore data after sudden power failures. It is&#160; important to understand that the use of a ramdisk can potentially cause&#160; data loss; however, since after initial Zenoss configuration, most data&#160; contained within ZEO does not change constantly, it is a small risk to&#160; take, especially since at most 30min of data will be lost.</span></p></div><!-- [DocumentBodyEnd:83d5d9fa-0a45-4bb3-be2b-762b01fa37d6] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-50843-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-50843-" data-uniqueKey="2-50843-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-50843-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+            <span class="jive-icon-sml jive-icon-tag"></span>Tags: <span id="jive-edit-inline-add-none" style="display:none;">none</span> <span style="display:none;" id="jive-edit-inline-placeholder"> (<a href="14051.html#" class="jive-edit-inline-tags-link">add</a>)</span>
+
+            <span class="jive-thread-post-details-tags" id="jive-thread-post-details-tags_l19SAN">
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=performance.html">performance</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=zenoss-core.html">zenoss-core</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=ui.html">ui</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=graphs.html">graphs</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=perf.html">perf</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=installation.html">installation</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=2.5.2.html">2.5.2</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=tuning.html">tuning</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=newui.html">newui</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=3.0.0.html">3.0.0</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=slow_ui.html">slow_ui</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=instructions.html">instructions</a>,
+                    <a href="../community/forums/zenoss-users%3Fview=tags&amp;tags=slowness.html">slowness</a>
+            </span>
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-50919">
+
+
+        <div id="thread-message-50919" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="50919">
+                <a name="50919"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/MattRK.html"
+   data-externalId=""
+   data-username="MattRK"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8899, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/MattRK/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="MattRK"
+            /><span username="MattRK" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/MattRK.html"
+data-externalId=""
+data-username="MattRK"
+data-avatarId="-1"
+id="jive-889932817616456808078"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8899, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>MattRK</a>                        </div>
+                        <em>57 posts since <br/>Apr 28, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/50919.html#50919" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Jul 23, 2010 3:41 PM</span>
+                            (<a href="../message/50843.html#50843" title="Go to message" class="font-color-meta-light " >in response to bbibeault</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/50919.html#50919">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:21878365-5558-4f35-9262-c2bfbc6248dd] --><div class="jive-rendered-content"><p>I have a quick question regarding the filesystem tuning. I'm planning to start fresh with 3.0 and i'm in the process of building the new box Zenoss will live on. Its a dual xeon server with 4gb of ram. I'm not very familiar with setting up the linux filesystem and how it handles partitions and such. I'm wondering if you could give me a suggestion on how to configure my setup. I'm going to be installing CentOS 5.4.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I have two raid arrays.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>Volume 1) ~36gb total</strong></p><ul><li>2 x 36gb 15k sas drives in a raid 1 config<br/></li></ul><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong>Volume 2) ~438gb total</strong></p><ul><li>4 x 146gb 15k sas drives in a raid 5 config<br/></li></ul><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I'm looking for suggested setup including how to partition the volumes for $ZENHOME, mysql, and the OS as well as what type of filesystem to use. (Non-jounaled was suggested for the $ZENHOME but I don't know what type)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Initially i thought of using the 36gb volume for the OS and then creating two seperate partitions from the 438gb volume. One for sql and one for $ZENHOME. But i'm not sure if thats the ideal setup.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Any help would be appriciated.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks!</p></div><!-- [DocumentBodyEnd:21878365-5558-4f35-9262-c2bfbc6248dd] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-50919" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=50919&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-50919-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-50919-" data-uniqueKey="2-50919-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-50919-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-50937">
+
+
+        <div id="thread-message-50937" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="50937">
+                <a name="50937"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/MattRK.html"
+   data-externalId=""
+   data-username="MattRK"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8899, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/MattRK/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="MattRK"
+            /><span username="MattRK" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/MattRK.html"
+data-externalId=""
+data-username="MattRK"
+data-avatarId="-1"
+id="jive-889932817616462798235"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8899, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>MattRK</a>                        </div>
+                        <em>57 posts since <br/>Apr 28, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/50937.html#50937" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Jul 23, 2010 5:01 PM</span>
+                            (<a href="../message/50919.html#50919" title="Go to message" class="font-color-meta-light " >in response to MattRK</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/50937.html#50937">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:0553e517-7e8e-4b3d-b237-9471007d5d39] --><div class="jive-rendered-content"><p>I guess my main question is how should i divide up the second volume between the MYSQL partition and the $ZENHOME partition. Should it be split down the middle 50/50. Does one require more space than the other? I realize that it all depends on how many devices i'm monitoring. I'm really just looking for a recommended setup. E.g. On agerage for every 1MB of MYSQL data $ZENHOME consume .5MB. Or the otherway around.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks!</p></div><!-- [DocumentBodyEnd:0553e517-7e8e-4b3d-b237-9471007d5d39] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-50937" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=50937&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-50937-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-50937-" data-uniqueKey="2-50937-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-50937-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-50970">
+
+
+        <div id="thread-message-50970" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="50970">
+                <a name="50970"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="http://community.zenoss.org/people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="http://community.zenoss.org/people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432817616468711093"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/50970.html#50970" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Jul 26, 2010 8:47 AM</span>
+                            (<a href="../message/50937.html#50937" title="Go to message" class="font-color-meta-light " >in response to MattRK</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/50970.html#50970">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:398eac11-df0d-45c1-ab9b-adf4df2c88bd] --><div class="jive-rendered-content"><p>Well, I haven't had to do any real performance tuning on my system yet, but from what I gather, most of the data is going to be in the filesystem in $ZENHOME. At least, that's where the graphs, your custom scripts, and much of the Zenpack data goes. MySQL size is going to depend on how many events you want to keep, but we haven't seen that get very large really .... How many devices are you looking to monitor? How many datapoints?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I've got about 100 devices, and so far with 2 years of back data I'm not using over 20G of space. We use the standard CENTOS5 filesystem, which I think is ext3.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I would put the OS on array 1, and everything else on array 2 - I don't see any reason to partition MySQL or anything off from the $ZENHOME...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>--</p><p>James Pulver</p><p>Information Technology Area Supervisor</p><p>LEPP Computer Group</p><p>Cornell University</p></div><!-- [DocumentBodyEnd:398eac11-df0d-45c1-ab9b-adf4df2c88bd] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-50970" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=50970&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-50970-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-50970-" data-uniqueKey="2-50970-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-50970-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-50987">
+
+
+        <div id="thread-message-50987" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="50987">
+                <a name="50987"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/MattRK.html"
+   data-externalId=""
+   data-username="MattRK"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8899, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/MattRK/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="MattRK"
+            /><span username="MattRK" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/MattRK.html"
+data-externalId=""
+data-username="MattRK"
+data-avatarId="-1"
+id="jive-889932817616474414272"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 8899, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>MattRK</a>                        </div>
+                        <em>57 posts since <br/>Apr 28, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/50987.html#50987" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Jul 26, 2010 11:32 AM</span>
+                            (<a href="../message/50970.html#50970" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/50987.html#50987">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:8fc833f1-25d3-4240-b08b-5cebbf1d4c08] --><div class="jive-rendered-content"><p>Thanks for the response. We have right about 100 devices. (Between physical and virtual servers &amp; network gear)</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>At this point i'm still working with ESXi. My original plan (when i posted this) Was to kill ESXi and just install CentOS on the physical box. (Mainly because the machine has 4 gigs of ram. ESXi eats about 1gb of that.) This weekend i configured the new VM as follows. I switched from a thin provisioned disk to a flat disk based on some information i read regarding poor performance on thin provisioned disks with SQL. Here is the new setup. I configured this manually during the setup of CentOS 5.4.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="padding-left: 30px;"><strong>*Primary Partitions*</strong></p><p style="padding-left: 30px;">/boot&#160;&#160;&#160;&#160; -&#160;&#160;&#160;&#160; 100mb&#160;&#160;&#160;&#160; -&#160;&#160;&#160;&#160; ext3</p><p style="padding-left: 30px;">/&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; -&#160;&#160;&#160;&#160; 30gb&#160;&#160;&#160;&#160;&#160;&#160;&#160; -&#160;&#160;&#160;&#160; ext3</p><p style="padding-left: 30px;">/swap&#160;&#160; -&#160;&#160;&#160;&#160; 1gb&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; -&#160;&#160;&#160;&#160; swap</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="padding-left: 30px;"><strong>*Extended Partitions*</strong></p><p style="padding-left: 30px;">/var&#160;&#160;&#160;&#160; -&#160;&#160;&#160;&#160;&#160; 35gb&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; -&#160;&#160;&#160;&#160; ext3</p><p style="padding-left: 30px;">/opt&#160;&#160;&#160; -&#160;&#160;&#160;&#160;&#160; 35gb&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; -&#160;&#160;&#160;&#160;&#160; ext2</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Any opinions on this setup?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks!</p></div><!-- [DocumentBodyEnd:8fc833f1-25d3-4240-b08b-5cebbf1d4c08] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-50987" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=50987&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-50987-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-50987-" data-uniqueKey="2-50987-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-50987-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-51081">
+
+
+        <div id="thread-message-51081" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="51081">
+                <a name="51081"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/sjacobs.html"
+   data-externalId=""
+   data-username="sjacobs"
+   data-avatarId="1002"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6562, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/sjacobs/avatar/46.png?a=1002"
+            border="0" height="46" width="46"
+            alt="sjacobs"
+            /><span username="sjacobs" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/sjacobs.html"
+data-externalId=""
+data-username="sjacobs"
+data-avatarId="1002"
+id="jive-656232817616479904548"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6562, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>sjacobs</a>                        </div>
+                        <em>63 posts since <br/>Aug 26, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/51081.html#51081" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Jul 28, 2010 5:17 AM</span>
+                            (<a href="../message/50843.html#50843" title="Go to message" class="font-color-meta-light " >in response to bbibeault</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/51081.html#51081">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:d2ef4616-a168-49dc-82ce-4977693bc00d] --><div class="jive-rendered-content"><p>About the mysql tuning.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I have a second instance running specially for zenoss on the machine.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>the my.cf is located in the /usr/local/zenoss/mysql directory I guess I have to modify the my.cf there and not in the /etc like decreibed in the manual here?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[mysqladmin]<br/>user=root</p><p>[mysqld]<br/>basedir=/usr/local/zenoss/mysql<br/>datadir=/usr/local/zenoss/mysql/data<br/>port=3307<br/>socket=/usr/local/zenoss/mysql/tmp/mysql.sock<br/>tmpdir=/usr/local/zenoss/mysql/tmp</p><p>[mysqld_safe]<br/>mysqld=mysqld.bin</p><p>[client]<br/>port=3307<br/>socket=/usr/local/zenoss/mysql/tmp/mysql.sock</p><p>[manager]<br/>port=3307<br/>socket=/usr/local/zenoss/mysql/tmp/mysql.sock<br/>pid-file=/usr/local/zenoss/mysql/tmp/manager.pid<br/>default-mysqld-path=/usr/local/zenoss/mysql/bin/mysqld.bin</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Update</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Did the changes in Mysql and in Zope what i want to do is ...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h3><span style="background-color: transparent; font-style: normal; font-family: Arial; color: #000000; font-size: 14pt; vertical-align: baseline; font-weight: bold; text-decoration: none;">Zeopack</span></h3><p><span style="background-color: transparent; font-style: normal; font-family: Arial; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">The&#160; ZEO database keeps tracks of all transactions that are performed, this&#160; means that the database file will grow over time to become quite large. A&#160; larger file will slow down overall access times, we therefore advice to&#160; &ldquo;pack&#8221; this file frequently. Packing means that old transactions are&#160; removed from the data store, resulting in a smaller file and therefore&#160; faster access. We generally recommend that the following job be run on a&#160; set schedule via cron to be run by the zenoss user. Also, it is&#160; important to combine the packing with a backup prior to the packing,&#160; since the data is changed during packing.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">#run pack every monday morning at 2am </span></p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">0 2 * * 1 bash -lc &ldquo;$ZENHOME/bin/zeopack.py -h localhost -p 8100 &gt;&gt; /PATH/TO/ SOME/logfile.log 2&gt;&amp;1</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">I seem to miss the zeopack.py in the "ZENHOME/bin/zeopack.py"</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">I did find them here ...</span></p><p><span style="vertical-align: baseline; color: #000000; font-style: normal; font-size: 11pt; background-color: transparent; text-decoration: none; font-family: Courier New; font-weight: normal;">snlmon01:/usr/local/zenoss/zenoss/etc # locate zeopack.py<br/>/usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-i686.egg/ZEO/scripts/manual_tests/testzeopack.py<br/>/usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-i686.egg/ZEO/scripts/zeopack.py<br/>/usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-i686.egg/ZEO/scripts/zeopack.pyc<br/>/usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-i686.egg/ZODB/scripts/manual_tests/testzeopack.py</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="vertical-align: baseline; color: #000000; font-style: normal; font-size: 11pt; background-color: transparent; text-decoration: none; font-family: Courier New; font-weight: normal;">What to do copy it to the $ZENHOME/bin location ... or is my installation f$ck$d<p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p></span></p></div><!-- [DocumentBodyEnd:d2ef4616-a168-49dc-82ce-4977693bc00d] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-51081" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=51081&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-51081-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-51081-" data-uniqueKey="2-51081-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-51081-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-51111">
+
+
+        <div id="thread-message-51111" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="51111">
+                <a name="51111"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/bbibeault.html"
+   data-externalId=""
+   data-username="bbibeault"
+   data-avatarId="1107"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6084, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/bbibeault/avatar/46.png?a=1107"
+            border="0" height="46" width="46"
+            alt="bbibeault"
+            /><span username="bbibeault" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-01.gif"
+           alt="ZenossEmployee" title="ZenossEmployee"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/bbibeault.html"
+data-externalId=""
+data-username="bbibeault"
+data-avatarId="1107"
+id="jive-608432817616485245804"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6084, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>bbibeault</a>                        </div>
+                        <em>142 posts since <br/>May 19, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/51111.html#51111" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Jul 28, 2010 10:58 AM</span>
+                            (<a href="../message/51081.html#51081" title="Go to message" class="font-color-meta-light " >in response to sjacobs</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/51111.html#51111">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:52fd5613-14a3-4721-9b80-9d92d6ddf2e4] --><div class="jive-rendered-content"><p>I believe that is correct.</p></div><!-- [DocumentBodyEnd:52fd5613-14a3-4721-9b80-9d92d6ddf2e4] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-51111" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=51111&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-51111-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-51111-" data-uniqueKey="2-51111-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-51111-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-51121">
+
+
+        <div id="thread-message-51121" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="51121">
+                <a name="51121"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rgartley.html"
+   data-externalId=""
+   data-username="rgartley"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3790, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/rgartley/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="rgartley"
+            /><span username="rgartley" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rgartley.html"
+data-externalId=""
+data-username="rgartley"
+data-avatarId="-1"
+id="jive-379032817616490475708"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3790, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>rgartley</a>                        </div>
+                        <em>23 posts since <br/>Jan 23, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/51121.html#51121" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Jul 28, 2010 11:02 AM</span>
+                            (<a href="../message/50843.html#50843" title="Go to message" class="font-color-meta-light " >in response to bbibeault</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/51121.html#51121">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:4689623c-7cd2-477e-a542-bebabbafd8dd] --><div class="jive-rendered-content"><p>LOL... I found this <a class="jive-link-external-small" href="http://computer.bellestyler.com/2010/07/22/zenoss-core-performance-tuning/">post on the web</a> yesterday and I was going to link to it here. It works great! Thanks for the tip!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Still not going to remove the bookmark though! <img height="16px" src="../4.5.6/images/emoticons/wink.gif" width="16px"/></p></div><!-- [DocumentBodyEnd:4689623c-7cd2-477e-a542-bebabbafd8dd] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-51121" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=51121&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-51121-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-51121-" data-uniqueKey="2-51121-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-51121-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-51152">
+
+
+        <div id="thread-message-51152" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="51152">
+                <a name="51152"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/sjacobs.html"
+   data-externalId=""
+   data-username="sjacobs"
+   data-avatarId="1002"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6562, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/sjacobs/avatar/46.png?a=1002"
+            border="0" height="46" width="46"
+            alt="sjacobs"
+            /><span username="sjacobs" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/sjacobs.html"
+data-externalId=""
+data-username="sjacobs"
+data-avatarId="1002"
+id="jive-656232817616495708609"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6562, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>sjacobs</a>                        </div>
+                        <em>63 posts since <br/>Aug 26, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/51152.html#51152" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Jul 29, 2010 5:19 AM</span>
+                            (<a href="../message/50843.html#50843" title="Go to message" class="font-color-meta-light " >in response to bbibeault</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/51152.html#51152">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:3e61d4e5-5829-466b-a70e-de6ef6985616] --><div class="jive-rendered-content"><p>And what about this one ???</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><h3><span style="background-color: transparent; font-style: normal; font-family: Arial; color: #000000; font-size: 14pt; vertical-align: baseline; font-weight: bold; text-decoration: none;">Zeopack</span></h3><p><span style="background-color: transparent; font-style: normal; font-family: Arial; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">The&#160; ZEO database keeps tracks of all transactions that are performed, this&#160; means that the database file will grow over time to become quite large. A&#160; larger file will slow down overall access times, we therefore advice to&#160; &ldquo;pack&#8221; this file frequently. Packing means that old transactions are&#160; removed from the data store, resulting in a smaller file and therefore&#160; faster access. We generally recommend that the following job be run on a&#160; set schedule via cron to be run by the zenoss user. Also, it is&#160; important to combine the packing with a backup prior to the packing,&#160; since the data is changed during packing.</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">#run pack every monday morning at 2am </span></p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">0 2 * * 1 bash -lc &ldquo;$ZENHOME/bin/zeopack.py -h localhost -p 8100 &gt;&gt; /PATH/TO/ SOME/logfile.log 2&gt;&amp;1</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">I seem to miss the zeopack.py in the "ZENHOME/bin/zeopack.py"</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">I did find them here ...</span></p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">snlmon01:/usr/local/zenoss/zenoss/etc # locate zeopack.py<br/>/usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-i686.egg/ZEO/scripts/manual_tests/testzeopack.py<br/>/usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-i686.egg/ZEO/scripts/zeopack.py<br/>/usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-i686.egg/ZEO/scripts/zeopack.pyc<br/>/usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-i686.egg/ZODB/scripts/manual_tests/testzeopack.py</span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span style="background-color: transparent; font-style: normal; font-family: Courier New; color: #000000; font-size: 11pt; vertical-align: baseline; font-weight: normal; text-decoration: none;">What to do copy it to the $ZENHOME/bin location ... or is my installation f$ck$d</span> </p></div><!-- [DocumentBodyEnd:3e61d4e5-5829-466b-a70e-de6ef6985616] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-51152" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=51152&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-51152-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-51152-" data-uniqueKey="2-51152-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-51152-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-51153">
+
+
+        <div id="thread-message-51153" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="51153">
+                <a name="51153"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rgartley.html"
+   data-externalId=""
+   data-username="rgartley"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3790, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/rgartley/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="rgartley"
+            /><span username="rgartley" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rgartley.html"
+data-externalId=""
+data-username="rgartley"
+data-avatarId="-1"
+id="jive-379032817616501408350"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3790, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>rgartley</a>                        </div>
+                        <em>23 posts since <br/>Jan 23, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/51153.html#51153" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Jul 29, 2010 12:04 PM</span>
+                            (<a href="../message/51152.html#51152" title="Go to message" class="font-color-meta-light " >in response to sjacobs</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/51153.html#51153">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:06f49798-74d1-4801-9705-4caea6ed43f0] --><div class="jive-rendered-content"><p>I'd say your<span style="font-family: arial,helvetica,sans-serif; font-size: 10pt;"> install is </span><span style="vertical-align: baseline; color: #000000; font-style: normal; font-size: 10pt; background-color: transparent; text-decoration: none; font-family: arial,helvetica,sans-serif; font-weight: normal;">f$ck$d as </span>zeopack.py is located in the $ZENHOME/bin/ directory. I'm running ver 2.5.2.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Couldn't tell you what to do on this one, but I'd sure try to copy it over an see what happens..... but that's just me.</p></div><!-- [DocumentBodyEnd:06f49798-74d1-4801-9705-4caea6ed43f0] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-51153" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=51153&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-51153-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-51153-" data-uniqueKey="2-51153-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-51153-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-51884">
+
+
+        <div id="thread-message-51884" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="51884">
+                <a name="51884"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Gabe.html"
+   data-externalId=""
+   data-username="Gabe"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4604, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/Gabe/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Gabe"
+            /><span username="Gabe" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Gabe.html"
+data-externalId=""
+data-username="Gabe"
+data-avatarId="-1"
+id="jive-460432817616552208335"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4604, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Gabe</a>                        </div>
+                        <em>94 posts since <br/>Jun 29, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/51884.html#51884" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Aug 18, 2010 4:39 AM</span>
+                            (<a href="../message/51153.html#51153" title="Go to message" class="font-color-meta-light " >in response to rgartley</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/51884.html#51884">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:5664cde1-057c-4088-99f6-33249c350189] --><div class="jive-rendered-content"><p>with admin, can you reach?</p><p><a class="jive-link-external-small" href="http://XXX:8080/Control_Panel/Database/main/manage_workspace">http://XXX:8080/Control_Panel/Database/main/manage_workspace</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>first thx OP and all other for all info very nice thread</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>according to</p><p><a class="jive-link-wiki-small" href="../docs/DOC-7696.html">http://community.zenoss.org/docs/DOC-7696</a></p><pre>$ZENHOME/bin/zeopack.py -p 8100<br/><br/>ive just upgraded to 301 and this made me <br/>freak out a little but it seems the script has been moved to </pre><p>./zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-x86_64.egg/ZEO/scripts/</p><p>zeopack.py</p><p>zeopack.test</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>it seems to been rewritten and maybe work different now ?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>tried it out from dir but got this</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>zeopack -p 8100<br/>ZEO.zrpc WARNING (14988) CW: error connecting to ('zenoss.xxxxxx', 8100): ECONNREFUSED</p><p>ZEO.zrpc WARNING (14988) CW: error connecting to ('zenoss.xxxxxx', 8100): ECONNREFUSED</p><p>ZEO.zrpc WARNING (14988) CW: error connecting to ('zenoss.xxxxxx', 8100): ECONNREFUSED</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>could still be packed from Control_Panel tho but would be nice to automate it</p></div><!-- [DocumentBodyEnd:5664cde1-057c-4088-99f6-33249c350189] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-51884" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=51884&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-51884-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-51884-" data-uniqueKey="2-51884-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-51884-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-52012">
+
+
+        <div id="thread-message-52012" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="52012">
+                <a name="52012"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/ebailey.html"
+   data-externalId=""
+   data-username="ebailey"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 9483, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/ebailey/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="ebailey"
+            /><span username="ebailey" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/ebailey.html"
+data-externalId=""
+data-username="ebailey"
+data-avatarId="-1"
+id="jive-948332817616561416138"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 9483, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>ebailey</a>                        </div>
+                        <em>24 posts since <br/>Jul 30, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/52012.html#52012" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Aug 21, 2010 12:03 AM</span>
+                            (<a href="../message/51884.html#51884" title="Go to message" class="font-color-meta-light " >in response to Gabe</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/52012.html#52012">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:343913f2-d745-4f2a-95e6-b2d5e9208e0b] --><div class="jive-rendered-content"><p>run zeopack with "-h localhost" ie</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>zeopack -h localhost -p 8100</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This worked for me - no idea why the script changed.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Ed</p></div><!-- [DocumentBodyEnd:343913f2-d745-4f2a-95e6-b2d5e9208e0b] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-52012" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=52012&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-52012-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-52012-" data-uniqueKey="2-52012-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-52012-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-52232">
+
+
+        <div id="thread-message-52232" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="52232">
+                <a name="52232"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/ian.html"
+   data-externalId=""
+   data-username="ian"
+   data-avatarId="1054"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2036, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/ian/avatar/46.png?a=1054"
+            border="0" height="46" width="46"
+            alt="Ian McCracken"
+            /><span username="ian" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-01.gif"
+           alt="ZenossEmployee" title="ZenossEmployee"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/ian.html"
+data-externalId=""
+data-username="ian"
+data-avatarId="1054"
+id="jive-203632817616567222799"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2036, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Ian McCracken</a>                        </div>
+                        <em>257 posts since <br/>Feb 26, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/52232.html#52232" title="Link to reply #12" class="jive-thread-reply-num font-color-meta-light">12.</a>
+                        <span>Aug 27, 2010 1:39 PM</span>
+                            (<a href="../message/52012.html#52012" title="Go to message" class="font-color-meta-light " >in response to ebailey</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/52232.html#52232">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:04d78677-ae67-442e-a4da-39fab01ef301] --><div class="jive-rendered-content"><p>There's another important thing to tune: the zeoclient cache-size. </p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>In zope.conf, you'll see <em>two</em> cache-size settings:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>&lt;zodb_db main&gt;</p><p>&#160;&#160;&#160; ...</p><p>&#160;&#160;&#160; cache-size 5000</p><p>&#160;&#160;&#160; &lt;zeoclient 1&gt;</p><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160; ...</p><p>&#160;&#160;&#160;&#160;&#160;&#160;&#160; cache-size 20MB</p><p>&#160;&#160;&#160; &lt;/zeoclient&gt;</p><p>&lt;/zodb_db&gt;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The first is mentioned above. The second should be increased by a lot. If you've got the memory, go for it. I make mine 1024MB immediately after installation (which is overkill, admittedly).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>There's no real rule about how large your cache should be. If you can, make it (for example) double the size of your Data.fs; this would allow nearly everything in ZODB to live in the cache, and things will be very quick. Err on the side of too large (again, if you have the memory).</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>Here's a document about this with more detailed information: </span><a class="jive-link-external-small" href="http://wiki.zope.org/zope2/ZEOCache">http://wiki.zope.org/zope2/ZEOCache</a></p></div><!-- [DocumentBodyEnd:04d78677-ae67-442e-a4da-39fab01ef301] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-52232" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=52232&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-52232-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-52232-" data-uniqueKey="2-52232-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-52232-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-52233">
+
+
+        <div id="thread-message-52233" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="52233">
+                <a name="52233"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/ebailey.html"
+   data-externalId=""
+   data-username="ebailey"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 9483, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/ebailey/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="ebailey"
+            /><span username="ebailey" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/ebailey.html"
+data-externalId=""
+data-username="ebailey"
+data-avatarId="-1"
+id="jive-948332817616571758893"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 9483, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>ebailey</a>                        </div>
+                        <em>24 posts since <br/>Jul 30, 2010</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/52233.html#52233" title="Link to reply #13" class="jive-thread-reply-num font-color-meta-light">13.</a>
+                        <span>Aug 27, 2010 3:20 PM</span>
+                            (<a href="../message/52232.html#52232" title="Go to message" class="font-color-meta-light " >in response to Ian McCracken</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/52233.html#52233">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:5b19943e-eaef-44d8-b5c4-3006c37d5c1e] --><div class="jive-rendered-content"><p>Ian,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I made the change and the performance improvement has been really</p><p>nice. The first time you hit the infra tab after the restart is pretty</p><p>slow, but its pretty fast once you get past the restart. I also have</p><p>been experimenting with assigning 2 processors to the runzope process</p><p>(thanks for the tip Jeremy) and that has seemingly made the infra tab</p><p>respond much faster. Your tip is a very good idea.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Ed</p></div><!-- [DocumentBodyEnd:5b19943e-eaef-44d8-b5c4-3006c37d5c1e] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-52233" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=52233&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-52233-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-52233-" data-uniqueKey="2-52233-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-52233-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-53086">
+
+
+        <div id="thread-message-53086" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="53086">
+                <a name="53086"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/fparacchini.html"
+   data-externalId=""
+   data-username="fparacchini"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4715, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/fparacchini/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="fparacchini"
+            /><span username="fparacchini" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/fparacchini.html"
+data-externalId=""
+data-username="fparacchini"
+data-avatarId="-1"
+id="jive-471532817616576406308"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4715, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>fparacchini</a>                        </div>
+                        <em>11 posts since <br/>Jul 26, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="../message/53086.html#53086" title="Link to reply #14" class="jive-thread-reply-num font-color-meta-light">14.</a>
+                        <span>Sep 27, 2010 6:24 AM</span>
+                            (<a href="../message/52232.html#52232" title="Go to message" class="font-color-meta-light " >in response to Ian McCracken</a>)
+                        </div>
+
+                        <strong>
+                        <a href="../message/53086.html#53086">Re: Zenoss Core Performance Tuning</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:4fdd421b-85ef-4218-8fa8-ebf3057be05a] --><div class="jive-rendered-content"><p>I confirm that the cache size improved the performance.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Can you also try the following suggestion ?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><a class="" href="14504%3Ftstart=0.html">http://community.zenoss.org/thread/14504?tstart=0</a></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Ciao</p><p>Fabio</p></div><!-- [DocumentBodyEnd:4fdd421b-85ef-4218-8fa8-ebf3057be05a] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-53086" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=53086&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-53086-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-53086-" data-uniqueKey="2-53086-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="14051.html#" id="jive-acclaim-likedlink-2-53086-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <!-- BEGIN pagination-->
+                    <span class="jive-pagination">
+                        <span class="jive-pagination-numbers">
+                                <a href="14051%3Fstart=0&amp;tstart=0.html"
+                                    class="jive-pagination-current" >1</a>
+                                <a href="14051%3Fstart=15&amp;tstart=0.html"
+                                     >2</a>
+                        </span>
+                        <span class="jive-pagination-prevnext">
+                                <span class="jive-pagination-prev-none">Previous</span>
+                                <a href="14051%3Fstart=15&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                        </span>
+                    </span>
+                    <!-- END pagination -->
+                </div>
+                <!-- END thread info -->
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="14051.html#14051" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+        <script type="text/javascript">
+            function createDocFromThread() {
+                    document.location = '/thread-to-doc.jspa?thread=14051';
+            }
+        </script>
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="14051%3Fdecorator=print&amp;displayFullThread=true.html"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-50843">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+<!-- BEGIN sidebar box 'Incoming Links' -->
+<div class="jive-box jive-sidebar">
+    <div class="jive-box-header jive-sidebar-header">
+        <h4>Incoming Links</h4>
+    </div>
+    <div class="jive-box-body jive-sidebar-body jive-sidebar-body-incominglinks">
+        <ul class="jive-icon-list">
+                        <li>
+                            <a href="../message/69471.html#69471">
+                            <span class="jive-icon-med jive-icon-discussion-question"></span>
+                                Re: Can't change device title - error: [Errno 111] Connection refused
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../message/65056.html#65056">
+                            <span class="jive-icon-med jive-icon-discussion-question"></span>
+                                Re: Mysql performance tweaks
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../message/64051.html#64051">
+                            <span class="jive-icon-med jive-icon-discussion-question"></span>
+                                Re: Infrastructure Page slow to load
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../message/52243.html#52243">
+                            <span class="jive-icon-med jive-icon-discussion-question"></span>
+                                Re: my tree device is slowly when loading
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../message/52244.html#52244">
+                            <span class="jive-icon-med jive-icon-discussion-question"></span>
+                                Re: my tree device is slowly when loading
+                            </a>
+                        </li>
+        </ul>
+    </div>
+</div>
+<!-- END sidebar box 'Incoming Links' -->
+
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
+           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
+
+   <!-- JQUERY FUNCTIONS -->
+    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    $j(document).ready(function(){
+        
+        $j('.jive-sidebar').each(function() {
+            var cls = $j(this).attr('class');
+            if(cls == 'jive-sidebar') {
+                $j(this).addClass('zenoss-sidebar');
+            }
+        });
+        
+        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
+        // All links in main menu div
+        var menu_links = $j('ul[id=navlist] a');
+        // On mouse hover
+        /*menu_links.hover(
+                // In: Store and remove title
+                function() {  
+                        old_title = $j(this).attr('title');      
+                        $j(this).attr('title',''); 
+                },
+                // Out: Replace title
+                function() {  
+                        $j(this).attr('title', old_title);  
+                }  
+        );*/
+        
+        
+        // ANIMATE HOVER STATES FOR TOP NAVIGATION
+        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
+    
+        $j.each(navnum, function(index, item) {
+            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
+              var $span = $j('> span.hover', this).css('opacity', 0);
+                  $j(this).hover(function () {
+                    $span.stop().fadeTo(200, 1);
+                  }, function () {
+                    $span.stop().fadeTo(0, 0);
+                  });
+            });
+        });
+        // END HOVER STATES
+
+        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
+    
+    });
+    //--><!]]></script>
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    sfHover = function() {
+        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
+        for (var i=0; i<sfEls.length; i++) {
+            sfEls[i].onmouseover=function() {
+                this.className+=" sfhover";
+            }
+            sfEls[i].onmouseout=function() {
+                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+            }
+        }
+    }
+    if (window.attachEvent) window.attachEvent("onload", sfHover);
+    //--><!]]></script>
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
+
+<script src="http://static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
+
+<!-- END SCRIPTS -->
+    </div>
+
+
+<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-70208-7']);
+
+  // To allow cross-domain tracking
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<script type="text/javascript">
+	piAId = '4432';
+	piCId = '1601';
+	
+	(function() {
+		function async_load(){
+			var s = document.createElement('script'); s.type = 'text/javascript';
+			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+		}
+		if(window.attachEvent) { window.attachEvent('onload', async_load); }
+		else { window.addEventListener('load', async_load, false); }
+	})();
+</script>
+<!-- END Pardot tracking code, async version -->
+
+<script type="text/javascript">
+    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
+    "/spotlight-search.jspa", containerType, containerID);
+
+
+    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
+    "/spotlight-search.jspa", containerType, containerID);
+
+
+</script>
+
+
+
+</body>
+</html>
+

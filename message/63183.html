@@ -1,0 +1,2661 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Zenoss not updating completely after modeling - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+<script type="text/javascript">
+    if (top != self) {
+        var isSafeTopUrl = false;
+        try {
+            var topUrl = top.location.href;
+            var topUrlQsIdx = topUrl.indexOf('?');
+            if (topUrlQsIdx > 0) {
+                topUrl = topUrl.substring(0, topUrlQsIdx);
+            }
+            topUrl = topUrl.toLowerCase();
+
+            var safeTopUrls = new Array(
+                'http://community.zenoss.org/skin-basic.jspa',
+                'http://community.zenoss.org/skin-advanced.jspa',
+                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
+                'http://community.zenoss.org/skin-palette.jspa',
+                'http://community.zenoss.org/skin-palette!start.jspa'
+            );
+            for (var i = 0; i < safeTopUrls.length; i++) {
+                if (safeTopUrls[i].toLowerCase() == topUrl) {
+                    isSafeTopUrl = true;
+                    break;
+                }
+            }
+        } catch (err) {
+        }
+        if (!isSafeTopUrl) top.location = location;
+    }
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
+<!-- Zenoss not updating completely after modeling -->
+<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+    <script type="text/javascript">
+        (function() {
+            var prepareUrl = function(url) {
+                if (url.indexOf(";") > 0) {
+                    url = url.substring(0, url.indexOf(";"));
+                }
+                if (url.charAt(url.length - 1) == '/') {
+                    url = url.substring(0, url.length - 1);
+                }
+                return url
+            };
+            if (typeof(window._jive_base_url) == "undefined") {
+                window._jive_base_url = prepareUrl("/")
+            }
+            if (typeof(window._jive_resource_url) == "undefined") {
+                window._jive_resource_url = prepareUrl("/4.5.6/")
+            }
+                if (typeof(window._jive_current_user) == "undefined") {
+                    window._jive_current_user = {
+                        anonymous: true,
+                        username: 'ANONYMOUS',
+                        ID: '-1',
+                        enabled: true,
+                        avatarID: '-1',
+                        displayName: ''
+                    };
+                }
+
+
+
+        })();
+
+        var _jive_effective_user_id = "-1";
+        var _jive_auth_token ="no-user";
+        var _jive_locale = "en_US";
+
+    </script>
+
+
+<script type="text/javascript">
+/* Kongregate Asychronous JavaScript Loader
+
+The MIT License
+
+Copyright (c) 2010 Kongregate Inc.
+*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/message/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
+</script>
+
+    
+      
+      
+    <script type="text/javascript">
+        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
+        window.CS_BASE_URL = "";
+        window.CS_RESOURCE_BASE_URL = "/4.5.6";
+        window.tinyMCEPreInit = {
+            suffix : "_src",
+            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
+        };
+        if (typeof(_jive_project_i18n) == "undefined") {
+            var _jive_project_i18n = new Array();
+            _jive_project_i18n['project.calendar.task'] = "Task";
+            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
+            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
+            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
+            _jive_project_i18n['global.edit'] = "Edit";
+            _jive_project_i18n['global.delete'] = "Delete";
+            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
+            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
+            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
+            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
+            _jive_project_i18n['project.task.create.link'] = "Create a task";
+        }
+    </script>
+     
+
+
+
+
+    
+
+
+
+    
+<script type="text/javascript">
+kjs.run(function() {
+kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
+kjs.run(function() {
+        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
+
+
+}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
+}, [ 'Zapatec.Calendar--required' ]);
+</script>
+    
+    <script type="text/javascript">
+        var profileShortUrl = "/profile-short.jspa";
+        var profileLoadingTooltip = "Loading user profile";
+        var profileErrorTooltip = "There was an error loading that profile information.";
+
+        var projectChooserUrl = "/project-chooser!input.jspa";
+
+        var containerShortUrl = "/container-short.jspa";
+        var containerLoadingTooltip = "Loading place information.";
+        var containerErrorTooltip = "There was an error loading that place information.";
+
+        var videoShortUrl = "/view-video-short.jspa";
+        var videoLoadingTooltip = "video.tooltip.loading";
+        var videoErrorTooltip = "video.tooltip.error";
+        var _jive_video_picker__url = "?container=2003&containerType=14";
+        var followErrorMessage = "An internal error occurred while following the project or space.";
+
+        (function() {
+            var originalWrite = document.write;
+            document.write = function() {
+                if(typeof $j != 'undefined' && $j.isReady) {
+                    console.warn("document.write called after document was loaded: ", arguments);
+                }
+                else {
+                    // In IE before version 8 `document.write()` does not
+                    // implement Function methods, like `apply()`.
+                    return Function.prototype.apply.call(originalWrite, document, arguments);
+                }
+            }
+        })();        
+    </script>
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
+<script type="text/javascript">
+        // begin list of custom CSS
+        jive.rte.defaultStyles = new Array();
+        // end list of custom CSS
+
+
+            var jiveControl = new jive.model.Controller();
+            jive.rte.mobileUI = false;
+
+
+if (dwr == null) var dwr = {};
+if (dwr.engine == null) dwr.engine = {};
+if (DWREngine == null) var DWREngine = dwr.engine;
+
+dwr.engine._origScriptSessionId = "AB067D12D5A09E24F6DA6FF0CC7E8767";
+dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
+dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
+dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
+dwr.engine._defaultPath = "/dwr/interface";
+dwr.engine._pollWithXhr = "false";
+
+
+    (function() {
+        var options = {
+            friendsRange : 20,
+            everyoneRange : 20,
+            youUsername : 'ANONYMOUS',
+            youID : -1,
+            isGuest : true
+        };
+
+        var i18n = {
+            acclaimLikingLike : "Like",
+            acclaimLikingUnlike : "Liked",
+            acclaimLikedNone : "None",
+            acclaimLikingLiked : "Person Liked This",
+            acclaimLikingLikedPlural : "People Liked This",
+            acclaimPeopleLiked : "People who liked this",
+            acclaimLikedYou : "You",
+            acclaimLikedFriends : "Connections",
+            acclaimLikedEveryone : "Everyone Else",
+            globalMore : "More",
+            globalClose : "Close"
+        };
+
+        new jive.Acclaim(options, i18n);
+    })();
+
+
+        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
+                profileErrorTooltip);
+        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
+        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
+                containerLoadingTooltip, containerErrorTooltip);
+        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
+                videoErrorTooltip);
+
+        var jiveFollow = new jive.Follow(followErrorMessage);
+
+
+</script>
+
+
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
+<script type="text/javascript">
+    window.errorHandlerMessage = "An error occurred:";
+
+    window.editorErrorHandler = function(message, exception) {
+        // if the message is something other than a timeout, show the message plus the error code
+        if (message.indexOf('Timeout') == -1) {
+            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
+            $j('#dwr-error-table').fadeIn();
+            setTimeout(function() {
+                $j('#dwr-error-table').fadeOut();
+            }, 10000);
+        }
+    };
+
+
+    
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+
+
+        window.RawHTMLSaveFunction = function(element_id, html, body){
+            var text = $j('#wysiwygtext');
+            if (text.is(':not(:visible)')) {
+                return html;
+            }else{
+                return text.val();
+            }
+        }
+        jive.rte.multiRTE = new Array();
+
+        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
+        window.refreshLinks = function() {
+            jive.rte.multiRTE.forEach(function(rteID) {
+                if ($j('#' + rteID + '_parent').length < 1) {
+                    // safari 2, text only
+                    $j('#' + rteID + '_toggle_html').hide();
+                    $j('#jivePreferredEditorModeLinkHREF').hide();
+                    return;
+                }
+
+                if(currentMode == 'rawhtml') {
+                    $j('#' + rteID + '_toggle_html').css('display', 'block');
+                }else{
+                    $j('#' + rteID + '_toggle_html').hide();
+                }
+
+                if (preferredMode == currentMode) {
+                    $j('#jivePreferredEditorModeLinkHREF').hide();
+                } else {
+                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
+                }
+            });
+        }
+
+    window.editor = new jive.ext.y.HashTable();
+
+
+       
+jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+
+
+
+</script>
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/13c4a1e809cc2ae0220d618f0ffde0c1.js"></script>
+<script type="text/javascript">
+        $j(function() {
+			$j('.jive-shared-list-toggle').click(function() {
+				$j('.jive-shared-list-short').toggle();
+				$j('.jive-shared-list-all').toggle();
+                                return false;
+			});
+        });
+
+
+        var _editor_lang = "en";
+        var _jive_video_picker__url = "?container=2003&containerType=14";
+
+
+    
+    function toggleFeatured() {
+
+        ToggleFeatured.toggleFeatured(1, 17147, 2003, 14, {
+            callback:function(featured) {
+
+                if (featured) {
+                    $j('#featured-toggle-unfeature').show();
+                    $j('#featured-toggle-feature').hide();
+                } else {
+                    $j('#featured-toggle-unfeature').hide();
+                    $j('#featured-toggle-feature').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured) {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
+                           
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+
+        /*********************************************
+         * autosave settings and initialization for discussion/question replies
+         *********************************************/
+        (function(){
+                window.autoSave = new DummyAutoSave(false);
+        })();
+        /*********************************************
+         * done setting up autosave
+         *********************************************/
+        (function() {
+            var options = {
+                draftExists:        false,
+                isModerated:        false,
+                isThreaded:         false,
+                resourceType:       1,
+                resourceID:         17147,
+
+                containerType:      14,
+                containerID:        2003,
+
+                listAction:         "/comment-list.jspa",
+                resourceVersionID:  -1,
+
+                preferredMode:      'advanced',
+                currentMode:        'advanced',
+                rteDisabledBrowser: false,
+                isAnonymous:        true,
+
+                question:           true,
+                imagesEnabled:      false,
+                rteOptions : {
+                    controller    : jiveControl,
+                    preset        : "mini-w-quote",
+                    autoSave      : autoSave,
+                    preferredMode : "advanced",
+                    startMode     : "advanced",
+                    mobileUI      : false,
+                    toggleText    : 'Show Full Editor',
+                    alwaysUseTabText : 'Always use this editor',
+                    editDisabledText : 'You are using a device that only enables you to add content.',
+                    editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
+                    communityName : 'Zenoss Community',
+                    height        : 300,
+                    _imagePickerUrl : "/post!imagePicker.jspa?containerType=14&container=2003&message=63183&postedFromGUIEditor=true&reply=true",
+                    _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
+                },
+                i18n: {
+                    postSuccessText:         'Your message was posted successfully.',
+                    postErrorText:           'An error occurred while trying to submit your post. Please try again.',
+                    forumThrdReplyTo:        'Reply to',
+
+                    // Question text for discussions-question.soy
+                    questionNotAnswered:     'This question is {0}Not Answered.{1}',
+                    markQuestionAsAssumedAnswered: '{0}{1}Mark as assumed answered{2}{3}',
+                    questionAssumedAnswered: 'This question is {0}Assumed Answered.{1}',
+                    questionAnswered: 'This question has been {0}Answered.{1}',
+                    correctAnswer: 'Correct Answer',
+                    helpfulAnswer: 'Helpful Answer',
+                    helpfulAnswers: 'Helpful Answers',
+                    byWord: 'by&nbsp;',
+                    onWord: '&nbsp;on&nbsp;',
+                    leftParen: '(',
+                    rightParen: ')',
+                    unmarkAsCorrectAnswer: 'Unmark as Correct',
+                    unmarkAsHelpfulAnswer: 'Unmark as Helpful',
+                    seeAnswerInContext: 'See the answer in context',
+                    seeThisAnswer: 'See this answer',
+                    allHelpfulAnswersAwarded: 'You\'ve awarded all available Helpful Answers',
+                    oneHelpfulAnswerLeft: 'You have {0} more Helpful answer to award.',
+                    someHelpfulAnswersLeft: 'You have {0} more Helpful answers to award.',
+                    postUserWroteLabel: '{0} wrote',
+                    postGuestWroteLabel: 'Guest wrote',
+                    formSubmitPleaseWait:'Please Wait ...',
+                    postReplyMustBeApprvdText:'Please note, your reply will need to be approved by a moderator before it is posted in the forum.',
+                    globalLoginRequired:'You are no longer logged in. Please {0}log in{1} to continue.',
+                    advEditor:'Use advanced editor'
+                }
+            };
+
+            // Create DiscusssionApp
+            var discussisons = new jive.DiscussionApp.Main(options);
+        })();
+
+
+        new jive.MoreLikeThisApp.Main({
+            objectType: 2,
+            objectID: 63065,
+            containerID: "jive-more-like-this-2-63065",
+            numResults: 5,
+            noContentMessage: "No similar content found",
+            errorMessage: "Unable to retrieve content from the server:"
+        });
+
+
+</script>
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="http://community.zenoss.org/community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Zenoss not updating completely after modeling' Discussion Feed"
+            href="http://community.zenoss.org/community/feeds/messages?thread=17147">
+
+
+
+    <script type="text/javascript">
+        function updateMessageFromDraft(draft) {
+            // dwr can't deserialize Image so just send along the image ID's
+            draft.imageIDs = [];
+            for (var i = 0; i < draft.images.length; i++) {
+                draft.imageIDs[i] = draft.images[i].ID;
+            }
+            draft.images = [];
+
+            MessageCreate.updateImagesFromDraft(draft,
+            {
+                timeout: DWRTimeout, // 20 seconds
+                errorHandler: editorErrorHandler
+            });
+        }
+    </script>
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="http://community.zenoss.org/thread/17147?start=0&amp;tstart=0#63183"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+        <script type="text/javascript">
+            $j(document).ready(function() {
+                if ($j.browser.msie && $j.browser.version < 7) {
+                    $j('.jive-modal-scrollto-container').removeClass('jive-modal-scrollto-container');
+                }
+            });
+        </script>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-content jive-body-content-discussion" >
+
+
+<a href="63183.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+    <script type="text/javascript">
+        var containerType = 14;
+        var containerID = 2003;
+
+        $j('#jive-userbar-search-form').submit(function() {
+            var query = $j('#jive-query').val();
+            var isWildcard = query.charAt(query.length-1) == '*';
+            if (query && !isWildcard) {
+                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
+            }
+        });
+    </script>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="63183.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="63183.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+    <script type="text/javascript">
+        var containerType = 14;
+        var containerID = 2003;
+
+        $j('#jive-userbar-search-form').submit(function() {
+            var query = $j('#jive-query').val();
+            var isWildcard = query.charAt(query.length-1) == '*';
+            if (query && !isWildcard) {
+                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
+            }
+        });
+    </script>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="http://community.zenoss.org/community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.17147"/>
+        <input type="hidden" name="message.post.17147" value="[placeholder]"/>
+
+
+	<form action="http://community.zenoss.org/post.jspa?container=2003&amp;containerType=14&amp;thread=17147&amp;message=63183&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="17147">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: Zenoss not updating completely after modeling"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <strong>     
+        
+            6496&nbsp;Views
+        
+
+</strong>
+                        <strong>11 Replies</strong>
+                    <a href="63273%3Ftstart=0.html#63273" >Latest reply</a>:
+                    Dec 13, 2011 3:44 PM by
+Randy Devone                        <span><a href="http://community.zenoss.org/community/feeds/messages?thread=17147"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="17147"></a><a name="63065"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/rdevone.html"
+   data-externalId=""
+   data-username="rdevone"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/rdevone/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Randy Devone"
+            /><span username="rdevone" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/rdevone.html"
+data-externalId=""
+data-username="rdevone"
+data-avatarId="-1"
+id="jive-1748932942693140952709"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Randy Devone</a>                                    </div>
+                                    <em>50 posts since <br/>Oct 19, 2011</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Dec 5, 2011 5:10 PM</h3>
+                                        <h2><a href="63065.html#63065">Zenoss not updating completely after modeling</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:5874bd8f-0cbc-433d-b763-3b8bf3bebf5b] --><div class="jive-rendered-content"><p>After I model a server, it completes successfully by pulling all of my components, graphs are populated as well.&#160; My issue is if I look under the tab 'File Systems', my 'Total Bytes are correct, however my 'Used Bytes' and 'Free Bytes' are 0.00B.&#160; % Util is 'Unknown.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>This is not happening on all of my servers.&#160; About half are having the issue.&#160; It appears to be majority of W2K8 servers and some W2K3 servers are affected.&#160; I have W2k8 and W2K3 servers which populate fine.&#160; I am using the same templates for all of servers.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p> I use the community DellMon 2.43,devAdvDetail 2.7 zenpacks by Egor</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Zenoss Core 3.2.1</p><p>Cenos 5.7 x64</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Any help is much appreciated.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks,</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Randy</p></div><!-- [DocumentBodyEnd:5874bd8f-0cbc-433d-b763-3b8bf3bebf5b] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-63065-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63065-" data-uniqueKey="2-63065-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63065-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-63075">
+
+
+        <div id="thread-message-63075" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="63075">
+                <a name="63075"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="http://community.zenoss.org/people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="http://community.zenoss.org/people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432942693145672082"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63075.html#63075" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Dec 6, 2011 8:43 AM</span>
+                            (<a href="63065.html#63065" title="Go to message" class="font-color-meta-light " >in response to Randy Devone</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63075.html#63075">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:630981db-d0e1-44e8-8204-0732738580f0] --><div class="jive-rendered-content"><p>I've seen this reported a bunch on the forums, but no commonalities - everything varies. I'm assuming the problem servers have the same patch levels as the working ones? There are no Zenoss events re WMI or SNMP on them? I don't use the DellMon, but have you considered trying the Windows Perf WMI packs from Egor? That works for me...</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>--</p><p>James Pulver</p><p>ZCA Member</p><p>LEPP Computer Group</p><p>Cornell University</p></div><!-- [DocumentBodyEnd:630981db-d0e1-44e8-8204-0732738580f0] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63075" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63075&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63075-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63075-" data-uniqueKey="2-63075-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63075-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63147">
+
+
+        <div id="thread-message-63147" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="63147">
+                <a name="63147"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="http://community.zenoss.org/people/jcurry"
+   data-externalId=""
+   data-username="jcurry"
+   data-avatarId="1412"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4214, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/jcurry/avatar/46.png?a=1412"
+            border="0" height="46" width="46"
+            alt="jcurry"
+            /><span username="jcurry" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="http://community.zenoss.org/people/jcurry"
+data-externalId=""
+data-username="jcurry"
+data-avatarId="1412"
+id="jive-421432942693148972121"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4214, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jcurry</a>                        </div>
+                        <em>1,021 posts since <br/>Apr 15, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63147.html#63147" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Dec 8, 2011 9:59 AM</span>
+                            (<a href="63065.html#63065" title="Go to message" class="font-color-meta-light " >in response to Randy Devone</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63147.html#63147">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:03a47223-f87a-4430-a5c6-ca18b2b08cfe] --><div class="jive-rendered-content"><p>Time often fixes this.&#160; Also, try remodelling a sample device again - that may do it.</p><p>Cheers,</p><p>Jane</p></div><!-- [DocumentBodyEnd:03a47223-f87a-4430-a5c6-ca18b2b08cfe] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63147" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63147&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63147-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63147-" data-uniqueKey="2-63147-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63147-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63143">
+
+
+        <div id="thread-message-63143" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="63143">
+                <a name="63143"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rdevone.html"
+   data-externalId=""
+   data-username="rdevone"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/rdevone/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Randy Devone"
+            /><span username="rdevone" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rdevone.html"
+data-externalId=""
+data-username="rdevone"
+data-avatarId="-1"
+id="jive-1748932942693152324781"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Randy Devone</a>                        </div>
+                        <em>50 posts since <br/>Oct 19, 2011</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63143.html#63143" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Dec 8, 2011 5:30 PM</span>
+                            (<a href="63147.html#63147" title="Go to message" class="font-color-meta-light " >in response to jcurry</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63143.html#63143">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ac3ebb01-07dd-4661-951e-2e5d5e47af74] --><div class="jive-rendered-content"><p>Thanks for the reply Jane jmp242.&#160; I have remodeled the servers over and over.&#160; Still does not populate the info.&#160; I removed all the community zenpacks and reinstalled, still does not work.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I love using Zenoss, but with these type of issues I am havig a difficult time convincing management to buy the enterprise product.&#160; They see Zenoss as unreliable and not being able to monitor hard drive usage as really bad.&#160; I have put a lot of time into this install and for the most part it is working but the this issue is problematic.&#160; I spend a good amount of time try to fix issues.&#160; I used Zenoss at my previous company and had nowhere this many issues.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Sorry for my rant, but any other suggestions is appreciated very much. Thanks</p></div><!-- [DocumentBodyEnd:ac3ebb01-07dd-4661-951e-2e5d5e47af74] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63143" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63143&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63143-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63143-" data-uniqueKey="2-63143-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63143-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63168">
+
+
+        <div id="thread-message-63168" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="63168">
+                <a name="63168"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/hackman238.html"
+   data-externalId=""
+   data-username="hackman238"
+   data-avatarId="1708"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6312, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/hackman238/avatar/46.png?a=1708"
+            border="0" height="46" width="46"
+            alt="Shane Scott"
+            /><span username="hackman238" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/hackman238.html"
+data-externalId=""
+data-username="hackman238"
+data-avatarId="1708"
+id="jive-631232942693155520507"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6312, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Shane Scott</a>                        </div>
+                        <em>1,373 posts since <br/>Jul 6, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63168.html#63168" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Dec 9, 2011 11:42 AM</span>
+                            (<a href="63143.html#63143" title="Go to message" class="font-color-meta-light " >in response to Randy Devone</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63168.html#63168">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:e5a4da58-e3b9-460b-8968-9332656df0cc] --><div class="jive-rendered-content"><p>Randy:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Are you modelling these via snmp or WMI?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>--Shane</p></div><!-- [DocumentBodyEnd:e5a4da58-e3b9-460b-8968-9332656df0cc] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63168" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63168&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63168-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63168-" data-uniqueKey="2-63168-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63168-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63183">
+
+
+        <div id="thread-message-63183" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="63183">
+                <a name="63183"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rdevone.html"
+   data-externalId=""
+   data-username="rdevone"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/rdevone/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Randy Devone"
+            /><span username="rdevone" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rdevone.html"
+data-externalId=""
+data-username="rdevone"
+data-avatarId="-1"
+id="jive-1748932942693158803974"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Randy Devone</a>                        </div>
+                        <em>50 posts since <br/>Oct 19, 2011</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63183.html#63183" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Dec 9, 2011 12:16 PM</span>
+                            (<a href="63168.html#63168" title="Go to message" class="font-color-meta-light " >in response to Shane Scott</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63183.html#63183">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:0c9c92b5-4e1f-4af1-abea-2a6fbab4d336] --><div class="jive-rendered-content"><p>Hi Shane;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I am using WMI and SNMP.&#160; Egor zenpacks measure componenets the standard zenpack does not monitor, that is the reason why.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks</p></div><!-- [DocumentBodyEnd:0c9c92b5-4e1f-4af1-abea-2a6fbab4d336] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63183" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63183&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63183-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63183-" data-uniqueKey="2-63183-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63183-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63195">
+
+
+        <div id="thread-message-63195" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="63195">
+                <a name="63195"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/hackman238.html"
+   data-externalId=""
+   data-username="hackman238"
+   data-avatarId="1708"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6312, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/hackman238/avatar/46.png?a=1708"
+            border="0" height="46" width="46"
+            alt="Shane Scott"
+            /><span username="hackman238" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/hackman238.html"
+data-externalId=""
+data-username="hackman238"
+data-avatarId="1708"
+id="jive-631232942693161980995"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6312, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Shane Scott</a>                        </div>
+                        <em>1,373 posts since <br/>Jul 6, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63195.html#63195" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Dec 9, 2011 7:28 PM</span>
+                            (<a href="63183.html#63183" title="Go to message" class="font-color-meta-light " >in response to Randy Devone</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63195.html#63195">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:4fb24d5c-6266-4d78-8a9b-8a934c2521e6] --><div class="jive-rendered-content"><p>Randy:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Can you su zenoss then zenmodel run now -v10 -d 'thisDeviceName' and post the result?</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Best,</p><p>--Shane (Hackman238)</p></div><!-- [DocumentBodyEnd:4fb24d5c-6266-4d78-8a9b-8a934c2521e6] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63195" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63195&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63195-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63195-" data-uniqueKey="2-63195-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63195-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63204">
+
+
+        <div id="thread-message-63204" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="63204">
+                <a name="63204"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rdevone.html"
+   data-externalId=""
+   data-username="rdevone"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/rdevone/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Randy Devone"
+            /><span username="rdevone" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rdevone.html"
+data-externalId=""
+data-username="rdevone"
+data-avatarId="-1"
+id="jive-1748932942693165217570"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Randy Devone</a>                        </div>
+                        <em>50 posts since <br/>Oct 19, 2011</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63204.html#63204" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Dec 12, 2011 10:47 AM</span>
+                            (<a href="63195.html#63195" title="Go to message" class="font-color-meta-light " >in response to Shane Scott</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63204.html#63204">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:8d04957f-79df-4456-9f89-1f14434c5f17] --><div class="jive-rendered-content"><p>Hi Shane.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>I ran the command and the results are below.&#160; Thanks for the help.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>[zenoss@ion-zenoss zenoss]$ zenmodeler run --now -v10 -d aus1erpsql06</p><p>2011-12-12 09:38:30,972 DEBUG zen.ZenModeler: Run in foreground, starting immediately.</p><p>2011-12-12 09:38:30,979 DEBUG zen.pysamba: client ntlmv2 auth is now no</p><p>2011-12-12 09:38:30,979 DEBUG zen.ZenModeler: Starting PBDaemon initialization</p><p>2011-12-12 09:38:30,979 INFO zen.ZenModeler: Connecting to localhost:8789</p><p>2011-12-12 09:38:30,980 DEBUG zen.ZenModeler: Logging in as admin</p><p>2011-12-12 09:38:33,886 INFO zen.ZenModeler: Connected to ZenHub</p><p>2011-12-12 09:38:33,887 DEBUG zen.ZenModeler: Setting up initial services: EventService, ModelerService</p><p>2011-12-12 09:38:33,888 DEBUG zen.ZenModeler: Chaining getInitialServices with d2</p><p>2011-12-12 09:38:33,967 DEBUG zen.ZenModeler: Loaded service EventService from zenhub</p><p>2011-12-12 09:38:33,967 DEBUG zen.ZenModeler: Loaded service ModelerService from zenhub</p><p>2011-12-12 09:38:33,968 DEBUG zen.ZenModeler: Queueing event {'severity': 0, 'component': 'zenmodeler', 'agent': 'zenmodeler', 'summary': 'started', 'manager': 'ion-zenoss.ioroot.tld', 'device': 'localhost', 'eventClass': '/App/Start', 'monitor': 'localhost'}</p><p>2011-12-12 09:38:33,968 DEBUG zen.ZenModeler: Total of 1 queued events</p><p>2011-12-12 09:38:33,969 DEBUG zen.ZenModeler: Calling connected.</p><p>2011-12-12 09:38:33,969 DEBUG zen.ZenModeler: fetching monitor properties</p><p>2011-12-12 09:40:02,261 DEBUG zen.ZenModeler: Getting threshold classes...</p><p>2011-12-12 09:40:02,626 DEBUG zen.ZenModeler: Loading classes ['Products.ZenModel.MinMaxThreshold', 'ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold']</p><p>2011-12-12 09:40:02,630 DEBUG zen.ZenModeler: Fetching default RRDCreateCommand...</p><p>2011-12-12 09:40:02,635 DEBUG zen.ZenModeler: Getting collector thresholds...</p><p>2011-12-12 09:40:03,969 DEBUG zen.thresholds: Updating threshold ('high event queue', ('localhost', ''))</p><p>2011-12-12 09:40:03,970 DEBUG zen.thresholds: Updating threshold ('zenmodeler cycle time', ('localhost', ''))</p><p>2011-12-12 09:40:03,970 DEBUG zen.thresholds: Updating threshold ('zenperfsnmp cycle time', ('localhost', ''))</p><p>2011-12-12 09:40:03,970 DEBUG zen.thresholds: Updating threshold ('zenping cycle time', ('localhost', ''))</p><p>2011-12-12 09:40:03,971 DEBUG zen.thresholds: Updating threshold ('zenprocess cycle time', ('localhost', ''))</p><p>2011-12-12 09:40:03,971 DEBUG zen.ZenModeler: Getting collector plugins for each DeviceClass</p><p>2011-12-12 09:40:03,972 DEBUG zen.thresholds: Checking value 0 on Daemons/localhost/zenmodeler_eventQueueLength</p><p>2011-12-12 09:40:03,973 DEBUG zen.MinMaxCheck: Checking zenmodeler_eventQueueLength 0 against min None and max 1000</p><p>2011-12-12 09:40:03,974 DEBUG zen.ZenModeler: Queueing event {'manager': 'ion-zenoss.ioroot.tld', 'eventKey': 'high event queue', 'device': 'localhost', 'eventClass': '/Perf', 'summary': 'threshold of high event queue restored: current value 0.00', 'component': '', 'monitor': 'localhost', 'agent': 'zenmodeler', 'severity': 0}</p><p>2011-12-12 09:40:03,974 DEBUG zen.ZenModeler: Total of 1 queued events</p><p>2011-12-12 09:41:16,718 DEBUG zen.ZenModeler: Starting collector loop...</p><p>2011-12-12 09:41:16,719 INFO zen.ZenModeler: Collecting for device aus1erpsql06</p><p>2011-12-12 09:41:18,055 INFO zen.ZenModeler: Device aus1erpsql06 not returned is it down?</p><p>2011-12-12 09:41:18,055 DEBUG zen.ZenModeler: Running 0 clients</p><p>2011-12-12 09:41:18,056 DEBUG zen.ZenModeler: Collection slots filled</p><p>2011-12-12 09:41:18,056 DEBUG zen.ZenModeler: Running 0 clients</p><p>2011-12-12 09:41:18,057 INFO zen.ZenModeler: Scan time: 1.34 seconds</p><p>2011-12-12 09:41:18,058 DEBUG zen.thresholds: Checking value 1.33820009232 on Daemons/localhost/zenmodeler_cycleTime</p><p>2011-12-12 09:41:18,058 DEBUG zen.MinMaxCheck: Checking zenmodeler_cycleTime 1.33820009232 against min None and max 34560.0</p><p>2011-12-12 09:41:18,059 DEBUG zen.ZenModeler: Queueing event {'manager': 'ion-zenoss.ioroot.tld', 'eventKey': 'zenmodeler cycle time', 'device': 'localhost', 'eventClass': '/Perf', 'summary': 'threshold of zenmodeler cycle time restored: current value 1.34', 'component': '', 'monitor': 'localhost', 'agent': 'zenmodeler', 'severity': 0}</p><p>2011-12-12 09:41:18,059 DEBUG zen.ZenModeler: Total of 1 queued events</p><p>2011-12-12 09:41:18,060 DEBUG zen.ZenModeler: Sent a 'stop' event</p><p>2011-12-12 09:41:19,057 DEBUG zen.ZenModeler: Running 0 clients</p><p>2011-12-12 09:41:19,536 DEBUG zen.ZenModeler: stop() called when not running</p><p>2011-12-12 09:41:19,537 INFO zen.ZenModeler: Daemon ZenModeler shutting down</p><p>2011-12-12 09:41:19,537 DEBUG zen.ZenModeler: Removing service EventService</p><p>2011-12-12 09:41:19,538 DEBUG zen.ZenModeler: Removing service ModelerService</p></div><!-- [DocumentBodyEnd:8d04957f-79df-4456-9f89-1f14434c5f17] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63204" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63204&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63204-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63204-" data-uniqueKey="2-63204-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63204-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63205">
+
+
+        <div id="thread-message-63205" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="63205">
+                <a name="63205"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/hackman238.html"
+   data-externalId=""
+   data-username="hackman238"
+   data-avatarId="1708"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6312, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/hackman238/avatar/46.png?a=1708"
+            border="0" height="46" width="46"
+            alt="Shane Scott"
+            /><span username="hackman238" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/hackman238.html"
+data-externalId=""
+data-username="hackman238"
+data-avatarId="1708"
+id="jive-631232942693168409054"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6312, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Shane Scott</a>                        </div>
+                        <em>1,373 posts since <br/>Jul 6, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63205.html#63205" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Dec 12, 2011 10:58 AM</span>
+                            (<a href="63204.html#63204" title="Go to message" class="font-color-meta-light " >in response to Randy Devone</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63205.html#63205">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:f62a18ef-c19a-4e01-9b0a-a72ca6612be1] --><div class="jive-rendered-content"><p>Randy:</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>From the result it looks like it didn't bother to model the device. If you dont mind can you zenmodeler run wno -v10 -d 'ip address' instead? Also, no -- before now. <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks!</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>--Shane (Hackman238)</p></div><!-- [DocumentBodyEnd:f62a18ef-c19a-4e01-9b0a-a72ca6612be1] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63205" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63205&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63205-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63205-" data-uniqueKey="2-63205-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63205-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63240">
+
+
+        <div id="thread-message-63240" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="63240">
+                <a name="63240"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rdevone.html"
+   data-externalId=""
+   data-username="rdevone"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/rdevone/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Randy Devone"
+            /><span username="rdevone" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rdevone.html"
+data-externalId=""
+data-username="rdevone"
+data-avatarId="-1"
+id="jive-1748932942693171682395"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Randy Devone</a>                        </div>
+                        <em>50 posts since <br/>Oct 19, 2011</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63240.html#63240" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Dec 12, 2011 3:56 PM</span>
+                            (<a href="63205.html#63205" title="Go to message" class="font-color-meta-light " >in response to Shane Scott</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63240.html#63240">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:6edef387-963c-42ce-a154-31c8a1b2143e] --><div class="jive-rendered-content"><p>Here is the output.&#160; It is long.&#160; Thanks</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>login as: root</p><p>root@ion-zenoss's password:</p><p>Last login: Mon Dec 12 14:34:59 2011 from 10.50.65.10</p><p>[root@ion-zenoss ~]# cd /usr</p><p>[root@ion-zenoss usr]# cd local</p><p>[root@ion-zenoss local]# cd zenoss</p><p>[root@ion-zenoss zenoss]# su zenoss</p><p>[zenoss@ion-zenoss zenoss]$ cd /usr/local/zenoss</p><p>[zenoss@ion-zenoss zenoss]$ zenmodeler run wno -v10 -d 10.160.10.90</p><p>2011-12-12 14:49:38,585 DEBUG zen.ZenModeler: Run in foreground, starting immediately.</p><p>2011-12-12 14:49:38,591 DEBUG zen.pysamba: client ntlmv2 auth is now no</p><p>2011-12-12 14:49:38,592 DEBUG zen.ZenModeler: Starting PBDaemon initialization</p><p>2011-12-12 14:49:38,592 INFO zen.ZenModeler: Connecting to localhost:8789</p><p>2011-12-12 14:49:38,593 DEBUG zen.ZenModeler: Logging in as admin</p><p>2011-12-12 14:49:45,106 INFO zen.ZenModeler: Connected to ZenHub</p><p>2011-12-12 14:49:45,107 DEBUG zen.ZenModeler: Setting up initial services: EventService, ModelerService</p><p>2011-12-12 14:49:45,108 DEBUG zen.ZenModeler: Chaining getInitialServices with d2</p><p>2011-12-12 14:49:46,968 DEBUG zen.ZenModeler: Loaded service EventService from zenhub</p><p>2011-12-12 14:49:46,968 DEBUG zen.ZenModeler: Loaded service ModelerService from zenhub</p><p>2011-12-12 14:49:46,969 DEBUG zen.ZenModeler: Queueing event {'severity': 0, 'component': 'zenmodeler', 'agent': 'zenmodeler', 'summary': 'started', 'manager': 'ion-zenoss.ioroot.tld', 'device': 'localhost', 'eventClass': '/App/Start', 'monitor': 'localhost'}</p><p>2011-12-12 14:49:46,969 DEBUG zen.ZenModeler: Total of 1 queued events</p><p>2011-12-12 14:49:46,970 DEBUG zen.ZenModeler: Calling connected.</p><p>2011-12-12 14:49:46,970 DEBUG zen.ZenModeler: fetching monitor properties</p><p>2011-12-12 14:49:47,326 DEBUG zen.ZenModeler: Getting threshold classes...</p><p>2011-12-12 14:49:47,328 DEBUG zen.ZenModeler: Loading classes ['Products.ZenModel.MinMaxThreshold', 'ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold']</p><p>2011-12-12 14:49:47,331 DEBUG zen.ZenModeler: Fetching default RRDCreateCommand...</p><p>2011-12-12 14:49:47,333 DEBUG zen.ZenModeler: Getting collector thresholds...</p><p>2011-12-12 14:49:47,398 DEBUG zen.thresholds: Updating threshold ('high event queue', ('localhost', ''))</p><p>2011-12-12 14:49:47,399 DEBUG zen.thresholds: Updating threshold ('zenmodeler cycle time', ('localhost', ''))</p><p>2011-12-12 14:49:47,399 DEBUG zen.thresholds: Updating threshold ('zenperfsnmp cycle time', ('localhost', ''))</p><p>2011-12-12 14:49:47,399 DEBUG zen.thresholds: Updating threshold ('zenping cycle time', ('localhost', ''))</p><p>2011-12-12 14:49:47,399 DEBUG zen.thresholds: Updating threshold ('zenprocess cycle time', ('localhost', ''))</p><p>2011-12-12 14:49:47,400 DEBUG zen.ZenModeler: Getting collector plugins for each DeviceClass</p><p>2011-12-12 14:49:47,493 DEBUG zen.ZenModeler: Starting collector loop...</p><p>2011-12-12 14:49:47,494 INFO zen.ZenModeler: Collecting for device 10.160.10.90</p><p>2011-12-12 14:49:47,603 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellCPUMap</p><p>2011-12-12 14:49:47,603 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellDeviceMap</p><p>2011-12-12 14:49:47,604 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellExpansionCardMap</p><p>2011-12-12 14:49:47,605 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellFanMap</p><p>2011-12-12 14:49:47,605 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellHardDiskMap</p><p>2011-12-12 14:49:47,606 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellLogicalDiskMap</p><p>2011-12-12 14:49:47,607 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellMemoryModuleMap</p><p>2011-12-12 14:49:47,607 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellPowerSupplyMap</p><p>2011-12-12 14:49:47,608 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellTemperatureSensorMap</p><p>2011-12-12 14:49:47,609 DEBUG zen.ZenModeler: Loaded plugin zenoss.snmp.InformantHardDiskMap</p><p>2011-12-12 14:49:47,609 INFO zen.ZenModeler: No WMI plugins found for aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,609 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellCPUMap</p><p>2011-12-12 14:49:47,609 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellDeviceMap</p><p>2011-12-12 14:49:47,610 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellExpansionCardMap</p><p>2011-12-12 14:49:47,610 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellFanMap</p><p>2011-12-12 14:49:47,610 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellHardDiskMap</p><p>2011-12-12 14:49:47,610 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellLogicalDiskMap</p><p>2011-12-12 14:49:47,610 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellMemoryModuleMap</p><p>2011-12-12 14:49:47,611 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellPowerSupplyMap</p><p>2011-12-12 14:49:47,611 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellTemperatureSensorMap</p><p>2011-12-12 14:49:47,612 DEBUG zen.ZenModeler: Loaded plugin zenoss.snmp.InformantHardDiskMap</p><p>2011-12-12 14:49:47,612 INFO zen.ZenModeler: No Python plugins found for aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,612 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellCPUMap</p><p>2011-12-12 14:49:47,612 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellDeviceMap</p><p>2011-12-12 14:49:47,613 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellExpansionCardMap</p><p>2011-12-12 14:49:47,613 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellFanMap</p><p>2011-12-12 14:49:47,613 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellHardDiskMap</p><p>2011-12-12 14:49:47,613 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellLogicalDiskMap</p><p>2011-12-12 14:49:47,613 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellMemoryModuleMap</p><p>2011-12-12 14:49:47,614 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellPowerSupplyMap</p><p>2011-12-12 14:49:47,614 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellTemperatureSensorMap</p><p>2011-12-12 14:49:47,615 DEBUG zen.ZenModeler: Loaded plugin zenoss.snmp.InformantHardDiskMap</p><p>2011-12-12 14:49:47,615 INFO zen.ZenModeler: No command plugins found for aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,615 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellCPUMap</p><p>2011-12-12 14:49:47,615 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellDeviceMap</p><p>2011-12-12 14:49:47,615 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellExpansionCardMap</p><p>2011-12-12 14:49:47,616 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellFanMap</p><p>2011-12-12 14:49:47,616 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellHardDiskMap</p><p>2011-12-12 14:49:47,616 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellLogicalDiskMap</p><p>2011-12-12 14:49:47,616 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellMemoryModuleMap</p><p>2011-12-12 14:49:47,617 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellPowerSupplyMap</p><p>2011-12-12 14:49:47,617 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellTemperatureSensorMap</p><p>2011-12-12 14:49:47,618 DEBUG zen.ZenModeler: Loaded plugin zenoss.snmp.InformantHardDiskMap</p><p>2011-12-12 14:49:47,618 DEBUG zen.ZenModeler: Using community.snmp.DellCPUMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,618 DEBUG zen.ZenModeler: Using community.snmp.DellDeviceMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,618 DEBUG zen.ZenModeler: Using community.snmp.DellExpansionCardMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,618 DEBUG zen.ZenModeler: Using community.snmp.DellFanMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,619 DEBUG zen.ZenModeler: Using community.snmp.DellHardDiskMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,619 DEBUG zen.ZenModeler: Using community.snmp.DellLogicalDiskMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,619 DEBUG zen.ZenModeler: Using community.snmp.DellMemoryModuleMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,619 DEBUG zen.ZenModeler: Using community.snmp.DellPowerSupplyMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,619 DEBUG zen.ZenModeler: Using community.snmp.DellTemperatureSensorMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,620 DEBUG zen.ZenModeler: Using zenoss.snmp.InformantHardDiskMap on aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,627 INFO zen.ZenModeler: SNMP collection device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,627 INFO zen.ZenModeler: plugins: community.snmp.DellCPUMap, community.snmp.DellDeviceMap, community.snmp.DellExpansionCardMap, community.snmp.DellFanMap, community.snmp.DellHardDiskMap, community.snmp.DellLogicalDiskMap, community.snmp.DellMemoryModuleMap, community.snmp.DellPowerSupplyMap, community.snmp.DellTemperatureSensorMap, zenoss.snmp.InformantHardDiskMap</p><p>2011-12-12 14:49:47,628 DEBUG zen.SnmpClient: Starting SNMP info for aus1erpsql06.ioinc.ioroot.tld at 10.160.10.90:161 timeout: 5.0 tries: 4 version: v2c&#160; community: zenoss</p><p>2011-12-12 14:49:47,628 DEBUG zen.twistedsnmp: AgentProxy._getCmdLineArgs: using google ipaddr on 10.160.10.90</p><p>2011-12-12 14:49:47,774 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:47,774 DEBUG zen.SnmpClient: Testing SNMP configuration</p><p>2011-12-12 14:49:47,775 DEBUG zen.netsnmp: Session.walk: send_status=153609140</p><p>2011-12-12 14:49:47,775 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,775 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellCPUMap</p><p>2011-12-12 14:49:47,776 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellDeviceMap</p><p>2011-12-12 14:49:47,776 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellExpansionCardMap</p><p>2011-12-12 14:49:47,776 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellFanMap</p><p>2011-12-12 14:49:47,776 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellHardDiskMap</p><p>2011-12-12 14:49:47,777 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellLogicalDiskMap</p><p>2011-12-12 14:49:47,777 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellMemoryModuleMap</p><p>2011-12-12 14:49:47,777 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellPowerSupplyMap</p><p>2011-12-12 14:49:47,777 DEBUG zen.ZenModeler: Loaded plugin community.snmp.DellTemperatureSensorMap</p><p>2011-12-12 14:49:47,778 DEBUG zen.ZenModeler: Loaded plugin zenoss.snmp.InformantHardDiskMap</p><p>2011-12-12 14:49:47,778 INFO zen.ZenModeler: No portscan plugins found for aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:49:47,778 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:47,779 DEBUG zen.ZenModeler: Collection slots filled</p><p>2011-12-12 14:49:47,779 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:47,795 DEBUG zen.SnmpClient: running &lt;ZenPacks.community.DellMon.modeler.plugins.community.snmp.DellCPUMap.DellCPUMap object at 0x1a55e850&gt;</p><p>2011-12-12 14:49:47,795 DEBUG zen.SnmpClient: sending queries for plugin community.snmp.DellCPUMap</p><p>2011-12-12 14:49:47,796 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:47,797 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,818 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:47,819 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,841 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,863 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,886 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,915 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,937 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,959 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:47,981 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:47,982 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,010 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,036 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,063 DEBUG zen.SnmpClient: running &lt;ZenPacks.community.DellMon.modeler.plugins.community.snmp.DellDeviceMap.DellDeviceMap object at 0x1a55e410&gt;</p><p>2011-12-12 14:49:48,063 DEBUG zen.SnmpClient: sending queries for plugin community.snmp.DellDeviceMap</p><p>2011-12-12 14:49:48,063 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,083 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,104 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,124 DEBUG zen.SnmpClient: running &lt;ZenPacks.community.DellMon.modeler.plugins.community.snmp.DellExpansionCardMap.DellExpansionCardMap object at 0x1a55eb10&gt;</p><p>2011-12-12 14:49:48,124 DEBUG zen.SnmpClient: sending queries for plugin community.snmp.DellExpansionCardMap</p><p>2011-12-12 14:49:48,125 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:48,125 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,151 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,180 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,205 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,233 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,265 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,292 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,321 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,347 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:48,348 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,399 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,451 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,491 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,527 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,562 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,598 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,637 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,675 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,712 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,758 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:48,779 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:48,796 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:48,797 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,082 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,111 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,140 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:49,141 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,175 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,206 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,236 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,277 DEBUG zen.SnmpClient: running &lt;ZenPacks.community.DellMon.modeler.plugins.community.snmp.DellFanMap.DellFanMap object at 0x1a55ec10&gt;</p><p>2011-12-12 14:49:49,277 DEBUG zen.SnmpClient: sending queries for plugin community.snmp.DellFanMap</p><p>2011-12-12 14:49:49,278 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:49,278 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,304 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,329 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,358 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,400 DEBUG zen.SnmpClient: running &lt;ZenPacks.community.DellMon.modeler.plugins.community.snmp.DellHardDiskMap.DellHardDiskMap object at 0x1a483450&gt;</p><p>2011-12-12 14:49:49,400 DEBUG zen.SnmpClient: sending queries for plugin community.snmp.DellHardDiskMap</p><p>2011-12-12 14:49:49,401 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:49,401 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,435 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,467 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,496 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,530 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,560 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,590 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,624 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,656 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,701 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,734 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,779 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:49,782 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,812 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,842 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,873 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,903 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,932 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:49,970 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:50,012 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:50,047 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:50,076 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:50,108 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:50,137 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:50,179 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:50,179 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:50,338 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,423 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,455 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,486 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,571 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:51,571 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,611 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,653 DEBUG zen.SnmpClient: running &lt;ZenPacks.community.DellMon.modeler.plugins.community.snmp.DellTemperatureSensorMap.DellTemperatureSensorMap object at 0x1a568350&gt;</p><p>2011-12-12 14:49:51,653 DEBUG zen.SnmpClient: sending queries for plugin community.snmp.DellTemperatureSensorMap</p><p>2011-12-12 14:49:51,653 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:51,654 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,680 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,706 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,731 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,758 DEBUG zen.SnmpClient: running &lt;zenoss.snmp.InformantHardDiskMap.InformantHardDiskMap object at 0x1a568610&gt;</p><p>2011-12-12 14:49:51,758 DEBUG zen.SnmpClient: sending queries for plugin zenoss.snmp.InformantHardDiskMap</p><p>2011-12-12 14:49:51,758 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:49:51,759 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:51,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:51,970 DEBUG zen.thresholds: Checking value 0 on Daemons/localhost/zenmodeler_eventQueueLength</p><p>2011-12-12 14:49:51,970 DEBUG zen.MinMaxCheck: Checking zenmodeler_eventQueueLength 0 against min None and max 1000</p><p>2011-12-12 14:49:51,971 DEBUG zen.ZenModeler: Queueing event {'manager': 'ion-zenoss.ioroot.tld', 'eventKey': 'high event queue', 'device': 'localhost', 'eventClass': '/Perf', 'summary': 'threshold of high event queue restored: current value 0.00', 'component': '', 'monitor': 'localhost', 'agent': 'zenmodeler', 'severity': 0}</p><p>2011-12-12 14:49:51,971 DEBUG zen.ZenModeler: Total of 1 queued events</p><p>2011-12-12 14:49:52,759 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:52,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:53,760 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:53,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:54,760 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:54,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:55,761 DEBUG zen.twistedsnmp: reactor settings: [7], 0.99778199999999995</p><p>2011-12-12 14:49:55,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:56,759 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:56,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:57,760 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:57,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:58,761 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:58,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:49:59,762 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:49:59,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:00,762 DEBUG zen.twistedsnmp: reactor settings: [7], 0.99711799999999995</p><p>2011-12-12 14:50:00,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:01,760 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:50:01,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:02,761 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:50:02,780 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:03,762 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:50:03,781 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:04,762 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:50:04,781 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:05,763 DEBUG zen.twistedsnmp: reactor settings: [7], 0.99733000000000005</p><p>2011-12-12 14:50:05,781 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:06,761 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:50:06,781 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:07,761 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:50:07,781 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:08,762 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:50:08,781 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:09,763 DEBUG zen.twistedsnmp: reactor settings: [7], 1.0</p><p>2011-12-12 14:50:09,781 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:10,764 DEBUG zen.twistedsnmp: reactor settings: [7], 0.99709599999999998</p><p>2011-12-12 14:50:10,781 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:11,762 DEBUG zen.twistedsnmp: reactor settings: [7], None</p><p>2011-12-12 14:50:11,763 INFO zen.SnmpClient: snmp client finished collection for aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,763 WARNING zen.SnmpClient: Device aus1erpsql06.ioinc.ioroot.tld timed out: are your SNMP settings correct?</p><p>2011-12-12 14:50:11,763 DEBUG zen.twistedsnmp: reactor settings: [], None</p><p>2011-12-12 14:50:11,764 DEBUG zen.ZenModeler: Client for aus1erpsql06.ioinc.ioroot.tld finished collecting</p><p>2011-12-12 14:50:11,764 DEBUG zen.ZenModeler: Processing data for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,764 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellCPUMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,764 DEBUG zen.ZenModeler: Plugin community.snmp.DellCPUMap results = ({}, {&lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a54c6d0&gt;: {'.1.3.6.1.2.1.25.3.3.1.1': {'.1.3.6.1.2.1.25.3.3.1.1.8': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.9': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.4': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.5': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.6': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.7': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.1': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.2': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.3': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.16': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.17': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.14': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.15': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.12': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.13': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.10': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.11': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.18': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.19': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.24': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.23': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.22': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.21': '.0.0', '.1.3.6.1.2.1.25.3.3.1.1.20': '.0.0'}}, &lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a54c910&gt;: {'.1.3.6.1.4.1.674.10892.1.1100.30.1.8': {'.1.3.6.1.4.1.674.10892.1.1100.30.1.8.1.2': 'Intel', '.1.3.6.1.4.1.674.10892.1.1100.30.1.8.1.1': 'Intel'}, '.1.3.6.1.4.1.674.10892.1.1100.30.1.2': {'.1.3.6.1.4.1.674.10892.1.1100.30.1.2.1.1': 1, '.1.3.6.1.4.1.674.10892.1.1100.30.1.2.1.2': 2}, '.1.3.6.1.4.1.674.10892.1.1100.30.1.14': {'.1.3.6.1.4.1.674.10892.1.1100.30.1.14.1.1': 1200, '.1.3.6.1.4.1.674.10892.1.1100.30.1.14.1.2': 1200}, '.1.3.6.1.4.1.674.10892.1.1100.30.1.16': {'.1.3.6.1.4.1.674.10892.1.1100.30.1.16.1.2': 'Intel(R) Xeon(R) CPU&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; X5650&#160; @ 2.67GHz Stepping 2', '.1.3.6.1.4.1.674.10892.1.1100.30.1.16.1.1': 'Intel(R) Xeon(R) CPU&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; X5650&#160; @ 2.67GHz Stepping 2'}, '.1.3.6.1.4.1.674.10892.1.1100.30.1.17': {'.1.3.6.1.4.1.674.10892.1.1100.30.1.17.1.2': 6, '.1.3.6.1.4.1.674.10892.1.1100.30.1.17.1.1': 6}, '.1.3.6.1.4.1.674.10892.1.1100.30.1.12': {'.1.3.6.1.4.1.674.10892.1.1100.30.1.12.1.2': 2666, '.1.3.6.1.4.1.674.10892.1.1100.30.1.12.1.1': 2666}, '.1.3.6.1.4.1.674.10892.1.1100.30.1.13': {'.1.3.6.1.4.1.674.10892.1.1100.30.1.13.1.2': 6400, '.1.3.6.1.4.1.674.10892.1.1100.30.1.13.1.1': 6400}}, &lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55e390&gt;: {'.1.3.6.1.4.1.674.10892.1.1100.40.1.13': {'.1.3.6.1.4.1.674.10892.1.1100.40.1.13.1.1': 192, '.1.3.6.1.4.1.674.10892.1.1100.40.1.13.1.3': 12288, '.1.3.6.1.4.1.674.10892.1.1100.40.1.13.1.2': 1536, '.1.3.6.1.4.1.674.10892.1.1100.40.1.13.1.5': 1536, '.1.3.6.1.4.1.674.10892.1.1100.40.1.13.1.4': 192, '.1.3.6.1.4.1.674.10892.1.1100.40.1.13.1.6': 12288}, '.1.3.6.1.4.1.674.10892.1.1100.40.1.6': {'.1.3.6.1.4.1.674.10892.1.1100.40.1.6.1.1': 1, '.1.3.6.1.4.1.674.10892.1.1100.40.1.6.1.2': 1, '.1.3.6.1.4.1.674.10892.1.1100.40.1.6.1.3': 1, '.1.3.6.1.4.1.674.10892.1.1100.40.1.6.1.4': 2, '.1.3.6.1.4.1.674.10892.1.1100.40.1.6.1.5': 2, '.1.3.6.1.4.1.674.10892.1.1100.40.1.6.1.6': 2}, '.1.3.6.1.4.1.674.10892.1.1100.40.1.11': {'.1.3.6.1.4.1.674.10892.1.1100.40.1.11.1.3': 5, '.1.3.6.1.4.1.674.10892.1.1100.40.1.11.1.2': 4, '.1.3.6.1.4.1.674.10892.1.1100.40.1.11.1.1': 3, '.1.3.6.1.4.1.674.10892.1.1100.40.1.11.1.6': 5, '.1.3.6.1.4.1.674.10892.1.1100.40.1.11.1.5': 4, '.1.3.6.1.4.1.674.10892.1.1100.40.1.11.1.4': 3}}})</p><p>2011-12-12 14:50:11,765 INFO zen.ZenModeler: processing community.snmp.DellCPUMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,767 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellDeviceMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,767 DEBUG zen.ZenModeler: Plugin community.snmp.DellDeviceMap results = ({'.1.3.6.1.4.1.674.10892.1.300.10.1.9.1': 'PowerEdge R510', '.1.3.6.1.4.1.674.10892.1.400.10.1.6.1': 'Microsoft Windows Server 2008 R2, Standard x64 Edition', '.1.3.6.1.4.1.674.10892.1.300.10.1.11.1': 'HWM5WN1'}, {})</p><p>2011-12-12 14:50:11,767 INFO zen.ZenModeler: processing community.snmp.DellDeviceMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,767 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellExpansionCardMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,768 DEBUG zen.ZenModeler: Plugin community.snmp.DellExpansionCardMap results = ({}, {&lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55e690&gt;: {'.1.3.6.1.4.1.674.10892.1.1100.80.1.9': {'.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.11': 'Broadcom BCM5716 NetXtreme II GbE', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.10': 'iDRAC6 Enterprise', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.9': ' MGA G200eW WPCM450\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.8': 'ICH-10R Chipset (SATA IDE Controller)', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.3': ' 5520/5500/X58 I/O Hub PCI Express Root Port 7\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.2': ' 5500 I/O Hub to ESI Port\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.1': 'PERC 6/i Integrated', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.7': ' 82801JI (ICH10 Family) USB UHCI Controller #1\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.6': ' 82801JI (ICH10 Family) USB UHCI Controller #4\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.5': ' 5520/5500/X58 I/O Hub PCI Express Root Port 10\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.9.1.4': ' 5520/5500/X58 I/O Hub PCI Express Root Port 9\n'}, '.1.3.6.1.4.1.674.10892.1.1100.80.1.8': {'.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.10': 'Dell Inc.', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.11': 'Broadcom Corp', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.2': ' Intel Corporation\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.3': ' Intel Corporation\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.1': 'Dell Inc. (OEM: LSI Logic, Symbios Logic, NCR)', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.6': ' Intel Corporation\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.7': ' Intel Corporation\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.4': ' Intel Corporation\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.5': ' Intel Corporation\n', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.8': 'Intel Corporation', '.1.3.6.1.4.1.674.10892.1.1100.80.1.8.1.9': ' Matrox Graphics, Inc.\n'}, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6': {'.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.10': 13, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.11': 14, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.4': 7, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.5': 8, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.6': 9, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.7': 10, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.1': 4, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.2': 5, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.3': 6, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.8': 11, '.1.3.6.1.4.1.674.10892.1.1100.80.1.6.1.9': 12}, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5': {'.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.10': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.11': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.9': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.8': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.7': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.6': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.5': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.4': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.3': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.2': 3, '.1.3.6.1.4.1.674.10892.1.1100.80.1.5.1.1': 3}}, &lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55e6d0&gt;: {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.43': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.43.1': 99}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.42': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.42.1': '4'}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.41': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.41.1': '4.05.01.64'}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.2': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.2.1': 'PERC 6/i Integrated'}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.3': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.3.1': 'DELL'}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.1': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.1.1': 1}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.4': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.4.1': 6}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.8': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.8.1': '6.2.0-0013'}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.9': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.9.1': 256}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.10': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.10.1': 0}, '.1.3.6.1.4.1.674.10893.1.20.130.1.1.38': {'.1.3.6.1.4.1.674.10893.1.20.130.1.1.38.1': 3}}, &lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55e750&gt;: {'.1.3.6.1.4.1.674.10899.1.6.1.4': {'.1.3.6.1.4.1.674.10899.1.6.1.4.27': '6.1.7600.16385', '.1.3.6.1.4.1.674.10899.1.6.1.4.26': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.25': '6.1.7600.16788', '.1.3.6.1.4.1.674.10899.1.6.1.4.24': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.23': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.22': '6.1.7600.16788', '.1.3.6.1.4.1.674.10899.1.6.1.4.21': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.20': '6.1.7600.16385', '.1.3.6.1.4.1.674.10899.1.6.1.4.29': '6.2.0-0013', '.1.3.6.1.4.1.674.10899.1.6.1.4.28': '6.1.7600.16788', '.1.3.6.1.4.1.674.10899.1.6.1.4.1': '6.3.0', '.1.3.6.1.4.1.674.10899.1.6.1.4.2': '1.4.0', '.1.3.6.1.4.1.674.10899.1.6.1.4.3': '1.52', '.1.3.6.1.4.1.674.10899.1.6.1.4.4': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.5': '9.1.1.1013', '.1.3.6.1.4.1.674.10899.1.6.1.4.6': '6.1.7600.16788', '.1.3.6.1.4.1.674.10899.1.6.1.4.7': '4.5.0.64', '.1.3.6.1.4.1.674.10899.1.6.1.4.8': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.9': '9.1.1.1013', '.1.3.6.1.4.1.674.10899.1.6.1.4.39': '03.02.14', '.1.3.6.1.4.1.674.10899.1.6.1.4.32': 'KS68', '.1.3.6.1.4.1.674.10899.1.6.1.4.33': 'KS68', '.1.3.6.1.4.1.674.10899.1.6.1.4.12': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.13': '6.1.7600.16788', '.1.3.6.1.4.1.674.10899.1.6.1.4.10': '6.1.7600.16788', '.1.3.6.1.4.1.674.10899.1.6.1.4.11': '1.1.3.0', '.1.3.6.1.4.1.674.10899.1.6.1.4.16': '6.1.7600.16788', '.1.3.6.1.4.1.674.10899.1.6.1.4.17': '5.2.22.0', '.1.3.6.1.4.1.674.10899.1.6.1.4.14': '5.2.22.0', '.1.3.6.1.4.1.674.10899.1.6.1.4.15': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.30': 'KS68', '.1.3.6.1.4.1.674.10899.1.6.1.4.31': 'KS68', '.1.3.6.1.4.1.674.10899.1.6.1.4.18': '9.1.1.1026', '.1.3.6.1.4.1.674.10899.1.6.1.4.19': '6.1.7600.16788', '.1.3.6.1.4.1.674.10899.1.6.1.4.34': '1.10', '.1.3.6.1.4.1.674.10899.1.6.1.4.35': '1.4.0.445', '.1.3.6.1.4.1.674.10899.1.6.1.4.36': '5142A0', '.1.3.6.1.4.1.674.10899.1.6.1.4.37': '6.3.0.23', '.1.3.6.1.4.1.674.10899.1.6.1.4.38': '03.02.14'}, '.1.3.6.1.4.1.674.10899.1.6.1.5': {'.1.3.6.1.4.1.674.10899.1.6.1.5.28': 'Intel(R) ICH10 Family USB Universal Host Controller - 3A39 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.29': 'PERC 6/i Integrated Controller 0 Firmware', '.1.3.6.1.4.1.674.10899.1.6.1.5.24': 'Intel(R) 7500/5520/5500/X58 I/O Hub System Management Registers - 342E Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.25': 'Intel(R) ICH10 Family USB Universal Host Controller - 3A38 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.26': 'Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 1 - 3408 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.27': 'Intel(R) ICH10R LPC Interface Controller - 3A16 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.20': 'Intel(R) 82801 PCI Bridge - 244E Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.21': 'Intel(R) 7500/5520/5500/X58 I/O Hub Control Status and RAS Registers - 3423 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.22': 'Intel(R) ICH10 Family USB Universal Host Controller - 3A37 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.23': 'Intel(R) 5520/5500/X58 I/O Hub to ESI Port - 3403 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.37': 'Dell OS Drivers Pack, v.6.3.0.23, A00', '.1.3.6.1.4.1.674.10899.1.6.1.5.36': 'Dell 32 Bit Diagnostics, v.5142A0, 5142.2', '.1.3.6.1.4.1.674.10899.1.6.1.5.9': 'Intel(R) ICH10 Family 2 port Serial ATA Storage Controller 2 - 3A26 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.8': 'Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 7 - 340E Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.5': 'Intel(R) ICH10 Family 4 port Serial ATA Storage Controller 1 - 3A20 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.4': 'Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 3 - 340A Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.7': 'DELL PERC 6/i Integrated RAID Controller Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.6': 'Intel(R) ICH10 Family USB Enhanced Host Controller - 3A3A Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.1': 'OpenManage Server Administrator', '.1.3.6.1.4.1.674.10899.1.6.1.5.3': 'iDRAC6', '.1.3.6.1.4.1.674.10899.1.6.1.5.2': 'BIOS', '.1.3.6.1.4.1.674.10899.1.6.1.5.15': 'Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 10 - 3411 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.14': 'Broadcom BCM5716C NetXtreme II GigE #2 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.17': 'Broadcom BCM5716C NetXtreme II GigE Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.16': 'Intel(R) ICH10 Family USB Universal Host Controller - 3A35 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.11': 'Matrox G200eW (Winbond) Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.10': 'Intel(R) ICH10 Family USB Enhanced Host Controller - 3A3C Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.13': 'Intel(R) ICH10 Family USB Universal Host Controller - 3A34 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.12': 'Intel(R) 7500/5520/5500/X58 I/O Hub PCI Express Root Port 9 - 3410 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.33': 'ST32000444SS Firmware', '.1.3.6.1.4.1.674.10899.1.6.1.5.32': 'ST32000444SS Firmware', '.1.3.6.1.4.1.674.10899.1.6.1.5.31': 'ST32000444SS Firmware', '.1.3.6.1.4.1.674.10899.1.6.1.5.30': 'ST32000444SS Firmware', '.1.3.6.1.4.1.674.10899.1.6.1.5.19': 'Intel(R) ICH10 Family USB Universal Host Controller - 3A36 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.18': 'Intel(R) 7500/5520/5500/X58 I/O Hub GPIO and Scratch Pad Registers - 3422 Driver', '.1.3.6.1.4.1.674.10899.1.6.1.5.35': 'Dell Lifecycle Controller, v.1.4.0.445, A01', '.1.3.6.1.4.1.674.10899.1.6.1.5.34': 'SAS/SATA Backplane 0:0 Backplane Firmware', '.1.3.6.1.4.1.674.10899.1.6.1.5.39': 'Power Supply', '.1.3.6.1.4.1.674.10899.1.6.1.5.38': 'Power Supply'}}, &lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55e710&gt;: {'.1.3.6.1.4.1.674.10892.1.1900.30.1.10': {'.1.3.6.1.4.1.674.10892.1.1900.30.1.10.1.1.1': '255.255.254.0'}, '.1.3.6.1.4.1.674.10892.1.1900.30.1.12': {'.1.3.6.1.4.1.674.10892.1.1900.30.1.12.1.1.1': '\x84++O\x18W'}, '.1.3.6.1.4.1.674.10892.1.1900.30.1.9': {'.1.3.6.1.4.1.674.10892.1.1900.30.1.9.1.1.1': '10.160.20.90'}}})</p><p>2011-12-12 14:50:11,769 INFO zen.ZenModeler: processing community.snmp.DellExpansionCardMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,771 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellFanMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,771 DEBUG zen.ZenModeler: Plugin community.snmp.DellFanMap results = ({}, {&lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55e7d0&gt;: {'.1.3.6.1.4.1.674.10892.1.700.12.1.7': {'.1.3.6.1.4.1.674.10892.1.700.12.1.7.1.1': 3, '.1.3.6.1.4.1.674.10892.1.700.12.1.7.1.2': 3, '.1.3.6.1.4.1.674.10892.1.700.12.1.7.1.3': 3, '.1.3.6.1.4.1.674.10892.1.700.12.1.7.1.4': 3, '.1.3.6.1.4.1.674.10892.1.700.12.1.7.1.5': 3}, '.1.3.6.1.4.1.674.10892.1.700.12.1.5': {'.1.3.6.1.4.1.674.10892.1.700.12.1.5.1.2': 3, '.1.3.6.1.4.1.674.10892.1.700.12.1.5.1.3': 3, '.1.3.6.1.4.1.674.10892.1.700.12.1.5.1.1': 3, '.1.3.6.1.4.1.674.10892.1.700.12.1.5.1.4': 3, '.1.3.6.1.4.1.674.10892.1.700.12.1.5.1.5': 3}, '.1.3.6.1.4.1.674.10892.1.700.12.1.8': {'.1.3.6.1.4.1.674.10892.1.700.12.1.8.1.5': 'System Board FAN MOD 5A RPM', '.1.3.6.1.4.1.674.10892.1.700.12.1.8.1.4': 'System Board FAN MOD 4A RPM', '.1.3.6.1.4.1.674.10892.1.700.12.1.8.1.3': 'System Board FAN MOD 3A RPM', '.1.3.6.1.4.1.674.10892.1.700.12.1.8.1.2': 'System Board FAN MOD 2A RPM', '.1.3.6.1.4.1.674.10892.1.700.12.1.8.1.1': 'System Board FAN MOD 1A RPM'}, '.1.3.6.1.4.1.674.10892.1.700.12.1.13': {'.1.3.6.1.4.1.674.10892.1.700.12.1.13.1.2': 720, '.1.3.6.1.4.1.674.10892.1.700.12.1.13.1.3': 720, '.1.3.6.1.4.1.674.10892.1.700.12.1.13.1.1': 720, '.1.3.6.1.4.1.674.10892.1.700.12.1.13.1.4': 720, '.1.3.6.1.4.1.674.10892.1.700.12.1.13.1.5': 720}}})</p><p>2011-12-12 14:50:11,771 INFO zen.ZenModeler: processing community.snmp.DellFanMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,772 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellHardDiskMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,772 DEBUG zen.ZenModeler: Plugin community.snmp.DellHardDiskMap results = ({}, {&lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55e910&gt;: {'1.3.6.1.4.1.674.10893.1.20.130.4.1.21': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.21.3': 8, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.21.2': 8, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.21.1': 8, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.21.4': 8}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.15': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.15.2': 1, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.15.3': 2, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.15.1': 0, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.15.4': 3}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.12': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.12.1': 0, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.12.3': 0, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.12.2': 0, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.12.4': 0}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.11': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.11.4': 1907200, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.11.2': 1907200, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.11.3': 1907200, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.11.1': 1907200}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.30': {}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.4': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.4.4': 3, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.4.3': 3, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.4.2': 3, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.4.1': 3}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.6': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.6.4': 'ST32000444SS&#160;&#160;&#160; ', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.6.1': 'ST32000444SS&#160;&#160;&#160; ', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.6.3': 'ST32000444SS&#160;&#160;&#160; ', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.6.2': 'ST32000444SS&#160;&#160;&#160; '}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.7': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.7.1': '9WM1JRA8&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; ', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.7.2': '9WM1DJDC&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; ', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.7.3': '9WM1JWHQ&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; ', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.7.4': '9WM1JC29&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; '}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.1': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.1.4': 4, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.1.2': 2, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.1.3': 3, '.1.3.6.1.4.1.674.10893.1.20.130.4.1.1.1': 1}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.2': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.2.1': 'Physical Disk 0:0:0', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.2.3': 'Physical Disk 0:0:2', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.2.2': 'Physical Disk 0:0:1', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.2.4': 'Physical Disk 0:0:3'}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.3': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.3.4': 'DELL(tm)', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.3.1': 'DELL(tm)', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.3.2': 'DELL(tm)', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.3.3': 'DELL(tm)'}, '1.3.6.1.4.1.674.10893.1.20.130.4.1.8': {'.1.3.6.1.4.1.674.10893.1.20.130.4.1.8.3': 'KS68', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.8.2': 'KS68', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.8.1': 'KS68', '.1.3.6.1.4.1.674.10893.1.20.130.4.1.8.4': 'KS68'}}, &lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55e990&gt;: {'1.3.6.1.4.1.674.10893.1.20.130.5.1.4': {'.1.3.6.1.4.1.674.10893.1.20.130.5.1.4.2': 'Backplane', '.1.3.6.1.4.1.674.10893.1.20.130.5.1.4.3': 'Backplane', '.1.3.6.1.4.1.674.10893.1.20.130.5.1.4.1': 'Backplane', '.1.3.6.1.4.1.674.10893.1.20.130.5.1.4.4': 'Backplane'}, '1.3.6.1.4.1.674.10893.1.20.130.5.1.1': {'.1.3.6.1.4.1.674.10893.1.20.130.5.1.1.3': 3, '.1.3.6.1.4.1.674.10893.1.20.130.5.1.1.2': 2, '.1.3.6.1.4.1.674.10893.1.20.130.5.1.1.1': 1, '.1.3.6.1.4.1.674.10893.1.20.130.5.1.1.4': 4}}})</p><p>2011-12-12 14:50:11,784 INFO zen.ZenModeler: processing community.snmp.DellHardDiskMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,785 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellLogicalDiskMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,786 DEBUG zen.ZenModeler: Plugin community.snmp.DellLogicalDiskMap results = ({}, {&lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55ebd0&gt;: {'1.3.6.1.4.1.674.10893.1.20.140.1.1.15': {'.1.3.6.1.4.1.674.10893.1.20.140.1.1.15.2': 65536, '.1.3.6.1.4.1.674.10893.1.20.140.1.1.15.1': 65536}, '1.3.6.1.4.1.674.10893.1.20.140.1.1.13': {'.1.3.6.1.4.1.674.10893.1.20.140.1.1.13.1': 7, '.1.3.6.1.4.1.674.10893.1.20.140.1.1.13.2': 7}, '1.3.6.1.4.1.674.10893.1.20.140.1.1.4': {'.1.3.6.1.4.1.674.10893.1.20.140.1.1.4.2': 1, '.1.3.6.1.4.1.674.10893.1.20.140.1.1.4.1': 1}, '1.3.6.1.4.1.674.10893.1.20.140.1.1.6': {'.1.3.6.1.4.1.674.10893.1.20.140.1.1.6.1': 2047999, '.1.3.6.1.4.1.674.10893.1.20.140.1.1.6.2': 3673600}, '1.3.6.1.4.1.674.10893.1.20.140.1.1.7': {'.1.3.6.1.4.1.674.10893.1.20.140.1.1.7.1': 917504, '.1.3.6.1.4.1.674.10893.1.20.140.1.1.7.2': 131072}, '1.3.6.1.4.1.674.10893.1.20.140.1.1.14': {'.1.3.6.1.4.1.674.10893.1.20.140.1.1.14.2': 0, '.1.3.6.1.4.1.674.10893.1.20.140.1.1.14.1': 0}, '1.3.6.1.4.1.674.10893.1.20.140.1.1.2': {'.1.3.6.1.4.1.674.10893.1.20.140.1.1.2.1': 'Virtual Disk 0', '.1.3.6.1.4.1.674.10893.1.20.140.1.1.2.2': 'Virtual Disk 1'}, '1.3.6.1.4.1.674.10893.1.20.140.1.1.3': {'.1.3.6.1.4.1.674.10893.1.20.140.1.1.3.1': 'Windows Disk 0', '.1.3.6.1.4.1.674.10893.1.20.140.1.1.3.2': 'Windows Disk 1'}}})</p><p>2011-12-12 14:50:11,786 INFO zen.ZenModeler: processing community.snmp.DellLogicalDiskMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,786 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellMemoryModuleMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,787 DEBUG zen.ZenModeler: Plugin community.snmp.DellMemoryModuleMap results = ({}, {&lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55edd0&gt;: {'.1.3.6.1.4.1.674.10892.1.1100.50.1.25': {'.1.3.6.1.4.1.674.10892.1.1100.50.1.25.1.3': '0.75 ns', '.1.3.6.1.4.1.674.10892.1.1100.50.1.25.1.2': '0.75 ns', '.1.3.6.1.4.1.674.10892.1.1100.50.1.25.1.1': '0.75 ns', '.1.3.6.1.4.1.674.10892.1.1100.50.1.25.1.7': '0.75 ns', '.1.3.6.1.4.1.674.10892.1.1100.50.1.25.1.6': '0.75 ns', '.1.3.6.1.4.1.674.10892.1.1100.50.1.25.1.5': '0.75 ns', '.1.3.6.1.4.1.674.10892.1.1100.50.1.25.1.4': '0.75 ns', '.1.3.6.1.4.1.674.10892.1.1100.50.1.25.1.8': '0.75 ns'}, '.1.3.6.1.4.1.674.10892.1.1100.50.1.23': {'.1.3.6.1.4.1.674.10892.1.1100.50.1.23.1.8': '2FC7E2AA', '.1.3.6.1.4.1.674.10892.1.1100.50.1.23.1.5': '2F57E2AC', '.1.3.6.1.4.1.674.10892.1.1100.50.1.23.1.4': '2F47E2AE', '.1.3.6.1.4.1.674.10892.1.1100.50.1.23.1.7': '2F17E299', '.1.3.6.1.4.1.674.10892.1.1100.50.1.23.1.6': '2F87E2AC', '.1.3.6.1.4.1.674.10892.1.1100.50.1.23.1.1': '2FC7E298', '.1.3.6.1.4.1.674.10892.1.1100.50.1.23.1.3': '2F37E2AB', '.1.3.6.1.4.1.674.10892.1.1100.50.1.23.1.2': '2F27E299'}, '.1.3.6.1.4.1.674.10892.1.1100.50.1.5': {'.1.3.6.1.4.1.674.10892.1.1100.50.1.5.1.8': 3, '.1.3.6.1.4.1.674.10892.1.1100.50.1.5.1.4': 3, '.1.3.6.1.4.1.674.10892.1.1100.50.1.5.1.5': 3, '.1.3.6.1.4.1.674.10892.1.1100.50.1.5.1.6': 3, '.1.3.6.1.4.1.674.10892.1.1100.50.1.5.1.7': 3, '.1.3.6.1.4.1.674.10892.1.1100.50.1.5.1.1': 3, '.1.3.6.1.4.1.674.10892.1.1100.50.1.5.1.2': 3, '.1.3.6.1.4.1.674.10892.1.1100.50.1.5.1.3': 3}, '.1.3.6.1.4.1.674.10892.1.1100.50.1.21': {'.1.3.6.1.4.1.674.10892.1.1100.50.1.21.1.8': 'Hynix Semiconductor (00AD00B380AD)', '.1.3.6.1.4.1.674.10892.1.1100.50.1.21.1.7': 'Hynix Semiconductor (00AD00B380AD)', '.1.3.6.1.4.1.674.10892.1.1100.50.1.21.1.6': 'Hynix Semiconductor (00AD00B380AD)', '.1.3.6.1.4.1.674.10892.1.1100.50.1.21.1.5': 'Hynix Semiconductor (00AD00B380AD)', '.1.3.6.1.4.1.674.10892.1.1100.50.1.21.1.4': 'Hynix Semiconductor (00AD00B380AD)', '.1.3.6.1.4.1.674.10892.1.1100.50.1.21.1.3': 'Hynix Semiconductor (00AD00B380AD)', '.1.3.6.1.4.1.674.10892.1.1100.50.1.21.1.2': 'Hynix Semiconductor (00AD00B380AD)', '.1.3.6.1.4.1.674.10892.1.1100.50.1.21.1.1': 'Hynix Semiconductor (00AD00B380AD)'}, '.1.3.6.1.4.1.674.10892.1.1100.50.1.7': {'.1.3.6.1.4.1.674.10892.1.1100.50.1.7.1.8': 24, '.1.3.6.1.4.1.674.10892.1.1100.50.1.7.1.6': 24, '.1.3.6.1.4.1.674.10892.1.1100.50.1.7.1.7': 24, '.1.3.6.1.4.1.674.10892.1.1100.50.1.7.1.4': 24, '.1.3.6.1.4.1.674.10892.1.1100.50.1.7.1.5': 24, '.1.3.6.1.4.1.674.10892.1.1100.50.1.7.1.2': 24, '.1.3.6.1.4.1.674.10892.1.1100.50.1.7.1.3': 24, '.1.3.6.1.4.1.674.10892.1.1100.50.1.7.1.1': 24}, '.1.3.6.1.4.1.674.10892.1.1100.50.1.8': {'.1.3.6.1.4.1.674.10892.1.1100.50.1.8.1.1': 'DIMM_A1 ', '.1.3.6.1.4.1.674.10892.1.1100.50.1.8.1.3': 'DIMM_A3 ', '.1.3.6.1.4.1.674.10892.1.1100.50.1.8.1.2': 'DIMM_A2 ', '.1.3.6.1.4.1.674.10892.1.1100.50.1.8.1.5': 'DIMM_B1 ', '.1.3.6.1.4.1.674.10892.1.1100.50.1.8.1.4': 'DIMM_A4 ', '.1.3.6.1.4.1.674.10892.1.1100.50.1.8.1.7': 'DIMM_B3 ', '.1.3.6.1.4.1.674.10892.1.1100.50.1.8.1.6': 'DIMM_B2 ', '.1.3.6.1.4.1.674.10892.1.1100.50.1.8.1.8': 'DIMM_B4 '}, '.1.3.6.1.4.1.674.10892.1.1100.50.1.14': {'.1.3.6.1.4.1.674.10892.1.1100.50.1.14.1.7': 2097152, '.1.3.6.1.4.1.674.10892.1.1100.50.1.14.1.6': 2097152, '.1.3.6.1.4.1.674.10892.1.1100.50.1.14.1.5': 2097152, '.1.3.6.1.4.1.674.10892.1.1100.50.1.14.1.4': 2097152, '.1.3.6.1.4.1.674.10892.1.1100.50.1.14.1.3': 2097152, '.1.3.6.1.4.1.674.10892.1.1100.50.1.14.1.2': 2097152, '.1.3.6.1.4.1.674.10892.1.1100.50.1.14.1.1': 2097152, '.1.3.6.1.4.1.674.10892.1.1100.50.1.14.1.8': 2097152}, '.1.3.6.1.4.1.674.10892.1.1100.50.1.22': {'.1.3.6.1.4.1.674.10892.1.1100.50.1.22.1.4': 'HMT125R7TFR8C-H9', '.1.3.6.1.4.1.674.10892.1.1100.50.1.22.1.5': 'HMT125R7TFR8C-H9', '.1.3.6.1.4.1.674.10892.1.1100.50.1.22.1.6': 'HMT125R7TFR8C-H9', '.1.3.6.1.4.1.674.10892.1.1100.50.1.22.1.7': 'HMT125R7TFR8C-H9', '.1.3.6.1.4.1.674.10892.1.1100.50.1.22.1.1': 'HMT125R7TFR8C-H9', '.1.3.6.1.4.1.674.10892.1.1100.50.1.22.1.2': 'HMT125R7TFR8C-H9', '.1.3.6.1.4.1.674.10892.1.1100.50.1.22.1.3': 'HMT125R7TFR8C-H9', '.1.3.6.1.4.1.674.10892.1.1100.50.1.22.1.8': 'HMT125R7TFR8C-H9'}}})</p><p>2011-12-12 14:50:11,787 INFO zen.ZenModeler: processing community.snmp.DellMemoryModuleMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,789 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellPowerSupplyMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,789 DEBUG zen.ZenModeler: Plugin community.snmp.DellPowerSupplyMap results = ({}, {&lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a55efd0&gt;: {'.1.3.6.1.4.1.674.10892.1.600.12.1.9': {}, '.1.3.6.1.4.1.674.10892.1.600.12.1.8': {'.1.3.6.1.4.1.674.10892.1.600.12.1.8.1.1': 'PS 1 Status', '.1.3.6.1.4.1.674.10892.1.600.12.1.8.1.2': 'PS 2 Status'}, '.1.3.6.1.4.1.674.10892.1.600.12.1.5': {'.1.3.6.1.4.1.674.10892.1.600.12.1.5.1.1': 3, '.1.3.6.1.4.1.674.10892.1.600.12.1.5.1.2': 3}, '.1.3.6.1.4.1.674.10892.1.600.12.1.7': {'.1.3.6.1.4.1.674.10892.1.600.12.1.7.1.2': 9, '.1.3.6.1.4.1.674.10892.1.600.12.1.7.1.1': 9}, '.1.3.6.1.4.1.674.10892.1.600.12.1.6': {'.1.3.6.1.4.1.674.10892.1.600.12.1.6.1.2': 7500, '.1.3.6.1.4.1.674.10892.1.600.12.1.6.1.1': 7500}, '.1.3.6.1.4.1.674.10892.1.600.12.1.11': {'.1.3.6.1.4.1.674.10892.1.600.12.1.11.1.1': 1, '.1.3.6.1.4.1.674.10892.1.600.12.1.11.1.2': 1}}, &lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a568050&gt;: {'.1.3.6.1.4.1.674.10892.1.600.20.1.7': {'.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.1': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.2': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.3': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.4': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.5': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.6': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.7': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.8': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.9': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.10': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.11': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.16': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.17': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.14': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.15': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.12': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.19': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.21': 2, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.13': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.18': 16, '.1.3.6.1.4.1.674.10892.1.600.20.1.7.1.20': 2}, '.1.3.6.1.4.1.674.10892.1.600.20.1.8': {'.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.13': 'System Board VTT CPU1 FAIL', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.12': 'System Board VTT CPU2 FAIL', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.11': 'System Board MEM CPU1 FAIL', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.10': 'Riser1 5V Riser PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.17': 'System Board 1.1 FAIL', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.15': 'System Board CPU2 1.8 PLL PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.9': 'System Board MEM CPU2 FAIL', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.8': 'System Board 5V PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.7': 'System Board 1.8V PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.6': 'System Board 1.5V PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.5': 'System Board CPU VTT PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.4': 'CPU1 0.75 VTT PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.3': 'CPU2 0.75 VTT PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.2': 'CPU2 VCORE PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.1': 'CPU1 VCORE PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.18': 'System Board 1.0 LOM FAIL', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.14': 'System Board 0.9V PG', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.21': 'PS 2 Voltage', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.20': 'PS 1 Voltage', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.19': 'System Board 1.0 AUX FAIL', '.1.3.6.1.4.1.674.10892.1.600.20.1.8.1.16': 'System Board CPU1 1.8 PLL PG'}}, &lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a568090&gt;: {'.1.3.6.1.4.1.674.10892.1.600.30.1.7': {'.1.3.6.1.4.1.674.10892.1.600.30.1.7.1.3': 26, '.1.3.6.1.4.1.674.10892.1.600.30.1.7.1.2': 23, '.1.3.6.1.4.1.674.10892.1.600.30.1.7.1.1': 23}, '.1.3.6.1.4.1.674.10892.1.600.30.1.8': {'.1.3.6.1.4.1.674.10892.1.600.30.1.8.1.1': 'PS 1 Current', '.1.3.6.1.4.1.674.10892.1.600.30.1.8.1.2': 'PS 2 Current', '.1.3.6.1.4.1.674.10892.1.600.30.1.8.1.3': 'System Board System Level'}}})</p><p>2011-12-12 14:50:11,790 INFO zen.ZenModeler: processing community.snmp.DellPowerSupplyMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,790 DEBUG zen.ZenModeler: Processing plugin community.snmp.DellTemperatureSensorMap on device aus1erpsql06.ioinc.ioroot.tld ...</p><p>2011-12-12 14:50:11,790 DEBUG zen.ZenModeler: Plugin community.snmp.DellTemperatureSensorMap results = ({}, {&lt;Products.DataCollector.plugins.CollectorPlugin.GetTableMap object at 0x1a568250&gt;: {'.1.3.6.1.4.1.674.10892.1.700.20.1.8': {'.1.3.6.1.4.1.674.10892.1.700.20.1.8.1.1': 'System Board Ambient Temp'}, '.1.3.6.1.4.1.674.10892.1.700.20.1.5': {'.1.3.6.1.4.1.674.10892.1.700.20.1.5.1.1': 3}, '.1.3.6.1.4.1.674.10892.1.700.20.1.10': {'.1.3.6.1.4.1.674.10892.1.700.20.1.10.1.1': 500}, '.1.3.6.1.4.1.674.10892.1.700.20.1.7': {'.1.3.6.1.4.1.674.10892.1.700.20.1.7.1.1': 3}}})</p><p>2011-12-12 14:50:11,791 INFO zen.ZenModeler: processing community.snmp.DellTemperatureSensorMap for device aus1erpsql06.ioinc.ioroot.tld</p><p>2011-12-12 14:50:11,791 DEBUG zen.Classifier: No classifier defined</p><p>2011-12-12 14:50:11,825 DEBUG zen.ZenModeler: Running 1 clients</p><p>2011-12-12 14:50:12,033 INFO zen.ZenModeler: No change in configuration detected</p><p>2011-12-12 14:50:12,092 DEBUG zen.ZenModeler: Client aus1erpsql06.ioinc.ioroot.tld finished</p><p>2011-12-12 14:50:12,092 DEBUG zen.ZenModeler: Running 0 clients</p><p>2011-12-12 14:50:12,093 INFO zen.ZenModeler: Scan time: 24.60 seconds</p><p>2011-12-12 14:50:12,093 DEBUG zen.thresholds: Checking value 24.599462986 on Daemons/localhost/zenmodeler_cycleTime</p><p>2011-12-12 14:50:12,094 DEBUG zen.MinMaxCheck: Checking zenmodeler_cycleTime 24.599462986 against min None and max 34560.0</p><p>2011-12-12 14:50:12,095 DEBUG zen.ZenModeler: Queueing event {'manager': 'ion-zenoss.ioroot.tld', 'eventKey': 'zenmodeler cycle time', 'device': 'localhost', 'eventClass': '/Perf', 'summary': 'threshold of zenmodeler cycle time restored: current value 24.60', 'component': '', 'monitor': 'localhost', 'agent': 'zenmodeler', 'severity': 0}</p><p>2011-12-12 14:50:12,095 DEBUG zen.ZenModeler: Total of 1 queued events</p><p>2011-12-12 14:50:12,096 DEBUG zen.ZenModeler: Sent a 'stop' event</p><p>2011-12-12 14:50:12,109 DEBUG zen.ZenModeler: stop() called when not running</p><p>2011-12-12 14:50:12,109 INFO zen.ZenModeler: Daemon ZenModeler shutting down</p><p>2011-12-12 14:50:12,109 DEBUG zen.ZenModeler: Removing service EventService</p><p>2011-12-12 14:50:12,110 DEBUG zen.ZenModeler: Removing service ModelerService</p><p>[zenoss@ion-zenoss zenoss]$</p></div><!-- [DocumentBodyEnd:6edef387-963c-42ce-a154-31c8a1b2143e] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63240" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63240&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63240-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63240-" data-uniqueKey="2-63240-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63240-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63268">
+
+
+        <div id="thread-message-63268" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply  clearfix">
+
+            <div class="jive-thread-reply-body" id="63268">
+                <a name="63268"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="http://community.zenoss.org/people/jcurry"
+   data-externalId=""
+   data-username="jcurry"
+   data-avatarId="1412"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4214, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/jcurry/avatar/46.png?a=1412"
+            border="0" height="46" width="46"
+            alt="jcurry"
+            /><span username="jcurry" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="http://community.zenoss.org/people/jcurry"
+data-externalId=""
+data-username="jcurry"
+data-avatarId="1412"
+id="jive-421432942693175266438"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4214, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jcurry</a>                        </div>
+                        <em>1,021 posts since <br/>Apr 15, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63268.html#63268" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Dec 13, 2011 1:36 PM</span>
+                            (<a href="63240.html#63240" title="Go to message" class="font-color-meta-light " >in response to Randy Devone</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63268.html#63268">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:8ec6e894-982c-4e08-96ad-34515fb67a76] --><div class="jive-rendered-content"><p>It looks like this has largely succeeded though I do see at least one SNMP failure message.&#160; Your initial output posting suggested that the device was down (didn't respond at all) when you modeled it.&#160; Is this a busy device or at the end of a slow piece of network??&#160; It may be worth increasing the snmp timeout value in the configuration of the device or device class if you are seeing inconsistent results.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The other thing I see is that in addition to the various Dell modeler plugins, you also have the /Server/Windows default InformantHardDisk Map plugin.&#160; Do you actually have the Informant agent installed on your target system??&#160; I suspect that was the plugin that caused the SNMP timeout and I think it will be that plugin that sets up the used bytes and free bytes.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If you don't have the Informant SNMP agent, that probably explains your problem.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>If that is the case, and if your Windows systems support the standard SNMP Host Resources MIB, then I would remove the Informant modeler and add the HRFileSytemMap modeler.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Cheers,</p><p>Jane</p></div><!-- [DocumentBodyEnd:8ec6e894-982c-4e08-96ad-34515fb67a76] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63268" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63268&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63268-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63268-" data-uniqueKey="2-63268-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63268-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-63273">
+
+
+        <div id="thread-message-63273" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="63273">
+                <a name="63273"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/rdevone.html"
+   data-externalId=""
+   data-username="rdevone"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="http://community.zenoss.org/people/rdevone/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Randy Devone"
+            /><span username="rdevone" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/rdevone.html"
+data-externalId=""
+data-username="rdevone"
+data-avatarId="-1"
+id="jive-1748932942693178661866"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 17489, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Randy Devone</a>                        </div>
+                        <em>50 posts since <br/>Oct 19, 2011</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="63273.html#63273" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Dec 13, 2011 3:44 PM</span>
+                            (<a href="63268.html#63268" title="Go to message" class="font-color-meta-light " >in response to jcurry</a>)
+                        </div>
+
+                        <strong>
+                        <a href="63273.html#63273">Re: Zenoss not updating completely after modeling</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:9cdf7e93-2eeb-448e-8cc9-7c2e5600d187] --><div class="jive-rendered-content"><p>Thanks for the reply Jane.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>The server is drunning on a gigabit backbane and one of our higher powered boxes.&#160; I already had the snmp informant agent installed on the server; however I removed the plugin and added HRFileSystemMap and remodeled.&#160; It now detects the drives, Total Bytes, Used Bytes, Free Bytes and % Utilization.</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>IT WORKS!!!!!&#160;&#160;&#160;&#160;&#160; YAAAAAA <img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>It seem like the solution was to add the HRFileSystem Map plugin.&#160; </p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p>Thanks for all your heip.&#160; Much appreciated!!!! </p></div><!-- [DocumentBodyEnd:9cdf7e93-2eeb-448e-8cc9-7c2e5600d187] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-63273" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="http://community.zenoss.org/message-abuse!input.jspa?objectID=63273&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-63273-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-63273-" data-uniqueKey="2-63273-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="63183.html#" id="jive-acclaim-likedlink-2-63273-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="63183.html#17147" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+        <script type="text/javascript">
+            function createDocFromThread() {
+                    document.location = '/thread-to-doc.jspa?thread=17147';
+            }
+        </script>
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="http://community.zenoss.org/thread/17147?decorator=print&amp;displayFullThread=true"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-63065">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+          <div class="jive-box jive-sidebar jive-box-questionLegend">
+              <div class="jive-box-header jive-sidebar-header">
+                  <h4>Legend</h4>
+              </div>
+              <div class="jive-box-body jive-sidebar-body">
+                  <ul class="jive-icon-list font-color-meta">
+                      <li><span class="jive-icon-med jive-icon-discussion-correct"></span>
+<strong class="jive-thread-reply-message-correct-label">Correct Answers</strong> - 4 points                      </li>
+                      <li><span class="jive-icon-med jive-icon-discussion-helpful"></span>
+<strong class="jive-thread-reply-message-helpful-label">Helpful Answers</strong> - 2 points                      </li>
+                  </ul>
+              </div>
+          </div>
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
+           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
+
+   <!-- JQUERY FUNCTIONS -->
+    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    $j(document).ready(function(){
+        
+        $j('.jive-sidebar').each(function() {
+            var cls = $j(this).attr('class');
+            if(cls == 'jive-sidebar') {
+                $j(this).addClass('zenoss-sidebar');
+            }
+        });
+        
+        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
+        // All links in main menu div
+        var menu_links = $j('ul[id=navlist] a');
+        // On mouse hover
+        /*menu_links.hover(
+                // In: Store and remove title
+                function() {  
+                        old_title = $j(this).attr('title');      
+                        $j(this).attr('title',''); 
+                },
+                // Out: Replace title
+                function() {  
+                        $j(this).attr('title', old_title);  
+                }  
+        );*/
+        
+        
+        // ANIMATE HOVER STATES FOR TOP NAVIGATION
+        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
+    
+        $j.each(navnum, function(index, item) {
+            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
+              var $span = $j('> span.hover', this).css('opacity', 0);
+                  $j(this).hover(function () {
+                    $span.stop().fadeTo(200, 1);
+                  }, function () {
+                    $span.stop().fadeTo(0, 0);
+                  });
+            });
+        });
+        // END HOVER STATES
+
+        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
+    
+    });
+    //--><!]]></script>
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    sfHover = function() {
+        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
+        for (var i=0; i<sfEls.length; i++) {
+            sfEls[i].onmouseover=function() {
+                this.className+=" sfhover";
+            }
+            sfEls[i].onmouseout=function() {
+                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+            }
+        }
+    }
+    if (window.attachEvent) window.attachEvent("onload", sfHover);
+    //--><!]]></script>
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
+
+<script src="http://static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
+
+<!-- END SCRIPTS -->
+    </div>
+
+
+<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-70208-7']);
+
+  // To allow cross-domain tracking
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<script type="text/javascript">
+	piAId = '4432';
+	piCId = '1601';
+	
+	(function() {
+		function async_load(){
+			var s = document.createElement('script'); s.type = 'text/javascript';
+			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+		}
+		if(window.attachEvent) { window.attachEvent('onload', async_load); }
+		else { window.addEventListener('load', async_load, false); }
+	})();
+</script>
+<!-- END Pardot tracking code, async version -->
+
+<script type="text/javascript">
+    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
+    "/spotlight-search.jspa", containerType, containerID);
+
+
+    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
+    "/spotlight-search.jspa", containerType, containerID);
+
+
+</script>
+
+
+
+</body>
+</html>
+

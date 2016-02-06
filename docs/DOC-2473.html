@@ -1,0 +1,1528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Dev chat 08/14/2008 - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+<script type="text/javascript">
+    if (top != self) {
+        var isSafeTopUrl = false;
+        try {
+            var topUrl = top.location.href;
+            var topUrlQsIdx = topUrl.indexOf('?');
+            if (topUrlQsIdx > 0) {
+                topUrl = topUrl.substring(0, topUrlQsIdx);
+            }
+            topUrl = topUrl.toLowerCase();
+
+            var safeTopUrls = new Array(
+                'http://community.zenoss.org/skin-basic.jspa',
+                'http://community.zenoss.org/skin-advanced.jspa',
+                'http://community.zenoss.org/skin-advanced!UploadSkinZip.jspa',
+                'http://community.zenoss.org/skin-palette.jspa',
+                'http://community.zenoss.org/skin-palette!start.jspa'
+            );
+            for (var i = 0; i < safeTopUrls.length; i++) {
+                if (safeTopUrls[i].toLowerCase() == topUrl) {
+                    isSafeTopUrl = true;
+                    break;
+                }
+            }
+        } catch (err) {
+        }
+        if (!isSafeTopUrl) top.location = location;
+    }
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<meta name="google-site-verification" content="J1trXujOOsvf21--GK7CQrG3MW-NUu8MCNY-5x1Jf_s" />
+<!-- Dev chat 08/14/2008 -->
+<meta property="og:image" content="http://community.zenoss.org/servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+    <script type="text/javascript">
+        (function() {
+            var prepareUrl = function(url) {
+                if (url.indexOf(";") > 0) {
+                    url = url.substring(0, url.indexOf(";"));
+                }
+                if (url.charAt(url.length - 1) == '/') {
+                    url = url.substring(0, url.length - 1);
+                }
+                return url
+            };
+            if (typeof(window._jive_base_url) == "undefined") {
+                window._jive_base_url = prepareUrl("/")
+            }
+            if (typeof(window._jive_resource_url) == "undefined") {
+                window._jive_resource_url = prepareUrl("/4.5.6/")
+            }
+                if (typeof(window._jive_current_user) == "undefined") {
+                    window._jive_current_user = {
+                        anonymous: true,
+                        username: 'ANONYMOUS',
+                        ID: '-1',
+                        enabled: true,
+                        avatarID: '-1',
+                        displayName: ''
+                    };
+                }
+
+
+
+        })();
+
+        var _jive_effective_user_id = "-1";
+        var _jive_auth_token ="no-user";
+        var _jive_locale = "en_US";
+
+    </script>
+
+
+<script type="text/javascript">
+/* Kongregate Asychronous JavaScript Loader
+
+The MIT License
+
+Copyright (c) 2010 Kongregate Inc.
+*/function KJS(a){this._path=a&&a.path||"",this._d={}}KJS.prototype={require:function(){var a=Array.prototype.slice.call(arguments),b;typeof a[a.length-1]=="function"&&(b=a.pop());for(var c=0;c<a.length;c++)this.sat(a[c]+"--required");b&&this.run(b,a)},_load:function(a,b,c,d,e){var f=this,g=(c||[]).concat(a.split("?")[0]),h=this._path+a,i=this._origin(h)&&d,j=i?function(a){d.call(f,a);var b;while(b=g.shift())f.sat(b)}:function(a){e.call(f,a,function(){var a;while(a=g.shift())f.sat(a)})};this.isSat(g)||(i?this.get(h,function(a){b&&b.length?f.run(function(){j(a)},b):j(a)}):b&&b.length?f.run(function(){j(h)},b):j(h))},load:function(a,b,c){var d=this;this._load(a,b,c,d.embed,d.link)},loadCSS:function(a,b,c){var d=this;d._load(a,b,c,null,d.linkCSS)},run:function(a,b,c){var d=this,e,f=c||[],g=f.length?function(){a();var b;while(b=f.pop())d.sat(b)}:a;if(!d.isSat(f)){if(!b.length)g();else if(1==b.length)e=g;else{var h=b.length;e=function(){--h||g()}}var i;while(i=b.pop())!0===this._d[i]?e():this._d[i]=this._d[i]?function(a,b){return function(){a(),b()}}(this._d[i],e):e}},_css:/css(?:$|\?)/i,get:function(a,b){$j.ajax({url:a,dataType:a.match(this._css)?"text/css":"text/javascript",complete:function(a){b(a.responseText)}})},_firstScript:document.getElementsByTagName("script")[0],_head:document.getElementsByTagName("head")[0],embed:function(a){$j.globalEval(a)},link:function(a,b){var c=this,d=this._firstScript,e=d.parentNode,f=document.createElement("script");f.src=a,f.onreadystatechange=f.onload=function(){if(!f.readyState||f.readyState=="loaded"||f.readyState=="complete")f.onload=f.onreadystatechange=$j.noop,e.removeChild(f),b&&b()},e.insertBefore(f,d)},linkCSS:function(a,b){var c=this,d;document.createStyleSheet?d=document.createStyleSheet(a):(d=document.createElement("link"),d.href=a,d.rel="stylesheet",d.type="text/css",this._head.appendChild(d)),b&&b()},_origin:function(a){var b=location.origin||location.protocol+"//"+location.host,c=this._fullURL(a);return c.slice(0,b.length)===b},_fullURL:function(a){var b=document.createElement("div");b.innerHTML='<a href="http://community.zenoss.org/docs/'+a+'">x</a>';return b.firstChild.href},sat:function(a){this._d[a]&&!0!==this._d[a]&&this._d[a](),this._d[a]=!0},isSat:function(a){var b=0;for(var c=0;c<a.length;c++)!0===this._d[a[c]]&&b++;return b>0&&b===a.length}};var kjs=new KJS
+</script>
+
+    
+      
+      
+    <script type="text/javascript">
+        window.SPELL_LANGS = "English (Canada)=en_ca,English (United Kingdom)=en_gb,+English (United States)=en_us,French=fr,French (Canada)=fr_ca,German=de,Italian=it,Spanish=es";
+        window.CS_BASE_URL = "";
+        window.CS_RESOURCE_BASE_URL = "/4.5.6";
+        window.tinyMCEPreInit = {
+            suffix : "_src",
+            base : CS_BASE_URL + "/resources/scripts/tiny_mce3"
+        };
+        if (typeof(_jive_project_i18n) == "undefined") {
+            var _jive_project_i18n = new Array();
+            _jive_project_i18n['project.calendar.task'] = "Task";
+            _jive_project_i18n['project.calendar.tasks'] = "Tasks";
+            _jive_project_i18n['project.calendar.checkpoint'] = "Checkpoint";
+            _jive_project_i18n['project.calendar.checkpoints'] = "Checkpoints";
+            _jive_project_i18n['global.edit'] = "Edit";
+            _jive_project_i18n['global.delete'] = "Delete";
+            _jive_project_i18n['project.task.mark.complete'] = "Mark complete";
+            _jive_project_i18n['project.task.assign.to.me'] = "Assign to me";
+            _jive_project_i18n['task.incomplete.link'] = "Incomplete";
+            _jive_project_i18n['project.checkPoint.create.link'] = "Create a checkpoint";
+            _jive_project_i18n['project.task.create.link'] = "Create a task";
+        }
+    </script>
+     
+
+
+
+
+    
+
+
+
+    
+<script type="text/javascript">
+kjs.run(function() {
+kjs.load('/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js', [  ]);
+kjs.run(function() {
+        Zapatec.Calendar._TT["DEF_DATE_FORMAT"] = "%m/%d/%Y";
+
+
+}, [ '/4.5.6/resources/scripts/gen/bd30f0bcd1396ac6c57b3e7248a1ef53.js' ], [ 'Zapatec.Calendar' ]);
+}, [ 'Zapatec.Calendar--required' ]);
+</script>
+    
+    <script type="text/javascript">
+        var profileShortUrl = "/profile-short.jspa";
+        var profileLoadingTooltip = "Loading user profile";
+        var profileErrorTooltip = "There was an error loading that profile information.";
+
+        var projectChooserUrl = "/project-chooser!input.jspa";
+
+        var containerShortUrl = "/container-short.jspa";
+        var containerLoadingTooltip = "Loading place information.";
+        var containerErrorTooltip = "There was an error loading that place information.";
+
+        var videoShortUrl = "/view-video-short.jspa";
+        var videoLoadingTooltip = "video.tooltip.loading";
+        var videoErrorTooltip = "video.tooltip.error";
+        var _jive_video_picker__url = "?container=2141&containerType=14";
+        var followErrorMessage = "An internal error occurred while following the project or space.";
+
+        (function() {
+            var originalWrite = document.write;
+            document.write = function() {
+                if(typeof $j != 'undefined' && $j.isReady) {
+                    console.warn("document.write called after document was loaded: ", arguments);
+                }
+                else {
+                    // In IE before version 8 `document.write()` does not
+                    // implement Function methods, like `apply()`.
+                    return Function.prototype.apply.call(originalWrite, document, arguments);
+                }
+            }
+        })();        
+    </script>
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/c870dc14da04044935c474c7f3efd262.js"></script>
+<script type="text/javascript">
+        // begin list of custom CSS
+        jive.rte.defaultStyles = new Array();
+        // end list of custom CSS
+
+
+            var jiveControl = new jive.model.Controller();
+            jive.rte.mobileUI = false;
+
+
+if (dwr == null) var dwr = {};
+if (dwr.engine == null) dwr.engine = {};
+if (DWREngine == null) var DWREngine = dwr.engine;
+
+dwr.engine._origScriptSessionId = "10A39A9ACBB65CE462C41C5BE75B8DEF";
+dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
+dwr.engine._allowGetForSafariButMakeForgeryEasier = "true";
+dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
+dwr.engine._defaultPath = "/dwr/interface";
+dwr.engine._pollWithXhr = "false";
+
+
+    (function() {
+        var options = {
+            friendsRange : 20,
+            everyoneRange : 20,
+            youUsername : 'ANONYMOUS',
+            youID : -1,
+            isGuest : true
+        };
+
+        var i18n = {
+            acclaimLikingLike : "Like",
+            acclaimLikingUnlike : "Liked",
+            acclaimLikedNone : "None",
+            acclaimLikingLiked : "Person Liked This",
+            acclaimLikingLikedPlural : "People Liked This",
+            acclaimPeopleLiked : "People who liked this",
+            acclaimLikedYou : "You",
+            acclaimLikedFriends : "Connections",
+            acclaimLikedEveryone : "Everyone Else",
+            globalMore : "More",
+            globalClose : "Close"
+        };
+
+        new jive.Acclaim(options, i18n);
+    })();
+
+
+        var quickuserprofile = new QuickUserProfile("jive-note-user-body", profileShortUrl, profileLoadingTooltip,
+                profileErrorTooltip);
+        var jiveprojectchooser = new JiveProjectChooser(projectChooserUrl);
+        var quickcontainersummary = new QuickContainerSummary("jive-note-container-body", containerShortUrl,
+                containerLoadingTooltip, containerErrorTooltip);
+        var quickviewvideo = new QuickViewVideo("jive-note-video-body", videoShortUrl, videoLoadingTooltip,
+                videoErrorTooltip);
+
+        var jiveFollow = new jive.Follow(followErrorMessage);
+
+
+</script>
+
+
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/9358b34f1bf97e1c43db22050b81c1c8.js"></script>
+<script type="text/javascript">
+    window.errorHandlerMessage = "An error occurred:";
+
+    window.editorErrorHandler = function(message, exception) {
+        // if the message is something other than a timeout, show the message plus the error code
+        if (message.indexOf('Timeout') == -1) {
+            $j('#dwr-error-text').text(errorHandlerMessage + ' Error Code: ' + message);
+            $j('#dwr-error-table').fadeIn();
+            setTimeout(function() {
+                $j('#dwr-error-table').fadeOut();
+            }, 10000);
+        }
+    };
+
+
+    
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+    if(typeof(tinyMCE) != "undefined"){ // could be Safari 2, which dies with tinyMCE
+        tinyMCE.addI18n('en.jivemacros',{
+                    "unused.jive.key" : "nothing."
+        });
+    }
+
+
+        window.RawHTMLSaveFunction = function(element_id, html, body){
+            var text = $j('#wysiwygtext');
+            if (text.is(':not(:visible)')) {
+                return html;
+            }else{
+                return text.val();
+            }
+        }
+        jive.rte.multiRTE = new Array();
+
+        //Not used by RTEWrap, but we need this for backward compatibility; see CS-23883
+        window.refreshLinks = function() {
+            jive.rte.multiRTE.forEach(function(rteID) {
+                if ($j('#' + rteID + '_parent').length < 1) {
+                    // safari 2, text only
+                    $j('#' + rteID + '_toggle_html').hide();
+                    $j('#jivePreferredEditorModeLinkHREF').hide();
+                    return;
+                }
+
+                if(currentMode == 'rawhtml') {
+                    $j('#' + rteID + '_toggle_html').css('display', 'block');
+                }else{
+                    $j('#' + rteID + '_toggle_html').hide();
+                }
+
+                if (preferredMode == currentMode) {
+                    $j('#jivePreferredEditorModeLinkHREF').hide();
+                } else {
+                    $j('#jivePreferredEditorModeLinkHREF').css('display', 'block');
+                }
+            });
+        }
+
+    window.editor = new jive.ext.y.HashTable();
+
+
+       
+jive.rte.macros.push(new jive.rte.Macro("color","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("size","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("font","","TEXT", true, false, [], [{name: "0",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("toc","","IMAGE", true, true, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("code","","TEXT", false, true, [{ name: "sql", deleteAll: true, params: [{ name: "__default_attr", value :"sql"} ]},{ name: "html", deleteAll: true, params: [{ name: "__default_attr", value :"html"} ]},{ name: "xml", deleteAll: true, params: [{ name: "__default_attr", value :"xml"} ]},{ name: "java", deleteAll: true, params: [{ name: "__default_attr", value :"java"} ]},{ name: "plain", deleteAll: true, params: [{ name: "__default_attr", value :"plain"} ]}], [{name: "__default_attr",value: ["sql","html","xml","java","plain"]}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("noformat","","TEXT", true, false, [], [], true,false));
+jive.rte.macros.push(new jive.rte.Macro("thread","thread/","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("message","message/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("external-site","bookmarks/","INLINE", false, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("document","docs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("microblog","status/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("polls","polls/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blogpost","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("blog","blogs/","INLINE", true, false, [], [{name: "id",value: ""},{name: "name",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("community","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("space","community/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("user","","INLINE", true, false, [], [{name: "id",value: ""},{name: "username",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("project","project/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("task","view-task.jspa?task=","INLINE", true, false, [], [{name: "id",value: ""},{name: "0",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("group","groups/","INLINE", true, false, [], [{name: "id",value: ""},{name: "__default_attr",value: ""},{name: "title",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("quote","","TEXT", false, true, [], [{name: "title",value: ""},{name: "__default_attr",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("vimeo","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("veoh","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("dailymotion","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("google","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+jive.rte.macros.push(new jive.rte.Macro("youtube","","IMAGE", false, false, [], [{name: "__default_attr",value: ""},{name: "width",value: ""},{name: "height",value: ""}], true,false));
+
+
+
+</script>
+<script type="text/javascript" src="../4.5.6/resources/scripts/gen/f4a98e41d05759d12723b7cb7c6e7f48.js"></script>
+<script type="text/javascript">
+var _editor_lang = "en";
+var _jive_video_picker__url = "?container=2141&containerType=14"
+var _jive_images_enabled = false;
+
+
+    
+    function toggleFeatured() {
+
+        ToggleFeatured.toggleFeatured(102, 2473, 2141, 14, {
+            callback:function(featured) {
+
+                if (featured) {
+                    $j('#featured-toggle-unfeature').show();
+                    $j('#featured-toggle-feature').hide();
+                } else {
+                    $j('#featured-toggle-unfeature').hide();
+                    $j('#featured-toggle-feature').show();
+                }
+
+
+
+                Jive.AlertMessage('content-featured-notify', {
+                    beforeStart:function() {
+                        if (featured) {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>This item is now featured!</div>');
+                           
+                        } else {
+                            $j('#content-featured-notify').html('<div><span class="jive-icon-med jive-icon-info"></span>You have removed this from featured content.</div>');
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+
+            (function() {
+                var options = {
+                    resourceType:       102,
+                    resourceID:         2473,
+
+                    containerType:      14,
+                    containerID:        2141,
+
+                    contentObject: {
+                            document:          2473,
+                            version:           1
+                    },
+
+                    listAction:         "/doc-comments.jspa",
+
+                    isAnonymous:        true,
+                    isThreaded:         false,
+
+                    paginate:           true,
+
+                    pageSize:           25,
+                    isPrintPreview:     false,
+                    rteOptions : {
+                        controller    : jiveControl,
+                        preset        : "mini-w-quote",
+                        autoSave      : new DummyAutoSave(false),
+                        preferredMode : "advanced",
+                        startMode     : "advanced",
+                        mobileUI      : false,
+                        toggleText    : 'Show Full Editor',
+                        alwaysUseTabText : 'Always use this editor',
+                        editDisabledText : 'You are using a device that only enables you to add content.',
+                        editDisabledSummary : 'If you access {0} from a computer, you can both add and edit your content.',
+                        communityName : 'Zenoss Community',
+                        height        : 200,
+                        _imagePickerUrl : "/comment-image-picker.jspa?containerType=14&container=2141&postedFromGUIEditor=true&contentObjectType=102&object=2473",
+                        _destroyImagePickerUrl : _jive_base_url + "/image-picker!clean.jspa"
+
+                    },
+                    i18n: {
+                        confirmDeleteComment:    'Are you sure you want to delete this comment?',
+                        postSuccessText:         'Your comment was added successfully but will need to be approved by the administrator before it will appear.',
+                        postUserWroteLabel:      '{0} wrote',
+                        postGuestWroteLabel:     'Guest wrote',
+                        cmntEditingTitle:        'Editing comment',
+                        globalAjaxError:         'An unexpected error has occurred. Please make sure that your session did not expire while viewing this page.',
+                        replyToTitle:            'Reply to {0}',
+                        formSubmitPleaseWait:    'Please Wait ...',
+                        globalLoginRequired:     'You are no longer logged in. Please {0}log in{1} to continue.'
+                    }
+                };
+
+
+                // Create a separate CommentApp instance for each tab.
+                jive.CommentApp.comments    = new jive.CommentApp.Main($j.extend({ commentMode: 'comments' }, options));
+
+                // Enable tab switching.
+                window.tabView = new jive.TabView('.jive-body-tabbar');
+            })();
+
+
+        new jive.MoreLikeThisApp.Main({
+            objectType: 102,
+            objectID: 2473,
+            containerID: "jive-more-like-this-102-2473",
+            numResults: 5,
+            noContentMessage: "No similar content found",
+            errorMessage: "Unable to retrieve content from the server:"
+        });
+
+
+</script>
+
+
+    
+    
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Dev chat 08/14/2008 Version History Feed"
+            href="../community/feeds/document-history/DOC-2473" />
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Dev chat 08/14/2008 Comments Feed"
+            href="../community/feeds/document-comments/DOC-2473" />
+
+    
+        
+
+
+
+    <script type="text/javascript">
+        var documentID = 2473;
+
+        function publishDraft() {
+            $j('#documentPublishForm').submit();
+        }
+
+        function restoreVersion(version) {
+           if (confirm('Are you sure you want to restore this version of the document text?')){
+                $j('#documentRestoreForm').submit();
+           }
+        }
+
+        function deleteDocument() {
+            if (confirm('Are you sure you want to delete this document?')){
+                $j('#documentDeleteForm').submit();
+            }
+        }
+    </script>
+
+    <!-- BEGIN action bar, only for non-binary documents -->
+
+    
+
+    <!-- END action bar -->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-content jive-body-content-document" >
+
+
+<a href="DOC-2473.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+    <script type="text/javascript">
+        var containerType = 14;
+        var containerID = 2141;
+
+        $j('#jive-userbar-search-form').submit(function() {
+            var query = $j('#jive-query').val();
+            var isWildcard = query.charAt(query.length-1) == '*';
+            if (query && !isWildcard) {
+                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
+            }
+        });
+    </script>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="DOC-2473.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="http://community.zenoss.org/community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="http://community.zenoss.org/community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="http://community.zenoss.org/community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="http://community.zenoss.org/community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="http://community.zenoss.org/community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="http://community.zenoss.org/community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="DOC-2473.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="http://community.zenoss.org/docs/forgot-username!input.jspa" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="http://community.zenoss.org/docs/emailPasswordToken!input.jspa" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="http://community.zenoss.org/search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+    <script type="text/javascript">
+        var containerType = 14;
+        var containerID = 2141;
+
+        $j('#jive-userbar-search-form').submit(function() {
+            var query = $j('#jive-query').val();
+            var isWildcard = query.charAt(query.length-1) == '*';
+            if (query && !isWildcard) {
+                $j('#jive-userbar-search-form input[name=spotlight]').val("true");
+            }
+        });
+    </script>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="http://community.zenoss.org/community/documentation">
+            Documentation</a> &gt; 
+                <a href="../community/documentation/irc.html">
+            IRC</a> &gt; 
+
+        <a class='jive-breadcrumb-last' href="../community/documentation/irc%3Fview=documents.html">Documents</a></span>
+</div>
+<!-- END breadcrumb -->
+
+            
+
+    <form id="documentRestoreForm" method="post" action='http://community.zenoss.org/docs/DOC-2473/restore'>
+        <input type="hidden" name="version" value="1" />
+        <input type="hidden" name="jive.token.name" value="document.restore.DOC-2473"/>
+        <input type="hidden" name="document.restore.DOC-2473" value="1394830287767-JREEQ3NRTJ41Z84TNYH1GFUYHGJ2E1HI"/>
+    </form>
+
+    <form id="documentDeleteForm" method="post" action='http://community.zenoss.org/docs/DOC-2473/delete'>
+        <input type="hidden" name="jive.token.name" value="document.delete.DOC-2473"/>
+        <input type="hidden" name="document.delete.DOC-2473" value="1394830287773-Q1TA4L3PGLDFOU7Y9WNLCIWISD5YN9IH"/>
+    </form>
+
+    <form id="documentPublishForm" method="post" action='http://community.zenoss.org/doc-publish.jspa'>
+        <input type="hidden" name="jive.token.name" value="document.publish.DOC-2473"/>
+        <input type="hidden" name="document.publish.DOC-2473" value="1394830287778-F2N527UV6CFMH6M7TQ20P36KDP7KQZYV"/>
+        <input type="hidden" name="document" value="DOC-2473" />
+    </form>
+
+
+    <!-- BEGIN header & intro  -->
+    <div id="jive-body-intro">
+        <div id="jive-body-intro-content">
+            
+            <a href="../community/documentation/irc%3Fview=documents.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                    Up to Documents in IRC
+            </a>
+
+        </div>
+    </div>
+    <!-- END header & intro -->
+
+    <!-- BEGIN main body -->
+    <div id="jive-body-main">
+
+        <!-- BEGIN main body column -->
+        <div id="jive-body-maincol-container">
+
+            <div id="jive-body-maincol">
+
+
+                <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+                <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+
+
+
+<!-- BEGIN document -->
+<div class="jive-content clearfix">
+    <div class="jive-content-header clearfix">
+        <div class="jive-wiki-post-moderating jive-content-header-moderating">
+            <span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated
+        </div>
+        <div class="jive-content-title">
+            <h2><span class="jive-icon-big jive-icon-document"></span>Dev chat 08/14/2008</h2>
+        </div>
+        <div class="jive-content-header-version">
+            VERSION 1&nbsp;
+
+
+        </div>
+        <div class="jive-content-header-details">
+
+Created on: Sep 14, 2009 11:21 AM by
+<a href="../people/nbrockett.html"
+data-externalId=""
+data-username="nbrockett"
+data-avatarId="-1"
+id="jive-692932881690856101978"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6929, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Noel Brockett</a>            <span>-</span>
+Last Modified:&nbsp;
+Sep 14, 2009 11:21 AM
+by <a href="../people/nbrockett.html"
+data-externalId=""
+data-username="nbrockett"
+data-avatarId="-1"
+id="jive-692932881690856665369"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6929, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Noel Brockett</a>        </div>
+
+        <div class="jive-content-rating clearfix" data-guid="J0ULAPCBRKXT8TUE7ASW1CXQH6R5ERKH">
+
+<script type='text/javascript'>
+    $j(document).ready(function() {
+
+        var i18n = {
+            avgUserRatingTitlei18n : "Average User Rating",
+            avgUserRatingLabeli18n : "Average User Rating",
+            rateRatingLabel : "rating",
+            myRatingLabel : "My Rating:",
+            rateRatingsLabel : "ratings",
+            ratingSavingText : "Saving...",
+            rateSavedText : "Saved.",
+            rateRatingSaved : "Rating Saved!",
+            writeAReview : "Write a review",
+            commentOnRating : "Comment on your rating",
+            formSubmitPleaseWait:'Please Wait ...'
+        };
+
+        new jive.Rate(14, 2141, 102, 2473, 'doc', i18n, true, 'J0ULAPCBRKXT8TUE7ASW1CXQH6R5ERKH');
+    });
+
+</script>
+
+        </div>
+    </div>
+
+    <div class="jive-content-body">
+
+
+<!-- [DocumentBodyStart:5dfc7681-2ab2-42a4-b3ba-23dc667a0380] --><div class="jive-rendered-content"><span>[09:52]&#160; * Now talking on #zenoss</span><br/><span> [09:52]&#160; * Topic for #zenoss is: Zenoss Development will be here Thursday August 14 11am EST</span><br/><span> [09:52]&#160; * Topic for #zenoss set by mrayzenoss at Thu Aug&#160; 7 13:09:18 2008</span><br/><span> [09:55]&#160; &lt;IoNu|z&gt; mib_cvxhwq maybe you have 2 templates checking that?</span><br/><span> [09:57]&#160; &lt;jb&gt; sup mray..</span><br/><span><span> [09:57]&#160; * russb123 (</span><a class="jive-link-email-small" href="mailto:i=russb@dipsy.tch.org">i=russb@dipsy.tch.org</a><span>) has joined #zenoss</span></span><br/><span> [09:57]&#160; &lt;mrayzenoss&gt; Good morning/afternoon/evening everyone</span><br/><span> [09:58]&#160; &lt;jb&gt; want to nudge the sales team for me? </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span> [09:58]&#160; &lt;IoNu|z&gt; mornin</span><br/><span> [09:58]&#160; &lt;jb&gt; I have tried twice to contact them regarding enterprise..</span><br/><span> [09:59] &lt;mrayzenoss&gt; __ian__ and I will be fielding most questions this morning, feel free to PM us and we can take discussions offline if necessary.</span><br/><span> [09:59]&#160; * russb123 is now known as russbzenoss</span><br/><span> [09:59]&#160; &lt;mrayzenoss&gt; jb: PM me and I'll ping your sales guy</span><br/><span> [10:00]&#160; &lt;jb&gt; mrayzenoss: well, as you probably know, I am still tryign to solve my graph gaps problem..</span><br/><span> [10:00]&#160; &lt;mrayzenoss&gt; jb: oh yeah, I asked EAD about that yesterday</span><br/><span> [10:00]&#160; &lt;jb&gt; any progress being made on it?</span><br/><span><span> [10:01]&#160; &lt;mrayzenoss&gt; </span><a class="jive-link-external-small" href="http://dev.zenoss.com/trac/ticket/3536">http://dev.zenoss.com/trac/ticket/3536</a></span><br/><span> [10:01]&#160; &lt;mrayzenoss&gt; I'll ping the devs who worked on that</span><br/><span> [10:01] &lt;__adytum-bot__&gt; Title: #3536 (Gaps in RRD Graphs because of random zenperfsnmp pauses/halts) - Zenoss - Trac (at dev.zenoss.com)</span><br/><span> [10:01]&#160; &lt;IoNu|z&gt; anyone know why i`m keep getting heartbeat failure?</span><br/><span> [10:03]&#160; &lt;mrayzenoss&gt; IoNu|z: is one of your daemons going down?</span><br/><span> [10:03]&#160; &lt;IoNu|z&gt; they show green</span><br/><span> [10:03]&#160; &lt;mrayzenoss&gt; which heartbeat is failing?</span><br/><span> [10:04]&#160; &lt;__ian__&gt; is it a windows daemon?</span><br/><span> [10:04]&#160; &lt;IoNu|z&gt; zenwin</span><br/><span> [10:04]&#160; &lt;mrayzenoss&gt; cgibbons?</span><br/><span> [10:05]&#160; &lt;IoNu|z&gt; zentrap syslog status ping snmp eventlog command</span><br/><span> [10:05]&#160; &lt;__ian__&gt; oh. well, that's probably not the problem I was investigating last night.</span><br/><span> [10:05]&#160; &lt;__ian__&gt; any tracebacks in the logs?</span><br/><span> [10:08]&#160; &lt;IoNu|z&gt; mmyeah</span><br/><span> [10:08]&#160; &lt;IoNu|z&gt; let me post them somewhere</span><br/><span> [10:08]&#160; &lt;otakup0pe&gt; so out of curiosity how many devs are in here now ?</span><br/><span> [10:08]&#160; &lt;jb&gt; looks like 1 </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span> [10:08]&#160; &lt;__ian__&gt; three with obvious names</span><br/><span> [10:08]&#160; &lt;__ian__&gt; others might be hiding...</span><br/><span><span> [10:08]&#160; &lt;IoNu|z&gt; </span><a class="jive-link-external-small" href="http://pastebin.com/d775cea57">http://pastebin.com/d775cea57</a></span><br/><span> [10:09]&#160; &lt;__adytum-bot__&gt; Title: pastebin - collaborative debugging tool (at pastebin.com)</span><br/><span> [10:09]&#160; &lt;mrayzenoss&gt; otakup0pe: well, some are lurking but I count 3 devs, 2 client services and a community manager</span><br/><span> [10:09]&#160; &lt;ericnewton&gt; well, there's your problem</span><br/><span> [10:09]&#160; &lt;__ian__&gt; ooh, that's a good one</span><br/><span> [10:09]&#160; &lt;__ian__&gt; take it away, ericnewton</span><br/><span> [10:09]&#160; &lt;ericnewton&gt; ha... should stayed lurking</span><br/><span> [10:09]&#160; &lt;otakup0pe&gt; haha.</span><br/><span> [10:09]&#160; &lt;russbzenoss&gt; </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span> [10:10]&#160; &lt;__ian__&gt; I'd just have IMed you asking for help.</span><br/><span> [10:10]&#160; &lt;ericnewton&gt; gimme a sec</span><br/><span> [10:10]&#160; &lt;__ian__&gt; you can't hide from me.</span><br/><span> [10:10]&#160; &lt;ericnewton&gt; IoNu|z: what's going on in the zeo.log file?</span><br/><span> [10:11] &lt;MajereDB8&gt; hi, i just wanted to see if there has been any change or improvement to get zenpop3 event generation working</span><br/><span><span> [10:12]&#160; &lt;IoNu|z&gt; </span><a class="jive-link-external-small" href="http://pastebin.com/d68806d1d">http://pastebin.com/d68806d1d</a></span><br/><span> [10:12]&#160; &lt;__adytum-bot__&gt; Title: pastebin - collaborative debugging tool (at pastebin.com)</span><br/><span> [10:13]&#160; &lt;ericnewton&gt; IoNu|z: probably a cache file issue...</span><br/><span> [10:13]&#160; &lt;ericnewton&gt; stop zenoss, rm $ZENHOME/var/*.zec, start zenoss</span><br/><span> [10:13]&#160; &lt;ericnewton&gt; if that doesn't fix it, your database is hectored</span><br/><span> [10:14]&#160; &lt;MmeNetView&gt; Does anyone have the MIB Browser ZenPack working on 2.2.0?</span><br/><span> [10:15]&#160; &lt;mrayzenoss&gt; I tested it with 2.2.0 a bit, there seems to be an issue with uninstalling it</span><br/><span> [10:15] &lt;Sain0rs&gt; on a related note, any plans to update the zenmib import process to automatically import dependent mibs?</span><br/><span> [10:15]&#160; &lt;MmeNetView&gt; Correct - it fails to uninstall - thread running on forum</span><br/><span> [10:16]&#160; &lt;MmeNetView&gt; I aslo don't see any MIB tree...</span><br/><span> [10:16]&#160; &lt;mrayzenoss&gt; MmeNetView: you don't get the pop-up?</span><br/><span> [10:16] &lt;__ian__&gt; MajereDB8: Looks like the zenpop3 tickets didn't have a milestone associated with them in Trac, which means they don't get looked at very often.</span><br/><span> [10:16]&#160; &lt;IoNu|z&gt; now... zenactions won`t start</span><br/><span> [10:16]&#160; &lt;__ian__&gt; I'm setting them to 2.3.</span><br/><span> [10:16] &lt;MmeNetView&gt; I get the popup but the MIB tree part at the bottom is empty - or possibly truncated / not rendered properly</span><br/><span> [10:17]&#160; &lt;ericnewton&gt; zenpop is not going to happen in 2.3</span><br/><span> [10:17]&#160; &lt;IoNu|z&gt; this is what it says when i do zenactions run</span><br/><span><span> [10:17]&#160; &lt;IoNu|z&gt; </span><a class="jive-link-external-small" href="http://pastebin.com/d1ac5bbc6">http://pastebin.com/d1ac5bbc6</a></span><br/><span> [10:17] &lt;mrayzenoss&gt; Sain0rs: Do you actually need to MIBs? They're not really needed for monitoring, just for parsing traps</span><br/><span> [10:17]&#160; &lt;__ian__&gt; ericnewton: No, it won't, but it'll get reviewed.</span><br/><span> [10:17]&#160; &lt;__adytum-bot__&gt; Title: pastebin - collaborative debugging tool (at pastebin.com)</span><br/><span> [10:19] &lt;MajereDB8&gt; __ian__: i know you all have a lot on your plate, so i appreciate that you're at least reviewing it. if i can get zenpop working, it would allow me to monitor and acknowledge events from my cell phone or other sms devices, which is a really killer feature</span><br/><span> [10:19] &lt;mrayzenoss&gt; MmeNetView: I could see it not working for everything, it's a community ZenPack that the user wrote from scratch. It's cool, but possibly buggy</span><br/><span> [10:20]&#160; &lt;mrayzenoss&gt; MmeNetView: of course not being to uninstall it is annoying</span><br/><span> [10:20]&#160; &lt;MajereDB8&gt; sadly i suck at python so i'm just the average feature requester :-\.&#160; but i appreciate it!</span><br/><span> [10:20]&#160; &lt;mrayzenoss&gt; MmeNetView: I'll see about a fix for uninstalling it cleanly</span><br/><span> [10:21]&#160; &lt;mrayzenoss&gt; MmeNetView: I'll post it to the thread once it's documented</span><br/><span> [10:21]&#160; &lt;MmeNetView&gt; Great - thanks. If you saw the MIB tree, do you know what browser you used?&#160; I have Firefox 2.0.0.6</span><br/><span> [10:22]&#160; &lt;mrayzenoss&gt; it was probably FireFox 2.0.X when I first used it, now I'm on 3.01</span><br/><span> [10:22]&#160; &lt;IoNu|z&gt; why won`t my zenactions start?</span><br/><span> [10:23]&#160; &lt;mrayzenoss&gt; I also took the screenshots on the MibBrowser page with Safari</span><br/><span> [10:23]&#160; &lt;__ian__&gt; member:identifier:ionu|z: Looking at it</span><br/><span> [10:24]&#160; &lt;IoNu|z&gt; thank you</span><br/><span> [10:24]&#160; &lt;mrayzenoss&gt; Any OSX users?&#160; I'm running a short beta test of our OSX installer if there are any volunteers</span><br/><span> [10:26]&#160; &lt;jb&gt; nope </span><img height="16px" src="../4.5.6/images/emoticons/sad.gif" width="16px"/><br/><span> [10:26]&#160; &lt;chudler&gt; mray:&#160; I don't have OSX Server but I'll give it a shot on just OSX if you want</span><br/><span> [10:26]&#160; &lt;mrayzenoss&gt; chudler: Thanks.&#160; The more people who check it out the better</span><br/><span> [10:27]&#160; &lt;MmeNetView&gt; How do I create a signature to add to forum entries?</span><br/><span> [10:28]&#160; &lt;__ian__&gt; MmeNetView: If you figure it out, let me know. I was baffled by that last week.</span><br/><span> [10:28]&#160; &lt;MmeNetView&gt; I have the box ticked that says to add the signature, but I can't see how to create one.</span><br/><span> [10:28]&#160; * rmull_ is now known as rmull</span><br/><span> [10:29]&#160; &lt;MmeNetView&gt; I think Matt has it as his entries all seem to have a signature....</span><br/><span> [10:29]&#160; &lt;mrayzenoss&gt; I just turned on my signature in Profile-&gt;Preferences</span><br/><span> [10:29]&#160; &lt;mrayzenoss&gt; but I don't see a box for where to put a signature</span><br/><span> [10:30]&#160; &lt;__ian__&gt; IoNu|z: Can you try running zenactions with debugging? zenactions run -v10</span><br/><span> [10:30]&#160; &lt;mrayzenoss&gt; You can also subscribe to the forums via email, and use your email signature</span><br/><span> [10:31]&#160; &lt;MmeNetView&gt; Yup - I have the Profile-&gt; Preferences ticked but no signature</span><br/><span> [10:31]&#160; &lt;IoNu|z&gt; sure</span><br/><span><span> [10:31]&#160; &lt;IoNu|z&gt; here it is </span><a class="jive-link-external-small" href="http://pastebin.com/d5fa6e9c5">http://pastebin.com/d5fa6e9c5</a></span><br/><span> [10:31]&#160; &lt;__adytum-bot__&gt; Title: pastebin - collaborative debugging tool (at pastebin.com)</span><br/><span> [10:32] &lt;mrayzenoss&gt; MmeNetView: I can't find it. We are investigating replacements for the forums and community website right now, so this is a temporary issue</span><br/><span> [10:32] &lt;mib_cvxhwq&gt; I created a new Threshold called "propVirtual" which is how the IpInterface Type is called...and I did not set any Max &amp; MIn thresholds, this should have worked to handle the Vlan percentage threshold....why is it not?</span><br/><span> [10:32]&#160; &lt;IoNu|z&gt; i thimnk it was my stupid schedule</span><br/><span> [10:33]&#160; &lt;IoNu|z&gt; modified that and now it starts</span><br/><span> [10:33]&#160; &lt;__ian__&gt; Yeah, it was the schedule</span><br/><span> [10:33]&#160; &lt;__ian__&gt; What did you modify to make it work?</span><br/><span> [10:34]&#160; &lt;IoNu|z&gt; the schedule</span><br/><span> [10:34]&#160; &lt;IoNu|z&gt; on alerting rules</span><br/><span> [10:34] &lt;mib_cvxhwq&gt; The template that I am using are the defaults plus the one I created..."propVirtual" ...do I have to dele the one called :ethernetMcsda" ?</span><br/><span> [10:34]&#160; &lt;IoNu|z&gt; the duration of it</span><br/><span> [10:35]&#160; &lt;IoNu|z&gt; now... why am i getting Error reading value for "VLANXX" on device (oid .1.3.6.1.2.1.2.2.1.10.28 is bad)</span><br/><span> [10:35]&#160; &lt;mib_cvxhwq&gt; I do get the same errors with Vlans</span><br/><span> [10:35]&#160; &lt;IoNu|z&gt; i shouldn`t monitor vlans?</span><br/><span> [10:36]&#160; &lt;IoNu|z&gt; but some of the vlans work </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span> [10:36]&#160; &lt;mib_cvxhwq&gt; the problem with Vlans i sthat they are different type interface</span><br/><span> [10:36]&#160; &lt;IoNu|z&gt; it`s very hard because they are&#160; both type ethernetCsmacd</span><br/><span> [10:36]&#160; &lt;IoNu|z&gt; i can`t make a different template for it</span><br/><span> [10:37] &lt;mib_cvxhwq&gt; and the soultion has been for me what I typed before...but they are not longer working with version 2.2.3</span><br/><span> [10:37]&#160; &lt;IoNu|z&gt; i would need to chnage the template for each vlan</span><br/><span> [10:37]&#160; &lt;ericnewton&gt; you can change the modeler plugin to lie and make it a different type</span><br/><span> [10:37]&#160; &lt;mib_cvxhwq&gt; yesy you can..</span><br/><span> [10:37]&#160; &lt;IoNu|z&gt; oh</span><br/><span> [10:37]&#160; &lt;IoNu|z&gt; is there a tutorial somewhere?</span><br/><span> [10:37]&#160; &lt;ericnewton&gt; it's not ideal, *cough*, *kludge* , but it works</span><br/><span> [10:38]&#160; &lt;mib_cvxhwq&gt; click on devices...then templates...select Etherent template and then from&#160; menu select copy</span><br/><span> [10:38]&#160; &lt;mrayzenoss&gt; chet was working on a fix for this I believe, but I think it was targeted for 2.3</span><br/><span> [10:38]&#160; &lt;mib_cvxhwq&gt; and the place it on the context of the device you are working with</span><br/><span> [10:38]&#160; &lt;IoNu|z&gt; oh yes...</span><br/><span> [10:38]&#160; &lt;IoNu|z&gt; but i would have to do that for each device...</span><br/><span> [10:38]&#160; &lt;IoNu|z&gt; right?</span><br/><span> [10:39]&#160; &lt;IoNu|z&gt; doesn`t matter not such a big issue</span><br/><span> [10:39]&#160; &lt;mib_cvxhwq&gt; not really like for my switches I have copied to NETWORKS location..</span><br/><span> [10:39]&#160; &lt;mib_cvxhwq&gt; also you need to rename your Template "propVirtual"</span><br/><span> [10:40]&#160; &lt;IoNu|z&gt; oh that`s another one</span><br/><span> [10:40]&#160; &lt;IoNu|z&gt; thioes vlans work</span><br/><span> [10:40]&#160; &lt;mib_cvxhwq&gt; then modified the template by removing the threshold..</span><br/><span> [10:40]&#160; &lt;IoNu|z&gt; does zenoss core alert when an interface goes down?</span><br/><span> [10:40]&#160; &lt;mib_cvxhwq&gt; then you are done</span><br/><span> [10:40] &lt;mrayzenoss&gt; MmeNetView: I just pulled up a 2.2.0 VM and installed the MibBrowser ZenPack on it and loaded up a Mib with no issues. FF 3.0.1. Which MIB were you using?</span><br/><span> [10:40] &lt;otakup0pe&gt; oh come to think of t i have a question for devs. what's the process here, just dump it irc, or do we take numbers, or do you previously have to have bought a developer a drink</span><br/><span> [10:41]&#160; &lt;mrayzenoss&gt; otakup0pe: we try to make everybody happy </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span> [10:41]&#160; &lt;__ian__&gt; IoNu|z: Yes, it ought to.</span><br/><span> [10:41]&#160; &lt;mrayzenoss&gt; otakup0pe: What's the problem?</span><br/><span> [10:41]&#160; &lt;MmeNetView&gt; chipcom - I'll try another one</span><br/><span> [10:41]&#160; &lt;otakup0pe&gt; ok quick question then. i moved a device from one device group to another.</span><br/><span> [10:41]&#160; &lt;otakup0pe&gt; and when i'm in the 'device overview' the alerts for the device that was moved</span><br/><span> [10:41]&#160; &lt;otakup0pe&gt; show up in both the count for the old and the new group</span><br/><span> [10:42]&#160; &lt;mib_cvxhwq&gt; mrayzenoss: can you look at my situation please</span><br/><span> [10:42]&#160; &lt;IoNu|z&gt; well i have this Voice Over IP Peer and wehn i shut it off zenoss doesn`t alert me that it`s down...</span><br/><span> [10:42]&#160; &lt;otakup0pe&gt; is the solution delete/recreate the device (which although it seems logical i have not tried)</span><br/><span> [10:42]&#160; &lt;IoNu|z&gt; did i miss some steps maybe?</span><br/><span> [10:42]&#160; &lt;mrayzenoss&gt; mib_cvxhwq: PM me and I'll get you some followup</span><br/><span> [10:43]&#160; &lt;IoNu|z&gt; the type of the ipinterface is&#160;&#160; Voice Over IP Encapulation .. at least that`s what zenoss&#160; shows for it</span><br/><span> [10:44]&#160; &lt;IoNu|z&gt; in the cisco it is a dial peer</span><br/><span> [10:45]&#160; &lt;__ian__&gt; Do any events get thrown when you shut it off? Or does it just not notice at all?</span><br/><span> [10:45]&#160; &lt;IoNu|z&gt; i don`t see any notices</span><br/><span> [10:46]&#160; &lt;IoNu|z&gt; i do see it down when i remodel the device....</span><br/><span> [10:50]&#160; * ryan____ has quit (Read error: 110 (Connection timed out))</span><br/><span><span> [10:51]&#160; * bedwards (</span><a class="jive-link-email-small" href="mailto:n=bedwards@rrcs-97-77-9-2.sw.biz.rr.com">n=bedwards@rrcs-97-77-9-2.sw.biz.rr.com</a><span>) has joined #zenoss</span></span><br/><span> [10:53]&#160; &lt;mrayzenoss&gt; otakup0pe: could you just acknowledge the events and move them to history?</span><br/><span> [10:53]&#160; &lt;mrayzenoss&gt; or are you getting double alerts?</span><br/><span> [10:54]&#160; &lt;mrayzenoss&gt; err, events</span><br/><span> [10:54]&#160; &lt;mib_cvxhwq&gt; I have version 2.2.3 installed and a backup from version 2.2&#160;&#160;&#160;&#160;&#160; can I restore it safely?</span><br/><span> [10:55]&#160; &lt;jb&gt; i tried..</span><br/><span> [10:55]&#160; &lt;jb&gt; didnt work for me..</span><br/><span> [10:55]&#160; * bandini has quit (Remote closed the connection)</span><br/><span> [10:55]&#160; &lt;mib_cvxhwq&gt; jb..is that answer for me..</span><br/><span> [10:55]&#160; &lt;jb&gt; yes</span><br/><span> [10:56]&#160; &lt;mib_cvxhwq&gt; thanks</span><br/><span> [10:56]&#160; &lt;jb&gt; i have had 0 luck with zenbackup/zenrestore</span><br/><span> [10:56]&#160; &lt;mib_cvxhwq&gt; I just can't find sa way to do it..</span><br/><span> [10:56]&#160; &lt;jb&gt; even from 2.2.3 &lt;-&gt; 2.2.3</span><br/><span> [10:56]&#160; &lt;mib_cvxhwq&gt; really</span><br/><span> [10:57]&#160; &lt;Sain0rs&gt; any errors during the backup?</span><br/><span> [10:57]&#160; &lt;mrayzenoss&gt; jb: where you going from source-&gt;stack?</span><br/><span> [10:57]&#160; &lt;MmeNetView&gt; In 2.2, how do I track zenwinmodeler?&#160; It doesn't seem to run as a daemon</span><br/><span> [10:57]&#160; &lt;jb&gt; i did a zenback up 2.2.3, no errors..</span><br/><span> [10:57]&#160; &lt;jb&gt; then did a zenrestore to 2.2.3</span><br/><span> [10:57]&#160; &lt;jb&gt; no errors, but no devices</span><br/><span> [10:57]&#160; &lt;mib_cvxhwq&gt; from stack to stack</span><br/><span> [10:57]&#160; &lt;MmeNetView&gt; It doesn't appear in the Daemons page under Settings</span><br/><span> [10:57]&#160; &lt;jb&gt; stack &lt;-&gt; stack</span><br/><span> [10:57]&#160; &lt;MmeNetView&gt; it doesn't have a logfile</span><br/><span> [10:58]&#160; &lt;MmeNetView&gt; .. and it doesn't seem to poll periodicallyt for wmi services</span><br/><span> [10:58]&#160; &lt;nate187&gt; has anyone done any work with integrating radar images into the map?</span><br/><span> [10:58]&#160; &lt;MmeNetView&gt; It does seem to run on-demand if you actively remodel a device</span><br/><span> [10:59] &lt;mib_cvxhwq&gt; I want the data and settings from 2.2 stack version in a backup file to restore to stack version 2.2.3 is that something that can be done safely?</span><br/><span> [11:00]&#160; &lt;mrayzenoss&gt; zenbackup and zenrestore should be working, send me an email and I'll get this looked at</span><br/><span> [11:01]&#160; &lt;jb&gt; k</span><br/><span> [11:01]&#160; &lt;jb&gt; whats your email address?</span><br/><span> [11:02]&#160; &lt;Sain0rs&gt; what are the odds backing up from 2.2 source and restoring to 2.2.3 stack is going to work?</span><br/><span><span> [11:02]&#160; &lt;mrayzenoss&gt; </span><a class="jive-link-email-small" href="mailto:mray@zenoss.com">mray@zenoss.com</a></span><br/><span> [11:03]&#160; &lt;otakup0pe&gt; mrayzenoss: double alerts</span><br/><span> [11:03]&#160; &lt;otakup0pe&gt; i have to commute but if you pm me responses that would be awesome &lt;3</span><br/><span> [11:04]&#160; &lt;mrayzenoss&gt; otakup0pe: Send me an email to followup</span><br/><span> [11:04]&#160; &lt;mrayzenoss&gt; I've got a lot of followups to do </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span> [11:04]&#160;&#160; magnachef MajereDB8 malbon mf2ng mib_cvxhwq MmeNetView monrad mrayzenoss MrTux</span><br/><span> [11:04]&#160; &lt;mrayzenoss&gt; MmeNetView: it appears there is an error in our documentation</span><br/><span> [11:05]&#160; &lt;__ian__&gt; mib_cvxhwq: Should work as long as zenmigrate is run</span><br/><span> [11:06]&#160; &lt;__ian__&gt; Sain0rs: We've tested that pretty well, so it should work fine.</span><br/><span> [11:06]&#160; &lt;Sain0rs&gt; sweet</span><br/><span> [11:06]&#160; &lt;mib_cvxhwq&gt; _ian_ :zenmigrate is run after the restore?</span><br/><span> [11:06]&#160; &lt;MmeNetView&gt; Which error are you referring to??</span><br/><span> [11:06]&#160; &lt;__ian__&gt; mib_cvxhwq: Yes. I think restore runs it automatically, but it can't hurt to make sure.</span><br/><span> [11:07]&#160; &lt;mib_cvxhwq&gt; very cool</span><br/><span> [11:07]&#160; &lt;mrayzenoss&gt; MmeNetView: I'm looking at the ZenWinModeler question</span><br/><span> [11:08]&#160; &lt;mib_cvxhwq&gt; does anyone know the Uninstall command for Zenoss-stack ver. 2.2.3?</span><br/><span> [11:08]&#160; &lt;mib_cvxhwq&gt; I am using CEntOS 5.2</span><br/><span> [11:08]&#160; &lt;nate187&gt; rm -rf *</span><br/><span> [11:09]&#160; &lt;mrayzenoss&gt; ZenWinModeler is called by ZenModeler on demand, so no daemon</span><br/><span><span> [11:09]&#160; &lt;mrayzenoss&gt; </span><a class="jive-link-external-small" href="http://community.zenoss.com/forums/viewtopic.php?p=23402">http://community.zenoss.com/forums/viewtopic.php?p=23402</a></span><br/><span> [11:09] &lt;zanaga&gt; is there a way to easily make the database consistent again? Our database has some entries that cause grief due to missing references. zenbackup/restore just restores the same broken database.</span><br/><span> [11:09]&#160; &lt;mrayzenoss&gt; oops, wrong thread</span><br/><span> [11:09] &lt;__adytum-bot__&gt; Title: Forums :: View topic - Can't uninstall ZenPacks.community.mib_utils-1.04-py2.4.egg (at community.zenoss.com)</span><br/><span><span> [11:10]&#160; &lt;mrayzenoss&gt; mib_cvxhwq: </span><a class="jive-link-external-small" href="http://community.zenoss.com/forums/viewtopic.php?p=23104">http://community.zenoss.com/forums/viewtopic.php?p=23104</a></span><br/><span> [11:10]&#160; &lt;__adytum-bot__&gt; Title: Forums :: View topic - Uninstall Zenoss from CentOS 5 (at community.zenoss.com)</span><br/><span> [11:10]&#160; &lt;__ian__&gt; zanaga: You can try rebuilding the relations and reindexing.</span><br/><span> [11:10]&#160; &lt;zanaga&gt; __ian__: how do i rebuild the relations? reindexing alone doesn't help.</span><br/><span> [11:10]&#160; &lt;__ian__&gt; the latter first, actually. What kind of objects are the problem?</span><br/><span> [11:11]&#160;&#160; __adytum-bot__ __ian__</span><br/><span> [11:11]&#160;&#160; __adytum-bot__ __ian__</span><br/><span> [11:11]&#160; &gt;__ian__&lt; we can finish up whenever you want</span><br/><span><span> [11:11] &lt;MmeNetView&gt; </span><a class="jive-link-external-small" href="http://community.zenoss.com/forums/viewtopic.php?p=23402">http://community.zenoss.com/forums/viewtopic.php?p=23402</a><span> - maybe right thread - seems to have an answer there anyway - will try</span></span><br/><span> [11:11]&#160; &lt;zanaga&gt; __ian__: let me pull an actual error for you.</span><br/><span> [11:12] &lt;__adytum-bot__&gt; Title: Forums :: View topic - Can't uninstall ZenPacks.community.mib_utils-1.04-py2.4.egg (at community.zenoss.com)</span><br/><span> [11:12]&#160; &lt;mib_cvxhwq&gt; Thank you mrayzenoss...you are on the ball today...thank you for making this forum alive again !!</span><br/><span> [11:12]&#160; &lt;mrayzenoss&gt; Thanks!</span><br/><span> [11:12]&#160; &lt;mib_cvxhwq&gt; I got 2 for 2 today..</span><br/><span> [11:13]&#160; &lt;jb&gt; now we just need better forums!</span><br/><span> [11:13]&#160; &lt;jb&gt; (faster, better search, etc) </span><img height="16px" src="../4.5.6/images/emoticons/happy.gif" width="16px"/><br/><span><span> [11:14] &lt;mrayzenoss&gt; Ian and I are going to have to wrap up today, we're going to try to have a dedicated session like this every 2 weeks. A log will be added to the blog.zenoss.com and the IRC page </span><a class="jive-link-external-small" href="http://www.zenoss.com/community/discuss/irc">http://www.zenoss.com/community/discuss/irc</a></span><br/><span> [11:14] &lt;__adytum-bot__&gt; Title: IRC - Commercial Open Source Network, Systems and Application Monitoring - Zenoss (at www.zenoss.com)</span><br/><span> [11:14]&#160; &lt;mrayzenoss&gt; jb: I'm working on that</span><br/><span> [11:15]&#160; &lt;MmeNetView&gt; Still not sure where we are on zenwinmodeler???</span><br/><span> [11:15]&#160; &lt;mrayzenoss&gt; MmeNetView: ZenModeler calls ZenWinModeler, no ZenWinModeler daemon</span><br/><span> [11:15]&#160; &lt;mrayzenoss&gt; MmeNetView: was there more to the question?</span><br/><span><span> [11:15]&#160; &lt;zanaga&gt; __ian__: </span><a class="jive-link-external-small" href="http://pastebin.com/m6373fc9">http://pastebin.com/m6373fc9</a><span> &lt;- that is from installing HelloWorld zenpacjk</span></span><br/><span> [11:15]&#160; &lt;__adytum-bot__&gt; Title: pastebin - collaborative debugging tool (at pastebin.com)</span><br/><span> [11:16]&#160; &lt;MmeNetView&gt; thanks - why does it not find down services is, I guess, the remaining question..</span><br/><span> [11:16]&#160; &lt;MmeNetView&gt; There seem to be several threads about flaky WMI</span><br/><span> [11:16]&#160; &lt;ericnewton&gt; wmi is a big focus of current development</span><br/><span> [11:17]&#160; &lt;mrayzenoss&gt; WMI is actively being worked on</span><br/><span> [11:17] &lt;zanaga&gt; __ian__: those things are all over the place.. luckily things work at the moment, but it's always an interesting moment to install zenpacks</span><br/><span> [11:19]&#160; &lt;mrayzenoss&gt; zanaga: Humor me, I assume you're running x86?</span><br/><span> [11:19]&#160; &lt;__ian__&gt; zanaga: all zenpacks, or just HelloWorld?</span><br/><span> [11:19]&#160; &lt;zanaga&gt; __ian__: most zenpacks..</span><br/><span> [11:19]&#160; &lt;zanaga&gt; __ian__: i've managed to fix things enough to get some zenpacks installed</span><br/><span> [11:20]&#160; &lt;zanaga&gt; mrayzenoss: yup</span><br/><span> [11:20] &lt;mrayzenoss&gt; Why don't we follow up on this in the forums? zanaga could you post a recap in the forums or send me an email and we'll get more eyes on it there?</span><br/><span> [11:21]&#160; &lt;zanaga&gt; sure..</span><br/><span> [11:21]&#160; &lt;mrayzenoss&gt; Thanks again everyone, later!</span><br/><span> [11:21]&#160; &lt;__ian__&gt; Later all.</span><br/><span> [11:21]&#160; &lt;jb&gt; seeya</span><br/><span> [11:21]&#160; &lt;jb&gt; thanks, guys..</span><br/><span> [11:21]&#160; * ericnewton (n=ericnewt@74.93.194.82) has left #zenoss</span><br/><span> [11:21]&#160; * __ian__ has quit ()</span><br/><span> [11:22]&#160; &lt;MmeNetView&gt; Thanks - cheers!</span></div><!-- [DocumentBodyEnd:5dfc7681-2ab2-42a4-b3ba-23dc667a0380] -->
+
+<!-- BEGIN attachments -->
+<!-- END attachments -->
+    </div>
+    <div class="jive-content-footer clearfix">
+
+
+    <!-- BEGIN content details -->
+        <span class="jive-content-footer-item jive-content-footer-acclaim">
+
+<div id="acclaim-container-102-2473-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-102-2473-" data-uniqueKey="102-2473-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="DOC-2473.html#" id="jive-acclaim-likedlink-102-2473-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div>        </span>
+
+     
+        <span class="jive-content-footer-item">
+            12490&nbsp;Views
+        </span>
+
+        
+
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+<!-- END content -->
+
+    </div>
+</div>
+<!-- END document -->
+
+
+
+
+
+    
+    <script>
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    
+
+
+
+
+        <a name="comments"></a>
+
+        <!-- BEGIN tabs -->
+        <div class="jive-body-tabbar">
+
+                <span id="jive-comments-tab" class="jive-body-tab jive-body-tabcurrent">
+                    <strong class="font-color-normal">
+                        Comments (<span id="jive-comments-count">0</span>)
+                    </strong>
+                </span>
+
+        </div>
+        <!-- END tabs -->
+
+            <div class="jive-box clearfix" id="jive-comments" ></div>
+
+        <div style="display:none;" id="jive-comment-post-block">
+            <form method="post" action="javascript:void(0);" name="jive-comment-post-form">
+
+                <p class="jive-error-text" id="jive-comment-error" style="display:none"></p>
+
+                    <div class="jive-comment-post-anonymous">
+                        <div>
+                            <input id="comment-author" name="commentGuestName" />
+                            <label for="comment-author">Name</label>
+                        </div>
+                        <div>
+                            <input id="comment-email" name="commentGuestEmail"  />
+                            <label for="comment-email">Email Address</label>
+                        </div>
+                        <div>
+                            <input id="comment-url" name="commentGuestUrl" />
+                            <label for="comment-url">Website Address</label>
+                        </div>
+                    </div>
+
+                <div>
+                    <textarea name="commentBody" id="wysiwygtext" rows="10" class="jive-comment-textarea"></textarea>
+                </div>
+
+                <div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div>
+
+
+                <div class="jive-form-buttons">
+                    <input type="submit" name="post" value="Add Comment" />
+                    <input type="button" name="cancel" value="Cancel" />
+                </div>
+
+            </form>
+        </div>
+
+        <div style="display:none;"  id="jive-comment-edit-block">
+            <form method="post" action="javascript:void(0);" name="jive-comment-edit-form">
+                <p class="jive-error-text" id="jive-comment-error" style="display:none"></p>
+                <div class="jive-comment-post-anonymous">
+                    <div>
+                        <input name="name" value="" />
+                        <label for="name">Name
+                            <span>(required)</span></label>
+                    </div>
+                    <div>
+                        <input name="email" value="" />
+                        <label for="email">Email Address
+                            <span>(required, will not be published)</span></label>
+                    </div>
+                    <div>
+                        <input name="url" value=""/>
+                        <label for="url">Website Address</label>
+                    </div>
+                </div>
+                <div>
+                    <textarea name="commentBody" id="wysiwygtext" rows="10" class="jive-comment-textarea"><%= commentBody %></textarea>
+                </div>
+
+                <div style="display:none;" id="jive-blog-comment-preview" class="jive-blog-comment-preview"></div>
+
+                <div class="jive-form-buttons">
+                    <input type="button" name="post" value="Save" />
+                    <input type="button" name="cancel" value="Cancel" />
+                </div>
+
+            </form>
+        </div>
+
+
+
+
+            </div>
+        </div>
+        <!-- END main body column -->
+
+
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol-container">
+
+            <div id="jive-body-sidebarcol">
+
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_document-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_document-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_document-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="DOC-2473%3Fdecorator=print.html"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+
+
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-102-2473">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+
+    
+    
+
+<!-- BEGIN sidebar box 'Incoming Links' -->
+<div class="jive-box jive-sidebar">
+    <div class="jive-box-header jive-sidebar-header">
+        <h4>Incoming Links</h4>
+    </div>
+    <div class="jive-box-body jive-sidebar-body jive-sidebar-body-incominglinks">
+        <ul class="jive-icon-list">
+                        <li>
+                            <a href="DOC-12961.html">
+                            <span class="jive-icon-med jive-icon-document"></span>
+                                IRC Main Page
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://community.zenoss.org/blogs/zenossblog/2008/08/07/zenoss-development-on-irc-thursday-august-14">
+                            <span class="jive-icon-med jive-icon-blog"></span>
+                                Zenoss Development on IRC Thursday, August 14
+                            </a>
+                        </li>
+        </ul>
+    </div>
+</div>
+<!-- END sidebar box 'Incoming Links' -->
+
+
+        
+        
+        
+        
+        
+
+<!-- BEGIN sidebar box 'User Content' -->
+<div class="jive-box jive-sidebar">
+    <div class="jive-box-header jive-sidebar-header">
+        <h4>More by Noel Brockett</h4>
+    </div>
+    <div class="jive-box-body jive-sidebar-body jive-sidebar-body-usercontent">
+        <ul class="jive-icon-list">
+                    <li>
+                        <a href="DOC-2475.html"
+                        ><span class="jive-icon-med jive-icon-document"></span>IRC February 2008</a>
+                    </li>
+                    <li>
+                        <a href="DOC-2474.html"
+                        ><span class="jive-icon-med jive-icon-document"></span>Dev chat 09/25/2008</a>
+                    </li>
+                    <li>
+                        <a href="DOC-2472.html"
+                        ><span class="jive-icon-med jive-icon-document"></span>IRC November 2006</a>
+                    </li>
+                    <li>
+                        <a href="DOC-2471.html"
+                        ><span class="jive-icon-med jive-icon-document"></span>IRC October 2007</a>
+                    </li>
+                    <li>
+                        <a href="DOC-2470.html"
+                        ><span class="jive-icon-med jive-icon-document"></span>Dev chat 03/05/2009</a>
+                    </li>
+        </ul>
+        <div class="jive-sidebar-viewall">
+            <a href="../people/nbrockett.html" class="font-color-meta j-link-viewall"><strong>View Noel Brockett's profile</strong></a>
+        </div>
+    </div>
+</div>
+<!-- END sidebar box 'User Content' -->
+
+
+            </div>
+
+        </div>
+        <!-- END sidebar column -->
+
+
+    </div>
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="http://community.zenoss.org/community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="http://community.zenoss.org/community/developers" title="Code">Code</a></li> 
+           <li><a href="http://community.zenoss.org/community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="http://community.zenoss.org/community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="http://community.zenoss.org/community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/sifr.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/jquery.cycle.all.2.72.js"></script>
+    <script type="text/javascript" language="JavaScript" src="../themes/userbar-disabled/scripts/supersleight.plugin.js"></script>
+
+   <!-- JQUERY FUNCTIONS -->
+    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    $j(document).ready(function(){
+        
+        $j('.jive-sidebar').each(function() {
+            var cls = $j(this).attr('class');
+            if(cls == 'jive-sidebar') {
+                $j(this).addClass('zenoss-sidebar');
+            }
+        });
+        
+        // SCRIPT TO TURN OFF TITLE TAGS IN MAIN MENU
+        // All links in main menu div
+        var menu_links = $j('ul[id=navlist] a');
+        // On mouse hover
+        /*menu_links.hover(
+                // In: Store and remove title
+                function() {  
+                        old_title = $j(this).attr('title');      
+                        $j(this).attr('title',''); 
+                },
+                // Out: Replace title
+                function() {  
+                        $j(this).attr('title', old_title);  
+                }  
+        );*/
+        
+        
+        // ANIMATE HOVER STATES FOR TOP NAVIGATION
+        var navnum = [ "1", "2", "3", "4", "5", "6", "7" ];
+    
+        $j.each(navnum, function(index, item) {
+            $j('.nav' + item).append('<span class="hover"></span>').each(function () {
+              var $span = $j('> span.hover', this).css('opacity', 0);
+                  $j(this).hover(function () {
+                    $span.stop().fadeTo(200, 1);
+                  }, function () {
+                    $span.stop().fadeTo(0, 0);
+                  });
+            });
+        });
+        // END HOVER STATES
+
+        $j('.png_fix').supersleight({shim: '/themes/userbar-disabled/images/+___.gif'});
+    
+    });
+    //--><!]]></script>
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+    <script type="text/javascript"><!--//--><![CDATA[//><!--
+    sfHover = function() {
+        var sfEls = document.getElementById("navlist").getElementsByTagName("li");
+        for (var i=0; i<sfEls.length; i++) {
+            sfEls[i].onmouseover=function() {
+                this.className+=" sfhover";
+            }
+            sfEls[i].onmouseout=function() {
+                this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+            }
+        }
+    }
+    if (window.attachEvent) window.attachEvent("onload", sfHover);
+    //--><!]]></script>
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+   <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+   <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/zenoss.json?callback=twitterCallback2&amp;count=3"></script>
+
+<script src="http://static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">try{ clicky.init(100555715); }catch(e){}</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/100555715ns.gif" /></p></noscript>
+
+<!-- END SCRIPTS -->
+    </div>
+
+
+<div id="jiveTT-note-user" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-user-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+<div id="jiveTT-note-video" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-video-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+<div id="jivecontainerTT-note-container" class="jive-tooltip2 notedefault snp-mouseoffset"  >
+	<div class="jive-tooltip2-mid j-mini-modal">
+		<div class="jive-tooltip2-mid-padding j-modal-content clearfix" id="jive-note-container-body"></div>
+	</div>
+<!--[if lt IE 7]><iframe src="javascript:false;" class="ieselectfix"></iframe><![endif]--></div>
+
+    <!-- GOOGLE ANALYTICS CODE, MUST LOAD ON EVERY PAGE: -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-70208-7']);
+
+  // To allow cross-domain tracking
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<script type="text/javascript">
+	piAId = '4432';
+	piCId = '1601';
+	
+	(function() {
+		function async_load(){
+			var s = document.createElement('script'); s.type = 'text/javascript';
+			s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+			var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+		}
+		if(window.attachEvent) { window.attachEvent('onload', async_load); }
+		else { window.addEventListener('load', async_load, false); }
+	})();
+</script>
+<!-- END Pardot tracking code, async version -->
+
+<script type="text/javascript">
+    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
+    "/spotlight-search.jspa", containerType, containerID);
+
+
+    var jivespotlightsearch = new JiveSpotlightSearch("#jive-query", "#jive-spotlight-search-container",
+    "/spotlight-search.jspa", containerType, containerID);
+
+
+</script>
+
+
+
+</body>
+</html>
+

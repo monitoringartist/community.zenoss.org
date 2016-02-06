@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Configuration : Smokepingish Latency Graphs : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-2513#comments</link>
+    <description>Comments on : Smokepingish Latency Graphs</description>
+    <language>en</language>
+    <pubDate>Mon, 28 Sep 2009 19:18:04 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2009-09-28T19:18:04Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Smokepingish Latency Graphs</title>
+      <link>http://community.zenoss.org/docs/DOC-2513#comments-1355</link>
+      <description>&lt;!-- [DocumentBodyStart:3ad9e7b1-0185-4420-a31f-b99074cf64b8] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;span&gt;Great and straightfoward tip. Just a note for those who changed their device name to something other than the default ip, use ${device/manageIp} instead of &lt;/span&gt;&lt;code&gt;$devname&lt;/code&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3ad9e7b1-0185-4420-a31f-b99074cf64b8] --&gt;</description>
+      <pubDate>Mon, 28 Sep 2009 19:18:04 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2513#comments-1355</guid>
+      <dc:date>2009-09-28T19:18:04Z</dc:date>
+      <clearspace:dateToText>4 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Smokepingish Latency Graphs</title>
+      <link>http://community.zenoss.org/docs/DOC-2513#comments-3732</link>
+      <description>&lt;!-- [DocumentBodyStart:62084f98-618a-4522-b3e2-bb358df1109e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I found that it missed off the 3rd digit of the packet loss (producing an output of 00 instead of 100). My sed knowledge is very rusty but finally changed it to this (added a . ) and it worked.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/bin/ping -n -q -c 3 ${device/manageIp} | sed -n -e '/loss/p' -e '/rtt/p' | sed -e 's/\(.*\),.*\+[0-9].*duplicates\(.*\)/\1\2/' | sed -e 's/.*\([0-9].*..% packet loss\).*/PING OK|loss=\1/;s/[0-9] received//;s/%//;s/, //;s/packet loss//' -e 's/rtt min\/avg\/max\/mdev = /min=/;s/ ms//;s/\// avg=/;s/\// max=/;s/\// mdev=/' | sed '/$$/ {;N;s/\n//}'&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:62084f98-618a-4522-b3e2-bb358df1109e] --&gt;</description>
+      <pubDate>Mon, 28 Mar 2011 15:31:31 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2513#comments-3732</guid>
+      <dc:date>2011-03-28T15:31:31Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Smokepingish Latency Graphs</title>
+      <link>http://community.zenoss.org/docs/DOC-2513#comments-5030</link>
+      <description>&lt;!-- [DocumentBodyStart:39c20679-04c8-4b91-bc02-cc763eb3d24c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Great and easy to setup.&lt;/p&gt;&lt;p&gt;Thanks for that.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Only I got the error message:&lt;/p&gt;&lt;p&gt;&lt;span style="color: #000000; font-family: Helvetica, sans-serif; font-size: 15px; text-align: -webkit-auto; background-color: #ffffff;"&gt;Cmd: $ZENHOME/libexec/ - Code: 2 - Msg: Misuse of shell builtins&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The solution was to change the Parser from "Auto" to "nagios"&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:39c20679-04c8-4b91-bc02-cc763eb3d24c] --&gt;</description>
+      <pubDate>Thu, 26 Jan 2012 15:46:00 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2513#comments-5030</guid>
+      <dc:date>2012-01-26T15:46:00Z</dc:date>
+      <clearspace:dateToText>2 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

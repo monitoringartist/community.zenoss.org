@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : LDAP Monitor : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-3422#comments</link>
+    <description>Comments on : LDAP Monitor</description>
+    <language>en</language>
+    <pubDate>Fri, 20 May 2011 01:27:53 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2011-05-20T01:27:53Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-3958</link>
+      <description>&lt;!-- [DocumentBodyStart:a6a9c769-1410-465a-8dc3-77601fff241b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Zenoss 3.1.0 on SUSE11&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Just installed the LDAP Core ZenPack.&amp;#160; Seems to be working great so far.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;But I have some new LDAP servers that use a non-standard port for LDAP. I notice there are only 3 zproperties for the LDAP ZenPack&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zLDAPBaseDN, zLDAPBindDN, zLDAPBindPassword&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;It's really a bummer that there is not a "zLDAPPort".&amp;#160; This means that I need to create a local copy of the monitoring template for each server and basically recreate the template datasource, threasholds, etc...&amp;#160;&amp;#160;&amp;#160; I looked at what it takes to create a new zProperty and I'm not interested in doing any code changing/customizations just to add a new zPropertiy.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I was wondering if there would be a way to add the port number to the end of the "zLDAPBaseDN" zProperty separated by a delimiter.&amp;#160; Something like the following:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;OU=portal,DC=external,DC=companyname,DC=com|12345&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The delimiter is the "|" pipe symbol and the port is 12345.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Would there be a way to split this in the Monitoring Template datasource?&amp;#160;&amp;#160; Currently the LDAP template datasource has "${here/zLDAPBaseDN}" in the "Base Distinguished Name:" field.&amp;#160; Would there be some way to add a function to split off the part before the "|" and then in the port field spilt off the part after the "|"?&amp;#160; Can these be Python expressions here?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This would save a ton of work copying templates local.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks!!!!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a6a9c769-1410-465a-8dc3-77601fff241b] --&gt;</description>
+      <pubDate>Fri, 20 May 2011 01:27:53 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-3958</guid>
+      <dc:date>2011-05-20T01:27:53Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-3961</link>
+      <description>&lt;!-- [DocumentBodyStart:fb9fed7d-21f7-4872-a7e0-314366f82115] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Try this line of thought:&lt;/p&gt;&lt;p&gt;First, read the docs about the &lt;a class="jive-link-wiki-small" href="http://community.zenoss.org/docs/DOC-9524"&gt;LDAPMonitor ZenPack&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;In there it mentions that the datasource has a port distinction.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;What you can try here is to create a custom zProperty (often called cProperties) and put it into the datasources Port field as "${here/cLDAPPort}"&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;You can create custom properties in the GUI by navigating to a device and clicking the 'Custom Properties' text. You can add one to a device class by clicking on Details button at top and clicking on Custom Schema. Make your cLDAPPort property here, differing it per device or class, and reference the custom property in the datasource which will stay the same.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Let me know how it works!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fb9fed7d-21f7-4872-a7e0-314366f82115] --&gt;</description>
+      <pubDate>Fri, 20 May 2011 15:55:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-3961</guid>
+      <dc:date>2011-05-20T15:55:18Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-3962</link>
+      <description>&lt;!-- [DocumentBodyStart:fc2e6735-0015-460a-8934-e321ad9801ed] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Perfect!&amp;#160;&amp;#160; I'll give that a shot!&amp;#160; I'm still learning new things about Zenoss every day! &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I notice that I can't add a cProperty at the device level.&amp;#160; Looks like it has to be at the Device Class level and I have to select "Custom Schema".&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Is that right?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fc2e6735-0015-460a-8934-e321ad9801ed] --&gt;</description>
+      <pubDate>Fri, 20 May 2011 16:27:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-3962</guid>
+      <dc:date>2011-05-20T16:27:49Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-3963</link>
+      <description>&lt;!-- [DocumentBodyStart:1ed174f7-b84d-495d-b648-deaab8cb5721] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;You should be able to do a cProperty at the device level too. See how I explained to it differently for device or device class?&lt;/p&gt;&lt;p&gt;Look on the left menu when inside a device and see the 'Custom Properties' menu item.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1ed174f7-b84d-495d-b648-deaab8cb5721] --&gt;</description>
+      <pubDate>Fri, 20 May 2011 16:31:19 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-3963</guid>
+      <dc:date>2011-05-20T16:31:19Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-3964</link>
+      <description>&lt;!-- [DocumentBodyStart:338ee71a-1447-4a9d-996c-9204a21dae36] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Yes, that's the location I'm going to on a device.&amp;#160; But then I don't see an add option anywhere.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Although, I think I may have another problem.&amp;#160; I added the cProperty at the class level.&amp;#160; Then while trying to edit the field "Port" on the Edit Data Source dialog, it will only let me enter numeric values.&amp;#160; When I paste in&amp;#160; ${here/cLDAPPort}, the save button disables.&amp;#160; It also does not allow me to type anything other than numbers.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:338ee71a-1447-4a9d-996c-9204a21dae36] --&gt;</description>
+      <pubDate>Fri, 20 May 2011 16:43:51 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-3964</guid>
+      <dc:date>2011-05-20T16:43:51Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-3966</link>
+      <description>&lt;!-- [DocumentBodyStart:34776484-a201-4cf8-aa6f-2585c42b9ed1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This is unfortunate - we will not be able to go this nice route without some code changes.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;What you can likely do instead is to copy the template to other device classes, and go in and change that port in the copied templates.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Copying templates is called 'Override Template' in the UI. See screenshot:&lt;/p&gt;&lt;p&gt;&lt;a href="http://s3.amazonaws.com/diigo/2266316_74184587_3496903?AWSAccessKeyId=0R7FMW7AXRVCYMAPTPR2&amp;amp;Expires=1305911081&amp;amp;Signature=xeObhj%2BXacjM6dCUHER0IS9SNJk%3D"&gt;&lt;img src="http://s3.amazonaws.com/diigo/2266316_74184587_3496903?AWSAccessKeyId=0R7FMW7AXRVCYMAPTPR2&amp;amp;Expires=1305911081&amp;amp;Signature=xeObhj%2BXacjM6dCUHER0IS9SNJk%3D"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:34776484-a201-4cf8-aa6f-2585c42b9ed1] --&gt;</description>
+      <pubDate>Fri, 20 May 2011 17:00:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-3966</guid>
+      <dc:date>2011-05-20T17:00:49Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-3967</link>
+      <description>&lt;!-- [DocumentBodyStart:11243fc4-07ca-4c0d-b345-cf7293ecde95] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;That is unfortunate, make a perfectly good ZenPack difficult to use!&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;It's also a bummer that when you copy a template local, it loses the datasource and all the charts, etc...&amp;#160; Any way around that?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:11243fc4-07ca-4c0d-b345-cf7293ecde95] --&gt;</description>
+      <pubDate>Fri, 20 May 2011 17:22:27 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-3967</guid>
+      <dc:date>2011-05-20T17:22:27Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-3968</link>
+      <description>&lt;!-- [DocumentBodyStart:d59e5f9e-c504-411e-b7cf-7f721ab7408a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;span&gt;Can we move this convo to &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://community.zenoss.org/thread/16081"&gt;http://community.zenoss.org/thread/16081&lt;/a&gt;&lt;span&gt; ?&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d59e5f9e-c504-411e-b7cf-7f721ab7408a] --&gt;</description>
+      <pubDate>Fri, 20 May 2011 17:37:31 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-3968</guid>
+      <dc:date>2011-05-20T17:37:31Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: LDAP Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3422#comments-6057</link>
+      <description>&lt;!-- [DocumentBodyStart:f44ff258-07e1-4898-b0f8-d3d6dd0a7ffb] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;How can this package be usable with Core 4.2 ?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f44ff258-07e1-4898-b0f8-d3d6dd0a7ffb] --&gt;</description>
+      <pubDate>Thu, 20 Sep 2012 19:28:31 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3422#comments-6057</guid>
+      <dc:date>2012-09-20T19:28:31Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

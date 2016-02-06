@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : Cisco Catalyst : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-10259#comments</link>
+    <description>Comments on : Cisco Catalyst</description>
+    <language>en</language>
+    <pubDate>Mon, 20 Dec 2010 20:57:47 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2010-12-20T20:57:47Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-3167</link>
+      <description>&lt;!-- [DocumentBodyStart:e77c540d-fb8c-447e-8dd4-871274bf1319] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Just tried installing this ZenPack on CORE 3.0.3 and noticed some issues:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong style="font-weight: bold;"&gt;1.) Missing Prerequisite (for installing zenpack):&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Create the following class prior to installing this ZenPack: /Devices/Network/Switch/&lt;strong style="font-weight: bold;"&gt;Cisco&lt;/strong&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The ZenPack install via the GUI seemed like it installed (threw no errors) but in-fact failed to install.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong style="font-weight: bold;"&gt;Result:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Got the ZenPack to install via the command line.&lt;/p&gt;&lt;p&gt;First attempt failed sighting the missing class.&lt;/p&gt;&lt;p&gt;Second attempt was successful after creating the &lt;strong style="font-weight: bold;"&gt;/Devices/Network/Switch/Cisco&lt;/strong&gt;&amp;#160; class.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2.) &lt;strong style="font-weight: bold;"&gt;cpu5min OID errors out:&lt;/strong&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Got info event stating that the cpu5min OID is bad.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Looked at the Cisco tech notes for the Catalyst (&lt;a class="jive-link-external-small" href="http://www.cisco.com/en/US/tech/tk648/tk362/technologies_tech_note09186a0080094a94.shtml"&gt;http://www.cisco.com/en/US/tech/tk648/tk362/technologies_tech_note09186a0080094a94.shtml&lt;/a&gt;) and gleaned that either of the following oids could be used for cpu5min:&lt;/p&gt;&lt;p&gt;&amp;gt; .1.3.6.1.4.1.9.9.109.1.1.1.1.5&lt;/p&gt;&lt;p&gt;&amp;gt; .1.3.6.1.4.1.9.2.1.58&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong style="font-weight: bold;"&gt;Result:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Modified the cpu5min data to probe: 1.3.6.1.4.1.9.9.109.1.1.1.1.5&lt;/p&gt;&lt;p&gt;Tested it against a Catalyst switch and got a successful reading.&lt;/p&gt;&lt;p&gt;Still getting Zennoss Info event stating that the oid is bad.&lt;/p&gt;&lt;p&gt;Need assistance to fix this issue.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e77c540d-fb8c-447e-8dd4-871274bf1319] --&gt;</description>
+      <pubDate>Mon, 20 Dec 2010 19:30:08 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-3167</guid>
+      <dc:date>2010-12-20T19:30:08Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-3158</link>
+      <description>&lt;!-- [DocumentBodyStart:ed92dd8d-db43-464f-aaa2-7fd6ae886321] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This ZenPack page is brand spankin' new and I haven't even had a chance to update it yet which is why the pre-requisite of creating the /Devices/Network/Switch/Cisco isn't on the page yet (I will be editing the page today).&amp;#160; Secondly, you misunderstand the purpose of this ZenPack.&amp;#160; Catalyst switches originally ran on Catalyst OS.&amp;#160; Many of them run on IOS now.&amp;#160; The reason the OID didn't work for you is because the switch that you are talking about is running IOS not CatOS, meaning this ZenPack is not what you should be using to monitor that switch.&amp;#160; You should copy the template from /Network/Router/Cisco to /Network/Switch/Cisco and use that instead.&amp;#160; This pack is only for switches that are running CatOS (and I will emphasize that at the top of the ZenPack page when I edit it).&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ed92dd8d-db43-464f-aaa2-7fd6ae886321] --&gt;</description>
+      <pubDate>Tue, 21 Dec 2010 16:03:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-3158</guid>
+      <dc:date>2010-12-21T16:03:18Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-4630</link>
+      <description>&lt;!-- [DocumentBodyStart:21fcccef-7f2f-48ee-9bdb-f2e8e39980bd] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I received the following error when selecting the graphs:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;pythonThresholdException User-supplied Python expression ((here.getRRDValue('mem5minUsed') + here.getRRDValue('mem5minFree')) * 0.9) for maximum value caused error: ['mem5minUsed_mem5minUsed']&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Anyone have an idea why this is happening?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks for your help!&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;==============================&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Resolved itself - not sure if it just needed more time to apply?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:21fcccef-7f2f-48ee-9bdb-f2e8e39980bd] --&gt;</description>
+      <pubDate>Wed, 05 Oct 2011 13:20:06 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-4630</guid>
+      <dc:date>2011-10-05T13:20:06Z</dc:date>
+      <clearspace:dateToText>2 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-4646</link>
+      <description>&lt;!-- [DocumentBodyStart:68f1e968-4ea5-4bee-abd3-9465dc999381] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;strong&gt;"Result:&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Modified the cpu5min data to probe: 1.3.6.1.4.1.9.9.109.1.1.1.1.5&lt;/p&gt;&lt;p&gt;Tested it against a Catalyst switch and got a successful reading.&lt;/p&gt;&lt;p&gt;Still getting Zennoss Info event stating that the oid is bad.&lt;/p&gt;&lt;p&gt;Need assistance to fix this issue."&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Add ".1" at the end of the OID.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;example: 1.3.6.1.4.1.9.9.109.1.1.1.1.5.1&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Worked for me.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:68f1e968-4ea5-4bee-abd3-9465dc999381] --&gt;</description>
+      <pubDate>Wed, 05 Oct 2011 13:47:23 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-4646</guid>
+      <dc:date>2011-10-05T13:47:23Z</dc:date>
+      <clearspace:dateToText>2 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-4647</link>
+      <description>&lt;!-- [DocumentBodyStart:d340769a-2da3-45d4-be32-b81ed74cc3e4] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;That python error is because the template dynamically calculates the memory threshold based on the total memory.&amp;#160; Until you've allowed it to actually collect the data for 3 polling cycles (15 minutes) then you'll get that error.&amp;#160; It's normal and harmless.&amp;#160; Of course, if it exists for longer than 3 polling cycles then it means that the memory OIDs are not working against the device.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I should also add that there's a big notice at the top of the ZenPack page stating "&lt;strong&gt;This ZenPack is only to be used with Cisco Catalyst switches that are running CatOS.&lt;/strong&gt;&amp;#160; It is not intended for monitoring IOS."&amp;#160; Make sure that you're not trying to use this against a Catalyst switch that's running IOS.&amp;#160; It'll only work against Catalyst OS (CatOS) which is rarely in use anymore.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d340769a-2da3-45d4-be32-b81ed74cc3e4] --&gt;</description>
+      <pubDate>Wed, 05 Oct 2011 18:00:47 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-4647</guid>
+      <dc:date>2011-10-05T18:00:47Z</dc:date>
+      <clearspace:dateToText>2 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-6092</link>
+      <description>&lt;!-- [DocumentBodyStart:de9b83ae-dd87-404e-aa18-d4f07fcf018e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hey Ryan, I've used this zenpack for a couple years and it has been awesome for my old catos 6509's.&amp;#160; I just upgraded to 4.2 and i can't get this zenpack running.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Curious if you've even started porting it over to 4.2?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:de9b83ae-dd87-404e-aa18-d4f07fcf018e] --&gt;</description>
+      <pubDate>Thu, 27 Sep 2012 16:11:59 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-6092</guid>
+      <dc:date>2012-09-27T16:11:59Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-6093</link>
+      <description>&lt;!-- [DocumentBodyStart:7492b45f-5d67-4065-af52-3e60563a9c41] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;It should work as is in 4.2.&amp;#160; Just rename the file from ZenPacks.Nova.Cisco.Catalyst-1.0.egg to ZenPacks.Nova.Cisco.Catalyst-1.0-py2.7.egg and install it.&amp;#160; If that doesn't work, are you seeing any errors or anything?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:7492b45f-5d67-4065-af52-3e60563a9c41] --&gt;</description>
+      <pubDate>Thu, 27 Sep 2012 16:18:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-6093</guid>
+      <dc:date>2012-09-27T16:18:39Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-6094</link>
+      <description>&lt;!-- [DocumentBodyStart:72f4da1c-713c-483e-95a0-81be943e1963] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ah, i didn't know you had to rename.&amp;#160; So i did.&amp;#160; The install failed because it couldn't create the Class /Network/Switch/Cisco/Catalyst.&amp;#160; I created it manually and reran the install and it succeeded.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Now everything appears installed but when I try and remodel a device with the zenoss.snmp.InterfaceCatOsMap modeler plugin applied, nothing is updated.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I also completly deleted the device and readded with the new modeler plugins and it doesn't discover any of the interfaces.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thoughts?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:72f4da1c-713c-483e-95a0-81be943e1963] --&gt;</description>
+      <pubDate>Thu, 27 Sep 2012 18:43:45 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-6094</guid>
+      <dc:date>2012-09-27T18:43:45Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-6095</link>
+      <description>&lt;!-- [DocumentBodyStart:4e81b4a1-c4b8-41ee-bf7c-6caa264f8d56] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ok, thanks for confirming.&amp;#160; I'll work on updating the pack when I have a second.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4e81b4a1-c4b8-41ee-bf7c-6caa264f8d56] --&gt;</description>
+      <pubDate>Thu, 27 Sep 2012 19:32:26 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-6095</guid>
+      <dc:date>2012-09-27T19:32:26Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-6123</link>
+      <description>&lt;!-- [DocumentBodyStart:47efecfa-60db-4ba8-947f-06bf72e1ea90] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I just ran this against a 6509 in Zenoss 4.2 and it worked fine.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:47efecfa-60db-4ba8-947f-06bf72e1ea90] --&gt;</description>
+      <pubDate>Wed, 10 Oct 2012 20:30:01 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-6123</guid>
+      <dc:date>2012-10-10T20:30:01Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Cisco Catalyst</title>
+      <link>http://community.zenoss.org/docs/DOC-10259#comments-6124</link>
+      <description>&lt;!-- [DocumentBodyStart:a6777565-2b06-48d3-b607-bdcfdcc01ed0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Did you restart zope after you installed the pack to properly refresh the plugin?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a6777565-2b06-48d3-b607-bdcfdcc01ed0] --&gt;</description>
+      <pubDate>Wed, 10 Oct 2012 20:30:44 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10259#comments-6124</guid>
+      <dc:date>2012-10-10T20:30:44Z</dc:date>
+      <clearspace:dateToText>1 year, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

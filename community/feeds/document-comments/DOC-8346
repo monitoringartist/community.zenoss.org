@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Event Transforms : Transform Swap Threshold Events to a more friendly format : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-8346#comments</link>
+    <description>Comments on : Transform Swap Threshold Events to a more friendly format</description>
+    <language>en</language>
+    <pubDate>Mon, 27 Sep 2010 14:10:52 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2010-09-27T14:10:52Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Transform Swap Threshold Events to a more friendly format</title>
+      <link>http://community.zenoss.org/docs/DOC-8346#comments-2718</link>
+      <description>&lt;!-- [DocumentBodyStart:abdd1d9d-4976-4871-aa8b-47ddafd222d1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I added this transform in zenoss 3.0.2, but it did not update the event message.&amp;#160; It worked in 2.5.2.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:abdd1d9d-4976-4871-aa8b-47ddafd222d1] --&gt;</description>
+      <pubDate>Mon, 27 Sep 2010 14:10:52 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-8346#comments-2718</guid>
+      <dc:date>2010-09-27T14:10:52Z</dc:date>
+      <clearspace:dateToText>3 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Transform Swap Threshold Events to a more friendly format</title>
+      <link>http://community.zenoss.org/docs/DOC-8346#comments-3612</link>
+      <description>&lt;!-- [DocumentBodyStart:3a044093-0a18-48da-bc58-9f35a0749def] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Did you perform an upgrade?&amp;#160; Try deleting it and adding it back in.&amp;#160; After I did that it worked for me.&amp;#160; (Im running Zenoss 3.1 upgraded from 2.5.2)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This is the one I'm currently using its a little better.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;title&gt;&lt;/title&gt;&lt;p&gt;import re&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;# Extract the percent and free from the summary&lt;/p&gt;&lt;p&gt;m = re.search("threshold of [^:]+: current value ([\d\.]+)", evt.summary)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;if m:&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; from Products.ZenUtils.Utils import convToUnits&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; isWindows = re.search("PagingFileTotalUsage", evt.eventKey)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; if isWindows:&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; # windows displays percentage used&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; p = float(m.groups()[0])&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; totalBytes = device.os.totalSwap&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; usedBytes = totalBytes * (p / 100)&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; freeBytes = totalBytes - usedBytes&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; else:&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; freeBytes = float(m.groups()[0]) * 1024&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; totalBytes = device.os.totalSwap&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; usedBytes = totalBytes - freeBytes&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; p = (usedBytes / totalBytes) * 100&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; usedAmtGB = convToUnits(usedBytes)&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; freeAmtGB = convToUnits(freeBytes)&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; totalAmtGB = convToUnits(totalBytes)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; evt.summary = "swap low: %3.1f%% used (%s used, %s free, %s total)" % (p,usedAmtGB,freeAmtGB,totalAmtGB)&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; evt.message = "swap low: %3.1f%% used (%s used, %s free, %s total)" % (p,usedAmtGB,freeAmtGB,totalAmtGB)&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3a044093-0a18-48da-bc58-9f35a0749def] --&gt;</description>
+      <pubDate>Thu, 10 Mar 2011 07:59:24 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-8346#comments-3612</guid>
+      <dc:date>2011-03-10T07:59:24Z</dc:date>
+      <clearspace:dateToText>3 years, 4 days ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

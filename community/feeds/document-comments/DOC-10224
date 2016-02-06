@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : Formula Data Source : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-10224#comments</link>
+    <description>Comments on : Formula Data Source</description>
+    <language>en</language>
+    <pubDate>Wed, 01 Dec 2010 19:50:18 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2010-12-01T19:50:18Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3102</link>
+      <description>&lt;!-- [DocumentBodyStart:679af43b-056e-4b6a-9ecc-4836fb9fddb3] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Cool that you got a new version with support for more templates out there. Im not quite sure what this means? Did it only support Data Sources from other templates before?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:679af43b-056e-4b6a-9ecc-4836fb9fddb3] --&gt;</description>
+      <pubDate>Wed, 01 Dec 2010 19:50:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3102</guid>
+      <dc:date>2010-12-01T19:50:18Z</dc:date>
+      <clearspace:dateToText>3 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3092</link>
+      <description>&lt;!-- [DocumentBodyStart:415279ee-9bf8-4de6-81a8-93d0176eaf74] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;It only supported Data Sources from Device templates before (not interface, process, or filesystem templates).&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;For example, if you go in to a Device template, you see a Target Class of Products.ZenModel.Device.&amp;#160; This means that data from datapoints in that template can be gathered by doing something like:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;dmd.Devices.findDevice(&amp;#8216;Devicename&amp;rsquo;).getRRDValue(&amp;#8216;datapointname&amp;rsquo;).&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;In the case of an interface template which has a Target Class of Products.ZenModel.IpInterface you have to do things a little differently to get the data.&amp;#160; You would do something like:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;d = dmd.Devices.findDevice('Devicename')&lt;br/&gt;for i in d.os.interfaces():&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; if &amp;ldquo;interfacename&amp;#8221; == i.id:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; data = i.getRRDValue(&amp;#8216;datapointname&amp;rsquo;)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I adjusted the datapoint script so that it passes both the name of the component (whether it be the name of the interface, process or filesystem), as well as the Target Class for the template to the script that actually gathers the data and performs the calculation.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Here&amp;rsquo;s a section of code from the script as an example:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;if options.target == "Products.ZenModel.IpInterface":&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; d = dmd.Devices.findDevice(options.device)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; for q in d.os.interfaces():&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; if options.object == q.id:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; i = q&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; formula = re.sub(r"\%(\w*)", r"i.getRRDValue('\1')", options.formula)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; formula = re.sub(r"\here.(\w*)", r"i.\1", formula)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; eval(formula)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I&amp;rsquo;ve yet to come up with a way to do this dynamically.&amp;#160; I need to figure out if there&amp;rsquo;s some function that I can use to determine the location that I need to query for RRD data at based on the template type.&amp;#160; For example, a way to know that I need to query data at d.os.interfaces() for Products.ZenModel.IpInterface.&amp;#160; So far I haven&amp;rsquo;t found a way, but I intend to keep working on it.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:415279ee-9bf8-4de6-81a8-93d0176eaf74] --&gt;</description>
+      <pubDate>Wed, 01 Dec 2010 19:54:54 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3092</guid>
+      <dc:date>2010-12-01T19:54:54Z</dc:date>
+      <clearspace:dateToText>3 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3846</link>
+      <description>&lt;!-- [DocumentBodyStart:aa5495f6-afab-4a63-8842-1410807caba5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The ZenPack now supports all templates regardless of type.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:aa5495f6-afab-4a63-8842-1410807caba5] --&gt;</description>
+      <pubDate>Tue, 26 Apr 2011 20:00:28 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3846</guid>
+      <dc:date>2011-04-26T20:00:28Z</dc:date>
+      <clearspace:dateToText>2 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3864</link>
+      <description>&lt;!-- [DocumentBodyStart:cbe5c390-555a-430c-b1e7-12aacfb35b6f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;First of all I want to say You a big THANKS for this ZenPack. I have several cases where I have to calculate a value to monitor.&lt;/p&gt;&lt;p&gt;But I have problem with performance when using it. It just kills CPU. I have Zenoss 3.1.0 Core on CentOS 5.5 64 bit.&lt;/p&gt;&lt;p&gt;Now I see that you've removed plans to rewrite it as a daemon. Does it mean that you've stopped the development of this ZenPack?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:cbe5c390-555a-430c-b1e7-12aacfb35b6f] --&gt;</description>
+      <pubDate>Wed, 27 Apr 2011 07:49:25 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3864</guid>
+      <dc:date>2011-04-27T07:49:25Z</dc:date>
+      <clearspace:dateToText>2 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3848</link>
+      <description>&lt;!-- [DocumentBodyStart:f33da30e-4368-4c09-8159-52070cf20185] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;No, I just removed that to clean up the look of this page.&amp;#160; Future performance enhancements are still planned.&amp;#160; Also, version 1.6 should be lighter on CPU than the previous version was.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f33da30e-4368-4c09-8159-52070cf20185] --&gt;</description>
+      <pubDate>Wed, 27 Apr 2011 15:42:47 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3848</guid>
+      <dc:date>2011-04-27T15:42:47Z</dc:date>
+      <clearspace:dateToText>2 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3957</link>
+      <description>&lt;!-- [DocumentBodyStart:7c085bca-3184-4deb-931f-bd1fdbfbd2cb] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I just installed this yesterday, it's exactly what I was looking for (calculating some data points which were done internally in Cacti using other gathered SNMP data).&amp;#160; However just as Tornado mentioned I see the CPU usage rose dramatically after installing:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;a href="http://dl.dropbox.com/u/2320220/zenoss_cpu.png"&gt;&lt;img src="http://dl.dropbox.com/u/2320220/zenoss_cpu.png"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;It seems pretty constant that the machine is running the calc_formula.py script, I assume once per formula per machine which needs it (which in our case is twice for just about every machine).&amp;#160; I'm guessing a daemonized version of this will make that much faster?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:7c085bca-3184-4deb-931f-bd1fdbfbd2cb] --&gt;</description>
+      <pubDate>Thu, 19 May 2011 14:52:46 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3957</guid>
+      <dc:date>2011-05-19T14:52:46Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3943</link>
+      <description>&lt;!-- [DocumentBodyStart:63850c3d-f90a-402d-9672-e639870a5996] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;That's completely expected with this version.&amp;#160; The ZenPack currently launches a script for each calculation.&amp;#160; This means that there are a bunch of scripts (threads) running concurrently which causes heavy load on the CPU.&amp;#160; As I've stated, I will be writing a daemon for the pack eventually which will allow all of the calculations to be done under a single thread, which will improve performance.&amp;#160; I'm completely *swamped* at work right now, so I have no idea when I'll actually get around to coding the daemon.&amp;#160; Coding a Zenoss daemon is quite time consuming.&amp;#160; I personally only use the pack on a few very small device groups, so it works fine as is.&amp;#160; I wouldn't recommend using it in templates such as interface or filesystem at the moment.&amp;#160; I'll see if I can find some time to start on it in a couple of weeks when things at work will have hopefully died down.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:63850c3d-f90a-402d-9672-e639870a5996] --&gt;</description>
+      <pubDate>Thu, 19 May 2011 14:59:57 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3943</guid>
+      <dc:date>2011-05-19T14:59:57Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3947</link>
+      <description>&lt;!-- [DocumentBodyStart:b7ba7c86-529b-4144-930a-f7e44e5b0b1b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;i just started to use your Formula Datasource zenpack, however I don't quite understand how to reference existing datasources/datapoints (since you repeat similar names in your example and i can't say which is which).&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;To simplify, let's ay i already have some datasources (DSource) and datapoints (DPoint) created:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;DSource1&lt;/p&gt;&lt;ul&gt;&lt;li&gt;DPoint1&lt;/li&gt;&lt;li&gt;DPoint2&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;DSource2&lt;/p&gt;&lt;ul&gt;&lt;li&gt;DPoint3&lt;/li&gt;&lt;li&gt;DPoint4&lt;/li&gt;&lt;/ul&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Let's say i want to calculate DPoint2 + DPoint4.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I create a new DATASOURCE for my formula, "FormulaDSource" and it automatically creates a corresponding GAUGE type Datapoint "FormulaDPoint" (names are identical). So now i have these:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;DSource1&lt;/p&gt;&lt;ul&gt;&lt;li&gt;DPoint1&lt;/li&gt;&lt;li&gt;DPoint2&lt;br/&gt; &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;DSource2&lt;/p&gt;&lt;ul&gt;&lt;li&gt;DPoint3&lt;/li&gt;&lt;li&gt;DPoint4&lt;/li&gt;&lt;/ul&gt;&lt;p&gt; FormulaDSource&lt;/p&gt;&lt;ul&gt;&lt;li&gt;FormulaDPoint&lt;/li&gt;&lt;/ul&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Upon editing the FormulaDSource, i have to enter my (DPoint2 + DPoint4) calculation in the Data Formula field. What would be the correct entry:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;1. $DSource1_DPoint2 + $DSource2_DPoint4&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;or&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2. $DPoint2 + $DPoint4 ????&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Actually, I tried both options but my formula data source is still not producing a calculation (required datapoints for calculation are okay and are returning valid values)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;PS. one of my datapoints is named like "Datapoint_abc" (has to be like that) so maybe referencing as $Datasource_Datapoint_abc (with two underscores) is causing the problem?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;marko&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b7ba7c86-529b-4144-930a-f7e44e5b0b1b] --&gt;</description>
+      <pubDate>Wed, 25 May 2011 11:42:00 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3947</guid>
+      <dc:date>2011-05-25T11:42:00Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3948</link>
+      <description>&lt;!-- [DocumentBodyStart:ca8ef1c9-1e5e-4d3e-9877-e4175bc74da6] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;You are correct in your assumption that it's Datasource_Datapoint.&amp;#160; They have to be EXACTLY what you set them as.&amp;#160; If your datapoint is "Datapoint_abc" and your datasource is "Datasource", then you would use $Datasource_Datapoint_abc.&amp;#160; It should work.&amp;#160; The pack uses Zenoss' standard getRRDValue routine.&amp;#160; Have you tried running a test against the datasource?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ca8ef1c9-1e5e-4d3e-9877-e4175bc74da6] --&gt;</description>
+      <pubDate>Wed, 25 May 2011 13:41:37 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3948</guid>
+      <dc:date>2011-05-25T13:41:37Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3975</link>
+      <description>&lt;!-- [DocumentBodyStart:a3e4fa6a-265a-405f-8333-e0d3d1b02896] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks Ryan for confirming this.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;No, my only Fromula DS experiment was on a &lt;span style="text-decoration: underline;"&gt;component template&lt;/span&gt; (and we all know component template datasource tests usually fail due to the dynamic parameters required there - you can only test against a device, not the device AND a component).&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I will repeat my experiment on some device template and post my results here.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;regards&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;marko&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a3e4fa6a-265a-405f-8333-e0d3d1b02896] --&gt;</description>
+      <pubDate>Thu, 26 May 2011 08:30:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3975</guid>
+      <dc:date>2011-05-26T08:30:49Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3951</link>
+      <description>&lt;!-- [DocumentBodyStart:cfa28ed3-7937-4eca-ad5f-5b89408f235d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;If you're testing against a component then from the commandline as the zenoss user you can do: zencommand run -v10 -d &amp;lt;devicename&amp;gt; to test.&amp;#160; Eventually when I implement a daemon for the pack you'll do the same thing with that daemon.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:cfa28ed3-7937-4eca-ad5f-5b89408f235d] --&gt;</description>
+      <pubDate>Thu, 26 May 2011 13:50:14 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3951</guid>
+      <dc:date>2011-05-26T13:50:14Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3981</link>
+      <description>&lt;!-- [DocumentBodyStart:1cd6d018-945b-43dd-9d5a-87607b0aee22] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;i made a formula Datasource in a device template, added (+) two existing datasources for test and it works, i understand the process now.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;It's kinda slow (the calculation) so i had to increase both zCommandCycle and zCommandtimeout to get it calculated in time and graphed properly (without any zCommand timeout events)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks for your help&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;marko&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1cd6d018-945b-43dd-9d5a-87607b0aee22] --&gt;</description>
+      <pubDate>Fri, 27 May 2011 07:47:34 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3981</guid>
+      <dc:date>2011-05-27T07:47:34Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-3983</link>
+      <description>&lt;!-- [DocumentBodyStart:f9e216bb-1ad3-452e-829c-ef9d01509815] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;It'll be slow until I code the daemon for it.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f9e216bb-1ad3-452e-829c-ef9d01509815] --&gt;</description>
+      <pubDate>Fri, 27 May 2011 18:51:15 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-3983</guid>
+      <dc:date>2011-05-27T18:51:15Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-4714</link>
+      <description>&lt;!-- [DocumentBodyStart:12b44ea2-1ad2-4c33-a7df-565989b34ab0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'm having issues with this on 3.2.1 in relation to the edit data source.&amp;#160; &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This is what I see instead of the one shown above. &lt;a href="http://community.zenoss.org/servlet/JiveServlet/showImage/10404/Untitled.png"&gt;&lt;img alt="Untitled.png" class="jive-image" src="http://community.zenoss.org/servlet/JiveServlet/downloadImage/10404/Untitled.png"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;img/&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:12b44ea2-1ad2-4c33-a7df-565989b34ab0] --&gt;</description>
+      <pubDate>Thu, 27 Oct 2011 16:37:03 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-4714</guid>
+      <dc:date>2011-10-27T16:37:03Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-4733</link>
+      <description>&lt;!-- [DocumentBodyStart:22a63de6-7ece-47ab-a919-fd7dd1ef5562] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;They must have changed the way the UI components are coded yet again.&amp;#160; I'll fix it when I have some spare time (not sure when that'll be).&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:22a63de6-7ece-47ab-a919-fd7dd1ef5562] --&gt;</description>
+      <pubDate>Thu, 27 Oct 2011 16:53:32 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-4733</guid>
+      <dc:date>2011-10-27T16:53:32Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-4715</link>
+      <description>&lt;!-- [DocumentBodyStart:d642b8bd-3551-410c-a8a5-3eb98f8c594f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I just experienced the same issue as zoomequipd.&lt;/p&gt;&lt;p&gt;Just curious if you have already fixed this.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d642b8bd-3551-410c-a8a5-3eb98f8c594f] --&gt;</description>
+      <pubDate>Thu, 27 Oct 2011 20:14:05 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-4715</guid>
+      <dc:date>2011-10-27T20:14:05Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-4752</link>
+      <description>&lt;!-- [DocumentBodyStart:9700870a-5867-4c23-9122-7271089e2f2b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hey Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I had a couple questions about this ZenPack I was hoping you could help with.&amp;#160; &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;1.&amp;#160; I wasn't able to use a datasource/datapoint until I added it to a graph.&amp;#160; If I understand correctly it's because that's where you get the value using getRRDValue (or something to that effect).&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Would it be relatively easy to just take the output of the datasource instead of getting it from the RRD?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2.&amp;#160; I'm using remote/multiple collectors and I've noticed the formula datasource doesn't work for my devices on the remote collectors because they look like they're trying to query localhost:8100 when zope is running on another server.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Same question as above.&amp;#160; Would it be relatively easy to update the code so it checks $ZENHOME/etc/zope.conf for the zope db location?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:9700870a-5867-4c23-9122-7271089e2f2b] --&gt;</description>
+      <pubDate>Thu, 03 Nov 2011 21:19:38 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-4752</guid>
+      <dc:date>2011-11-03T21:19:38Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-4750</link>
+      <description>&lt;!-- [DocumentBodyStart:14f9b17b-b67a-4c40-824f-5b343ded6374] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;1. No you don't need to add the datasource to a graph, it just needs to be present in the template.&amp;#160; It needs to have actually been there for 3 collection cycles before getRRDValue will even work.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2. With it's current design the getRRDValue does get executed on the remote collector instead of the master server.&amp;#160; It doesn't currently work with collectors.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;To completely optomize this thing a daemon needs to be coded that only runs on the master server and which executes getRRDValue for each datapoints, executes the formula, and then creates/writes to the RRDs.&amp;#160; This daemon is nothing like any of the daemons that have been coded so far so it's going to be a huge challenge.&amp;#160; I've just been too busy at work and in general to put the time in to doing this.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:14f9b17b-b67a-4c40-824f-5b343ded6374] --&gt;</description>
+      <pubDate>Thu, 03 Nov 2011 21:25:54 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-4750</guid>
+      <dc:date>2011-11-03T21:25:54Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5104</link>
+      <description>&lt;!-- [DocumentBodyStart:64e3f636-beef-49e8-9768-de788c4550af] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I'm attempting to use this to calculate a ratio between to absolute datatypes. When I test it against a device, I get a TypeError&lt;/p&gt;&lt;p class="streaming-container" style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p class="streaming-container"&gt;-----8&amp;lt;-----8&amp;lt;-----&lt;/p&gt;&lt;div class="streaming-line even"&gt; Preparing Command... &lt;p&gt;&amp;#160; Calculating formula '$lbvserver_lbvserver_responsesrate / $lbvserver_lbvserver_requestsrate' against 10.255.1.51 &lt;/p&gt;&lt;p class="streaming-line even"&gt;&amp;#160;&amp;#160; The formula generated an error: TypeError.&amp;#160; &lt;/p&gt;&lt;p class="streaming-line even"&gt;&amp;#160;&amp;#160;&amp;#160; &lt;/p&gt;&lt;p class="streaming-line even"&gt; DONE in 3 seconds &lt;/p&gt;&lt;/div&gt;&lt;p&gt;-----&amp;gt;8-----&amp;gt;8-----&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Any Ideas?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;--Zenoss, version 3.2.1 - CentOS 5.6 - Dell PowerEdge 1950&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:64e3f636-beef-49e8-9768-de788c4550af] --&gt;</description>
+      <pubDate>Fri, 10 Feb 2012 19:56:16 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5104</guid>
+      <dc:date>2012-02-10T19:56:16Z</dc:date>
+      <clearspace:dateToText>2 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5106</link>
+      <description>&lt;!-- [DocumentBodyStart:22858d65-a626-451f-803f-3da44f7d5030] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The pack uses the getRRDValue function to gather the data.&amp;#160; Try doing the following in zendmd...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;d = dmd.Devices.findDevice('yourdevicename')&lt;/p&gt;&lt;p&gt;d.getRRDValue('lbvserver_lbvserver_responsesrate')&lt;/p&gt;&lt;p&gt;d.getRRDValue('lbvserver_lbvserver_requestsrate')&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;See if it returns values.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:22858d65-a626-451f-803f-3da44f7d5030] --&gt;</description>
+      <pubDate>Mon, 13 Feb 2012 19:27:20 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5106</guid>
+      <dc:date>2012-02-13T19:27:20Z</dc:date>
+      <clearspace:dateToText>2 years, 4 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5126</link>
+      <description>&lt;!-- [DocumentBodyStart:6d8d2174-19dd-4c32-8a20-40e61b860105] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;That's the problem. Since there is only one managment IP address for the Netscaler and all the virtual servers. the perf data is all associated with the First defined device, the Netscaler. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;It looks like I need to change how I create virtual servers devices in zenoss&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks for the clue.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6d8d2174-19dd-4c32-8a20-40e61b860105] --&gt;</description>
+      <pubDate>Mon, 13 Feb 2012 19:46:29 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5126</guid>
+      <dc:date>2012-02-13T19:46:29Z</dc:date>
+      <clearspace:dateToText>2 years, 4 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5202</link>
+      <description>&lt;!-- [DocumentBodyStart:4154d930-cd03-4646-ba2b-cdc4a478dade] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan,&lt;/p&gt;&lt;p&gt;Thanks for implementing this Zenpack, it really helps my work. &lt;/p&gt;&lt;p&gt;However a quick questio:&lt;/p&gt;&lt;p&gt;When I was calculating values, I found if I encounter 0 division problem (anynumber / 0), the script just throws an exception(I guess it was thrown by Python eval method), which results an warning in Zenoss: "No data returned".&lt;/p&gt;&lt;p&gt;Would it be better if the script can return 0 or NaN in this case?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thank in advance. &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4154d930-cd03-4646-ba2b-cdc4a478dade] --&gt;</description>
+      <pubDate>Thu, 08 Mar 2012 23:04:14 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5202</guid>
+      <dc:date>2012-03-08T23:04:14Z</dc:date>
+      <clearspace:dateToText>2 years, 5 days ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5195</link>
+      <description>&lt;!-- [DocumentBodyStart:f1a2c993-e872-4b5d-9a9b-372802f2cc4f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'll fix that in the next version (it could be a while before I have time to do an update).&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f1a2c993-e872-4b5d-9a9b-372802f2cc4f] --&gt;</description>
+      <pubDate>Fri, 09 Mar 2012 17:05:56 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5195</guid>
+      <dc:date>2012-03-09T17:05:56Z</dc:date>
+      <clearspace:dateToText>2 years, 4 days ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5204</link>
+      <description>&lt;!-- [DocumentBodyStart:22960f0e-50b1-41d5-b2e1-e81705b4b410] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks Ryan, looking forward to the new version!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:22960f0e-50b1-41d5-b2e1-e81705b4b410] --&gt;</description>
+      <pubDate>Fri, 09 Mar 2012 19:25:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5204</guid>
+      <dc:date>2012-03-09T19:25:10Z</dc:date>
+      <clearspace:dateToText>2 years, 4 days ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5548</link>
+      <description>&lt;!-- [DocumentBodyStart:e8501cab-08c3-412e-a20f-86ee51204718] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This zenpack looks like I can use different datasources &amp;amp; datapoints from the same device...correct?&lt;/p&gt;&lt;p&gt;Can I manipulate the same datasource/datapoint across different devices? If I understand this correctly the answer is no?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e8501cab-08c3-412e-a20f-86ee51204718] --&gt;</description>
+      <pubDate>Fri, 20 Apr 2012 18:16:32 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5548</guid>
+      <dc:date>2012-04-20T18:16:32Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5532</link>
+      <description>&lt;!-- [DocumentBodyStart:c4905097-313f-469a-9025-b736a0052ff7] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The pack currently doesn't support that.&amp;#160; Only datasources on a single device.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c4905097-313f-469a-9025-b736a0052ff7] --&gt;</description>
+      <pubDate>Fri, 20 Apr 2012 18:20:53 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5532</guid>
+      <dc:date>2012-04-20T18:20:53Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5549</link>
+      <description>&lt;!-- [DocumentBodyStart:d4dc594a-a69c-4808-87ca-cbf62e343674] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;k thank you!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d4dc594a-a69c-4808-87ca-cbf62e343674] --&gt;</description>
+      <pubDate>Fri, 20 Apr 2012 18:27:57 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5549</guid>
+      <dc:date>2012-04-20T18:27:57Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5774</link>
+      <description>&lt;!-- [DocumentBodyStart:de644b7b-b7f8-4b04-bfc5-294bef3019ea] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ryan, I had a strange issue with this zenpack and thought I would at least report it. I added a formula graph to a template, about 20 devices used this template. it caluclates perfectly. What was odd is 17 out of the 20 devices started graphing the output. The 3 that didn't I looked into the /Devices dir and no rrd file was created. I tried remodeling it etc. No matter what I did through the gui I couldnt get it created.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Cutting to the chase I ended up just touching/creating the file in the Device dir and these 3 immediately starting creating graph points. There is no pernissions issues with the zenoss id etc.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;It is working fine now.&lt;/p&gt;&lt;p&gt;Initially I had a timeout issue which had to be increased for the 17/20 to work.&lt;/p&gt;&lt;p&gt;End of my 2 cents...&lt;/p&gt;&lt;p&gt;thanks again for the pack!&lt;/p&gt;&lt;p&gt;This was on v3.2.1 on cent os.&lt;/p&gt;&lt;p&gt;Jay&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:de644b7b-b7f8-4b04-bfc5-294bef3019ea] --&gt;</description>
+      <pubDate>Tue, 19 Jun 2012 15:13:22 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5774</guid>
+      <dc:date>2012-06-19T15:13:22Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5752</link>
+      <description>&lt;!-- [DocumentBodyStart:d960865e-49ca-4de5-a7eb-c4cb90358ac5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hmmm, I've never heard of that issue before.&amp;#160; I would have needed output from a "zencommand run -v10" to be able to comment on what the cause might have been for that.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d960865e-49ca-4de5-a7eb-c4cb90358ac5] --&gt;</description>
+      <pubDate>Tue, 19 Jun 2012 15:19:43 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5752</guid>
+      <dc:date>2012-06-19T15:19:43Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5792</link>
+      <description>&lt;!-- [DocumentBodyStart:dee62d51-3b3c-4beb-9682-1a46903ae9e4] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I'm a summer intern and fairly new to Zenoss. I've been trying to use your ZenPack to get the difference of two data points and it seems to work fine when I test it from the Edit Data Source window, but is the result value automatically kept as a new data point? I've added your formula data source to my template, named it, entered a formula, enabled it, and saved it. So now do I just create a data point for the data source and name it whatever I choose? Would you please clarify this for me? Thank you.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:dee62d51-3b3c-4beb-9682-1a46903ae9e4] --&gt;</description>
+      <pubDate>Wed, 27 Jun 2012 22:27:12 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5792</guid>
+      <dc:date>2012-06-27T22:27:12Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5806</link>
+      <description>&lt;!-- [DocumentBodyStart:4c5db5a7-953c-473f-91b5-0ba048a4c5f7] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I coded the pack so that it creates both the datasource and the datapoint.&amp;#160; All you need to do is create the datasource, add your formula, and then add it to a graph as a graphpoint.&amp;#160; Everything else should be automatically taken care of.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4c5db5a7-953c-473f-91b5-0ba048a4c5f7] --&gt;</description>
+      <pubDate>Thu, 28 Jun 2012 14:23:32 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5806</guid>
+      <dc:date>2012-06-28T14:23:32Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5796</link>
+      <description>&lt;!-- [DocumentBodyStart:ef48e63c-a9ae-46a2-8cda-c36b5533a639] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks. That is what I'd expected. However, I'm using an enterprise edition of zenoss for which the core code has been modified significantly, so I think it may be interfering with your zenpack. The data point doesn't seem to be being created, or, if it is, it isn't apparant. What is the standard way that the data point is named? Thank you.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ef48e63c-a9ae-46a2-8cda-c36b5533a639] --&gt;</description>
+      <pubDate>Thu, 28 Jun 2012 17:45:34 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5796</guid>
+      <dc:date>2012-06-28T17:45:34Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5810</link>
+      <description>&lt;!-- [DocumentBodyStart:c0e23d5e-79ad-4d3b-ac9e-60246ae25175] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The enteprise Zenoss is currently version 4.&amp;#160; Since they released version 4 of enterprise before releasing version 4 of core, the community hasn't had a chance to update any of their packs to work with the new architechture.&amp;#160; I'm waiting for Core 4 to be released to update any of my ZenPacks that need updating.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c0e23d5e-79ad-4d3b-ac9e-60246ae25175] --&gt;</description>
+      <pubDate>Thu, 28 Jun 2012 18:00:34 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5810</guid>
+      <dc:date>2012-06-28T18:00:34Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5917</link>
+      <description>&lt;!-- [DocumentBodyStart:fb67a3d5-f01a-4509-9d58-1693dd7f8268] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I tested this pack in Core 4.2 yesterday and it worked without any issues.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fb67a3d5-f01a-4509-9d58-1693dd7f8268] --&gt;</description>
+      <pubDate>Tue, 14 Aug 2012 15:43:07 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5917</guid>
+      <dc:date>2012-08-14T15:43:07Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5920</link>
+      <description>&lt;!-- [DocumentBodyStart:a603a363-0ff0-46a3-96ea-e531b7a8bceb] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Yes, I apologize, my problem was short lived - I must have made an error,&lt;/p&gt;&lt;p&gt;perhaps not pushing the changes.&lt;/p&gt;&lt;p&gt;Thank you.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a603a363-0ff0-46a3-96ea-e531b7a8bceb] --&gt;</description>
+      <pubDate>Tue, 14 Aug 2012 20:25:05 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5920</guid>
+      <dc:date>2012-08-14T20:25:05Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5962</link>
+      <description>&lt;!-- [DocumentBodyStart:9768205a-1ef2-4872-9c9d-73f1f1a58171] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This version 1.6 works in Zenoss 3.2.1?&lt;/p&gt;&lt;p&gt;In my tests, with data point generate by nagios plugin "check_snmp" didn't work.&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:9768205a-1ef2-4872-9c9d-73f1f1a58171] --&gt;</description>
+      <pubDate>Mon, 20 Aug 2012 19:18:50 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5962</guid>
+      <dc:date>2012-08-20T19:18:50Z</dc:date>
+      <clearspace:dateToText>1 year, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5964</link>
+      <description>&lt;!-- [DocumentBodyStart:663d98f6-d91e-450c-b8c9-6ad96652a032] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;It works in Zenoss 2, 3, and 4.&amp;#160; Don't put spaces in your datasource names, it won't work if there are spaces in them.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:663d98f6-d91e-450c-b8c9-6ad96652a032] --&gt;</description>
+      <pubDate>Mon, 20 Aug 2012 19:20:26 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5964</guid>
+      <dc:date>2012-08-20T19:20:26Z</dc:date>
+      <clearspace:dateToText>1 year, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5965</link>
+      <description>&lt;!-- [DocumentBodyStart:e56b1c43-d38c-4a6a-84cf-c08c3389c979] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Example:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Data Source:&lt;/p&gt;&lt;p&gt;cg.NNC-0200&lt;/p&gt;&lt;p&gt;cg.NNC-0210&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Data Point:&lt;/p&gt;&lt;p&gt;nnc.110.9.1&lt;/p&gt;&lt;p&gt;nnc.110.9.2&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Data Formula:&lt;/p&gt;&lt;p&gt;$cg.NNC-0200_nnc.110.9.1 + $cg.NNC-0210_nnc.110.9.2&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Is this correct?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e56b1c43-d38c-4a6a-84cf-c08c3389c979] --&gt;</description>
+      <pubDate>Mon, 20 Aug 2012 19:25:16 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5965</guid>
+      <dc:date>2012-08-20T19:25:16Z</dc:date>
+      <clearspace:dateToText>1 year, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5981</link>
+      <description>&lt;!-- [DocumentBodyStart:66057e60-2958-4c61-b416-e13559fc2854] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Correting:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 11.818181991577148px; background-color: #ffffff;"&gt;$cg.NNC-0200+$nnc.110.9.1&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:66057e60-2958-4c61-b416-e13559fc2854] --&gt;</description>
+      <pubDate>Mon, 20 Aug 2012 19:26:21 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5981</guid>
+      <dc:date>2012-08-20T19:26:21Z</dc:date>
+      <clearspace:dateToText>1 year, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5976</link>
+      <description>&lt;!-- [DocumentBodyStart:7f52f7c6-8d4c-4f87-acd0-271251f60300] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;It's possible that the periods or dashes are throwing it off.&amp;#160; Also, put some spacing between the +.&amp;#160; First off try...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;$cg.NNC-0200 + $nnc.110.9.1&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Notice the spacing.&amp;#160; If that doesn't work then rename your datasources and try...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;$cgNNC0200 + $nnc11091&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;It sometimes doesn't play well with special characters, something that I need to work on.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:7f52f7c6-8d4c-4f87-acd0-271251f60300] --&gt;</description>
+      <pubDate>Mon, 20 Aug 2012 19:29:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5976</guid>
+      <dc:date>2012-08-20T19:29:49Z</dc:date>
+      <clearspace:dateToText>1 year, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-5982</link>
+      <description>&lt;!-- [DocumentBodyStart:f699125e-1335-4fba-8381-900ce31d4c7c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'll do the tests.&lt;/p&gt;&lt;p&gt;thanks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f699125e-1335-4fba-8381-900ce31d4c7c] --&gt;</description>
+      <pubDate>Mon, 20 Aug 2012 19:34:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-5982</guid>
+      <dc:date>2012-08-20T19:34:10Z</dc:date>
+      <clearspace:dateToText>1 year, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-6597</link>
+      <description>&lt;!-- [DocumentBodyStart:54fc122c-a8ce-4f4f-9981-73fceb2223d0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p style="background-color: #eef4f9; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;Dear all,&lt;/p&gt;&lt;p style="background-color: #eef4f9; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;&lt;br/&gt;After i installed this very handy zenpack, in my localy Defined HttpMonitor Template , i added a new FORMULA type DataSource and named it TS.&lt;/p&gt;&lt;p style="background-color: #eef4f9; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;Normally &lt;span style="background-color: #ffffff;"&gt;it automatically creates a corresponding GAUGE type Datapoint "TS.TS"&lt;/span&gt;&lt;/p&gt;&lt;p style="background-color: #eef4f9; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;&lt;span style="background-color: #ffffff;"&gt;Now my Template look likes below :&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="background-color: #ffffff; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;DSource1&lt;/p&gt;&lt;ul&gt;&lt;li&gt;DPoint1&lt;/li&gt;&lt;li&gt;DPoint2&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-size: 12px; background-color: #ffffff; font-family: Arial;"&gt;DSource2&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;DPoint3&lt;/li&gt;&lt;li&gt;DPoint4&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;span style="background-color: #eef4f9; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;&lt;span style="background-color: #ffffff;"&gt;FormulaDSource&amp;#160; &lt;/span&gt;&lt;span style="background-color: #ffffff; color: #ff0000;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; //TS&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;FormulaDPoint&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;span style="color: #ff0000;"&gt;// TS.TS&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="background-color: #eef4f9; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;&lt;span style="color: #000000;"&gt;I double clicked on FormulaDPoint (here as TS.TS)&amp;#160; and now i dont know where to write my Formula ?!&lt;/span&gt;&lt;/p&gt;&lt;p style="background-color: #eef4f9; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;&lt;span style="color: #000000;"&gt;In CREATE COMMAND&amp;#160; or&amp;#160; ID/FORMULA or RRD Minimum&amp;#160; Maximum ?&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="background-color: #eef4f9; font-size: 12px; color: #2b2b2b; font-family: Arial;"&gt;&lt;span style="color: #000000;"&gt;My formula is &lt;span style="background-color: #ffffff; color: #2b2b2b;"&gt;$DSource1_DPoint2 + $DSource2_DPoint4&lt;/span&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; background-color: #ffffff;"&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:54fc122c-a8ce-4f4f-9981-73fceb2223d0] --&gt;</description>
+      <pubDate>Mon, 20 May 2013 12:03:55 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-6597</guid>
+      <dc:date>2013-05-20T12:03:55Z</dc:date>
+      <clearspace:dateToText>9 months, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-6589</link>
+      <description>&lt;!-- [DocumentBodyStart:4ef4cf16-5348-4299-9411-6a14a582910d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Double click on the datasource, not the datapoint.&amp;#160; The formula always needs to be set on the datasource.&amp;#160; Your formula looks fine.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4ef4cf16-5348-4299-9411-6a14a582910d] --&gt;</description>
+      <pubDate>Tue, 21 May 2013 18:45:26 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-6589</guid>
+      <dc:date>2013-05-21T18:45:26Z</dc:date>
+      <clearspace:dateToText>9 months, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-6787</link>
+      <description>&lt;!-- [DocumentBodyStart:226d946e-d09c-47c7-bcf4-cc1e8624dca9] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Ryan,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Is it possible to make the addition of two different devices and show the result in a Graph, for example:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Device A interface eth0 + Device B interface eth0.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;And see the total amount of bandwidth used in a Graph ??&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks in advance&amp;#160; &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:226d946e-d09c-47c7-bcf4-cc1e8624dca9] --&gt;</description>
+      <pubDate>Wed, 04 Sep 2013 01:42:27 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-6787</guid>
+      <dc:date>2013-09-04T01:42:27Z</dc:date>
+      <clearspace:dateToText>6 months, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-6820</link>
+      <description>&lt;!-- [DocumentBodyStart:04e023fc-006f-4b03-b640-1ddfb70bd3a4] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;That is not currently possible with this pack, you'd have to script something like that from scratch.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:04e023fc-006f-4b03-b640-1ddfb70bd3a4] --&gt;</description>
+      <pubDate>Wed, 04 Sep 2013 13:43:02 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-6820</guid>
+      <dc:date>2013-09-04T13:43:02Z</dc:date>
+      <clearspace:dateToText>6 months, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-7252</link>
+      <description>&lt;!-- [DocumentBodyStart:328008a3-257c-4995-9303-69e13442da6b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;When attempting to edit the data source, I don't get the "Data Formula" option. I see the below.&amp;#160; This is in Zenoss 4.2.4.&amp;#160; Any ideas?&lt;/p&gt;&lt;p&gt;&lt;a href="http://community.zenoss.org/servlet/JiveServlet/showImage/105-7252-17194/forumual.PNG"&gt;&lt;img alt="forumual.PNG" class="jive-image" height="118" src="http://community.zenoss.org/servlet/JiveServlet/downloadImage/105-7252-17194/450-118/forumual.PNG" width="450"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:328008a3-257c-4995-9303-69e13442da6b] --&gt;</description>
+      <pubDate>Thu, 12 Dec 2013 22:07:00 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-7252</guid>
+      <dc:date>2013-12-12T22:07:00Z</dc:date>
+      <clearspace:dateToText>3 months, 1 day ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-7365</link>
+      <description>&lt;!-- [DocumentBodyStart:54c1bc63-45a9-4c41-91e1-2125bb4bf175] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Try installing the &lt;a class="" href="http://community.zenoss.org/servlet/JiveServlet/download/10224-12-11634/ZenPacks.community.FormulaDataSource-1.6-py2.7.egg.zip"&gt;ZenPacks.community.FormulaDataSource-1.6-py2.7.egg.zip&lt;/a&gt; and see if that makes a difference.&amp;#160; I just quickly tested that file on my 4.x instance and I could see the field.&amp;#160; Make sure you restart Zenoss after installing the pack.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:54c1bc63-45a9-4c41-91e1-2125bb4bf175] --&gt;</description>
+      <pubDate>Wed, 18 Dec 2013 18:59:28 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-7365</guid>
+      <dc:date>2013-12-18T18:59:28Z</dc:date>
+      <clearspace:dateToText>2 months, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Formula Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-10224#comments-7353</link>
+      <description>&lt;!-- [DocumentBodyStart:bee5fd1d-f992-493b-9d6b-7c0a111931d0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;thank you, that seemed to have helped.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:bee5fd1d-f992-493b-9d6b-7c0a111931d0] --&gt;</description>
+      <pubDate>Fri, 20 Dec 2013 18:05:08 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-10224#comments-7353</guid>
+      <dc:date>2013-12-20T18:05:08Z</dc:date>
+      <clearspace:dateToText>2 months, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

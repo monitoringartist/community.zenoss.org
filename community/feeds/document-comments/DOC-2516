@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Configuration : Setup Zenoss with Apache : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-2516#comments</link>
+    <description>Comments on : Setup Zenoss with Apache</description>
+    <language>en</language>
+    <pubDate>Wed, 18 Nov 2009 17:32:51 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2009-11-18T17:32:51Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Setup Zenoss with Apache</title>
+      <link>http://community.zenoss.org/docs/DOC-2516#comments-1474</link>
+      <description>&lt;!-- [DocumentBodyStart:1d3d3744-7481-4cce-83ad-bd11c2e29711] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;span&gt;&lt;span&gt;For people running lighttpd check out this page: &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://plone.org/documentation/faq/how-to-use-plone-with-lighttpd/"&gt;http://plone.org/documentation/faq/how-to-use-plone-with-lighttpd/&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;e.g. I have the following (SSL enabled) in my lighttpd.conf:&lt;/p&gt;&lt;p&gt;&lt;em&gt;&lt;br/&gt;&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;$SERVER["socket"] == "${SERVER_IP):443" {&lt;br/&gt;&lt;span&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; protocol = "&lt;/span&gt;&lt;a class="jive-link-external-small" href="https://"&gt;https://&lt;/a&gt;&lt;span&gt;"&lt;/span&gt;&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ssl.engine = "enable"&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ssl.ca-file = "/etc/lighttpd/ssl/ca-certs.crt"&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; ssl.pemfile = "/etc/lighttpd/ssl/ssl.crt"&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&lt;br/&gt;&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; url.rewrite-once = ( "^/(.*)$" =&amp;gt; "/VirtualHostBase/https/${SERVER_NAME}:443/VirtualHostRoot/$1" )&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; proxy.server = ( "/VirtualHostBase/" =&amp;gt; ( ( "host" =&amp;gt; "127.0.0.1" , "port" =&amp;gt; 8080 ) ) )&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&lt;br/&gt;&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;} else&amp;#160;&amp;#160;&amp;#160; $HTTP["host"] =~ "(.*)" {&lt;br/&gt;&lt;span&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; url.redirect = ( "^/(.*)" =&amp;gt; "&lt;/span&gt;&lt;a class="jive-link-external-small" href=""&gt;https://%1/$1&lt;/a&gt;&lt;span&gt;" )&lt;/span&gt;&lt;br/&gt;}&lt;/em&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Replace ${SERVER_IP} &amp;amp; ${SERVER_NAME} with your own&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1d3d3744-7481-4cce-83ad-bd11c2e29711] --&gt;</description>
+      <pubDate>Wed, 18 Nov 2009 17:26:20 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2516#comments-1474</guid>
+      <dc:date>2009-11-18T17:26:20Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Setup Zenoss with Apache</title>
+      <link>http://community.zenoss.org/docs/DOC-2516#comments-1511</link>
+      <description>&lt;!-- [DocumentBodyStart:bfe52f35-2055-4436-8fc0-c982ca2ec1e1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;span&gt;I need Zenoss at a lower level like &lt;/span&gt;&lt;a class="jive-link-external-small" href="https://mypublicserver/zenoss/"&gt;https://mypublicserver/zenoss/&lt;/a&gt;&lt;span&gt; so I'm trying to use this:&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt; RewriteRule ^/zenoss/(.*) &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://localhost:8888/VirtualHostBase/https/mypublicserver:443/VirtualHostRoot/zenoss/$1"&gt;http://localhost:8888/VirtualHostBase/https/mypublicserver:443/VirtualHostRoot/zenoss/$1&lt;/a&gt;&lt;span&gt; [L,P]&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Which somewhat works, but I still see 404 errors in the Z2.log like this:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt; /VirtualHostBase/https/mypublicserver:443/VirtualHostRoot/zenoss/javascript/selection.js&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Also it's generating this bad dashboard link &lt;/span&gt;&lt;a class="jive-link-external-small" href="https://mypublicserver/zport/dmd/"&gt;https://mypublicserver/zport/dmd/&lt;/a&gt;&lt;span&gt; which lacks the /zenoss/&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Is there somewhere other than zenactions.conf that I need to set the zopeurl so it knows its public URL?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:bfe52f35-2055-4436-8fc0-c982ca2ec1e1] --&gt;</description>
+      <pubDate>Mon, 23 Nov 2009 04:58:42 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2516#comments-1511</guid>
+      <dc:date>2009-11-23T04:58:42Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Setup Zenoss with Apache</title>
+      <link>http://community.zenoss.org/docs/DOC-2516#comments-1557</link>
+      <description>&lt;!-- [DocumentBodyStart:b2be6fab-24b2-47c6-88cb-59a68b7d0bef] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I tried the above step and tried googling a lot but still it does not work. While accessing via the browser I get the error from apache&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;403 Forbidden&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;h1&gt;Forbidden&lt;/h1&gt;&lt;p&gt;You don't have permission to access / on this server.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b2be6fab-24b2-47c6-88cb-59a68b7d0bef] --&gt;</description>
+      <pubDate>Thu, 10 Dec 2009 10:33:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2516#comments-1557</guid>
+      <dc:date>2009-12-10T10:33:39Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Setup Zenoss with Apache</title>
+      <link>http://community.zenoss.org/docs/DOC-2516#comments-2281</link>
+      <description>&lt;!-- [DocumentBodyStart:f9b11fa4-9b98-44bc-9ccf-fab1811b759e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I like to use ProxyPass directives instead of mod_rewrite, though it's really a matter of personal preference.&amp;#160; Here's what works for me:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;&amp;lt;Proxy &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://127.0.0.1:8080/*"&gt;http://127.0.0.1:8080/*&lt;/a&gt;&lt;span&gt;&amp;gt;&lt;/span&gt;&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; Allow from all&lt;br/&gt;&amp;lt;/Proxy&amp;gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;ProxyVia On&lt;br/&gt;ProxyPreserveHost On&lt;br/&gt;&lt;span&gt;ProxyPass / &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://127.0.0.1:8080/"&gt;http://127.0.0.1:8080/&lt;/a&gt;&lt;br/&gt;&lt;span&gt;ProxyPassReverse / &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://127.0.0.1:8080/"&gt;http://127.0.0.1:8080/&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;If you're having problems with Zenoss creating HTTP URLs instead of HTTPS, look for the &amp;lt;cgi-environment&amp;gt; section in $ZENHOME/etc/zope.conf.&amp;#160; If it's commented out, change it (or add an uncommented version) that looks like this:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;lt;cgi-environment&amp;gt;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; HTTPS ON&lt;/p&gt;&lt;p&gt;&amp;lt;/cgi-environment&amp;gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;If it isn't commented out, just add the HTTPS ON statement to the existing cgi-environment block.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;For those of you trying to put zenoss under somewhere other than the root (e.g. /zenoss/) under Apache, check out mod_proxy_html (&lt;/span&gt;&lt;a class="jive-link-external-small" href="http://apache.webthing.com/mod_proxy_html/"&gt;http://apache.webthing.com/mod_proxy_html/&lt;/a&gt;&lt;span&gt;).&amp;#160; I haven't used it, but it's supposed to take care of changing URLs in the HTML content.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f9b11fa4-9b98-44bc-9ccf-fab1811b759e] --&gt;</description>
+      <pubDate>Tue, 20 Jul 2010 15:34:55 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2516#comments-2281</guid>
+      <dc:date>2010-07-20T15:34:55Z</dc:date>
+      <clearspace:dateToText>3 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Setup Zenoss with Apache</title>
+      <link>http://community.zenoss.org/docs/DOC-2516#comments-2596</link>
+      <description>&lt;!-- [DocumentBodyStart:a7182257-3b0c-4901-916c-57a10333a812] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;In case you haven't found it:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p&gt;Is there somewhere other than zenactions.conf that I need to set the zopeurl so it knows its public URL?&lt;/p&gt;&lt;/blockquote&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Zope has the _fh_ construct for this purpose: i.e to just have the URL rewritten. For your example this would translate to:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;pre&gt;RewriteRule ^/zenoss/(.*) \&lt;br/&gt;http://localhost:8888/VirtualHostBase/https/mypublicserver:443/VirtualHostRoot/_fh_zenoss/$1 [L,P]&lt;/pre&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a7182257-3b0c-4901-916c-57a10333a812] --&gt;</description>
+      <pubDate>Tue, 07 Sep 2010 22:20:57 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2516#comments-2596</guid>
+      <dc:date>2010-09-07T22:20:57Z</dc:date>
+      <clearspace:dateToText>3 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Setup Zenoss with Apache</title>
+      <link>http://community.zenoss.org/docs/DOC-2516#comments-2597</link>
+      <description>&lt;!-- [DocumentBodyStart:5020e24e-46ee-4990-a50b-a195eba43adb] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'm sure you solved this by now, but for future refference, a detailed reason is usually in your apache's error_log&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5020e24e-46ee-4990-a50b-a195eba43adb] --&gt;</description>
+      <pubDate>Tue, 07 Sep 2010 22:22:55 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2516#comments-2597</guid>
+      <dc:date>2010-09-07T22:22:55Z</dc:date>
+      <clearspace:dateToText>3 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Setup Zenoss with Apache</title>
+      <link>http://community.zenoss.org/docs/DOC-2516#comments-4813</link>
+      <description>&lt;!-- [DocumentBodyStart:97758178-c90e-42b1-98b2-f7c3adbea390] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;A little late but for anyone else that may have this problem. If you are using a redhat system and have selinux on you may get this error.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:97758178-c90e-42b1-98b2-f7c3adbea390] --&gt;</description>
+      <pubDate>Thu, 17 Nov 2011 13:49:53 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2516#comments-4813</guid>
+      <dc:date>2011-11-17T13:49:53Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Setup Zenoss with Apache</title>
+      <link>http://community.zenoss.org/docs/DOC-2516#comments-6652</link>
+      <description>&lt;!-- [DocumentBodyStart:8b975f6c-ed90-4cc4-a073-2726f643b0eb] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;https mod works, but I now get this error on the dashboard:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #eef4f9;"&gt;"The server returned an error while trying to retrieve a map from Google. Please check your client key in the services page."&amp;#160; &lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #eef4f9;"&gt;This worked prior to the change to https.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8b975f6c-ed90-4cc4-a073-2726f643b0eb] --&gt;</description>
+      <pubDate>Fri, 28 Jun 2013 14:15:44 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2516#comments-6652</guid>
+      <dc:date>2013-06-28T14:15:44Z</dc:date>
+      <clearspace:dateToText>8 months, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

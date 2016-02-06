@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Event Transforms : Show the % usage in a filesytem threshold? : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-2553#comments</link>
+    <description>Comments on : Show the % usage in a filesytem threshold?</description>
+    <language>en</language>
+    <pubDate>Mon, 14 Feb 2011 17:33:42 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2011-02-14T17:33:42Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Show the % usage in a filesytem threshold?</title>
+      <link>http://community.zenoss.org/docs/DOC-2553#comments-3479</link>
+      <description>&lt;!-- [DocumentBodyStart:f23e0aab-a22b-4c17-84b5-46aee70175b3] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I am finding this to be a simpler method (the device severity modifier is left out):&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;fs_id = device.prepId(evt.component)&lt;br/&gt;found = False&lt;br/&gt;for f in device.os.filesystems():&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; fs_mount = device.prepId(f.mount)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; #print evt.component,fs_id,fs_mount,f.mount&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; if f.id == fs_id:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; found=True&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; if f.id == evt.component:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; found=True&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; if f.mount == fs_id:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; found=True&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; if f.mount == evt.component:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; found=True&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; if fs_mount == fs_id:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; found=True&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160; if found == True:&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; usedBytes = f.usedBytes()&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; totalBytes = f.totalBytes()&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; percentUsed =&amp;#160; usedBytes / totalBytes * 100&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; freeBytes =&amp;#160; (totalBytes - usedBytes) / 1024**3&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; evt.summary = "Disk space low: %3.1f%% used (%3.2f GB free)" % (percentUsed,freeBytes)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; evt.message = "Disk space low: %3.1f%% used (%3.2f GB free)" % (percentUsed,freeBytes)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; break&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Joseph&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f23e0aab-a22b-4c17-84b5-46aee70175b3] --&gt;</description>
+      <pubDate>Mon, 14 Feb 2011 17:33:29 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-2553#comments-3479</guid>
+      <dc:date>2011-02-14T17:33:29Z</dc:date>
+      <clearspace:dateToText>3 years, 4 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : Asterisk SSH : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-4643#comments</link>
+    <description>Comments on : Asterisk SSH</description>
+    <language>en</language>
+    <pubDate>Sun, 17 Jan 2010 08:32:44 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2010-01-17T08:32:44Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-1678</link>
+      <description>&lt;!-- [DocumentBodyStart:a809e7db-2b2d-4249-9505-2d11a05c4e02] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;a quick howto on ssh exchange key&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;h2&gt;How to do it&lt;/h2&gt;
+&lt;p&gt;First log in on A as user a and generate a pair of authentication keys.&amp;#160; Do not enter a passphrase:&lt;/p&gt;
+&lt;pre&gt;a@A:~&amp;gt; ssh-keygen -t rsa&lt;br/&gt;Generating public/private rsa key pair.&lt;br/&gt;Enter file in which to save the key (/home/a/.ssh/id_rsa): &lt;br/&gt;Created directory '/home/a/.ssh'.&lt;br/&gt;Enter passphrase (empty for no passphrase): &lt;br/&gt;Enter same passphrase again: &lt;br/&gt;Your identification has been saved in /home/a/.ssh/id_rsa.&lt;br/&gt;Your public key has been saved in /home/a/.ssh/id_rsa.pub.&lt;br/&gt;The key fingerprint is:&lt;br/&gt;3e:4f:05:79:3a:9f:96:7c:3b:ad:e9:58:37:bc:37:e4 a@A&lt;br/&gt;&lt;/pre&gt;
+&lt;p&gt;Now use &lt;tt&gt;ssh&lt;/tt&gt; to create a directory &lt;tt&gt;~/.ssh&lt;/tt&gt; as user b on B. (The directory may already exist, which is fine):&lt;/p&gt;
+&lt;pre&gt;a@A:~&amp;gt; ssh b@B mkdir -p .ssh&lt;br/&gt;b@B's password: &lt;br/&gt;&lt;/pre&gt;
+&lt;p&gt;Finally append a's new public key to &lt;tt&gt;b@B:.ssh/authorized_keys&lt;/tt&gt; and enter b's password one last time:&lt;/p&gt;
+&lt;pre&gt;a@A:~&amp;gt; cat .ssh/id_rsa.pub | ssh b@B 'cat &amp;gt;&amp;gt; .ssh/authorized_keys'&lt;br/&gt;b@B's password: &lt;br/&gt;&lt;/pre&gt;
+&lt;p&gt;From now on you can log into B as b from A as a without password:&lt;/p&gt;
+&lt;pre&gt;a@A:~&amp;gt; ssh b@B hostname&lt;br/&gt;B&lt;br/&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a809e7db-2b2d-4249-9505-2d11a05c4e02] --&gt;</description>
+      <pubDate>Sun, 17 Jan 2010 08:32:44 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-1678</guid>
+      <dc:date>2010-01-17T08:32:44Z</dc:date>
+      <clearspace:dateToText>4 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-1827</link>
+      <description>&lt;!-- [DocumentBodyStart:14a89c7c-f75f-4075-8093-e7a5bcb233b1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Andrea,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Do you recommend to modify zCommandCycleTime to cath sub-minute calls?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Something like 20 seconds cycles?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Gabriel&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:14a89c7c-f75f-4075-8093-e7a5bcb233b1] --&gt;</description>
+      <pubDate>Fri, 05 Mar 2010 18:54:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-1827</guid>
+      <dc:date>2010-03-05T18:54:39Z</dc:date>
+      <clearspace:dateToText>4 years, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-1828</link>
+      <description>&lt;!-- [DocumentBodyStart:4bbc5a75-203f-461b-b251-af2adee9c094] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;it depends on your&amp;#160; installation, and about how many server you've to monitor.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;you can try and monitor how it works (see collector perfromance)&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4bbc5a75-203f-461b-b251-af2adee9c094] --&gt;</description>
+      <pubDate>Fri, 05 Mar 2010 19:43:19 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-1828</guid>
+      <dc:date>2010-03-05T19:43:19Z</dc:date>
+      <clearspace:dateToText>4 years, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-1901</link>
+      <description>&lt;!-- [DocumentBodyStart:05fadbad-8c2b-4131-8cbb-2b9a43f803dd] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;span id="result_box"&gt;&lt;span style="BACKGROUND-COLOR: #fff;" title="Ola Andrea,"&gt;Hello Andrea,&lt;br/&gt;&lt;br/&gt;&lt;/span&gt;&lt;span style="BACKGROUND-COLOR: #ebeff9;" title="Como posso monitorar meus canais zap?"&gt;&lt;span style="BACKGROUND-COLOR: #fff;" title="Me desculpe a pergunta fora do contexto, mas como posso monitorar meus canais zap?"&gt;Sorry the question out of context, but how can I monitor my zap channels?&lt;br/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="BACKGROUND-COLOR: #fff;" title="Por exemplo executando o comando pri show spans tenho o status de todos os meus links E1 ativos e funcionais, e caso algum desses canais falhe, gostaria de recebeu um email de notifica&amp;#231;&amp;atilde;o."&gt;For example, by running pri show spans have the status of all my links E1 active and functional, and if any of these channels fail, I received an email notification.&lt;br/&gt;&lt;br/&gt;&lt;/span&gt;&lt;span style="BACKGROUND-COLOR: #fff;" title="Com o zenoss &amp;eacute; possivel executar essa tarefa?"&gt;With zenoss is possible to perform this task?&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:05fadbad-8c2b-4131-8cbb-2b9a43f803dd] --&gt;</description>
+      <pubDate>Mon, 05 Apr 2010 20:25:28 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-1901</guid>
+      <dc:date>2010-04-05T20:25:28Z</dc:date>
+      <clearspace:dateToText>3 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-2043</link>
+      <description>&lt;!-- [DocumentBodyStart:d40e0379-6ed2-4548-8c94-273492481cab] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'm sorry for posting this here ,&lt;/p&gt;&lt;p&gt;i'm new to zenoss , and i'm trying to make this Zenpack to work ,&lt;/p&gt;&lt;p&gt;I've followed the instruction like this:&lt;/p&gt;&lt;p&gt;sudo su - zenoss&lt;/p&gt;&lt;p&gt;zenpack --install Zenpack.....egg&lt;/p&gt;&lt;p&gt;zenoss restart&lt;/p&gt;&lt;p&gt;ssh-keygen -t rsa&lt;/p&gt;&lt;p&gt;ssh-copy-id -i ~/.ssh/id_rsa.pub root@bla&lt;/p&gt;&lt;p&gt;ssh root@bla mkdir /zenoss&lt;/p&gt;&lt;p&gt;scp $ZENHOME/ZenPacks/ZenPacks.Lais.Asterisk/ZenPacks/Lais/Asterisk/libexec/* root@bla:/zenoss/&lt;/p&gt;&lt;p&gt;now i don't know what to do next &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/grin.gif" width="16px"/&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;any help would be appreciated , thank you.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Update : i've made it work , so if there was a delete button i would have deleted my comment , thank you anyway.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d40e0379-6ed2-4548-8c94-273492481cab] --&gt;</description>
+      <pubDate>Fri, 14 May 2010 07:57:35 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-2043</guid>
+      <dc:date>2010-05-14T07:57:35Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-2053</link>
+      <description>&lt;!-- [DocumentBodyStart:7034bf76-641e-4681-9502-a8eaddbec26d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;apply the template you found under /device to you asterisk server&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;MSN: &lt;/span&gt;&lt;a class="jive-link-email-small" href="mailto:andrea.consadori@hotmail.it"&gt;andrea.consadori@hotmail.it&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;WEB: &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://www.consadori.com"&gt;http://www.consadori.com&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:7034bf76-641e-4681-9502-a8eaddbec26d] --&gt;</description>
+      <pubDate>Fri, 14 May 2010 10:35:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-2053</guid>
+      <dc:date>2010-05-14T10:35:10Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-2060</link>
+      <description>&lt;!-- [DocumentBodyStart:5fc06bf4-36f4-4e39-9658-c4d672c5d682] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I have gotten this to work without any check_by_ssh.&amp;#160; Instead, I just use the default zProperties of the device.&amp;#160; I set the username, password, and ssh port (if it has changed).&amp;#160; Then, do the following for each of the command:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Set the "Use SSH" to "True"&lt;/li&gt;&lt;li&gt;Don't bother copying the scripts over to your device.&amp;#160; Instead, just take the contents from each of them, and use that in the "Command Template" section.&lt;/li&gt;&lt;li&gt;Adjust the new "Command Template" to NOT use "/usr/bin/ssh" in it.&amp;#160; And modify any variables such that there are two $'s instead of just one.&amp;#160; So for example, the "show_core_channels" should be changed to this:&lt;/li&gt;&lt;/ol&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/asterisk -rx "core show channels" | grep active | awk '{ print $$1 }' | tr '\n' ' ' |awk '{ print var1 $$1 var2 $$2}' var1="active_channel:" var2=" active_calls:"&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;instead of this:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/bin/ssh root@${dev/manageIp} /zenoss/show_core_channels.sh&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The "show_registered_trunk" should be this:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/asterisk -rx "sip show registry" | sed -e '1d' | wc -l |&amp;#160; awk '{print var1 $$1}' var1="registered_trunk:"&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;and the "sip_show_peers" should look like this:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/asterisk -rx "sip show peers" | tail -1 | awk '{print status var1 $$1 var2 $$5 var3 $$7 var4 $$10 var5 $$12}' status="OK | " var1="tot_sip_peers=" var2=" Mon_online=" var3=" Mon_offline=" var4=" Unmon_online=" var5=" Unmon_offline="&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5fc06bf4-36f4-4e39-9658-c4d672c5d682] --&gt;</description>
+      <pubDate>Tue, 18 May 2010 11:53:02 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-2060</guid>
+      <dc:date>2010-05-18T11:53:02Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-2063</link>
+      <description>&lt;!-- [DocumentBodyStart:bf57dcc4-94d7-4b1c-8469-f2a1f859f810] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;i'll test it in a few days and i will update zenpack then&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:bf57dcc4-94d7-4b1c-8469-f2a1f859f810] --&gt;</description>
+      <pubDate>Tue, 18 May 2010 16:56:50 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-2063</guid>
+      <dc:date>2010-05-18T16:56:50Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-2168</link>
+      <description>&lt;!-- [DocumentBodyStart:1c88932d-a507-4860-9361-f155ab5d6dd7] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I had this working with the instructions provided by hootjr29 and it was perfect for a day and then the graphs stopped and I can't get them to start again. The correct information on channels and such is being collected, but the RRD is not displaying anything. Seems to lose it the next model of the sever. Not sure what I am doing wrong that would cause this.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1c88932d-a507-4860-9361-f155ab5d6dd7] --&gt;</description>
+      <pubDate>Tue, 15 Jun 2010 00:18:27 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-2168</guid>
+      <dc:date>2010-06-15T00:18:27Z</dc:date>
+      <clearspace:dateToText>3 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-2766</link>
+      <description>&lt;!-- [DocumentBodyStart:73bcca60-9a15-423c-8028-abcc74090179] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'm using the 4.2py version and it's functioning wonderfully.&lt;/p&gt;&lt;p&gt;I added a new data point and graph to watch the number of ZAP channels since we were concerned about running out, here's the command I used:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/asterisk -rx "zap show channels" | grep [0-9] | grep -v "[0-9] \{12\}from" | wc -l | awk '{print var1 $1}' var1="current_inbound_calls:"&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks!&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;--John&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:73bcca60-9a15-423c-8028-abcc74090179] --&gt;</description>
+      <pubDate>Thu, 30 Sep 2010 21:54:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-2766</guid>
+      <dc:date>2010-09-30T21:54:49Z</dc:date>
+      <clearspace:dateToText>3 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-3990</link>
+      <description>&lt;!-- [DocumentBodyStart:9dd72169-f8ae-4e5f-9a6d-d3fb31694769] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Andrea, any update to this ZenPack? It looks great and would LOVE to help you test this. I have 3 Asterisk servers that are HIGHLY used that I could test this on. I would like to do it with the changes hotjr29 and riodutchie have made. We use inbound and outbound calls, and only T1's.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:9dd72169-f8ae-4e5f-9a6d-d3fb31694769] --&gt;</description>
+      <pubDate>Mon, 30 May 2011 18:16:53 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-3990</guid>
+      <dc:date>2011-05-30T18:16:53Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-3991</link>
+      <description>&lt;!-- [DocumentBodyStart:b261d812-461d-4b4d-b764-b0d3334e3267] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi,&lt;/p&gt;&lt;p&gt;what asterisk version you have?&lt;/p&gt;&lt;p&gt;1.6 or 1.8?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Skype: &lt;/span&gt;&lt;a class="jive-link-email-small" href="mailto:andrea.consadori@hotmail.it"&gt;andrea.consadori@hotmail.it&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;WEB: &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://www.consadori.com"&gt;http://www.consadori.com&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt; &amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote" level="1"&gt;&lt;p&gt;Date: Mon, 30 May 2011 14:16:57 -0400&lt;/p&gt;&lt;p&gt;&lt;span&gt;From: &lt;/span&gt;&lt;a class="jive-link-email-small" href="mailto:community@zenoss.org"&gt;community@zenoss.org&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;To: &lt;/span&gt;&lt;a class="jive-link-email-small" href="mailto:andrea.consadori@hotmail.it"&gt;andrea.consadori@hotmail.it&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Subject: &lt;a class="" href="http://community.zenoss.org/docs/DOC-4643#comment-3991/ZenPacks"&gt;Asterisk SSH&lt;/a&gt; Nuovo commento : Asterisk SSH&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Buongiorno, &lt;/p&gt;&lt;p&gt;Andrea Consadori,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;egrave; stato creato un nuovo commento&amp;#160; per il documento Asterisk SSH:&lt;/p&gt;&lt;p&gt;&lt;a class="jive-link-external-small" href="http://community.zenoss.org/docs/DOC-4643#comment-3990"&gt;http://community.zenoss.org/docs/DOC-4643#comment-3990&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Autore: OneLoveAmaru&lt;/p&gt;&lt;p&gt;&lt;span&gt;Profilo: &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://community.zenoss.org/people/OneLoveAmaru"&gt;http://community.zenoss.org/people/OneLoveAmaru&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Commento:&lt;/p&gt;&lt;p&gt;Andrea, any update to this ZenPack? It looks great and would LOVE to help you test this. I have 3 Asterisk servers that are HIGHLY used that I could test this on. I would like to do it with the changes hotjr29 and riodutchie have made. We use inbound and outbound calls, and only T1's.&lt;/p&gt;&lt;/blockquote&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b261d812-461d-4b4d-b764-b0d3334e3267] --&gt;</description>
+      <pubDate>Tue, 31 May 2011 05:16:29 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-3991</guid>
+      <dc:date>2011-05-31T05:16:29Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-3998</link>
+      <description>&lt;!-- [DocumentBodyStart:5d88a232-ccad-490c-a6ac-8b24181b0ac0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;1.4 actually. Will this work with it?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5d88a232-ccad-490c-a6ac-8b24181b0ac0] --&gt;</description>
+      <pubDate>Thu, 02 Jun 2011 12:49:44 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-3998</guid>
+      <dc:date>2011-06-02T12:49:44Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-4893</link>
+      <description>&lt;!-- [DocumentBodyStart:eaeb03c1-7184-47ba-876e-82571e63045b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I cant fix this problem when template is executing:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;/usr/bin/ssh root@${dev/manageIp} /zenoss/show_core_channels.sh&lt;/strong&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;i got this:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;/usr/bin/ssh: /usr/local/zenoss/common/lib/libcrypto.so.0.9.8: no version information available (required by /usr/bin/ssh)&lt;/strong&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;LD_LIBRARY_PATH &lt;/strong&gt;is the problem?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;DIego Perez&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:eaeb03c1-7184-47ba-876e-82571e63045b] --&gt;</description>
+      <pubDate>Fri, 09 Dec 2011 16:27:33 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-4893</guid>
+      <dc:date>2011-12-09T16:27:33Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-4895</link>
+      <description>&lt;!-- [DocumentBodyStart:fdcd0fad-558a-49c5-be80-65808970c717] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;i solved my problem, &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;/usr/bin/ssh: /usr/local/zenoss/common/lib/libcrypto.so.0.9.8: no version information available (required by /usr/bin/ssh)&lt;/strong&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;the library &lt;strong&gt;libcrypto.so.0.9.8 &lt;/strong&gt;is linked by LD_LIBRARY_PATH (env variable)... &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;you can follow the next instructions:&lt;br/&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Create a script &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/grin.gif" width="16px"/&gt; for chanels, peers and trunks, and modify the command template to..&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /&amp;lt;script_directory&amp;gt;/script.sh&lt;br/&gt;&lt;br/&gt; &lt;/strong&gt;&lt;/p&gt;&lt;p style="text-align: start;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Code example:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; #!/bin/bash &lt;/em&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; unset LD_LIBRARY_PATH&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; /usr/bin/ssh root@xxx.xxx.xxx.xxx zenoss/show_core_channels.sh&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;&lt;br/&gt;&lt;/em&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;In my case i had to modify all the scripts at asterisk server:&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p style="text-align: start;"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; &lt;em&gt;/usr/sbin/asterisk -rx "core show channels" | grep active | awk '{ print $$1 }' | tr '\n' ' ' |awk '{ print var1 $$1 var2 $$2}' var1="active_channel:" var2=" active_calls:"&lt;/em&gt;&lt;/p&gt;&lt;p style="text-align: start;"&gt;&lt;strong&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Just delete one $ in all... &lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;And i found an error in asterisk template, the trunk data_point is bad.. change it to the correct..&lt;/strong&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p style="text-align: start;"&gt;I hope this help &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt;,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Diego Perez&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fdcd0fad-558a-49c5-be80-65808970c717] --&gt;</description>
+      <pubDate>Mon, 12 Dec 2011 19:27:32 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-4895</guid>
+      <dc:date>2011-12-12T19:27:32Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Asterisk SSH</title>
+      <link>http://community.zenoss.org/docs/DOC-4643#comments-5798</link>
+      <description>&lt;!-- [DocumentBodyStart:16f5bf8c-a96a-4fde-9a81-726514b4918c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hopefully someone can give me some type of insight as to what I'm doing wrong, but I have all the scripts monitoring and graphing correctly except for the &lt;em style="font-size: 12px;"&gt;show_core_channels.sh&lt;/em&gt; script, this happens to be the one that I actually need.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Can you anyone give in suggestions or tricks that they used to get this one to work? Did anyone else run into problems getting the core_channels script to function?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;FYI, I'm have the scripts setup in the way that &lt;a class="jive-link-profile-small" href="http://community.zenoss.org/people/hootjr29"&gt;hootjr29&lt;/a&gt; suggested.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks in advance, any help or response will be greatly appreciated.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Alotofsnacks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:16f5bf8c-a96a-4fde-9a81-726514b4918c] --&gt;</description>
+      <pubDate>Fri, 29 Jun 2012 19:41:16 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4643#comments-5798</guid>
+      <dc:date>2012-06-29T19:41:16Z</dc:date>
+      <clearspace:dateToText>1 year, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

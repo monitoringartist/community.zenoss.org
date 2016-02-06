@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : EmailPing - Monitor your Email-based Alerting Mechanism : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-5853#comments</link>
+    <description>Comments on : EmailPing - Monitor your Email-based Alerting Mechanism</description>
+    <language>en</language>
+    <pubDate>Fri, 23 Apr 2010 05:20:14 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2010-04-23T05:20:14Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-1944</link>
+      <description>&lt;!-- [DocumentBodyStart:f0d55088-3a4f-474d-8458-21b30dd2eb9c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;hi, i use this zenpack and it works well.&lt;/p&gt;&lt;p&gt;it's possible to use it as a check on differend device?&lt;/p&gt;&lt;p&gt;i've several antispam device and it's very usefoul to check if antispam workflow is working correctly....&lt;/p&gt;&lt;p&gt;but with this zenpack i can check only one email account...&lt;/p&gt;&lt;p&gt;it possible to add more mail account and have different alert depending on mail accont that have issue?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f0d55088-3a4f-474d-8458-21b30dd2eb9c] --&gt;</description>
+      <pubDate>Fri, 23 Apr 2010 05:20:14 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-1944</guid>
+      <dc:date>2010-04-23T05:20:14Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-1946</link>
+      <description>&lt;!-- [DocumentBodyStart:c8056b58-75bd-409f-a845-474c18491662] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;That was going to be my next incarnation for this ZenPack. I can't believe you picked up on it that fast.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The following will work, however, it will break the performance graphs:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Make a copy of emailping.py, naming it emailping1.py&lt;/li&gt;&lt;li&gt;On line 101 of emailping1.py, change self.name = 'emailping' to 'emailping1'&lt;/li&gt;&lt;li&gt;Make a copy of ZenPack.../daemons/emailping to emailping1&lt;/li&gt;&lt;li&gt;Create a soft link in $ZENHOME/bin called emailping1 that points to ZenPack.../daemons/emailping1&lt;/li&gt;&lt;li&gt;You should now be able to see emailping1 listed on the Daemons page. Just configure it and start it like you did with the first one.&lt;/li&gt;&lt;/ol&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;One caveat is that Zenoss uses the class name for the log file, so all the daemons will be dumping into the same emailping.log file.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;If you do this, know that the component field of an event is populated with the following information:&lt;/p&gt;&lt;p style="padding-left: 30px;"&gt;&lt;strong&gt;epSendFailure &lt;/strong&gt;- component = &lt;strong&gt;toaddress&lt;/strong&gt;&lt;/p&gt;&lt;p style="padding-left: 30px;"&gt;&lt;strong&gt;epPopConnectionFailure &lt;/strong&gt;- component = &lt;strong&gt;pophost&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;epPopReceiveFailure &lt;/strong&gt;- component = popaccount. If &lt;strong&gt;popusername&lt;/strong&gt; takes the form aaa@bbb.ccc, then popaccount = &lt;strong&gt;popusername&lt;/strong&gt;. If &lt;strong&gt;popusername&lt;/strong&gt; is just a name, then popaccount = &lt;strong&gt;popusername@pophost&lt;/strong&gt;&lt;br/&gt;&lt;strong&gt;epAccountReceiveFailure &lt;/strong&gt;- &lt;strong&gt;toaddress&lt;/strong&gt;&lt;/p&gt;&lt;p style="padding-left: 30px;"&gt;&lt;strong&gt;&lt;br/&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c8056b58-75bd-409f-a845-474c18491662] --&gt;</description>
+      <pubDate>Fri, 23 Apr 2010 14:51:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-1946</guid>
+      <dc:date>2010-04-23T14:51:49Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-1963</link>
+      <description>&lt;!-- [DocumentBodyStart:3ca24870-d10d-4aed-b502-7eec7081373a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;for multi smpt server config i found a document based on nagios check_email_delivery that allow to use various parameter&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;a class="jive-link-external-small" href="http://community.zenoss.org/docs/DOC-2515"&gt;http://community.zenoss.org/docs/DOC-2515&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;maybe a mix of this check and your zenpack based on device and not on daemons would be perfect &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/cool.gif" width="16px"/&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3ca24870-d10d-4aed-b502-7eec7081373a] --&gt;</description>
+      <pubDate>Sun, 25 Apr 2010 06:07:46 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-1963</guid>
+      <dc:date>2010-04-25T06:07:46Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-3276</link>
+      <description>&lt;!-- [DocumentBodyStart:4907bf3b-9a00-4535-8fc9-2447fdf62b1d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This is a great tool covering several checks with one pack.&amp;#160; Any idea how you would create an alert based on the perf emailping queue size or perf round trip time? &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4907bf3b-9a00-4535-8fc9-2447fdf62b1d] --&gt;</description>
+      <pubDate>Wed, 12 Jan 2011 23:20:53 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-3276</guid>
+      <dc:date>2011-01-12T23:20:53Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-3278</link>
+      <description>&lt;!-- [DocumentBodyStart:1aafc6df-16c5-44f7-87a0-67c125df6d25] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I didn't build those into the daemon, but you could create thresholds on the data sources and generate alerts from that. Note that I've got the latest version 1.1.0 waiting to be published. Also, each time the daemon starts it add/removes data sources from the performance template based on changes to the configuration file. So if you change a toaddress, you would need to recreate the thresholds.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1aafc6df-16c5-44f7-87a0-67c125df6d25] --&gt;</description>
+      <pubDate>Thu, 13 Jan 2011 02:32:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-3278</guid>
+      <dc:date>2011-01-13T02:32:10Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-4693</link>
+      <description>&lt;!-- [DocumentBodyStart:1e5bc5a3-8e06-4bd7-8979-fb9922a93196] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I uninstall this ZenPack, and "localhost emailping heartbeat failure" stay to alert me. I tried find configuration in zenoss directory, but without success. How I can solve this?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1e5bc5a3-8e06-4bd7-8979-fb9922a93196] --&gt;</description>
+      <pubDate>Wed, 19 Oct 2011 08:46:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-4693</guid>
+      <dc:date>2011-10-19T08:46:18Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-4892</link>
+      <description>&lt;!-- [DocumentBodyStart:556e98ad-7dad-4d34-8057-eb8372d4e16e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;When i tried to install this zenpack an error occured... permision denied...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I checked some files to see if the owner was zenoss:zenoss...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;and the error was the same...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;so...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I added the user zenoss to the sudoers... at /etc/sudoers and everything ran without problems...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Hope this help &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:556e98ad-7dad-4d34-8057-eb8372d4e16e] --&gt;</description>
+      <pubDate>Thu, 08 Dec 2011 18:20:09 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-4892</guid>
+      <dc:date>2011-12-08T18:20:09Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-4955</link>
+      <description>&lt;!-- [DocumentBodyStart:cc32e1ff-0115-4b79-b05f-7d2c8fc43f9b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Excellent ZenPack. I am just having 1 issue. I am getting negative transit times, which appears to be coming about as the timestamp in the outgoing email subject is in PST. Is there a way of getting this time stamp to use my current time zone GMT?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks&lt;/p&gt;&lt;p&gt;Glen&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:cc32e1ff-0115-4b79-b05f-7d2c8fc43f9b] --&gt;</description>
+      <pubDate>Wed, 04 Jan 2012 21:12:46 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-4955</guid>
+      <dc:date>2012-01-04T21:12:46Z</dc:date>
+      <clearspace:dateToText>2 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-5061</link>
+      <description>&lt;!-- [DocumentBodyStart:0313145f-e8d7-4b0a-933b-047e58e9ddb1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;UPDATE: Ignore this - I accidentally editted the "monitor" setting to be "gmail" instead of "localhost".&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I'm on version 3.2.1 and I'm getting the following errors:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2012-02-06 09:34:21,793 INFO zen.EmailPing: Connecting to localhost:8789&lt;/p&gt;&lt;p&gt;2012-02-06 09:34:21,806 INFO zen.EmailPing: Connected to ZenHub&lt;/p&gt;&lt;p&gt;2012-02-06 09:34:21,918 ERROR zen.EmailPing: Could not retrieve service EventService&lt;/p&gt;&lt;p&gt;2012-02-06 09:34:21,918 CRITICAL zen.EmailPing: Invalid monitor: gmail&lt;/p&gt;&lt;p&gt;2012-02-06 09:34:21,919 INFO zen.EmailPing: Deleting PID file /usr/local/zenoss/zenoss/var/emailping-gmail.pid ...&lt;/p&gt;&lt;p&gt;2012-02-06 09:34:21,919 INFO zen.EmailPing: Daemon EmailPing shutting down&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I don't have any collectors set up - it should all be localhost.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Any help appreciated!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:0313145f-e8d7-4b0a-933b-047e58e9ddb1] --&gt;</description>
+      <pubDate>Mon, 06 Feb 2012 09:52:06 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-5061</guid>
+      <dc:date>2012-02-06T09:52:06Z</dc:date>
+      <clearspace:dateToText>2 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-5664</link>
+      <description>&lt;!-- [DocumentBodyStart:fec0ebb8-cec7-44b3-9a67-71bdf724a472] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;A little more help on how to create thresholds on the data sources?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;These graphs show up on my localhost collector unlike all my other graphs which show up attached to devices.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I would be fine with attaching it to the device I use to monitor my mailserver but I can't find the data sources you refer to?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Sorry I've only been messing with Zenoss for a couple of weeks.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fec0ebb8-cec7-44b3-9a67-71bdf724a472] --&gt;</description>
+      <pubDate>Fri, 25 May 2012 17:50:58 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-5664</guid>
+      <dc:date>2012-05-25T17:50:58Z</dc:date>
+      <clearspace:dateToText>1 year, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-5897</link>
+      <description>&lt;!-- [DocumentBodyStart:5dc2ce76-75b5-4c1f-a62c-aa2e6a39f3be] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi - any ideas on how to pull the graphs created from this zenpack into a graph report in the reports section?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5dc2ce76-75b5-4c1f-a62c-aa2e6a39f3be] --&gt;</description>
+      <pubDate>Mon, 23 Jul 2012 16:44:27 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-5897</guid>
+      <dc:date>2012-07-23T16:44:27Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: EmailPing - Monitor your Email-based Alerting Mechanism</title>
+      <link>http://community.zenoss.org/docs/DOC-5853#comments-6907</link>
+      <description>&lt;!-- [DocumentBodyStart:fda8068c-2443-45b8-b02d-64eff1d64954] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Has anyone tried this on Core 4.2.3 yet. I have upgraded from 3.2.1 to 4.2.3 and now I get the following errors when I try and start the Daemon&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zodb-admin-user&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zodb-admin-password&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --amqphost&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --amqpport&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --amqpvhost&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --amqpuser&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --amqppassword&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --amqpusessl&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --amqpadminport&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --amqpadminusessl&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-db-type&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-host&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-port&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-db&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-user&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-password&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-admin-user&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-admin-password&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zep-uri&lt;/p&gt;&lt;p&gt;DEBUG zen.GlobalConfig: Unknown option: --zodb-db-type&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Any help would be appreciated&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fda8068c-2443-45b8-b02d-64eff1d64954] --&gt;</description>
+      <pubDate>Wed, 09 Oct 2013 13:21:44 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5853#comments-6907</guid>
+      <dc:date>2013-10-09T13:21:44Z</dc:date>
+      <clearspace:dateToText>5 months, 5 days ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

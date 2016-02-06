@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : Nagios Check Ping : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-3416#comments</link>
+    <description>Comments on : Nagios Check Ping</description>
+    <language>en</language>
+    <pubDate>Wed, 09 Dec 2009 20:28:25 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2009-12-09T20:28:25Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-1526</link>
+      <description>&lt;!-- [DocumentBodyStart:d6ef09e1-9636-421e-9ab2-3bffeb59693f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I've had this plugin sucessfully installed for sometime and after applying the template to a device the graph shows the error:&amp;#160; MISSING RRD FILE:&amp;#160; &amp;lt;servername&amp;gt; ipcheck_RTA&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thoughts?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d6ef09e1-9636-421e-9ab2-3bffeb59693f] --&gt;</description>
+      <pubDate>Wed, 09 Dec 2009 20:28:25 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-1526</guid>
+      <dc:date>2009-12-09T20:28:25Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-1604</link>
+      <description>&lt;!-- [DocumentBodyStart:4b2e5244-2e20-4748-a56e-1395e6b2c350] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Found the Template is using a base path of /usr/local/zenoss/libexec.&amp;#160; Does anyone know where this base path is defined?&amp;#160; (NOTE: The Redhat package I installed placed itself into /opt/zenoss but some of the compiled pyc/o files have references to /usr/local/zenoss - seems like a packaging issue)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;There's probably a better fix, but I modified the Data Source to explicitly use /opt/zenoss/libexec/check_ping and it now works.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Steps:&lt;br/&gt;Settings-&amp;gt;ZenPacks-&amp;gt;ZenPacks.Nagios.CheckPing&lt;br/&gt;Then select /Devices/rrdTemplates/NagiosCheckPing&lt;/p&gt;&lt;p&gt;Select the ipcheck DataSource and prefix check_ping with /opt/zenoss/libexec/&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Should be good to go after that - just double check that the change propagates to your devices.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4b2e5244-2e20-4748-a56e-1395e6b2c350] --&gt;</description>
+      <pubDate>Wed, 23 Dec 2009 06:22:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-1604</guid>
+      <dc:date>2009-12-23T06:22:18Z</dc:date>
+      <clearspace:dateToText>4 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-1619</link>
+      <description>&lt;!-- [DocumentBodyStart:944a10bc-7280-42da-a6b4-4caa7a8e9865] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ok, investigated some more and the problem seems to be due to the Redhat distribution.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The base class /Device has the zCommandPath set to /usr/local/zenoss, even though zenoss was installed to /opt/zenoss.&amp;#160;&amp;#160; I changed the zProperties:zCommandPath for /Device to /opt/zenoss.&amp;#160; [I'm also going to look to see if I can fix just /, if that can be corrected, that would be the better fix as everything else inherits from /]&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;After restoring the original ipcheck DataSource to use just "check_ping" and checking the DeviceClass and device zProperties were using zCommandPath of /opt/zenoss - it worked.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I believe this is the correct fix.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:944a10bc-7280-42da-a6b4-4caa7a8e9865] --&gt;</description>
+      <pubDate>Wed, 23 Dec 2009 15:29:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-1619</guid>
+      <dc:date>2009-12-23T15:29:18Z</dc:date>
+      <clearspace:dateToText>4 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-1713</link>
+      <description>&lt;!-- [DocumentBodyStart:e4b8e592-4ac8-4e14-8199-875d89c9d5c2] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Don't see like a RedHat problem cause I'm on Ubuntu and have the same problems. In the Ubuntu case, the value of the &lt;span id="comment-body-1619"&gt;zCommandPath&lt;/span&gt; &lt;span id="comment-body-1619"&gt;zProperties&lt;/span&gt; that solve my problem was "/usr/local/zenoss/common/libexec/", of course... in the /Device class. Seem like a bug, cause the value that have before the change was a directory that don't exist: "/usr/local/zenoss//libexec/".&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e4b8e592-4ac8-4e14-8199-875d89c9d5c2] --&gt;</description>
+      <pubDate>Mon, 01 Feb 2010 13:26:24 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-1713</guid>
+      <dc:date>2010-02-01T13:26:24Z</dc:date>
+      <clearspace:dateToText>4 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-1737</link>
+      <description>&lt;!-- [DocumentBodyStart:b6e70ef8-18d0-493b-bdb2-f65e0260cea7] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;table cellpadding="3" cellspacing="1" style="width: 632px; height: 140px;"&gt;&lt;tbody id="[u'C', u'o', u'm', u'm', u'a', u'n', u'd', u'O', u'u', u't', u'p',&amp;#160; u'u', u't']"&gt;&lt;tr&gt;&lt;td style=";" valign="top"&gt;&lt;p&gt;On my 2.5.1 virtual appliance version of zenoss this zenpack returns the following error during installation&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Output:&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;strong&gt;zenpack --install&amp;#160; /tmp/ZenPacks.Nagios.CheckPing-1.0-py2.4.egg.zip&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;strong&gt;&lt;br/&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;strong&gt;ERROR: zenpack command failed. Reason:&amp;#160; OSError: [Errno 20] Not a directory:&amp;#160; '/home/zenoss/Products/ZenPacks.Nagios.CheckPing-1.0-py2.4.egg/skins'&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;strong&gt;&lt;br/&gt;&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;strong&gt;Done installing ZenPack.&lt;/strong&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Anyone else have this problem?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b6e70ef8-18d0-493b-bdb2-f65e0260cea7] --&gt;</description>
+      <pubDate>Fri, 05 Feb 2010 05:34:32 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-1737</guid>
+      <dc:date>2010-02-05T05:34:32Z</dc:date>
+      <clearspace:dateToText>4 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-1738</link>
+      <description>&lt;!-- [DocumentBodyStart:6def58c0-20c7-4408-aac3-09573342bc4b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ignore the above. I forgot to unzip the zenpack before trying to install it from the GUI &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/blush.gif" width="16px"/&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6def58c0-20c7-4408-aac3-09573342bc4b] --&gt;</description>
+      <pubDate>Fri, 05 Feb 2010 08:14:41 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-1738</guid>
+      <dc:date>2010-02-05T08:14:41Z</dc:date>
+      <clearspace:dateToText>4 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-2197</link>
+      <description>&lt;!-- [DocumentBodyStart:4a23a10b-795f-4169-89d5-4fe89c535723] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'm running Zenoss Core 2.5.2 on Debian Lenny, I installed this zenpack following the procedure and I'm experiencing the same problem as described above (I changed the zCommandPath to /usr/local/zenoss/common/libexec/check_ping which is the right path on my system)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;the command runs fine when invoked from the shell and gives :&lt;/p&gt;&lt;p&gt;PING OK|LOSS=0 RTA=18.85 |rta=18.851999ms;180.000000;300.000000;0.000000 pl=0%;100;100;0&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The "Ping - RoundTripAverage" graph is empty and shows the message "MISSING RRD FILE: &amp;lt;device&amp;gt; ipcheck_RTA"&lt;/p&gt;&lt;p&gt;The "Ping - Loss" is missing, no graph and no errors displayed, just a "missing image" icon is displayed&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Any idea why it doesn't work as expected ?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4a23a10b-795f-4169-89d5-4fe89c535723] --&gt;</description>
+      <pubDate>Wed, 30 Jun 2010 08:54:16 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-2197</guid>
+      <dc:date>2010-06-30T08:54:16Z</dc:date>
+      <clearspace:dateToText>3 years, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-2221</link>
+      <description>&lt;!-- [DocumentBodyStart:94ca11b8-ed5d-43c5-b1ce-34a069b765d5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ok Fixed it - the problem is that the check_ping command rely on the DNS name of the device, which can differ from the device name used in the GUI. I created an entry in the /etc/hosts file so it resolves accordingly, and the graphs started to show&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:94ca11b8-ed5d-43c5-b1ce-34a069b765d5] --&gt;</description>
+      <pubDate>Fri, 09 Jul 2010 14:27:50 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-2221</guid>
+      <dc:date>2010-07-09T14:27:50Z</dc:date>
+      <clearspace:dateToText>3 years, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-2523</link>
+      <description>&lt;!-- [DocumentBodyStart:1ae92b74-c2e0-49cd-9866-2fcfba91ee5e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I have 2.5.2 on Debian Lenny, so far I have no problem with check_ping via DNS name.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;However, using it on zenoss 3.0.1 seems to have the above problem. I have many zombie processes with check_ping IP in UNIX ps that device is using IP address.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Is anyway check_ping can use IP instead of "-H $devname"?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1ae92b74-c2e0-49cd-9866-2fcfba91ee5e] --&gt;</description>
+      <pubDate>Mon, 30 Aug 2010 19:53:22 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-2523</guid>
+      <dc:date>2010-08-30T19:53:22Z</dc:date>
+      <clearspace:dateToText>3 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-2532</link>
+      <description>&lt;!-- [DocumentBodyStart:bb17b060-e30d-4647-bf4a-8bdb7c885407] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I found this "-H ${device/manageIp}" instead of "-H $devname" that was using DNS name.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:bb17b060-e30d-4647-bf4a-8bdb7c885407] --&gt;</description>
+      <pubDate>Wed, 01 Sep 2010 14:16:06 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-2532</guid>
+      <dc:date>2010-09-01T14:16:06Z</dc:date>
+      <clearspace:dateToText>3 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-3757</link>
+      <description>&lt;!-- [DocumentBodyStart:53ad054a-5b96-4388-aaae-ed28e2b4f049] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I guess this is a ZenPack that isn't evolving anymore but still, it's working on Zenoss 3.1.0&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Everything is okay except by default PingRTA graph is showing abnormal values (i had spikes up to 300seconds on the graph!)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;After reading some forum posts i came to a conclusion that there is a mistake in zenpack's default GraphPoint for Ping RTA graph.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Go to the NagiosCheckPing performance template, open "Ping - RoundTripAverage" graph definition (Manage Graph Points) and edit the "RTA" data point FORMAT filed:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;change &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;%5.2lf%s&lt;br/&gt;&lt;br/&gt;to &lt;br/&gt;&lt;br/&gt;&lt;/code&gt;&lt;pre&gt;&lt;code&gt;%5.2lfms&lt;/code&gt;&lt;/pre&gt;
+&lt;/pre&gt;&lt;p&gt;This will correct the value displayed on the graph so instead of e.g. 300s I now get 300ms, and that's more like it! &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;marko&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:53ad054a-5b96-4388-aaae-ed28e2b4f049] --&gt;</description>
+      <pubDate>Tue, 05 Apr 2011 13:08:15 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-3757</guid>
+      <dc:date>2011-04-05T13:08:15Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-4540</link>
+      <description>&lt;!-- [DocumentBodyStart:3f540efe-f0eb-4d06-b9bc-2a6f01c3920c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Some helpfull tips:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;With Zenoss 3.1.0 I was given an error message while trying to install:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;pre&gt;Link to http://pypi.python.org/simple/ZenPacks.Nagios.CheckPing/ ***BLOCKED*** by --allow-hosts
+
+Couldn't find index page for 'ZenPacks.Nagios.CheckPing' (maybe misspelled?)
+
+Link to http://pypi.python.org/simple/ ***BLOCKED*** by --allow-hosts
+
+No local packages or download links found for ZenPacks.Nagios.CheckPing==1.0
+Couldn't find index page for 'ZenPacks.Nagios.CheckPing' (maybe misspelled?)
+
+No local packages or download links found for ZenPacks.Nagios.CheckPing==1.0
+ERROR:zen.ZenPackCmd:zenpack command failed
+&lt;/pre&gt;&lt;p&gt;I solved this by renaming the zenpack from "ZenPacks.Nagios.CheckPing-1.0-py2.4.egg" to "ZenPacks.Nagios.CheckPing-1.0" and it installed fine. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Also followed mvlaovic's tip and changed the RTA data point format.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;As well as reading what trgrimm did, mine didn't work straight off the bat. My check_ping was located in a different location. ('/usr/local/zenoss/common/libexec/'). So I changed the Command Template to '/usr/local/zenoss/common/libexec/check_ping' from 'check_ping'. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;How I found my check_ping was with: (With /usr/local/zenoss where I had installed zenoss)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;find /usr/local/zenoss -name check_ping&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3f540efe-f0eb-4d06-b9bc-2a6f01c3920c] --&gt;</description>
+      <pubDate>Tue, 13 Sep 2011 17:54:12 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-4540</guid>
+      <dc:date>2011-09-13T17:54:12Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-4556</link>
+      <description>&lt;!-- [DocumentBodyStart:5c72e903-7bc7-449f-8605-ae6686232c86] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This is good info. David, could you export your setup as a ZenPack so that others could easily use this functionality in zenoss 3.x? All 3.x zenpacks have py2.6.egg at end of file name, because they work on python version 2.6, which is default in zenoss 3.x&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5c72e903-7bc7-449f-8605-ae6686232c86] --&gt;</description>
+      <pubDate>Tue, 13 Sep 2011 18:09:47 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-4556</guid>
+      <dc:date>2011-09-13T18:09:47Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-4558</link>
+      <description>&lt;!-- [DocumentBodyStart:4ae827c5-3bbf-48ae-b569-3f74d47ba50d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hey,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I'll most certainly do so. Also another tip I've just learned, when I was attempting to get the Zenpack to run on another VM (Running CentOS 5.4) compared to my VM with CentOS 6.0. I found that the sed command that the check_ping pipes to, produces the following error:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;pre&gt;Exception while performing command: 
+Traceback (most recent call last):
+&amp;#160; File "/opt/zenoss/Products/ZenUI3/browser/command.py", line 108, in stream
+&amp;#160;&amp;#160;&amp;#160; data = unjson(request.form['data'])
+&amp;#160; File "/opt/zenoss/Products/ZenUtils/jsonutils.py", line 175, in unjson
+&amp;#160;&amp;#160;&amp;#160; return _json.loads(value, **kw)
+&amp;#160; File "/opt/zenoss/lib/python2.6/json/__init__.py", line 318, in loads
+&amp;#160;&amp;#160;&amp;#160; return cls(encoding=encoding, **kw).decode(s)
+&amp;#160; File "/opt/zenoss/Products/ZenUtils/jsonutils.py", line 37, in decode
+&amp;#160;&amp;#160;&amp;#160; result = super(StringifyingDecoder, self).decode(s)
+&amp;#160; File "/opt/zenoss/lib/python2.6/json/decoder.py", line 319, in decode
+&amp;#160;&amp;#160;&amp;#160; obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+&amp;#160; File "/opt/zenoss/lib/python2.6/json/decoder.py", line 336, in raw_decode
+&amp;#160;&amp;#160;&amp;#160; obj, end = self._scanner.iterscan(s, **kw).next()
+&amp;#160; File "/opt/zenoss/lib/python2.6/json/scanner.py", line 55, in iterscan
+&amp;#160;&amp;#160;&amp;#160; rval, next_pos = action(m, context)
+&amp;#160; File "/opt/zenoss/lib/python2.6/json/decoder.py", line 183, in JSONObject
+&amp;#160;&amp;#160;&amp;#160; value, end = iterscan(s, idx=end, context=context).next()
+&amp;#160; File "/opt/zenoss/lib/python2.6/json/scanner.py", line 55, in iterscan
+&amp;#160;&amp;#160;&amp;#160; rval, next_pos = action(m, context)
+&amp;#160; File "/opt/zenoss/lib/python2.6/json/decoder.py", line 155, in JSONString
+&amp;#160;&amp;#160;&amp;#160; return scanstring(match.string, match.end(), encoding, strict)
+ValueError: Unterminated string starting at: line 1 column 164 (char 164)
+&lt;/pre&gt;&lt;p&gt;So, if you receive this error, I think I tracked down the issue to the sed versions on 5.4 being 4.1.5 while my newer CentOS uses 4.2.1, how I just managed to resolve this issue is the by changing the sed portion to:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;pre&gt;replace " - Packet loss = " "|LOSS=" | replace "%, RTA = " " RTA=" | replace "ms|" "|"&lt;/pre&gt;&lt;p&gt;However, it is not pretty but it does however work. &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4ae827c5-3bbf-48ae-b569-3f74d47ba50d] --&gt;</description>
+      <pubDate>Tue, 13 Sep 2011 21:39:37 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-4558</guid>
+      <dc:date>2011-09-13T21:39:37Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-6167</link>
+      <description>&lt;!-- [DocumentBodyStart:169aaa08-c428-479a-83e8-87cfb7d70c00] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;In Zenoss v.4.1.1 I had to modify the sed portion of the command to the following:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;sed -e 's# - Packet loss#|LOSS#;s#%,#\;#;s#ms##;s# = #=#g;s#|rta=.*##'&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;PING OK|LOSS=0; RTA=0.73&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:169aaa08-c428-479a-83e8-87cfb7d70c00] --&gt;</description>
+      <pubDate>Thu, 25 Oct 2012 20:31:01 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-6167</guid>
+      <dc:date>2012-10-25T20:31:01Z</dc:date>
+      <clearspace:dateToText>1 year, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Nagios Check Ping</title>
+      <link>http://community.zenoss.org/docs/DOC-3416#comments-7045</link>
+      <description>&lt;!-- [DocumentBodyStart:9324791b-11ce-479f-9b81-5d2b61adc618] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi All,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Anyone has the idea on how-to make check_ping work with Zenoss on "CRITICAL - Packet Filtered" errors?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:9324791b-11ce-479f-9b81-5d2b61adc618] --&gt;</description>
+      <pubDate>Tue, 12 Nov 2013 15:32:02 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3416#comments-7045</guid>
+      <dc:date>2013-11-12T15:32:02Z</dc:date>
+      <clearspace:dateToText>4 months, 1 day ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

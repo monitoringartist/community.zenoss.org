@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Configuration : How to clean your events database : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-3220#comments</link>
+    <description>Comments on : How to clean your events database</description>
+    <language>en</language>
+    <pubDate>Mon, 07 Dec 2009 12:10:15 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2009-12-07T12:10:15Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: How to clean your events database</title>
+      <link>http://community.zenoss.org/docs/DOC-3220#comments-1505</link>
+      <description>&lt;!-- [DocumentBodyStart:c10a56cd-7914-4923-b02d-251ee61c515c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;span&gt;Perfect, I'm trying this out now.&lt;/span&gt;&lt;br/&gt;&lt;span&gt;Thanks!&lt;/span&gt;&lt;br/&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c10a56cd-7914-4923-b02d-251ee61c515c] --&gt;</description>
+      <pubDate>Mon, 07 Dec 2009 12:10:15 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3220#comments-1505</guid>
+      <dc:date>2009-12-07T12:10:15Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: How to clean your events database</title>
+      <link>http://community.zenoss.org/docs/DOC-3220#comments-1571</link>
+      <description>&lt;!-- [DocumentBodyStart:b941dfc4-a270-48c4-a341-a8bf3ebe513a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;For me this wasn't enough: even though i told zenoss to prune events older then 40 days, it seems to not work.&lt;/p&gt;&lt;p&gt;&lt;span&gt;so based on &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://www.mail-archive.com/zenoss-users@zenoss.org/msg31456.html"&gt;http://www.mail-archive.com/zenoss-users@zenoss.org/msg31456.html&lt;/a&gt;&lt;a class="jive-link-email-small" href="mailto://www.mail-archive.com/zenoss-users@zenoss.org"&gt;//www.mail-archive.com/zenoss-users@zenoss.org&lt;/a&gt;&lt;span&gt;/msg31456.html&lt;/span&gt;&lt;/p&gt;&lt;p&gt;i also put the following in my zenoss crontab:&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;echo "DELETE FROM history WHERE lastTime &amp;lt; UNIX_TIMESTAMP(DATE_SUB(NOW(), INTERVAL 40 DAY));" | mysql -uzenoss -pzenoss events&lt;br/&gt;&lt;/blockquote&gt;&lt;p&gt;the query is still running but i expect it will give me more free diskspace (at least, when innodb's auto vacuuming kicks in)&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b941dfc4-a270-48c4-a341-a8bf3ebe513a] --&gt;</description>
+      <pubDate>Fri, 11 Dec 2009 10:11:02 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3220#comments-1571</guid>
+      <dc:date>2009-12-11T10:11:02Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: How to clean your events database</title>
+      <link>http://community.zenoss.org/docs/DOC-3220#comments-1575</link>
+      <description>&lt;!-- [DocumentBodyStart:57d1dd90-7fa9-465d-9909-c329af4afdff] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;hmm.. i'm not getting my diskspace back.&lt;/p&gt;&lt;p&gt;Even doing a 'ALTER TABLE &amp;lt;name&amp;gt; TYPE=InnoDB' on all innodb tables didn't help.. (this should make innodb delete it's still data)&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:57d1dd90-7fa9-465d-9909-c329af4afdff] --&gt;</description>
+      <pubDate>Mon, 14 Dec 2009 10:01:26 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3220#comments-1575</guid>
+      <dc:date>2009-12-14T10:01:26Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: How to clean your events database</title>
+      <link>http://community.zenoss.org/docs/DOC-3220#comments-1576</link>
+      <description>&lt;!-- [DocumentBodyStart:38a97050-22ee-41d6-a4f1-60c3e06b93d5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I finally got the diskspace back by doing a database backup, removing the data, and importing the backup again.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;see &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://crazytoon.com/2007/04/03/mysql-ibdata-files-do-not-shrink-on-database-deletion-innodb/"&gt;http://crazytoon.com/2007/04/03/mysql-ibdata-files-do-not-shrink-on-database-deletion-innodb/&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:38a97050-22ee-41d6-a4f1-60c3e06b93d5] --&gt;</description>
+      <pubDate>Mon, 14 Dec 2009 14:01:27 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3220#comments-1576</guid>
+      <dc:date>2009-12-14T14:01:27Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: How to clean your events database</title>
+      <link>http://community.zenoss.org/docs/DOC-3220#comments-1614</link>
+      <description>&lt;!-- [DocumentBodyStart:d4d7f486-4cf3-41b9-ae60-5bf99f26452a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Innodb data bases do not shrink.&amp;#160; That is a major glitch in that datatype in my view.&amp;#160; So it clears space for new records but the only way to reclaim space is to export and then reinport the data.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;&lt;p&gt;Robert&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d4d7f486-4cf3-41b9-ae60-5bf99f26452a] --&gt;</description>
+      <pubDate>Sun, 03 Jan 2010 15:34:30 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3220#comments-1614</guid>
+      <dc:date>2010-01-03T15:34:30Z</dc:date>
+      <clearspace:dateToText>4 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

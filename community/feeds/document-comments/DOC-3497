@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : PostgreSQL Database Monitor : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-3497#comments</link>
+    <description>Comments on : PostgreSQL Database Monitor</description>
+    <language>en</language>
+    <pubDate>Sun, 19 Dec 2010 13:23:39 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2010-12-19T13:23:39Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3153</link>
+      <description>&lt;!-- [DocumentBodyStart:80b4a91e-0c94-474c-99f3-2e2fda05044d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi I got the error message: "&lt;/p&gt;&lt;p&gt;Could not fetch data from source (Received error ('long' object has no attribute 'strip') from query: SELECT pg_database_size(datname) as sizeUsed FROM pg_database )&amp;#160; "&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Could you please give me some help?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:80b4a91e-0c94-474c-99f3-2e2fda05044d] --&gt;</description>
+      <pubDate>Sun, 19 Dec 2010 13:23:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3153</guid>
+      <dc:date>2010-12-19T13:23:39Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3171</link>
+      <description>&lt;!-- [DocumentBodyStart:0c350d82-2c21-4826-be8e-6585eb7fe5a8] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Greetings! I have this zenpack installed but it does not appears in availible Template Binds when i want to add it to current device.&lt;/p&gt;&lt;p&gt;Zenoss version 3.0.3&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:0c350d82-2c21-4826-be8e-6585eb7fe5a8] --&gt;</description>
+      <pubDate>Sat, 25 Dec 2010 12:13:48 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3171</guid>
+      <dc:date>2010-12-25T12:13:48Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3160</link>
+      <description>&lt;!-- [DocumentBodyStart:ac81c1fb-58c4-477c-b799-37ac22a37459] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi ALyarskiy,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;you don't need to bind &lt;strong&gt;PgSqlDatabase&lt;/strong&gt; components template to device or device class. Simply add &lt;strong&gt;community.odbc.PgSqlDatabaseMap&lt;/strong&gt; collector plugin to zCollectorPlugins list and remodel your device.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ac81c1fb-58c4-477c-b799-37ac22a37459] --&gt;</description>
+      <pubDate>Sun, 26 Dec 2010 16:17:33 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3160</guid>
+      <dc:date>2010-12-26T16:17:33Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3176</link>
+      <description>&lt;!-- [DocumentBodyStart:c4d91427-f133-4dea-9789-3be9e1d05383] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;It seems to be SQLDataSource zenpack bug.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Find in file ZenPacks.community.SQLDataSource-1.5.egg/ZenPacks/community/SQLDataSource/SQLClient.py line:&lt;/p&gt;&lt;p&gt;kbIns = tuple([str(t.strip('"\' ')) for t in row[(0 - len(kbKey)):]])&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;and replace it with 2 lines:&lt;/p&gt;&lt;p&gt;try: kbIns = tuple([str(t.strip('"\' ')) for t in row[(0 - len(kbKey)):]])&lt;br/&gt;except: kbIns = tuple([str(t) for t in row[(0 - len(kbKey)):]])&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I do not really know what it must do, but it seems to fix this error.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c4d91427-f133-4dea-9789-3be9e1d05383] --&gt;</description>
+      <pubDate>Sun, 26 Dec 2010 16:35:30 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3176</guid>
+      <dc:date>2010-12-26T16:35:30Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3174</link>
+      <description>&lt;!-- [DocumentBodyStart:fb95097a-5edd-4e33-8b97-6e47877e8c7d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Dmitry,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;thanks, fixed.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Egor&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fb95097a-5edd-4e33-8b97-6e47877e8c7d] --&gt;</description>
+      <pubDate>Mon, 27 Dec 2010 18:05:29 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3174</guid>
+      <dc:date>2010-12-27T18:05:29Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3222</link>
+      <description>&lt;!-- [DocumentBodyStart:cea26a33-f086-4d35-8e26-bb423bdcac2f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I got the error message:&lt;/p&gt;&lt;p&gt;2011-01-02 09:07:04,732 ERROR zen.SQLClient: Received error (('07006', '[07006] [unixODBC]Received an unsupported type from Postgres. (14) (SQLGetData)')) from query: SELECT datname as dbname, pg_database_size(datname) as totalBlocks FROM pg_database;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;unixodbc not support bitint？&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;can you help me？&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zenoss 3.0.3&lt;/p&gt;&lt;p&gt;&lt;a class="jive-link-external-small" href="http://zenpacks.zenoss.org/trac-zenpacks/browser/tags/pgsql-odbc-2.1"&gt;pgsql-odbc-2.1&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;table&gt;&lt;tbody id="LoadedZenPacks"&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;a class="jive-link-external-small" href="http://192.168.17.10:8080/zport/dmd/ZenPackManager/packs/ZenPacks.community.RDBMS"&gt;ZenPacks.community.RDBMS&lt;/a&gt;&lt;/td&gt;&lt;td style=";"&gt;community&lt;/td&gt;&lt;td style=";"&gt;Egor Puzanov&lt;/td&gt;&lt;td style=";"&gt;2.1&lt;/td&gt;&lt;td style=";"&gt;Yes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;table&gt;&lt;tbody id="LoadedZenPacks"&gt;&lt;tr&gt;&lt;td style=";"&gt;&lt;a class="jive-link-external-small" href="http://192.168.17.10:8080/zport/dmd/ZenPackManager/packs/ZenPacks.community.SQLDataSource"&gt;ZenPacks.community.SQLDataSource&lt;/a&gt;&lt;/td&gt;&lt;td style=";"&gt;community&lt;/td&gt;&lt;td style=";"&gt;Egor Puzanov&lt;/td&gt;&lt;td style=";"&gt;1.6&lt;/td&gt;&lt;td style=";"&gt;Yes&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;centos 5.5&lt;/p&gt;&lt;p&gt;unixODBC&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; x86_64&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 2.2.11-7.1 &lt;/p&gt;&lt;p&gt;postgresql-odbc&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; x86_64&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 08.03.0400-1PGDG.rhel5&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:cea26a33-f086-4d35-8e26-bb423bdcac2f] --&gt;</description>
+      <pubDate>Sun, 02 Jan 2011 01:14:32 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3222</guid>
+      <dc:date>2011-01-02T01:14:32Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3211</link>
+      <description>&lt;!-- [DocumentBodyStart:40020014-ac3d-4ca0-9ee6-161ec633bfa9] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;pre&gt;&lt;strong&gt;display&amp;#160; conflicts in POSTGRESQL ODBC DATABASE MONITOR and MySQL ODBC Database Monitor.
+&lt;/strong&gt;
+
+
+&lt;/pre&gt;&lt;p&gt;&lt;a href="http://weizi888.appspot.com/media/agh3ZWl6aTg4OHINCxIFTWVkaWEYiY8IDA/%E6%9C%AA%E5%91%BD%E5%90%8D.JPG?a=download"&gt;&lt;img src="http://weizi888.appspot.com/media/agh3ZWl6aTg4OHINCxIFTWVkaWEYiY8IDA/%E6%9C%AA%E5%91%BD%E5%90%8D.JPG?a=download"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:40020014-ac3d-4ca0-9ee6-161ec633bfa9] --&gt;</description>
+      <pubDate>Sun, 02 Jan 2011 06:48:59 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3211</guid>
+      <dc:date>2011-01-02T06:48:59Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3213</link>
+      <description>&lt;!-- [DocumentBodyStart:a6ad130a-a970-487b-855a-74b4ab0036e7] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi wezi,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;you can monitor both database types, but with a small trick.&lt;/p&gt;&lt;p&gt;1. add &lt;strong&gt;community.odbc.PgSqlDatabaseMap&lt;/strong&gt; modeler pluging to 'Modeler Plugins' list and model your server.&lt;/p&gt;&lt;p&gt;2. &lt;strong&gt;Lock&lt;/strong&gt; Postgress databases and Server instances from deletion&lt;/p&gt;&lt;p&gt;3. remove &lt;strong&gt;community.odbc.PgSqlDatabaseMap&lt;/strong&gt; modeler pluging&lt;/p&gt;&lt;p&gt;4. add &lt;strong&gt;community.odbc.MySqlDatabaseMap&lt;/strong&gt; modeler pluging to 'Modeler Plugins' list and model your server.&lt;/p&gt;&lt;p&gt;5.&lt;strong&gt; Lock&lt;/strong&gt; MySQL databases and Server instances from deletion&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a6ad130a-a970-487b-855a-74b4ab0036e7] --&gt;</description>
+      <pubDate>Sun, 02 Jan 2011 12:07:03 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3213</guid>
+      <dc:date>2011-01-02T12:07:03Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3214</link>
+      <description>&lt;!-- [DocumentBodyStart:d20e9ff6-fbf3-488b-9061-bc48c6fa461c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;thinks.&lt;/p&gt;&lt;p&gt;1.unsupported type from Postgres.&lt;/p&gt;&lt;p&gt;modify&amp;#160;&amp;#160; &lt;/p&gt;&lt;p&gt;SELECT datname as dbname, pg_database_size(datname) as totalBlocks FROM pg_database&lt;/p&gt;&lt;p&gt;to&lt;/p&gt;&lt;p&gt;SELECT pg_database_size(datname)::float as sizeUsed FROM pg_database &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;but totalBlocks is 0.0b&lt;/p&gt;&lt;p&gt;&lt;a href="http://weizi888.appspot.com/media/agh3ZWl6aTg4OHINCxIFTWVkaWEY8ZYIDA/%E6%9C%AA%E5%91%BD%E5%90%8D11.JPG?a=download"&gt;&lt;img src="http://weizi888.appspot.com/media/agh3ZWl6aTg4OHINCxIFTWVkaWEY8ZYIDA/%E6%9C%AA%E5%91%BD%E5%90%8D11.JPG?a=download"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d20e9ff6-fbf3-488b-9061-bc48c6fa461c] --&gt;</description>
+      <pubDate>Sun, 02 Jan 2011 13:35:40 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3214</guid>
+      <dc:date>2011-01-02T13:35:40Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3215</link>
+      <description>&lt;!-- [DocumentBodyStart:96a3a7e0-2183-4463-98bf-fa3d1f6ae57e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi weizi,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;try : SELECT pg_database_size(datname)::float as sizeUsed, datname FROM pg_database WHERE datname='${here/dbname}'&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:96a3a7e0-2183-4463-98bf-fa3d1f6ae57e] --&gt;</description>
+      <pubDate>Sun, 02 Jan 2011 14:15:50 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3215</guid>
+      <dc:date>2011-01-02T14:15:50Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3217</link>
+      <description>&lt;!-- [DocumentBodyStart:13dcb32d-c73c-4297-884e-e700e381c795] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;hi bigegor.&lt;/p&gt;&lt;p&gt;it is ok. thinks&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;1.modify PgSqlDatabaseMap.py 36 line&lt;/p&gt;&lt;p&gt;"SELECT datname as dbname, pg_database_size(datname) as totalBlocks FROM pg_database;"""&lt;/p&gt;&lt;p&gt;to&lt;/p&gt;&lt;p&gt;"SELECT datname as dbname, pg_database_size(datname)::float as totalBlocks FROM pg_database;"""&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2.modify dmd/Devices/Server/rrdTemplates/PgSqlDatabase/sizeUsed&lt;/p&gt;&lt;p&gt;SELECT pg_database_size(datname) as sizeUsed&amp;#160; FROM pg_database WHERE datname='${here/dbname}';&lt;/p&gt;&lt;p&gt;to&lt;/p&gt;&lt;p&gt;SELECT pg_database_size(datname)::float as sizeUsed, datname FROM pg_database WHERE datname='${here/dbname}';&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:13dcb32d-c73c-4297-884e-e700e381c795] --&gt;</description>
+      <pubDate>Mon, 03 Jan 2011 00:59:05 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3217</guid>
+      <dc:date>2011-01-03T00:59:05Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3240</link>
+      <description>&lt;!-- [DocumentBodyStart:dfaf4328-dc97-473f-bc2c-b514c1b33a5a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Could you please tell me how to make the database(template0) out of data retrieving? We just need make sure it lives, and it does not make sense to know other information; otherwise, we will get the following error:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="text-decoration: underline;"&gt;&amp;#160; "Could not fetch data from source (Received error (('55000', '[55000] [unixODBC]FATAL: database "template0" is not currently accepting connections (210) "&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:dfaf4328-dc97-473f-bc2c-b514c1b33a5a] --&gt;</description>
+      <pubDate>Wed, 05 Jan 2011 03:52:03 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3240</guid>
+      <dc:date>2011-01-05T03:52:03Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3253</link>
+      <description>&lt;!-- [DocumentBodyStart:49511040-d410-43f9-af0c-574ace6bc7d1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;select&lt;/p&gt;&lt;p&gt;data is null&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:49511040-d410-43f9-af0c-574ace6bc7d1] --&gt;</description>
+      <pubDate>Fri, 07 Jan 2011 10:03:29 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3253</guid>
+      <dc:date>2011-01-07T10:03:29Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3731</link>
+      <description>&lt;!-- [DocumentBodyStart:53a51a95-6f18-47c4-919f-76ab14c95c1f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;For x86_64 RH-like systems there is bug in unixODBC config - in file /etc/odbcinst.ini replace /usr/lib to /usr/lib64&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:53a51a95-6f18-47c4-919f-76ab14c95c1f] --&gt;</description>
+      <pubDate>Mon, 28 Mar 2011 13:51:07 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3731</guid>
+      <dc:date>2011-03-28T13:51:07Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3862</link>
+      <description>&lt;!-- [DocumentBodyStart:3e6f2011-f50a-46b4-a68f-c732b95173bc] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Is there any way to bring the graphs into custom reports? I can see the data_source and data_point but I don't know how to specify the database for graphing in a custom report. Is this even possible?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3e6f2011-f50a-46b4-a68f-c732b95173bc] --&gt;</description>
+      <pubDate>Tue, 26 Apr 2011 17:05:08 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3862</guid>
+      <dc:date>2011-04-26T17:05:08Z</dc:date>
+      <clearspace:dateToText>2 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3978</link>
+      <description>&lt;!-- [DocumentBodyStart:1ecc4bc0-5242-4fe0-96a3-475766df13b4] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;What is the delimiter used in zPgSqlDatabaseIgnoreNames?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1ecc4bc0-5242-4fe0-96a3-475766df13b4] --&gt;</description>
+      <pubDate>Thu, 26 May 2011 20:14:59 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3978</guid>
+      <dc:date>2011-05-26T20:14:59Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3979</link>
+      <description>&lt;!-- [DocumentBodyStart:8af0b0e5-f40d-4f63-a80f-0232538ffd90] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Greg,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;you must use RegExp syntax in zPgSqlDatabaseIgnoreNames, like in others zProperties (o.e zLocalIpAddresses).&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Egor&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8af0b0e5-f40d-4f63-a80f-0232538ffd90] --&gt;</description>
+      <pubDate>Thu, 26 May 2011 20:52:35 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3979</guid>
+      <dc:date>2011-05-26T20:52:35Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-3980</link>
+      <description>&lt;!-- [DocumentBodyStart:206c1c54-477d-4273-ae24-c0407ea2e8b1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Wow, that was quick.&amp;#160; Thanks!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:206c1c54-477d-4273-ae24-c0407ea2e8b1] --&gt;</description>
+      <pubDate>Thu, 26 May 2011 20:54:45 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-3980</guid>
+      <dc:date>2011-05-26T20:54:45Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5599</link>
+      <description>&lt;!-- [DocumentBodyStart:6834a5ec-9847-45b2-a7f8-2917e07f5427] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Since I installed this zenpack, it is generating error logs in the postgresql log file:&lt;/p&gt;&lt;p&gt;2012-05-11 05:08:59.792 EDT &amp;lt;REDACTED&amp;gt; [unknown] postgres &amp;lt;REDACTED&amp;gt; idle in transaction 08P01 &amp;lt;REDACTED&amp;gt;: LOG:&amp;#160; unexpected EOF on client connection&lt;/p&gt;&lt;p&gt;2012-05-11 05:08:59.792 EDT postgres [unknown] postgres &amp;lt;REDACTED&amp;gt; idle in transaction 08P01 postgres: LOG:&amp;#160; unexpected EOF on client connection&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This happens every 5 minutes, the exact time the datasource kicks off in zenoss.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Apparently the connection is not issuing a connection close.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6834a5ec-9847-45b2-a7f8-2917e07f5427] --&gt;</description>
+      <pubDate>Fri, 11 May 2012 09:13:57 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5599</guid>
+      <dc:date>2012-05-11T09:13:57Z</dc:date>
+      <clearspace:dateToText>1 year, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5624</link>
+      <description>&lt;!-- [DocumentBodyStart:75e41753-4cb4-49b9-90db-9b7585ec2900] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Michael,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;how your &lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #f8f4e6;"&gt;zPgSqlConnectionString&lt;/span&gt; looks like?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:75e41753-4cb4-49b9-90db-9b7585ec2900] --&gt;</description>
+      <pubDate>Sun, 13 May 2012 20:32:54 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5624</guid>
+      <dc:date>2012-05-13T20:32:54Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5639</link>
+      <description>&lt;!-- [DocumentBodyStart:ccf6ad49-f457-452f-8324-513ff5eab64b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;In python my connection string is as follows:&lt;/p&gt;&lt;p&gt;'DRIVER={PostgreSQL};Server=' + server + ';UID=' + userid + ';PWD=' + password + ';Database=' + database + ';Port=' + Port + ';'&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ccf6ad49-f457-452f-8324-513ff5eab64b] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 12:26:02 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5639</guid>
+      <dc:date>2012-05-14T12:26:02Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5640</link>
+      <description>&lt;!-- [DocumentBodyStart:85c6bf96-74bf-4312-98d8-3c5c10722f0b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;IM sorry ignore my last comment, that is a connection string i use when I directly connect to postgresql, not the one that the datasource is issuing&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:85c6bf96-74bf-4312-98d8-3c5c10722f0b] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 12:27:41 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5640</guid>
+      <dc:date>2012-05-14T12:27:41Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5641</link>
+      <description>&lt;!-- [DocumentBodyStart:50f5b310-971a-4589-bdfa-243d0fb63874] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Here is what is being executed using the pgServer datasource:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Executing command $ZENHOME/libexec/poll_postgres.py '&amp;lt;REDACTED&amp;gt;' '5432' 'postgres' '&amp;lt;my password&amp;gt;' 'False' server against &amp;lt;REDACTED&amp;gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I don't see a &lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #f8f4e6;"&gt;zPgSqlConnectionString in the configuration properties for the device to which this template is bound.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:50f5b310-971a-4589-bdfa-243d0fb63874] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 12:29:55 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5641</guid>
+      <dc:date>2012-05-14T12:29:55Z</dc:date>
+      <clearspace:dateToText>1 year, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5643</link>
+      <description>&lt;!-- [DocumentBodyStart:c2273bb8-7f79-4d50-a6bc-fe8cff54bffd] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi Michael,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;it seems like you are using ZenPacks.zenoss.PostgreSQL, but asking your questions here where ZenPacks community.PgSQLMon will be discussed. Sorry, i have no answer.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c2273bb8-7f79-4d50-a6bc-fe8cff54bffd] --&gt;</description>
+      <pubDate>Mon, 14 May 2012 17:51:20 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5643</guid>
+      <dc:date>2012-05-14T17:51:20Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5898</link>
+      <description>&lt;!-- [DocumentBodyStart:fc3445d3-ae24-4dae-acfb-c9cfd1b56811] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello Egor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;After installing the ZenPack, I am able to view the databases in my database server, but all of the perf graphs are empty. The ZenPack has been enabled for the device for over a week. I just reinstalled the ZenPack with the same issue. I am running PostgreSQL v8.3.16 and ZenOSS v3.0.2.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I activated verbose logging for the zenperfsql daemon, and here is what I get when the ZenPack fetches the perf data:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;2012-07-25 13:10:16,418 DEBUG zen.zenperfsql: Datasource PgSqlDatabaseStat/statUser query:'SELECT&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(heap_blks_hit) as heap_blks_hit,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(heap_blks_read) as heap_blks_read,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(idx_blks_hit) as idx_blks_hit,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(idx_blks_read) as idx_blks_read,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(idx_scan) as idx_scan,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(idx_tup_fetch) as idx_tup_fetch,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(n_tup_ins) as n_tup_ins,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(n_tup_upd) as n_tup_upd,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(n_tup_del) as n_tup_del,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(seq_scan) as seq_scan,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(seq_tup_read) as seq_tup_read, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(tidx_blks_hit) as tidx_blks_hit,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(tidx_blks_read) as tidx_blks_read,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(toast_blks_hit) as toast_blks_hit,&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; SUM(toast_blks_read) as toast_blks_read&lt;/p&gt;&lt;p&gt;FROM &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; (SELECT &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; C.oid AS relid, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; N.nspname AS schemaname, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; C.relname AS relname, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_numscans(C.oid) AS seq_scan, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_tuples_returned(C.oid) AS seq_tup_read, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(pg_stat_get_numscans(I.indexrelid))::bigint AS idx_scan, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(pg_stat_get_tuples_fetched(I.indexrelid))::bigint +&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_tuples_fetched(C.oid) AS idx_tup_fetch, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_tuples_inserted(C.oid) AS n_tup_ins, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_tuples_updated(C.oid) AS n_tup_upd, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_tuples_deleted(C.oid) AS n_tup_del, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_fetched(C.oid) - &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_hit(C.oid) AS heap_blks_read, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_hit(C.oid) AS heap_blks_hit, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(pg_stat_get_blocks_fetched(I.indexrelid) - &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_hit(I.indexrelid))::bigint AS idx_blks_read, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sum(pg_stat_get_blocks_hit(I.indexrelid))::bigint AS idx_blks_hit, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_fetched(T.oid) - &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_hit(T.oid) AS toast_blks_read, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_hit(T.oid) AS toast_blks_hit, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_fetched(X.oid) - &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_hit(X.oid) AS tidx_blks_read, &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_blocks_hit(X.oid) AS tidx_blks_hit &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; FROM pg_class C LEFT JOIN &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_index I ON C.oid = I.indrelid LEFT JOIN &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_class T ON C.reltoastrelid = T.oid LEFT JOIN &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_class X ON T.reltoastidxid = X.oid &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) &lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; WHERE C.relkind IN ('r', 't')&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160; GROUP BY C.oid, N.nspname, C.relname, T.oid, X.oid) AS t&lt;/p&gt;&lt;p&gt;WHERE schemaname NOT IN ('pg_catalog', 'pg_toast', 'information_schema')'&lt;/p&gt;&lt;p&gt;2012-07-25 13:10:16,549 DEBUG zen.collector.scheduler: Task psf3dbpg1 300 237156584 changing state from FETCH_DATA to PARSING_DATA&lt;/p&gt;&lt;p&gt;2012-07-25 13:10:16,549 DEBUG zen.collector.scheduler: Task psf3dbpg1 300 237156584 changing state from PARSING_DATA to STORE_PERF_DATA&lt;/p&gt;&lt;p&gt;2012-07-25 13:10:16,550 DEBUG zen.collector.scheduler: Task psf3dbpg1 300 237156584 finished, result: &amp;lt;twisted.python.failure.Failure &amp;lt;type 'exceptions.TypeError'&amp;gt;&amp;gt;&lt;/p&gt;&lt;p&gt;2012-07-25 13:10:16,551 DEBUG zen.collector.scheduler: Task psf3dbpg1 300 237156584 changing state from STORE_PERF_DATA to IDLE&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I am not sure what is causing the exceptions.TypeError.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fc3445d3-ae24-4dae-acfb-c9cfd1b56811] --&gt;</description>
+      <pubDate>Wed, 25 Jul 2012 17:18:13 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5898</guid>
+      <dc:date>2012-07-25T17:18:13Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5904</link>
+      <description>&lt;!-- [DocumentBodyStart:d991dd71-fde0-41ab-8004-7560a23f5918] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi slew,&lt;/p&gt;&lt;p&gt;it will be helpful if you can provide additional information:&lt;/p&gt;&lt;p&gt;1. SQL DataSource version&lt;/p&gt;&lt;p&gt;2. &lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;PgSQLMon&lt;/span&gt; version&lt;/p&gt;&lt;p&gt;3. &lt;span style="font-family: Helvetica, arial, freesans, clean, sans-serif; font-size: 14px; background-color: #ffffff;"&gt;zPgSqlConnectionString&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d991dd71-fde0-41ab-8004-7560a23f5918] --&gt;</description>
+      <pubDate>Sun, 29 Jul 2012 19:26:05 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5904</guid>
+      <dc:date>2012-07-29T19:26:05Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5905</link>
+      <description>&lt;!-- [DocumentBodyStart:48aa6ac4-5501-46f6-ad03-e18c86fda933] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello bigegor,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks for your help on this. Here is what you asked for:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;1. SQLDataSource: v2.2&lt;/p&gt;&lt;p&gt;2. PgSQLMon: v2.5&lt;/p&gt;&lt;p&gt;3. 'pyisqldb',DRIVER='{PostgreSQL}',host='${here/manageIp}',port='${here/port}',database='${here/dbname}',user='${here/zPgSqlUsername}',password='${here/zPgSqlPassword}',ansi=True&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Here are the other relevant zProperties:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zPgSqlPorts: 5432&lt;/p&gt;&lt;p&gt;zPgSqlUsername: zenoss&lt;/p&gt;&lt;p&gt;zPgSqlDatabaseIgnoreNames: ^postgres|^template0|^template1&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:48aa6ac4-5501-46f6-ad03-e18c86fda933] --&gt;</description>
+      <pubDate>Mon, 30 Jul 2012 15:19:27 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5905</guid>
+      <dc:date>2012-07-30T15:19:27Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-5924</link>
+      <description>&lt;!-- [DocumentBodyStart:3bb6309f-15d4-46a5-97e4-bcc8c76aaaa1] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hi slew,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;try to use &lt;strong&gt;pyodbc&lt;/strong&gt; or &lt;strong&gt;pg8000 &lt;/strong&gt;DB-API module. Connection strings examples you can find here : &lt;a class="jive-link-external-small" href="https://github.com/epuzanov/ZenPacks.community.PgSQLMon/blob/master/README.rst"&gt;https://github.com/epuzanov/ZenPacks.community.PgSQLMon/blob/master/README.rst&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3bb6309f-15d4-46a5-97e4-bcc8c76aaaa1] --&gt;</description>
+      <pubDate>Sun, 05 Aug 2012 15:35:55 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-5924</guid>
+      <dc:date>2012-08-05T15:35:55Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: PostgreSQL Database Monitor</title>
+      <link>http://community.zenoss.org/docs/DOC-3497#comments-6571</link>
+      <description>&lt;!-- [DocumentBodyStart:da514618-ee67-4394-8999-ebe08100da2b] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;div class="markdown-here-wrapper" id="markdown-here-wrapper-199462"&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;Hi, Thanks a lot for your db zenpacks but I am experiencing a problem when trying to load the database performance graphs, I receive the error &lt;code style="font-size: 0.85em; font-family: Consolas, Inconsolata, Courier, monospace; margin: 0px 0.15em; padding: 0px 0.3em; white-space: nowrap; border: 1px solid #eaeaea; background-color: #f8f8f8; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; display: inline;"&gt;ValueError: cannot convert float NaN to integer&lt;/code&gt;.&lt;/p&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;ZenPack information:&lt;/p&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;SQLDataSource: 2.4&lt;/p&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;PgSQLMon: 2.5&lt;/p&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;zPgSQLConnectionString: 'pyodbc',DRIVER='{PostgreSQL}',host='${here/manageIp}',port='${here/port}',database='${here/dbname}',user='${here/zPgSqlUsername}',password='${here/zPgSqlPassword}',ansi=True&lt;/p&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;I have 4 databases (template0, template1, postgres and &lt;strong&gt;P&lt;/strong&gt;).&amp;#160; When I run &lt;code style="font-size: 0.85em; font-family: Consolas, Inconsolata, Courier, monospace; margin: 0px 0.15em; padding: 0px 0.3em; white-space: nowrap; border: 1px solid #eaeaea; background-color: #f8f8f8; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; display: inline;"&gt;rrdtool lastupdate statDb_sizeUsed.rrd&lt;/code&gt; for each database they all return valid numbers execpt for &lt;strong&gt;P&lt;/strong&gt; which returns:&lt;/p&gt;&lt;pre style="font-size: 1em; font-family: Consolas, Inconsolata, Courier, monospace; line-height: 1.2em; overflow: auto; margin: 1.2em 0px;"&gt;&lt;code class="language-shell" style="font-size: 0.85em; font-family: Consolas, Inconsolata, Courier, monospace; margin: 0px 0.15em; padding: 0.5em; white-space: pre; border: 1px solid #cccccc; background-color: #f8f8ff; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; display: block; color: #333333; background-position: initial initial; background-repeat: initial initial;"&gt;
+ &lt;span class="title" style="color: #990000; font-weight: bold;"&gt;ds0&lt;/span&gt;
+
+&lt;span class="number" style="color: #009999;"&gt;1366402935&lt;/span&gt;: U&lt;/code&gt;&lt;/pre&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;This looks to be the problem.&amp;#160; Indeed, by placing &lt;strong&gt;P&lt;/strong&gt; in the &lt;em&gt;zPgSQLIgnoredDatabaseNames&lt;/em&gt; and remodeling, I no longer see the error. (The error is also gone if I replace the P statDb_sizeUsed.rrd with another databases copy of the file).&lt;/p&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;Debugging zenperfsql I see the following query being executed:&lt;/p&gt;&lt;pre style="font-size: 1em; font-family: Consolas, Inconsolata, Courier, monospace; line-height: 1.2em; overflow: auto; margin: 1.2em 0px;"&gt;&lt;code class="language-sql" style="font-size: 0.85em; font-family: Consolas, Inconsolata, Courier, monospace; margin: 0px 0.15em; padding: 0.5em; white-space: pre; border: 1px solid #cccccc; background-color: #f8f8ff; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; display: block; color: #333333; background-position: initial initial; background-repeat: initial initial;"&gt;
+2013-04-19 16:37:03,315 DEBUG zen.zenperfsql: Datasource PgSqlDatabase/statDb query:'SELECT
+
+&amp;#160;&amp;#160;&amp;#160; pg_stat_get_db_blocks_hit(D.oid) AS blks_hit,
+
+&amp;#160;&amp;#160;&amp;#160; pg_stat_get_db_blocks_fetched(D.oid) -
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; pg_stat_get_db_blocks_hit(D.oid) AS blks_read,
+
+&amp;#160;&amp;#160;&amp;#160; pg_stat_get_db_numbackends(D.oid) AS numbackends,
+
+&amp;#160;&amp;#160;&amp;#160; pg_database_size(datname)::float AS sizeUsed,
+
+&amp;#160;&amp;#160;&amp;#160; pg_stat_get_db_xact_commit(D.oid) AS xact_commit,
+
+&amp;#160;&amp;#160;&amp;#160; pg_stat_get_db_xact_rollback(D.oid) AS xact_rollback,
+
+&amp;#160;&amp;#160;&amp;#160; D.datname AS datname
+
+FROM pg_database D
+
+WHERE datname='P''&lt;/code&gt;&lt;/pre&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;Which if I run manually gives me a valid number for sizeUsed.&lt;/p&gt;&lt;pre style="font-size: 1em; font-family: Consolas, Inconsolata, Courier, monospace; line-height: 1.2em; overflow: auto; margin: 1.2em 0px;"&gt;&lt;code style="font-size: 0.85em; font-family: Consolas, Inconsolata, Courier, monospace; margin: 0px 0.15em; padding: 0.5em; white-space: pre; border: 1px solid #cccccc; background-color: #f8f8ff; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; display: block; color: #333333; background-position: initial initial; background-repeat: initial initial;"&gt;
+&amp;#160; blks_hit&amp;#160;&amp;#160; | blks_read&amp;#160; | numbackends |&amp;#160;&amp;#160; sizeused&amp;#160;&amp;#160;&amp;#160; | xact_commit | xact_rollback | datname&amp;#160; 
+
+-------------+------------+-------------+---------------+-------------+---------------+----------
+
+ 10874272122 | 1293627020 |&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 6 | 1892585448248 |&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 666501 |&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 72 | P&lt;/code&gt;&lt;/pre&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;Later on in the debug dump I see statDb_sizeUsed.rrd is updated with correct values for each database execept for P:&lt;/p&gt;&lt;pre style="font-size: 1em; font-family: Consolas, Inconsolata, Courier, monospace; line-height: 1.2em; overflow: auto; margin: 1.2em 0px;"&gt;&lt;code class="language-log" style="font-size: 0.85em; font-family: Consolas, Inconsolata, Courier, monospace; margin: 0px 0.15em; padding: 0.5em; white-space: pre; border: 1px solid #cccccc; background-color: #f8f8ff; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; display: block; color: #333333; background-position: initial initial; background-repeat: initial initial;"&gt;
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;493&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/template0/&lt;/span&gt;statDb_xact_commit.rrd: &lt;span class="number" style="color: #009999;"&gt;0&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;493&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/template0/&lt;/span&gt;statDb_xact_rollback.rrd: &lt;span class="number" style="color: #009999;"&gt;0&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;494&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/postgres/&lt;/span&gt;statDb_blks_hit.rrd: &lt;span class="number" style="color: #009999;"&gt;1344578&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;494&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/postgres/&lt;/span&gt;statDb_blks_read.rrd: &lt;span class="number" style="color: #009999;"&gt;574274&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;495&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/postgres/&lt;/span&gt;statDb_numbackends.rrd: &lt;span class="number" style="color: #009999;"&gt;0.0&lt;/span&gt;, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;495&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/postgres/&lt;/span&gt;statDb_sizeUsed.rrd: &lt;span class="number" style="color: #009999;"&gt;6030136.0&lt;/span&gt;, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;495&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/postgres/&lt;/span&gt;statDb_status_count.rrd: &lt;span class="number" style="color: #009999;"&gt;1.0&lt;/span&gt;, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;495&lt;/span&gt; DEBUG zen.thresholds: Checking value &lt;span class="number" style="color: #009999;"&gt;1.0&lt;/span&gt; &lt;span class="literal"&gt;on&lt;/span&gt; Devices&lt;span class="regexp" style="color: #009926;"&gt;/xxx.xxx.xxx.xxx/os/softwaredatabases/postgres/&lt;/span&gt;statDb_status_count
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;496&lt;/span&gt; DEBUG zen.MinMaxCheck: Checking statDb_status_count &lt;span class="number" style="color: #009999;"&gt;1.0&lt;/span&gt; against min &lt;span class="number" style="color: #009999;"&gt;1&lt;/span&gt; &lt;span class="keyword" style="color: #333333; font-weight: bold;"&gt;and&lt;/span&gt; max None
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;496&lt;/span&gt; DEBUG zen.zenperfsql: Queued event (total &lt;span class="keyword" style="color: #333333; font-weight: bold;"&gt;of&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;3&lt;/span&gt;) {&lt;span class="string" style="color: #dd1144;"&gt;'severity'&lt;/span&gt;: &lt;span class="number" style="color: #009999;"&gt;0&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'min'&lt;/span&gt;: &lt;span class="number" style="color: #009999;"&gt;1&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'max'&lt;/span&gt;: None, &lt;span class="string" style="color: #dd1144;"&gt;'component'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'postgres'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'summary'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'threshold of status restored: current value 1.000000'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'current'&lt;/span&gt;: &lt;span class="number" style="color: #009999;"&gt;1.0&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'eventKey'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'statDb|statDb_status_count'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'device'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'xxx.xxx.xxx.xxx'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'eventClass'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'/Status/PgSqlDatabase'&lt;/span&gt;}
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;497&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/postgres/&lt;/span&gt;statDb_xact_commit.rrd: &lt;span class="number" style="color: #009999;"&gt;33774&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;497&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/postgres/&lt;/span&gt;statDb_xact_rollback.rrd: &lt;span class="number" style="color: #009999;"&gt;2&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;497&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/p/&lt;/span&gt;statDb_blks_hit.rrd: &lt;span class="number" style="color: #009999;"&gt;10883063955&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;498&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/p/&lt;/span&gt;statDb_blks_read.rrd: &lt;span class="number" style="color: #009999;"&gt;1294130538&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;498&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/p/&lt;/span&gt;statDb_numbackends.rrd: &lt;span class="number" style="color: #009999;"&gt;6.0&lt;/span&gt;, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;499&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/p/&lt;/span&gt;statDb_status_count.rrd: &lt;span class="number" style="color: #009999;"&gt;1.0&lt;/span&gt;, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;499&lt;/span&gt; DEBUG zen.thresholds: Checking value &lt;span class="number" style="color: #009999;"&gt;1.0&lt;/span&gt; &lt;span class="literal"&gt;on&lt;/span&gt; Devices&lt;span class="regexp" style="color: #009926;"&gt;/xxx.xxx.xxx.xxx/os/softwaredatabases/p/&lt;/span&gt;statDb_status_count
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;499&lt;/span&gt; DEBUG zen.MinMaxCheck: Checking statDb_status_count &lt;span class="number" style="color: #009999;"&gt;1.0&lt;/span&gt; against min &lt;span class="number" style="color: #009999;"&gt;1&lt;/span&gt; &lt;span class="keyword" style="color: #333333; font-weight: bold;"&gt;and&lt;/span&gt; max None
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;500&lt;/span&gt; DEBUG zen.zenperfsql: Queued event (total &lt;span class="keyword" style="color: #333333; font-weight: bold;"&gt;of&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;4&lt;/span&gt;) {&lt;span class="string" style="color: #dd1144;"&gt;'severity'&lt;/span&gt;: &lt;span class="number" style="color: #009999;"&gt;0&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'min'&lt;/span&gt;: &lt;span class="number" style="color: #009999;"&gt;1&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'max'&lt;/span&gt;: None, &lt;span class="string" style="color: #dd1144;"&gt;'component'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'p'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'summary'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'threshold of status restored: current value 1.000000'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'current'&lt;/span&gt;: &lt;span class="number" style="color: #009999;"&gt;1.0&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'eventKey'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'statDb|statDb_status_count'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'device'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'xxx.xxx.xxx.xxx'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'eventClass'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'/Status/PgSqlDatabase'&lt;/span&gt;}
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;500&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/p/&lt;/span&gt;statDb_xact_commit.rrd: &lt;span class="number" style="color: #009999;"&gt;666536&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;500&lt;/span&gt; DEBUG zen.RRDUtil: &lt;span class="regexp" style="color: #009926;"&gt;/opt/zenoss/perf/Devices/xxx.xxx.xxx.xxx/os/softwaredatabases/p/&lt;/span&gt;statDb_xact_rollback.rrd: &lt;span class="number" style="color: #009999;"&gt;72&lt;/span&gt;L, @ N
+
+&lt;span class="number" style="color: #009999;"&gt;2013&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;04&lt;/span&gt;-&lt;span class="number" style="color: #009999;"&gt;19&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;16&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;37&lt;/span&gt;:&lt;span class="number" style="color: #009999;"&gt;05&lt;/span&gt;,&lt;span class="number" style="color: #009999;"&gt;500&lt;/span&gt; DEBUG zen.zenperfsql: Queued event (total &lt;span class="keyword" style="color: #333333; font-weight: bold;"&gt;of&lt;/span&gt; &lt;span class="number" style="color: #009999;"&gt;5&lt;/span&gt;) {&lt;span class="string" style="color: #dd1144;"&gt;'eventKey'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'statDb'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'severity'&lt;/span&gt;: &lt;span class="number" style="color: #009999;"&gt;0&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'device'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'xxx.xxx.xxx.xxx'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'eventClass'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'/Status/PgSqlDatabase'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'component'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'template1'&lt;/span&gt;, &lt;span class="string" style="color: #dd1144;"&gt;'summary'&lt;/span&gt;: &lt;span class="string" style="color: #dd1144;"&gt;'Datasource PgSqlDatabase/statDb query completed successfully'&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;&lt;p style="margin: 1.2em 0px !important;"&gt;Why would the sizeUsed be causing this problem for only the 1 database? &lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:da514618-ee67-4394-8999-ebe08100da2b] --&gt;</description>
+      <pubDate>Fri, 19 Apr 2013 21:16:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3497#comments-6571</guid>
+      <dc:date>2013-04-19T21:16:10Z</dc:date>
+      <clearspace:dateToText>10 months, 4 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : fping : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-3467#comments</link>
+    <description>Comments on : fping</description>
+    <language>en</language>
+    <pubDate>Thu, 26 Nov 2009 18:05:46 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2009-11-26T18:05:46Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-1499</link>
+      <description>&lt;!-- [DocumentBodyStart:910cd905-9e52-49ee-ba6d-11ae545760c8] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;span&gt;Thanks it's work a great pack&lt;/span&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:910cd905-9e52-49ee-ba6d-11ae545760c8] --&gt;</description>
+      <pubDate>Thu, 26 Nov 2009 18:05:46 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-1499</guid>
+      <dc:date>2009-11-26T18:05:46Z</dc:date>
+      <clearspace:dateToText>4 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-1803</link>
+      <description>&lt;!-- [DocumentBodyStart:0b514200-86d0-496f-8972-47494be1a002] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Has anyone else had an issue where if the destination device is down, no packet loss is graphed?&amp;#160; What I am seeing is that if the device is down, fping does not provide the min avg max values.&amp;#160; When the output is parsed, the&amp;#160;&amp;#160; xmt rcv loss values are placed in the min avg max values and the xmt rcv loss values are empty.&amp;#160; Would appreciate any assistance with resolving this issue.&amp;#160; See below:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/fping -c 3 -sq 192.168.60.21 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /'&lt;br/&gt;against TS-1&lt;br/&gt;PING OK|xmt=3 rcv=3 loss=0 min=28.7 avg=31.2 max=35.4&lt;br/&gt;DONE in 2 seconds&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/fping -c 3 -sq 192.168.61.25 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /'&lt;br/&gt;against 192.168.61.25&lt;br/&gt;192.168.61.25 : xmt/rcv/%loss =min= 3 avg=0 max=100%&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Raw fping output (note thatsecond IP which is down does not have min avg max values)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/fping -c 3 -sq 192.168.60.21&lt;br/&gt;192.168.60.21 : xmt/rcv/%loss = 3/3/0%, min/avg/max = 27.8/28.0/28.3&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 1 targets&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 1 alive&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 unreachable&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 unknown addresses&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 timeouts (waiting for response)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 3 ICMP Echos sent&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 3 ICMP Echo Replies received&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 other ICMP received&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt; 27.8 ms (min round trip time)&lt;br/&gt; 28.0 ms (avg round trip time)&lt;br/&gt; 28.3 ms (max round trip time)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 2.521 sec (elapsed real time)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/fping -c 3 -sq 192.168.61.25&lt;br/&gt;192.168.61.25 : xmt/rcv/%loss = 3/0/100%&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 1 targets&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 alive&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 1 unreachable&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 unknown addresses&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 timeouts (waiting for response)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 3 ICMP Echos sent&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 ICMP Echo Replies received&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 0 other ICMP received&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt; 0.00 ms (min round trip time)&lt;br/&gt; 0.00 ms (avg round trip time)&lt;br/&gt; 0.00 ms (max round trip time)&lt;br/&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 2.520 sec (elapsed real time)&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:0b514200-86d0-496f-8972-47494be1a002] --&gt;</description>
+      <pubDate>Tue, 23 Feb 2010 22:45:43 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-1803</guid>
+      <dc:date>2010-02-23T22:45:43Z</dc:date>
+      <clearspace:dateToText>4 years, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-1817</link>
+      <description>&lt;!-- [DocumentBodyStart:a06d2607-a4df-4eaf-a0e6-b9dd75e491bb] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Yes, this pack breaks when the device is down, I think its because the data line changes when the device is down, the min/avg/max is not shown&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a06d2607-a4df-4eaf-a0e6-b9dd75e491bb] --&gt;</description>
+      <pubDate>Sun, 14 Mar 2010 17:54:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-1817</guid>
+      <dc:date>2010-03-14T17:54:39Z</dc:date>
+      <clearspace:dateToText>4 years, 8 hours ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-1945</link>
+      <description>&lt;!-- [DocumentBodyStart:973a0d0f-5651-49ec-9e1b-26bf1ffc4e2a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;hi why in my zenoss core system, there is no fping_min graph.&lt;/p&gt;&lt;p&gt;The latecy and loss graph and the ping response spread graph alway display Missing RRD File: **** fping_min&lt;/p&gt;&lt;p&gt;other graph are displayed normaly.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;any idea? thanks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:973a0d0f-5651-49ec-9e1b-26bf1ffc4e2a] --&gt;</description>
+      <pubDate>Fri, 23 Apr 2010 12:37:50 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-1945</guid>
+      <dc:date>2010-04-23T12:37:50Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-1996</link>
+      <description>&lt;!-- [DocumentBodyStart:a78659dd-3a44-4d8e-bc78-b41ed6189dec] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;To divide the totals by 60 when graphing just add 60,/ to the RRD field for the graph point.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a78659dd-3a44-4d8e-bc78-b41ed6189dec] --&gt;</description>
+      <pubDate>Fri, 30 Apr 2010 19:50:32 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-1996</guid>
+      <dc:date>2010-04-30T19:50:32Z</dc:date>
+      <clearspace:dateToText>3 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2081</link>
+      <description>&lt;!-- [DocumentBodyStart:a50dae96-b349-4b2c-8337-582ed6778625] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This seems to work better for the fping data source:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;code&gt;/usr/sbin/fping -c 3 -sq&amp;#160; ${dev/manageIp} 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/ \([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max =/ /'&lt;/code&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Previous output looked like:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;code&gt;PING OK|xmt=3 rcv=3 loss=0, min/avg/max =min= 153 avg=153 max=154 &lt;/code&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;New output looks like:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;code&gt;PING OK|xmt=3 rcv=3 loss=0 min=153 avg=153 max=154&lt;/code&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;My fping version is 2.4b2_to (current from Debian lenny). Hope this helps somebody.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a50dae96-b349-4b2c-8337-582ed6778625] --&gt;</description>
+      <pubDate>Mon, 24 May 2010 15:58:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2081</guid>
+      <dc:date>2010-05-24T15:58:49Z</dc:date>
+      <clearspace:dateToText>3 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2182</link>
+      <description>&lt;!-- [DocumentBodyStart:02fd5240-4285-44ea-8114-5aa4cae9ec61] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;If you're running Ubuntu, "apt-get install fping" and you'll need to change the path in the template from "/usr/sbin/fping" to "/usr/bin/fping".&amp;#160; Then you'll have a b_fping template you can bind to devices.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:02fd5240-4285-44ea-8114-5aa4cae9ec61] --&gt;</description>
+      <pubDate>Fri, 18 Jun 2010 16:14:35 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2182</guid>
+      <dc:date>2010-06-18T16:14:35Z</dc:date>
+      <clearspace:dateToText>3 years, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2290</link>
+      <description>&lt;!-- [DocumentBodyStart:829c9f2f-2306-4034-a27f-c57d534de52d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Is there any way to get this installed under Zenoss 3?&amp;#160; I sure miss the graphing.&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:829c9f2f-2306-4034-a27f-c57d534de52d] --&gt;</description>
+      <pubDate>Mon, 26 Jul 2010 02:59:04 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2290</guid>
+      <dc:date>2010-07-26T02:59:04Z</dc:date>
+      <clearspace:dateToText>3 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2305</link>
+      <description>&lt;!-- [DocumentBodyStart:3a9ef204-40cd-4781-9ce8-6aa9b5f88699] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'm using it just fine with 3.0.&amp;#160; Make sure you have the right path to the &lt;strong&gt;fping&lt;/strong&gt; command and that you've bound the template.&amp;#160; Of course, I realize I built it from source, so we'll need to package it up for Python 2.6 soon.&amp;#160; It's in the queue to do, in the meantime try renaming the .egg from here to &lt;strong&gt;&lt;span&gt;ZenPacks.BlakeDrager.fping-1.0.egg&lt;/span&gt;&lt;/strong&gt; and it should work when you load it.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3a9ef204-40cd-4781-9ce8-6aa9b5f88699] --&gt;</description>
+      <pubDate>Mon, 26 Jul 2010 14:47:58 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2305</guid>
+      <dc:date>2010-07-26T14:47:58Z</dc:date>
+      <clearspace:dateToText>3 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2503</link>
+      <description>&lt;!-- [DocumentBodyStart:8728bdfd-484d-4a0e-910d-55565c6411e2] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This is an Excellent Pack.&amp;#160; &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I am curious why I am unable to graph devices in the /Devices/Ping container.&amp;#160; I have hosts that I would like to ping and graph but do not support snmp.&amp;#160; &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Any thoughts?&amp;#160; &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;db&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8728bdfd-484d-4a0e-910d-55565c6411e2] --&gt;</description>
+      <pubDate>Mon, 23 Aug 2010 20:47:24 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2503</guid>
+      <dc:date>2010-08-23T20:47:24Z</dc:date>
+      <clearspace:dateToText>3 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2504</link>
+      <description>&lt;!-- [DocumentBodyStart:2f4eac5d-229d-449f-8a74-c7400a014bc5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The Devices/Ping device class does not have any performance graphs, it is simply for availability.&amp;#160; If you want ping-related performance graphs you can install and bind the template provided by this ZenPack.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:2f4eac5d-229d-449f-8a74-c7400a014bc5] --&gt;</description>
+      <pubDate>Mon, 23 Aug 2010 21:58:15 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2504</guid>
+      <dc:date>2010-08-23T21:58:15Z</dc:date>
+      <clearspace:dateToText>3 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2505</link>
+      <description>&lt;!-- [DocumentBodyStart:6ea495da-f212-4607-9efb-7b25f734aecc] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Matt,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks for the response.&amp;#160; I did as you suggested before writing the boards and tried simply adding a device to a class that seems to be graphing properly and am still unable to graph ping responses of a device that is not pollable via snmp.&amp;#160; I see the graphs trying to build in the Perf Tab but there is no image.&amp;#160; &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I would have expected this template to work regardless of the device supporting snmp polling but from my tests it seems it does not. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thoughts?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6ea495da-f212-4607-9efb-7b25f734aecc] --&gt;</description>
+      <pubDate>Mon, 23 Aug 2010 22:32:56 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2505</guid>
+      <dc:date>2010-08-23T22:32:56Z</dc:date>
+      <clearspace:dateToText>3 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2707</link>
+      <description>&lt;!-- [DocumentBodyStart:a92c53de-e5c1-4b7d-8ef6-559d2790de7c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Does anybody have any idea why the fping_min.rrd file isn't always created automatically? I've bound this template to 168 devices: fping_max.rrd has been created everywhere, but fping_min.rrd has only appeared on 21 of them. &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;div id="_mcePaste"&gt;~/zenoss/perf/Devices&amp;gt; find . -name fping_min.rrd | wc&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 21&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 21&amp;#160;&amp;#160;&amp;#160;&amp;#160; 518&lt;/div&gt;&lt;div id="_mcePaste"&gt;~/zenoss/perf/Devices&amp;gt; find . -name fping_max.rrd | wc&lt;/div&gt;&lt;div id="_mcePaste"&gt;&amp;#160;&amp;#160;&amp;#160; 168&amp;#160;&amp;#160;&amp;#160;&amp;#160; 168&amp;#160;&amp;#160;&amp;#160; 4115&lt;/div&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a92c53de-e5c1-4b7d-8ef6-559d2790de7c] --&gt;</description>
+      <pubDate>Fri, 24 Sep 2010 20:46:39 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2707</guid>
+      <dc:date>2010-09-24T20:46:39Z</dc:date>
+      <clearspace:dateToText>3 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2787</link>
+      <description>&lt;!-- [DocumentBodyStart:fb5acc1b-46ba-484e-a3e4-ded43b686981] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello, it is a usefull ZenPack. I installed and runnig first graphs... I have a question, every how minutes run the tools ? Only appears send 3 pings in the last 10 minutes.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;a href="http://i53.tinypic.com/if2vb6.jpg"&gt;&lt;img src="http://i53.tinypic.com/if2vb6.jpg"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Thanks, Cristian.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fb5acc1b-46ba-484e-a3e4-ded43b686981] --&gt;</description>
+      <pubDate>Sat, 02 Oct 2010 00:46:11 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2787</guid>
+      <dc:date>2010-10-02T00:46:11Z</dc:date>
+      <clearspace:dateToText>3 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2788</link>
+      <description>&lt;!-- [DocumentBodyStart:555acf77-a99e-4ead-a7f9-de63bfb75a19] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Go in to the performance template and check the cycle time that is set on the command datasource.&amp;#160; They default to 5 minutes so that's probably what it's set at.&amp;#160; If you increase it though, you're going to have to mess around with RRD graph settings.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:555acf77-a99e-4ead-a7f9-de63bfb75a19] --&gt;</description>
+      <pubDate>Mon, 04 Oct 2010 01:18:05 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2788</guid>
+      <dc:date>2010-10-04T01:18:05Z</dc:date>
+      <clearspace:dateToText>3 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2855</link>
+      <description>&lt;!-- [DocumentBodyStart:946f3edd-f61f-49de-bbd2-26498eef9a6c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;In 3.0.2 I encountered an issue with character handling for the command. Had to modify the template and change the command to:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/fping -c 3 -sq ${dev/manageIp} 2&amp;gt;%261 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/' | /bin/sed 's/ \([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d' | /bin/sed -r 's/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/' | /bin/sed -r 's/, min\/avg\/max =/ /'&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:946f3edd-f61f-49de-bbd2-26498eef9a6c] --&gt;</description>
+      <pubDate>Thu, 14 Oct 2010 14:32:25 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2855</guid>
+      <dc:date>2010-10-14T14:32:25Z</dc:date>
+      <clearspace:dateToText>3 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-2948</link>
+      <description>&lt;!-- [DocumentBodyStart:84766eb6-1bc5-49d4-952e-a67d0b8d06ac] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Today, I observed a 3.0.2 Zenoss generating fping processes (along with sed processes being forked by fping) that weren't properly terminating as they were waiting for standard input.&amp;#160; This was due to a misconfiguration in Zenoss that had fping trying to ping a host that didn't have an IP address properly defined which lead to fping trying to ping nothing:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zenoss&amp;#160;&amp;#160;&amp;#160;&amp;#160; 500 /usr/sbin/fping -c 3 -sq&lt;br/&gt;zenoss&amp;#160;&amp;#160;&amp;#160;&amp;#160; 501 /bin/sed s/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/&lt;br/&gt;zenoss&amp;#160;&amp;#160;&amp;#160;&amp;#160; 502 /bin/sed -r /targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Everytime fping attempted to run, similar processes would spawn and stay resident.&amp;#160; This was fixed before anything significantly bad happened, but (unless this has been subsequently fixed) this is something to watch out for.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:84766eb6-1bc5-49d4-952e-a67d0b8d06ac] --&gt;</description>
+      <pubDate>Fri, 05 Nov 2010 23:06:31 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-2948</guid>
+      <dc:date>2010-11-05T23:06:31Z</dc:date>
+      <clearspace:dateToText>3 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3267</link>
+      <description>&lt;!-- [DocumentBodyStart:4881f34a-9ddc-4396-8431-8569c88c0891] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I have 5 sites but only have Zenoss collectors in 1 of them (I am collecting over my WAN from remote devices).&amp;#160; I'm intersted in measuring latency between 2 of the sites that have hosts, just no Zenoss collectors.&amp;#160; Can anyone suggest a way for me to do this?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4881f34a-9ddc-4396-8431-8569c88c0891] --&gt;</description>
+      <pubDate>Fri, 07 Jan 2011 02:41:09 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3267</guid>
+      <dc:date>2011-01-07T02:41:09Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3268</link>
+      <description>&lt;!-- [DocumentBodyStart:c12c554d-8c2e-41a5-abe7-3f9d9ea6ba24] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The way I'd do it (if one of the remote sites has a linux host), is to write a bash script on that host that runs as a cron job every minute or so doing a ping and write the result to a file.&amp;#160; Then I'd create an ssh command datasource that remotely executes a script on that server which reads from that file.&amp;#160; You can then graph the values and threshold against them.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c12c554d-8c2e-41a5-abe7-3f9d9ea6ba24] --&gt;</description>
+      <pubDate>Fri, 07 Jan 2011 16:46:01 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3268</guid>
+      <dc:date>2011-01-07T16:46:01Z</dc:date>
+      <clearspace:dateToText>3 years, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3290</link>
+      <description>&lt;!-- [DocumentBodyStart:1bf1e19b-c744-47e6-a8ec-a1b68c241aaf] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello,&lt;/p&gt;&lt;p&gt;is there a way to decrease the interval of the command execution. I see that the cycle is 300 seconds. I can manipulate the interval and count of the packets, but this is not a solution I am looking for.&lt;/p&gt;&lt;p&gt;For example if I use interval of 10sec*count 30 packes = 300 packets*sec. But when I run this command to a host from the Zenoss web interface, it gives me timeout in 30sec. So also this interval is somehow limited to 30sec. Is there a way to manipulate with these intervals?&lt;/p&gt;&lt;p&gt;I want to achieve a constant ping to hosts on every 10 seconds.&lt;/p&gt;&lt;p&gt;I'm using Zenoss 3.0.3.&lt;/p&gt;&lt;p&gt;Thank you&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1bf1e19b-c744-47e6-a8ec-a1b68c241aaf] --&gt;</description>
+      <pubDate>Wed, 19 Jan 2011 15:20:31 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3290</guid>
+      <dc:date>2011-01-19T15:20:31Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3313</link>
+      <description>&lt;!-- [DocumentBodyStart:3271f68c-35d3-4b72-b9de-8fc708269d19] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;You are limited by how long the script takes to execute.&amp;#160; If you set the cycle to 10 seconds on a template applied across all of your hosts, that doesn't just mean that 1 script needs to complete running every 10 seconds, it means that the script needs to finish running for every host within 10 seconds.&amp;#160; The fact that you are getting timeouts shows that the fping script is taking a long time to finish with the settings that you specified.&amp;#160; Zenoss is never going to be able to do a perfect continuous ping via an external script.&amp;#160; You're not giving Zenoss enough time to actually finish the script execution for each host.&amp;#160; Even if you only did 1 ping packet across 100 hosts, the scripts still most likely wouldn't finish within the 10 second window.&amp;#160; Zenoss only runs a certain amount of scripts simultaneously (I believe it's 10 by default).&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3271f68c-35d3-4b72-b9de-8fc708269d19] --&gt;</description>
+      <pubDate>Wed, 19 Jan 2011 15:41:00 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3313</guid>
+      <dc:date>2011-01-19T15:41:00Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3315</link>
+      <description>&lt;!-- [DocumentBodyStart:79891c7c-4e20-4aaa-9e70-881c5c5c9eb4] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ryan thank you for the explanation.&lt;/p&gt;&lt;p&gt;What about limiting the cycle time? I see that in the monitoring templates for fping there is an option "cycle time". I limited this to 10sec.&lt;/p&gt;&lt;p&gt;In the command template I set the packet count to 3.&lt;/p&gt;&lt;p&gt;Does this mean that the hosts will be pinged every 10sec 3 times?&lt;/p&gt;&lt;p&gt;Thank you again!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:79891c7c-4e20-4aaa-9e70-881c5c5c9eb4] --&gt;</description>
+      <pubDate>Wed, 19 Jan 2011 16:51:52 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3315</guid>
+      <dc:date>2011-01-19T16:51:52Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3317</link>
+      <description>&lt;!-- [DocumentBodyStart:fe31d925-6fbd-4ae6-a8c3-1245cf40fa3a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Yes, that is exactly what that means.&amp;#160; The problem is, if it takes the fping script 3 seconds to ping a host 3 times, and you have 100 hosts, then you may run over the cycle time.&amp;#160; It runs 10 scripts at once by default.&amp;#160; Even if those 10 scripts finish running in 3 seconds, another 10 scripts kick off afterwards, and then another 10, and so on... you end up with 3 x (100 / 10) = 30 seconds, so you end up going over your set polling cycle and end up with gaps in graphs, or graphs not generating.&amp;#160; The other thing is, if your RRD settings aren't configured to break the graph up in to enough parts, the data will be graphed in averaged 5 minute chunks, so you're not going to end up with a high resolution graph.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Under collector settings there are entries like:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;RRA:AVERAGE:0.15:1:600&lt;br/&gt;RRA:AVERAGE:0.15:6:600&lt;br/&gt;RRA:AVERAGE:0.15:24:600&lt;br/&gt;RRA:AVERAGE:0.15:288:600&lt;br/&gt;RRA:MAX:0.15:6:600&lt;br/&gt;RRA:MAX:0.15:24:600&lt;br/&gt;RRA:MAX:0.15:288:600&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I changed the first value to 0.15 to break the graph up in to 15 second slices.&amp;#160; After adjusting those settings you need to delete the existing RRD files to allow them to regenerate with the new settings.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:fe31d925-6fbd-4ae6-a8c3-1245cf40fa3a] --&gt;</description>
+      <pubDate>Wed, 19 Jan 2011 17:56:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3317</guid>
+      <dc:date>2011-01-19T17:56:10Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3318</link>
+      <description>&lt;!-- [DocumentBodyStart:d6fe3ed4-d8e1-495d-ad92-b160a07bd139] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks for the reply.&lt;/p&gt;&lt;p&gt;I managed to increase the number of parallel jobs, adjusted the SNMP timers, ping and fping values and also regenerated the values for the graphs. I will see how it will work in a larger environment.&lt;/p&gt;&lt;p&gt;Thanks for your help!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d6fe3ed4-d8e1-495d-ad92-b160a07bd139] --&gt;</description>
+      <pubDate>Thu, 20 Jan 2011 09:07:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3318</guid>
+      <dc:date>2011-01-20T09:07:18Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3319</link>
+      <description>&lt;!-- [DocumentBodyStart:35b11f84-5fc0-476c-a24c-1e36b01043c0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;No problem.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:35b11f84-5fc0-476c-a24c-1e36b01043c0] --&gt;</description>
+      <pubDate>Thu, 20 Jan 2011 15:30:35 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3319</guid>
+      <dc:date>2011-01-20T15:30:35Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3411</link>
+      <description>&lt;!-- [DocumentBodyStart:1b1dfe40-ddfb-48d3-92e8-d245526cac20] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I have been working on getting the ping total count to display the correct number. Since its not a graph point I can't just do the RPN math in there, but it looks like I could modify the Custom Graph Definition to get the correct value displayed. I modified the Definiting to look like:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;CDEF:pingloss=Pings_Sent-raw,Pings_Received-raw,-&lt;br/&gt;LINE1:pingloss#ff000099:Pings Lost&amp;#160;&amp;#160; &lt;br/&gt;GPRINT:pingloss:LAST:cur\: %2.2lf&lt;br/&gt;GPRINT:pingloss:AVERAGE:avg\: %2.2lf&lt;br/&gt;GPRINT:pingloss:MAX:max\: %2.2lf\j&lt;br/&gt;VDEF:pingtotal=Pings_Sent-raw,TOTAL&lt;br/&gt;GPRINT:pingtotal:Total Sent&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; \:%10.0lf%s\j&lt;br/&gt;VDEF:rcvtotal=Pings_Received-raw,TOTAL&lt;br/&gt;GPRINT:rcvtotal:Total Received&amp;#160; \:%10.0lf%s&lt;br/&gt;CDEF:realpingtotal=pingtotal,300,\/&lt;br/&gt;GPRINT:realpingtotal:Total Sent&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; \:%10.0lf%s\j&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I've tried this about a dozen other ways and reading into all the RRD info and RPN math it looks like I'm doing it correctly but anytime I change it my graph disapears with just the header of the graph. Still looking and reading and trying things but if anybody has any ideas I would apreciate it.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1b1dfe40-ddfb-48d3-92e8-d245526cac20] --&gt;</description>
+      <pubDate>Tue, 01 Feb 2011 22:51:13 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3411</guid>
+      <dc:date>2011-02-01T22:51:13Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3470</link>
+      <description>&lt;!-- [DocumentBodyStart:1e61871b-ff8a-4af6-acbd-eb6a8dae43f0] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Figured it out. When I was working with it however I removed the datapoints and made a complete custom definition though I don't think it was needed. Also my step was reduced in my template to 30 seconds so you need to change the 30 to whatever your step is set at.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The problem I was running into was explained in this thread:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;a class="jive-link-external-small" href="http://rrd-mailinglists.937164.n2.nabble.com/Concatenated-VDEF-and-CDEF-commands-in-a-rrdtool-graph-cmd-td5727234.html"&gt;http://rrd-mailinglists.937164.n2.nabble.com/Concatenated-VDEF-and-CDEF-commands-in-a-rrdtool-graph-cmd-td5727234.html&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Here is the Custom Definition I ended up with:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;-F&lt;br/&gt;-E&lt;br/&gt;--height=100&lt;br/&gt;--width=500&lt;br/&gt;--vertical-label=Pings&lt;br/&gt;DEF:Pings_Sent-raw=${here/fullRRDPath}/fping_xmt.rrd:ds0:AVERAGE&lt;br/&gt;DEF:Pings_Sent-raw-max=${here/fullRRDPath}/fping_xmt.rrd:ds0:MAX&lt;br/&gt;CDEF:Pings_Sent=Pings_Sent-raw&lt;br/&gt;LINE1:Pings_Sent-raw#00cc00ff:Pings Sent&amp;#160;&amp;#160;&amp;#160; &lt;br/&gt;GPRINT:Pings_Sent-raw:LAST:cur\:%5.2lf%s&lt;br/&gt;GPRINT:Pings_Sent-raw:AVERAGE:avg\:%5.2lf%s&lt;br/&gt;GPRINT:Pings_Sent-raw-max:MAX:max\:%5.2lf%s\j&lt;br/&gt;DEF:Pings_Received-raw=${here/fullRRDPath}/fping_rcv.rrd:ds0:AVERAGE&lt;br/&gt;DEF:Pings_Received-raw-max=${here/fullRRDPath}/fping_rcv.rrd:ds0:MAX&lt;br/&gt;CDEF:Pings_Received=Pings_Received-raw&lt;br/&gt;LINE1:Pings_Received-raw#0000ff99:Pings Received&lt;br/&gt;GPRINT:Pings_Received-raw:LAST:cur\:%5.2lf%s&lt;br/&gt;GPRINT:Pings_Received-raw:AVERAGE:avg\:%5.2lf%s&lt;br/&gt;GPRINT:Pings_Received-raw-max:MAX:max\:%5.2lf%s\j&lt;br/&gt;VDEF:pingtotal=Pings_Sent-raw,TOTAL&lt;br/&gt;CDEF:realpingtotal=Pings_Sent-raw,POP,pingtotal,30,/&lt;br/&gt;GPRINT:realpingtotal:MAX:Total Sent&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; \:%10.0lf%s\j&lt;br/&gt;VDEF:rcvtotal=Pings_Received-raw,TOTAL&lt;br/&gt;CDEF:realrcvtotal=Pings_Received-raw,POP,rcvtotal,30,/&lt;br/&gt;GPRINT:realrcvtotal:MAX:Total Received&amp;#160; \:%10.0lf%s&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I think if you wanted to quickly fix it you could just remove the last 4 lines of your custom definition and then paste in these lines:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;VDEF:pingtotal=Pings_Sent-raw,TOTAL&lt;br/&gt;CDEF:realpingtotal=Pings_Sent-raw,POP,pingtotal,30,/&lt;br/&gt;GPRINT:realpingtotal:MAX:Total Sent&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; \:%10.0lf%s\j&lt;br/&gt;VDEF:rcvtotal=Pings_Received-raw,TOTAL&lt;br/&gt;CDEF:realrcvtotal=Pings_Received-raw,POP,rcvtotal,30,/&lt;br/&gt;GPRINT:realrcvtotal:MAX:Total Received&amp;#160; \:%10.0lf%s&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:1e61871b-ff8a-4af6-acbd-eb6a8dae43f0] --&gt;</description>
+      <pubDate>Thu, 10 Feb 2011 17:43:28 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3470</guid>
+      <dc:date>2011-02-10T17:43:28Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-3666</link>
+      <description>&lt;!-- [DocumentBodyStart:10880e0f-8ea9-4d64-91fb-ec995dd3aa14] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Zenoss 3.1.0 and Ubuntu 10.04: Problem with run of this command&lt;/p&gt;&lt;p&gt;/usr/sbin/fping -c 3 -sq&amp;#160; ${dev/manageIp} 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /'&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I created bash script $ZENHOME/libexec/fping-wrapper&lt;/p&gt;&lt;p&gt;#!/bin/bash&lt;/p&gt;&lt;p&gt;/usr/bin/fping -c 3 -sq&amp;#160; $1 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/ \([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max =/ /'&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;chmod +x $ZENHOME/libexec/fping-wrapper&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Command Template:&lt;/p&gt;&lt;p&gt;fping-wrapper ${dev/manageIp}&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Enjoy it !&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:10880e0f-8ea9-4d64-91fb-ec995dd3aa14] --&gt;</description>
+      <pubDate>Wed, 16 Mar 2011 11:54:42 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-3666</guid>
+      <dc:date>2011-03-16T11:54:42Z</dc:date>
+      <clearspace:dateToText>2 years, 12 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-4289</link>
+      <description>&lt;!-- [DocumentBodyStart:49f870dc-69ce-4f5f-847f-964b091c0799] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I am having issue with this pack due to a known small amount of packetloss which causes the command syntax to give an errored response:&lt;/p&gt;&lt;p&gt;&lt;br/&gt;Normal, working device with no packetloss:&lt;/p&gt;&lt;p&gt;&lt;br/&gt;zenoss@Zenoss-Pinger:/etc/default# /usr/bin/fping -c 5 -sq 192.168.198.1 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /'&lt;br/&gt;&lt;strong&gt;PING OK|xmt=5 rcv=5 loss=0, min/avg/max =min= 335 avg=336 max=338&lt;/strong&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Normal, not working script due to the first packet being dropped every time:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zenoss @Zenoss-Pinger:/etc/default# /usr/bin/fping -c 5 -sq&amp;#160; 10.61.6.135 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /'&lt;br/&gt;&lt;strong&gt;10.61.6.135 : xmt/rcv/%loss =min= 5 avg=4/20% 719/723 max=733&lt;/strong&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;As you can see, the lack of PING OK in the line messes all other information to the point that the data is not graphed.&amp;#160; How is this plugin meant to graph packetloss if it fails everytime when the first packet is dropped? &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Any help would be greatly appreciated.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:49f870dc-69ce-4f5f-847f-964b091c0799] --&gt;</description>
+      <pubDate>Wed, 20 Jul 2011 16:50:11 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-4289</guid>
+      <dc:date>2011-07-20T16:50:11Z</dc:date>
+      <clearspace:dateToText>2 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-4442</link>
+      <description>&lt;!-- [DocumentBodyStart:ea4fbe3d-63e0-47ed-b0d9-de8ab75561e2] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I tried using this approach but with a slight modification and it worked great for me.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;You see the problem that i found is that when some of the nodes were entered, some if not many of the IP address and host name was originally copied and pasted from an excel spreadsheet which meant there were hidden illegal characters that seemed to be screwing up fping.&lt;/p&gt;&lt;p&gt;As a result, when looking at the process list you can clearly see lots of fping commands being issued with NO IP address where the ${dev/manageIp} would be expected. (and of course these would stay open until they system ran out of open file handles)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Simple solution was to add some sanitization to strip out everything except 0-9 and . characters&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Below are the modifications i made to the original fping-wrapper script provided by TopOSScz&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;#!/bin/bash&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;CLEAN=${1//[^0-9\.]/}&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/bin/fping -c 3 -sq $CLEAN 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/ \([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max =/ /'&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;And of course it should go without saying that from here you would use the same method of modifying the command template to call 'fping-wrapper ${dev/manageIp}' instead of the big long command string&lt;/p&gt;&lt;p&gt;(I found explicit paths to fping-wrapper worked best here)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;this fixed my problems and was actually pretty easy to implement as a work around.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ea4fbe3d-63e0-47ed-b0d9-de8ab75561e2] --&gt;</description>
+      <pubDate>Tue, 16 Aug 2011 18:53:43 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-4442</guid>
+      <dc:date>2011-08-16T18:53:43Z</dc:date>
+      <clearspace:dateToText>2 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-4545</link>
+      <description>&lt;!-- [DocumentBodyStart:c9178c21-4dc8-470c-961d-4de702efbb52] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;fping stopped graphing after upgrade to Zenoss 3.2.&amp;#160;&amp;#160; When I test the template with a device,&amp;#160; I first noticed that zenoss command shell didn't ouput the fping command properly just like if the sed's regex were not working anymore.&amp;#160;&amp;#160; So I wrapped the fping in the shell script and changed the template command accordingly.&amp;#160;&amp;#160; Now I see the command output correctly as PING OK|xmt=3 rcv=3 loss=0 min=19.1 avg=19.9 max=20.7 but still no graphing.&amp;#160;&amp;#160; Should I reset the whole graphs?&lt;/p&gt;&lt;div class="mcePaste" id="_mcePaste" style="position: absolute; top: 0px; left: 0px;"&gt;﻿&lt;/div&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c9178c21-4dc8-470c-961d-4de702efbb52] --&gt;</description>
+      <pubDate>Sat, 03 Sep 2011 19:40:36 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-4545</guid>
+      <dc:date>2011-09-03T19:40:36Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-4546</link>
+      <description>&lt;!-- [DocumentBodyStart:efee5503-359c-4427-930a-4b8ad53188c5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I just found out on the forum that 3.2 is responsible of some graphing headaches...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This will certainly refrain me to upgrade to fast the next time.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:efee5503-359c-4427-930a-4b8ad53188c5] --&gt;</description>
+      <pubDate>Sun, 04 Sep 2011 18:58:50 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-4546</guid>
+      <dc:date>2011-09-04T18:58:50Z</dc:date>
+      <clearspace:dateToText>2 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-4569</link>
+      <description>&lt;!-- [DocumentBodyStart:8d89a38f-6b71-4be3-96af-e17fb4e24251] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello, &lt;/p&gt;&lt;p&gt;I'm working with REDhat and I installed this zenpack on zenoss 3.2.&lt;/p&gt;&lt;p&gt;when I look through RRD file, only the fping_xmt.rrd is created.&lt;/p&gt;&lt;p&gt;any one has a solution??&lt;/p&gt;&lt;p&gt;thks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8d89a38f-6b71-4be3-96af-e17fb4e24251] --&gt;</description>
+      <pubDate>Mon, 19 Sep 2011 14:31:45 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-4569</guid>
+      <dc:date>2011-09-19T14:31:45Z</dc:date>
+      <clearspace:dateToText>2 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-4642</link>
+      <description>&lt;!-- [DocumentBodyStart:433f1b62-1714-400a-aa49-b13f9e798dbb] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p class="streaming-line even"&gt;Test work great..&lt;br/&gt;Preparing Command...&lt;/p&gt;&lt;p class="streaming-line odd" style="color: #aacccc; padding-top: 3px; padding-bottom: 3px;"&gt;Executing command /usr/sbin/fping -c 3 -sq 192.168.10.254 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /' against 192.168.10.254&lt;/p&gt;&lt;p class="streaming-line odd" style="color: #aacccc; padding-top: 3px; padding-bottom: 3px;"&gt;PING OK|xmt=3 rcv=3 loss=0 min=6.31 avg=6.80 max=7.42&lt;/p&gt;&lt;p class="streaming-line even"&gt;DONE in 2 seconds&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I add the template to /ping devices but the graphs are empty. Only ping count show me. &lt;br/&gt;Any idea what is wrong ?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:433f1b62-1714-400a-aa49-b13f9e798dbb] --&gt;</description>
+      <pubDate>Fri, 07 Oct 2011 16:09:28 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-4642</guid>
+      <dc:date>2011-10-07T16:09:28Z</dc:date>
+      <clearspace:dateToText>2 years, 5 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-4722</link>
+      <description>&lt;!-- [DocumentBodyStart:dc6d1a3f-e058-4394-980d-0a59a1731329] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Hello,&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Zenpack doesn't work on my 3.2 installation.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Michael&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:dc6d1a3f-e058-4394-980d-0a59a1731329] --&gt;</description>
+      <pubDate>Fri, 21 Oct 2011 08:10:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-4722</guid>
+      <dc:date>2011-10-21T08:10:10Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-4879</link>
+      <description>&lt;!-- [DocumentBodyStart:08c9d738-b85a-4f86-a3b0-28c432753bb6] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I think i've got a fix for this - i've been through the regular expressions on the sed commands and amended them to be a bit more robust. I'm currently testing with this as the fping command...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;/usr/sbin/fping -c 3 -sq&amp;#160; ${dev/manageIp} 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]*\(\.[0-9]*\)*\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*\(\.[0-9]*\)*\)\/\([0-9]*\(\.[0-9]*\)*\)\/\([0-9]*\(\.[0-9]*\)*\)/min=\1 avg=\3 max=\5/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /'&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:08c9d738-b85a-4f86-a3b0-28c432753bb6] --&gt;</description>
+      <pubDate>Fri, 02 Dec 2011 21:34:42 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-4879</guid>
+      <dc:date>2011-12-02T21:34:42Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-5137</link>
+      <description>&lt;!-- [DocumentBodyStart:c0aa82f1-66c7-48f5-827c-494de6c386f8] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;How wil this zenpack cope with 6000 Devices ?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;Stefan&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c0aa82f1-66c7-48f5-827c-494de6c386f8] --&gt;</description>
+      <pubDate>Thu, 23 Feb 2012 08:48:12 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-5137</guid>
+      <dc:date>2012-02-23T08:48:12Z</dc:date>
+      <clearspace:dateToText>2 years, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-5139</link>
+      <description>&lt;!-- [DocumentBodyStart:50be3438-0d52-445f-a39a-5dab08e3c4de] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;You'll have 6000 scripts kicking off each cycle.&amp;#160; Unless it's one hell of a server it probably wouldn't cope very well.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:50be3438-0d52-445f-a39a-5dab08e3c4de] --&gt;</description>
+      <pubDate>Thu, 23 Feb 2012 15:03:01 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-5139</guid>
+      <dc:date>2012-02-23T15:03:01Z</dc:date>
+      <clearspace:dateToText>2 years, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-5167</link>
+      <description>&lt;!-- [DocumentBodyStart:733ceb6a-29c1-4306-8b84-9a6229169660] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Is there any pack for zenoss 3.2.* like this one?If doesn't, can someone help me to build one?I need some graphs for my &lt;strong&gt;/device/ping&lt;/strong&gt; devices.&lt;/p&gt;&lt;p&gt;Thanks&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:733ceb6a-29c1-4306-8b84-9a6229169660] --&gt;</description>
+      <pubDate>Sat, 03 Mar 2012 16:57:27 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-5167</guid>
+      <dc:date>2012-03-03T16:57:27Z</dc:date>
+      <clearspace:dateToText>2 years, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-5172</link>
+      <description>&lt;!-- [DocumentBodyStart:ed34da89-1b29-4569-a764-18de21f4fb13] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;a class="" href="http://community.zenoss.org/servlet/JiveServlet/download/3467-6-3045/ZenPacks.BlakeDrager.fping-1.0-py2.6.egg.zip"&gt;ZenPacks.BlakeDrager.fping-1.0-py2.6.egg.zip&lt;/a&gt;&lt;span style="color: #666666; font-family: Arial; font-size: 11px; background-color: #f8f4e6;"&gt; should be what your after. There generally isnt anything required for a pack that was tested on 3.0 vs 3.2.1. I'd download the 1.0-py2.6 egg and give it a shot. (Make sure you unzip it before installing)&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:ed34da89-1b29-4569-a764-18de21f4fb13] --&gt;</description>
+      <pubDate>Sat, 03 Mar 2012 17:39:35 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-5172</guid>
+      <dc:date>2012-03-03T17:39:35Z</dc:date>
+      <clearspace:dateToText>2 years, 1 week ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-5584</link>
+      <description>&lt;!-- [DocumentBodyStart:85c81cda-a542-415b-99aa-70095862dfee] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;hi, &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="text-decoration: underline;"&gt;&lt;strong&gt;it works great when everything is up, nice graphs!!!&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zenoss@server-ProLiant-DL160-G6:/home/server$ /usr/bin/fping -c 3 -sq "192.168.1.211" 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /'&lt;/p&gt;&lt;p&gt;PING OK|xmt=3 rcv=3 loss=0 min=0.27 avg=0.44 max=0.68&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="text-decoration: underline;"&gt;&lt;strong&gt;But when the devices are down, the fping package doesnt provide anything...&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;zenoss@server-ProLiant-DL160-G6:/home/server$ /usr/bin/fping -c 3 -sq "192.168.1.211" 2&amp;gt;&amp;amp;1 | /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)%/xmt=\1 rcv=\2 loss=\3/;s/\([0-9]*.[0-9]*\)\/\([0-9].*\)\/\([0-9].*\)/min=\1 avg=\2 max=\3/' | /bin/sed -r '/targets/,/real time/d;s/[0-9]*.[0-9]*.[0-9]*.[0-9]* : xmt\/rcv\/%loss = /PING OK|/;s/, min\/avg\/max = / /'&lt;/p&gt;&lt;p&gt;192.168.1.211 : xmt/rcv/%loss =min= 3 avg=0 max=100%&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;how to fix this?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:85c81cda-a542-415b-99aa-70095862dfee] --&gt;</description>
+      <pubDate>Sat, 05 May 2012 15:58:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-5584</guid>
+      <dc:date>2012-05-05T15:58:18Z</dc:date>
+      <clearspace:dateToText>1 year, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-5934</link>
+      <description>&lt;!-- [DocumentBodyStart:c1a2862a-8f86-408a-b224-c20d65e8e894] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Trying to install fping via web UI or commandline in the Zenoss 4.2 Demo VM fails with err&amp;#246;r &lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;em&gt;AttributeError: 'NoneType' object has no attribute 'clone'&lt;/em&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Any suggestions?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c1a2862a-8f86-408a-b224-c20d65e8e894] --&gt;</description>
+      <pubDate>Sat, 11 Aug 2012 18:58:48 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-5934</guid>
+      <dc:date>2012-08-11T18:58:48Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-5945</link>
+      <description>&lt;!-- [DocumentBodyStart:6477a38a-74ca-41ef-9585-3877381c1b20] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;First off you need to change the py2.6 to py2.7 in the filename to get it to install.&amp;#160; Secondly, zenping provides similar stats in 4.2 and is less intensive.&amp;#160; Check out the PING datasource.&amp;#160; There are some details about it in the admin guide.&amp;#160; I have a ZenPack planned that will provide a nice template for this.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6477a38a-74ca-41ef-9585-3877381c1b20] --&gt;</description>
+      <pubDate>Mon, 13 Aug 2012 15:38:45 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-5945</guid>
+      <dc:date>2012-08-13T15:38:45Z</dc:date>
+      <clearspace:dateToText>1 year, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-6280</link>
+      <description>&lt;!-- [DocumentBodyStart:931ee426-93e9-4680-aa16-c97ae8e0f9c8] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;There is error in sed regexp. One * is missing.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Not working&lt;/strong&gt;&lt;br/&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;/usr/sbin/fping -c 3 -sq&amp;#160; ${dev/manageIp} 2&amp;gt;&amp;amp;1 &lt;/span&gt;| &lt;/span&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt; /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]\)&amp;#160;&amp;#160; ...&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;strong style="color: #2b2b2b; font-size: 12px; background-color: #ffffff; font-family: Arial;"&gt;Working &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;/usr/sbin/fping -c 3 -sq&amp;#160; ${dev/manageIp} 2&amp;gt;&amp;amp;1 &lt;/span&gt;| &lt;/span&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt; /bin/sed 's/\([0-9]*\)\/\([0-9]*\)\/\([0-9]&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 20px; background-color: #ffffff;"&gt;&lt;strong&gt;*&lt;/strong&gt;&lt;/span&gt;\)&amp;#160;&amp;#160; ...&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;&lt;a class="jive-link-profile-small" href="http://community.zenoss.org/people/joll200x"&gt;joll200x &lt;/a&gt; &lt;span style="color: #2b2b2b; font-family: Arial; font-size: 12px; background-color: #ffffff;"&gt;suggest&amp;#160; &lt;/span&gt;similar changes &lt;/span&gt;&lt;span style="background-color: #ffffff; color: #2b2b2b; font-family: Arial; font-size: 12px;"&gt;earlier.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:931ee426-93e9-4680-aa16-c97ae8e0f9c8] --&gt;</description>
+      <pubDate>Tue, 18 Dec 2012 02:07:42 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-6280</guid>
+      <dc:date>2012-12-18T02:07:42Z</dc:date>
+      <clearspace:dateToText>1 year, 2 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: fping</title>
+      <link>http://community.zenoss.org/docs/DOC-3467#comments-6617</link>
+      <description>&lt;!-- [DocumentBodyStart:c3697272-d965-46e0-b931-89357523566f] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Same issue here. &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c3697272-d965-46e0-b931-89357523566f] --&gt;</description>
+      <pubDate>Fri, 31 May 2013 19:43:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-3467#comments-6617</guid>
+      <dc:date>2013-05-31T19:43:18Z</dc:date>
+      <clearspace:dateToText>9 months, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

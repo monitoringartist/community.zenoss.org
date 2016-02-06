@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Wiki : Monitoring the status of NFS shares with Zenoss : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-4673#comments</link>
+    <description>Comments on : Monitoring the status of NFS shares with Zenoss</description>
+    <language>en</language>
+    <pubDate>Tue, 22 Feb 2011 23:37:50 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2011-02-22T23:37:50Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-3527</link>
+      <description>&lt;!-- [DocumentBodyStart:89223bd6-fdf2-4ed2-8111-a6b39aab7ddf] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks for the useful tip! Is the event supposed to clear when it's available again? I've tested it out by modeling the device while the NFS filesystem is mounted and then remodeling after it is unmounted and it creates an alert as expected. However, after I remount the filesystem and remodel the device, the alert remains and isn't cleared. Thanks!&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:89223bd6-fdf2-4ed2-8111-a6b39aab7ddf] --&gt;</description>
+      <pubDate>Tue, 22 Feb 2011 23:37:50 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-3527</guid>
+      <dc:date>2011-02-22T23:37:50Z</dc:date>
+      <clearspace:dateToText>3 years, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-3542</link>
+      <description>&lt;!-- [DocumentBodyStart:d7ae913e-637d-4e2b-a3a9-1f3078684f42] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The event won't auto-clear.&amp;#160; This is because I'm manipulating a debug event.&amp;#160; There are no actual separate clear events for debug events.&amp;#160; The auto-clearing of them is hardcoded in to Zenoss.&amp;#160; Since I'm changing it from a debug event to a higher severity event the debug auto-clear system no longer recognizes it as a debug event and therefore no longer clears it (if that makes sense to you).&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:d7ae913e-637d-4e2b-a3a9-1f3078684f42] --&gt;</description>
+      <pubDate>Wed, 23 Feb 2011 16:51:47 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-3542</guid>
+      <dc:date>2011-02-23T16:51:47Z</dc:date>
+      <clearspace:dateToText>3 years, 2 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-3742</link>
+      <description>&lt;!-- [DocumentBodyStart:18d82601-d8c9-4590-82c6-8a15a189a51d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Ive found that the OID index value for each file system can change as snmpd is restarted or file systems are mounted/un-mounted. While this changes, zenoss still using the index values found during the last device model.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This throws false positive events. Ive made some changes to make this transform a bit more active in controlling these anomalies.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Ive also found that snmpd can report the wrong state, in these cases you have to restart snmpd &amp;amp; re-model.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Now, Im no python hack so go easy on me.&lt;/p&gt;&lt;p&gt;The changes will debug to a log file, if zenoss user can write there; snmp get the live list of devices from snmpd on the device to check it reports its mounted, if so clear the previous event and remodel the device.&lt;/p&gt;&lt;p&gt;I dont think the re-model is working, however.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;pre&gt;# http://community.zenoss.org/docs/DOC-4673
+# raise events on unavailable NFS shares
+# uses an OID.index to get FS stats, 
+#&amp;#160; if it gets a failure assumes the FS is no longer mounted
+# if the FS is remounted it gets a new index value, so the old index still fails
+#&amp;#160; but zenoss doesnt update mapping of FS to index value until next model
+# if FS OID failed, check against current mounted list from snmpget
+#&amp;#160; if ok, FS index value has changed, ignore event
+import re
+import os
+
+if re.search('1.3.6.1.2.1.25.2.3.1.6', evt.summary) and evt.severity == 1:
+ p = re.compile('\"(.*)\"')
+ m = p.search(evt.summary)
+ share = m.group(1)
+ log = open('/var/log/local/zen_NFSdown_transform.log', 'a')
+ os.system('date &amp;gt;&amp;gt; /var/log/local/zen_NFSdown_transform.log')
+ log.write('Summary&amp;#160; = ' + evt.summary + '\n')
+
+ if share:
+&amp;#160; d = dmd.Devices.findDevice(evt.device)
+
+&amp;#160; for f in d.os.filesystems():
+&amp;#160;&amp;#160; if re.match(f.mount, share) and re.match('networkDisk', f.type):
+&amp;#160;&amp;#160;&amp;#160; log.write('&amp;gt; import subprocess\n')
+&amp;#160;&amp;#160;&amp;#160; import subprocess
+&amp;#160;&amp;#160;&amp;#160; log.write('&amp;gt; get list of FSs via snmp\n')
+&amp;#160;&amp;#160;&amp;#160; current_list = subprocess.Popen(['/bin/sh','-c','/usr/bin/snmpwalk -v 2c -c aspectro ' + evt.device + ' .1.3.6.1.2.1.25.2.3.1.3 | awk \'$NF ~ /^\// {print $NF}\' '], stdout=subprocess.PIPE).communicate()[0]
+&amp;#160;&amp;#160;&amp;#160; #log.write('&amp;gt; mounted filesystems = ' + current_list + '\n')
+
+&amp;#160;&amp;#160;&amp;#160; # check to see if its still mounted and snmpd uses a diff OID index value
+&amp;#160;&amp;#160;&amp;#160; sharenotmounted = 1 # true
+&amp;#160;&amp;#160;&amp;#160; for fs in current_list.split():
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; log.write('&amp;gt;&amp;gt; Checking ' + share + ' with fs : ' + fs + '\n')
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; if re.match(share, fs):
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; log.write('&amp;gt;&amp;gt;&amp;gt; Share is still mounted : ' + fs + '\n')
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; sharenotmounted = 0 # false
+
+&amp;#160;&amp;#160;&amp;#160; if sharenotmounted:
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; log.write('&amp;gt;&amp;gt; Not mounted, convert trap to event\n')
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; evt.summary = 'NFS share %s is not unavailable.' % (share)
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; evt.message = 'NFS share %s is not unavailable.' % (share)
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; evt.eventClass = '/Perf/Filesystem'
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; evt.component = share
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; evt.severity = 5
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; f.lockFromDeletion()
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; d.pushConfig()
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; txnCommit()
+
+&amp;#160;&amp;#160;&amp;#160; else:
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; # clear event
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; events = dmd.ZenEventManager.getEventList()
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; for e in events:
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; if e.eventClass == '/Perf/Filesystem' and e.device == evt.device and e.component == share and e.severity == 5 and re.match('^NFS share .* is not unavailable.*', e.summary):
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; log.write('&amp;gt;&amp;gt;&amp;gt; Clear event : ' + e.evid + '\n')
+&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; dmd.Events.manage_deleteEvents(e.evid)
+
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; # remodel device to correct OIDs
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; log.write('&amp;gt;&amp;gt; Remodel device : ' + evt.device + '\n')
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; evt.device.collectDevice()
+&amp;#160;&amp;#160;&amp;#160;&amp;#160; log.write('&amp;gt;&amp;gt; Remodel complete\n')
+
+ log.write('\n')
+ &lt;/pre&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:18d82601-d8c9-4590-82c6-8a15a189a51d] --&gt;</description>
+      <pubDate>Thu, 31 Mar 2011 07:32:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-3742</guid>
+      <dc:date>2011-03-31T07:32:10Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-3744</link>
+      <description>&lt;!-- [DocumentBodyStart:e883113d-9dcb-45c0-a9fb-33c0e9eaacaa] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;You can't do evt.device.collectDevice().&amp;#160; You're trying to run a function against a string event property.&amp;#160; You need to do...&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;d = dmd.Devices.findDevice('evt.device')&lt;/p&gt;&lt;p&gt;d.whatever()&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:e883113d-9dcb-45c0-a9fb-33c0e9eaacaa] --&gt;</description>
+      <pubDate>Thu, 31 Mar 2011 15:00:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-3744</guid>
+      <dc:date>2011-03-31T15:00:10Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-3745</link>
+      <description>&lt;!-- [DocumentBodyStart:380f463a-9095-4491-9e47-f6ad7a425c0d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Sorry, that should have been:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span id="comment-body-3744"&gt;d = dmd.Devices.findDevice(evt.device)&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;not&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span id="comment-body-3744"&gt;d = dmd.Devices.findDevice('evt.device')&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:380f463a-9095-4491-9e47-f6ad7a425c0d] --&gt;</description>
+      <pubDate>Thu, 31 Mar 2011 16:04:08 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-3745</guid>
+      <dc:date>2011-03-31T16:04:08Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-3751</link>
+      <description>&lt;!-- [DocumentBodyStart:770dd828-94ca-40ce-8bbd-32067239ba46] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks Ryan, that was working, but causing zenhub to pause/hang while modeling a device.&lt;/p&gt;&lt;p&gt;ive removed that section of code and will have to wait for the next scheduled device model.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:770dd828-94ca-40ce-8bbd-32067239ba46] --&gt;</description>
+      <pubDate>Mon, 04 Apr 2011 10:49:29 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-3751</guid>
+      <dc:date>2011-04-04T10:49:29Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-4871</link>
+      <description>&lt;!-- [DocumentBodyStart:5876c61a-7cb6-49c5-b9b3-6f43c6826a8e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Does this also work on the UNIX/Linux side? I ask since mounting NFS is a bit different as the mount point is a local folder and not explicitly listed as a NFS Folder.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;so when viewing it under the filesystems section is simply shows as a /foldername.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;PS: I use the enterprise version 3.2&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:5876c61a-7cb6-49c5-b9b3-6f43c6826a8e] --&gt;</description>
+      <pubDate>Tue, 29 Nov 2011 18:24:28 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-4871</guid>
+      <dc:date>2011-11-29T18:24:28Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-4872</link>
+      <description>&lt;!-- [DocumentBodyStart:b5540f9d-bd47-4188-81f9-faa159ffea49] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This was specifically written for UNIX/Linux running net-snmp.&amp;#160; As long as net-snmp is identifying the filesystem as type networkDisk it will work.&lt;code class="jive-code"&gt;&lt;br/&gt;&lt;/code&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b5540f9d-bd47-4188-81f9-faa159ffea49] --&gt;</description>
+      <pubDate>Tue, 29 Nov 2011 19:30:07 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-4872</guid>
+      <dc:date>2011-11-29T19:30:07Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-4873</link>
+      <description>&lt;!-- [DocumentBodyStart:13da4f13-122b-4520-946c-9fd48377ead9] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks for the quick reply. I asked because we use /Server/SSH/ &amp;amp; /Server/SSH/AIX&amp;#160; instead of the device class that uses SNMP /Servers/AIX or /Servers/Linux&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I was going to try applying the /perf/snmp to the SSH Device class and see if it models.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:13da4f13-122b-4520-946c-9fd48377ead9] --&gt;</description>
+      <pubDate>Tue, 29 Nov 2011 21:00:17 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-4873</guid>
+      <dc:date>2011-11-29T21:00:17Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-4874</link>
+      <description>&lt;!-- [DocumentBodyStart:f12c3dd1-07d0-4f66-81fd-d3e3c7ca24ec] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;It probably won't work unless you actually have net-snmp installed and configured on your AIX box (but I hear that's quite flaky).&amp;#160; You'd be better off having some command datasource that actually checks whether or not the filesystems are still mounted or not.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f12c3dd1-07d0-4f66-81fd-d3e3c7ca24ec] --&gt;</description>
+      <pubDate>Tue, 29 Nov 2011 21:16:57 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-4874</guid>
+      <dc:date>2011-11-29T21:16:57Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Monitoring the status of NFS shares with Zenoss</title>
+      <link>http://community.zenoss.org/docs/DOC-4673#comments-4875</link>
+      <description>&lt;!-- [DocumentBodyStart:29162123-2fb2-4f03-a5ea-d3b5c9b2546c] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Yeah I noticed that with AIX (thanks for the tip &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt; ) and polling SNMP. a&amp;#160; majority of our Oracle Database servers are AIX based, with some RHEL&amp;#160; 5.4/Oracle.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Ill keep poking around then to see if I come across a solution. &lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:29162123-2fb2-4f03-a5ea-d3b5c9b2546c] --&gt;</description>
+      <pubDate>Tue, 29 Nov 2011 21:27:05 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-4673#comments-4875</guid>
+      <dc:date>2011-11-29T21:27:05Z</dc:date>
+      <clearspace:dateToText>2 years, 3 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

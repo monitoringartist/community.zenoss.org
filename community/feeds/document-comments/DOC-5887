@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:clearspace="http://www.jivesoftware.com/xmlns/clearspace/rss" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>ZenPacks : Memcached Data Source : Comments</title>
+    <link>http://community.zenoss.org/docs/DOC-5887#comments</link>
+    <description>Comments on : Memcached Data Source</description>
+    <language>en</language>
+    <pubDate>Fri, 28 May 2010 21:24:18 GMT</pubDate>
+    <generator>Jive SBS 4.5.6.2  (http://jivesoftware.com/products/clearspace/)</generator>
+    <dc:date>2010-05-28T21:24:18Z</dc:date>
+    <dc:language>en</dc:language>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2101</link>
+      <description>&lt;!-- [DocumentBodyStart:cb3c0bba-38de-4787-bb90-b6409c18d678] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Is there a way to change the default ip it connects to? We have memcache set to use 127.0.0.3 on all of our servers, and I didn't see a way to change that in this file.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:cb3c0bba-38de-4787-bb90-b6409c18d678] --&gt;</description>
+      <pubDate>Fri, 28 May 2010 21:24:18 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2101</guid>
+      <dc:date>2010-05-28T21:24:18Z</dc:date>
+      <clearspace:dateToText>3 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2104</link>
+      <description>&lt;!-- [DocumentBodyStart:7052af36-9244-4278-ad78-90904246e308] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I've got this installed now, and the RRDs "seem" to be populating, but I don't get a graph on the perf screen when I try to view it. The graph I've added has all the datapoints which are available specified, but that shouldn't be a problem should it?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Edit: I don't think the RRDs are actually being populated. The file I was looking at is memCached_memCached.rrd, but that's not one of the RRDs for the host's cached memory information.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Edit2: After having leaved it to today, it just started working. So about 20 hours after I added the stuff initially. Remodelling didn't seem to force it on the hosts, so irunno what changed. Oh well, working now.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:7052af36-9244-4278-ad78-90904246e308] --&gt;</description>
+      <pubDate>Mon, 31 May 2010 15:18:15 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2104</guid>
+      <dc:date>2010-05-31T15:18:15Z</dc:date>
+      <clearspace:dateToText>3 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2118</link>
+      <description>&lt;!-- [DocumentBodyStart:506e7ac9-cbf0-4ff6-8384-686589ecd25e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;The main idea is to bind the datasource to a modeled device, rather than free pointing to any address. The reason behind this is to take advantage of other important metrics provided by the device templates (such as network IO, free memory, CPU load, etc) that could be very useful to troubleshooting once your memcached instances gets into trouble. In your case then I would encourage you to model 127.0.0.3 and bind the memcached template to it.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;If after reading this you still think it is best to freely point to the ip address, you will need to edit the template at $ZENHOME/ZenPacks/ZenPacks.community.Memcached-1.0-py2.4.egg/ZenPacks/community/Memcached/skins/ZenPacks.community.Memcached/editMemcachedDataSource.pt and replace the type=hidden attribute of the hostname input field for type=text.Do not forget restarting zopectl to see the changes...&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:506e7ac9-cbf0-4ff6-8384-686589ecd25e] --&gt;</description>
+      <pubDate>Wed, 02 Jun 2010 21:20:58 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2118</guid>
+      <dc:date>2010-06-02T21:20:58Z</dc:date>
+      <clearspace:dateToText>3 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2248</link>
+      <description>&lt;!-- [DocumentBodyStart:6fe7443d-1ff6-45b2-97b3-76f275fec9f6] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;span&gt;I made a template including four graphs available as a zenpack at &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://community.zenoss.org/docs/DOC-5911"&gt;http://community.zenoss.org/docs/DOC-5911&lt;/a&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;For further customization of the templates, this may be&amp;#160; useful:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Name&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Type&amp;#160;&amp;#160;&amp;#160;&amp;#160; Meaning&lt;/p&gt;&lt;p&gt;----------------------------------&lt;/p&gt;&lt;p&gt;pid&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Process id of this server process&lt;/p&gt;&lt;p&gt;uptime&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Number of seconds this server has been running&lt;/p&gt;&lt;p&gt;time&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; current UNIX time according to the server&lt;/p&gt;&lt;p&gt;version&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; string&amp;#160;&amp;#160; Version string of this server&lt;/p&gt;&lt;p&gt;pointer_size&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Default size of pointers on the host OS (generally 32 or 64)&lt;/p&gt;&lt;p&gt;rusage_user&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u:32u&amp;#160; Accumulated user&amp;#160; time for this process (seconds:microseconds)&lt;/p&gt;&lt;p&gt;rusage_system&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u:32u&amp;#160; Accumulated system&amp;#160; time for this process (seconds:microseconds)&lt;/p&gt;&lt;p&gt;curr_items&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Current number of&amp;#160; items stored by the server&lt;/p&gt;&lt;p&gt;total_items&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Total number of&amp;#160; items stored by this server ever since&amp;#160; it started&lt;/p&gt;&lt;p&gt;bytes&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 64u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Current number of bytes used by&amp;#160; this server to store items&lt;/p&gt;&lt;p&gt;curr_connections&amp;#160;&amp;#160; 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Number of open connections&lt;/p&gt;&lt;p&gt;total_connections 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Total&amp;#160; number of connections opened since the&amp;#160; server started running&lt;/p&gt;&lt;p&gt;connection_structures 32u&amp;#160; Number of&amp;#160; connection structures allocated by the&amp;#160; server&lt;/p&gt;&lt;p&gt;cmd_get&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 64u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Cumulative number of retrieval&amp;#160; requests&lt;/p&gt;&lt;p&gt;cmd_set&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 64u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Cumulative number of storage&amp;#160; requests&lt;/p&gt;&lt;p&gt;get_hits&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 64u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Number of keys that have been&amp;#160; requested and found present&lt;/p&gt;&lt;p&gt;get_misses&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 64u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Number of items that have been requested and not found&lt;/p&gt;&lt;p&gt;evictions&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 64u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Number of&amp;#160; valid items removed from cache to free&amp;#160; memory for new items&lt;/p&gt;&lt;p&gt;bytes_read&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 64u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Total&amp;#160; number of bytes read by this server from&amp;#160; network&lt;/p&gt;&lt;p&gt;bytes_written&amp;#160;&amp;#160;&amp;#160;&amp;#160; 64u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Total number of bytes sent by this&amp;#160; server to network&lt;/p&gt;&lt;p&gt;limit_maxbytes&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Number of bytes this server is allowed to use for storage.&lt;/p&gt;&lt;p&gt;threads&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; 32u&amp;#160;&amp;#160;&amp;#160;&amp;#160;&amp;#160; Number of worker&amp;#160; threads requested. (see doc/threads.txt)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;The datasource also includes:&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;usage_percent&lt;/p&gt;&lt;p&gt;hit_percent&lt;/p&gt;&lt;p&gt;missed_percent&lt;/p&gt;&lt;p&gt;get_set_ratio&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;...additional to the memcached stats explained above.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6fe7443d-1ff6-45b2-97b3-76f275fec9f6] --&gt;</description>
+      <pubDate>Mon, 12 Jul 2010 23:49:44 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2248</guid>
+      <dc:date>2010-07-12T23:49:44Z</dc:date>
+      <clearspace:dateToText>3 years, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2286</link>
+      <description>&lt;!-- [DocumentBodyStart:8f417b9e-754a-43d8-b35c-93315d6ea873] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I just installed this ont he new release, 3.0 and cannot get the configure screen to come up. It defaults to TEST. Non of the configuration fields are available. Is there a fix planed for this ZenPack?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:8f417b9e-754a-43d8-b35c-93315d6ea873] --&gt;</description>
+      <pubDate>Wed, 21 Jul 2010 19:41:31 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2286</guid>
+      <dc:date>2010-07-21T19:41:31Z</dc:date>
+      <clearspace:dateToText>3 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2351</link>
+      <description>&lt;!-- [DocumentBodyStart:6aaf8c78-bf4b-477a-a76c-76d331a21d8e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Version 3.0 might require a different tempate to edit the datasource. I will update the zenpack to make it 3.0 ready soon.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:6aaf8c78-bf4b-477a-a76c-76d331a21d8e] --&gt;</description>
+      <pubDate>Fri, 30 Jul 2010 05:17:49 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2351</guid>
+      <dc:date>2010-07-30T05:17:49Z</dc:date>
+      <clearspace:dateToText>3 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2346</link>
+      <description>&lt;!-- [DocumentBodyStart:950ad220-5991-458e-8c74-dcd05e6ce2b9] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thank you very much. I had made my own prior to finding yours. I like yours much better &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:950ad220-5991-458e-8c74-dcd05e6ce2b9] --&gt;</description>
+      <pubDate>Fri, 30 Jul 2010 21:53:07 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2346</guid>
+      <dc:date>2010-07-30T21:53:07Z</dc:date>
+      <clearspace:dateToText>3 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2368</link>
+      <description>&lt;!-- [DocumentBodyStart:86a64b7f-8aeb-425c-a082-a5d408b4b581] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thank you so much for releaseing this sso fast; however I hate to be a bother I cannot get tot he Edit data Source Screen to edit the port, all I get is the Test Button.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;a href="https://www.sugarsync.com/pf/D802612_68_6522140915"&gt;&lt;img src="https://www.sugarsync.com/pf/D802612_68_6522140915"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:86a64b7f-8aeb-425c-a082-a5d408b4b581] --&gt;</description>
+      <pubDate>Tue, 03 Aug 2010 00:08:12 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2368</guid>
+      <dc:date>2010-08-03T00:08:12Z</dc:date>
+      <clearspace:dateToText>3 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2363</link>
+      <description>&lt;!-- [DocumentBodyStart:870da4c6-86df-4b3f-9b53-fa8900d1158a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Thanks a lot for the repcached support Mr. Maqueira, now we can have graphs of our session hits/misses.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:870da4c6-86df-4b3f-9b53-fa8900d1158a] --&gt;</description>
+      <pubDate>Wed, 04 Aug 2010 11:51:48 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2363</guid>
+      <dc:date>2010-08-04T11:51:48Z</dc:date>
+      <clearspace:dateToText>3 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2602</link>
+      <description>&lt;!-- [DocumentBodyStart:a9eb937a-1ccb-479d-8289-e3b78e81c147] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I install &lt;a class="" href="http://community.zenoss.org/servlet/JiveServlet/download/5887-5-2978/ZenPacks.community.Memcached-1.1-py2.4.egg.zip"&gt;ZenPacks.community.Memcached-1.1-py2.4.egg.zip&lt;/a&gt; to the Zenoss 2.5.2 server successfull but it can't render graphs because show error '-2,Name or service not know'.I think , I set&amp;#160; a remote server correct, it run a memcached (11211 port listen status) and firewall allow.Please help me to solve this problem&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a9eb937a-1ccb-479d-8289-e3b78e81c147] --&gt;</description>
+      <pubDate>Thu, 09 Sep 2010 08:34:30 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2602</guid>
+      <dc:date>2010-09-09T08:34:30Z</dc:date>
+      <clearspace:dateToText>3 years, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-2987</link>
+      <description>&lt;!-- [DocumentBodyStart:f9a47b90-489c-4ec0-a1b4-09fd8468a4e2] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Is there a reason this ZenPack is listed as incompatible with version 3?&lt;/p&gt;&lt;p&gt;&lt;span&gt;On &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://community.zenoss.org/community/zenpacks"&gt;http://community.zenoss.org/community/zenpacks&lt;/a&gt;&lt;span&gt;, it has a No in the 'Zenoss 3.0 Compatible?' column.&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;I downloaded &lt;a class="" href="http://community.zenoss.org/servlet/JiveServlet/download/5887-5-2968/ZenPacks.community.Memcached-1.1-py2.6.egg.zip"&gt;ZenPacks.community.Memcached-1.1-py2.6.egg.zip&lt;/a&gt; and installed on my test instance and it seems like its working. Was curious if its compatible and just marked as such, or is there some actual issue with it?&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:f9a47b90-489c-4ec0-a1b4-09fd8468a4e2] --&gt;</description>
+      <pubDate>Sun, 14 Nov 2010 00:44:13 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-2987</guid>
+      <dc:date>2010-11-14T00:44:13Z</dc:date>
+      <clearspace:dateToText>3 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-3428</link>
+      <description>&lt;!-- [DocumentBodyStart:9f7c20ee-9020-4c11-bda1-ffbee47636dc] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Upon browsing this, I have noticed this also. I wish I had seen it earlier. I am updating the main page now.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Great documentation (screenshots) and effort on this ZenPack by the way.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:9f7c20ee-9020-4c11-bda1-ffbee47636dc] --&gt;</description>
+      <pubDate>Tue, 08 Feb 2011 03:20:04 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-3428</guid>
+      <dc:date>2011-02-08T03:20:04Z</dc:date>
+      <clearspace:dateToText>3 years, 1 month ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-3768</link>
+      <description>&lt;!-- [DocumentBodyStart:a2104b9f-ee65-471c-82f0-76c121e252aa] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;What are the thoughts around adding the memcached OSProcess to this pack (or another). Given the name of the pack is Memcached Data Source, I could understand the desire to keep it at just a data source. That said, it seems silly to add a new pack just for the OSProcess (yes I know I can just add it myself to my installation).&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Given we already have a seperate template for Memcached Templates, it might be nice to figure out a strategy in which one could install 1-2 packs, and not have to manually setup anything else.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:a2104b9f-ee65-471c-82f0-76c121e252aa] --&gt;</description>
+      <pubDate>Mon, 04 Apr 2011 14:40:00 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-3768</guid>
+      <dc:date>2011-04-04T14:40:00Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-3755</link>
+      <description>&lt;!-- [DocumentBodyStart:25ef08c2-4333-4ab9-9d7c-25574e271fd2] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I would rather add it to this one. No point in having 3 zenpacks just to monitor memcached. It is already unfortunate that a zenpack was created by just following the instructions above to create a template.&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Although I still defend the idea of encouraging people to create templates customized to their needs, perhaps&amp;#160; we should just add a minimal template also, an eradicate the annoyance of having to install two zenpacks for the lazy.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:25ef08c2-4333-4ab9-9d7c-25574e271fd2] --&gt;</description>
+      <pubDate>Mon, 04 Apr 2011 18:48:04 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-3755</guid>
+      <dc:date>2011-04-04T18:48:04Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-3756</link>
+      <description>&lt;!-- [DocumentBodyStart:b9cf297a-d47f-491c-9357-b3e907db4f72] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;3 cheers for this idea from me &lt;img height="16px" src="http://community.zenoss.org/4.5.6/images/emoticons/happy.gif" width="16px"/&gt;. I agree folks might want to customize their own templates, but I also think just a many people would be happy with the default graphs provided via the other pack. I would be in favor of sucking in the templates provided by the other pack into this one, adding the process, and having one pack that gets all the basics covered.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b9cf297a-d47f-491c-9357-b3e907db4f72] --&gt;</description>
+      <pubDate>Mon, 04 Apr 2011 21:13:31 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-3756</guid>
+      <dc:date>2011-04-04T21:13:31Z</dc:date>
+      <clearspace:dateToText>2 years, 11 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-3896</link>
+      <description>&lt;!-- [DocumentBodyStart:05055b2f-7abe-4a2c-aebd-073a0dd1fb82] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I'm having trouble with this in 3.0.3 and 3.1.&amp;#160; Is it possible that skins/ZenPacks.community.Memcached/editMemcachedDataSource.pt or something else still needs updated to be 3.0 compatible?&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Like Horsemann above, when I click "edit data source" I only get an option to test (which fails), I can't edit the port.&amp;#160; I am able to collect data for nodes running memcache on port 11211.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:05055b2f-7abe-4a2c-aebd-073a0dd1fb82] --&gt;</description>
+      <pubDate>Tue, 03 May 2011 18:35:26 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-3896</guid>
+      <dc:date>2011-05-03T18:35:26Z</dc:date>
+      <clearspace:dateToText>2 years, 10 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-4031</link>
+      <description>&lt;!-- [DocumentBodyStart:cf4957b2-4de9-4942-af00-e6540411567e] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;this plugind doesn't work with my "Zenoss 3.1.0"&lt;/p&gt;&lt;p&gt;does any know how to fix this ?&lt;/p&gt;&lt;p&gt;everything like was described above&lt;/p&gt;&lt;p&gt;only "test" option instead of editing data sourse&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:cf4957b2-4de9-4942-af00-e6540411567e] --&gt;</description>
+      <pubDate>Tue, 07 Jun 2011 13:50:25 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-4031</guid>
+      <dc:date>2011-06-07T13:50:25Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-4032</link>
+      <description>&lt;!-- [DocumentBodyStart:b00e20f8-e0a4-461f-ae8f-982efce98c3a] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Seems it's impossible to edit datapoints but if you install the "Memcached Performance Template" you'll obtain rrd graphs....if I'm not wrong, now I don't use Repcached on our servers but this Zenpack worked for me with Zenoss 2.5 and 3.0.1 until I uninstalled it.&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:b00e20f8-e0a4-461f-ae8f-982efce98c3a] --&gt;</description>
+      <pubDate>Tue, 07 Jun 2011 15:21:19 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-4032</guid>
+      <dc:date>2011-06-07T15:21:19Z</dc:date>
+      <clearspace:dateToText>2 years, 9 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-4230</link>
+      <description>&lt;!-- [DocumentBodyStart:c933fc9a-1fd0-4def-9799-b5da1c749bc5] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;My apologies for taking so long to update the zenpack to 3.x. I currently have a working 3.x compatible version in my dev env, but it needs a bit of testing.I hope I will be able to release it soon...&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c933fc9a-1fd0-4def-9799-b5da1c749bc5] --&gt;</description>
+      <pubDate>Mon, 11 Jul 2011 21:36:26 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-4230</guid>
+      <dc:date>2011-07-11T21:36:26Z</dc:date>
+      <clearspace:dateToText>2 years, 8 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-4436</link>
+      <description>&lt;!-- [DocumentBodyStart:531f06e5-5307-436f-a06e-161d70885e97] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;This should be marked not compat with 3.x as it does not allow you set paramaters as shown above by Horsemann&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:531f06e5-5307-436f-a06e-161d70885e97] --&gt;</description>
+      <pubDate>Fri, 12 Aug 2011 03:28:20 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-4436</guid>
+      <dc:date>2011-08-12T03:28:20Z</dc:date>
+      <clearspace:dateToText>2 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-4451</link>
+      <description>&lt;!-- [DocumentBodyStart:4bcb86fb-2772-4b27-abfe-d84c3ec90d0d] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;&lt;a class="jive-link-external-small" href="https://github.com/zenoss/Community-Zenpacks/pull/14"&gt;https://github.com/zenoss/Community-Zenpacks/pull/14&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:4bcb86fb-2772-4b27-abfe-d84c3ec90d0d] --&gt;</description>
+      <pubDate>Fri, 12 Aug 2011 05:47:02 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-4451</guid>
+      <dc:date>2011-08-12T05:47:02Z</dc:date>
+      <clearspace:dateToText>2 years, 7 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-4668</link>
+      <description>&lt;!-- [DocumentBodyStart:c1babd2e-b4d4-427a-bfec-e16e2af9a499] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;Above github link may not work. See content of page above for link to newest 3.x compatible .egg&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:c1babd2e-b4d4-427a-bfec-e16e2af9a499] --&gt;</description>
+      <pubDate>Mon, 17 Oct 2011 05:04:47 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-4668</guid>
+      <dc:date>2011-10-17T05:04:47Z</dc:date>
+      <clearspace:dateToText>2 years, 4 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-5973</link>
+      <description>&lt;!-- [DocumentBodyStart:3d368347-828a-4768-a01d-11d59fa9d4e9] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I've attempted to use ZenPacks.community.Memcached-1.1-py2.7.egg, built from the source on github, on Centos 6.3 / Zenoss 4.2 without sucess. It looks like the relationship for ZenPacks.community.Memcached.datasources.MemcachedDataSource.MemcachedDataSource breaks&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;This is the only log I find.&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p&gt;INFO zen.Relations: Ignoring unresolvable object '&amp;lt;persistent broken ZenPacks.community.Memcached.datasources.MemcachedDataSource.MemcachedDataSource instance '\x00\x00\x00\x00\x00\x04c\r'&amp;gt;'&lt;/p&gt;&lt;/blockquote&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;After removing it I downloaded and attempted to download the 1.2-py2.6.egg. but It did not find its files on pypi&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;blockquote class="jive-quote"&gt;&lt;p&gt;zenpack --install ZenPacks.community.Memcached-1.2-py2.6.egg&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Link to &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://pypi.python.org/simple/ZenPacks.community.Memcached/"&gt;http://pypi.python.org/simple/ZenPacks.community.Memcached/&lt;/a&gt;&lt;span&gt; ***BLOCKED*** by --allow-hosts&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Couldn't find index page for 'ZenPacks.community.Memcached' (maybe misspelled?)&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;&lt;span&gt;Link to &lt;/span&gt;&lt;a class="jive-link-external-small" href="http://pypi.python.org/simple/"&gt;http://pypi.python.org/simple/&lt;/a&gt;&lt;span&gt; ***BLOCKED*** by --allow-hosts&lt;/span&gt;&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;No local packages or download links found for ZenPacks.community.Memcached==1.2&lt;/p&gt;&lt;p&gt;Couldn't find index page for 'ZenPacks.community.Memcached' (maybe misspelled?)&lt;/p&gt;&lt;p&gt;No local packages or download links found for ZenPacks.community.Memcached==1.2&lt;/p&gt;&lt;p&gt;ERROR:zen.ZenPackCMD:Error installing ZenPack ZenPacks.community.Memcached-1.2-py2.6.egg&lt;/p&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:3d368347-828a-4768-a01d-11d59fa9d4e9] --&gt;</description>
+      <pubDate>Fri, 17 Aug 2012 13:30:10 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-5973</guid>
+      <dc:date>2012-08-17T13:30:10Z</dc:date>
+      <clearspace:dateToText>1 year, 6 months ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+    <item>
+      <title>RE: Memcached Data Source</title>
+      <link>http://community.zenoss.org/docs/DOC-5887#comments-6868</link>
+      <description>&lt;!-- [DocumentBodyStart:75cbbc32-1a82-495b-9e76-9901f80635ee] --&gt;&lt;div class="jive-rendered-content"&gt;&lt;p&gt;I was able to successfully install this zenpack on 4.2.4. I had to change file name to ZenPacks.community.Memcached-1.2-py2.7.egg&lt;/p&gt;&lt;p style="min-height: 8pt; height: 8pt; padding: 0px;"&gt;&amp;#160;&lt;/p&gt;&lt;p&gt;Zenpacks will not install on Core 4 unless the python version in the name of the file is 2.7&lt;/p&gt;&lt;/div&gt;&lt;!-- [DocumentBodyEnd:75cbbc32-1a82-495b-9e76-9901f80635ee] --&gt;</description>
+      <pubDate>Tue, 17 Sep 2013 15:01:45 GMT</pubDate>
+      <author>community@zenoss.org</author>
+      <guid>http://community.zenoss.org/docs/DOC-5887#comments-6868</guid>
+      <dc:date>2013-09-17T15:01:45Z</dc:date>
+      <clearspace:dateToText>5 months, 3 weeks ago</clearspace:dateToText>
+      <clearspace:objectType>0</clearspace:objectType>
+    </item>
+  </channel>
+</rss>
+

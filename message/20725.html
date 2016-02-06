@@ -1,0 +1,1397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        Problem with snmp and faulty size reporting. - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- Problem with snmp and faulty size reporting. -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-users Discussions Feed"
+                href="community/feeds/threads?community=2003">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'Problem with snmp and faulty size reporting.' Discussion Feed"
+            href="community/feeds/messages?thread=6456">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="thread/6456?start=0&amp;tstart=0#20725"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="20725.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="20725.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="20725.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-users.html">
+            zenoss-users</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-users%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.6456"/>
+        <input type="hidden" name="message.post.6456" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2003&amp;containerType=14&amp;thread=6456&amp;message=20725&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2003">
+
+		<input type="hidden" name="thread" value="6456">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re: RE: Problem with snmp and faulty size reporting."/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-users%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-users
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <strong>     
+        
+            43993&nbsp;Views
+        
+
+</strong>
+                        <strong>5 Replies</strong>
+                    <a href="42494%3Ftstart=0.html#42494" >Latest reply</a>:
+                    Nov 24, 2009 10:39 AM by
+chitambira                        <span><a href="community/feeds/messages?thread=6456"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="6456"></a><a name="20722"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/Falk.html"
+   data-externalId=""
+   data-username="Falk"
+   data-avatarId="1110"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2885, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Falk/avatar/46.png?a=1110"
+            border="0" height="46" width="46"
+            alt="Falk"
+            /><span username="Falk" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/Falk.html"
+data-externalId=""
+data-username="Falk"
+data-avatarId="1110"
+id="jive-288532910866049305029"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2885, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Falk</a>                                    </div>
+                                    <em>89 posts since <br/>Jul 27, 2007</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Jul 8, 2008 3:51 AM</h3>
+                                        <h2><a href="20722.html#20722">Problem with snmp and faulty size reporting.</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:b4d7683f-be82-4221-9de4-394db4a0be8c] --><div class="jive-rendered-content">Hi,<br/><br/>When monitoring fs over snmp i get faulty redings for all linux servers.<br/>I guess that it is a problem with my snmpd conf.<br/><br/>here it is.<br/><br/>On the server:<br/><pre class="jive-pre"><code class="jive-code">
+ Mount&#160;&#160; Total bytes&#160;&#160; Used bytes&#160;&#160; Free bytes&#160;&#160; % Util&#160;&#160; &#160;&#160;&#160;&#160;&#160;
+ /&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 9.4GB&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 8.8GB&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 565.5MB&#160;&#160;&#160;&#160;&#160; 94
+</code></pre><br/><br/>and in zenoss:<br/><pre class="jive-pre"><code class="jive-code">
+# df -h
+Filesystem&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; Size&#160; Used Avail Use% Mounted on
+/dev/sda1&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 9.4G&#160; 8.9G&#160;&#160; 78M 100% /
+tmpfs&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 253M&#160;&#160;&#160;&#160; 0&#160; 253M&#160;&#160; 0% /lib/init/rw
+udev&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 10M&#160;&#160; 52K&#160;&#160; 10M&#160;&#160; 1% /dev
+tmpfs&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 253M&#160;&#160;&#160;&#160; 0&#160; 253M&#160;&#160; 0% /dev/shm
+</code></pre><br/><br/>Any ideas why this is?<br/>Is it tmpfs that take the resting space and isn't reported on / by snmpd?<br/><br/>--<br/>Regards Folke</div><!-- [DocumentBodyEnd:b4d7683f-be82-4221-9de4-394db4a0be8c] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-20722-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-20722-" data-uniqueKey="2-20722-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="20725.html#" id="jive-acclaim-likedlink-2-20722-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-20723">
+
+
+        <div id="thread-message-20723" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="20723">
+                <a name="20723"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/beanfield.html"
+   data-externalId=""
+   data-username="beanfield"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4223, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/beanfield/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="beanfield"
+            /><span username="beanfield" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/beanfield.html"
+data-externalId=""
+data-username="beanfield"
+data-avatarId="-1"
+id="jive-422332910866055522456"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4223, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>beanfield</a>                        </div>
+                        <em>161 posts since <br/>Apr 16, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="20723.html#20723" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Jul 8, 2008 1:26 PM</span>
+                            (<a href="20722.html#20722" title="Go to message" class="font-color-meta-light " >in response to Falk</a>)
+                        </div>
+
+                        <strong>
+                        <a href="20723.html#20723">RE: Problem with snmp and faulty size reporting.</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:10e470ac-9928-4e25-9b4f-e12882564d8f] --><div class="jive-rendered-content">I get similar results. For instance:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p># df -h<br/>Filesystem Size Used Avail Use% Mounted on<br/>/dev/xvda3 61G 5.5G 52G 10% /</p></blockquote><br/><br/>and in zenoss:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>Mount Total bytes Used bytes Free bytes % Util Lock<br/> / 60.4GB 5.4GB 54.9GB 8</p></blockquote><br/><br/>However, if I use "df" without the -h option (human readable), I get the following:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p># df<br/>Filesystem 1K-blocks Used Available Use% Mounted on<br/>/dev/xvda3 63282372 5665584 54402184 10% /</p></blockquote><br/><br/>So I have 5,665,584 kbytes of used space. If I take the Used 1k blocks 5665584 and divide by 1024 twice I get 5.4031219482421875. So even though size available should be 5.4G, df -h option rounds up to 5.5G. To answer your question directly, I believe it is the -h option on df that's rounding incorrectly. It is confirmed by df without using the -h option and below. You can see what snmp is returning by doing an snmpwalk on hrStorageTable.<br/><br/>snmpwalk -v2c -c COMMUNITY HOSTNAME hrStorageSize<br/><br/>You can get the snmp index number of the volume that you're trying to find the size on by clicking on it under File Systems under the OS tab. For example, the system above is my zenoss server and I'll query it using "localhost" for the HOSTNAME and public for the COMMUNITY. The Snmp Index is 4.<br/><br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p># snmpwalk -v2c -c public localhost hrStorageTable<br/>HOST-RESOURCES-MIB::hrStorageIndex.1 = INTEGER: 1<br/>HOST-RESOURCES-MIB::hrStorageIndex.2 = INTEGER: 2<br/>HOST-RESOURCES-MIB::hrStorageIndex.3 = INTEGER: 3<br/>HOST-RESOURCES-MIB::hrStorageIndex.4 = INTEGER: 4<br/>HOST-RESOURCES-MIB::hrStorageIndex.5 = INTEGER: 5<br/>HOST-RESOURCES-MIB::hrStorageIndex.6 = INTEGER: 6<br/>HOST-RESOURCES-MIB::hrStorageIndex.7 = INTEGER: 7<br/>HOST-RESOURCES-MIB::hrStorageType.1 = OID: HOST-RESOURCES-TYPES::hrStorageOther<br/>HOST-RESOURCES-MIB::hrStorageType.2 = OID: HOST-RESOURCES-TYPES::hrStorageRam<br/>HOST-RESOURCES-MIB::hrStorageType.3 = OID: HOST-RESOURCES-TYPES::hrStorageVirtualMemory<br/>HOST-RESOURCES-MIB::hrStorageType.4 = OID: HOST-RESOURCES-TYPES::hrStorageFixedDisk<br/>HOST-RESOURCES-MIB::hrStorageType.5 = OID: HOST-RESOURCES-TYPES::hrStorageFixedDisk<br/>HOST-RESOURCES-MIB::hrStorageType.6 = OID: HOST-RESOURCES-TYPES::hrStorageFixedDisk<br/>HOST-RESOURCES-MIB::hrStorageType.7 = OID: HOST-RESOURCES-TYPES::hrStorageFixedDisk<br/>HOST-RESOURCES-MIB::hrStorageDescr.1 = STRING: Memory Buffers<br/>HOST-RESOURCES-MIB::hrStorageDescr.2 = STRING: Real Memory<br/>HOST-RESOURCES-MIB::hrStorageDescr.3 = STRING: Swap Space<br/>HOST-RESOURCES-MIB::hrStorageDescr.4 = STRING: /<br/>HOST-RESOURCES-MIB::hrStorageDescr.5 = STRING: /sys<br/>HOST-RESOURCES-MIB::hrStorageDescr.6 = STRING: /sys/kernel/debug<br/>HOST-RESOURCES-MIB::hrStorageDescr.7 = STRING: /boot<br/>HOST-RESOURCES-MIB::hrStorageAllocationUnits.1 = INTEGER: 1024 Bytes<br/>HOST-RESOURCES-MIB::hrStorageAllocationUnits.2 = INTEGER: 1024 Bytes<br/>HOST-RESOURCES-MIB::hrStorageAllocationUnits.3 = INTEGER: 1024 Bytes<br/>HOST-RESOURCES-MIB::hrStorageAllocationUnits.4 = INTEGER: 4096 Bytes<br/>HOST-RESOURCES-MIB::hrStorageAllocationUnits.5 = INTEGER: 4096 Bytes<br/>HOST-RESOURCES-MIB::hrStorageAllocationUnits.6 = INTEGER: 4096 Bytes<br/>HOST-RESOURCES-MIB::hrStorageAllocationUnits.7 = INTEGER: 1024 Bytes<br/>HOST-RESOURCES-MIB::hrStorageSize.1 = INTEGER: 1048740<br/>HOST-RESOURCES-MIB::hrStorageSize.2 = INTEGER: 1048740<br/>HOST-RESOURCES-MIB::hrStorageSize.3 = INTEGER: 1052248<br/>HOST-RESOURCES-MIB::hrStorageSize.4 = INTEGER: 15820593<br/>HOST-RESOURCES-MIB::hrStorageSize.5 = INTEGER: 0<br/>HOST-RESOURCES-MIB::hrStorageSize.6 = INTEGER: 0<br/>HOST-RESOURCES-MIB::hrStorageSize.7 = INTEGER: 101086<br/>HOST-RESOURCES-MIB::hrStorageUsed.1 = INTEGER: 19500<br/>HOST-RESOURCES-MIB::hrStorageUsed.2 = INTEGER: 1039048<br/>HOST-RESOURCES-MIB::hrStorageUsed.3 = INTEGER: 922588<br/>HOST-RESOURCES-MIB::hrStorageUsed.4 = INTEGER: 1416399<br/>HOST-RESOURCES-MIB::hrStorageUsed.5 = INTEGER: 0<br/>HOST-RESOURCES-MIB::hrStorageUsed.6 = INTEGER: 0<br/>HOST-RESOURCES-MIB::hrStorageUsed.7 = INTEGER: 17733</p></blockquote><br/><br/>I can see that hrStorageDescr.4 is "/" so I know I'm querying the correct volume. My hrStorageAllocationUnits.4 is 4096 Bytes which is my block size. hrStorageSize.4 is 15820593...and multiplying that by 4096 I get 64801148928. That's the total size of my disk in bytes. hrStorageUsed.4 is 1416399 and multiplying that by 4096 I get 5801570304. That's the total size of used space in bytes. Note: if you wanted to get free space you'd have to subtract the size of the disk by the size of used space as there is no oid in this mib for available space. <br/><br/>Anyway, my used bytes is 5801570304, and if I divide this by 1024 I get the same used 1k blocks from df (without the -h) as above 5665596.<br/><br/>Again, that's all if I understand this correctly. <img ___jive_emoticon_name="happy" class="jive_macro jive_emote" jivemacro="emoticon" src="../images/emoticons/happy.gif"/>happy</div><!-- [DocumentBodyEnd:10e470ac-9928-4e25-9b4f-e12882564d8f] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-20723" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=20723&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-20723-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-20723-" data-uniqueKey="2-20723-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="20725.html#" id="jive-acclaim-likedlink-2-20723-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-20724">
+
+
+        <div id="thread-message-20724" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="20724">
+                <a name="20724"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Falk.html"
+   data-externalId=""
+   data-username="Falk"
+   data-avatarId="1110"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2885, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Falk/avatar/46.png?a=1110"
+            border="0" height="46" width="46"
+            alt="Falk"
+            /><span username="Falk" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Falk.html"
+data-externalId=""
+data-username="Falk"
+data-avatarId="1110"
+id="jive-288532910866060036490"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2885, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Falk</a>                        </div>
+                        <em>89 posts since <br/>Jul 27, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="20724.html#20724" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Jul 14, 2008 5:42 AM</span>
+                            (<a href="20723.html#20723" title="Go to message" class="font-color-meta-light " >in response to beanfield</a>)
+                        </div>
+
+                        <strong>
+                        <a href="20724.html#20724">RE: Problem with snmp and faulty size reporting.</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:c6293ee4-c923-42d1-a0bc-aad0808e1b8b] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"beanfield" wrote:</p><p style="min- padding: 0px;">&#160;</p><p><br/>Again, that's all if I understand this correctly. :)</p></blockquote><br/><br/>The thing is that the disk is full before it sends out an alert.<br/>I have put that value to 98% ( :oops: ) so when the small disks shows the wrong value things go bad :p<br/><br/>Off course i can change the value for critical, but it would be better if the graphs where correct..<br/><br/>Did you change anything in you graph template so that it showed the correct value?<br/><br/>--<br/>Regards Folke</div><!-- [DocumentBodyEnd:c6293ee4-c923-42d1-a0bc-aad0808e1b8b] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-20724" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=20724&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-20724-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-20724-" data-uniqueKey="2-20724-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="20725.html#" id="jive-acclaim-likedlink-2-20724-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-20725">
+
+
+        <div id="thread-message-20725" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="20725">
+                <a name="20725"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/beanfield.html"
+   data-externalId=""
+   data-username="beanfield"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4223, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/beanfield/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="beanfield"
+            /><span username="beanfield" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-09.gif"
+           alt="Rank: Green Belt" title="Rank: Green Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/beanfield.html"
+data-externalId=""
+data-username="beanfield"
+data-avatarId="-1"
+id="jive-422332910866064778792"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 4223, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>beanfield</a>                        </div>
+                        <em>161 posts since <br/>Apr 16, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="20725.html#20725" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Jul 14, 2008 10:39 AM</span>
+                            (<a href="20724.html#20724" title="Go to message" class="font-color-meta-light " >in response to Falk</a>)
+                        </div>
+
+                        <strong>
+                        <a href="20725.html#20725">RE: Problem with snmp and faulty size reporting.</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:97c6660e-cbcf-4c33-9d2f-689c42fabe0d] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"folke" wrote:</p><p style="min- padding: 0px;">&#160;</p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><blockquote class="jive-quote"><p>"beanfield" wrote:</p><p style="min- padding: 0px;">&#160;</p><p><br/>Again, that's all if I understand this correctly. :)</p></blockquote><br/><br/>The thing is that the disk is full before it sends out an alert.<br/>I have put that value to 98% ( :oops: ) so when the small disks shows the wrong value things go bad :p<br/><br/>Off course i can change the value for critical, but it would be better if the graphs where correct..<br/><br/>Did you change anything in you graph template so that it showed the correct value?<br/><br/>--<br/>Regards Folke<br/><br/></blockquote><br/><br/>hmmm....when you say "the disk is full before it sends out an alert", how are you finding out that the disk is full? Are you getting errors when you try and write to the disk in your terminal...and more accurately are you getting errors in /var/log/messages to the effect "no space left on device"? <br/><br/>The only reason I ask is because some utilities/scripts that watch disk space actually just do a "df -h", which as pointed out before will incorrectly round up and say the disk is full when it still may have some space available. For instance, logwatch does this (at least on debian it does). I installed logwatch and looked at the script that calculates free space /usr/share/logwatch/scripts/services/zz-disk_space:<br/><pre class="jive-pre"><code class="jive-code">
+&#160;&#160; if ($OSname eq "Linux") {
+&#160;&#160;&#160;&#160;&#160; $df_options = "-h -l -x tmpfs";</code></pre><br/><br/>So if you're basing the disk status off of something like logwatch....it could be incorrectly reporting that the disk is full. Can you provide the following output from a server that you know has the issue where it filled the disk before zenoss alerted?<br/><br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>df -h<br/>df<br/>snmpwalk -v2c -c COMMUNITY_STRING HOSTNAME 1.3.6.1.2.1.25.2.3</p></blockquote><br/><br/>Be sure and replace "COMMUNITY_STRING" and "HOSTNAME" appropriately.</div><!-- [DocumentBodyEnd:97c6660e-cbcf-4c33-9d2f-689c42fabe0d] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-20725" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=20725&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-20725-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-20725-" data-uniqueKey="2-20725-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="20725.html#" id="jive-acclaim-likedlink-2-20725-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-20726">
+
+
+        <div id="thread-message-20726" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="20726">
+                <a name="20726"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Falk.html"
+   data-externalId=""
+   data-username="Falk"
+   data-avatarId="1110"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2885, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Falk/avatar/46.png?a=1110"
+            border="0" height="46" width="46"
+            alt="Falk"
+            /><span username="Falk" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Falk.html"
+data-externalId=""
+data-username="Falk"
+data-avatarId="1110"
+id="jive-288532910866068586931"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2885, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Falk</a>                        </div>
+                        <em>89 posts since <br/>Jul 27, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="20726.html#20726" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Jul 16, 2008 6:11 AM</span>
+                            (<a href="20725.html#20725" title="Go to message" class="font-color-meta-light " >in response to beanfield</a>)
+                        </div>
+
+                        <strong>
+                        <a href="20726.html#20726">RE: Problem with snmp and faulty size reporting.</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:a711aba0-c219-43e8-b83d-092bc9091ea3] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"beanfield" wrote:</p><p style="min- padding: 0px;">&#160;</p><p><br/>So if you're basing the disk status off of something like logwatch....it could be incorrectly reporting that the disk is full. Can you provide the following output from a server that you know has the issue where it filled the disk before zenoss alerted?<br/><br/></p><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>df -h<br/>df<br/>snmpwalk -v2c -c COMMUNITY_STRING HOSTNAME 1.3.6.1.2.1.25.2.3</p></blockquote><br/><br/>Be sure and replace "COMMUNITY_STRING" and "HOSTNAME" appropriately.<br/><br/></blockquote><br/><br/>I'm not at work for some time, but I'll try to connect to the zenoss server and see what the snmpwalk outputs.<br/><br/>The server borked with mysql in the frontline trying to write to the disk.<br/>So I cleaned up some logs and then we where up to speed again.<br/><br/>--<br/>Regards Folke</div><!-- [DocumentBodyEnd:a711aba0-c219-43e8-b83d-092bc9091ea3] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-20726" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=20726&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-20726-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-20726-" data-uniqueKey="2-20726-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="20725.html#" id="jive-acclaim-likedlink-2-20726-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-42494">
+
+
+        <div id="thread-message-42494" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="42494">
+                <a name="42494"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/chitambira"
+   data-externalId=""
+   data-username="chitambira"
+   data-avatarId="1005"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5138, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/chitambira/avatar/46.png?a=1005"
+            border="0" height="46" width="46"
+            alt="chitambira"
+            /><span username="chitambira" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-10.gif"
+           alt="Rank: Brown Belt" title="Rank: Brown Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/chitambira"
+data-externalId=""
+data-username="chitambira"
+data-avatarId="1005"
+id="jive-513832910866072729364"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 5138, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>chitambira</a>                        </div>
+                        <em>711 posts since <br/>Oct 15, 2008</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="42494.html#42494" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Nov 24, 2009 10:39 AM</span>
+                            (<a href="20726.html#20726" title="Go to message" class="font-color-meta-light " >in response to Falk</a>)
+                        </div>
+
+                        <strong>
+                        <a href="42494.html#42494">Re: RE: Problem with snmp and faulty size reporting.</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:352c2a5a-599b-4f52-8647-8c90b88f9a55] --><div class="jive-rendered-content"><p><span>This is a very old thread, but I thot someone might stumble here when searching for a similar problem.&#160; </span></p><p><span> The issue with linux filesystems is the filesystem offset, whcih is not caounted for by default in zenoss, but df counts for it. </span></p><p><span>If you look at the two cases given above, you can see that total and used are both ok, but the free is the culprit algorithm to calculate free space should be: </span></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><strong><span>free = (total*offset) - used </span></strong></p><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p><span>offset is normarly 0.05 (or 5%) for linux filesystems, which means 5% of the filesystem is reserved </span></p><p><em><span><a class="jive-link-wiki-small" href="../docs/DOC-3233.html">docs/DOC-3233</a></span></em></p></div><!-- [DocumentBodyEnd:352c2a5a-599b-4f52-8647-8c90b88f9a55] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-42494" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=42494&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-42494-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-42494-" data-uniqueKey="2-42494-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="20725.html#" id="jive-acclaim-likedlink-2-42494-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="20725.html#6456" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="thread/6456?decorator=print&amp;displayFullThread=true"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-20722">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+

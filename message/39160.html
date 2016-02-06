@@ -1,0 +1,2476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>
+        WMI vs Snmp for perf monitoring with Zenoss Core - Open Source Network Monitoring and Systems Management
+        
+        
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="en-US" />
+<meta name="keywords" content=""/>
+<!-- WMI vs Snmp for perf monitoring with Zenoss Core -->
+<meta property="og:image" content="servlet/JiveServlet/downloadImage/73-2574-13230/share-zenoss-logo.jpg" />
+
+<link rel="search"
+    href="../opensearch.xml"
+    title="Zenoss Community"
+    type="application/opensearchdescription+xml"/>
+
+
+<link rel="shortcut icon" href="../themes/userbar-disabled/images/favicon.ico" />
+
+    
+
+
+
+
+
+    
+      
+      
+     
+
+
+
+
+    
+
+
+
+    
+    
+
+
+
+
+
+    <link rel="stylesheet" href="../styles/jive-global.css" type="text/css" media="all" />
+    <!-- <link rel="stylesheet" href="/styles/jive-icons-legacy.css" type="text/css" media="all" /> -->
+    <link rel="stylesheet" href="../styles/jive-icons.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/theme.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/community.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../themes/userbar-disabled/styles/sifr.css" type="text/css" media="all" />
+
+
+    <!--[if IE 6]>
+    <style type="text/css">
+    /* hack for IE6's lack of alpha PNG support */
+    * html #jive-wrapper .ie6png,
+    * html #jive-wrapper #jive-global-header *.ie6png,
+    * html #jive-wrapper #user-bar-wrapper *.ie6png,
+    * html #jive-wrapper #jive-body *.ie6png,
+    * html #jive-wrapper #jive-footer *.ie6png {
+        background-image: expression(
+        this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" +
+        (this.tagName=='IMG' ? this.src : this.currentStyle.backgroundImage.split('\"')[1]) + ")",
+        this.runtimeStyle.backgroundImage = "none",
+        this.src = "/images/transparent.png"
+        );
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/jive-icons-ie.css" type="text/css" media="all" />
+    <![endif]-->
+
+
+
+
+
+    
+
+
+	<link rel="stylesheet" href="../4.5.6/styles/jive-content.css" type="text/css" media="all" />
+    
+
+            <link rel="alternate" type="application/rss+xml"
+                title=" zenoss-windows Discussions Feed"
+                href="community/feeds/threads?community=2008">
+
+        <link rel="alternate" type="application/rss+xml"
+            title="Messages in 'WMI vs Snmp for perf monitoring with Zenoss Core' Discussion Feed"
+            href="community/feeds/messages?thread=11337">
+
+
+
+
+
+
+
+    
+
+    <!-- BEGIN action bar -->
+
+    
+
+    <!-- END action bar -->
+
+
+        <link rel="canonical" href="../thread/11337%3Fstart=0&amp;tstart=0.html#39160"/>   
+
+
+
+    <!--[if IE 6]>
+        <style type="text/css">
+            .jive-modal-scrollto-container
+            {
+                width: 500px;
+            }
+        </style>
+    <![endif]-->
+
+
+
+
+    <style type="text/css">/* Rating bar on documents */
+.jive-content .jive-content-header .jive-content-rating {margin-bottom: 3px;}
+.j-rating { padding: 0 10px; }
+.jive-content-avgrating {height: 53px;}
+/* END Rating bar on documents */
+
+/* Userbar */
+#jive-userbar-right {right: 50px;}
+/* END Userbar */
+
+/* Download links page */
+table.download-links-table {background-color: #ffffff; width: 100%;}
+table.download-links-table tbody td { text-align: center; vertical-align: middle;}
+table.download-links-table thead th {text-align: center;}
+table.download-links-table td, table.download-links-table th {border: 1px solid #EEEEEE !important;}
+
+/* Provides indentation for official doc ToC items */
+div.toc dl dt {margin-left: 20px;}
+div.toc dl dd dl dt {margin-left: 40px;}
+div.toc dl dd dl dd dl dt {margin-left: 60px;}
+div.toc dl dd dl dd dl dd dl dt {margin-left: 80px;}
+div.toc dl dd dl dd dl dd dl dd dl dt {margin-left: 100px;}
+/* END docs items */
+
+
+/* Blog posts */
+div.social-button-spacer {height: 10px;}
+
+div#social-button-cont {
+margin-right:10px; 
+padding:5px; 
+text-align: center; 
+float: right;
+}
+
+div#comment-indicator {
+    float: left;
+    left: 12px;
+    right: inherit;
+    top: 55px;
+}
+
+div#comment-indicator div.jive-reply {margin-left: 0px;}
+
+.jive-blog-post-subject {padding-bottom: 0px;}
+/* END Blog posts */
+
+
+/* Community download survey */
+form#core-usage-survey label.aligned {float: left; width: 120px;}
+form#core-usage-survey span.required_field {color: red;}
+form#core-usage-survey label.survey-small-label {display:inline;}
+form#core-usage-survey div.survey-checkbox-set {width:82%;}
+form#core-usage-survey div.border {border:1px solid #ACACAC; padding:5px;}
+
+form#core-usage-survey label.survey-resource_type {font-style:italic;}
+form#core-usage-survey label {
+color:#333333;
+display:block;
+font-size:12px;
+font-weight:bold;
+}
+/* END Community download survey */
+
+</style>
+    <style type="text/css">/* custom-css-container */</style>
+
+
+</head>
+<body class="jive-body-home" ><div style="width:100%;background-color:white;float:left;position:fixed;z-index:3000;top:0;right:0;border-bottom:2px solid gray;"><div style="width:1006px;font-weight:bold;margin:12px auto 12px auto;font-size:18px;"><div style="float: left; margin: 0;">Archived community.zenoss.org | full text search <form style="display: inline;" target="_blank" action="https://github.com/monitoringartist/community.zenoss.org/search" method="get"><input type="text" name="q"><input type="submit" value="Search"></form> </div><div style="float: right;"><a href="https://www.monitoringartist.com" title="Maintained by Monitoring Artist - DevOps / Docker / Kubernetes / Zabbix / Zenoss / Monitoring"><img src="/community.zenoss.org/assests-monitoringartist/Monitoring-Artist-logo.png" /></a></div></div></div>
+
+
+<a href="39160.html#jive-body" class="jive-skip-nav">Skip navigation</a>
+
+    <div id="jive-compliance" class=""style="display:none">
+        <span class="jive-icon-med "></span>
+        
+    </div>
+
+    <div id="jive-wrapper" class="clearfix">
+
+    <!-- Load search for guests -->
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+    <!-- END anon search -->
+
+<!-- SKIP NAV FOR ACCESSIBILITY -->
+<a href="39160.html#skipnav"></a>
+<!-- END -->
+
+<div id="header">
+
+    <!-- START TOP NAVIGATION -->
+    <div id="navcontainer">
+        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+          <tr valign="bottom">
+            <td rowspan="2">
+                <a href="../index.html" title="Zenoss Open Source IT Management"><img src="../themes/userbar-disabled/images/zenoss-logo-reversed-web.png" style="width:254px; margin: 0 0px 25px;" alt="Zenoss Open Enterprise Management" /></a>
+            </td>
+            <td height="45" colspan="2">
+                <div id="zenoss-panel">
+                    <div style="width: 200px;" id="cpanel-lt"></div>
+                    <ul id="subnav-rt" class="png_fix">
+                        <li><a href="http://www.zenoss.com/" title="Zenoss.Inc Home" class="none">Zenoss, Inc.</a></li>
+                        <!--<li><a href="/community/feedback" title="Feedback" class="none">Feedback</a></li>-->
+                        <!--<li><a href="http://www.zenoss.com/support" title="Support" class="none">Support</a></li>-->
+                    </ul>
+                </div>
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td colspan="2" height="80">
+                <ul id="navlist">
+                    <li><a href="community/documentation" title="DOCS" class="nav1"><span>DOCS</span></a></li>
+                    <li><a href="community/forums" title="FORUMS" class="nav2"><span>FORUMS</span></a></li>        
+                    <!--<li><a href="/community/zenpacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>-->
+                    <li><a href="http://wiki.zenoss.org/Category:ZenPacks" title="ZENPACKS" class="nav3"><span>ZENPACKS</span></a></li>        
+                    <li><a href="community/partners" title="PARTNERS" class="nav4"><span>PARTNERS</span></a></li>      
+                    <li><a href="community/about" title="ABOUT" class="nav4"><span>ABOUT</span></a></li>   
+                    <li><a href="../blogs/zenossblog.html" title="BLOG" class="nav5"><span>BLOG</span></a></li>
+                    <li><a href="community/testing" title="TESTING" class="nav5"><span>TESTING</span></a></li> 
+                    <li><a href="community/developers" title="DEVELOPERS" class="nav6"><span>DEVELOPMENT</span></a></li>
+                    <li><a href="../community/download.html" title="DOWNLOADS" class="nav7 png_fix"><span>DOWNLOAD</span></a></li>
+                </ul>
+            </td>
+          </tr>
+        </table>
+    </div>
+    <!-- END TOP NAV -->
+
+</div>
+
+<!-- START MID COL -->
+<div id="middle">
+
+    <!-- SKIPNAV ADDED FOR ACCESSIBILITY -->
+    <a name="skipnav"></a>
+    <!-- SKIPNAV END -->
+        
+      <!-- START CONTENT -->
+      
+        <!-- MAIN CONTENT START -->
+        <!-- CHANGE CLASS ACCORDING TO SUB SECTION FOR PROPER TOP BANNER -->
+
+
+        <div id="subcontent">
+
+
+
+
+<!-- BEGIN user bar -->
+<div id="user-bar-wrapper">
+    <div id="jive-userbar">
+<div id="jive-userbar-login">
+    <form action="https://community.zenoss.org/cs_login"
+          method="post" name="loginform" autocomplete="off">
+        
+        
+
+        <span class="jive-userbar-login-welcome" id="jiveLoginWelcome">
+            <span class="jive-userbar-login-guest">
+            Welcome, Guest
+            </span>
+
+            <span class="jive-userbar-login-loginlink">
+                <a href="39160.html#" onClick="jivetoggleLogin(); return false;">Login</a>
+            </span>
+
+            <span class="jive-userbar-login-new">
+                <a href="../login!input.jspa%3FregisterOnly=true.html">Register</a>
+            </span>
+        </span>
+
+        <span class="jive-userbar-login-form" id="jiveLoginForm" style="display: none;">
+
+            <span class="jive-userbar-login-username">
+                <label for="login-username">
+Username:                </label>
+                <a href="forgot-username!input.jspa.html" title="I forgot my username ">(?)</a>
+                <input type="text" name="username" size="20" maxlength="150" value="" tabindex="1"
+                               id="login-username" />
+            </span>
+
+            <span class="jive-userbar-login-password">
+                <label for="login-password">
+Password:                </label>
+                <a href="emailPasswordToken!input.jspa.html" title="I forgot my password ">(?)</a>
+                <input type="password" name="password" size="20" maxlength="150" value="" tabindex="2"
+                               id="login-password" />
+            </span>
+
+            <span class="jive-userbar-login-auto">
+                <input type="checkbox" name="autoLogin" id="login-auto" value="true" tabindex="3" />
+                <label for="login-auto">Remember Me</label>
+            </span>
+
+            <span class="jive-userbar-login-submit">
+                <input type="submit" name="login" value="Login" tabindex="4"
+                       class="jive-login-button" />
+                <input type="reset" name="doCancel" value="Cancel" tabindex="5"
+                               class="jive-cancel-button" onclick="jivetoggleLogin();" />
+            </span>
+        </span>
+
+    </form>
+</div>        <div id="jive-userbar-right">
+
+    <div id="jive-userbar-search">
+    <form action="search.jspa" method="get" id="jive-userbar-search-form">
+        <input type="hidden" name="peopleEnabled" value="true"/>
+
+        <input type="hidden" name="userID"/>
+        <input type="hidden" name="containerType"/>
+        <input type="hidden" name="container"/>
+        <input type="hidden" name="spotlight" value="false"/>
+        <label for="jive-query"
+               class="j-508-label">Search for:</label>
+        <input type="text" id="jive-query" name="q" value="" accesskey="4" class="searchbar jive-userbar-search-field"
+               autocomplete="off"/>
+    </form>
+
+    <div id="jive-spotlight-search-container"></div>
+</div>
+
+        </div>
+    </div>
+
+</div>
+<!-- END user bar -->
+
+            <div id="jive-body">
+
+<!-- BEGIN breadcrumb -->
+<div id="jive-breadcrumb">
+
+    <span>
+                <a href="../index.jspa.html">
+            Zenoss Community</a> &gt; 
+                <a href="community/forums">
+            Forums</a> &gt; 
+                <a href="../community/forums/zenoss-windows.html">
+            zenoss-windows</a> &gt; 
+
+
+        <a class='jive-breadcrumb-last' href="../community/forums/zenoss-windows%3Fview=discussions.html">Discussions</a></span>
+</div>
+<!-- END breadcrumb -->
+
+                                                                       
+
+
+
+    
+    <script>
+        window._jive_images_enabled = true;
+    </script>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../4.5.6/styles/tiny_mce3/plugins/inlinepopups/skins/clearlooks2/window.css" />
+
+
+
+
+    <div id="rte-template" style="display:none;">
+        <input type="hidden" name="jive.token.name" value="message.post.11337"/>
+        <input type="hidden" name="message.post.11337" value="[placeholder]"/>
+
+
+	<form action="post.jspa?container=2008&amp;containerType=14&amp;thread=11337&amp;message=39160&amp;reply=true" method="post" name="isInline" id="postform" >
+	<input type="hidden" name="containerType" value="14">
+	<input type="hidden" name="container" value="2008">
+
+		<input type="hidden" name="thread" value="11337">
+
+		<input type="hidden" name="reply" value="true">
+        <input type="hidden" name="message" value="">
+        <input type="hidden" name="inlinePost" value="true">
+	<input type="hidden" name="postedFromGUIEditor" id="postTypeFlag" value="false" />
+
+	<div class="jive-error-message jive-error-box" id="dwr-error-table" style="display:none;">
+		<div>
+			<span class="jive-icon-med jive-icon-redalert"></span>
+			<span class="jive-error-text" id="dwr-error-text"></span>
+		</div>
+	</div>
+
+
+
+	<div class="jive-error-message jive-error-box" id="post-error-table" style="display:none;">
+		<div id="post-error-subject" style="display:none;">
+Please enter a title.		</div>
+		<div id="post-error-body" style="display:none;">
+You can not post a blank message. Please type your message and try again.		</div>
+	</div>
+	<input type="hidden" name="subject" size="75" maxlength="255"  id="subject01" value="Re:  WMI vs Snmp for perf monitoring with Ze"/>
+
+
+    <textarea name="body"rows="10" class="jive-comment-textarea"></textarea>
+
+
+	<div>
+		<input type="submit" name="post" class="jive-form-button-save" value="Add Reply" />
+		<input type="button" name="cancel" class="jive-form-button-cancel" value="Cancel" />
+	</div>
+	</form>
+</div>
+
+
+
+<!-- BEGIN header & intro  -->
+<div id="jive-body-intro">
+
+    <div id="jive-body-intro-content">
+
+        <a href="../community/forums/zenoss-windows%3Fview=discussions&amp;start=0.html"><span class="jive-icon-sml jive-icon-arrow-generic-up"></span>
+                Up to Discussions in&nbsp;zenoss-windows
+        </a>
+    </div>
+</div>
+<!-- END header & intro -->
+
+
+<!-- BEGIN main body -->
+<div id="jive-body-main">
+
+    <!-- BEGIN main body column -->
+    <div id="jive-body-maincol-container">
+        <div id="jive-body-maincol">
+            <!-- moderation feedback message -->
+
+            <!-- hidden div used in parsing of ajax response to indicate that we have a moderated message -->
+            
+            <div id="success-moderation-edit" class="jive-success-box" style="display:none"></div>
+
+            <div id="thread.watch.notify" class="jive-info-box" style="display:none"></div>
+
+            <div id="content-featured-notify" class="jive-info-box" style="display:none"></div>
+
+
+
+
+
+            <!-- BEGIN thread messages -->
+            <div id="jive-thread-messages-container" class="jive-thread-messages">
+
+
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+                        <!-- BEGIN pagination-->
+                        <span class="jive-pagination">
+                            <span class="jive-pagination-numbers">
+                                    <a href="../thread/11337%3Fstart=0&amp;tstart=0.html"
+                                        class="jive-pagination-current" >1</a>
+                                    <a href="../thread/11337%3Fstart=15&amp;tstart=0.html"
+                                         >2</a>
+                            </span>
+                            <span class="jive-pagination-prevnext">
+                                    <span class="jive-pagination-prev-none">Previous</span>
+                                    <a href="../thread/11337%3Fstart=15&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                            </span>
+                        </span>
+                    <!-- END pagination -->
+
+                    <strong>     
+        
+            81723&nbsp;Views
+        
+
+</strong>
+                        <strong>16 Replies</strong>
+                    <a href="39166%3Ftstart=0.html#39166" >Latest reply</a>:
+                    Sep 11, 2009 8:46 AM by
+jmp242                        <span><a href="community/feeds/messages?thread=11337"><img class="jive-icon-sml jive-icon-rss" src="../4.5.6/images/transparent.png" alt="RSS" /></a></span>
+
+
+
+
+                </div>
+                <!-- END thread info -->
+
+                <!-- BEGIN original thread post -->
+                 
+
+                    <div class="jive-thread-post">
+
+                        <a name="11337"></a><a name="39150"></a>
+                        <div class="jive-thread-post-body">
+
+                            <div class="jive-author">
+
+                                    <span class="jive-author-avatar-container">
+
+
+<a href="../people/Dieter_be.html"
+   data-externalId=""
+   data-username="Dieter_be"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Dieter_be/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Dieter_be"
+            /><span username="Dieter_be" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                                    </span>
+
+                                    <div class="jive-username-link-wrapper">
+<a href="../people/Dieter_be.html"
+data-externalId=""
+data-username="Dieter_be"
+data-avatarId="-1"
+id="jive-611232924653555507656"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Dieter_be</a>                                    </div>
+                                    <em>74 posts since <br/>May 27, 2009</em>
+                            </div>
+
+                            <div class="jive-thread-post-body-container">
+                                <div class="jive-thread-post-subject">
+                                    <div class="jive-thread-post-subject-content">
+                                        <div class="jive-social-actions clearfix">
+                                        </div>
+
+                                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                                        <h3>Jul 10, 2009 10:01 AM</h3>
+                                        <h2><a href="39150.html#39150">WMI vs Snmp for perf monitoring with Zenoss Core</a></h2>
+                                    </div>
+                                </div>
+
+                                <div class="jive-thread-post-message">
+                                    <!-- [DocumentBodyStart:dadf8c83-f290-4299-a678-5cc7c37f5934] --><div class="jive-rendered-content">Hi,<br/>I use Zenoss Core 2.4.2 (new install on Debian 5.0)<br/>I need:<br/>1) monitoring and graphing of "the usual stuff" (memory, cpu usage, swap etc)<br/>2) monitoring and graphing processes that match a certain name, on certain devices and alert when their memory consumption goes above a certain treshhold. <br/><br/>I know item 2 may be too specific so I don't have a problem with implementing it myself. But if there are existing things I could use for this, please point me to them <img ___jive_emoticon_name="happy" class="jive_macro jive_emote" jivemacro="emoticon" src="../images/emoticons/happy.gif"/>happy (I think that this is different from the "process monitoring" feature in zenoss, correct me if I'm wrong)<br/><br/>But for item 1 I have these problems:<br/>1) I would avoid installing 3rd party tools such as "snmp informant" on production boxes. According the official documentation you need this to monitor the things I mentioned. However when I do an snmpwalk on the system I see various MIB's related to memory/cpu/processes so I think it should be possible using the default windows snmp agent, however this does not work out of the box (graphs do not show)<br/>2) WMI seems to be "the way to go" on windows, but the official wmi zenpack is not free, so I cannot use it.<br/>I tried the following zenpacks:<br/>- http://blog.dastru<br/>- http://www.zenoss.com/community/projects/zenpacks/windowswmidevicetemplatep.com/?p=13<br/>But both of these also show no working graphs. (they show empty graphs with RRD errors). I guess this is because they are written for older Zenoss versions.<br/><br/>Thanks for any help.<br/>Dieter</div><!-- [DocumentBodyEnd:dadf8c83-f290-4299-a678-5cc7c37f5934] -->
+
+
+                                </div>
+
+                            <!-- BEGIN content details -->
+                            <div id="discussion-action-div-baseDiscussionForm" class="jive-thread-post-details clearfix">
+
+                            	<ul>
+                                    <li class="discussion-thread-acclaim">
+<div id="acclaim-container-2-39150-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39150-" data-uniqueKey="2-39150-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39150-"  class=" jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+                            	</ul>
+
+
+    <!-- BEGIN view/add/edit tags -->
+    <span class="jive-content-footer-item jive-content-footer-tags">
+    </span>
+    <!-- END view/add/edit tags -->
+                                </div>
+                                <!-- END content details -->
+
+                            </div>
+                        </div>
+                        <div class="jive-thread-ratings clearfix">
+                        </div>
+                    </div>
+                <!-- END original thread post -->
+
+
+    <!-- BEGIN reply -->
+
+
+    <ul class="jive-discussion-replies jive-discussion-flat jive-discussion-indent-0">
+    <li class="reply" id="discussion-39151">
+
+
+        <div id="thread-message-39151" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="39151">
+                <a name="39151"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432924653563357629"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39151.html#39151" title="Link to reply #1" class="jive-thread-reply-num font-color-meta-light">1.</a>
+                        <span>Jul 10, 2009 10:12 AM</span>
+                            (<a href="39150.html#39150" title="Go to message" class="font-color-meta-light " >in response to Dieter_be</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39151.html#39151">WMI vs Snmp for perf monitoring with Zenoss</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:133051d1-0d59-470a-ad66-3583389a76c2] --><div class="jive-rendered-content">I've successfully used the community WMI Zenpack with 2.3.3 anyway, so <br/>it's generally version required and up...<br/><br/>You could also try using the PerfMon Zenpack (with proper configuration) <br/>to read out windows data into zenoss.<br/><br/>As to your second question, you could probably set a threshold on the <br/>graphs for the given process in the templates, just like for any <br/>datasource/template, and alert based on that.<br/>--<br/>James Pulver<br/>Information Technology Area Supervisor<br/>LEPP Computer Group<br/>Cornell University<br/><br/><br/><br/>Dieter_be wrote, On 7/10/2009 10:01 AM:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>Hi,<br/>I use Zenoss Core 2.4.2 (new install on Debian 5.0)<br/>I need:<br/>1) monitoring and graphing of "the usual stuff" (memory, cpu usage, swap etc)<br/>2) monitoring and graphing processes that match a certain name, on certain devices and alert when their memory consumption goes above a certain treshhold.<br/><br/>I know item 2 may be too specific so I don't have a problem with implementing it myself. But if there are existing things I could use for this, please point me to them <img ___jive_emoticon_name="happy" class="jive_macro jive_emote" jivemacro="emoticon" src="../images/emoticons/happy.gif"/>happy (I think that this is different from the "process monitoring" feature in zenoss, correct me if I'm wrong)<br/><br/>But for item 1 I have these problems:<br/>1) I would avoid installing 3rd party tools such as "snmp informant" on production boxes. According the official documentation you need this to monitor the things I mentioned. However when I do an snmpwalk on the system I see various MIB's related to memory/cpu/processes so I think it should be possible using the default windows snmp agent, however this does not work out of the box (graphs do not show)<br/>2) WMI seems to be "the way to go" on windows, but the official wmi zenpack is not free, so I cannot use it.<br/>I tried the following zenpacks:<br/><span>- </span><a class="jive-link-external-small" href="http://blog.dastru">http://blog.dastru</a><br/><span>- </span><a class="jive-link-external-small" href="http://www.zenoss.com/community/projects/zenpacks/windowswmidevicetemplatep.com/?p=13">http://www.zenoss.com/community/projects/zenpacks/windowswmidevicetemplatep.com/?p=13</a><br/>But both of these also show no working graphs. (they show empty graphs with RRD errors). I guess this is because they are written for older Zenoss versions.<br/><br/>Thanks for any help.<br/>Dieter<br/><br/><br/><br/><br/><br/><br/><br/>_______________________________________________<br/>zenoss-windows mailing list<br/><a class="jive-link-email-small" href="mailto:zenoss-windows@zenoss.org">zenoss-windows@zenoss.org</a><br/><a class="jive-link-external-small" href="http://lists.zenoss.org/mailman/listinfo/zenoss-windows">http://lists.zenoss.org/mailman/listinfo/zenoss-windows</a><br/></p></blockquote>_______________________________________________<br/>zenoss-windows mailing list<br/>zenoss-windows@zenoss.org<br/>http://lists.zenoss.org/mailman/listinfo/zenoss-windows</div><!-- [DocumentBodyEnd:133051d1-0d59-470a-ad66-3583389a76c2] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39151" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39151&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39151-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39151-" data-uniqueKey="2-39151-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39151-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39152">
+
+
+        <div id="thread-message-39152" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="39152">
+                <a name="39152"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Dieter_be.html"
+   data-externalId=""
+   data-username="Dieter_be"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Dieter_be/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Dieter_be"
+            /><span username="Dieter_be" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Dieter_be.html"
+data-externalId=""
+data-username="Dieter_be"
+data-avatarId="-1"
+id="jive-611232924653569619204"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Dieter_be</a>                        </div>
+                        <em>74 posts since <br/>May 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39152.html#39152" title="Link to reply #2" class="jive-thread-reply-num font-color-meta-light">2.</a>
+                        <span>Jul 28, 2009 11:49 AM</span>
+                            (<a href="39151.html#39151" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39152.html#39152">Re:&#160; WMI vs Snmp for perf monitoring with Ze</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:c13e818c-7ccf-4e7b-ad39-5654211ba59a] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"jmp242" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>I've successfully used the community WMI Zenpack with 2.3.3 anyway, so<br/>it's generally version required and up...<br/><br/>You could also try using the PerfMon Zenpack (with proper configuration)<br/>to read out windows data into zenoss.<br/><br/>As to your second question, you could probably set a threshold on the<br/>graphs for the given process in the templates, just like for any<br/>datasource/template, and alert based on that.<br/>--<br/>James Pulver<br/>Information Technology Area Supervisor<br/>LEPP Computer Group<br/>Cornell University<br/></p></blockquote><br/>Thanks, I got requirement 1 working by using a zenpack I found somewhere on the net. But I'm afraid I didn't explain the 2nd one in enough detail:<br/>I need to monitor the memory usage of _single_ processes matching a certain name and raise an alert when a threshold is exceeded.<br/>The built-in zenoss process monitoring feature adds up the usage of all processes matching a certain name, so that's not an option for me.</div><!-- [DocumentBodyEnd:c13e818c-7ccf-4e7b-ad39-5654211ba59a] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39152" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39152&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39152-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39152-" data-uniqueKey="2-39152-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39152-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39153">
+
+
+        <div id="thread-message-39153" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="39153">
+                <a name="39153"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432924653577545503"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39153.html#39153" title="Link to reply #3" class="jive-thread-reply-num font-color-meta-light">3.</a>
+                        <span>Jul 28, 2009 11:54 AM</span>
+                            (<a href="39152.html#39152" title="Go to message" class="font-color-meta-light " >in response to Dieter_be</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39153.html#39153">WMI vs Snmp for perf monitoring with Zenoss</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:1f64d5d8-8782-4dee-81dd-ac7c4bb1852c] --><div class="jive-rendered-content">You could create your own Template I suppose using whatever method you <br/>like to get the process memory use (Maybe PerfMon?)...<br/>--<br/>James Pulver<br/>Information Technology Area Supervisor<br/>LEPP Computer Group<br/>Cornell University<br/><br/><br/><br/>Dieter_be wrote, On 7/28/2009 11:49 AM:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>jmp242 wrote:<br/></p><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>I've successfully used the community WMI Zenpack with 2.3.3 anyway, so<br/>it's generally version required and up...<br/><br/>You could also try using the PerfMon Zenpack (with proper configuration)<br/>to read out windows data into zenoss.<br/><br/>As to your second question, you could probably set a threshold on the<br/>graphs for the given process in the templates, just like for any<br/>datasource/template, and alert based on that.<br/>--<br/>James Pulver<br/>Information Technology Area Supervisor<br/>LEPP Computer Group<br/>Cornell University<br/><br/></p></blockquote><br/>Thanks, I got requirement 1 working by using a zenpack I found somewhere on the net. But I'm afraid I didn't explain the 2nd one in enough detail:<br/>I need to monitor the memory usage of _single_ processes matching a certain name and raise an alert when a threshold is exceeded.<br/>The built-in zenoss process monitoring feature adds up the usage of all processes matching a certain name, so that's not an option for me.<br/><br/><br/><br/><br/><br/><br/><br/>_______________________________________________<br/>zenoss-windows mailing list<br/><a class="jive-link-email-small" href="mailto:zenoss-windows@zenoss.org">zenoss-windows@zenoss.org</a><br/><a class="jive-link-external-small" href="http://lists.zenoss.org/mailman/listinfo/zenoss-windows">http://lists.zenoss.org/mailman/listinfo/zenoss-windows</a><br/><br/><br/></blockquote>_______________________________________________<br/>zenoss-windows mailing list<br/>zenoss-windows@zenoss.org<br/>http://lists.zenoss.org/mailman/listinfo/zenoss-windows</div><!-- [DocumentBodyEnd:1f64d5d8-8782-4dee-81dd-ac7c4bb1852c] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39153" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39153&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39153-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39153-" data-uniqueKey="2-39153-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39153-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39154">
+
+
+        <div id="thread-message-39154" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="39154">
+                <a name="39154"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Dieter_be.html"
+   data-externalId=""
+   data-username="Dieter_be"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Dieter_be/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Dieter_be"
+            /><span username="Dieter_be" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Dieter_be.html"
+data-externalId=""
+data-username="Dieter_be"
+data-avatarId="-1"
+id="jive-611232924653585093186"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Dieter_be</a>                        </div>
+                        <em>74 posts since <br/>May 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39154.html#39154" title="Link to reply #4" class="jive-thread-reply-num font-color-meta-light">4.</a>
+                        <span>Aug 5, 2009 12:30 PM</span>
+                            (<a href="39153.html#39153" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39154.html#39154">Re:&#160; WMI vs Snmp for perf monitoring with Ze</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:a9c6d8d4-089f-4c15-bb86-87e1b7224695] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"jmp242" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>You could create your own Template I suppose using whatever method you<br/>like to get the process memory use (Maybe PerfMon?)...<br/></p></blockquote><br/><br/>Thanks.<br/>I downloaded the new WMI datasource zenpack (http://www.zenoss.com/community/projects/zenpacks/wmidatasource)<br/>Then, on the server I created a new performance template.<br/>The wql for the datasource is:<br/><pre class="jive-pre"><code class="jive-code">
+select PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%'</code></pre><br/>This works fine, it shows the memory metrics for all 3 processes matching the name.<br/><br/>Then I made datapoints for each field, type GAUGE<br/>Then I made a graph and added all datapoints to it.<br/>Now when I go to the 'perf' tab, I see the border which goes around the graph, but no actual graph image. I checked in /usr/local/zenoss/zenoss/log but couldn't really find an error or reason for this.</div><!-- [DocumentBodyEnd:a9c6d8d4-089f-4c15-bb86-87e1b7224695] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39154" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39154&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39154-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39154-" data-uniqueKey="2-39154-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39154-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39155">
+
+
+        <div id="thread-message-39155" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="39155">
+                <a name="39155"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432924653600382096"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39155.html#39155" title="Link to reply #5" class="jive-thread-reply-num font-color-meta-light">5.</a>
+                        <span>Aug 5, 2009 12:34 PM</span>
+                            (<a href="39154.html#39154" title="Go to message" class="font-color-meta-light " >in response to Dieter_be</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39155.html#39155">WMI vs Snmp for perf monitoring with Zenoss</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:ba3318b4-27cd-4b0d-b30f-c58f31952694] --><div class="jive-rendered-content">Are rrd files being created in $ZENHOME/perf/device?<br/>--<br/>James Pulver<br/>Information Technology Area Supervisor<br/>LEPP Computer Group<br/>Cornell University<br/><br/><br/><br/>Dieter_be wrote, On 8/5/2009 12:30 PM:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>jmp242 wrote:<br/></p><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>You could create your own Template I suppose using whatever method you<br/>like to get the process memory use (Maybe PerfMon?)...<br/><br/></p></blockquote><br/><br/>Thanks.<br/><span>I downloaded the new WMI datasource zenpack (</span><a class="jive-link-external-small" href="http://www.zenoss.com/community/projects/zenpacks/wmidatasource">http://www.zenoss.com/community/projects/zenpacks/wmidatasource</a><span>)</span><br/>Then, on the server I created a new performance template.<br/>The wql for the datasource is:<br/><br/>Code:<br/><br/>select PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%'<br/><br/><br/>This works fine, it shows the memory metrics for all 3 processes matching the name.<br/><br/>Then I made datapoints for each field, type GAUGE<br/>Then I made a graph and added all datapoints to it.<br/>Now when I go to the 'perf' tab, I see the border which goes around the graph, but no actual graph image. I checked in /usr/local/zenoss/zenoss/log but couldn't really find an error or reason for this.<br/><br/><br/><br/><br/><br/><br/><br/>_______________________________________________<br/>zenoss-windows mailing list<br/><a class="jive-link-email-small" href="mailto:zenoss-windows@zenoss.org">zenoss-windows@zenoss.org</a><br/><a class="jive-link-external-small" href="http://lists.zenoss.org/mailman/listinfo/zenoss-windows">http://lists.zenoss.org/mailman/listinfo/zenoss-windows</a><br/><br/><br/></blockquote>_______________________________________________<br/>zenoss-windows mailing list<br/>zenoss-windows@zenoss.org<br/>http://lists.zenoss.org/mailman/listinfo/zenoss-windows</div><!-- [DocumentBodyEnd:ba3318b4-27cd-4b0d-b30f-c58f31952694] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39155" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39155&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39155-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39155-" data-uniqueKey="2-39155-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39155-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39156">
+
+
+        <div id="thread-message-39156" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="39156">
+                <a name="39156"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Dieter_be.html"
+   data-externalId=""
+   data-username="Dieter_be"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Dieter_be/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Dieter_be"
+            /><span username="Dieter_be" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Dieter_be.html"
+data-externalId=""
+data-username="Dieter_be"
+data-avatarId="-1"
+id="jive-611232924653608471107"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Dieter_be</a>                        </div>
+                        <em>74 posts since <br/>May 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39156.html#39156" title="Link to reply #6" class="jive-thread-reply-num font-color-meta-light">6.</a>
+                        <span>Aug 6, 2009 4:22 AM</span>
+                            (<a href="39155.html#39155" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39156.html#39156">Re:&#160; WMI vs Snmp for perf monitoring with Ze</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:5e5d18a5-3707-4003-be5a-a860c697f8ea] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"jmp242" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>Are rrd files being created in ZENHOME/perf/device?<br/></p></blockquote><br/>Thanks for helping out James :)<br/>Turns out I needed to be more patient. After a while it started working.<br/><br/>But now, here comes the tricky part.<br/>Remember: my main problem is "alert if the memory usage of any single process matching a string goes above 1GB"<br/>And I can't really figure out how to do this.<br/>I thought I could just monitor all processes matching the name but I could not find anything about datasources returning data for multiple entities (<br/>http://www.zenoss.com/community/docs/zenoss-guide/2.4.0/ch06s02.html ) (eg multiple rows)<br/><br/>Here is the output of a command execution:<br/><br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p><br/>Executing command wmic -U '.username '%'*****' //192.168.68.25 --namespace='rootcimv2' "select PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%'" against QA Indesign server<br/>CLASS: Win32_PerfFormattedData_PerfProc_Process<br/>Name|PageFileBytes|PoolNonpagedBytes|PoolPagedBytes|PrivateBytes|VirtualBytes|WorkingSet<br/>InDesignServer|217841664|39192|372012|217841664|398671872|59248640<br/>InDesignServer|217841664|39192|372012|217841664|398671872|59432960<br/>InDesignServer|217841664|39232|380380|217841664|398671872|59146240<br/></p></blockquote><br/>So in this case, there are 3 processes.<br/>However, the graph only seems to draw each column once. It seems it does this only for the first found process and ignores to the two others.<br/><br/>Is there a way to have it making datapoints/graphs for each returned line? (and have the same alerting rules for all)</div><!-- [DocumentBodyEnd:5e5d18a5-3707-4003-be5a-a860c697f8ea] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39156" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39156&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39156-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39156-" data-uniqueKey="2-39156-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39156-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39157">
+
+
+        <div id="thread-message-39157" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="39157">
+                <a name="39157"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432924653615877933"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39157.html#39157" title="Link to reply #7" class="jive-thread-reply-num font-color-meta-light">7.</a>
+                        <span>Aug 6, 2009 9:27 AM</span>
+                            (<a href="39156.html#39156" title="Go to message" class="font-color-meta-light " >in response to Dieter_be</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39157.html#39157">WMI vs Snmp for perf monitoring with Zenoss</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:82737d44-5d57-473d-a1e2-115ad5371052] --><div class="jive-rendered-content">Well, I'd just create multiple Data Sources in the Template, and then <br/>graph them on the same graph with the set threshold... I think that <br/>would work.<br/>--<br/>James Pulver<br/>Information Technology Area Supervisor<br/>LEPP Computer Group<br/>Cornell University<br/><br/><br/><br/>Dieter_be wrote, On 8/6/2009 4:22 AM:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>jmp242 wrote:<br/></p><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>Are rrd files being created in ZENHOME/perf/device?<br/><br/></p></blockquote><br/>Thanks for helping out James :)<br/>Turns out I needed to be more patient. After a while it started working.<br/><br/>But now, here comes the tricky part.<br/>Remember: my main problem is "alert if the memory usage of any single process matching a string goes above 1GB"<br/>And I can't really figure out how to do this.<br/>I thought I could just monitor all processes matching the name but I could not find anything about datasources returning data for multiple entities (<br/><a class="jive-link-external-small" href="http://www.zenoss.com/community/docs/zenoss-guide/2.4.0/ch06s02.html">http://www.zenoss.com/community/docs/zenoss-guide/2.4.0/ch06s02.html</a><span> ) (eg multiple rows)</span><br/><br/>Here is the output of a command execution:<br/><br/><br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>Executing command wmic -U '.username '%'*****' //192.168.68.25 --namespace='rootcimv2' "select PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%'" against QA Indesign server<br/>CLASS: Win32_PerfFormattedData_PerfProc_Process<br/>Name|PageFileBytes|PoolNonpagedBytes|PoolPagedBytes|PrivateBytes|VirtualBytes|WorkingSet<br/>InDesignServer|217841664|39192|372012|217841664|398671872|59248640<br/>InDesignServer|217841664|39192|372012|217841664|398671872|59432960<br/>InDesignServer|217841664|39232|380380|217841664|398671872|59146240<br/><br/></p></blockquote><br/>So in this case, there are 3 processes.<br/>However, the graph only seems to draw each column once. It seems it does this only for the first found process and ignores to the two others.<br/><br/>Is there a way to have it making datapoints/graphs for each returned line? (and have the same alerting rules for all)<br/><br/><br/><br/><br/><br/><br/><br/>_______________________________________________<br/>zenoss-windows mailing list<br/><a class="jive-link-email-small" href="mailto:zenoss-windows@zenoss.org">zenoss-windows@zenoss.org</a><br/><a class="jive-link-external-small" href="http://lists.zenoss.org/mailman/listinfo/zenoss-windows">http://lists.zenoss.org/mailman/listinfo/zenoss-windows</a><br/><br/><br/></blockquote>_______________________________________________<br/>zenoss-windows mailing list<br/>zenoss-windows@zenoss.org<br/>http://lists.zenoss.org/mailman/listinfo/zenoss-windows</div><!-- [DocumentBodyEnd:82737d44-5d57-473d-a1e2-115ad5371052] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39157" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39157&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39157-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39157-" data-uniqueKey="2-39157-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39157-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39158">
+
+
+        <div id="thread-message-39158" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="39158">
+                <a name="39158"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Dieter_be.html"
+   data-externalId=""
+   data-username="Dieter_be"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Dieter_be/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Dieter_be"
+            /><span username="Dieter_be" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Dieter_be.html"
+data-externalId=""
+data-username="Dieter_be"
+data-avatarId="-1"
+id="jive-611232924653623597093"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Dieter_be</a>                        </div>
+                        <em>74 posts since <br/>May 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39158.html#39158" title="Link to reply #8" class="jive-thread-reply-num font-color-meta-light">8.</a>
+                        <span>Aug 7, 2009 4:10 AM</span>
+                            (<a href="39157.html#39157" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39158.html#39158">Re:&#160; WMI vs Snmp for perf monitoring with Ze</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:59b02efa-8cc2-42e2-978b-16caacbb0ea3] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"jmp242" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>Well, I'd just create multiple Data Sources in the Template, and then<br/>graph them on the same graph with the set threshold... I think that<br/>would work.<br/></p></blockquote><br/><br/>Well, that sounds simple enough :)<br/>But I fail at implementing it. WQL doesn't seem to support the 'limit' keyword. I've been googling around and most "solutions" I found on internet work around this by adding more condititions to the where clause, but that's not really an option for me. I need some way to get the first, second, third, fourth,... result from the query so I get the stats for all separate processes separately.</div><!-- [DocumentBodyEnd:59b02efa-8cc2-42e2-978b-16caacbb0ea3] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39158" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39158&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39158-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39158-" data-uniqueKey="2-39158-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39158-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39159">
+
+
+        <div id="thread-message-39159" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="39159">
+                <a name="39159"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="people/jmp242"
+   data-externalId=""
+   data-username="jmp242"
+   data-avatarId="1503"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jmp242/avatar/46.png?a=1503"
+            border="0" height="46" width="46"
+            alt="jmp242"
+            /><span username="jmp242" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-02.gif"
+           alt="ZenossMaster" title="ZenossMaster"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="people/jmp242"
+data-externalId=""
+data-username="jmp242"
+data-avatarId="1503"
+id="jive-207432924653632369458"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 2074, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jmp242</a>                        </div>
+                        <em>4,060 posts since <br/>Mar 7, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39159.html#39159" title="Link to reply #9" class="jive-thread-reply-num font-color-meta-light">9.</a>
+                        <span>Aug 7, 2009 7:52 AM</span>
+                            (<a href="39158.html#39158" title="Go to message" class="font-color-meta-light " >in response to Dieter_be</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39159.html#39159">WMI vs Snmp for perf monitoring with Zenoss</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:2961aa96-546b-4e2b-8501-5d5a2cff4b20] --><div class="jive-rendered-content">Well, I'm afraid you'd be back to command based datasources then, and <br/>you could use grep etc to parse the output before returning to Zenoss.<br/>--<br/>James Pulver<br/>Information Technology Area Supervisor<br/>LEPP Computer Group<br/>Cornell University<br/><br/><br/><br/>Dieter_be wrote, On 8/7/2009 4:10 AM:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>jmp242 wrote:<br/></p><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p>Well, I'd just create multiple Data Sources in the Template, and then<br/>graph them on the same graph with the set threshold... I think that<br/>would work.<br/><br/></p></blockquote><br/><br/>Well, that sounds simple enough :)<br/>But I fail at implementing it. WQL doesn't seem to support the 'limit' keyword. I've been googling around and most "solutions" I found on internet work around this by adding more condititions to the where clause, but that's not really an option for me. I need some way to get the first, second, third, fourth,... result from the query so I get the stats for all separate processes separately.<br/><br/><br/><br/><br/><br/><br/><br/>_______________________________________________<br/>zenoss-windows mailing list<br/><a class="jive-link-email-small" href="mailto:zenoss-windows@zenoss.org">zenoss-windows@zenoss.org</a><br/><a class="jive-link-external-small" href="http://lists.zenoss.org/mailman/listinfo/zenoss-windows">http://lists.zenoss.org/mailman/listinfo/zenoss-windows</a><br/><br/><br/></blockquote>_______________________________________________<br/>zenoss-windows mailing list<br/>zenoss-windows@zenoss.org<br/>http://lists.zenoss.org/mailman/listinfo/zenoss-windows</div><!-- [DocumentBodyEnd:2961aa96-546b-4e2b-8501-5d5a2cff4b20] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39159" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39159&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39159-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39159-" data-uniqueKey="2-39159-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39159-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39160">
+
+
+        <div id="thread-message-39160" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="39160">
+                <a name="39160"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Dieter_be.html"
+   data-externalId=""
+   data-username="Dieter_be"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Dieter_be/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Dieter_be"
+            /><span username="Dieter_be" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Dieter_be.html"
+data-externalId=""
+data-username="Dieter_be"
+data-avatarId="-1"
+id="jive-611232924653639240564"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Dieter_be</a>                        </div>
+                        <em>74 posts since <br/>May 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39160.html#39160" title="Link to reply #10" class="jive-thread-reply-num font-color-meta-light">10.</a>
+                        <span>Aug 11, 2009 9:41 AM</span>
+                            (<a href="39159.html#39159" title="Go to message" class="font-color-meta-light " >in response to jmp242</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39160.html#39160">Re:&#160; WMI vs Snmp for perf monitoring with Ze</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:9b437346-daad-469a-a169-28f7a7c37208] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"jmp242" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>Well, I'd just create multiple Data Sources in the Template, and then<br/>graph them on the same graph with the set threshold... I think that<br/>would work.<br/></p></blockquote><br/>How exactly do you mean set threshold?<br/><br/><blockquote class="jive-quote"><p>"jmp242" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>Well, I'm afraid you'd be back to command based datasources then, and<br/>you could use grep etc to parse the output before returning to Zenoss.<br/></p></blockquote><br/>Well I performed a little tweak that allowed me to keep using the datasource.<br/>Basically I made a little wrapper around wmic that allows me to use 'ENTRY 1/2/3' at the end, the wrapper calls the original script but if the line ends on 'ENTRY &lt;int&gt;', only outputs the specified results line (and the header, obviously).<br/>So in /usr/local/zenoss/common/bin/:<br/>move wmic -&gt; wmic_real<br/>create a file called wmic_real like so:<br/><pre class="jive-pre"><code class="jive-code">
+#!/bin/bash
+# sample invocation:
+# /usr/local/zenoss/common/bin/wmic -U .\USER%PASS //IP --namespace=root\cimv2 select
+# PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet 
+# from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%'
+
+# if the query ends on 'ENTRY &lt;INT&gt;' only show the specified line from the output
+
+query="${!#}" # last argument given
+query="`echo $query`" # get rid of newlines
+entry=$(echo "$query" | sed 's/.*ENTRY \([0-9]\+\)$/\1/')
+args=("$@")
+args[$#-1]=$(echo "${args[$#-1]}" | sed 's/ENTRY \([0-9]\+\)$//');
+output=$(wmic_real "${args[@]}")
+if [[ $entry = *[^0-9]* ]]
+then
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; echo "$output"
+else
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; #output header:
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; head -n 2 &lt;&lt;&lt; "$output"
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; #output n'th actual record
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; sed -n "$((entry+2)) p" &lt;&lt;&lt; "$output"
+fi
+</code></pre><br/><br/>So far so good, see these testruns:<br/><br/><pre class="jive-pre"><code class="jive-code">
+all entries:
+
+Executing command wmic -U '.\user'%'*****' //192.168.68.25 --namespace='root\cimv2' "select
+PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet
+from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%'" against QA Indesign server
+CLASS: Win32_PerfFormattedData_PerfProc_Process
+Name|PageFileBytes|PoolNonpagedBytes|PoolPagedBytes|PrivateBytes|VirtualBytes|WorkingSet
+InDesignServer|279666688|40960|390540|279666688|628465664|138317824
+InDesignServer|280756224|41080|382340|280756224|635314176|139390976
+InDesignServer|279392256|41040|390644|279392256|633208832|138293248
+DONE in 0 seconds
+
+
+only entry 1:
+Executing command wmic -U '.\user'%'*****' //192.168.68.25 --namespace='root\cimv2' "select
+PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet
+from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%' ENTRY 1" against QA Indesign server
+CLASS: Win32_PerfFormattedData_PerfProc_Process
+Name|PageFileBytes|PoolNonpagedBytes|PoolPagedBytes|PrivateBytes|VirtualBytes|WorkingSet
+InDesignServer|279666688|41016|390540|279666688|628465664|138317824
+DONE in 0 seconds
+
+
+only entry 3:
+
+Executing command wmic -U '.\thomascook'%'*****' //192.168.68.25 --namespace='root\cimv2' "select PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%' ENTRY 3" against QA Indesign server
+CLASS: Win32_PerfFormattedData_PerfProc_Process
+Name|PageFileBytes|PoolNonpagedBytes|PoolPagedBytes|PrivateBytes|VirtualBytes|WorkingSet
+InDesignServer|279392256|41040|390644|279392256|633208832|138293248
+DONE in 0 seconds
+</code></pre><br/>So I made 8 datasources: indesign-mem1, indesign-mem2 and so on.<br/>And for each I have created a GAUGE datapoint for each field (PageFileBytes etc).<br/><br/>But I have the following problems:<br/>- on the monitoring system, in 'zenoss/perf/Devices/&lt;servername&gt;' I only have indesign-mem1_* rrd files, not for the others (yes, this time I waited a few hours ;-)<br/>- I made 8 separate graphs, with the 8 datapoints for each datasource. graph 2-8 say 'no such rrd file' (obviously, see above), but graph 1 just doesn't show anything.<br/>- I created 1 treshold. (remember, if any of the single processes goes above 1GB memory usage I need an alert), so I just put the treshold on all indesign-mem*_PrivateBytes. But I'm not sure if this means 'alert in any of these counters goes above' or 'alert if the sum of all these goes above'<br/><br/>Thanks!<br/>Dieter</div><!-- [DocumentBodyEnd:9b437346-daad-469a-a169-28f7a7c37208] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39160" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39160&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39160-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39160-" data-uniqueKey="2-39160-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39160-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39161">
+
+
+        <div id="thread-message-39161" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="39161">
+                <a name="39161"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/nharikrishna.html"
+   data-externalId=""
+   data-username="nharikrishna"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6476, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/nharikrishna/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="nharikrishna"
+            /><span username="nharikrishna" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-07.gif"
+           alt="Newbie" title="Newbie"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/nharikrishna.html"
+data-externalId=""
+data-username="nharikrishna"
+data-avatarId="-1"
+id="jive-647632924653645668190"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6476, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>nharikrishna</a>                        </div>
+                        <em>1 posts since <br/>Aug 11, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39161.html#39161" title="Link to reply #11" class="jive-thread-reply-num font-color-meta-light">11.</a>
+                        <span>Aug 11, 2009 9:57 AM</span>
+                            (<a href="39160.html#39160" title="Go to message" class="font-color-meta-light " >in response to Dieter_be</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39161.html#39161">Re:&#160; WMI vs Snmp for perf monitoring with Ze</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:7c8e4dce-19dd-435d-9d4f-ec7175aa9141] --><div class="jive-rendered-content">To see the new graphs, try restarting zenoss. I had to do when i added new data points</div><!-- [DocumentBodyEnd:7c8e4dce-19dd-435d-9d4f-ec7175aa9141] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39161" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39161&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39161-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39161-" data-uniqueKey="2-39161-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39161-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39162">
+
+
+        <div id="thread-message-39162" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="39162">
+                <a name="39162"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Dieter_be.html"
+   data-externalId=""
+   data-username="Dieter_be"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Dieter_be/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Dieter_be"
+            /><span username="Dieter_be" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Dieter_be.html"
+data-externalId=""
+data-username="Dieter_be"
+data-avatarId="-1"
+id="jive-611232924653653184717"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Dieter_be</a>                        </div>
+                        <em>74 posts since <br/>May 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39162.html#39162" title="Link to reply #12" class="jive-thread-reply-num font-color-meta-light">12.</a>
+                        <span>Aug 11, 2009 10:32 AM</span>
+                            (<a href="39161.html#39161" title="Go to message" class="font-color-meta-light " >in response to nharikrishna</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39162.html#39162">Re:&#160; WMI vs Snmp for perf monitoring with Ze</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:6b4e0739-3055-4f52-bec4-b0465ef1d907] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"nharikrishna" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>To see the new graphs, try restarting zenoss. I had to do when i added new data points</p></blockquote><br/>Alas, no change <img ___jive_emoticon_name="sad" class="jive_macro jive_emote" jivemacro="emoticon" src="../images/emoticons/sad.gif"/>sad</div><!-- [DocumentBodyEnd:6b4e0739-3055-4f52-bec4-b0465ef1d907] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39162" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39162&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39162-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39162-" data-uniqueKey="2-39162-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39162-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39163">
+
+
+        <div id="thread-message-39163" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-alt  clearfix">
+
+            <div class="jive-thread-reply-body" id="39163">
+                <a name="39163"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/jhelgesen.html"
+   data-externalId=""
+   data-username="jhelgesen"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3555, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/jhelgesen/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="jhelgesen"
+            /><span username="jhelgesen" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/jhelgesen.html"
+data-externalId=""
+data-username="jhelgesen"
+data-avatarId="-1"
+id="jive-355532924653658737502"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 3555, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>jhelgesen</a>                        </div>
+                        <em>64 posts since <br/>Dec 10, 2007</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39163.html#39163" title="Link to reply #13" class="jive-thread-reply-num font-color-meta-light">13.</a>
+                        <span>Aug 18, 2009 4:44 PM</span>
+                            (<a href="39162.html#39162" title="Go to message" class="font-color-meta-light " >in response to Dieter_be</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39163.html#39163">Perhaps you need to massage the query output a little more?</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:b47c0d4a-11c8-4900-9915-ed1265eff8cb] --><div class="jive-rendered-content">Greetings...<br/><br/>First of all, congrats on getting this far.<br/><br/>When I have made some of these custom command datasources for WMIC query outputs, I ended up making the "final" output look as much like a Nagios command output as possible, since Zenoss worked hard at being compatible with that format. "That format", in general, would be <pre class="jive-pre"><code class="jive-code">$results =`\$ZENHOME/bin/wmic -U '@ARGV[1]'%'@ARGV[2]' //@ARGV[0] "SELECT ProcessorQueueLength FROM Win32_PerfFormattedData_PerfOS_System"`;
+
+if ( $results ) {
+&#160;&#160;&#160; @results = split (/\n/,$results);&#160; # split the multi-line output at new lines
+&#160;&#160;&#160; $line = @results;&#160;&#160; # $line is the number of lines of output
+
+&#160;&#160;&#160; if ( @results[$line - 2] eq "ProcessorQueueLength" ) {&#160;&#160; # The string to match against here is the list of WMI variable names
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; @out = split (/\|/,@results[$line - 1]);&#160;&#160;&#160;&#160; # Here we ASSUMING only one line of data to split into an array named "out"
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; print "OK|ProcessorQueueLength=@out[0] \n";&#160;&#160;&#160; # And here you make the real output, space delimited, VarName=Value VarName=Value VarName=Value etc etc
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; } else {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; print "Unknown|$results\n";
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; }
+} else {
+&#160;&#160;&#160; print "Unknown|No_response\n";
+}
+</code></pre><br/><br/>You'll have to bear with me, as I did stuff in Perl, but the basic code to convert from WMI Query output to Nagios output will look something like this:<br/><pre class="jive-pre"><code class="jive-code"> Status Message | Name=Value&#160; Name=Value&#160; Name=Value </code></pre><br/><br/>Once the output is set up, you should see the graphs populate with actual numbers.<br/><br/>I imagine the next step would be to deal with the ProcessID numbers of your process instances, but that's another day's topic.<br/><br/>Hope this helps...<br/><br/>--Jay</div><!-- [DocumentBodyEnd:b47c0d4a-11c8-4900-9915-ed1265eff8cb] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39163" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39163&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39163-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39163-" data-uniqueKey="2-39163-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39163-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    
+    <!-- END reply -->
+                    
+    <!-- BEGIN reply -->
+
+
+    <li class="reply" id="discussion-39164">
+
+
+        <div id="thread-message-39164" class="jive-thread-message clearfix">
+            <div class="">
+
+            <div class="jive-thread-reply jive-thread-reply-postauthor  clearfix">
+
+            <div class="jive-thread-reply-body" id="39164">
+                <a name="39164"></a>
+                <div class="jive-author">
+
+                        <span class="jive-author-avatar-container">
+
+
+<a href="../people/Dieter_be.html"
+   data-externalId=""
+   data-username="Dieter_be"
+   data-avatarId="-1"
+   class="jiveTT-hover-user"
+   onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+   onmouseout="quickuserprofile.cancelTooltip();"
+        >
+    <img
+            class="jive-avatar"
+
+            src="people/Dieter_be/avatar/46.png?a=-1"
+            border="0" height="46" width="46"
+            alt="Dieter_be"
+            /><span username="Dieter_be" style="display:none;"></span></a>
+<span class="j-status-levels"><img src="../4.5.6/images/status/statusicon-08.gif"
+           alt="Rank: White Belt" title="Rank: White Belt"/> </span>
+                        </span>
+
+                        <div class="jive-username-link-wrapper">
+<a href="../people/Dieter_be.html"
+data-externalId=""
+data-username="Dieter_be"
+data-avatarId="-1"
+id="jive-611232924653669314098"
+onmouseover="var presence = null; quickuserprofile.getUserProfileTooltip( 6112, presence );"
+onmouseout="quickuserprofile.cancelTooltip();"
+class="jiveTT-hover-user jive-username-link"
+>Dieter_be</a>                        </div>
+                        <em>74 posts since <br/>May 27, 2009</em>
+                </div>
+
+                <div class="jive-thread-reply-body-container">
+
+                    <div class="jive-thread-reply-subject font-color-meta">
+
+                        <div class="jive-thread-post-moderating"><span class="jive-icon-med jive-icon-moderation"></span>Currently Being Moderated</div>
+                        <div class="jive-thread-reply-date">
+                            <a href="39164.html#39164" title="Link to reply #14" class="jive-thread-reply-num font-color-meta-light">14.</a>
+                        <span>Aug 19, 2009 10:51 AM</span>
+                            (<a href="39163.html#39163" title="Go to message" class="font-color-meta-light " >in response to jhelgesen</a>)
+                        </div>
+
+                        <strong>
+                        <a href="39164.html#39164">Re: Perhaps you need to massage the query output a little mo</a>
+                        </strong>
+
+                    </div>
+
+                    <div class="jive-thread-reply-message">
+                        <!-- [DocumentBodyStart:bdf042c0-205a-43ce-ad28-474bd6de0700] --><div class="jive-rendered-content"><blockquote class="jive-quote"><p>"jhelgesen" wrote:</p><p style="min- padding: 0px;">&#160;</p><p>Greetings...<br/><br/>First of all, congrats on getting this far.<br/></p></blockquote><br/>Thanks, getting zenoss to work the way we want can be really frustrating sometimes..<br/><br/><blockquote class="jive-quote"><p>"jhelgesen" wrote:</p><p style="min- padding: 0px;">&#160;</p><p><br/>When I have made some of these custom command datasources for WMIC query outputs, I ended up making the "final" output look as much like a Nagios command output as possible, since Zenoss worked hard at being compatible with that format. "That format", in general, would be</p><pre class="jive-pre"><code class="jive-code">(..)</code></pre><br/><br/>You'll have to bear with me, as I did stuff in Perl, but the basic code to convert from WMI Query output to Nagios output will look something like this:<br/><pre class="jive-pre"><code class="jive-code">
+#&#160;&#160;&#160;&#160;&#160;&#160; #output header:
+#&#160;&#160;&#160;&#160;&#160;&#160; head -n 2 &lt;&lt;&lt; "$output"
+#&#160;&#160;&#160;&#160;&#160;&#160; #output n'th actual record
+#&#160;&#160;&#160;&#160;&#160;&#160; sed -n "$((entry+2)) p" &lt;&lt;&lt; "$output"
+nagiosline="`head -n 1 &lt;&lt;&lt; "$output"` |"
+index=0
+for key in `echo "$output" | sed -n '2p' | tr '|' ' '`
+do
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; index=$((index+1))
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; nagiosline="$nagiosline $key=`echo "$output" | sed -n '3p' | cut -d '|' -f $index`"
+done
+echo $nagiosline
+</code></pre><br/><br/>Once the output is set up, you should see the graphs populate with actual numbers.<br/><br/>I imagine the next step would be to deal with the ProcessID numbers of your process instances, but that's another day's topic.<br/><br/>Hope this helps...<br/><br/>--Jay<br/><br/></blockquote><br/>I don't care so much about uniquely identifying processes (pids). the most important part is knowing when the memory usage is over the limit ;)<br/><br/>I changed my code like so:<br/><pre class="jive-pre"><code class="jive-code"> Status Message | Name=Value&#160; Name=Value&#160; Name=Value </code></pre><br/>So here is a query with it's new output:<br/><blockquote class="jive-quote"><p style="min-height: 8pt; height: 8pt; padding: 0px;">&#160;</p><p style="min- padding: 0px;">&#160;</p><p><br/>PageFileBytes,PoolNonpagedBytes,PoolPagedBytes,PrivateBytes,VirtualBytes,WorkingSet<br/>from win32_PerfFormattedData_PerfProc_Process where name LIKE '%indesign%' ENTRY 1" against QA Indesign server<br/>CLASS: Win32_PerfFormattedData_PerfProc_Process | Name=InDesignServer PageFileBytes=290140160 PoolNonpagedBytes=41080 PoolPagedBytes=390708 PrivateBytes=290140160 VirtualBytes=633630720 WorkingSet=148090880<br/></p></blockquote><br/><br/>Is this how you meant it? I still have only indesign-mem1* files (not mem2 etc) and the graphs still don't work, but maybe it's too early to tell.</div><!-- [DocumentBodyEnd:bdf042c0-205a-43ce-ad28-474bd6de0700] -->
+                    </div>
+
+                    <!-- BEGIN content details -->
+                    <div id="discussion-action-div-39164" class="jive-content-controls clearfix">
+                        <ul>
+
+                                <li><a href="message-abuse!input.jspa?objectID=39164&amp;objectType=2"><span class="jive-icon-sml jive-icon-warn"></span>Report Abuse</a></li>
+
+                            <li class="discussion-message-acclaim">
+<div id="acclaim-container-2-39164-" class="acclaim-container">
+    <div id="jive-acclaim-like-container-2-39164-" data-uniqueKey="2-39164-" data-ratingType="like" data-hasVoted="false" data-likes="0" class="acclaim-like-container">
+         <span class="jive-icon-sml jive-icon-like"></span>Like
+         (<a href="39160.html#" id="jive-acclaim-likedlink-2-39164-"  class="font-color-meta jive-acclaim-likedlink">0</a>)
+    </div>
+</div></li>
+
+                        
+                        </ul>
+                    </div>
+                    <!-- END content details-->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div></div>
+
+
+
+
+
+
+    </li>
+    </ul>
+    
+    <!-- END reply -->
+                    
+
+                <!-- BEGIN thread info -->
+                <div class="jive-thread-info font-color-meta clearfix">
+
+                    <!-- BEGIN pagination-->
+                    <span class="jive-pagination">
+                        <span class="jive-pagination-numbers">
+                                <a href="../thread/11337%3Fstart=0&amp;tstart=0.html"
+                                    class="jive-pagination-current" >1</a>
+                                <a href="../thread/11337%3Fstart=15&amp;tstart=0.html"
+                                     >2</a>
+                        </span>
+                        <span class="jive-pagination-prevnext">
+                                <span class="jive-pagination-prev-none">Previous</span>
+                                <a href="../thread/11337%3Fstart=15&amp;tstart=0.html" class="jive-pagination-next">Next</a>
+                        </span>
+                    </span>
+                    <!-- END pagination -->
+                </div>
+                <!-- END thread info -->
+
+
+                <div id="jive-thread-reply-footer" class="clearfix">
+                        <a href="39160.html#11337" class="localScroll"><span class="jive-icon-sml jive-icon-arrow-top"></span>Go to original post</a>
+                </div>
+
+
+
+            </div>
+            <!-- END messages -->
+
+		</div>
+    </div>
+    <!-- END main body column -->
+
+    <!-- BEGIN sidebar column container -->
+    <div id="jive-body-sidebarcol-container">
+        <!-- BEGIN sidebar column -->
+        <div id="jive-body-sidebarcol">
+
+<div id="jive-action-sidebar" class="jive-sidebar jive-box jive-sidebar-actions jive-box-actions">
+
+
+    <div class="jive-box-header">
+        <h4 id="jive-action-sidebar-tab-header_thread-actions-tab">Actions</h4>
+    </div>
+    <div id="jive-action-sidebar-body" class="jive-sidebar-body jive-sidebar-body-actions jive-box-body">
+
+        <div id="jive-action-sidebar-tab-_thread-actions-tab"
+             class="jive-action-sidebar-tab-first"
+ >
+
+
+
+            <ul id="jive-action-sidebar-tab-list_thread-actions-tab" class=" jive-icon-list">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <li id="jive-link-thread-print" style=""
+                        ><a href="../thread/11337%3Fdecorator=print&amp;displayFullThread=true.html"
+rel="nofollow"
+onclick=""
+title="">
+<span class="jive-icon-med jive-icon-print-preview"></span>
+View print preview
+</a></li>
+
+
+
+            </ul>
+        </div> <!-- /#jive-action-sidebar-tab-_id -->
+    </div>
+
+</div>
+
+    <!-- BEGIN sidebar box 'More Like This' -->
+
+    <div class="jive-box jive-sidebar">
+        <div class="jive-box-header jive-sidebar-header">
+            <h4>More Like This</h4>
+        </div>
+        <div class="jive-box-body jive-sidebar-body jive-sidebar-body-morelikethis">
+            <ul class="jive-icon-list" id="jive-more-like-this-2-39150">
+                <li><span>Retrieving data ...</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- END sidebar box 'More Like This' -->
+        
+            
+            
+
+<!-- BEGIN sidebar box 'Incoming Links' -->
+<div class="jive-box jive-sidebar">
+    <div class="jive-box-header jive-sidebar-header">
+        <h4>Incoming Links</h4>
+    </div>
+    <div class="jive-box-body jive-sidebar-body jive-sidebar-body-incominglinks">
+        <ul class="jive-icon-list">
+                        <li>
+                            <a href="40106.html#40106">
+                            <span class="jive-icon-med jive-icon-discussion-question"></span>
+                                wmi datasource zenpack: multiple-row output
+                            </a>
+                        </li>
+        </ul>
+    </div>
+</div>
+<!-- END sidebar box 'Incoming Links' -->
+
+
+		<!-- start jive social container -->
+        <!-- end jive social container -->
+
+
+		
+
+
+        </div>
+        <!-- END sidebar column -->
+    </div>
+    <!-- END sidebar column container -->
+
+    <!-- END main body -->
+
+</div>
+<!-- END main body -->
+
+
+
+        </div>
+
+<div class="clear"></div>
+        </div>
+        <!-- MAIN CONTENT END -->
+     <!-- END CONTENT -->
+
+</div>
+<!-- END MIDDLE CONTENT -->
+
+<!-- START FOOTER -->
+<div id="footer">
+ <table cellpadding="0" cellspacing="0" border="0">
+   <tr valign="top">
+      <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <ul id="socialmedia">
+        <li><a href="http://feeds.feedburner.com/ZenossBlog" class="rss" target="_blank"><span>rss</span></a></li>
+           <li><a href="http://twitter.com/zenoss" class="twitter" target="_blank"><span>twitter</span></a></li>
+           <li><a href="http://slashdot.org/bookmark.pl" class="slashdot" target="_blank"><span>slashdot</span></a></li>
+           <li><a href="http://www.reddit.com/" class="reddit" target="_blank"><span>reddit</span></a></li>
+           <li><a href="http://delicious.com/save" class="del" target="_blank"><span>delicious</span></a></li>
+           <li><a href="http://technorati.com/" class="tech" target="_blank"><span>technorati</span></a></li>
+       </ul> 
+     </td>
+     <td rowspan="2" style="padding-left:10px;padding-right:10px;">
+        <a href="http://twitter.com/zenoss" title="Follow us on Twitter">Follow Us On Twitter &raquo;</a>
+       <ul id="twitter_update_list"> </ul>
+     </td>
+     <td rowspan="2" style="padding-right:10px;">
+        <a href="../blogs/zenossblog.html" title="Latest from the Zenoss blog">Latest from the Zenoss Blog &raquo;</a>
+       <script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y" type="text/javascript"></script>
+       <noscript><a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Ffeeds.feedburner.com%2FZenossBlog%3Fformat%3Dxml&amp;num=3&amp;desc=85&amp;targ=y&amp;html=y">View RSS feed</a></noscript>
+     </td>
+     <td rowspan="2" valign="middle" style="padding-right:20px;">
+        <img src="../themes/userbar-disabled/images/tableborder.png" alt="" />
+     </td>
+     <td>
+        Community
+       <ul class="sitemap">
+        <li><a href="../index.jspa.html" title="Home">Home</a></li>
+           <li><a href="community/documentation" title="Documentation">Documentation</a></li>
+           <li><a href="community/developers" title="Code">Code</a></li> 
+           <li><a href="community/zenpacks" title="ZenPacks">ZenPacks</a></li> 
+           <li><a href="community/forums" title="Discussion">Discussion</a></li> 
+           <li><a href="community/partners" title="Get Involved">Get Involved</a></li> 
+           <li><a href="../people.1.html" title="Membership">Membership</a></li>
+       </ul>
+     </td>
+     <td>
+        Products
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/solution/overview" title="Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/solution/virtualization-monitoring" title="Virtualization Monitoring">Virtualization Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cloud-monitoring" title="Cloud Monitoring">Cloud Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/cisco-ucs-management" title="Cisco UCS Management">Cisco UCS Management</a></li>
+                        <li><a href="http://www.zenoss.com/solution/server-monitoring" title="Server Monitoring">Server Monitoring</a></li>
+                        <li><a href="http://www.zenoss.com/solution/network" title="Network Monitoring">Network Monitoring</a></li>
+       </ul>
+     </td>
+     <td>
+        Services
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/support/index" title="Support Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/support/consulting" title="Consulting">Consulting</a></li>
+                        <li><a href="http://www.zenoss.com/support/customer-support" title="Support">Customer Support</a></li>
+                        <li><a href="http://www.zenoss.com/support/training" title="Training">Training</a></li>        
+       </ul>
+       Resources
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/resources/demo" title="Resources">Resource Center</a></li>
+       </ul>
+     </td>
+     <td>
+       Customers
+       <ul class="sitemap">
+                        <li><a href="http://www.zenoss.com/customers/index" title="Customers Overview">Overview</a></li>
+                        <li><a href="http://www.zenoss.com/customers/case-studies/case-studies" title="Case Studies">Case Studies</a></li>
+                        <li><a href="http://www.zenoss.com/customers/by-industry" title="Case Studies">Customers by Industry</a></li>
+                        <li><a href="http://www.zenoss.com/customers/industries/index" title="Industries"><span>Industries</span></a></li>
+       </ul>
+
+
+       Partners
+       <ul class="sitemap">
+            <li><a href="http://www.zenoss.com/partners/open-source-network-management-solutions" title="Current Partners">Current Partners</a></li>
+            <li><a href="http://www.zenoss.com/partners/contact" title="Become a Partner">Become a Partner</a></li>
+       </ul>
+     </td>
+     <td style="padding-right:0px;">
+        About Us
+       <ul class="sitemap">
+        <li><a href="http://www.zenoss.com/about/index" title="Overview">Overview</a></li> 
+           <li><a href="http://www.zenoss.com/about/awards" title="Awards">Awards</a></li> 
+           <li><a href="http://www.zenoss.com/about/team" title="Team">Team</a></li> 
+           <li><a href="http://www.zenoss.com/about/news" title="News">News</a></li> 
+           <li><a href="http://www.zenoss.com/about/news/events" title="Events">Events</a></li> 
+           <li><a href="http://www.zenoss.com/about/jobs" title="Careers">Careers</a></li> 
+           <li><a href="http://www.zenoss.com/about/contact" title="Contact">Contact</a></li>
+       </ul>
+     </td>
+   </tr>
+   <tr valign="middle">
+     <td align="right">
+        <a href="http://sourceforge.net/projects/zenoss" target="_blank" title="SourceForge"><img width="120" height="30" alt="Get Zenoss Core - Enterprise IT Monitoring at SourceForge.net. Fast, secure and Free Open Source software downloads" src="http://sflogo.sourceforge.net/sflogo.php?group_id=163126&amp;type=11"></a>
+     </td>
+     <td align="right">
+        <a href="../index.html" title="Monitored by Zenoss"><img src="../themes/userbar-disabled/images/logo-monitoredby_ZEN.png" alt="Monitored By Zenoss" /></a>
+     </td>
+      <td colspan="3" align="right" >
+        <a href="../index.html" title="Zenoss Home"><img src="../themes/userbar-disabled/images/new-logo-zenoss-footer_ZEN.gif" /></a>
+       <div id="copyright" class="right">Copyright &copy; 2005-2011 Zenoss, Inc.</div>
+     </td>
+   </tr>
+   <tr valign="top">
+     <td colspan="9" align="right">&nbsp;</td>
+   </tr>
+ </table>
+</div>
+<!-- END FOOTER -->
+
+ <!-- BEGIN SCRIPTS --> 
+
+   <!-- END -->
+
+    <!-- TOP NAV DROP DOWN NAVIGATION - IE6 -->
+   <!-- END DROP DOWN -->       
+
+   <!-- TWITTER SCRIPTS -->
+
+<!-- END GOOGLE ANALYTICS CODE -->
+
+<!-- Pardot tracking code, async version -->
+<!-- END Pardot tracking code, async version -->
+
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-73372470-1','auto');ga('send','pageview');</script></body>
+</html>
+
